@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Zeno&#x27;s Paradoxes and the Continuum - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/spacetime/space/zeno-and-the-continuum.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="zenos-paradoxes-and-the-continuum"><a class="header" href="#zenos-paradoxes-and-the-continuum">Zeno's Paradoxes and the Continuum</a></h1>
+<p>The oldest problems in the philosophy of space and time are <strong>Zeno of Elea's</strong> paradoxes of motion and plurality (c. 450 BCE). Zeno, defending Parmenides' doctrine that reality is one and changeless, produced a battery of arguments that <em>motion</em> and <em>multiplicity</em> lead to contradiction. Aristotle preserved four of the motion paradoxes — the <strong>Dichotomy</strong>, <strong>Achilles and the Tortoise</strong>, the <strong>Arrow</strong>, and the <strong>Stadium</strong> — and they have never been mere curiosities: they are precise challenges to the very idea that space and time are <strong>continua</strong> composed of infinitely many points or instants, and to the coherence of motion through such a continuum. Their resolution required the modern theory of the <a href="../../../math/analysis/real-numbers.html">real numbers, limits, and infinite sums</a>, and they remain the entry point to the deepest questions about the structure of extension.</p>
+<p>This page states the paradoxes, the standard resolution, the alternative via <a href="../../../math/nonstandard/README.html">infinitesimals</a>, the related problem of supertasks, and the further, empirical question of whether physical spacetime is a continuum at all. It develops the <em>structure</em>-of-space strand of the <a href="../space-and-geometry.html">geometry</a> question.</p>
+<hr />
+<h2 id="the-paradoxes-of-motion"><a class="header" href="#the-paradoxes-of-motion">The paradoxes of motion</a></h2>
+<ul>
+<li><strong>The Dichotomy.</strong> Before a runner can traverse a distance, she must reach its midpoint; before that, the midpoint of the first half; and so on without end. To move at all she must complete <em>infinitely many</em> sub-journeys (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">8</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span></span></span></span>) — but one cannot complete an infinite series of tasks in a finite time. So motion cannot begin, and is impossible.</li>
+<li><strong>Achilles and the Tortoise.</strong> Swift Achilles gives the tortoise a head start. By the time Achilles reaches the tortoise's starting point, the tortoise has crept a little further; by the time he reaches <em>that</em> point, it has moved further still. At each of infinitely many stages the tortoise remains ahead, so Achilles can never overtake it — though of course he does.</li>
+<li><strong>The Arrow.</strong> At any single <em>instant</em>, a flying arrow occupies a region exactly equal to itself and is therefore indistinguishable from a resting arrow — at an instant, it does not move. But time is composed of instants, and if the arrow moves at <em>no</em> instant, it never moves. Motion is impossible.</li>
+<li><strong>The Stadium.</strong> Three rows of bodies move past one another; Zeno argues (on the assumption of smallest units of space and time) that a given body passes twice as many bodies in one row as in another in the "same" time, generating a contradiction — an argument against <em>discrete</em> space and time, complementing the others' assault on <em>continuous</em> space and time.</li>
+</ul>
+<p>The Dichotomy and Achilles attack the <strong>infinite divisibility</strong> of a continuum; the Arrow attacks <strong>motion at an instant</strong>; the Stadium attacks <strong>discreteness</strong>. Together they form a pincer: whether space and time are infinitely divisible <em>or</em> atomic, motion seems to founder.</p>
+<h2 id="the-standard-resolution-convergent-series-and-the-real-line"><a class="header" href="#the-standard-resolution-convergent-series-and-the-real-line">The standard resolution: convergent series and the real line</a></h2>
+<p>The modern reply rests on the theory of the <a href="../../../math/analysis/real-numbers.html">continuum as the real numbers</a>, and on the recognition that <strong>an infinite sum can have a finite value</strong>.</p>
+<ul>
+<li><strong>Against the Dichotomy and Achilles.</strong> The infinitely many sub-distances form a <em>convergent geometric series</em>:
+<span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.9185em;vertical-align:-1.2671em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6514em;"><span style="top:-1.8829em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∞</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2671em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5904em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">4</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">8</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1.</span></span></span></span></span>
+Infinitely many intervals sum to a <em>finite</em> length, and — crucially — infinitely many <em>time</em>-intervals likewise sum to a finite duration. Achilles overtakes the tortoise at a perfectly definite point, the limit of the sequence, reached in finite time. Zeno's hidden assumption — that infinitely many tasks must take infinitely long — is false once the tasks take geometrically shrinking times. The apparatus that makes this rigorous is the theory of <a href="../../../math/analysis/sequences-series.html">limits and convergent series</a>.</li>
+<li><strong>Against the Arrow.</strong> The resolution distinguishes <em>being at rest</em> from <em>occupying a single position at an instant</em>. On the modern (Russellian) "at–at" theory of motion, to move is simply to <em>be at different places at different instants</em> — motion is a relation across instants, not an intrinsic property possessed <em>at</em> an instant. There is no "state of motion" internal to an instant that the arrow lacks; the arrow moves <em>in virtue of</em> the map from times to positions being non-constant. Velocity is defined as a <em>derivative</em>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">x</span><span class="mord">/</span><span class="mord mathnormal">d</span><span class="mord mathnormal">t</span></span></span></span>, a limit of ratios over intervals — a feature of the trajectory, not of the isolated instant. So it is no objection that "at an instant nothing moves"; motion was never supposed to be an instantaneous intrinsic.</li>
+</ul>
+<h2 id="the-residue-is-the-standard-resolution-enough"><a class="header" href="#the-residue-is-the-standard-resolution-enough">The residue: is the standard resolution enough?</a></h2>
+<p>Many philosophers hold that the mathematics, while necessary, does not by itself dissolve every worry. Two live issues:</p>
+<ul>
+<li><strong>Completing an infinite series of <em>acts</em>.</strong> Summing a series is a mathematical fact; <em>performing</em> infinitely many distinct actions is a metaphysical one. That the distances sum to 1 shows the runner <em>can</em> be at the finish, but the intuition that one cannot <em>complete</em> an infinite to-do list is not obviously answered by a convergent sum. This is the problem of <strong>supertasks</strong> (below).</li>
+<li><strong>The composition of the continuum.</strong> How can a positive length be composed of points that <em>individually</em> have length zero? A line segment has uncountably many points, each of measure zero, yet the segment has positive measure. This is not a contradiction — it is the content of <strong>measure theory</strong>, in which length is a property of <em>sets</em> of points, not a sum of point-lengths — but it shows that the continuum's structure is genuinely surprising, and that "extension is built from unextended points" needs the full modern apparatus to be made coherent (Grünbaum's "metrical amorphousness," discussed under <a href="./conventionalism.html">conventionalism</a>, presses exactly here).</li>
+</ul>
+<h2 id="supertasks"><a class="header" href="#supertasks">Supertasks</a></h2>
+<p>A <strong>supertask</strong> is the completion of infinitely many operations in a finite time — the abstract core of the Dichotomy. The most famous puzzle is <strong>Thomson's lamp</strong>: a lamp is switched on at <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>, off at <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>, on at <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>, off at <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">8</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">7</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>, … with each toggle at the next point of the series. At <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> the supertask is complete — but is the lamp <em>on</em> or <em>off</em>? The sequence of states (on, off, on, off, …) has no limit, so the terminal state is <em>undetermined</em> by the process. Thomson concluded that supertasks are impossible. Benacerraf's reply: the description fixes the lamp's state at every time <em>before</em> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> but says <em>nothing</em> about <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> itself, so there is simply no contradiction — the final state is unconstrained, not paradoxical. The debate continues, bearing on whether the infinite divisibility Zeno exploited is physically or only mathematically admissible, and connecting to the possibility of infinite machines and the <a href="./dimensionality.html">structure of physical space</a>.</p>
+<h2 id="the-infinitesimal-alternative"><a class="header" href="#the-infinitesimal-alternative">The infinitesimal alternative</a></h2>
+<p>There is a second, historically suppressed way with the continuum. Instead of eliminating the infinitely small in favour of limits (the ε–δ method), one can take <strong>infinitesimals</strong> as genuine quantities — smaller than every positive real yet not zero. This was the language of Newton and Leibniz, made rigorous in the twentieth century by <a href="../../../math/nonstandard/README.html">non-standard analysis</a> (Robinson) and by <a href="../../../math/nonstandard/smooth-infinitesimal.html">smooth infinitesimal analysis</a>. On the infinitesimal picture the Dichotomy's steps and the Arrow's "instant" can be handled with infinitesimal displacements and velocities, and some find this closer to the physical intuition of a <em>moving</em> point than the static at–at theory. The two treatments are provably compatible on the standard reals (<a href="../../../math/nonstandard/transfer-principle.html">the transfer principle</a> guarantees they agree on standard statements), so the choice is one of interpretation and convenience rather than of correctness — but it shows that "the" continuum admits more than one rigorous articulation, which is itself philosophically significant.</p>
+<h2 id="is-physical-spacetime-a-continuum"><a class="header" href="#is-physical-spacetime-a-continuum">Is physical spacetime a continuum?</a></h2>
+<p>Everything so far concerns the <em>mathematical</em> coherence of a continuum — that a line of real-number-indexed points, and motion through it, are consistent. A distinct and deeper question is <strong>empirical</strong>: is <em>physical</em> space and time actually a continuum of the real-number kind, or is the smooth real line only an <strong>idealization</strong> of a reality that is, at bottom, discrete or granular? Resolving Zeno shows a continuum is <em>possible</em>; it does not show the world <em>is</em> one.</p>
+<ul>
+<li><strong>The real line is the working assumption of physics.</strong> Classical mechanics, <a href="../../../physics/SR/spacetime.html">special</a> and <a href="../relativity/general-relativity.html">general relativity</a>, and quantum field theory all model spacetime as a smooth real manifold — locally <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span>, infinitely divisible, with real-valued coordinates. The paradoxes' standard resolution is <em>built into</em> this choice: physics simply <em>adopts</em> the real continuum and inherits its consistent-but-surprising structure (uncountably many measure-zero points composing a finite length, and all the rest).</li>
+<li><strong>But continuity is not forced on the world.</strong> That the continuum is mathematically coherent shows only that it is an <em>available</em> model, not that it is the <em>actual</em> one. Whether the real line is the true fine structure of space and time, or a convenient smooth approximation to something discrete, is a question about <em>physics</em>, left wide open by the resolution of Zeno.</li>
+<li><strong>Reasons to suspect granularity.</strong> Combining <a href="../relativity/general-relativity.html">general relativity</a> with <a href="../physics/problem-of-time.html">quantum theory</a> suggests a smallest meaningful length and time — the <strong>Planck length</strong> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">35</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">m</span></span></span></span></span>) and <strong>Planck time</strong> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">43</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">s</span></span></span></span></span>) — below which the smooth-manifold picture is expected to break down. Several programmes build discreteness in: <strong>loop quantum gravity</strong> gives geometric quantities (area, volume) <em>discrete spectra</em>, so geometry comes in quanta; <strong>causal set theory</strong> replaces the continuum outright with a discrete partial order of events, from which smooth spacetime is meant to <em>emerge</em> at large scales. On these views the real-number continuum is <strong>emergent, not fundamental</strong> — a coarse-grained mask over a discrete substrate.</li>
+<li><strong>The Stadium's revenge.</strong> If space and time <em>are</em> discrete, Zeno's <strong>Stadium</strong> — aimed precisely at <em>smallest units</em> — becomes newly pointed: any granular theory must show it does not fall to that argument. The usual escape is to keep the discreteness from forming a fixed "atomic grid" that the Stadium's counting could exploit (causal sets, for instance, scatter their events randomly to stay Lorentz-invariant), which is a nontrivial constraint, not a free lunch.</li>
+<li><strong>Supertasks turn on the same question.</strong> Whether the infinite divisibility the Dichotomy exploits is <em>physically</em> realizable — whether a supertask could even in principle be performed — depends on this issue. If space and time are granular, infinite divisibility is a mathematical fiction and supertasks are physically impossible; if genuinely continuous, they may be at least logically admissible.</li>
+<li><strong>The question is empirically open.</strong> No experiment has probed anything remotely near the Planck scale; the smooth real-number model works flawlessly at every accessible resolution, and any discrete substructure is hidden far below current reach. So the choice between continuum and granularity is, for now, guided by <em>theory</em> (the search for quantum gravity) rather than <em>measurement</em> — a live instance of the <a href="../context/method.html">method</a> problem of reading ontology off physics.</li>
+</ul>
+<p>The philosophy of the continuum thus has two layers. Zeno's challenge — <em>is a continuum coherent?</em> — is answered: yes, via the <a href="../../../math/analysis/real-numbers.html">real numbers</a> or, equivalently, <a href="../../../math/nonstandard/README.html">infinitesimals</a>. But the further question — <em>is physical spacetime that continuum, or a smooth appearance over a discrete reality?</em> — remains one of the deepest open problems, and is handed on to <a href="../physics/problem-of-time.html">quantum gravity</a>.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Zeno's paradoxes are the foundation of the <em>structural</em> half of the <a href="../introduction.html">geometric question</a>: before asking <a href="./epistemology-of-geometry.html">which geometry</a> space has, one must ask whether a continuum of points, and motion through it, are coherent at all. Their resolution ties the philosophy of space directly to the mathematics of the <a href="../../../math/analysis/real-numbers.html">real numbers</a>, <a href="../../../math/analysis/sequences-series.html">limits</a>, and <a href="../../../math/nonstandard/README.html">infinitesimals</a>, and the residual puzzles — supertasks, the composition of the continuum, and whether physical space is <em>truly</em> continuous or <a href="../physics/problem-of-time.html">discrete at the Planck scale</a> — feed <a href="./conventionalism.html">conventionalism</a> about the metric and the deepest open questions about the fine structure of spacetime. The Arrow's "at–at" analysis of motion also connects to the <a href="../time/a-theory-b-theory.html">B-theoretic</a> treatment of change. The next page turns from the structure of the continuum to the epistemology of its geometry.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/spacetime/time/time-travel.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/spacetime/space/epistemology-of-geometry.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/spacetime/time/time-travel.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/spacetime/space/epistemology-of-geometry.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

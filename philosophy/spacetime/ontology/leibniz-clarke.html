@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Leibniz–Clarke Correspondence - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/spacetime/ontology/leibniz-clarke.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-leibnizclarke-correspondence"><a class="header" href="#the-leibnizclarke-correspondence">The Leibniz–Clarke Correspondence</a></h1>
+<p>The single most important primary text of the <a href="./absolute-vs-relational.html">absolute–relational</a> debate is the exchange of letters between <strong>Gottfried Wilhelm Leibniz</strong> and <strong>Samuel Clarke</strong> in 1715–16. Clarke, a philosopher-theologian and Newton's ally, wrote as Newton's proxy — many of his replies are thought to have been checked or inspired by Newton himself — so the correspondence is, in effect, Leibniz against Newton on the nature of space, time, and God's relation to the world. Five letters from each side survive, cut short by Leibniz's death in November 1716. Compact, polemical, and astonishingly modern, it set the agenda for everything the philosophy of space and time has argued since.</p>
+<p>This page reconstructs the correspondence as an argument, drawing out the moves that still matter; the positions it defends are stated more systematically on the <a href="./absolute-vs-relational.html">absolute vs. relational</a> page, and the physical issue it could not resolve is the subject of <a href="./newtons-bucket.html">Newton's bucket</a>.</p>
+<hr />
+<h2 id="the-setting-a-theological-quarrel-that-became-a-physical-one"><a class="header" href="#the-setting-a-theological-quarrel-that-became-a-physical-one">The setting: a theological quarrel that became a physical one</a></h2>
+<p>The exchange began over religion. Leibniz charged that Newton's natural philosophy diminished God: a God who must occasionally intervene to keep the planets in order (as Newton had suggested) is a poor craftsman, and the doctrine that space is God's "sensorium" makes space an organ of the deity. Clarke defended Newton's God as an active, present sustainer of the world. But the theology quickly forced the metaphysics into the open, because Leibniz's objections turned on <strong>two principles</strong> that double as anti-substantivalist arguments:</p>
+<ul>
+<li>the <strong>Principle of Sufficient Reason (PSR)</strong> — "nothing happens without a reason why it should be so rather than otherwise";</li>
+<li>the <strong>Principle of the Identity of Indiscernibles (PII)</strong> — there cannot be two things that differ in no property whatever.</li>
+</ul>
+<h2 id="leibnizs-case-against-absolute-space"><a class="header" href="#leibnizs-case-against-absolute-space">Leibniz's case against absolute space</a></h2>
+<p>Leibniz deployed the principles in a sequence of thought experiments:</p>
+<ul>
+<li><strong>The static shift.</strong> If space is an absolute container, God had to decide <em>where</em> to put the material universe within it. But "'tis impossible there should be a reason why God, preserving the same situations of bodies among themselves, should have placed them in space after one certain particular manner, and not otherwise; why every thing was not placed the quite contrary way, for instance, by changing East into West." All positions in a homogeneous absolute space are alike; there is no sufficient reason to choose; so, by the PSR, absolute space (which would make the choice meaningful) is a fiction.</li>
+<li><strong>The temporal shift.</strong> The same argument runs for absolute time: there could be no reason for God to have created the world at <em>this</em> moment rather than a year earlier, since the two "worlds" are intrinsically identical. So absolute time, over and above the order of events, is likewise indefensible.</li>
+<li><strong>The Identity of Indiscernibles.</strong> A universe and its uniformly shifted double share every observable and dynamical property; by the PII they are not two possible worlds but one. Absolute space, which purports to distinguish them, therefore posits a difference that makes no difference.</li>
+</ul>
+<p>For Leibniz the conclusion is that space is "merely relative, as time is; … an order of coexistences, as time is an order of successions." Space and time are <em>ideal</em> orders, well-founded on the relations among real things (monads), not substances alongside them.</p>
+<h2 id="clarkes-replies"><a class="header" href="#clarkes-replies">Clarke's replies</a></h2>
+<p>Clarke did not simply deny the principles; he tried to blunt them:</p>
+<ul>
+<li><strong>God's will can be a sufficient reason.</strong> Where things are genuinely symmetric, the "sufficient reason" for God's choice may be nothing but God's own free will — a <em>mere</em> will is not, for Clarke, a violation of the PSR but an exercise of divine freedom. (Leibniz retorted that a will acting without a determining reason is "a chimera… an Epicurean chance," destroying the PSR from within.)</li>
+<li><strong>The reality of absolute motion.</strong> Clarke's strongest card was empirical, and it points forward to the <a href="./newtons-bucket.html">bucket</a>: whatever we say about <em>position</em> and <em>velocity</em>, <strong>acceleration and rotation have real effects</strong>. "If space were nothing but the order of things coexisting, it would follow that if God should remove the whole world … with any swiftness whatsoever, [it] would still be in the same place." A sudden increase in the world's speed would produce a "shock" — real inertial forces — and this difference between uniform and accelerated motion is something the pure relationist cannot, Clarke urged, account for. Motion is not <em>merely</em> relative, because its accelerative variety is dynamically detectable.</li>
+<li><strong>Space and time as real quantities.</strong> Clarke insisted that space and time have <em>quantity</em> and structure (they are measurable, infinite, continuous) in a way that mere relations or "nothings" cannot, and that God's infinity and eternity require a real omnipresence and everlastingness — space and time as, in some sense, attributes of God.</li>
+</ul>
+<h2 id="what-each-side-won"><a class="header" href="#what-each-side-won">What each side won</a></h2>
+<p>The correspondence ended undecided, but hindsight scores it clearly:</p>
+<div class="table-wrapper"><table><thead><tr><th>Issue</th><th>Verdict of later physics</th></tr></thead><tbody>
+<tr><td>Absolute <em>position</em></td><td>Leibniz — undetectable, no sufficient reason (<a href="../../../physics/SR/group/lorentz-poincare.html">Galilean/Lorentz invariance</a>)</td></tr>
+<tr><td>Absolute <em>velocity</em></td><td>Leibniz — undetectable (Galilean, then special relativity)</td></tr>
+<tr><td>Absolute <em>acceleration/rotation</em></td><td>Clarke's point stands — inertial effects are real (<a href="./newtons-bucket.html">the bucket</a>)</td></tr>
+<tr><td>The PSR as metaphysical bedrock</td><td>Contested — Clarke's "free will" reply anticipates modern doubts about the PSR</td></tr>
+</tbody></table>
+</div>
+<p>So the correspondence isolates, with remarkable precision, the fault line that the whole subsequent debate runs along: the relationist is <em>right</em> that uniform states of motion are undetectable and so should not be reified, but the substantivalist has a genuine problem to hand over — the reality of the inertial effects that distinguish accelerated from unaccelerated motion. Neither classical relationism nor Newton's full absolute space is quite the right response; the modern <strong><a href="./absolute-vs-relational.html">Galilean-spacetime</a></strong> compromise and <a href="./machs-principle.html">Mach's</a> relational reconstruction are both attempts to keep Leibniz's insight while paying Clarke's debt.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>The Leibniz–Clarke correspondence is the historical hinge of the <a href="../introduction.html">ontological question</a>: it converts the abstract <a href="../substantivalism-relationism.html">substantivalism–relationism</a> dispute into explicit arguments — the PSR-driven static shift, the PII-driven kinematic shift, and Clarke's appeal to real acceleration — that are still the terms of trade. Earman's <em>World Enough and Space-Time</em> takes its title and structure from the exchange, and the <a href="./hole-argument.html">hole argument</a> is, in one light, the same PSR/PII pressure applied to general relativity's <a href="../relativity/general-relativity.html">dynamical metric</a>. The next page examines the empirical residue Clarke pressed: the <a href="./newtons-bucket.html">rotating bucket</a> and the problem of absolute motion.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/spacetime/ontology/absolute-vs-relational.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/spacetime/ontology/newtons-bucket.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/spacetime/ontology/absolute-vs-relational.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/spacetime/ontology/newtons-bucket.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

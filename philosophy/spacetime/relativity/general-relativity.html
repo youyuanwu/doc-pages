@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>General Relativity and Dynamical Spacetime - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/spacetime/relativity/general-relativity.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="general-relativity-and-dynamical-spacetime"><a class="header" href="#general-relativity-and-dynamical-spacetime">General Relativity and Dynamical Spacetime</a></h1>
+<p>Special relativity fused space and time into the fixed <a href="./block-universe.html">Minkowski block</a>, but that spacetime was still a <em>stage</em>: a rigid, flat backdrop on which physics played out. <strong>General relativity</strong> (Einstein, 1915) took the decisive further step — it made spacetime <strong>dynamical</strong>. The geometry of spacetime is no longer a fixed given but a <em>physical field</em>, the <strong>metric</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.06366em;">μν</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>, which is curved by the matter and energy it contains and which, in turn, governs how that matter moves. Gravity is not a force propagating <em>through</em> spacetime but the <em>curvature of spacetime itself</em>. This transformation reopens every question in the philosophy of space and time in a new and sharper key: it turns the geometry of space into a contingent, measured, <a href="../space/epistemology-of-geometry.html">variable</a> thing; it reignites the <a href="../substantivalism-relationism.html">substantivalism debate</a> through the <a href="../ontology/hole-argument.html">hole argument</a>; and it permits global structures — singularities, horizons, and <a href="../time/time-travel.html">closed timelike curves</a> — that strain the concept of time to its limit.</p>
+<p>This page states the conceptual content of general relativity for the philosophy of space and time; the mathematical setting is the theory of <a href="../../../math/topology-manifolds.html">manifolds and curvature</a>, and the theory extends the <a href="../../../physics/SR/spacetime.html">Minkowski geometry</a> of special relativity.</p>
+<hr />
+<h2 id="the-core-idea-geometry-becomes-physics"><a class="header" href="#the-core-idea-geometry-becomes-physics">The core idea: geometry becomes physics</a></h2>
+<p>In Newtonian physics and in special relativity, the geometry of spacetime is <strong>fixed and absolute</strong> — a background that acts on matter (setting the inertial frames) but is never acted <em>upon</em>. General relativity abolishes this asymmetry. Its content can be summarised in a slogan (Wheeler's): <strong>"Spacetime tells matter how to move; matter tells spacetime how to curve."</strong> More precisely:</p>
+<ul>
+<li>The distribution of matter and energy (the stress–energy tensor <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.06366em;">μν</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>) determines the curvature of spacetime, via the <strong>Einstein field equations</strong>,
+<span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.06366em;">μν</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">8</span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="mord mathnormal">G</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.06366em;">μν</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mpunct">,</span></span></span></span></span>
+where <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.06366em;">μν</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> is the Einstein curvature tensor built from the metric.</li>
+<li>Free bodies (and light) follow <strong>geodesics</strong> — the "straightest possible" paths — of the resulting curved geometry. What Newton called gravitational force is reinterpreted as <em>inertial motion in curved spacetime</em>: the planet does not feel a pull; it coasts along a geodesic that the Sun's mass has bent.</li>
+</ul>
+<p>The metric <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.06366em;">μν</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> thus plays a double role: it <em>is</em> the geometry (fixing intervals, light cones, and which paths are straight) <em>and</em> it is a dynamical physical field with its own degrees of freedom (gravitational waves are ripples in <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.06366em;">μν</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> propagating through otherwise empty space). Geometry has become a <em>player</em>, not a <em>stage</em>.</p>
+<h2 id="consequence-1-the-geometry-of-space-is-empirical-and-variable"><a class="header" href="#consequence-1-the-geometry-of-space-is-empirical-and-variable">Consequence 1: the geometry of space is empirical and variable</a></h2>
+<p>General relativity is the definitive vindication of <strong>geometric empiricism</strong> (see the <a href="../space/epistemology-of-geometry.html">epistemology of geometry</a>). Spatial (and spacetime) geometry is:</p>
+<ul>
+<li><strong>Non-Euclidean</strong> — curved, in general, wherever matter is present.</li>
+<li><strong>Variable</strong> — the curvature differs from place to place, strong near massive bodies and weak far from them.</li>
+<li><strong>Measured, not deduced</strong> — and the measurements have been made: the deflection of starlight by the Sun (Eddington, 1919), the anomalous precession of Mercury's perihelion, gravitational lensing, the Shapiro time delay, and the detection of gravitational waves all probe the local geometry.</li>
+</ul>
+<p>Kant's <a href="../space/epistemology-of-geometry.html">synthetic a priori Euclidean space</a> is decisively refuted: physical geometry is contingent and could have been — and elsewhere <em>is</em> — otherwise. (The residual <a href="../space/conventionalism.html">conventionalist</a> worry — that we test geometry-plus-physics jointly — remains a live philosophical issue, but the <em>first-order</em> claim that geometry is physical and dynamical is not in doubt.)</p>
+<h2 id="consequence-2-the-substantivalism-debate-reopened"><a class="header" href="#consequence-2-the-substantivalism-debate-reopened">Consequence 2: the substantivalism debate reopened</a></h2>
+<p>By making the metric a dynamical field, general relativity transforms the <a href="../substantivalism-relationism.html">substantivalism–relationism</a> dispute:</p>
+<ul>
+<li>On one reading, the dynamical metric is <em>the</em> spacetime substance — a real, energetic physical field that exists and acts, vindicating a <strong>field-substantivalism</strong>: spacetime is not a passive container but the most fundamental physical entity there is.</li>
+<li>On another, since the metric is <em>dynamical and diffeomorphism-invariant</em>, it behaves less like a fixed container and more like just another field among fields — reviving the <strong>relationist</strong> hope that "spacetime" is nothing over and above the web of physical relations.</li>
+</ul>
+<p>This tension is crystallised by the <strong><a href="../ontology/hole-argument.html">hole argument</a></strong>: the diffeomorphism invariance of the field equations means that spreading the metric differently over the <em>same</em> manifold points yields another solution, so manifold substantivalism entails a radical indeterminism. The standard responses — sophisticated (metric-field) substantivalism, relationism, and structural realism — are all attempts to say what spacetime <em>is</em> once it has become dynamical. General relativity does not settle the <a href="../introduction.html">ontological question</a>; it raises its stakes.</p>
+<p>General relativity also bears on <strong><a href="../ontology/machs-principle.html">Mach's principle</a></strong>: the local inertial frames are now <em>influenced</em> by the matter distribution (frame-dragging), a partial realisation of Mach's dream — though vacuum solutions with definite inertial structure show the realisation is incomplete, and spacetime retains a life of its own.</p>
+<h2 id="consequence-3-global-structure-and-the-limits-of-time"><a class="header" href="#consequence-3-global-structure-and-the-limits-of-time">Consequence 3: global structure and the limits of time</a></h2>
+<p>Because the metric is dynamical, general relativity admits spacetimes with <strong>global structures</strong> unimaginable in Newtonian physics or special relativity, several of which press hard on the concept of time:</p>
+<ul>
+<li><strong>Singularities.</strong> In black holes and at the Big Bang, curvature diverges and the smooth manifold breaks down. The <strong>Penrose–Hawking singularity theorems</strong> show these are generic, not artifacts of idealised symmetry. At a singularity the geometrical description of spacetime — and with it "time" — simply <em>ends</em>: there is a boundary beyond which the theory says nothing, raising the question of whether time <em>began</em> (see <a href="../physics/cosmology.html">cosmology</a>).</li>
+<li><strong>Horizons.</strong> Black-hole event horizons partition spacetime into regions that cannot communicate, and make the global notion of "the same time everywhere" still more elusive than in special relativity: in a general curved spacetime there is often no natural global time coordinate at all.</li>
+<li><strong>Closed timelike curves.</strong> Some solutions — <a href="../time/time-travel.html">Gödel's rotating universe</a>, the interiors of rotating black holes, wormhole spacetimes — contain worldlines that loop back to their own past, permitting <a href="../time/time-travel.html">time travel</a> and threatening the global coherence of temporal order. Gödel drew from his solution the moral that objective, global <em>passage</em> is untenable, an argument for the <a href="../time/a-theory-b-theory.html">B-theory</a> from pure general relativity.</li>
+</ul>
+<p>The absence, in general, of a preferred global time slicing deepens the <a href="./simultaneity.html">relativity-of-simultaneity</a> challenge to <a href="../time/presentism-eternalism.html">presentism</a>: where special relativity offered many equally good global slicings, a generic curved spacetime may offer <em>no</em> natural global slicing whatever.</p>
+<h2 id="the-threshold-of-quantum-gravity"><a class="header" href="#the-threshold-of-quantum-gravity">The threshold of quantum gravity</a></h2>
+<p>General relativity is a <em>classical</em> theory: it treats the dynamical metric as a smooth classical field, and it predicts its own breakdown at singularities. Reconciling its dynamical spacetime with <a href="../../../physics/QM/README.html">quantum mechanics</a> is the unsolved problem of <strong>quantum gravity</strong>, and the attempt has a startling consequence for time itself — the "<strong><a href="../physics/problem-of-time.html">problem of time</a></strong>," in which the very notion of time threatens to disappear from the fundamental equations. General relativity thus not only reshapes the philosophy of space and time; it points beyond itself to a regime where spacetime may not be fundamental at all.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>General relativity is the physical fulcrum of the whole section: it decides the <a href="../space/epistemology-of-geometry.html">geometric question</a> in favour of empiricism, reopens the <a href="../substantivalism-relationism.html">ontological question</a> through the <a href="../ontology/hole-argument.html">hole argument</a> and the dynamical metric, and complicates the <a href="../time/presentism-eternalism.html">temporal question</a> by removing any preferred global "now" and admitting <a href="../time/time-travel.html">closed timelike curves</a>. It builds on the <a href="./block-universe.html">Minkowski spacetime</a> of special relativity and the mathematics of <a href="../../../math/topology-manifolds.html">curved manifolds</a>, and it hands the deepest problems — singular beginnings and the fate of time — to <a href="../physics/cosmology.html">cosmology</a> and the <a href="../physics/problem-of-time.html">problem of time in quantum gravity</a>. Before turning there, the next page examines a subtler point the theory's flat-spacetime parent already raised: the <a href="./conventionality.html">conventionality of simultaneity</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/spacetime/relativity/block-universe.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/spacetime/relativity/conventionality.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/spacetime/relativity/block-universe.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/spacetime/relativity/conventionality.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

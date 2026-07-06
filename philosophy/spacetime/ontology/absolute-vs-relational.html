@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Absolute vs. Relational Space - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/spacetime/ontology/absolute-vs-relational.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="absolute-vs-relational-space"><a class="header" href="#absolute-vs-relational-space">Absolute vs. Relational Space</a></h1>
+<p>The foundational form of the <a href="../substantivalism-relationism.html">substantivalism–relationism</a> debate is the seventeenth- and eighteenth-century dispute over <strong>absolute</strong> versus <strong>relational</strong> space and time. Newton held that space and time are absolute: real, independent entities that provide a fixed frame against which the true positions, times, and motions of bodies are defined. Leibniz held that they are relational: not entities at all, but systems of relations abstracted from the arrangements of bodies and the succession of events. The dispute is not a verbal one — it makes concrete predictions about whether certain differences are <em>real</em>, and about what physics needs in order to distinguish true motion from apparent motion.</p>
+<p>This page states the two positions and the core arguments between them; the epistolary battle in which they were fought out is treated on the <a href="./leibniz-clarke.html">Leibniz–Clarke</a> page, and the empirical pressure point on the <a href="./newtons-bucket.html">Newton's bucket</a> page.</p>
+<hr />
+<h2 id="newtons-absolute-space-and-time"><a class="header" href="#newtons-absolute-space-and-time">Newton's absolute space and time</a></h2>
+<p>In the <em>Scholium</em> to the <em>Principia</em>, Newton drew his famous distinctions:</p>
+<blockquote>
+<p>Absolute, true, and mathematical time, of itself, and from its own nature, flows equably without relation to anything external… Absolute space, in its own nature, without relation to anything external, remains always similar and immovable.</p>
+</blockquote>
+<p>Absolute space is a three-dimensional Euclidean container, the same everywhere and unmoving; absolute time flows uniformly regardless of events. <strong>Relative</strong> space and time are the measurable positions and durations we actually work with, defined by reference to bodies (the Earth, the fixed stars) and clocks. Newton's claim is that behind the relative quantities lie absolute ones, and that physics requires them.</p>
+<p>Why did he think so? Because his mechanics distinguishes <strong>true motion</strong> from <strong>relative motion</strong>. The First Law speaks of bodies that are "truly" at rest or in uniform motion, and the concept of <em>acceleration</em> — central to the Second Law, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ma</span></span></span></span> — seems to presuppose an absolute standard against which accelerations are reckoned. The evidence that this standard is <em>needed</em>, and not merely posited, comes from <strong>inertial effects</strong>: the tension in a cord, the curved surface of spinning water. These, Newton argued, track <em>absolute</em> acceleration and rotation, not motion relative to any body — the argument of the <a href="./newtons-bucket.html">rotating bucket</a>.</p>
+<h2 id="leibnizs-relationism"><a class="header" href="#leibnizs-relationism">Leibniz's relationism</a></h2>
+<p>Leibniz rejected the container as an idle metaphysical extravagance. <strong>Space is the order of coexistence</strong> — the system of spatial relations (distance, betweenness, direction) among simultaneously existing bodies. <strong>Time is the order of succession</strong> — the system of before–after relations among events. Remove the bodies and events and nothing spatial or temporal remains, for there was never a thing there to remain. "Empty space" names not an invisible substance but the possibility of further bodies standing in relations to the ones we have.</p>
+<p>Leibniz mounted two master arguments, both from principles he took to be self-evident:</p>
+<ul>
+<li><strong>The static shift and the Principle of Sufficient Reason.</strong> Suppose absolute space is real. Then God, in creating the world, had to place all matter <em>somewhere</em> in it — here, rather than five metres east, or with east and west reversed. But since all points of absolute space are perfectly alike, there could be <em>no sufficient reason</em> to choose one placement over another. A real absolute space thus commits us to a choice made for no reason, violating the PSR. Therefore absolute space is not real.</li>
+<li><strong>The kinematic shift and the Identity of Indiscernibles.</strong> A world exactly like ours but shifted uniformly through absolute space, or set in motion at constant velocity through it, would be <em>perceptually and dynamically indistinguishable</em> from ours: no observation could tell them apart. By the PII — no two genuinely distinct states of affairs can share <em>all</em> their properties — these are not two possibilities but one, redescribed. The absolute space that would make them differ is therefore a distinction without a difference.</li>
+</ul>
+<h2 id="the-structure-of-the-disagreement"><a class="header" href="#the-structure-of-the-disagreement">The structure of the disagreement</a></h2>
+<p>The arguments reveal exactly where the two views part company:</p>
+<div class="table-wrapper"><table><thead><tr><th>Claim</th><th>Newton (absolute)</th><th>Leibniz (relational)</th></tr></thead><tbody>
+<tr><td>Does space exist without bodies?</td><td>Yes — an immovable container</td><td>No — space is relations among bodies</td></tr>
+<tr><td>Is absolute <em>position</em> real?</td><td>Yes</td><td>No (blocked by the static shift)</td></tr>
+<tr><td>Is absolute <em>velocity</em> real?</td><td>Yes</td><td>No (blocked by the kinematic shift)</td></tr>
+<tr><td>Is absolute <em>acceleration/rotation</em> real?</td><td>Yes — shown by inertial effects</td><td>The hard case (see below)</td></tr>
+<tr><td>What grounds true motion?</td><td>Motion relative to absolute space</td><td>Motion relative to other bodies</td></tr>
+</tbody></table>
+</div>
+<p>Notice that the relationist wins the first two rounds cleanly, and <em>physics agrees</em>: <a href="../../../physics/SR/group/lorentz-poincare.html">Galilean invariance</a> — and later Lorentz invariance in <a href="../../../physics/SR/kinematics.html">special relativity</a> — makes absolute position and absolute velocity undetectable in principle. Newton himself conceded that uniform velocity through absolute space has no observable effect. The dispute therefore concentrates on the third row: <strong>acceleration and rotation</strong>, where inertial effects seem to betray something non-relational at work.</p>
+<h2 id="the-modern-reading-less-than-newton-more-than-leibniz"><a class="header" href="#the-modern-reading-less-than-newton-more-than-leibniz">The modern reading: less than Newton, more than Leibniz</a></h2>
+<p>Twentieth-century philosophy of physics reframed the debate by asking <em>how much structure</em> the physics actually needs. Newton's full absolute space provides a standard of rest (absolute position and velocity) <em>and</em> a standard of acceleration. But mechanics only uses the latter. This motivates <strong>neo-Newtonian (Galilean) spacetime</strong>: a spacetime equipped with an <em>affine connection</em> that distinguishes straight (unaccelerated) worldlines from curved (accelerated) ones, but with <em>no</em> fact about which non-accelerated worldline is "at rest." Galilean spacetime concedes everything the shift arguments demand — no absolute position, no absolute velocity — while retaining exactly what the <a href="./newtons-bucket.html">bucket</a> requires: an absolute distinction between accelerated and inertial motion. It is "substantival" about spacetime structure without being committed to Newton's superfluous standard of rest.</p>
+<p>The relationist's counter is to try to recover that inertial structure from the relations among bodies alone — the programme of <a href="./machs-principle.html">Mach's principle</a> and its modern descendants. Whether it can be done, and at what cost, is the live question that <a href="../relativity/general-relativity.html">general relativity</a> inherited.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>The absolute–relational dispute is the classical face of the <a href="../introduction.html">ontological question</a> and the root of the whole <a href="../substantivalism-relationism.html">substantivalism–relationism</a> debate. Its two arguments — the <a href="./leibniz-clarke.html">PSR-based static shift and the PII-based kinematic shift</a> — remain the relationist's sharpest weapons, and its unresolved residue — absolute <a href="./newtons-bucket.html">acceleration and rotation</a> — remains the substantivalist's. Everything later in this subfolder is a development of this seed: <a href="./machs-principle.html">Mach</a> tries to complete the relationist programme, the <a href="./hole-argument.html">hole argument</a> transposes the whole dispute into general relativity, and <a href="./supersubstantivalism.html">supersubstantivalism</a> pushes the substantival side to its limit. The next page follows the argument as Leibniz and Clarke actually conducted it.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/spacetime/space-and-geometry.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/spacetime/ontology/leibniz-clarke.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/spacetime/space-and-geometry.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/spacetime/ontology/leibniz-clarke.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Philosophy of Space and Time - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/spacetime/README.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="philosophy-of-space-and-time"><a class="header" href="#philosophy-of-space-and-time">Philosophy of Space and Time</a></h1>
+<p>Reference notes on the <strong>philosophy of space and time</strong> — the metaphysics and epistemology of space, time, and spacetime, at the border of general metaphysics and the philosophy of physics. These pages ask what space and time <em>are</em> (substances in their own right, relations among bodies, or abstract structures?), whether the passage of time and the division into past, present, and future are objective features of reality or artifacts of our perspective, and what status geometry has (a priori, empirical, or conventional?). They proceed philosophically — by argument and analysis — while treating modern physics as a constraint the field cannot ignore.</p>
+<p>The distinctive feature of these notes is their reliance on the book's physics sections for the formal machinery. Rather than re-derive it, the philosophy pages lean on <a href="../../physics/SR/README.html">Special Relativity</a> for the invariant interval, Minkowski spacetime, and the relativity of simultaneity; on <a href="../../physics/QM/README.html">Quantum Mechanics</a> and <a href="../../physics/QFT/README.html">Quantum Field Theory</a> for the status of time in quantum theory; on <a href="../../math/topology-manifolds.html">topology and manifolds</a> for the setting of general relativity and the hole argument; and on <a href="../../math/nonstandard/README.html">non-standard analysis</a> for infinitesimals and the composition of the continuum. The conceptual work — what the physics <em>means</em> for substantivalism, tense, becoming, and the block universe — is done here. The section also cross-links to <a href="../freewill/README.html">free will</a> (determinism and the block universe) and to the <a href="../religion/metaphysics/time-and-cosmology.html">philosophy of religion</a> (eternity, creation, and the beginning of time).</p>
+<h2 id="contents"><a class="header" href="#contents">Contents</a></h2>
+<h3 id="core"><a class="header" href="#core">Core</a></h3>
+<ul>
+<li><a href="./introduction.html">What Is the Philosophy of Space and Time?</a> — the field defined: the three master questions (the ontological, the temporal, and the geometric), the map of positions (substantivalism / relationism / structuralism; A-theory / B-theory; presentism / eternalism / growing block), and how armchair metaphysics and the philosophy of physics constrain each other.</li>
+<li><a href="./substantivalism-relationism.html">Substantivalism and Relationism</a> — the central ontological debate: is spacetime a thing in its own right, or only a system of relations among bodies and events? Newton vs. Leibniz, the modern forms (manifold, metric-field, and sophisticated substantivalism), and relationism after general relativity.</li>
+<li><a href="./nature-of-time.html">The Nature of Time</a> — the two great axes: the A/B distinction (tensed vs. tenseless facts) and the question of passage (does time flow?); a map of McTaggart, presentism/eternalism, and the arrow, and how relativity bears on the dispute.</li>
+<li><a href="./space-and-geometry.html">Space, Geometry, and Structure</a> — the status of geometry (Kant's a priori vs. the empirical turn), the structure of space (continuity, points, dimensionality), and conventionalism (Poincaré, Reichenbach) as the pivot.</li>
+</ul>
+<h3 id="substantivalism-vs-relationism"><a class="header" href="#substantivalism-vs-relationism">Substantivalism vs. relationism</a></h3>
+<ul>
+<li><a href="./ontology/absolute-vs-relational.html">Absolute vs. Relational Space</a> — Newton's <em>Scholium</em> (absolute space and time as the container of motion) vs. Leibniz's relationism (space as the order of coexistence); the shift arguments, the Principle of Sufficient Reason, and the Identity of Indiscernibles.</li>
+<li><a href="./ontology/leibniz-clarke.html">The Leibniz–Clarke Correspondence</a> — the 1715–16 exchange that founded the debate: PSR and PII against absolute space, Clarke's replies on absolute motion and divine free choice, and why it still frames the modern literature.</li>
+<li><a href="./ontology/newtons-bucket.html">Newton's Bucket and Absolute Motion</a> — the rotating bucket and two-globes experiments: inertial effects that seem to reveal non-relational motion, the relationist's difficulty with acceleration and rotation, and neo-Newtonian (Galilean) spacetime as the minimal fix.</li>
+<li><a href="./ontology/machs-principle.html">Mach's Principle and Machian Relationism</a> — inertia as determined by the "fixed stars," the various sharpenings of Mach's principle, its partial realization in general relativity, and Barbour–Bertotti relational dynamics.</li>
+<li><a href="./ontology/hole-argument.html">The Hole Argument</a> — Einstein's worry revived by Earman and Norton: diffeomorphism invariance plus manifold substantivalism yields radical indeterminism; the responses (relationism, sophisticated substantivalism, structural realism) and the determinism/ontology trade-off.</li>
+<li><a href="./ontology/supersubstantivalism.html">Supersubstantivalism</a> — the identification of matter with regions of spacetime: geometrodynamics (Wheeler), modern field ontologies, and the costs and benefits versus a dualistic matter-plus-spacetime picture.</li>
+</ul>
+<h3 id="the-metaphysics-of-time"><a class="header" href="#the-metaphysics-of-time">The metaphysics of time</a></h3>
+<ul>
+<li><a href="./time/mctaggart.html">McTaggart's Argument for the Unreality of Time</a> — the A-series, B-series, and C-series; the argument that change requires the A-series but the A-series is contradictory; the regress reply; and the argument's lasting influence on the whole debate.</li>
+<li><a href="./time/a-theory-b-theory.html">The A-Theory and the B-Theory</a> — tensed vs. tenseless theories of time, the reality of tense and the "moving now," the truthmaker and semantic debates, and the B-theorist's deflation of passage.</li>
+<li><a href="./time/presentism-eternalism.html">Presentism, Eternalism, and the Growing Block</a> — only the present exists / all times are equally real / the past and present are real and growing / the moving spotlight; the truthmaker and relativity objections to presentism, and the "loss of passage" objection to eternalism.</li>
+<li><a href="./time/passage-and-experience.html">Temporal Passage and the Experience of Time</a> — does time flow? The rate-of-passage regress and the myth-of-passage critique; the phenomenology of temporal experience (the specious present); and deflationary explanations of why time <em>seems</em> to pass.</li>
+<li><a href="./time/arrow-of-time.html">The Direction of Time</a> — the thermodynamic, causal, psychological, radiative, and cosmological arrows; whether the direction is intrinsic to time or grounded in the asymmetry of its contents; and the reduction question.</li>
+<li><a href="./time/persistence.html">Persistence: Endurantism vs. Perdurantism</a> — how objects persist through time (wholly present at each moment vs. having temporal parts); the problem of temporary intrinsics; and the link to eternalism and the block universe.</li>
+<li><a href="./time/time-travel.html">Time Travel and Its Paradoxes</a> — the grandfather paradox and the consistency (not impossibility) of time travel; causal loops and the bilking argument; closed timelike curves in general relativity; and what time travel presupposes about the B-series.</li>
+</ul>
+<h3 id="space-geometry-and-the-continuum"><a class="header" href="#space-geometry-and-the-continuum">Space, geometry, and the continuum</a></h3>
+<ul>
+<li><a href="./space/zeno-and-the-continuum.html">Zeno's Paradoxes and the Continuum</a> — the paradoxes of plurality and motion (Achilles, the Dichotomy, the Arrow, the Stadium); continuity, points, and the composition of the continuum; the standard and infinitesimal resolutions; and supertasks.</li>
+<li><a href="./space/epistemology-of-geometry.html">The Epistemology of Geometry</a> — Kant's synthetic a priori, the discovery of non-Euclidean geometries and its philosophical shockwave, and general relativity as the empirical vindication that physical geometry is contingent.</li>
+<li><a href="./space/conventionalism.html">Conventionalism about Geometry</a> — Poincaré on geometry as convention, Reichenbach's coordinative definitions and "universal forces," Grünbaum on the metric amorphousness of the continuum, and the realist replies.</li>
+<li><a href="./space/dimensionality.html">Dimensionality and the Structure of Space</a> — why three spatial dimensions? Anthropic and stability arguments; the topological vs. metrical structure of space; and orientability and handedness (Kant's incongruent counterparts).</li>
+</ul>
+<h3 id="relativity-and-the-philosophy-of-spacetime"><a class="header" href="#relativity-and-the-philosophy-of-spacetime">Relativity and the philosophy of spacetime</a></h3>
+<ul>
+<li><a href="./relativity/simultaneity.html">Relativity and the Reality of Simultaneity</a> — the relativity of simultaneity as the deepest lesson of special relativity; the Rietdijk–Putnam–Penrose argument against presentism; and the replies (frame-relative existence, point-presentism, neo-Lorentzian foliations).</li>
+<li><a href="./relativity/block-universe.html">Minkowski Spacetime and the Block Universe</a> — Minkowski's unification of space and time, the light-cone structure and causal order, the block universe as the natural ontology of relativity, and what it does and does not force about passage.</li>
+<li><a href="./relativity/general-relativity.html">General Relativity and Dynamical Spacetime</a> — spacetime becomes dynamical: the metric as a physical field; the consequences for the substantivalism debate; and global structure (singularities, horizons, closed timelike curves).</li>
+<li><a href="./relativity/conventionality.html">The Conventionality of Simultaneity</a> — the ε-parameter in Einstein synchronization; Reichenbach and Grünbaum on whether distant simultaneity is factual; and Malament's theorem.</li>
+</ul>
+<h3 id="time-in-physics"><a class="header" href="#time-in-physics">Time in physics</a></h3>
+<ul>
+<li><a href="./physics/thermodynamic-arrow.html">The Arrow of Time and Thermodynamics</a> — the second law and entropy increase; Boltzmann's statistical account and the reversibility and recurrence objections; the Past Hypothesis; and the relations among the arrows.</li>
+<li><a href="./physics/problem-of-time.html">The Problem of Time in Quantum Gravity</a> — time as an external parameter in quantum mechanics vs. the "frozen" Wheeler–DeWitt equation; the disappearance and re-emergence of time; and whether spacetime is fundamental or emergent.</li>
+<li><a href="./physics/cosmology.html">Time, Cosmology, and the Beginning</a> — did time begin? The Big Bang boundary and initial conditions; the low-entropy past; and the compatibility of a first moment with relational and substantival views of time.</li>
+</ul>
+<h3 id="history-figures-and-method"><a class="header" href="#history-figures-and-method">History, figures, and method</a></h3>
+<ul>
+<li><a href="./context/history.html">A History of the Philosophy of Space and Time</a> — Zeno and Aristotle, the medieval debates on void and infinity, Newton vs. Leibniz, Kant's transcendental idealism, and the nineteenth- and twentieth-century turn (non-Euclidean geometry, Einstein, Minkowski, McTaggart, Reichenbach).</li>
+<li><a href="./context/method.html">Method and Relation to Philosophy of Physics</a> — the interplay of a priori metaphysics and empirical physics, underdetermination and the theory-ladenness of "what the physics says," and structural realism as a mediating position.</li>
+<li><a href="./context/figures.html">Key Figures</a> — a compact reference to the principal contributors, ancient to contemporary.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/religion/context/figures.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/spacetime/introduction.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/religion/context/figures.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/spacetime/introduction.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

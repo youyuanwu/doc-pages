@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Epistemology of Geometry - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/spacetime/space/epistemology-of-geometry.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-epistemology-of-geometry"><a class="header" href="#the-epistemology-of-geometry">The Epistemology of Geometry</a></h1>
+<p>For most of Western thought, geometry was the very model of <em>certain</em> knowledge: necessary, exact, and known a priori. Euclid's theorems seemed to describe the structure of physical space with a certainty no empirical science could match, and this certainty demanded a philosophical explanation. <strong>Kant</strong> supplied the most influential one — geometry as <strong>synthetic a priori</strong> knowledge grounded in the form of intuition — and then, within a century, two developments dismantled it: the discovery that <strong>non-Euclidean geometries</strong> are perfectly consistent, and the discovery, in <a href="../relativity/general-relativity.html">general relativity</a>, that physical spacetime is not Euclidean at all. The <strong>epistemology of geometry</strong> is the story of how the a priori certainty of geometry gave way, and of what took its place: geometric empiricism, and the <a href="./conventionalism.html">conventionalist</a> challenge to it.</p>
+<p>This page traces that arc; it presupposes the <a href="../space-and-geometry.html">space and geometry</a> overview and connects forward to <a href="./conventionalism.html">conventionalism</a> and to the physics of <a href="../relativity/general-relativity.html">curved spacetime</a>.</p>
+<hr />
+<h2 id="kants-synthetic-a-priori"><a class="header" href="#kants-synthetic-a-priori">Kant's synthetic a priori</a></h2>
+<p>Kant faced a puzzle. Geometrical truths — "the shortest path between two points is a straight line," "the interior angles of a triangle sum to two right angles" — seemed to be:</p>
+<ul>
+<li><strong>A priori</strong> — known independently of experience, and with necessity and universality no amount of measurement could confer; we do not <em>check</em> whether triangles might have angle-sums of 179°.</li>
+<li><strong>Synthetic</strong> — not mere logical or definitional truths (their denials are not self-contradictory in the way "a bachelor is married" is); the predicate is not contained in the subject. Geometry tells us something substantive about space.</li>
+</ul>
+<p>How can knowledge be <em>both</em> substantive <em>and</em> prior to experience? Kant's answer: space is not a feature of things-in-themselves but the <strong>a priori form of outer intuition</strong> — the framework the mind imposes on all sensory experience of outer objects. Geometry describes the structure of <em>that framework</em>. Because every possible experience must conform to it, geometry is <em>necessary</em> (nothing could appear to us non-Euclideanly) yet <em>substantive</em> (it constrains the content of experience). Kant took the geometry in question to be specifically <strong>Euclidean</strong>: Euclidean structure is built into the form of our intuition. This elegantly explained geometry's certainty <em>and</em> its unfailing applicability to the world.</p>
+<h2 id="the-non-euclidean-earthquake"><a class="header" href="#the-non-euclidean-earthquake">The non-Euclidean earthquake</a></h2>
+<p>Kant's account had a fatal presupposition: that Euclidean geometry is the <em>only</em> coherent geometry, forced by the very form of intuition. The nineteenth century refuted this.</p>
+<p>By denying Euclid's <strong>fifth (parallel) postulate</strong> — that through a point not on a line there is exactly one parallel — and replacing it (many parallels, or none), <strong>Gauss, Bolyai, and Lobachevsky</strong> (hyperbolic, constant negative curvature) and <strong>Riemann</strong> (elliptic, positive curvature) developed geometries that are <em>perfectly consistent</em>. Their consistency was later secured by <strong>relative-consistency proofs</strong>: Beltrami and Klein constructed <em>models</em> of non-Euclidean geometry <em>within</em> Euclidean geometry (e.g. the hyperbolic plane as the interior of a disc), showing that if Euclidean geometry is consistent, so are the others. Non-Euclidean geometry is therefore not a confused fantasy but genuine mathematics.</p>
+<p>This shattered the <em>necessity</em> limb of Kant's account. If alternative geometries are conceivable and consistent, then Euclidean geometry is <em>not</em> forced by reason or by the form of intuition; we can perfectly well represent non-Euclidean spaces. Riemann went further, developing the general theory of <strong>manifolds of variable curvature</strong> (see <a href="../../../math/topology-manifolds.html">topology and manifolds</a>), and explicitly raised the possibility that the geometry of <em>physical</em> space is an empirical question, to be settled by measurement — perhaps varying from place to place.</p>
+<h2 id="the-empirical-turn--and-its-vindication-in-relativity"><a class="header" href="#the-empirical-turn--and-its-vindication-in-relativity">The empirical turn — and its vindication in relativity</a></h2>
+<p>If geometry is not a priori, what is it? The natural successor is <strong>geometric empiricism</strong>: the geometry of physical space (or spacetime) is a <em>contingent, empirical</em> matter, discovered by measurement like any other physical quantity. Gauss is said to have tried to test it directly, measuring the angles of a triangle formed by three mountain peaks to see whether they summed to 180° (they did, within error — space is very nearly flat on that scale).</p>
+<p>Empiricism was decisively vindicated by <strong><a href="../relativity/general-relativity.html">general relativity</a></strong>. There the geometry of spacetime is encoded in a <strong>metric field</strong> that is <em>dynamical</em> — determined by the distribution of matter and energy through the Einstein field equations — and generally <strong>non-Euclidean</strong> (curved). Spacetime geometry is not a fixed a priori backdrop but a physical variable, and its curvature has been <em>measured</em>: the bending of starlight near the Sun (Eddington, 1919), the precession of Mercury's orbit, gravitational lensing, and the propagation of gravitational waves all test the local geometry. Physical geometry turned out to be exactly what Kant said it could not be — contingent, variable, and known a posteriori. The mathematics that makes this precise is the theory of <a href="../../../math/topology-manifolds.html">curved manifolds</a>.</p>
+<div class="table-wrapper"><table><thead><tr><th></th><th>Kantian a priori</th><th>Geometric empiricism</th></tr></thead><tbody>
+<tr><td>Status of "space is Euclidean"</td><td>Necessary, synthetic a priori</td><td>Contingent, empirical, and (locally) <em>false</em></td></tr>
+<tr><td>Fixed or variable?</td><td>Fixed by the form of intuition</td><td>Variable, dynamical (curved by matter)</td></tr>
+<tr><td>Known by</td><td>Pure intuition</td><td>Measurement</td></tr>
+<tr><td>Fate</td><td>Refuted by non-Euclidean geometry + GR</td><td>Mainstream, but faces the conventionalist challenge</td></tr>
+</tbody></table>
+</div>
+<h2 id="salvaging-something-from-kant"><a class="header" href="#salvaging-something-from-kant">Salvaging something from Kant</a></h2>
+<p>Kant's specific thesis — that <em>physical</em> space is necessarily <em>Euclidean</em> — is dead. But two weaker descendants survive:</p>
+<ul>
+<li><strong>A priority of <em>some</em> structure.</strong> Perhaps not the full metric, but weaker features — that space is a continuous manifold, or is three-dimensional, or has <em>some</em> topological structure — might be a priori conditions of experience even if the <em>metric</em> is empirical. Reichenbach distinguished the "relativised a priori" (constitutive framework principles that are a priori <em>relative to a theory</em> but revisable across theories) precisely to preserve a Kantian insight without the false necessity.</li>
+<li><strong>The transcendental point about representation.</strong> That we must represent objects <em>as in space</em> at all may remain a condition of outer experience, even though <em>which</em> geometry that space has is left open. This is a common modern gloss: Kant was right that spatiality is a form of our experience, wrong that its <em>metric</em> is fixed a priori.</li>
+</ul>
+<h2 id="the-unfinished-business-conventionalism"><a class="header" href="#the-unfinished-business-conventionalism">The unfinished business: conventionalism</a></h2>
+<p>Geometric empiricism is not the final word, because of a problem that Kant's fall exposed rather than solved. We never measure geometry <em>nakedly</em>: every geometrical measurement uses physical objects — rods, light rays, clocks — that obey physical laws, so what confronts experience is always a <em>package</em> of geometry-plus-physics. A discordant measurement can always be blamed on the physics (a "force" distorting the rods) instead of the geometry. This underdetermination is the engine of <strong>conventionalism</strong> (Poincaré, Reichenbach, Grünbaum): the claim that the choice of geometry is, in part, a <em>stipulation</em> rather than a discovery. Whether the empirical geometry of general relativity is a genuine <em>fact</em> or a convenient <em>convention</em> is the subject of the next page.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>The epistemology of geometry is the historical core of the <a href="../introduction.html">geometric question</a>: it is the arc from Kant's synthetic a priori, through the <a href="../../../math/topology-manifolds.html">non-Euclidean</a> revolution, to the empirical geometry vindicated by <a href="../relativity/general-relativity.html">general relativity</a>. It presupposes that the <a href="./zeno-and-the-continuum.html">continuum itself</a> is coherent, and it hands on to <a href="./conventionalism.html">conventionalism</a> the unresolved question of whether physical geometry is discovered or partly chosen. It also bears on the <a href="../substantivalism-relationism.html">substantivalism debate</a>: if geometry is a dynamical field, as relativity says, then geometry is something <em>physical</em> — which is grist for the substantivalist's mill. The next page presses the conventionalist challenge.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/spacetime/space/zeno-and-the-continuum.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/spacetime/space/conventionalism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/spacetime/space/zeno-and-the-continuum.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/spacetime/space/conventionalism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

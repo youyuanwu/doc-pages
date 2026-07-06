@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Presentism, Eternalism, and the Growing Block - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/spacetime/time/presentism-eternalism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="presentism-eternalism-and-the-growing-block"><a class="header" href="#presentism-eternalism-and-the-growing-block">Presentism, Eternalism, and the Growing Block</a></h1>
+<p>The <a href="./a-theory-b-theory.html">A-theory/B-theory</a> distinction concerns whether <em>tense</em> is real. Cutting across it is a distinct question about <strong>ontology</strong>: which times, and which objects, <em>exist</em>? Do only present things exist, or are past and future things equally real? This is the dispute among <strong>presentism</strong>, <strong>eternalism</strong>, the <strong>growing block</strong>, and the <strong>moving spotlight</strong> — the four main positions on the <em>existence</em> of times. It is easy to conflate with the A/B debate but genuinely separate: the A/B question is about the status of tensed <em>facts</em>, this one about the extent of the temporal <em>world</em>.</p>
+<p>This page sets out the four views, their motivations, and the objections that press each; the underlying tense debate is on the <a href="./a-theory-b-theory.html">A-theory/B-theory</a> page, and the physical challenge on the <a href="../relativity/simultaneity.html">relativity of simultaneity</a> and <a href="../relativity/block-universe.html">block universe</a> pages.</p>
+<hr />
+<h2 id="the-four-positions"><a class="header" href="#the-four-positions">The four positions</a></h2>
+<p>The views differ over what is included in the <em>domain of existence</em> — read "exists" tenselessly, as the widest "there is."</p>
+<div class="table-wrapper"><table><thead><tr><th>View</th><th>What exists</th><th>Privileged present?</th><th>Family</th></tr></thead><tbody>
+<tr><td><strong>Presentism</strong></td><td>Only present things</td><td>Yes — the present is all of reality</td><td>A-theory</td></tr>
+<tr><td><strong>Eternalism</strong></td><td>All times and their contents, equally</td><td>No</td><td>B-theory (usually)</td></tr>
+<tr><td><strong>Growing block</strong></td><td>Past and present things; not future</td><td>Yes — the "growing edge"</td><td>A-theory</td></tr>
+<tr><td><strong>Moving spotlight</strong></td><td>All times exist; one is objectively <em>present</em></td><td>Yes — the moving "light"</td><td>A-theory</td></tr>
+</tbody></table>
+</div>
+<ul>
+<li><strong>Presentism.</strong> Only what exists <em>now</em> exists at all. Dinosaurs do not exist (they <em>did</em>); Mars colonies do not exist (they <em>will</em>, perhaps). Reality is a single momentary slice, continually replaced. This is the most natural, "common-sense" view and the paradigm A-theory: the present is not just privileged but exhaustive.</li>
+<li><strong>Eternalism.</strong> All times are equally real; past, present, and future events all <em>exist</em> tenselessly, differing only in their temporal location, just as distant places exist though they are not <em>here</em>. Reality is a four-dimensional <a href="../relativity/block-universe.html">block</a>, and "now" picks out one's own temporal position, nothing metaphysically special. This is the natural home of the B-theory and of <a href="./persistence.html">four-dimensional persistence</a>.</li>
+<li><strong>Growing block</strong> (C. D. Broad). The past and present are real and the future is not; reality is a block that <em>grows</em> as time passes, accreting new slices at the objective present, which is its leading edge. It combines the eternalist's real past with the A-theorist's open future and objective becoming.</li>
+<li><strong>Moving spotlight.</strong> All times exist (as in eternalism), but <em>one</em> of them is, in addition, objectively and monadically <strong>present</strong> — as if a spotlight of presentness moves along the fixed block, illuminating each moment in turn. It grafts a real, moving A-series present onto a permanent B-series block.</li>
+</ul>
+<h2 id="the-case-for-each--and-the-objections"><a class="header" href="#the-case-for-each--and-the-objections">The case for each — and the objections</a></h2>
+<h3 id="presentism"><a class="header" href="#presentism">Presentism</a></h3>
+<p><em>For:</em> It respects common sense and the manifest reality of change; it takes the <a href="./passage-and-experience.html">experience of passage</a> at face value; it keeps the future genuinely open, which suits <a href="../../freewill/introduction.html">libertarian free will</a>. It has an elegant, minimal ontology — one slice.</p>
+<p><em>Against:</em></p>
+<ul>
+<li><strong>The truthmaker problem.</strong> "There were dinosaurs" is true. What <em>makes</em> it true, if the past does not exist? There are no dinosaurs, and (for the presentist) no past facts, to serve as truthmakers. Presentists respond with present-tense surrogates — presently existing properties of the world ("Lucretian" past-tense properties), "ersatz" abstract times, or a primitive tensed operator — each of which critics find ad hoc or ontologically cheating.</li>
+<li><strong>Cross-temporal relations.</strong> Abraham Lincoln is <em>admired by</em> people now; a cause is <em>earlier than</em> its effect. Such relations seem to need <em>both</em> relata to exist. If Lincoln does not exist, what is the relation to?</li>
+<li><strong>The relativity objection (decisive, for many).</strong> Presentism needs a global, frame-independent <strong>present</strong> — a worldwide "now." But <a href="../../../physics/SR/kinematics.html">special relativity</a> denies exactly this: simultaneity is frame-relative, so there is no observer-independent set of events that are "present." The <a href="../relativity/simultaneity.html">Rietdijk–Putnam argument</a> turns this into a case against presentism and for eternalism. Presentists must either relativise existence to frames, shrink the present to a single point (point-presentism), or adopt a controversial <a href="../relativity/simultaneity.html">neo-Lorentzian</a> preferred foliation.</li>
+</ul>
+<h3 id="eternalism"><a class="header" href="#eternalism">Eternalism</a></h3>
+<p><em>For:</em> It fits <a href="../relativity/block-universe.html">relativity</a> effortlessly — no privileged present is needed, and the <a href="../relativity/block-universe.html">block universe</a> is its natural picture. It solves the truthmaker and cross-temporal-relation problems trivially, since past and future relata exist. It meshes with <a href="./persistence.html">four-dimensionalism</a> about objects.</p>
+<p><em>Against:</em></p>
+<ul>
+<li><strong>The loss of passage.</strong> If all times are equally real and nothing is objectively present, then time does not <em>flow</em> and our sense that it does is an illusion — which many find incredible (the "moving now" seems undeniable). The eternalist must supply a <a href="./passage-and-experience.html">deflationary account of temporal experience</a>.</li>
+<li><strong>The "why now?" and the openness of the future.</strong> Eternalism seems to make the future as fixed as the past, straining the sense that the future is open and our deliberation efficacious (a worry connected to <a href="../../freewill/introduction.html">fatalism</a>, though eternalists deny it entails fatalism).</li>
+</ul>
+<h3 id="growing-block"><a class="header" href="#growing-block">Growing block</a></h3>
+<p><em>For:</em> A principled compromise — a real, determinate past (good for truthmakers) plus an open future and genuine becoming (good for the A-theory).</p>
+<p><em>Against:</em> The <strong>"how do you know you're present?"</strong> (dead past) objection: if past moments are just as real as the present one, and each <em>was</em> the growing edge, why think <em>this</em> moment is the current edge rather than some long-dead slice that is equally real and equally "feels" present? The view seems to undercut our confidence that we are at the leading edge. It also inherits the <a href="../relativity/simultaneity.html">relativity</a> problem, since the growing edge is a global present.</p>
+<h3 id="moving-spotlight"><a class="header" href="#moving-spotlight">Moving spotlight</a></h3>
+<p><em>For:</em> Keeps the eternalist's tidy block <em>and</em> an objective, moving present, honouring both physics-friendly ontology and the reality of passage.</p>
+<p><em>Against:</em> It looks like the worst of both worlds to critics: it posits a moving present whose motion faces the <a href="./passage-and-experience.html">rate-of-passage regress</a>, yet the underlying block already contains everything, so the "spotlight" seems to do no work — an idle metaphysical extra. Like the others in its family, it needs a global present that <a href="../relativity/simultaneity.html">relativity</a> resists.</p>
+<h2 id="the-two-questions-kept-apart"><a class="header" href="#the-two-questions-kept-apart">The two questions kept apart</a></h2>
+<p>It bears repeating that the <strong>A/B</strong> question and the <strong>presentism/eternalism</strong> question are distinct axes:</p>
+<ul>
+<li>Presentism, growing block, and moving spotlight are all <strong>A-theories</strong> (they posit an objective present) but differ sharply in <em>ontology</em> (one slice / a growing block / a full block with a spotlight).</li>
+<li>Eternalism is the standard <strong>B-theory</strong> ontology, but one can in principle be an eternalist who still thinks tense is primitive — the positions are not perfectly locked together, which is why the debates are run separately.</li>
+</ul>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>The presentism/eternalism dispute is the <em>ontological</em> face of the <a href="../introduction.html">temporal question</a>, layered on top of the <a href="./a-theory-b-theory.html">tense debate</a> and inheriting <a href="./mctaggart.html">McTaggart's</a> framing. Its outcome is powerfully shaped by physics: the <a href="../relativity/simultaneity.html">relativity of simultaneity</a> and the <a href="../relativity/block-universe.html">block universe</a> tilt the field toward eternalism, while the intuition of <a href="./passage-and-experience.html">passage</a> and the <a href="../../freewill/introduction.html">openness of the future</a> pull back toward presentism. Which times exist also settles how objects <em>persist</em> through them — the subject of the <a href="./persistence.html">endurantism/perdurantism</a> page. The next page confronts the phenomenon all four views must reckon with: the apparent <em>passage</em> of time.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/spacetime/time/a-theory-b-theory.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/spacetime/time/passage-and-experience.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/spacetime/time/a-theory-b-theory.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/spacetime/time/passage-and-experience.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

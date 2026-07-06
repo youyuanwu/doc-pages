@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>A History of the Philosophy of Space and Time - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/spacetime/context/history.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="a-history-of-the-philosophy-of-space-and-time"><a class="header" href="#a-history-of-the-philosophy-of-space-and-time">A History of the Philosophy of Space and Time</a></h1>
+<p>The philosophy of space and time is among the oldest branches of philosophy and one of the few in which genuine, cumulative progress is visible — driven, uniquely, by the interplay of <em>a priori</em> argument and <em>empirical</em> physics. This page traces the narrative thread that the topical pages develop analytically: from Zeno's paradoxes through the Newton–Leibniz confrontation and Kant's synthesis, to the twin nineteenth-century revolutions (non-Euclidean geometry and thermodynamics) and the twentieth-century transformation by relativity and quantum theory. It is a reference companion to the <a href="../introduction.html">introduction</a> and the <a href="./figures.html">key figures</a> page.</p>
+<hr />
+<h2 id="antiquity-the-continuum-place-and-the-void"><a class="header" href="#antiquity-the-continuum-place-and-the-void">Antiquity: the continuum, place, and the void</a></h2>
+<ul>
+<li><strong>The Eleatics.</strong> <strong>Parmenides</strong> argued that reality is one, unchanging, and timeless; his pupil <strong><a href="../space/zeno-and-the-continuum.html">Zeno</a></strong> (c. 450 BCE) defended this with the paradoxes of motion and plurality, the first rigorous arguments about the structure of the <a href="../space/zeno-and-the-continuum.html">continuum</a> and the coherence of motion — problems not fully resolved until the modern theory of <a href="../../../math/analysis/real-numbers.html">limits and the real numbers</a>.</li>
+<li><strong>The atomists.</strong> <strong>Leucippus</strong> and <strong>Democritus</strong> posited atoms moving in the <strong>void</strong> — an early <em>substantival</em> empty space, and the first clear affirmation that "nothing" (empty space) can be as real as "something."</li>
+<li><strong>Aristotle.</strong> In the <em>Physics</em> and <em>De Caelo</em>, Aristotle <em>denied the void</em>, held that place is the inner boundary of the containing body (a <em>relational</em> notion), argued that space has exactly <a href="../space/dimensionality.html">three dimensions</a>, and defined <strong>time as "the number of motion with respect to before and after"</strong> — a relational, change-dependent conception of time that anticipates <a href="../ontology/leibniz-clarke.html">Leibniz</a> and <a href="../ontology/machs-principle.html">Barbour</a>, and that dominated for two millennia.</li>
+</ul>
+<h2 id="the-medieval-debates-infinity-and-the-void"><a class="header" href="#the-medieval-debates-infinity-and-the-void">The medieval debates: infinity and the void</a></h2>
+<p>Medieval philosophers, absorbing Aristotle through Islamic and Christian commentary, pressed hard on the infinite and the void. <strong>Philoponus</strong> and later the Islamic <em>kalām</em> tradition (<strong>al-Ghazālī</strong>) argued that an infinite past is impossible and hence that the world <em>began</em> — the ancestor of the <a href="../../religion/arguments/cosmological.html">kalām cosmological argument</a> and a theme in <a href="../physics/cosmology.html">Kant's first antinomy</a>. <strong>Augustine</strong> had already argued (<em>Confessions</em> XI) that God created time <em>with</em> the world, so there was no "before" creation — the classic statement that time may have a <em>boundary</em> rather than an infinite prior extension, recovered in modern <a href="../physics/cosmology.html">cosmology</a>. Debates over whether God could create a vacuum, or move the cosmos in a straight line (which presupposes absolute space), kept the <a href="../substantivalism-relationism.html">substantival–relational</a> question alive.</p>
+<h2 id="the-scientific-revolution-newton-against-leibniz"><a class="header" href="#the-scientific-revolution-newton-against-leibniz">The scientific revolution: Newton against Leibniz</a></h2>
+<p>The decisive confrontation came with the birth of modern physics:</p>
+<ul>
+<li><strong>Newton</strong> (<em>Principia</em>, 1687) argued in the <em>Scholium</em> that mechanics requires <strong><a href="../ontology/absolute-vs-relational.html">absolute space and time</a></strong> — a fixed container against which true motion is defined — and defended it with the <a href="../ontology/newtons-bucket.html">rotating-bucket</a> argument: inertial effects reveal absolute rotation.</li>
+<li><strong>Leibniz</strong>, in the <a href="../ontology/leibniz-clarke.html">1715–16 correspondence with Clarke</a>, countered that space and time are merely <strong>relational</strong> — the orders of coexistence and succession — deploying the <strong>Principle of Sufficient Reason</strong> and the <strong>Identity of Indiscernibles</strong> against the container. The exchange defined the <a href="../substantivalism-relationism.html">ontological question</a> for all subsequent work.</li>
+</ul>
+<h2 id="kant-the-transcendental-turn"><a class="header" href="#kant-the-transcendental-turn">Kant: the transcendental turn</a></h2>
+<p><strong>Immanuel Kant</strong> sought to transcend the dispute. In the <em>Critique of Pure Reason</em> (1781), space and time are neither substances (Newton) nor relations among things-in-themselves (Leibniz) but the <strong>a priori forms of intuition</strong> — the mind's own framework for ordering experience. This grounded geometry as <strong><a href="../space/epistemology-of-geometry.html">synthetic a priori</a></strong> knowledge (specifically Euclidean), and generated the <strong><a href="../physics/cosmology.html">antinomies</a></strong> about whether the world is finite or infinite in space and time. Kant's earlier argument from <strong><a href="../space/dimensionality.html">incongruent counterparts</a></strong> (1768) had leaned toward Newton; his mature view made both antagonists describe mere appearances.</p>
+<h2 id="the-nineteenth-century-two-revolutions"><a class="header" href="#the-nineteenth-century-two-revolutions">The nineteenth century: two revolutions</a></h2>
+<p>Two developments dismantled the classical picture:</p>
+<ul>
+<li><strong>Non-Euclidean geometry.</strong> <strong>Gauss, Bolyai, Lobachevsky</strong>, and <strong><a href="../space/epistemology-of-geometry.html">Riemann</a></strong> showed that consistent geometries other than Euclid's exist, refuting the <em>necessity</em> of Euclidean space and reopening the geometry of physical space as an <em>empirical</em> question. Riemann's theory of <a href="../../../math/topology-manifolds.html">curved manifolds</a> supplied the mathematics general relativity would need. <strong>Helmholtz</strong> and <strong><a href="../space/conventionalism.html">Poincaré</a></strong> debated whether the choice of geometry was empirical or <strong>conventional</strong>.</li>
+<li><strong>Thermodynamics.</strong> The Second Law and <strong><a href="../physics/thermodynamic-arrow.html">Boltzmann's</a></strong> statistical mechanics posed the puzzle of the <a href="../time/arrow-of-time.html">arrow of time</a>: how a time-<em>asymmetric</em> macroscopic law arises from time-<em>symmetric</em> microdynamics — met by <strong>Loschmidt's</strong> and <strong>Zermelo's</strong> reversibility and recurrence objections, and eventually by the <a href="../physics/thermodynamic-arrow.html">Past Hypothesis</a>.</li>
+</ul>
+<p>At the century's turn, <strong><a href="../time/mctaggart.html">McTaggart</a></strong> (1908) introduced the <strong><a href="../time/a-theory-b-theory.html">A-series and B-series</a></strong> and argued for the <em>unreality of time</em> — giving the metaphysics of time its permanent vocabulary.</p>
+<h2 id="the-twentieth-century-relativity-and-quantum-theory"><a class="header" href="#the-twentieth-century-relativity-and-quantum-theory">The twentieth century: relativity and quantum theory</a></h2>
+<p>Physics now took the lead:</p>
+<ul>
+<li><strong>Special relativity</strong> (Einstein, 1905; <strong><a href="../relativity/block-universe.html">Minkowski</a></strong>, 1908) abolished absolute simultaneity, fused space and time into <strong><a href="../../../physics/SR/spacetime.html">spacetime</a></strong>, and suggested the <strong><a href="../relativity/block-universe.html">block universe</a></strong> — sharpened into the <a href="../relativity/simultaneity.html">Rietdijk–Putnam argument</a> against <a href="../time/presentism-eternalism.html">presentism</a> by <strong>Putnam</strong> (1967).</li>
+<li><strong>General relativity</strong> (Einstein, 1915) made spacetime <strong><a href="../relativity/general-relativity.html">dynamical</a></strong>, vindicated geometric empiricism, and — via the <strong><a href="../ontology/hole-argument.html">hole argument</a></strong> (Einstein 1913; <strong>Earman and Norton</strong>, 1987) — recast the substantivalism debate. <strong><a href="../time/time-travel.html">Gödel</a></strong> (1949) found solutions with closed timelike curves and argued from them against objective temporal passage.</li>
+<li><strong>Philosophical foundations.</strong> <strong><a href="../relativity/conventionality.html">Reichenbach</a></strong> (<em>The Philosophy of Space and Time</em>, 1928) and <strong>Grünbaum</strong> developed conventionalism about <a href="../space/conventionalism.html">geometry</a> and <a href="../relativity/conventionality.html">simultaneity</a>; <strong>Grünbaum, Reichenbach, and later Horwich and Price</strong> analysed the <a href="../time/arrow-of-time.html">arrow of time</a>. <strong>Malament</strong> (1977) proved standard simultaneity non-conventional. <strong>Mellor</strong> and <strong>Smart</strong> built the "new <a href="../time/a-theory-b-theory.html">B-theory</a>"; <strong>Prior</strong> founded tense logic and defended the <a href="../time/a-theory-b-theory.html">A-theory</a>. <strong>Lewis</strong> (1976) gave the classic analysis of <a href="../time/time-travel.html">time travel</a> and defended <a href="../time/persistence.html">perdurantism</a>.</li>
+<li><strong>The frontier.</strong> The <a href="../physics/problem-of-time.html">problem of time</a> in canonical quantum gravity (the <strong><a href="../physics/problem-of-time.html">Wheeler–DeWitt</a></strong> equation) and <strong><a href="../ontology/machs-principle.html">Barbour's</a></strong> timeless, relational physics carried the debate to the present, where the very existence of fundamental time is in question.</li>
+</ul>
+<h2 id="the-shape-of-the-history"><a class="header" href="#the-shape-of-the-history">The shape of the history</a></h2>
+<p>Two features stand out. First, the <strong>questions are ancient but the answers cumulative</strong>: Zeno's continuum, Aristotle's relational time, and the Newton–Leibniz container debate are still live, but they have been <em>transformed</em> — not merely repeated — by real analysis, thermodynamics, and relativity. Second, the field is a standing refutation of any clean separation between <em>a priori metaphysics</em> and <em>empirical science</em>: Kant's a priori geometry fell to a mathematical discovery and a physical theory; Leibniz's relationism was vindicated in part and refuted in part by physics; presentism was thrown into crisis by a result about light. The <a href="./method.html">method</a> page draws the moral.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>This history is the narrative spine of the <a href="../introduction.html">introduction's</a> three questions: the <a href="../substantivalism-relationism.html">ontological</a> thread runs Democritus → Aristotle → Newton/Leibniz → the <a href="../ontology/hole-argument.html">hole argument</a>; the <a href="../nature-of-time.html">temporal</a> thread runs Aristotle → Augustine → McTaggart → the <a href="../relativity/block-universe.html">block universe</a> → the <a href="../physics/problem-of-time.html">problem of time</a>; the <a href="../space-and-geometry.html">geometric</a> thread runs Zeno → Kant → non-Euclidean geometry → <a href="../relativity/general-relativity.html">general relativity</a>. The <a href="./figures.html">figures</a> page provides capsule profiles of the contributors, and the <a href="./method.html">method</a> page reflects on how a priori and empirical inquiry combine.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/spacetime/physics/cosmology.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/spacetime/context/method.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/spacetime/physics/cosmology.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/spacetime/context/method.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>
