@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Method and Relation to Philosophy of Physics - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/03-spacetime/10-context/02-method.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="method-and-relation-to-philosophy-of-physics"><a class="header" href="#method-and-relation-to-philosophy-of-physics">Method and Relation to Philosophy of Physics</a></h1>
+<p>The philosophy of space and time is methodologically distinctive. Unlike much of metaphysics, it cannot be conducted from the armchair alone — a theory of time that contradicts relativity, or of the continuum that ignores real analysis, is simply not a live option. Yet unlike physics, it is not settled by measurement — no experiment decides whether spacetime is a <a href="../02-substantivalism-relationism.html">substance or a relation</a>, or whether the <a href="../06-time/04-passage-and-experience.html">passage of time</a> is real. The field lives in the tension between the <em>a priori</em> and the <em>empirical</em>, and its central methodological problem is exactly how to combine them: <strong>how much metaphysics can legitimately be read off a physical theory?</strong> This page reflects on that problem, on the underdetermination it generates, and on structural realism as the mediating position that has emerged from it.</p>
+<p>It is a companion to the <a href="../01-introduction.html">introduction</a> and draws together methodological threads from across the section.</p>
+<hr />
+<h2 id="two-failed-extremes"><a class="header" href="#two-failed-extremes">Two failed extremes</a></h2>
+<p>The history of the field (<a href="01-history.html">recounted here</a>) is littered with the wreckage of two opposite methodological mistakes:</p>
+<ul>
+<li><strong>Pure a priori metaphysics.</strong> Kant held the geometry of space to be <a href="../07-space/02-epistemology-of-geometry.html">synthetic a priori</a> — knowable by reason, necessarily Euclidean. A mathematical discovery (non-Euclidean geometry) and a physical theory (<a href="../08-relativity/03-general-relativity.html">general relativity</a>) refuted him. The lesson: the structure of space and time is not legislated by pure reason; claims of a priori necessity about them have a poor track record.</li>
+<li><strong>Naïve empiricism / operationalism.</strong> The opposite error is to think physics simply <em>hands us</em> the metaphysics — that we can read ontology directly off the equations, or (operationalism) that spatiotemporal concepts <em>mean</em> nothing more than the operations used to measure them. But the <em>same</em> formalism admits <a href="../02-substantivalism-relationism.html">substantival and relational readings</a>, <a href="../06-time/02-a-theory-b-theory.html">tensed and tenseless readings</a>; physics constrains but does not <em>dictate</em> the interpretation. And strict operationalism collapses under the <a href="../08-relativity/04-conventionality.html">conventionality</a> problems it was meant to solve — the "operations" (rigid rods, synchronized clocks) themselves presuppose spatiotemporal facts.</li>
+</ul>
+<p>The field's mature method rejects both: physics is an <em>indispensable constraint</em> on the metaphysics, but the metaphysics is <em>underdetermined</em> by the physics and requires further, broadly philosophical, principles to fix.</p>
+<h2 id="underdetermination-and-the-theory-ladenness-of-what-the-physics-says"><a class="header" href="#underdetermination-and-the-theory-ladenness-of-what-the-physics-says">Underdetermination and the theory-ladenness of "what the physics says"</a></h2>
+<p>The recurring obstacle is <strong>underdetermination</strong>: empirically equivalent theories or interpretations that differ metaphysically.</p>
+<ul>
+<li><strong>The Duhem–Quine problem.</strong> No hypothesis confronts experience alone; geometry is tested only in conjunction with a physics (the engine of <a href="../07-space/03-conventionalism.html">geometric conventionalism</a>), and simultaneity only relative to a synchronization convention (the <a href="../08-relativity/04-conventionality.html">conventionality of simultaneity</a>). A recalcitrant result can always be accommodated by adjusting the auxiliary assumptions rather than the target claim.</li>
+<li><strong>Interpretational underdetermination.</strong> <a href="../08-relativity/01-simultaneity.html">Special relativity</a> can be read à la Einstein (no preferred frame, <a href="../08-relativity/02-block-universe.html">block universe</a>) or à la Lorentz (a real but hidden preferred foliation) — empirically identical, metaphysically opposed. The <a href="../05-ontology/05-hole-argument.html">hole argument</a> shows <a href="../08-relativity/03-general-relativity.html">general relativity</a> admits substantival, relational, and structural readings of the <em>same</em> models.</li>
+</ul>
+<p>The decisive methodological move — associated with <strong>Reichenbach</strong>, <strong>Grünbaum</strong>, and their critics <strong>Friedman</strong> and <strong>Earman</strong> — is to deny that underdetermination makes everything conventional. Empirically equivalent theories are <em>not</em> on a par if one is grotesquely less simple, posits undetectable entities (universal forces, hidden frames), or sacrifices unification. The <strong>same standards of theory choice that operate everywhere in science</strong> — simplicity, unification, absence of idle posits — break the ties, and they deliver <em>substantive</em>, if fallible, verdicts: curved geometry over Euclidean-plus-universal-forces, standard simultaneity over arbitrary ε (secured by <a href="../08-relativity/04-conventionality.html">Malament's theorem</a>), the block universe over a hidden ether frame. Underdetermination is real but rarely <em>symmetric</em>; the conventionalist's error is to treat "empirically equivalent" as "equally good."</p>
+<h2 id="symmetry-gauge-and-reading-ontology-off-a-theory"><a class="header" href="#symmetry-gauge-and-reading-ontology-off-a-theory">Symmetry, gauge, and reading ontology off a theory</a></h2>
+<p>A powerful and characteristically modern method is to <strong>read ontology off the symmetries</strong> of a theory. The guiding principle: <em>what is physically real should be invariant under the theory's symmetries; what varies under them is "surplus" descriptive structure, not physical fact.</em></p>
+<ul>
+<li>Absolute velocity is <em>not</em> invariant under <a href="../../../physics/01-SR/07-group/01-lorentz-poincare.html">Galilean/Lorentz boosts</a>, so it is not physically real — vindicating <a href="../05-ontology/02-leibniz-clarke.html">Leibniz against Newton</a> on uniform motion. Absolute <em>acceleration</em> <em>is</em> invariant, so it is real — vindicating <a href="../05-ontology/03-newtons-bucket.html">Newton's bucket</a>.</li>
+<li>The <a href="../05-ontology/05-hole-argument.html">hole argument</a> is exactly this method applied to <strong>diffeomorphism invariance</strong>: since diffeomorphic models are related by a symmetry, the differences between them (which point bears which metric value) are surplus, not physical — pushing toward the view that individual spacetime points are not genuine physical individuals.</li>
+</ul>
+<p>This "symmetry-to-ontology" inference is the field's most productive tool, but it is not automatic: deciding <em>which</em> transformations are genuine symmetries (gauge) versus physical changes is itself an interpretive, philosophical judgment — precisely the judgment that separates the <a href="../02-substantivalism-relationism.html">substantivalist from the relationist</a>.</p>
+<h2 id="structural-realism-the-mediating-position"><a class="header" href="#structural-realism-the-mediating-position">Structural realism: the mediating position</a></h2>
+<p>Out of these pressures a middle position has crystallised, now perhaps the mainstream in philosophy of physics: <strong>structural realism</strong> about spacetime. Its claim: what our best theories reliably tell us about is the <strong>structure</strong> — the invariant pattern of geometric, causal, and metric <em>relations</em> — rather than either an underlying <em>substance</em> or the <em>intrinsic natures/identities</em> of individual points or objects.</p>
+<ul>
+<li>It dissolves the <a href="../02-substantivalism-relationism.html">substantivalism–relationism</a> dichotomy: there is real spatiotemporal structure (against pure relationism reducing it to bodies), but it is not carried by self-identifying substantival points (against manifold substantivalism, per the <a href="../05-ontology/05-hole-argument.html">hole argument</a>).</li>
+<li>It fits the <strong>symmetry method</strong>: structure is what is invariant; the surplus is what symmetries quotient away.</li>
+<li>It coheres with the <a href="../09-physics/02-problem-of-time.html">problem of time</a>, where causal or relational <em>structure</em> is increasingly taken as fundamental and metric time as emergent.</li>
+</ul>
+<p>Structural realism is not without difficulties (can there be relations without relata? is "structure" well enough defined?), but it exemplifies the field's method at its best: a metaphysical position <em>forced</em> by taking the physics seriously, yet going beyond what the physics literally states — constrained by science, completed by philosophy.</p>
+<h2 id="the-traffic-with-general-metaphysics"><a class="header" href="#the-traffic-with-general-metaphysics">The traffic with general metaphysics</a></h2>
+<p>Finally, the philosophy of space and time both <em>borrows from</em> and <em>disciplines</em> general metaphysics. It borrows the tools — theories of <a href="../06-time/06-persistence.html">persistence</a>, truthmaking, laws, modality, causation. But it <em>disciplines</em> them by subjecting them to a hard external constraint that most of metaphysics lacks: a metaphysics of persistence must square with <a href="../08-relativity/02-block-universe.html">relativity</a>; a theory of the open future must survive the <a href="../08-relativity/01-simultaneity.html">relativity of simultaneity</a>; a doctrine of the continuum must fit <a href="../07-space/01-zeno-and-the-continuum.html">real analysis</a>. This is the field's methodological gift to metaphysics generally — a rare arena where armchair theses can actually be <em>tested</em>, if only indirectly, against the world.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>This page makes explicit the method presupposed throughout the section: physics as an indispensable but non-dictating constraint, underdetermination broken by the ordinary standards of theory choice, ontology read (cautiously) off symmetries, and structural realism as the resulting middle way. It underlies the verdicts reached on the <a href="../02-substantivalism-relationism.html">ontological</a>, <a href="../03-nature-of-time.html">temporal</a>, and <a href="../04-space-and-geometry.html">geometric</a> questions alike, and it explains why the field has made real progress where much of metaphysics has not. The <a href="01-history.html">history</a> page supplies the narrative, and the <a href="03-figures.html">figures</a> page the cast.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/03-spacetime/10-context/01-history.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/03-spacetime/10-context/03-figures.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/03-spacetime/10-context/01-history.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/03-spacetime/10-context/03-figures.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

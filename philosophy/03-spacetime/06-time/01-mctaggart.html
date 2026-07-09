@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>McTaggart&#x27;s Argument for the Unreality of Time - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/03-spacetime/06-time/01-mctaggart.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="mctaggarts-argument-for-the-unreality-of-time"><a class="header" href="#mctaggarts-argument-for-the-unreality-of-time">McTaggart's Argument for the Unreality of Time</a></h1>
+<p>Every modern debate about the <a href="../03-nature-of-time.html">nature of time</a> traces back to a single short paper: <strong>J. M. E. McTaggart's</strong> "The Unreality of Time" (1908), expanded in <em>The Nature of Existence</em> (1927). McTaggart argued, astonishingly, that <strong>time is unreal</strong> — that nothing really is past, present, or future, and nothing really changes. Almost no one accepts the conclusion. But the argument's <em>machinery</em> — its distinction between two ways of ordering events in time — became the permanent vocabulary of the field, and the dilemma it poses still forces every theory of time to declare itself. To understand the <a href="02-a-theory-b-theory.html">A-theory and the B-theory</a>, <a href="03-presentism-eternalism.html">presentism and eternalism</a>, and the debate over <a href="04-passage-and-experience.html">passage</a>, one must start here.</p>
+<hr />
+<h2 id="the-a-series-the-b-series-and-the-c-series"><a class="header" href="#the-a-series-the-b-series-and-the-c-series">The A-series, the B-series, and the C-series</a></h2>
+<p>McTaggart observed that events in time can be arranged in two fundamentally different ways.</p>
+<ul>
+<li>The <strong>A-series</strong> orders events by their <em>tensed</em> position relative to the present: an event is <strong>future</strong>, then <strong>present</strong>, then <strong>past</strong>, receding ever further into pastness. These are monadic, one-place properties — being past <em>simpliciter</em> — and they <em>change</em>: the same event that is now present was future and will be past. The A-series is the series "running from the far past through the near past to the present, and then from the present through the near future to the far future."</li>
+<li>The <strong>B-series</strong> orders events by <em>tenseless</em> relations of <strong>earlier than</strong> and <strong>later than</strong>. These are two-place relations, and they are <em>permanent</em>: if the death of Queen Anne is earlier than the coronation of Elizabeth II, it always was and always will be earlier; that relation never changes.</li>
+</ul>
+<p>He added a third, the <strong>C-series</strong>: the bare ordering of events in a sequence, with no direction and no time — like beads on a string that fix an order (this bead between those two) but not which end is "first." The C-series has <em>order</em> but not <em>change</em> or <em>direction</em>.</p>
+<h2 id="the-argument-in-two-steps"><a class="header" href="#the-argument-in-two-steps">The argument in two steps</a></h2>
+<p>McTaggart's argument that time is unreal has a positive and a negative half.</p>
+<p><strong>Step 1: Time essentially involves the A-series.</strong> Time, McTaggart insists, essentially involves <strong>change</strong>. But where is the change? Consider any event — the death of Queen Anne. Its B-series relations never alter: it is eternally later than the Great Fire and earlier than the French Revolution. Its intrinsic character never alters. The <em>only</em> thing that changes about it is its <strong>A-series position</strong>: it was future, became present, and is now ever more past. So change is possible <em>only</em> through the A-series; the B-series alone gives a static ordering (in effect, only a C-series with a direction imposed). Hence <strong>without the A-series there is no change, and without change no time.</strong> The A-series is essential to time.</p>
+<p><strong>Step 2: The A-series is contradictory.</strong> But the A-series, McTaggart argues, cannot be real, because the A-properties are <strong>mutually incompatible</strong> yet must all be possessed by every event. Past, present, and future are exclusive: no event can be all three at once. Yet every event <em>is</em> all three — the death of Queen Anne is past <em>now</em>, but it <em>was</em> present, and <em>was</em> (earlier still) future. So each event has incompatible properties.</p>
+<p>The natural reply: it does not have them <em>at once</em>; it is future, <em>then</em> present, <em>then</em> past — at different times. McTaggart's rejoinder is that this reply generates a <strong>vicious regress</strong>. To say the event "is present, was future, and will be past" is to invoke a <em>second</em> A-series — the tenses of the tenses — and to specify <em>those</em> we need moments (past moments at which it is present, etc.). But those second-order tenses face exactly the same problem: each moment-of-time is itself past, present, and future, and so on without end. At every level the incompatibility recurs and the fix presupposes what it was meant to explain. The A-series can never be coherently constituted.</p>
+<p><strong>Conclusion.</strong> Time requires the A-series (Step 1); the A-series is self-contradictory (Step 2); therefore time is unreal. What is real is at most the directionless <strong>C-series</strong>, an ordering our minds mistakenly experience as a flowing time.</p>
+<h2 id="the-structure-of-the-dilemma"><a class="header" href="#the-structure-of-the-dilemma">The structure of the dilemma</a></h2>
+<p>The lasting power of the paper is that it presents later theorists with a <strong>forced choice</strong>, since almost everyone rejects the conclusion:</p>
+<div class="table-wrapper"><table><thead><tr><th>To escape McTaggart you must deny…</th><th>…which makes you a(n)</th><th>Cost you accept</th></tr></thead><tbody>
+<tr><td><strong>Step 2</strong> (the A-series is contradictory)</td><td><strong>A-theorist</strong></td><td>Must answer the regress: explain how an event can be past, present, and future without incoherence.</td></tr>
+<tr><td><strong>Step 1</strong> (time requires the A-series)</td><td><strong>B-theorist</strong></td><td>Must explain <em>change</em> and <em>time</em> using only tenseless earlier/later relations, and explain away our sense of passage.</td></tr>
+</tbody></table>
+</div>
+<p>This is exactly the fork developed on the <a href="02-a-theory-b-theory.html">A-theory / B-theory</a> page. The A-theorist typically holds that the "contradiction" is an artifact of trying to state tensed facts in a tenseless metalanguage: <em>at present</em>, the event is present and not past, full stop — there is no moment at which it has incompatible tenses, so no contradiction. The B-theorist accepts Step 2 but rejects Step 1, arguing (with Russell) that change can be analysed tenselessly — a poker is hot at <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7651em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and cold at <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7651em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, and that <em>is</em> change, requiring no A-series at all.</p>
+<h2 id="why-it-still-matters"><a class="header" href="#why-it-still-matters">Why it still matters</a></h2>
+<p>McTaggart's own idealist conclusion (that reality is a timeless C-series of perceptions) died with his system. What survived is threefold:</p>
+<ol>
+<li><strong>The vocabulary.</strong> "A-series" and "B-series," "A-theory" and "B-theory," are now the standard names for the tensed/tenseless divide — the single most useful distinction in the philosophy of time.</li>
+<li><strong>The challenge to the A-theorist.</strong> The regress in Step 2 is a genuine and lasting problem: any theory that posits objective, changing tense owes an account of how the tenses relate without vicious regress or hidden circularity. Modern A-theories (presentism, the moving spotlight) are in part <em>responses</em> to McTaggart.</li>
+<li><strong>The challenge to the B-theorist.</strong> Step 1 puts the burden on the B-theorist to show that a tenseless world genuinely contains <em>change and time</em> rather than a mere frozen ordering — the "loss of passage" worry that recurs in the <a href="04-passage-and-experience.html">passage</a> and <a href="../08-relativity/02-block-universe.html">block universe</a> debates.</li>
+</ol>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>McTaggart's argument is the historical and conceptual gateway to the <a href="../01-introduction.html">temporal question</a> — the second of the section's <a href="../03-nature-of-time.html">three master questions</a>. It manufactures the A/B distinction that the <a href="02-a-theory-b-theory.html">A-theory / B-theory</a> page develops, sets the agenda for <a href="03-presentism-eternalism.html">presentism and eternalism</a> (which are ways of being an A- or B-theorist about <em>ontology</em>), and frames the <a href="04-passage-and-experience.html">passage</a> debate over whether time really flows. The next page takes up the fork McTaggart forced: the tensed A-theory against the tenseless B-theory.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/03-spacetime/05-ontology/06-supersubstantivalism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/03-spacetime/06-time/02-a-theory-b-theory.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/03-spacetime/05-ontology/06-supersubstantivalism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/03-spacetime/06-time/02-a-theory-b-theory.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

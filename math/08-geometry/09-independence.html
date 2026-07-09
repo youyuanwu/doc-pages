@@ -1,0 +1,420 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Relative Consistency and Independence - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/math/08-geometry/09-independence.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="relative-consistency-and-independence"><a class="header" href="#relative-consistency-and-independence">Relative Consistency and Independence</a></h1>
+<p>This page draws the logical moral of the whole <a href="00-README.html#a-synthetic-euclidean-geometry">synthetic half of the
+spine</a>. The <a href="08-models.html">models</a> of
+<a href="06-hyperbolic-geometry.html">hyperbolic geometry</a> are not merely convenient
+pictures: they are a <strong>proof</strong>, in the strict metamathematical sense, that the
+<a href="03-parallel-postulate.html">parallel postulate</a> can be neither proved nor disproved
+from Euclid's other axioms. This is the definitive end of the two-thousand-year
+program described in <a href="05-discovery-history.html">discovery-history.md</a>, and it is a
+clean early instance of the <em>model-theoretic method</em> for proving <strong>independence</strong> —
+the same method that governs the <a href="../../logic/06-set-theory-zfc.html">independence results in logic and set
+theory</a>.</p>
+<p>References: Greenberg, <em>Euclidean and Non-Euclidean Geometries</em>, ch. 7; Hilbert,
+<em>Grundlagen der Geometrie</em>; Nagel &amp; Newman, <em>Gödel's Proof</em> (for the general
+consistency-via-models idea); Bonola, <em>Non-Euclidean Geometry</em>.</p>
+<h2 id="1-relative-consistency"><a class="header" href="#1-relative-consistency">1. Relative Consistency</a></h2>
+<p>A theory is <strong>consistent</strong> if no contradiction can be derived from its axioms.
+Absolute consistency proofs are rarely available; what models give is
+<strong>relative</strong> consistency — a reduction of one theory's consistency to another's.</p>
+<blockquote>
+<p><strong>Relative Consistency Theorem.</strong> If Euclidean geometry (equivalently, the theory
+of the <a href="../04-analysis/01-real-numbers.html">real numbers</a>) is consistent, then
+hyperbolic geometry is consistent.</p>
+</blockquote>
+<p><em>Proof.</em> Suppose hyperbolic geometry were <strong>inconsistent</strong> — that some statement
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">φ</span></span></span></span> and its negation <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord">¬</span><span class="mord mathnormal">φ</span></span></span></span> were both provable from the hyperbolic
+axioms. Take any <a href="08-models.html">model</a>, say the Poincaré disk. In the model every
+hyperbolic axiom is a <em>true theorem of Euclidean geometry</em> (each "point," "line,"
+and "congruence" is a defined Euclidean object, and the axioms translate into
+provable Euclidean facts). A proof is just a finite chain of logical inferences, so
+translating the hyperbolic derivation of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.75em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">φ</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord">¬</span><span class="mord mathnormal">φ</span></span></span></span> through the
+dictionary produces a Euclidean derivation of the <em>translated</em> contradiction
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8831em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">φ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6887em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8831em;vertical-align:-0.1944em;"></span><span class="mord">¬</span><span class="mord"><span class="mord mathnormal">φ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6887em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span>. Thus Euclidean geometry would be inconsistent
+too. Contrapositively: if Euclidean geometry is consistent, so is hyperbolic
+geometry. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.675em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord amsrm">■</span></span></span></span></p>
+<p>The identical argument, run on the <a href="07-elliptic-geometry.html">sphere</a> sitting inside
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span></span></span>, gives the relative consistency of elliptic geometry. And since
+Hilbert modeled Euclidean geometry itself inside the real numbers (the Cartesian
+plane <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>), all three classical geometries stand or fall with the
+consistency of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord mathbb">R</span></span></span></span>:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">Con</span></span><span class="mopen">(</span><span class="mord mathbb">R</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">Con</span></span><span class="mopen">(</span><span class="mord text"><span class="mord">Euclidean</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mord mathrm">Con</span></span><span class="mopen">(</span><span class="mord text"><span class="mord">hyperbolic</span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mord mathrm">Con</span></span><span class="mopen">(</span><span class="mord text"><span class="mord">elliptic</span></span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<h2 id="2-from-consistency-to-independence"><a class="header" href="#2-from-consistency-to-independence">2. From Consistency to Independence</a></h2>
+<p>Consistency of the <em>denial</em> of an axiom is exactly what it takes to prove that
+axiom <strong>independent</strong>.</p>
+<blockquote>
+<p><strong>Independence of the Parallel Postulate.</strong> The parallel postulate is
+<strong>independent</strong> of the neutral axioms (Hilbert's Groups I–III + V): it can be
+neither proved nor disproved from them.</p>
+</blockquote>
+<p><em>Proof.</em> Two models do the work:</p>
+<ul>
+<li><strong>Not provable.</strong> The Poincaré disk (or any <a href="08-models.html">hyperbolic model</a>)
+satisfies all the neutral axioms <em>and</em> the negation of the parallel postulate. If
+the postulate were provable from the neutral axioms, it would hold in every model
+of them — but here it fails. So it is <strong>not provable</strong>.</li>
+<li><strong>Not disprovable.</strong> The ordinary Euclidean plane <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> satisfies all the
+neutral axioms <em>and</em> the parallel postulate. If the postulate were <em>disprovable</em>
+(i.e. its negation provable) from the neutral axioms, its negation would hold in
+every model — but here the postulate itself holds. So it is <strong>not disprovable</strong>.</li>
+</ul>
+<p>Having exhibited a model of neutral-geometry-plus-postulate and another of
+neutral-geometry-plus-negation, the postulate is logically independent of the
+neutral core. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.675em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord amsrm">■</span></span></span></span></p>
+<p>This is the precise, final answer to the ancient question "can the fifth postulate
+be proved from the other four?" — <strong>No</strong>, and the proof is a pair of models. The
+centuries of failed <a href="03-parallel-postulate.html#3-the-two-thousand-year-failure">proof attempts</a>
+were doomed not by insufficient cleverness but by a theorem.</p>
+<h2 id="3-the-general-method-independence-via-models"><a class="header" href="#3-the-general-method-independence-via-models">3. The General Method: Independence via Models</a></h2>
+<p>The structure of the argument is completely general and worth isolating, because it
+recurs throughout foundations:</p>
+<blockquote>
+<p><strong>Model method for independence.</strong> To show a statement <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> is independent of an
+axiom system <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal">A</span></span></span></span>, exhibit</p>
+<ul>
+<li>a model of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mclose">}</span></span></span></span> (so <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathcal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mrel">⊢</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span>), and</li>
+<li>a model of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mclose">}</span></span></span></span> (so <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathcal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mrel">⊢</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span>).</li>
+</ul>
+</blockquote>
+<p>Hyperbolic geometry was the <strong>first great success</strong> of this method — historically
+prior to, and a template for, its most famous later applications:</p>
+<ul>
+<li>The independence of the <strong>Axiom of Choice</strong> and the <strong>Continuum Hypothesis</strong> from
+<a href="../../logic/06-set-theory-zfc.html">ZFC</a> (Gödel's constructible universe <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span> and
+Cohen's forcing supply the two models) — see the
+<a href="../../logic/06-set-theory-zfc.html">set-theory</a> page and the remark on <a href="../../logic/11-remarks/04-justifying-con-zfc.html">what
+justifies Con(ZFC)</a>.</li>
+<li>The independence of the <strong>parallel postulate</strong> is the geometric ancestor of all
+such results: replace "ZFC" by "neutral geometry" and "CH" by "the parallel
+postulate."</li>
+</ul>
+<p>The connection to <a href="../../logic/07-model-theory.html">model theory</a> is exact: a model is
+an interpretation making the axioms true, and <em>"<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathcal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mrel">⊢</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span>"</em> is
+established by producing a model of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mclose">}</span></span></span></span> — the soundness
+direction of the completeness theorem.</p>
+<h2 id="4-what-independence-does-not-say"><a class="header" href="#4-what-independence-does-not-say">4. What Independence Does Not Say</a></h2>
+<p>Two cautions keep the result in proportion.</p>
+<ul>
+<li><strong>Independence is not "meaninglessness."</strong> That the postulate is independent does
+not make it arbitrary or contentless. Each choice yields a rich, specific
+geometry; the choice is settled <em>empirically</em> for physical space (by measuring
+curvature), not by logic. This is the hinge into the <a href="../../philosophy/03-spacetime/04-space-and-geometry.html">philosophy of
+geometry</a>: the
+<a href="../../philosophy/03-spacetime/07-space/03-conventionalism.html">conventionalist</a> reads the
+choice as a matter of stipulation, the empiricist as a matter of fact about the
+world — but <em>neither</em> reads it as provable a priori. General relativity later made
+it a measurable, dynamical field.</li>
+<li><strong>Relative, not absolute.</strong> The proof reduces hyperbolic consistency to Euclidean
+(hence real-number) consistency; it does not prove the real numbers consistent
+from nothing. By <a href="../../logic/10-topics/01-godel-incompleteness.html">Gödel's second incompleteness
+theorem</a> no sufficiently strong
+theory can prove its own consistency, so an absolute proof is not to be had. The
+geometry is exactly as safe as arithmetic — which is safe enough for every working
+purpose, and no safer.</li>
+</ul>
+<h2 id="5-geometry-and-model-theory"><a class="header" href="#5-geometry-and-model-theory">5. Geometry and Model Theory</a></h2>
+<p>The independence proof is one point of contact between geometry and
+<a href="../../logic/07-model-theory.html">model theory</a> — the study of the relationship between
+formal theories and the structures that satisfy them. The connection runs deeper
+than this single result, and it is worth collecting the threads, because geometry
+is both the <em>founding example</em> of the model method and one of its richest modern
+subjects.</p>
+<ul>
+<li><strong>Models as independence proofs (this page).</strong> The argument of §2–3 is exactly
+the model-theoretic method: to show a statement independent of a theory,
+<a href="../../logic/07-model-theory.html">exhibit two models</a>. It is the <em>soundness</em>
+direction of the completeness theorem, and hyperbolic geometry is its historical
+prototype — prior to and a template for the <a href="../../logic/06-set-theory-zfc.html">ZFC</a>
+independence results.</li>
+<li><strong>Elementary geometry is a decidable first-order theory (Tarski).</strong> First-order
+Euclidean geometry, in <a href="01-euclid-axioms.html#5-tarskis-first-order-geometry-aside">Tarski's axiomatization</a>,
+is <strong>complete and decidable</strong> via <strong>quantifier elimination for real closed
+fields</strong> — the landmark recorded under
+<a href="../../logic/07-model-theory.html#56-quantifier-elimination-and-definability">quantifier elimination and definability</a>.
+"Elementary plane geometry" and "the first-order theory of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathbb">R</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">+</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">⋅</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mclose">)</span></span></span></span>" are, model-theoretically, essentially the <em>same object</em> — the
+coordinatization worked out in full on the <a href="10-coordinatization.html">next page</a>.
+Lacking a
+first-order definition of "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> times," geometry cannot encode <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord mathbb">N</span></span></span></span> and so
+escapes the <a href="../../logic/10-topics/01-godel-incompleteness.html">Gödel incompleteness</a>
+that governs arithmetic.</li>
+<li><strong>Categoricity needs second-order logic.</strong> Hilbert's axioms determine the
+Euclidean plane <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> <em>uniquely</em> only through their second-order
+<a href="01-euclid-axioms.html#4-hilberts-axioms-1899">continuity axiom (Group V)</a>. By
+<a href="../../logic/07-model-theory.html#67-categoricity-and-counting-models">Löwenheim–Skolem and the failure of first-order
+categoricity</a>,
+the first-order theory has <strong>non-standard models</strong> — including non-Archimedean
+ones with infinitesimal segments, the same phenomenon that yields the hyperreals
+of <a href="../07-nonstandard/00-README.html">non-standard analysis</a>.</li>
+<li><strong>The Cayley–Klein construction is a model-theoretic interpretation.</strong> Building
+hyperbolic geometry inside projective / real-field geometry by fixing an
+<a href="16-projective-geometry.html#4-the-cayleyklein-construction">absolute conic</a> is a
+<em>definable interpretation</em> of one structure in another — the general mechanism by
+which relative-consistency transfers, and what turns the
+<a href="08-models.html#2-the-beltramiklein-projective-model">Beltrami–Klein model</a> into a
+proof rather than a picture.</li>
+<li><strong>O-minimality: tame geometry as model theory.</strong> The real field is <strong>o-minimal</strong>
+(see <a href="../../logic/07-model-theory.html#56-quantifier-elimination-and-definability">model-theory.md</a>),
+meaning definable subsets of the line are just finite unions of points and
+intervals. O-minimality is essentially a model-theoretic axiomatization of
+<em>geometric finiteness</em> (Grothendieck's "tame topology"), with definable sets
+admitting cell decompositions and finitely many components.</li>
+<li><strong>Projective geometry recovered intrinsically.</strong> In classification theory the
+algebraic-closure operator on a <em>strongly minimal</em> set forms a combinatorial
+geometry (pregeometry); the <strong>Zilber trichotomy</strong> forces it to be trivial,
+affine/<a href="16-projective-geometry.html">projective</a> over a division ring, or the
+geometry of an algebraically closed field — a modern echo of the classical
+<a href="16-projective-geometry.html#5-classical-theorems">coordinatization theorems</a> in
+which Desargues and Pappus recover the coordinate ring.</li>
+</ul>
+<p>In one line: <strong>model theory studies the theory ↔ structure relationship, and
+geometry supplies both its founding example (the parallel-postulate independence
+proof) and one of its deepest ongoing subjects (real closed fields, o-minimality,
+tame geometry).</strong></p>
+<h2 id="6-summary"><a class="header" href="#6-summary">6. Summary</a></h2>
+<p>The <a href="08-models.html">models</a> convert the synthetic strangeness of the <a href="06-hyperbolic-geometry.html">hyperbolic
+plane</a> into a rigorous consistency proof; consistency of
+the denial converts into <strong>independence</strong> of the parallel postulate; and the
+independence argument is the prototype of the model method used across
+<a href="../../logic/00-README.html">logic</a>. With this the <em>synthetic and logical</em> story is
+complete. The <a href="00-README.html#d-the-metric--riemannian-synthesis">remaining pages</a>
+change register from axioms to <strong>metrics</strong>, recasting all three geometries as the
+constant-curvature cases of Riemann's differential geometry — where the parallel
+postulate reappears, quantitatively, as the single equation <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../math/08-geometry/08-models.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../math/08-geometry/10-coordinatization.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../math/08-geometry/08-models.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../math/08-geometry/10-coordinatization.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

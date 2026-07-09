@@ -1,0 +1,268 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Space, Geometry, and Structure - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/03-spacetime/04-space-and-geometry.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="space-geometry-and-structure"><a class="header" href="#space-geometry-and-structure">Space, Geometry, and Structure</a></h1>
+<p>The third of the section's <a href="01-introduction.html">master questions</a> is at once metaphysical and epistemic: what is the <em>geometry</em> of space, and how do we know it? For two millennia the answer seemed obvious. Space is Euclidean; its truths — that the angles of a triangle sum to two right angles, that through a point not on a line there is exactly one parallel — are certain, necessary, and known without experiment. Kant made this the model of <em>synthetic a priori</em> knowledge. Then, within a century, non-Euclidean geometries were discovered to be consistent, general relativity found that physical space is <em>not</em> Euclidean, and the certainty collapsed. What replaced it is a subtle three-cornered dispute between the a priori, the empirical, and the conventional.</p>
+<p>This page states the problem and the options; the <a href="07-space/02-epistemology-of-geometry.html">space</a> subfolder develops them — the <a href="07-space/02-epistemology-of-geometry.html">epistemology of geometry</a>, <a href="07-space/03-conventionalism.html">conventionalism</a>, <a href="07-space/01-zeno-and-the-continuum.html">Zeno's paradoxes and the continuum</a>, and <a href="07-space/04-dimensionality.html">dimensionality</a>.</p>
+<hr />
+<h2 id="three-questions-about-geometry"><a class="header" href="#three-questions-about-geometry">Three questions about geometry</a></h2>
+<p>It helps to separate what often runs together:</p>
+<ul>
+<li><strong>The mathematical question</strong> — <em>which</em> geometries are consistent? Answer (nineteenth century): infinitely many. Euclid's fifth postulate is independent of the others; deny it and you get the consistent non-Euclidean geometries of Gauss, Bolyai, Lobachevsky (constant negative curvature) and Riemann (positive curvature). Consistency is settled and no longer philosophically contested.</li>
+<li><strong>The physical question</strong> — which geometry does <em>actual space</em> (or spacetime) have? This is now understood to be <strong>empirical and contingent</strong>: <a href="08-relativity/03-general-relativity.html">general relativity</a> makes the metric a dynamical field determined by the distribution of matter and energy, so the geometry varies from place to place and must be <em>measured</em>, not deduced.</li>
+<li><strong>The epistemic question</strong> — what is the <em>status</em> of our geometrical knowledge? A priori (Kant), empirical (the post-relativity consensus), or partly <strong>conventional</strong> (Poincaré, Reichenbach)? This is where the philosophy lives, and it is the subject of the <a href="07-space/02-epistemology-of-geometry.html">epistemology of geometry</a>.</li>
+</ul>
+<h2 id="from-kants-a-priori-to-the-empirical-turn"><a class="header" href="#from-kants-a-priori-to-the-empirical-turn">From Kant's a priori to the empirical turn</a></h2>
+<p><strong>Kant</strong> held that space is the <em>a priori form of outer intuition</em> — not a thing we perceive but the framework within which all perception of outer objects is possible. Geometry, on this view, describes the necessary structure of that framework: it is <em>synthetic</em> (its truths are not mere definitions) yet <em>a priori</em> (known independently of experience) and <em>necessary</em> (it could not have been otherwise). This elegantly explained geometry's apparent certainty and its applicability to the world.</p>
+<p>The discovery of consistent <strong>non-Euclidean geometries</strong> undermined the <em>necessity</em>: if other geometries are coherent, Euclid's is not forced by reason alone. And <strong>general relativity</strong> undermined the <em>truth</em> of the specific claim: physical spacetime is curved, and its geometry is Euclidean only approximately and locally. Kant's account could not survive both blows intact. The natural successor is <strong>geometric empiricism</strong> — the geometry of space is a matter of fact, discovered by measurement (of light paths, of the sum of angles of large triangles, of the deflection of starlight) like any other physical quantity. This is developed on the <a href="07-space/02-epistemology-of-geometry.html">epistemology of geometry</a> page, and it depends on the machinery of <a href="../../math/03-topology-manifolds.html">manifolds and curvature</a>.</p>
+<h2 id="the-conventionalist-challenge"><a class="header" href="#the-conventionalist-challenge">The conventionalist challenge</a></h2>
+<p>Empiricism is not the end of the story, because of a problem <strong>Poincaré</strong> pressed: we never measure geometry <em>directly</em>. Every test uses physical objects — rigid rods, light rays, clocks — and every such object obeys physical laws. So what a measurement confronts is always the <em>conjunction</em> of a geometry and a physics; a discrepant result can be accommodated by adjusting either. Poincaré concluded that the choice of geometry is a <strong>convention</strong>: we could always retain Euclidean geometry by postulating suitable <em>forces</em> that distort our rods and rays, or adopt a curved geometry with no such forces. No experiment decides between these; we choose on grounds of simplicity.</p>
+<p><strong>Reichenbach</strong> sharpened this with the notion of a <strong>coordinative definition</strong>: before geometry can be tested, we must <em>stipulate</em> which physical process counts as "rigid transport" or a "straight line" (a "universal force," by definition undetectable, can always be posited to rescue a preferred geometry). Only <em>relative</em> to such a stipulation does "space is Euclidean" acquire a truth value. <strong>Grünbaum</strong> radicalised the point: the continuum of space is <em>intrinsically metrically amorphous</em> — a continuum of points has no built-in distances, so the metric must always be imposed from outside, making an ineliminable element of convention. The realist reply — that simplicity and the unity of physics single out one geometry as <em>the</em> correct one, not merely the convenient one — is weighed on the <a href="07-space/03-conventionalism.html">conventionalism</a> page.</p>
+<div class="table-wrapper"><table><thead><tr><th>Position</th><th>Status of "physical space is Euclidean"</th></tr></thead><tbody>
+<tr><td><strong>Kantian a priori</strong></td><td>Necessary, synthetic, known independently of experience</td></tr>
+<tr><td><strong>Geometric empiricism</strong></td><td>Contingent, false (space is curved), known by measurement</td></tr>
+<tr><td><strong>Conventionalism</strong></td><td>Neither true nor false until a coordinative definition is fixed; then partly stipulated</td></tr>
+</tbody></table>
+</div>
+<h2 id="the-structure-of-the-continuum"><a class="header" href="#the-structure-of-the-continuum">The structure of the continuum</a></h2>
+<p>Beneath the question of <em>which</em> geometry lies an older one about the <em>nature of extension itself</em>: is space continuous, composed of dimensionless points densely packed, and if so how can a finite length be made of parts with no length? These are <strong>Zeno's paradoxes</strong> — Achilles and the tortoise, the Dichotomy, the Arrow, the Stadium — which challenge the very coherence of a continuum of points and of motion through it. The standard modern resolution appeals to the <a href="../../math/04-analysis/01-real-numbers.html">real numbers and completeness</a>, the theory of limits, and measure theory; an alternative treats the continuum with <a href="../../math/07-nonstandard/00-README.html">infinitesimals</a>. Both, and the related puzzle of <strong>supertasks</strong> (completing infinitely many steps), are developed on the <a href="07-space/01-zeno-and-the-continuum.html">Zeno and the continuum</a> page.</p>
+<h2 id="dimensionality-and-global-structure"><a class="header" href="#dimensionality-and-global-structure">Dimensionality and global structure</a></h2>
+<p>Finally, space has features beyond its local metric: its <strong>dimensionality</strong> (why three?), its <strong>topology</strong> (is it finite or infinite, orientable or not?), and its <strong>handedness</strong>. Kant's puzzle of the <strong>incongruent counterparts</strong> — a left and a right hand are perfect mirror images yet cannot be superimposed — was one of his arguments that space is more than the relations among its contents, and it bears directly on the <a href="02-substantivalism-relationism.html">substantivalism debate</a>. These are taken up on the <a href="07-space/04-dimensionality.html">dimensionality</a> page.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>The status of geometry is the <strong>geometric/epistemic</strong> question of the <a href="01-introduction.html">three</a>, and it is bound to the other two. It meets the <strong>ontological</strong> question because a <a href="02-substantivalism-relationism.html">substantivalist</a> reads geometry off a real substance while a relationist reads it off possible arrangements of matter, and because Kant's <a href="07-space/04-dimensionality.html">incongruent counterparts</a> were meant to prove space substantival. It meets the <strong>temporal</strong> question because relativity fuses space and time into a single geometrical object, so that the <a href="08-relativity/03-general-relativity.html">status of spatial geometry</a> and the <a href="03-nature-of-time.html">structure of time</a> become facets of one metric field. The next pages develop the strands, beginning with the <a href="07-space/02-epistemology-of-geometry.html">epistemology of geometry</a> — how the a priori gave way to the empirical and the conventional.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/03-spacetime/03-nature-of-time.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/03-spacetime/05-ontology/01-absolute-vs-relational.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/03-spacetime/03-nature-of-time.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/03-spacetime/05-ontology/01-absolute-vs-relational.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

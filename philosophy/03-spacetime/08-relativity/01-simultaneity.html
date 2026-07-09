@@ -1,0 +1,275 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Relativity and the Reality of Simultaneity - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/03-spacetime/08-relativity/01-simultaneity.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="relativity-and-the-reality-of-simultaneity"><a class="header" href="#relativity-and-the-reality-of-simultaneity">Relativity and the Reality of Simultaneity</a></h1>
+<p>The deepest philosophical lesson of <strong>special relativity</strong> is not time dilation or length contraction but the <strong>relativity of simultaneity</strong>: whether two spatially separated events happen "at the same time" is not an absolute fact but depends on the inertial frame of reference. There is no observer-independent, worldwide "now." This single result, established in the <a href="../../../physics/01-SR/04-kinematics.html">kinematics of special relativity</a>, collides head-on with the metaphysics of time, because the <a href="../06-time/02-a-theory-b-theory.html">A-theory</a> — and especially <a href="../06-time/03-presentism-eternalism.html">presentism</a> and the <a href="../06-time/03-presentism-eternalism.html">growing block</a> — <em>requires</em> an objective, global present. If relativity leaves no room for such a present, then the tenseless <a href="02-block-universe.html">block universe</a> looks not merely defensible but forced. The argument that draws this conclusion is the <strong>Rietdijk–Putnam–Penrose argument</strong>, and it is the clearest instance in this book of a physical result reshaping a metaphysical debate.</p>
+<p>This page presents the physics of simultaneity, the argument against presentism, and the A-theorist's replies; it presupposes the <a href="../../../physics/01-SR/04-kinematics.html">relativity of simultaneity</a> and connects to the <a href="02-block-universe.html">block universe</a>.</p>
+<hr />
+<h2 id="the-physics-no-absolute-simultaneity"><a class="header" href="#the-physics-no-absolute-simultaneity">The physics: no absolute simultaneity</a></h2>
+<p>In pre-relativistic physics, simultaneity is absolute: all observers agree on which events are "now," and the present is a well-defined global slice of the world. Special relativity destroys this. Because the speed of light is the same in every inertial frame, observers in relative motion <strong>disagree about which distant events are simultaneous</strong>. Two events that are simultaneous in my frame are, in the frame of an observer moving relative to me, one <em>before</em> the other — and there is no fact that privileges either verdict. The <a href="../../../physics/01-SR/03-lorentz-transformations.html">Lorentz transformations</a> mix space and time: a "moment of time" in one frame is a tilted slice in another.</p>
+<p>Geometrically (developed on the <a href="02-block-universe.html">block universe</a> and <a href="../../../physics/01-SR/02-spacetime.html">spacetime</a> pages), each inertial observer slices <a href="../../../physics/01-SR/02-spacetime.html">Minkowski spacetime</a> into "planes of simultaneity" — but the <em>tilt</em> of these planes depends on the observer's velocity. There is no preferred slicing. The only frame-invariant temporal structure is the <strong>light-cone</strong> (causal) structure: whether one event can causally influence another, i.e. whether they are timelike, lightlike, or spacelike separated. For <strong>spacelike-separated</strong> events — those outside each other's light cones — there is <em>no frame-independent fact</em> about their time order at all: some frames put <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> first, some <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> first, some make them simultaneous.</p>
+<h2 id="the-rietdijkputnam-argument-against-presentism"><a class="header" href="#the-rietdijkputnam-argument-against-presentism">The Rietdijk–Putnam argument against presentism</a></h2>
+<p><strong>Hilary Putnam</strong> (1967) and, independently, <strong>C. W. Rietdijk</strong>, turned this into an argument for eternalism. The reasoning:</p>
+<ol>
+<li><strong>Presentism (and the A-theory generally) requires a unique, observer-independent set of events that are <em>present</em> — real <em>now</em> — dividing the settled past from the unreal/open future.</strong></li>
+<li>Take the relation "is real-as-of," and assume it is not relative to a frame (presentism is a thesis about <em>what exists</em>, and existence should not depend on one's velocity) and that it is roughly transitive across observers.</li>
+<li>Consider me and a distant event <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>, spacelike separated from me, and an observer passing me at high velocity. In <em>my</em> frame <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> may be present (real). But the moving observer's plane of simultaneity through <em>my</em> location tilts to include events I regard as <em>future</em>. Chaining "real-as-of" relations across observers who momentarily coincide, one can argue that events I count as <em>future</em> are "real-as-of" me — so the future is as real as the present.</li>
+<li>Generalising: since simultaneity slices tilt arbitrarily with velocity, <em>every</em> event that is spacelike separated from me — spread across what I would call past, present, and future — gets drawn into the domain of the real.</li>
+<li><strong>Therefore all events are equally real: eternalism and the <a href="02-block-universe.html">block universe</a> hold, and presentism is false.</strong></li>
+</ol>
+<p>Roger Penrose dramatised the tilt with the <strong>Andromeda paradox</strong>: two people walking past each other on Earth, at ordinary walking speeds, have planes of simultaneity through the Andromeda galaxy (millions of light-years away) that differ by <em>days</em> — so that events one counts as "already decided" (an invasion fleet has launched) the other counts as "not yet decided." Since walking one way rather than the other cannot make an interstellar event real or unreal, the notion of an objective, extended "now" looks untenable.</p>
+<h2 id="the-a-theorists-replies"><a class="header" href="#the-a-theorists-replies">The A-theorist's replies</a></h2>
+<p>The argument is powerful but not decisive; A-theorists and presentists have developed several responses:</p>
+<ul>
+<li><strong>Relativise existence to frames.</strong> Deny premise (2): let "real-as-of" be frame-relative, so that what is present/real is indexed to an inertial frame. The cost is a radical relativisation of <em>existence itself</em> — what exists depends on one's state of motion — which many find metaphysically intolerable (existence seems not the sort of thing that should be frame-relative), but which some (e.g. relativised presentists) accept.</li>
+<li><strong>Point-presentism (the here-now).</strong> Shrink the present from a global slice to a single <em>spacetime point</em> — only the "here-now" is real. This is frame-invariant (a point is a point in every frame) and so evades the tilt, but at the price of <strong>solipsism of the present moment</strong>: reality collapses to a single event, with even the rest of "my now" unreal. Few embrace it.</li>
+<li><strong>Neo-Lorentzian interpretation.</strong> Accept a <strong>privileged foliation</strong> — a real, objective global "now" and absolute simultaneity — that is <em>empirically undetectable</em> because the dynamics (Lorentz-invariant laws, length contraction, and clock retardation) conspire to hide it. This reproduces all the predictions of special relativity while restoring a metaphysically preferred present, reviving Lorentz's own interpretation over Einstein's. It is favoured by some presentists (and independently motivated by certain interpretations of <a href="../../../physics/03-QM/00-README.html">quantum non-locality</a>, which seem to want a preferred frame). The cost is positing structure that no experiment can reveal — an "ether frame" in all but name — which most philosophers of physics reject as violating the same scruples that killed <a href="../05-ontology/01-absolute-vs-relational.html">absolute space</a>.</li>
+<li><strong>Deny the argument's ontological premises.</strong> Some (e.g. Stein) argue that Putnam illegitimately assumes "real-as-of" is a <em>non-relative</em> relation; within relativity the natural notion of "what is determinate as-of a point" is exactly the past light cone, which <em>is</em> frame-invariant. On this reading relativity does not entail eternalism <em>tout court</em> but a <em>causal</em>, point-relative notion of becoming — a genuinely relativistic A-theory-friendly middle position.</li>
+</ul>
+<div class="table-wrapper"><table><thead><tr><th>Reply</th><th>Keeps objective present?</th><th>Cost</th></tr></thead><tbody>
+<tr><td>Frame-relative existence</td><td>Yes, per frame</td><td>Existence becomes velocity-dependent</td></tr>
+<tr><td>Point-presentism</td><td>Yes, at a point</td><td>Solipsism of the here-now</td></tr>
+<tr><td>Neo-Lorentzian foliation</td><td>Yes, global</td><td>Empirically hidden preferred frame</td></tr>
+<tr><td>Stein / causal becoming</td><td>Partly (point-relative)</td><td>Gives up a <em>global</em> present</td></tr>
+</tbody></table>
+</div>
+<h2 id="where-this-leaves-the-debate"><a class="header" href="#where-this-leaves-the-debate">Where this leaves the debate</a></h2>
+<p>The consensus among philosophers of physics leans toward <strong>eternalism and the <a href="02-block-universe.html">block universe</a></strong>: the tenseless four-dimensional whole is the ontology that fits special relativity most naturally, without undetectable extra structure. But the argument is not a proof. It shows that a <em>global, frame-independent present</em> — the thing presentism and the growing block need — has no place in the <em>standard</em> interpretation of relativity, so that saving the A-theory requires either relativising existence, shrinking the present to a point, or positing a hidden preferred frame. Each is coherent; each is costly. The dispute is thus not settled by fiat but <em>forced into the open</em>: the price of an objective present, in a relativistic world, is now explicit.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>The reality of simultaneity is where the <a href="../01-introduction.html">temporal question</a> meets physics most sharply — the <a href="../06-time/03-presentism-eternalism.html">presentism/eternalism</a> and <a href="../06-time/02-a-theory-b-theory.html">A/B-theory</a> debates are decided here, or at least priced here. It rests entirely on the <a href="../../../physics/01-SR/04-kinematics.html">relativity of simultaneity</a> and the <a href="../../../physics/01-SR/03-lorentz-transformations.html">Lorentz transformations</a>, and it leads directly to the <a href="02-block-universe.html">block universe</a>, the four-dimensional ontology that the next page develops. It also reaches back to the <a href="../../01-freewill/01-introduction.html">openness of the future</a>: if the block is real, the sense in which the future is "open" must be reconstrued.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/03-spacetime/07-space/04-dimensionality.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/03-spacetime/08-relativity/02-block-universe.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/03-spacetime/07-space/04-dimensionality.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/03-spacetime/08-relativity/02-block-universe.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

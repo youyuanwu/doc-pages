@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Arrow of Time and Thermodynamics - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/03-spacetime/09-physics/01-thermodynamic-arrow.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-arrow-of-time-and-thermodynamics"><a class="header" href="#the-arrow-of-time-and-thermodynamics">The Arrow of Time and Thermodynamics</a></h1>
+<p>The <a href="../06-time/05-arrow-of-time.html">direction of time</a> page argued that the various arrows — psychological, causal, radiative — plausibly reduce to the <strong>thermodynamic</strong> arrow: the lawlike increase of entropy toward the future codified in the <strong>Second Law of Thermodynamics</strong>. This page examines that master arrow directly. Its puzzle is acute, because the Second Law is <em>not</em> like the other laws of physics: the fundamental dynamics are <strong>time-symmetric</strong>, yet the Second Law is flagrantly time-<em>asymmetric</em>. Reconciling the two — explaining how an irreversible macroscopic law emerges from reversible microscopic ones — is one of the central problems in the foundations of physics, and its resolution reaches all the way to the <a href="03-cosmology.html">initial conditions of the universe</a>.</p>
+<p>This page develops Boltzmann's statistical account, the reversibility and recurrence objections, and the Past Hypothesis; it deepens the <a href="../06-time/05-arrow-of-time.html">arrow of time</a> discussion.</p>
+<hr />
+<h2 id="the-second-law-and-the-puzzle"><a class="header" href="#the-second-law-and-the-puzzle">The Second Law and the puzzle</a></h2>
+<p>The <strong>Second Law</strong> states that the entropy of a closed system never decreases and typically increases until it reaches a maximum (equilibrium). Ice melts in warm water, gases diffuse to fill their containers, heat flows from hot to cold, ordered structures decay — and never the reverse, spontaneously. Entropy <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> supplies a physical directionality: the future is the direction of higher entropy.</p>
+<p>The puzzle is that the <strong>microscopic laws</strong> governing the molecules — Newtonian mechanics, or quantum mechanics — are <strong>time-reversal invariant</strong>. For every process they permit, they permit its temporal reverse. If a film of colliding molecules is run backward, every collision still obeys the laws. So how can a <em>reversible</em> microdynamics give rise to an <em>irreversible</em> macroscopic law? Why is there any arrow at all, when the underlying physics has none?</p>
+<h2 id="boltzmanns-statistical-mechanics"><a class="header" href="#boltzmanns-statistical-mechanics">Boltzmann's statistical mechanics</a></h2>
+<p><strong>Ludwig Boltzmann's</strong> answer (1870s) was to reconceive entropy <em>statistically</em>. The key distinction is between a system's <strong>microstate</strong> — the exact positions and momenta of all its molecules — and its <strong>macrostate</strong> — its coarse-grained description (temperature, pressure, volume). Many microstates realise the same macrostate, and Boltzmann's entropy measures <em>how many</em>:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0315em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">ln</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mpunct">,</span></span></span></span></span></p>
+<p>where <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span> is the number (the phase-space volume) of microstates compatible with the given macrostate, and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0315em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is Boltzmann's constant. High-entropy macrostates (equilibrium, uniform mixtures) correspond to <em>vastly</em> larger regions of phase space than low-entropy ones (all the gas in one corner). There are overwhelmingly more ways to be "spread out" than "concentrated."</p>
+<p>The Second Law then becomes a <strong>statistical</strong> truth. A system in a low-entropy macrostate, evolving under the dynamics, will <em>almost certainly</em> wander into higher-entropy macrostates, simply because those occupy incomparably more of the available phase space — the system is far more likely to move toward the huge equilibrium region than to stay in the tiny low-entropy one. Entropy increase is not a strict law but an overwhelming probability. This is a profound reconception: irreversibility is not built into the dynamics but emerges from the <em>statistics of large numbers</em> of reversible parts.</p>
+<h2 id="two-objections-reversibility-and-recurrence"><a class="header" href="#two-objections-reversibility-and-recurrence">Two objections: reversibility and recurrence</a></h2>
+<p>Boltzmann's contemporaries raised two objections that remain the crux of the problem.</p>
+<ul>
+<li><strong>Loschmidt's reversibility objection (Umkehreinwand).</strong> Because the microdynamics is time-symmetric, the statistical argument is symmetric too. If a system in a non-equilibrium macrostate is highly likely to have <em>higher</em> entropy in the future, then by exactly the same reasoning it is highly likely to have had <em>higher</em> entropy in the <em>past</em> — because the phase-space majority argument runs in both temporal directions. So Boltzmann's statistics predicts, for any given moment, that entropy was higher a moment ago and will be higher a moment hence: a "dip" at the present. This is manifestly <em>not</em> what we observe — the past had <em>lower</em> entropy (that is why there are records, eggs, and stars). The statistical argument alone gets the past catastrophically wrong; it cannot, by itself, explain the arrow.</li>
+<li><strong>Zermelo's recurrence objection (Wiederkehreinwand).</strong> By the <strong>Poincaré recurrence theorem</strong>, a bounded mechanical system will, given enough time, return arbitrarily close to any earlier state — including its initial low-entropy state. So entropy cannot increase <em>monotonically</em> forever; it must eventually decrease to return. Strict, permanent irreversibility is incompatible with the mechanics. (Boltzmann's reply: the recurrence times for macroscopic systems are astronomically longer than the age of the universe — so recurrence is real in principle but irrelevant in practice. This blunts Zermelo but not Loschmidt.)</li>
+</ul>
+<p>Loschmidt's objection is the deep one: it shows that <strong>no purely dynamical or statistical argument, symmetric in time, can explain a temporally asymmetric arrow.</strong> The asymmetry must be <em>input</em>, not derived — and the only place to put it is the <strong>boundary conditions</strong>.</p>
+<h2 id="the-past-hypothesis"><a class="header" href="#the-past-hypothesis">The Past Hypothesis</a></h2>
+<p>The resolution, latent in Boltzmann and made explicit by modern authors (Feynman, and in philosophy <strong>David Albert</strong> and <strong>Huw Price</strong>), is to break the temporal symmetry by <em>stipulating a special initial condition</em>: the universe <strong>began in an extraordinarily low-entropy macrostate</strong>. Albert calls this the <strong>Past Hypothesis</strong>. Given it, the statistical argument is allowed to run <em>only toward the future</em>: starting from the improbably ordered early universe, entropy has increased ever since, in the only direction available — and Loschmidt's "entropy was higher in the past" branch is simply blocked by the boundary condition. The past is low-entropy not by dynamics but by <em>initial fact</em>.</p>
+<p>The Past Hypothesis is remarkably powerful. Combined with statistical mechanics, it grounds:</p>
+<ul>
+<li>the <strong>thermodynamic</strong> arrow (entropy rises because it started so low);</li>
+<li>the <strong><a href="../06-time/04-passage-and-experience.html">psychological/epistemic</a></strong> arrow (records and memories are low-entropy traces, possible only against the entropy gradient — which is why memory, and hence the <a href="../06-time/04-passage-and-experience.html">felt passage of time</a>, runs past-to-future);</li>
+<li>the <strong>causal</strong> arrow and Reichenbach's fork asymmetry;</li>
+<li>ultimately, all the arrows of the <a href="../06-time/05-arrow-of-time.html">direction of time</a>.</li>
+</ul>
+<p>The whole asymmetry of time, on this account, traces to a single cosmological fact about one end of the universe.</p>
+<h2 id="the-residual-mystery-why-so-low"><a class="header" href="#the-residual-mystery-why-so-low">The residual mystery: why so low?</a></h2>
+<p>The Past Hypothesis explains the arrow but raises a new and harder question: <strong>why</strong> was the early universe in such an <em>staggeringly improbable</em> low-entropy state? Penrose has estimated the required fine-tuning as one part in <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9869em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9869em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight"><span class="mord mtight">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.931em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">123</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span> — an ordered initial condition of almost inconceivable specialness. Possible responses, none decisive:</p>
+<ul>
+<li>Take it as a <strong>brute initial fact</strong> — a fundamental law-like boundary condition needing no further explanation (Callender argues the demand for an explanation may be misplaced).</li>
+<li>Seek a <strong>dynamical or cosmological explanation</strong> — inflationary cosmology, or hypotheses about the quantum state of the early universe, that would make a low-entropy start <em>likely</em> or <em>necessary</em>.</li>
+<li>Appeal to <strong>selection effects</strong> across a <a href="03-cosmology.html">multiverse</a>, or to Boltzmann's own (ultimately self-undermining) fluctuation hypothesis — critiqued via the "<strong>Boltzmann brain</strong>" problem, on the <a href="03-cosmology.html">cosmology</a> page.</li>
+</ul>
+<p>This is where the arrow of time hands off to cosmology: the direction of <em>all</em> time rests on the special condition at the <em>beginning</em> of time.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>The thermodynamic arrow is the physical foundation of the <a href="../06-time/05-arrow-of-time.html">direction of time</a>, and, through the <a href="03-cosmology.html">Past Hypothesis</a>, the ground of the <a href="../06-time/04-passage-and-experience.html">psychological arrow</a> that underlies our sense that time <a href="../06-time/04-passage-and-experience.html">passes</a>. Its central lesson — that a time-asymmetric world emerges from time-symmetric laws only via a special <em>boundary condition</em> — is a model of how the <a href="../01-introduction.html">temporal question</a> is answered by physics plus philosophy together, neither alone. It pushes the ultimate explanation back to the <a href="03-cosmology.html">beginning of the universe</a>, the subject of a later page, and it interacts with the <a href="02-problem-of-time.html">problem of time in quantum gravity</a>, where the status of the Past Hypothesis in a theory without fundamental time is itself unsettled. The next page turns to that theory, and to the startling possibility that at the deepest level there is no time at all.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/03-spacetime/08-relativity/04-conventionality.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/03-spacetime/09-physics/02-problem-of-time.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/03-spacetime/08-relativity/04-conventionality.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/03-spacetime/09-physics/02-problem-of-time.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

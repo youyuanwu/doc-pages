@@ -1,0 +1,422 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Euclid&#x27;s Axioms and the Axiomatic Method - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/math/08-geometry/01-euclid-axioms.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="euclids-axioms-and-the-axiomatic-method"><a class="header" href="#euclids-axioms-and-the-axiomatic-method">Euclid's Axioms and the Axiomatic Method</a></h1>
+<p>This is the first page of the <a href="00-README.html">geometry spine</a>. Euclid's <em>Elements</em>
+(c. 300 BCE) is the founding document of the axiomatic method: from a short list
+of definitions, postulates, and common notions it derives, by pure deduction, the
+bulk of the plane and solid geometry known to antiquity. This page states those
+foundations, exposes the <em>logical gaps</em> Euclid tacitly relied on, and presents
+<strong>Hilbert's</strong> modern axiomatization that repairs them. The single postulate that
+looks different from the others — the <strong>fifth</strong>, on parallels — is the hinge on
+which the whole spine turns, and it gets its own page
+(<a href="03-parallel-postulate.html">parallel-postulate.md</a>).</p>
+<p>References: Euclid, <em>Elements</em>, Book I; Hilbert, <em>Grundlagen der Geometrie</em>
+(1899); Hartshorne, <em>Geometry: Euclid and Beyond</em>; Greenberg, <em>Euclidean and
+Non-Euclidean Geometries</em>.</p>
+<h2 id="1-the-axiomatic-method"><a class="header" href="#1-the-axiomatic-method">1. The Axiomatic Method</a></h2>
+<p>An <strong>axiomatic theory</strong> fixes a stock of <strong>undefined (primitive) terms</strong> and a
+list of <strong>axioms</strong> relating them, then admits as theorems exactly those
+statements deducible from the axioms by logic alone. The primitive terms have no
+meaning beyond what the axioms confer: a <strong>model</strong> of the theory is any concrete
+assignment of objects to the primitive terms that makes all the axioms true.</p>
+<p>Euclid did not quite work this way. He tried to <em>define</em> every term ("a point is
+that which has no part") and to make every inferential step self-evident from a
+diagram. Both moves leak: definitions must bottom out in undefined terms, and
+diagrams smuggle in unstated assumptions. The gap between Euclid's intent and his
+execution is precisely what the nineteenth century had to close before the
+non-Euclidean geometries could be seen as <em>legitimate</em> rather than paradoxical.</p>
+<blockquote>
+<p><strong>Why this matters for the spine.</strong> The entire non-Euclidean revolution is an
+exercise in the axiomatic method: one shows the parallel postulate is
+<em>independent</em> of the others by exhibiting a <strong>model</strong> in which the other axioms
+hold but the fifth fails (see <a href="09-independence.html">independence.md</a>). That move
+is only meaningful once "the other axioms" are stated with complete precision.</p>
+</blockquote>
+<h3 id="11-primitive-terms-what-is-a-point"><a class="header" href="#11-primitive-terms-what-is-a-point">1.1 Primitive terms: what is a point?</a></h3>
+<p>In Hilbert's <a href="#4-hilberts-axioms-1899"><em>Grundlagen</em></a> the words <strong>point</strong>, <strong>line</strong>,
+and <strong>plane</strong> are <strong>not defined at all</strong> — they are <em>primitive (undefined) terms</em>.
+Hilbert posits three systems of "things," called points, lines, and planes, related
+by three primitive relations (<strong>incidence</strong>, <strong>betweenness</strong>, <strong>congruence</strong>), and
+he never says what any of these objects <em>is</em>. Their entire meaning is fixed
+<strong>implicitly</strong> by the axioms: a "point" is whatever behaves the way the axioms say
+points behave. This is an <strong>implicit (structural) definition</strong> — the axioms pin down
+the whole system of relations at once, not the objects one by one.</p>
+<p>This is the sharp break from Euclid, who tried to <em>define</em> the primitives —</p>
+<ul>
+<li><em>"A point is that which has no part,"</em></li>
+<li><em>"A line is breadthless length"</em> —</li>
+</ul>
+<p>definitions that appeal to prior undefined notions ("part," "breadth") and are never
+actually invoked in a proof. Hilbert discards them and lets the axioms carry all the
+content. His often-quoted remark makes the attitude vivid:</p>
+<blockquote>
+<p>One must be able to say at all times — instead of <em>points, lines, planes</em> —
+<em>tables, chairs, beer mugs.</em></p>
+</blockquote>
+<p>The theory is about the <strong>structure</strong> its objects instantiate, not their intrinsic
+nature: <em>any</em> collection of things satisfying the axioms is a system of "points" and
+"lines." That is exactly what licenses the rest of the spine. The <a href="10-coordinatization.html#12-the-coordinate-isomorphism">analytic plane
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></a> reads "point" as
+an ordered pair <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span> and "line" as a solution set <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">αx</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05556em;">γ</span></span></span></span>;
+the <a href="08-models.html">Poincaré disk</a> reads "line" as a circular arc — and <em>both</em> satisfy
+the axioms. If "line" had a fixed meaning, one could not reinterpret it to build the
+<a href="08-models.html">models</a> that prove the parallel postulate <a href="09-independence.html">independent</a>.</p>
+<p>Even <strong>incidence</strong> — "a point lies on a line" — is primitive, a relation between the
+two sorts rather than something assumed <em>a priori</em> to be set membership. That a line
+is determined by the points on it is then a <strong>theorem</strong> of the incidence axioms in
+the standard models, not part of the definition of "line."</p>
+<h2 id="2-euclids-definitions-postulates-and-common-notions"><a class="header" href="#2-euclids-definitions-postulates-and-common-notions">2. Euclid's Definitions, Postulates, and Common Notions</a></h2>
+<p>Book I opens with 23 <strong>definitions</strong>, five <strong>postulates</strong> (<em>aitḗmata</em>,
+"demands"), and five <strong>common notions</strong> (<em>koinaì énnoiai</em>, general axioms). The
+postulates are geometry-specific; the common notions are logical/magnitude
+principles Euclid regarded as shared by all sciences.</p>
+<h3 id="21-the-five-postulates"><a class="header" href="#21-the-five-postulates">2.1 The five postulates</a></h3>
+<p>Let it be granted:</p>
+<ol>
+<li><strong>(Line)</strong> To draw a straight line from any point to any point.</li>
+<li><strong>(Extension)</strong> To produce a finite straight line continuously in a straight line.</li>
+<li><strong>(Circle)</strong> To describe a circle with any centre and radius.</li>
+<li><strong>(Right angles)</strong> That all right angles are equal to one another.</li>
+<li><strong>(Parallels)</strong> That, if a straight line falling on two straight lines makes
+the interior angles on the same side less than two right angles, the two
+straight lines, if produced indefinitely, meet on that side on which the angles
+are less than two right angles.</li>
+</ol>
+<h3 id="22-the-five-common-notions"><a class="header" href="#22-the-five-common-notions">2.2 The five common notions</a></h3>
+<ol>
+<li>Things equal to the same thing are equal to one another.</li>
+<li>If equals are added to equals, the wholes are equal.</li>
+<li>If equals are subtracted from equals, the remainders are equal.</li>
+<li>Things that coincide with one another are equal to one another.</li>
+<li>The whole is greater than the part.</li>
+</ol>
+<blockquote>
+<p><strong>The odd one out.</strong> Postulates 1–4 are short, self-evident, and assert <em>local</em>
+constructions. Postulate 5 is long, conditional, and asserts something about
+lines <em>produced indefinitely</em> — its truth cannot be checked by any finite
+drawing. Euclid himself seems to have distrusted it: he postpones its first use
+to Proposition I.29, proving as much as possible without it. That reluctance is
+the seed of <a href="02-neutral-geometry.html">neutral geometry</a>.</p>
+</blockquote>
+<h2 id="3-the-gaps-in-euclid"><a class="header" href="#3-the-gaps-in-euclid">3. The Gaps in Euclid</a></h2>
+<p>Euclid's proofs are almost all correct, but several rely on assumptions that
+appear in no postulate. The three most important classes of gap:</p>
+<h3 id="31-betweenness-and-order"><a class="header" href="#31-betweenness-and-order">3.1 Betweenness and order</a></h3>
+<p>Already in Proposition I.1 (constructing an equilateral triangle on a segment),
+Euclid asserts that two circles <em>intersect</em> because the diagram shows them
+crossing. Nothing in Postulates 1–5 guarantees the intersection point exists —
+this is a <strong>continuity</strong> assumption. More pervasively, Euclid uses the intuitive
+notion that a point lies <em>between</em> two others, or that a line <em>enters</em> a triangle
+and must therefore <em>exit</em> it (<strong>Pasch's axiom</strong>), without ever stating it.</p>
+<h3 id="32-congruence-and-superposition"><a class="header" href="#32-congruence-and-superposition">3.2 Congruence and superposition</a></h3>
+<p>Euclid proves the side-angle-side congruence criterion (I.4) by "applying" one
+triangle to another — physically sliding it until they coincide. This <em>method of
+superposition</em> assumes that figures can be moved rigidly without distortion,
+i.e. that the plane admits distance-preserving motions. Euclid never postulates
+this; Hilbert makes congruence a primitive relation instead.</p>
+<h3 id="33-continuity"><a class="header" href="#33-continuity">3.3 Continuity</a></h3>
+<p>The existence of intersection points (line–circle, circle–circle) requires a
+completeness/continuity principle analogous to the least-upper-bound property of
+the <a href="../04-analysis/01-real-numbers.html">real numbers</a>. Euclid uses it freely and states
+it never.</p>
+<blockquote>
+<p><strong>Moral.</strong> None of these gaps make Euclid's <em>theorems</em> false — they make his
+<em>axiom list incomplete</em>. A faithful modern foundation must add order,
+congruence, and continuity axioms explicitly. That is exactly Hilbert's program.</p>
+</blockquote>
+<h2 id="4-hilberts-axioms-1899"><a class="header" href="#4-hilberts-axioms-1899">4. Hilbert's Axioms (1899)</a></h2>
+<p>Hilbert's <em>Grundlagen der Geometrie</em> gives the first fully rigorous
+axiomatization of Euclidean geometry. It takes as <strong>primitive</strong> three kinds of
+object — <em>points</em>, <em>lines</em>, <em>planes</em> — and three primitive <strong>relations</strong> —
+<em>incidence</em> ("lies on"), <em>betweenness</em> ("<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> is between <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>"), and
+<em>congruence</em> (of segments and of angles). The axioms fall into five groups:</p>
+<div class="table-wrapper"><table><thead><tr><th>Group</th><th>Governs</th><th>Sample axiom</th></tr></thead><tbody>
+<tr><td><strong>I. Incidence</strong></td><td>points, lines, planes</td><td>Two distinct points lie on a unique line.</td></tr>
+<tr><td><strong>II. Order</strong></td><td>betweenness</td><td><strong>Pasch:</strong> a line entering a triangle through one side exits through another.</td></tr>
+<tr><td><strong>III. Congruence</strong></td><td>segments, angles</td><td>Segment congruence is transitive; <strong>SAS</strong> is an <em>axiom</em>, not a theorem.</td></tr>
+<tr><td><strong>IV. Parallels</strong></td><td>parallel lines</td><td><strong>Playfair:</strong> through a point off a line there is exactly one parallel.</td></tr>
+<tr><td><strong>V. Continuity</strong></td><td>completeness</td><td><strong>Archimedes</strong> + <strong>line-completeness</strong> (Dedekind).</td></tr>
+</tbody></table>
+</div>
+<p>Two features matter for this spine:</p>
+<ul>
+<li><strong>Superposition is eliminated.</strong> By making congruence primitive and SAS an
+axiom, Hilbert removes Euclid's shaky "moving figures" argument. Rigid motions
+become <em>theorems</em> about congruence, later organized as the <strong>isometry group</strong>
+(<a href="14-isometry-groups.html">isometry-groups.md</a>).</li>
+<li><strong>The parallel axiom is quarantined in Group IV.</strong> Groups I–III and V together
+are the axioms of <a href="02-neutral-geometry.html">neutral geometry</a>. Replacing Group IV
+by its negation gives <a href="06-hyperbolic-geometry.html">hyperbolic geometry</a>; Hilbert's
+clean separation is what makes the independence proof
+(<a href="09-independence.html">independence.md</a>) even statable.</li>
+</ul>
+<p>Hilbert also proved his system <strong>consistent relative to the real numbers</strong> (the
+Cartesian plane <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> is a model) and its axioms mutually <strong>independent</strong>
+(for each axiom, a model of all the others in which it fails).</p>
+<h2 id="5-tarskis-first-order-geometry-aside"><a class="header" href="#5-tarskis-first-order-geometry-aside">5. Tarski's First-Order Geometry (aside)</a></h2>
+<p>A different modern route, due to <strong>Tarski</strong> (1926–1959), axiomatizes plane
+Euclidean geometry in <strong>first-order logic</strong> with a single primitive sort (points)
+and two primitive relations: betweenness <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">c</span><span class="mclose">)</span></span></span></span> and equidistance
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">ab</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">c</span><span class="mord mathnormal">d</span></span></span></span>. Remarkably:</p>
+<ul>
+<li>Tarski's system is <strong>complete</strong> and <strong>decidable</strong> — there is an algorithm
+deciding the truth of any first-order geometric statement.</li>
+<li>This does <strong>not</strong> contradict <a href="../../logic/10-topics/01-godel-incompleteness.html">Gödel's incompleteness
+theorems</a>: those bite only on
+theories interpreting enough <em>arithmetic</em>, and elementary geometry — lacking a
+first-order definition of "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> times" — is too weak to encode <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord mathbb">N</span></span></span></span>.</li>
+</ul>
+<p>Tarski's completeness is a striking contrast with the incompleteness that governs
+the <a href="../../logic/00-README.html">logic</a> section, and a reminder that the expressive
+power of a theory, not its subject matter, decides its metamathematical fate.
+This is a side road; the spine proper follows Hilbert.</p>
+<h2 id="6-where-this-leads"><a class="header" href="#6-where-this-leads">6. Where This Leads</a></h2>
+<p>With the axioms stated precisely, the strategy of the whole spine comes into
+focus:</p>
+<ol>
+<li>Prove everything you can from Groups I–III + V alone — <a href="02-neutral-geometry.html">neutral
+geometry</a>.</li>
+<li>Study the special role of the parallel axiom and its many equivalents —
+<a href="03-parallel-postulate.html">the parallel postulate</a>.</li>
+<li>Deny it, and discover the axioms remain consistent — <a href="06-hyperbolic-geometry.html">hyperbolic
+geometry</a>, certified by a <a href="08-models.html">model</a>.</li>
+</ol>
+<p>The axiomatic method, pushed to its limit, turns a two-thousand-year-old puzzle
+about a single postulate into a clean <strong>independence theorem</strong>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../math/08-geometry/00-README.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../math/08-geometry/02-neutral-geometry.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../math/08-geometry/00-README.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../math/08-geometry/02-neutral-geometry.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

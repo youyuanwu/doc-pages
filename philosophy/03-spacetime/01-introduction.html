@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What Is the Philosophy of Space and Time? - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/03-spacetime/01-introduction.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="what-is-the-philosophy-of-space-and-time"><a class="header" href="#what-is-the-philosophy-of-space-and-time">What Is the Philosophy of Space and Time?</a></h1>
+<p>The <strong>philosophy of space and time</strong> is the rational examination of what space, time, and spacetime <em>are</em>: whether they exist in their own right or only as relations among things, whether the flow of time and the division into past, present, and future are objective, and what the geometry of the world owes to reason and what to experiment. It sits on the border between general <strong>metaphysics</strong> — where the questions were first posed by Zeno, Aristotle, Newton, Leibniz, and Kant — and the <strong>philosophy of physics</strong>, because since 1905 the answers have been constrained, and sometimes overturned, by relativity and quantum theory. It is philosophy applied to the most pervasive features of the world, the ones presupposed by every other physical description.</p>
+<p>This page fixes the subject matter, separates the three different <em>kinds</em> of question the field pursues, lays out the map of positions, and explains why physics and metaphysics here cannot be done in isolation. The later pages take up each problem — <a href="02-substantivalism-relationism.html">substantivalism and relationism</a>, the <a href="03-nature-of-time.html">nature of time</a>, the <a href="04-space-and-geometry.html">status of geometry</a>, and what <a href="08-relativity/01-simultaneity.html">relativity</a> implies for all three — in detail.</p>
+<hr />
+<h2 id="three-questions-not-one"><a class="header" href="#three-questions-not-one">Three questions, not one</a></h2>
+<p>It is tempting to think the philosophy of space and time is a single question — "What are space and time?" — but that conceals three logically independent ones, and progress depends on keeping them apart. They mirror the structure used throughout these notes (compare the split in the <a href="../01-freewill/01-introduction.html">free-will problem</a> and the <a href="../02-religion/01-introduction.html">philosophy of religion</a> into distinct metaphysical, epistemic, and semantic strands):</p>
+<ul>
+<li><strong>The ontological question — do space and time exist in their own right?</strong> Are spacetime and its parts <em>substances</em> — a container that would remain if all matter were removed — or is talk of "space" and "time" only shorthand for <em>relations</em> among bodies and events, so that with no bodies there is no space? This is the <a href="02-substantivalism-relationism.html">substantivalism–relationism</a> debate, running from <a href="05-ontology/02-leibniz-clarke.html">Newton against Leibniz</a> through <a href="05-ontology/03-newtons-bucket.html">Newton's bucket</a> to the <a href="05-ontology/05-hole-argument.html">hole argument</a> in general relativity.</li>
+<li><strong>The temporal question — is the passage of time real?</strong> Even granting that there is <em>a</em> time, it is a further question whether the <em>present</em> is metaphysically privileged, whether time genuinely <em>flows</em>, and whether the future is open or already settled. This is the province of <a href="06-time/01-mctaggart.html">McTaggart's</a> A/B distinction, of <a href="06-time/03-presentism-eternalism.html">presentism versus eternalism</a>, and of the <a href="06-time/05-arrow-of-time.html">arrow of time</a>.</li>
+<li><strong>The geometric/epistemic question — what is the status of geometry?</strong> What kind of truth is "space is Euclidean" — a truth of reason known a priori (Kant), an empirical discovery (after general relativity), or a matter of <a href="07-space/03-conventionalism.html">convention</a>? And how do we come to know the structure of space at all? This is taken up under the <a href="07-space/02-epistemology-of-geometry.html">epistemology of geometry</a> and <a href="07-space/01-zeno-and-the-continuum.html">Zeno's paradoxes</a> of the continuum.</li>
+</ul>
+<p>The three interact. A relationist who denies that space exists independently (ontological) will read the geometry of space off the possible configurations of matter rather than off a substance (geometric); an <a href="06-time/03-presentism-eternalism.html">eternalist</a> who holds that all times are equally real (temporal) fits naturally with the four-dimensional <a href="08-relativity/02-block-universe.html">block universe</a> that <a href="08-relativity/01-simultaneity.html">relativity</a> suggests. A complete view must answer all three.</p>
+<h2 id="the-map-of-positions"><a class="header" href="#the-map-of-positions">The map of positions</a></h2>
+<p>On the <strong>ontological</strong> question the principal positions are:</p>
+<div class="table-wrapper"><table><thead><tr><th>Position</th><th>Core claim</th></tr></thead><tbody>
+<tr><td><strong>Substantivalism</strong></td><td>Spacetime is an entity in its own right — a container of events that exists independently of its material contents.</td></tr>
+<tr><td><strong>Relationism</strong></td><td>There is no spacetime substance; spatiotemporal facts are just relations (distance, betweenness, succession) among bodies and events.</td></tr>
+<tr><td><strong>Structural realism</strong></td><td>What is real is the <em>structure</em> (the metric, the causal/affine connection), not an underlying substance <em>or</em> the individual bodies — a middle way sharpened by the <a href="05-ontology/05-hole-argument.html">hole argument</a>.</td></tr>
+<tr><td><strong>Supersubstantivalism</strong></td><td>Not only does spacetime exist, but material objects just <em>are</em> regions or states of it; there is nothing but spacetime and its geometry.</td></tr>
+</tbody></table>
+</div>
+<p>On the <strong>temporal</strong> question:</p>
+<div class="table-wrapper"><table><thead><tr><th>Position</th><th>Core claim</th></tr></thead><tbody>
+<tr><td><strong>A-theory (tensed)</strong></td><td>Tense is objective: there is a privileged present, and events change from future to present to past. Passage is real.</td></tr>
+<tr><td><strong>B-theory (tenseless)</strong></td><td>Only <em>earlier-than</em> / <em>later-than</em> relations are objective; "past," "present," and "future" are perspectival, like "here." Passage is an appearance.</td></tr>
+<tr><td><strong>Presentism</strong></td><td>Only present things exist; the past and future are unreal.</td></tr>
+<tr><td><strong>Eternalism</strong></td><td>All times are equally real; the universe is a four-dimensional block.</td></tr>
+<tr><td><strong>Growing block</strong></td><td>The past and present are real and the sum of reality grows; the future is not yet real.</td></tr>
+<tr><td><strong>Moving spotlight</strong></td><td>All times exist (as in eternalism) but one of them is objectively, and successively, <em>present</em>.</td></tr>
+</tbody></table>
+</div>
+<p>On the <strong>geometric</strong> question the options run from Kant's <strong>a priori</strong> geometry, through the <strong>empiricism</strong> vindicated by general relativity, to Poincaré's and Reichenbach's <strong>conventionalism</strong> — treated on the <a href="04-space-and-geometry.html">geometry</a> pages.</p>
+<h2 id="why-physics-and-metaphysics-cannot-be-separated-here"><a class="header" href="#why-physics-and-metaphysics-cannot-be-separated-here">Why physics and metaphysics cannot be separated here</a></h2>
+<p>What sets this field apart from most of metaphysics is that its questions are not settled from the armchair alone. Three episodes show physics forcing the metaphysics:</p>
+<ul>
+<li><strong>Newton's bucket</strong> turned the abstract Leibniz–Newton dispute into an empirical one: rotation produces real inertial effects, which seem to require <em>something</em> — absolute space, or at least an inertial structure — beyond the relations among bodies. See <a href="05-ontology/03-newtons-bucket.html">Newton's bucket</a>.</li>
+<li><strong>Special relativity</strong> abolished absolute simultaneity: whether two distant events are "at the same time" depends on the frame. That directly threatens <a href="06-time/03-presentism-eternalism.html">presentism</a>, which needs a global present, and pushes toward the <a href="08-relativity/02-block-universe.html">block universe</a> — see the <a href="08-relativity/01-simultaneity.html">Rietdijk–Putnam argument</a>. The formal result is developed in the <a href="../../physics/01-SR/04-kinematics.html">relativity of simultaneity</a>.</li>
+<li><strong>General relativity</strong> made spacetime <em>dynamical</em> — the <a href="../../physics/01-SR/02-spacetime.html">metric</a> is a physical field that bends and is bent — reopening the substantivalism debate in a new key through the <a href="05-ontology/05-hole-argument.html">hole argument</a>, and making the geometry of space a contingent, measured thing rather than an a priori given.</li>
+</ul>
+<p>But the traffic runs both ways. Physics does not wear its ontology on its sleeve: the <em>same</em> formalism can be read substantivally or relationally, tensed or tenseless. Deciding <em>which</em> interpretation is correct is philosophical work, guided by — but not dictated by — the physics. This two-way constraint, and the underdetermination it leaves, is the subject of the <a href="10-context/02-method.html">method</a> page.</p>
+<h2 id="what-the-field-is-not"><a class="header" href="#what-the-field-is-not">What the field is <em>not</em></a></h2>
+<ul>
+<li><strong>Not physics.</strong> The physicist asks how spacetime behaves and what equations govern it; the philosopher asks what its behaviour <em>shows about what it is</em>. The <a href="../../physics/01-SR/02-spacetime.html">metric field</a> is a datum for both, but "is the metric a substance or a relation?" is not a question any measurement answers.</li>
+<li><strong>Not pure a priori metaphysics.</strong> Unlike some debates in <a href="../02-religion/01-introduction.html">general metaphysics</a>, this one cannot proceed while ignoring the sciences: a theory of time that contradicts relativity, or a theory of the continuum that ignores real analysis, is not a live option. The <a href="07-space/01-zeno-and-the-continuum.html">continuum</a> and <a href="08-relativity/01-simultaneity.html">simultaneity</a> pages show the constraint biting.</li>
+<li><strong>Not the history of science.</strong> Newton, Leibniz, and Einstein appear throughout, but as authors of <em>arguments and positions</em> still in play, not as objects of purely historical study. The <a href="10-context/01-history.html">history</a> page collects the narrative thread separately.</li>
+</ul>
+<h2 id="where-this-leaves-us"><a class="header" href="#where-this-leaves-us">Where this leaves us</a></h2>
+<p>The philosophy of space and time is best entered through a <em>grid</em>: three questions — do space and time exist in their own right? is the passage of time real? what is the status of geometry? — each crossed with a spread of positions, and each answerable only with one eye on physics. Almost every dispute in the field sits somewhere on that grid, and most confusion comes from sliding between its cells: answering an ontological question with a temporal argument, or treating a result about the <em>physics</em> of spacetime as if it settled its <em>metaphysics</em> by itself. The next pages take the three questions in turn — beginning with the oldest, <a href="02-substantivalism-relationism.html">substantivalism and relationism</a>, the dispute over whether space and time are things or relations.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/03-spacetime/00-README.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/03-spacetime/02-substantivalism-relationism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/03-spacetime/00-README.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/03-spacetime/02-substantivalism-relationism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

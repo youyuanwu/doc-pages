@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Temporal Passage and the Experience of Time - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/03-spacetime/06-time/04-passage-and-experience.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="temporal-passage-and-the-experience-of-time"><a class="header" href="#temporal-passage-and-the-experience-of-time">Temporal Passage and the Experience of Time</a></h1>
+<p>Whatever one's view of <a href="02-a-theory-b-theory.html">tense</a> or the <a href="03-presentism-eternalism.html">existence of times</a>, there is a datum every theory must confront: time <em>seems to pass</em>. The present feels like a moving boundary; events approach, arrive, and recede; the future becomes present and slips into the past. Is this <strong>passage</strong> a real, objective feature of the world — time genuinely <em>flowing</em> — or is it a pervasive feature of how temporal beings <em>experience</em> a reality that does not itself flow? This is the problem of temporal passage, and it splits into two connected questions: whether passage is <em>coherent</em> as an objective feature, and, if it is not, why time nonetheless <em>seems</em> to pass.</p>
+<p>This page examines the arguments against objective passage and the <a href="02-a-theory-b-theory.html">B-theorist's</a> deflationary account of temporal experience; it presupposes the A/B and <a href="03-presentism-eternalism.html">presentism/eternalism</a> debates.</p>
+<hr />
+<h2 id="what-would-passage-be"><a class="header" href="#what-would-passage-be">What would passage be?</a></h2>
+<p>The A-theorist holds that passage is objective: reality has a moving present, and the sum of what is present (or of what has happened) is continually updated. The metaphor is of a spotlight moving along the timeline, or of the "now" advancing, or of events <em>becoming</em> and then <em>fading</em>. The challenge is to cash the metaphor into a coherent literal claim — and here two classic objections bite.</p>
+<h2 id="the-rate-of-passage-regress"><a class="header" href="#the-rate-of-passage-regress">The rate-of-passage regress</a></h2>
+<p>If time flows, it flows at some <strong>rate</strong> — but a rate is a change of one quantity <em>with respect to another</em>. Spatial motion has a rate: metres <em>per second</em>. What is the rate of time's passage? The only available answer is <strong>one second per second</strong> — which is not a rate at all but the dimensionless number 1, as empty as saying a stationary object moves "one metre per metre."</p>
+<p>Press for a genuine rate and a <strong>regress</strong> threatens. If the present moves through time at some rate, that rate must be measured against a <em>second</em> time dimension (seconds of ordinary time per second of "hyper-time"), whose own flow needs a <em>third</em> time, and so on without end. Either passage has no rate (and then in what sense is it a <em>motion</em>?) or it launches an infinite hierarchy of times. This is a central plank of the <strong>"myth of passage"</strong> critique associated with <strong>Donald C. Williams</strong> and <strong>J. J. C. Smart</strong>: the notion of objective flow, on inspection, either collapses into triviality or generates absurd extra time dimensions. The B-theorist concludes that "passage" is not a coherent additional feature of reality at all — there are just events tenselessly ordered by earlier/later, and "flow" adds nothing intelligible.</p>
+<p>The A-theorist's replies: deny that passage needs a <em>rate</em> (it is a primitive, <em>sui generis</em> feature, not a motion measured against anything); or accept "one second per second" as a perfectly good, if trivial-looking, truth that nonetheless reflects a real dynamic difference; or locate passage in the successive change of A-properties rather than in any "speed." Whether these rescue an <em>objective</em> passage or quietly reduce it to B-facts is exactly what is in dispute.</p>
+<h2 id="the-b-theorys-burden-explaining-the-appearance"><a class="header" href="#the-b-theorys-burden-explaining-the-appearance">The B-theory's burden: explaining the appearance</a></h2>
+<p>If passage is not objective, the B-theorist owes an account of why it so insistently <em>seems</em> real — the sense of flow is not a subtle theoretical posit but a vivid feature of ordinary experience. The deflationary strategy explains the appearance from tenseless materials:</p>
+<ul>
+<li><strong>The dynamics of memory and knowledge.</strong> At each moment a conscious subject has memories of earlier moments but none of later ones; the store of memory grows monotonically along the <a href="05-arrow-of-time.html">thermodynamic/entropic gradient</a>. Successive time-slices of a person each contain "more" recorded past. This asymmetric accumulation — itself grounded in the <a href="05-arrow-of-time.html">arrow of time</a> — is what we mistake for the world's <em>moving</em> rather than our <em>accumulating</em>. There is no moving now; there is a sequence of person-stages each of which represents itself as present and remembers its predecessors.</li>
+<li><strong>The indexical "now."</strong> On the B-theory "now" is indexical, like "here." Each experience-token is, trivially, <em>present to itself</em> — it represents its own moment as "now" — so <em>every</em> momentary experience is accompanied by a sense of presentness. Strung together, these give the illusion of a single "now" that travels, when in fact there are many "nows," one per moment, each self-referentially present. (Compare: every place is "here" to someone there, but no place is <em>objectively</em> here.)</li>
+</ul>
+<p>On this account passage is a robust and universal <em>illusion</em> with a tidy explanation — which the B-theorist counts as a virtue (the appearance is predicted) and the A-theorist counts as a bullet (an illusion this deep and universal is more plausibly a perception of something real).</p>
+<h2 id="the-phenomenology-of-temporal-experience"><a class="header" href="#the-phenomenology-of-temporal-experience">The phenomenology of temporal experience</a></h2>
+<p>Independently of the metaphysics, the <em>structure</em> of temporal experience raises its own problems, studied since Augustine, James, and Husserl:</p>
+<ul>
+<li><strong>The specious present.</strong> We do not experience time as a knife-edge instant; we hear a <em>melody</em>, not an unextended tone, and perceive motion directly rather than inferring it. Experience seems to span a short <em>temporal thickness</em> — William James's "specious present" — within which succession is <em>given</em>. But how can a <em>present</em> experience present <em>succession</em>, which requires earlier and later?</li>
+<li><strong>Models of temporal awareness.</strong> Philosophers distinguish (i) the <em>cinematic</em> model — experience is a succession of static snapshots (which struggles to explain how motion is <em>perceived</em> rather than inferred); (ii) the <em>retentional</em> model (Husserl) — each momentary experience contains a "retention" of the just-past and a "protention" of the about-to-come, so succession is represented within a durationless now; and (iii) the <em>extensional</em> model — the experience itself is temporally extended and mirrors the succession it presents. Which model is right bears on whether the <em>feeling</em> of flow is evidence for objective passage or an artifact of how experience is structured.</li>
+</ul>
+<p>The A-theorist argues that the immediacy of <em>experienced</em> succession and flow is best explained by <em>real</em> succession and flow. The B-theorist argues that the specious present and the retention/protention structure are perfectly reproducible in a tenseless world — indeed that a snapshot theory of experience plus memory dynamics predicts exactly the phenomenology we have, with no objective passage required.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Passage is the phenomenon that gives the <a href="../01-introduction.html">temporal question</a> its urgency: it is the strongest intuitive support for the <a href="02-a-theory-b-theory.html">A-theory</a> and for <a href="03-presentism-eternalism.html">presentism</a>, and its apparent incoherence (the rate regress) and its deflationary explanation are the <a href="02-a-theory-b-theory.html">B-theory's</a> strongest cards for the <a href="../08-relativity/02-block-universe.html">block universe</a>. The account of <em>why</em> time seems to pass leans essentially on the <a href="05-arrow-of-time.html">arrow of time</a> and its <a href="../09-physics/01-thermodynamic-arrow.html">thermodynamic basis</a> — memory grows because entropy grows. The next page takes up that arrow directly: whatever we say about passage, time has a <em>direction</em>, and its source is a deep and separate problem.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/03-spacetime/06-time/03-presentism-eternalism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/03-spacetime/06-time/05-arrow-of-time.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/03-spacetime/06-time/03-presentism-eternalism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/03-spacetime/06-time/05-arrow-of-time.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>
