@@ -1,0 +1,275 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Bundle Theory versus Substratum - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/07-particulars/02-bundle-vs-substratum.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="bundle-theory-versus-substratum"><a class="header" href="#bundle-theory-versus-substratum">Bundle Theory versus Substratum</a></h1>
+<p>Take a tomato and enumerate its properties: red, round, ripe, of such-and-such mass, at such-and-such place. Have you enumerated the tomato, or have you enumerated the properties of something that is not itself among them?</p>
+<p><strong>Bundle theory</strong> says the first: the object <em>is</em> the properties, held together by a relation of compresence, and there is nothing else there. <strong>Substratum theory</strong> says the second: besides the properties there is a bearer that has them and is not constituted by them.</p>
+<p>The dispute is the sharpest form of the question the <a href="01-substance.html">substance</a> page raised, and each side's objection to the other is strong enough that the debate has produced more compromises than victories.</p>
+<hr />
+<h2 id="bundle-theory"><a class="header" href="#bundle-theory">Bundle theory</a></h2>
+<p>The object is a bundle: a complex whose constituents are properties and whose unifying relation is <strong>compresence</strong> — the relation properties bear to one another when they are properties of the same thing. Russell held a version; so does any trope theorist who wants a one-category ontology.</p>
+<p>Its appeal is economy and empiricism. Nothing is posited beyond what can be encountered; there is no unknowable <em>je ne sais quoi</em> of the kind Locke was reduced to.</p>
+<p><strong>The fatal objection, if properties are universals.</strong> Suppose the constituents are universals. Then two objects with all the same properties are two bundles with all the same constituents — and a bundle is individuated by its constituents, so they are one bundle. Bundle theory with universals therefore entails the <strong>identity of indiscernibles</strong> <em>necessarily</em>: it is not merely true but impossible that two things share all their properties.</p>
+<p>That is a very strong claim, and Black's two-spheres case is designed to refute it (see <a href="03-individuation.html">individuation</a>). If it is even possible that a symmetric universe contain two exactly similar spheres, bundle-with-universals is false.</p>
+<p><strong>The trope repair.</strong> Substitute tropes for universals and the objection dissolves. Two exactly similar spheres are two bundles of <em>numerically distinct</em> though exactly resembling tropes; there is no shared constituent to collapse them. This is why most contemporary bundle theorists are <a href="../06-universals/04-tropes.html">trope</a> theorists — the position is far more defensible in that form, and the cost is inherited from trope theory rather than added.</p>
+<p><strong>The change objection.</strong> A bundle is individuated by its members, so a bundle that loses a member is a different bundle. But the tomato survives ripening from green to red. The bundle theorist must therefore either individuate objects by a privileged subset of properties — the <em>nuclear</em> bundle theory, on which a core of essential properties constitutes the thing and the rest are attached to it — or adopt temporal parts, so that the green bundle and the red bundle are successive stages of a <a href="../../03-spacetime/06-time/06-persistence.html">perduring</a> whole. Both are substantial further commitments.</p>
+<p><strong>The compresence problem.</strong> Compresence must bind the properties into one object. Is it itself a constituent of the bundle? If so, what binds it to the rest, and <a href="../06-universals/01-problem-of-universals.html">Bradley's regress</a> begins. If not, the bundle has a unifying element that is not one of its members — which sounds very much like the substratum the theory was avoiding, differing only in being a relation rather than a thing.</p>
+<h2 id="substratum-theory"><a class="header" href="#substratum-theory">Substratum theory</a></h2>
+<p>The alternative posits a <strong>bare particular</strong> or <em>substratum</em>: an entity that bears properties without being constituted by them, and which accounts for both the object's unity and its numerical distinctness from qualitatively identical objects.</p>
+<p>It handles everything the bundle theory struggles with. Two exactly similar spheres are two because their substrata are two. The tomato survives ripening because the substratum persists while properties come and go. The unity of the object is the unity of a single bearer.</p>
+<p>The objections are correspondingly about the bearer's intelligibility:</p>
+<ul>
+<li><strong>It is unintelligible.</strong> A thing with no properties of its own is not a thing at all; to conceive it we must conceive it as <em>something</em>, which is to attribute a property.</li>
+<li><strong>It is unknowable.</strong> Locke's complaint: we encounter qualities, never the bearer. Any epistemology on which we know objects by their features leaves the substratum permanently out of reach.</li>
+<li><strong>It is self-contradictory.</strong> A bare particular has the property of <em>being bare</em>, hence is not bare.</li>
+</ul>
+<p>The standard defence is that these misread the position. The bare particular is not an entity <em>without</em> properties; it is an entity that is not <em>constituted by</em> its properties. "Bare" describes how it is considered, not how it is. The substratum has all the properties of the object — it <em>is</em> what has them — and is called bare only when abstracted from them for the purpose of analysis. On this reading the third objection is a pun and the first is a confusion between having no properties and not being a collection of properties.</p>
+<p>Armstrong's <strong>thin particular</strong> is exactly this: the particular considered in abstraction from its properties, which is not a further entity alongside the thick particular but the same thing under a different consideration.</p>
+<h2 id="the-middle-positions"><a class="header" href="#the-middle-positions">The middle positions</a></h2>
+<p>Because both extremes are costly, most actual views are hybrids:</p>
+<ul>
+<li><strong>Trope bundle theory</strong> — the majority position. Bundles, but of particulars, so the PII objection lapses.</li>
+<li><strong>Nuclear bundle theory</strong> (Simons) — a core bundle of essential tropes forms the individual; accidental tropes attach to the core. Handles change without temporal parts.</li>
+<li><strong>Substance–attribute with tropes</strong> (Lowe) — objects are basic and irreducible; tropes are the <em>modes</em> they bear. Gives up one-category economy for a scheme in which each category does one job.</li>
+<li><strong>States of affairs</strong> (Armstrong) — the fundamental unit is neither bundle nor bearer but the fact of a particular's having a universal, with both constituents abstractions from it.</li>
+</ul>
+<p>The last is worth attention because it changes the question. The bundle/substratum dispute assumes the object is <em>built</em> from something, and asks what the parts are. Armstrong's answer is that the built thing is not the object but the state of affairs, and that the object and its properties are both got by abstraction from something more basic — which dissolves the dispute rather than settling it.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>This is the <strong>category question</strong> applied to the internal structure of a particular, and its outcome constrains everything downstream. Whether qualitatively identical objects are possible, whether objects can survive change, and what individuates them are all decided, or at least sharply constrained, by the answer.</p>
+<p>The next page takes the question that the bundle theory's difficulties make urgent: what makes two things two, if not a difference in their properties? That is the problem of <a href="03-individuation.html">individuation</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/07-particulars/01-substance.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/07-particulars/03-individuation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/07-particulars/01-substance.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/07-particulars/03-individuation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

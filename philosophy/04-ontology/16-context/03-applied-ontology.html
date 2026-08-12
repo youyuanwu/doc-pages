@@ -1,0 +1,286 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Applied and Formal Ontology - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/16-context/03-applied-ontology.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="applied-and-formal-ontology"><a class="header" href="#applied-and-formal-ontology">Applied and Formal Ontology</a></h1>
+<p>A reader arriving from computing will have met the word "ontology" in a quite different sense: a machine-readable specification of the concepts in a domain and the relations among them, used to make data interoperable. Gene Ontology, SNOMED CT, schema.org, and the OWL files behind a knowledge graph are all "ontologies" in this sense.</p>
+<p>The two usages are related — the engineering practice took its name from the philosophical one deliberately — but they are not the same activity, and confusing them wastes a good deal of time in both directions. This page exists to prevent that.</p>
+<hr />
+<h2 id="the-engineering-sense"><a class="header" href="#the-engineering-sense">The engineering sense</a></h2>
+<p>Gruber's standard definition: an ontology is <em>a formal, explicit specification of a shared conceptualisation</em>. Each word is load-bearing.</p>
+<ul>
+<li><strong>Formal</strong> — machine-processable, with an inference procedure.</li>
+<li><strong>Explicit</strong> — the categories and constraints are written down rather than tacit in a schema.</li>
+<li><strong>Shared</strong> — the point is agreement across systems and institutions.</li>
+<li><strong>Conceptualisation</strong> — an abstract model of a domain, for some purpose.</li>
+</ul>
+<p>An ontology in this sense specifies <strong>classes</strong> (Patient, Diagnosis, Gene), <strong>properties</strong> relating them, <strong>hierarchies</strong> of subsumption, and <strong>constraints</strong> (a Diagnosis has exactly one subject; Gene and Protein are disjoint). Reasoners then derive subsumption and consistency automatically.</p>
+<p><strong>Upper ontologies</strong> try to supply the top-level categories that domain ontologies specialise:</p>
+<ul>
+<li><strong>BFO</strong> (Basic Formal Ontology) — the most philosophically self-conscious. Its top-level split between <em>continuants</em> (things that persist through time, wholly present at each moment) and <em>occurrents</em> (processes, which have temporal parts) is the <a href="../../03-spacetime/06-time/06-persistence.html">endurance/perdurance</a> distinction adopted as a design decision. Widely used in biomedicine.</li>
+<li><strong>DOLCE</strong> — Descriptive Ontology for Linguistic and Cognitive Engineering; explicitly <em>descriptive</em> rather than revisionary, aiming to capture ordinary categories rather than fundamental ones. The Strawsonian ambition, in software.</li>
+<li><strong>SUMO</strong> — Suggested Upper Merged Ontology; broad coverage, first-order axiomatisation.</li>
+</ul>
+<h2 id="the-formal-machinery"><a class="header" href="#the-formal-machinery">The formal machinery</a></h2>
+<p>Applied ontologies are written in <strong>description logics</strong>, which are decidable fragments of <a href="../../../logic/02-first-order-logic.html">first-order logic</a>. The trade is deliberate: expressive power is sacrificed to keep subsumption and consistency checking decidable and, ideally, tractable. OWL 2 and its profiles (EL, QL, RL) are standardised description logics with exactly this motivation, each profile drawing the line at a different point on the expressiveness/complexity curve.</p>
+<p>The <a href="../../../logic/07-model-theory.html">model theory</a> is standard: classes are interpreted as subsets of a domain, properties as binary relations, and subsumption is containment across all models. Nothing exotic is happening semantically — which is itself worth noting, since it means the applied ontologist has already made the choice of an objectual, classical, first-order framework that the <a href="../05-existence/01-existence-and-quantification.html">existence and quantification</a> page treats as substantive.</p>
+<h2 id="what-the-two-share"><a class="header" href="#what-the-two-share">What the two share</a></h2>
+<p>The overlap is real and not merely verbal.</p>
+<ul>
+<li><strong>Categories and taxonomy.</strong> Both organise a domain into most-general kinds and species. BFO's continuant/occurrent split is a philosophical thesis, whatever its engineering role.</li>
+<li><strong>Criteria of identity.</strong> A well-built ontology must say when two records denote the same patient, gene, or event, and "no entity without identity" is as much an engineering constraint as a philosophical slogan.</li>
+<li><strong>Parthood.</strong> Mereology is unavoidable in any domain with structured objects, and applied ontologies routinely need the distinctions the <a href="../09-mereology/01-mereology.html">mereology</a> page draws — proper parthood, transitivity, whether a part of a part of an organ is a part of the organ.</li>
+<li><strong>Dependence.</strong> Roles, dispositions, and qualities in BFO are <em>dependent continuants</em>: they cannot exist without a bearer, which is exactly <a href="../13-fundamentality/02-ontological-dependence.html">ontological dependence</a>.</li>
+<li><strong>Occurrents.</strong> Whether processes have temporal parts, and how a process relates to its participants, is the <a href="../11-events/01-events-and-processes.html">events</a> debate under another name.</li>
+</ul>
+<p>Practitioners of applied ontology are frequently well read in the philosophical literature — BFO's designers explicitly draw on it — and the traffic has been genuinely two-way, with the applied work sharpening questions about identity criteria that philosophy had left informal.</p>
+<h2 id="where-they-diverge"><a class="header" href="#where-they-diverge">Where they diverge</a></h2>
+<p>Four differences matter, and each explains a characteristic misunderstanding.</p>
+<p><strong>Purpose versus truth.</strong> An applied ontology is built <em>for a purpose</em> — data integration, query answering, clinical coding — and is assessed by whether it serves it. It is a designed artifact. Philosophical ontology asks what there <em>is</em>, and correctness is not relative to an application. Asking whether BFO is <em>true</em> is close to a category mistake; asking whether it is <em>useful for biomedicine</em> is the right question.</p>
+<p><strong>Pluralism by design.</strong> Many ontologies coexist, deliberately, for different domains and purposes, with mappings between them. In philosophical ontology, competing schemes are rivals — though note that <a href="../07-particulars/06-natural-kinds.html">Dupré's promiscuous realism</a> and <a href="../15-meta-ontology/02-quantifier-variance.html">quantifier variance</a> are exactly the positions on which the engineering situation is the metaphysically correct one.</p>
+<p><strong>Tractability constrains content.</strong> Description logics omit expressive resources — full negation, arbitrary quantifier nesting, most of second-order logic — because reasoning must terminate. So an applied ontology's categories are shaped by computational cost, which is not a consideration in the philosophical case.</p>
+<p><strong>Fundamentality is not the question.</strong> Applied ontologies are frankly built at the level of the domain: patients, diagnoses, and genes, with no suggestion that these are fundamental. The section's questions about <a href="../13-fundamentality/01-grounding.html">grounding</a> and <a href="../13-fundamentality/03-fundamentality.html">levels</a> simply do not arise, and there is no expectation that a biomedical ontology reduce to physics.</p>
+<h2 id="the-terminological-warning"><a class="header" href="#the-terminological-warning">The terminological warning</a></h2>
+<p>Three points to keep in view:</p>
+<ol>
+<li>In the applied sense, "an ontology" is a <strong>count noun</strong> — one builds an ontology, compares two ontologies, merges them. In the philosophical sense, ontology is a <strong>subject</strong>, and has no plural.</li>
+<li>Applied ontologies are <strong>artifacts</strong>; philosophical ontology is an <strong>inquiry</strong>. Neither reduces to the other.</li>
+<li>Nothing about the existence of many good ontologies in the engineering sense shows that ontological pluralism is true in the philosophical sense. That inference is tempting and invalid — the engineering plurality follows from the diversity of <em>purposes</em>, which the philosophical question is not relative to. Whether it is nevertheless relative to something is the <a href="../15-meta-ontology/02-quantifier-variance.html">deflationist's</a> claim, and it needs its own argument.</li>
+</ol>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>This page is a boundary marker rather than a contribution. Its one substantive observation is the third point above: the applied field is a working demonstration that many mutually inconsistent classification schemes can each be perfectly good, and that fact is <em>evidence for nothing</em> about the philosophical question, because the two enterprises answer to different standards. Seeing clearly why it is evidence for nothing is a useful exercise in what the philosophical question is actually asking.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/16-context/02-figures.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/A-remarks/00-README.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/16-context/02-figures.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/A-remarks/00-README.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Trope Theory - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/06-universals/04-tropes.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="trope-theory"><a class="header" href="#trope-theory">Trope Theory</a></h1>
+<p><strong>Trope theory</strong> takes the disputed premise of the whole debate — that properties, if they are entities at all, must be <em>repeatable</em> — and denies it. There are properties, and they are entities; but each is particular. The tomato has its own redness and the fire engine has its own, numerically distinct from it. The two rednesses exactly resemble one another, and that is all the "sharing" there is.</p>
+<p>A trope is thus an <strong>abstract particular</strong>: <em>particular</em>, because it is confined to one thing at one place; <em>abstract</em>, in the traditional sense of being got at by abstraction, considered apart from the other features with which it coexists. The terminology is D. C. Williams's, who called them "the alphabet of being"; Campbell's <em>Abstract Particulars</em> is the fullest development. Older names for the same idea include <em>modes</em>, <em>individual accidents</em>, and Husserl's <em>moments</em>.</p>
+<hr />
+<h2 id="the-one-category-ambition"><a class="header" href="#the-one-category-ambition">The one-category ambition</a></h2>
+<p>Trope theory's appeal is that a single category can do the work of two. From tropes alone one recovers both halves of the traditional scheme:</p>
+<ul>
+<li><strong>Objects</strong> are bundles of <strong>compresent</strong> tropes. The tomato is nothing but its redness, its roundness, its mass, and the rest, held together by the relation of compresence.</li>
+<li><strong>Universals</strong> are classes of exactly resembling tropes. Redness-in-general is the class containing this tomato's redness, that fire engine's redness, and so on. Talk of the shared property is retained; the shared <em>entity</em> is not.</li>
+</ul>
+<p>This is an unusually economical scheme — one category, where realism has particulars and universals and the substance tradition has substances and attributes — and the economy is of the qualitative kind that theorists generally weight most heavily. It is the leading example of the <a href="../03-categories-of-being.html">one-category ontologies</a> surveyed on the categories page.</p>
+<p>Not every trope theorist takes the bundle route. <strong>Substance–attribute trope theory</strong> keeps ordinary objects as substances and treats tropes as the attributes they bear, which sacrifices the one-category ambition but avoids the difficulties of compresence discussed below. Lowe's four-category ontology is of this kind: his <em>modes</em> are tropes borne by objects, alongside universals of both sorts.</p>
+<h2 id="what-tropes-are-good-for"><a class="header" href="#what-tropes-are-good-for">What tropes are good for</a></h2>
+<p>The position's strength is that tropes fit several jobs better than universals do.</p>
+<ul>
+<li><strong>Causation.</strong> What burns you is not heat-in-general but <em>this</em> fire's heat. The relata of causation are naturally particular and localised, which is exactly what a trope is and what a universal is not. Realists must say that the state of affairs, or the object, does the causing.</li>
+<li><strong>Perception.</strong> You see this tomato's particular redness, in this light, at this moment. Perception of a multiply-located repeatable entity is a much stranger relation than perception of a localised one.</li>
+<li><strong>Truthmakers.</strong> "The tomato is red" is made true by the tomato's redness trope — a single entity, whose existence necessitates the truth. Armstrong needs the composite <em>state of affairs</em> for this; the trope theorist gets a truthmaker without a new category, which is a real economy.</li>
+<li><strong>Exact resemblance without multiple location.</strong> Nothing is wholly present in two places, so the objection that most exercises opponents of immanent realism does not arise.</li>
+<li><strong>Change and similarity of degree.</strong> Tropes come in graded families, and the resemblance among them can be more or less close, which handles determinables and near-similarity without the machinery realism requires.</li>
+</ul>
+<h2 id="the-difficulties"><a class="header" href="#the-difficulties">The difficulties</a></h2>
+<p><strong>Resemblance is primitive.</strong> The trope theorist explains shared character by exact resemblance among tropes, and cannot in turn explain the resemblance without reintroducing a universal. This is Russell's regress again, in the form it takes against <a href="03-nominalism.html">resemblance nominalism</a>: if two rednesses resemble, and two roundnesses also resemble, is there not something common to the two resemblings? The standard reply is that exact resemblance among tropes is an <strong>internal</strong> relation — it holds solely in virtue of the natures of the tropes, so it is no addition to being and requires no truthmaker beyond the tropes themselves. That reply is respectable, and it is doing a great deal of work.</p>
+<p><strong>The identity of tropes.</strong> What makes this tomato's redness the very trope it is, rather than a qualitatively identical one? Two sub-problems:</p>
+<ul>
+<li><em>Swapping.</em> Could the tomato and the fire engine have exchanged their redness tropes? If yes, the difference between the two situations is undetectable in principle, and we have a haecceity for tropes — an unwanted commitment. If no, the trope seems to depend for its identity on its bearer, which is awkward in a bundle theory where there is no bearer independent of the bundle.</li>
+<li><em>Counting.</em> Two exactly resembling tropes are said to be two. But what distinguishes them, if not their qualitative character? The usual answer is spatiotemporal location, which makes tropes depend on a prior individuation of places and cannot handle co-located tropes.</li>
+</ul>
+<p><strong>Compresence.</strong> In the bundle version, compresence must bind tropes into objects. But compresence is either itself a trope — in which case what binds <em>it</em> to the bundle, and Bradley's regress reopens — or a primitive non-relational tie, which is the same move immanent realism makes and was criticised for. It must also be non-transitive in an awkward way: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span>'s redness is compresent with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span>'s roundness, and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span>'s roundness is compresent with... nothing outside <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span>, but the relation must be carefully constrained to avoid merging overlapping bundles.</p>
+<p><strong>Are tropes really particular?</strong> A sceptical line, pressed by Armstrong, holds that "this tomato's redness" is not an entity we have any independent grip on: we can talk that way, but the only thing we can point to is the tomato and the way it is. If so, tropes are a <em>façon de parler</em> and the theory reduces to the ostrich position with extra vocabulary.</p>
+<h2 id="where-trope-theory-sits"><a class="header" href="#where-trope-theory-sits">Where trope theory sits</a></h2>
+<p>Trope theory is a position on the <strong>category question</strong>, and specifically the attempt to answer it with one category rather than two. Its significance for the section is that it shows the realism/nominalism dichotomy to be false as usually posed. The standard framing runs: either properties are entities (realism) or they are not (nominalism). The trope theorist says properties are entities and are not repeatable, which is neither, and the framing's failure to anticipate it is a sign that the traditional debate conflated <em>being an entity</em> with <em>being repeatable</em>.</p>
+<p>Its influence outside this debate is considerable. Tropes are the natural candidates for causal relata and for truthmakers, so they show up in the theory of causation and in truthmaker theory; the modes of Lowe's four-category scheme are tropes; and the "abstract particular" is a standing counterexample to any attempt to draw the abstract/concrete line so that abstract implies non-spatiotemporal.</p>
+<p>That completes the options for the <a href="01-problem-of-universals.html">problem of universals</a>. What the debate has not yet touched is the closely related question of which properties are the <em>sparse</em> ones that carve nature at the joints, and how relations differ from monadic properties — the subjects of the remaining pages in this folder.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/06-universals/03-nominalism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/07-particulars/01-substance.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/06-universals/03-nominalism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/07-particulars/01-substance.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Material Constitution - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/09-mereology/03-material-constitution.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="material-constitution"><a class="header" href="#material-constitution">Material Constitution</a></h1>
+<p>A sculptor takes a lump of clay and forms a statue. Call the lump <strong>Lumpl</strong> and the statue <strong>Goliath</strong>. They occupy the same place, are made of the same matter, and have exactly the same parts. By the <a href="01-mereology.html">extensionality</a> of classical mereology, they are one thing.</p>
+<p>But they seem to differ. Squash the statue flat and the lump survives while the statue does not; so the statue has a property — <em>ceasing to exist if squashed</em> — that the lump lacks, and by Leibniz's Law they are two. They also differ in when they began: the clay existed before the sculptor started.</p>
+<p>This is the <strong>problem of material constitution</strong>, and it is the sharpest test case in the section because every available answer costs something one would rather keep.</p>
+<hr />
+<h2 id="the-argument-stated"><a class="header" href="#the-argument-stated">The argument, stated</a></h2>
+<p>The problem is a set of individually plausible claims that cannot all be true:</p>
+<ol>
+<li>Goliath exists and Lumpl exists.</li>
+<li>Goliath and Lumpl have exactly the same parts at time <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span>.</li>
+<li>Objects with exactly the same parts at a time are identical (extensionality, or the impossibility of coincidence).</li>
+<li>Goliath and Lumpl differ in their properties — modal, temporal, or aesthetic.</li>
+<li>Identicals are indiscernible (Leibniz's Law).</li>
+</ol>
+<p>From 2 and 3, Goliath is Lumpl. From 4 and 5, Goliath is not Lumpl. Each response denies a different member, and the map below is organised by which.</p>
+<h2 id="the-grounding-problem"><a class="header" href="#the-grounding-problem">The grounding problem</a></h2>
+<p>Before the responses, the deeper difficulty they must all face. Suppose one denies 3 and accepts that two objects can coincide. Then Goliath and Lumpl share every part, every atom, every microphysical property, and their entire history. In virtue of <em>what</em>, then, does Goliath have the modal property of being unable to survive squashing while Lumpl does not?</p>
+<p>This is the <strong>grounding problem</strong>, and it is worse than the original puzzle. It is not merely that coincidence is odd; it is that the coincident objects are supposed to differ in properties while agreeing in everything that could plausibly explain the difference. Modal properties do not float free — a thing's persistence conditions ought to be settled by what it is made of and how it is arranged, and here those are identical.</p>
+<p>The usual reply is that the difference is grounded in <em>sortal kind</em>: Goliath is essentially a statue, Lumpl essentially a lump, and kind membership is not a microphysical matter. The objection to the reply is that it relocates the question — what grounds the kind membership, given identity of matter and arrangement?</p>
+<h2 id="the-responses"><a class="header" href="#the-responses">The responses</a></h2>
+<p><strong>Deny 4: contingent identity</strong> (Gibbard). Goliath <em>is</em> Lumpl, and the apparent modal difference is an artifact of description. "Goliath could not survive squashing" is true when the thing is described as a statue and false when described as a lump; modal predicates are not properties of objects simpliciter but relative to a way of picking them out. This preserves extensionality at the price of denying that objects have their modal properties absolutely — which conflicts with the <a href="../07-particulars/05-essence-and-accident.html">essentialist</a> view that things have natures independently of how we refer to them.</p>
+<p><strong>Deny 5: relative identity</strong> (Geach). There is no such relation as identity simpliciter, only <em>identity-relative-to-a-sortal</em>. Goliath and Lumpl are the same lump but not the same statue, and there is no further question of whether they are the same <em>thing</em>. This is a large revision to logic — Leibniz's Law and the standard treatment of "=" both go — and few accept it.</p>
+<p><strong>Deny 3: constitution is not identity</strong> (Baker, Wiggins, Thomson). Goliath and Lumpl are two coincident objects; the lump <em>constitutes</em> the statue without being it. Constitution is a genuine, non-identity relation of ontological dependence. This is the most common view among those who want to keep ordinary objects, and its bill is the grounding problem plus the oddity of two things in one place. Baker adds that constitution is <em>unity without identity</em> and that the statue has properties <strong>derivatively</strong> from the lump, which softens the double-counting complaint.</p>
+<p><strong>Deny 2: temporal parts</strong> (Lewis, Sider). Goliath and Lumpl are four-dimensional worms that <em>overlap</em> during the period when the statue exists but differ in their total temporal extent — like two roads that share a stretch. They do not have all their parts in common, only their parts during the overlap. This is elegant and dissolves the problem completely, and its cost is the entire perdurantist metaphysic, which is argued on its own terms in the <a href="../../03-spacetime/06-time/06-persistence.html">persistence</a> page.</p>
+<p><strong>Deny 1: nihilism.</strong> There is neither a statue nor a lump, only simples arranged statuewise. No coincidence, no grounding problem, no puzzle — and no ordinary objects. See <a href="02-composition.html">composition</a>.</p>
+<p><strong>Deny 1 partially: dominant kinds</strong> (Burke). Where two candidate objects would coincide, only one exists — the one whose kind <em>dominates</em>. The lump ceases to exist when the statue is made, replaced by a numerically new object. Preserves both extensionality and modal absolutism, at the price of the surprising claim that shaping clay annihilates a lump.</p>
+<h2 id="ship-of-theseus"><a class="header" href="#ship-of-theseus">Ship of Theseus</a></h2>
+<p>The same structure appears diachronically. Replace the planks of a ship one at a time until none of the original remains; meanwhile reassemble the discarded planks into a second ship. Which is Theseus' ship — the continuous one or the original-matter one?</p>
+<p>The case is often treated as a separate puzzle but it is the same conflict, with <em>sameness of parts over time</em> replacing <em>sameness of parts at a time</em>. The available answers correspond: the continuity answer privileges the form, the reassembly answer privileges the matter, the perdurantist says there are two worms sharing an early stage, the nihilist denies there are ships, and the conventionalist says the question has no answer because "the same ship" is not a determinate relation.</p>
+<p>That last answer is more respectable here than it looks. The question "which is the same ship?" may be a question about how the sortal <em>ship</em> is applied, and if it is, no fact about the world is missing when the question goes unanswered.</p>
+<h2 id="tibbles-and-the-problem-of-the-many"><a class="header" href="#tibbles-and-the-problem-of-the-many">Tibbles and the problem of the many</a></h2>
+<p>A third variant, sharpest of all. Tibbles is a cat. Let <strong>Tib</strong> be all of Tibbles minus her tail. Tib is a proper part of Tibbles, so they are two. Now Tibbles loses her tail. Tib is unchanged; Tibbles now has exactly Tib's parts. Are there two cats on the mat, or did one thing become another?</p>
+<p>Worse: consider the countless maximal collections of atoms that differ only over which hairs at the boundary are included. Each is an equally good candidate to be the cat. Either there are millions of cats on the mat, or exactly one, and nothing distinguishes the winner. This is Unger's and Geach's <strong>problem of the many</strong>, and it generalises to every ordinary object with a fuzzy boundary — which is every ordinary object.</p>
+<p>Responses divide the same way: supervaluationism (each candidate is a cat on some precisification, no fact settles which), the dominant-kind manoeuvre (only maximal candidates count), nihilism (there are no cats), and Lewis's <em>almost-identity</em> (the candidates are so nearly identical that counting them as many is pedantry).</p>
+<h2 id="where-constitution-sits"><a class="header" href="#where-constitution-sits">Where constitution sits</a></h2>
+<p>This is a <strong>category question</strong> dressed as an inventory question. Everyone agrees about the matter and its arrangement; the dispute is over whether the categories <em>statue</em> and <em>lump</em> pick out distinct entities or one entity under two descriptions, and about what kind of relation constitution is if it is not identity.</p>
+<p>Its methodological interest is that it is the standing counterexample to <a href="01-mereology.html">classical mereology's</a> extensionality, and therefore a test of how much a formal theory may settle by itself. It also connects the section to the theory of <a href="../07-particulars/05-essence-and-accident.html">essence</a>: the whole problem is generated by modal properties, so anyone who denies that objects have modal properties absolutely dissolves it immediately, and anyone who affirms it owes the grounding story.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/09-mereology/02-composition.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/09-mereology/04-vagueness-and-gunk.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/09-mereology/02-composition.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/09-mereology/04-vagueness-and-gunk.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

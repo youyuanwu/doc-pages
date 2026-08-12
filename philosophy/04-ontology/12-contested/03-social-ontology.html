@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Social Ontology - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/12-contested/03-social-ontology.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="social-ontology"><a class="header" href="#social-ontology">Social Ontology</a></h1>
+<p>A twenty-pound note is a piece of polymer with no unusual physical properties. Its being money is not a physical fact about it, yet it is a fact — one can be wrong about it, and counterfeits are counterfeits whatever anyone thinks in the moment. Borders, debts, marriages, universities, and parliaments are all like this: real enough to constrain behaviour and to be discovered, while depending for their existence on human attitudes.</p>
+<p><strong>Social ontology</strong> asks what such entities are and how they fit an inventory. It is treated here as an ontological question — what exists and in what category — and not as a political one.</p>
+<hr />
+<h2 id="institutional-facts"><a class="header" href="#institutional-facts">Institutional facts</a></h2>
+<p>Searle's account remains the standard framework. Its central device is the <strong>constitutive rule</strong>:</p>
+<blockquote>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> counts as <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> in context <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>.</p>
+</blockquote>
+<p>This piece of paper counts as a twenty-pound note in the United Kingdom; that person counts as chairman in this committee; this line counts as the border in international law. Constitutive rules differ from regulative ones (drive on the left) in that they do not govern antecedently existing activity but make it possible: there was no chess to regulate before the rules of chess.</p>
+<p>Two further notions do the work:</p>
+<p><strong>Status functions.</strong> The <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> term assigns a function the object cannot perform in virtue of its physics alone. A screwdriver's function is physically grounded; money's is not, and a note works as money only because it is accepted as such.</p>
+<p><strong>Collective intentionality.</strong> The acceptance must be collective — a matter of <em>we-intentions</em> rather than an aggregate of individual ones. Searle takes this as primitive and irreducible to individual intentions plus mutual belief, which is a substantive ontological claim and much contested.</p>
+<p>Institutional reality is built by iterating the formula: the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> of one rule becomes the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> of the next, so that pieces of paper become money, money becomes capital, capital becomes a corporation's assets. The resulting structures can be enormously deep while resting on physical facts at the base.</p>
+<h2 id="do-groups-exist"><a class="header" href="#do-groups-exist">Do groups exist?</a></h2>
+<p>A committee decides; a company is liable; a nation declares war. Are there group entities over and above their members?</p>
+<p><strong>Eliminativism</strong> paraphrases: talk of the committee is shorthand for talk about its members and their relations. Attractively economical, and it faces the same difficulty as <a href="../09-mereology/02-composition.html">mereological nihilism</a> — the paraphrases get long, and it is not obvious they preserve inferential role. It also struggles with groups that survive complete turnover of membership: the university is the same university though no one from 1900 remains, which the members-and-relations account must capture some other way.</p>
+<p><strong>Realism about groups</strong> posits group entities. List and Pettit argue for <strong>group agents</strong>: where a collective aggregates its members' judgements by a procedure, the group can hold attitudes that no member holds. The <em>discursive dilemma</em> shows this formally — majority voting on premises can yield a collective conclusion contrary to the majority verdict on the conclusion itself. If a group's attitudes are not a function of its members' attitudes, the group is not obviously reducible to them.</p>
+<p>The ontological question is whether this establishes a new entity or only a new <em>pattern</em> — which is the same fork encountered over <a href="01-ordinary-objects.html">ordinary objects</a>, and it admits the same real-patterns answer.</p>
+<h2 id="social-construction"><a class="header" href="#social-construction">Social construction</a></h2>
+<p>The claim that something is "socially constructed" is made about a wide range of things and means different things in each case. Hacking's taxonomy is the standard disambiguation, and it is worth the trouble because most disputes here are disputes about which claim is being made.</p>
+<ul>
+<li><strong>Construction of ideas.</strong> The <em>concept</em> of a kind is a human product, shaped by history and interest. This is usually uncontroversial and is compatible with the kind being fully natural — the concept of an electron is a human product.</li>
+<li><strong>Construction of objects.</strong> The <em>things themselves</em> are brought into existence by social practice. Money and borders are clear cases.</li>
+<li><strong>Interactive kinds.</strong> Hacking's own contribution. Classifications of <em>people</em> can change the people classified, who know the classification and respond to it — a "looping effect" absent for natural kinds. Electrons do not know they are electrons; patients given a diagnosis often behave differently in consequence.</li>
+</ul>
+<p>Applied to race and gender, the substantive ontological questions are: which sense of construction is intended; whether the kind is nonetheless <em>real</em> (constructed kinds can be perfectly real — money is); and whether it supports induction and explanation, which is the test the <a href="../07-particulars/06-natural-kinds.html">natural kinds</a> page applies. Haslanger's <strong>ameliorative</strong> approach adds a further methodological move: rather than analyse the concept we have, ask what concept would best serve legitimate purposes, and adopt that. This is not a claim about what the kind <em>is</em>, which is why keeping it apart from the descriptive question matters.</p>
+<h2 id="the-dependence-structure"><a class="header" href="#the-dependence-structure">The dependence structure</a></h2>
+<p>Social entities are the clearest illustration of the <a href="../13-fundamentality/02-ontological-dependence.html">dependence</a> apparatus at work.</p>
+<div class="table-wrapper"><table><thead><tr><th>Entity</th><th>Depends on</th><th>Kind of dependence</th></tr></thead><tbody>
+<tr><td>A twenty-pound note</td><td>this piece of polymer</td><td>rigid, on the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> term</td></tr>
+<tr><td>Money as such</td><td>collective acceptance</td><td>generic, ongoing</td></tr>
+<tr><td>The University of X</td><td>its founding acts</td><td>rigid, historical</td></tr>
+<tr><td>A debt</td><td>the parties and the agreement</td><td>rigid</td></tr>
+<tr><td>A border</td><td>treaty and recognition</td><td>generic, ongoing</td></tr>
+</tbody></table>
+</div>
+<p>The important distinction is between dependence on an <em>origin</em> and dependence on <em>continuing attitudes</em>. A university depends historically on its founding but would not vanish if everyone briefly forgot it; money would cease to be money if acceptance ceased entirely. The two kinds of dependence make for very different modal profiles, and conflating them produces bad arguments about whether social entities are "really" real.</p>
+<h2 id="where-social-ontology-sits"><a class="header" href="#where-social-ontology-sits">Where social ontology sits</a></h2>
+<p>This belongs to the <strong>inventory</strong> and <strong>category</strong> questions, and its contribution to the section is a class of entities that are uncontroversially real and uncontroversially mind-dependent. That combination is instructive, because much of the section's argument has treated mind-dependence as a mark against reality — the objection to <a href="../06-universals/03-nominalism.html">predicate nominalism</a> was that it made the world depend on our language, and the objection to <a href="01-ordinary-objects.html">artifacts</a> is that they depend on intentions.</p>
+<p>Money shows the inference is too quick. What is objectionable in predicate nominalism is not dependence on us but dependence of the <em>wrong things</em> on us: the redness of the tomato does not wait on our vocabulary, whereas the monetary status of the note does wait on our practices, and there is nothing suspect about that. Sorting which is which is exactly the work an ontology of social entities has to do.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/12-contested/02-persons.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/12-contested/04-holes-and-absences.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/12-contested/02-persons.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/12-contested/04-holes-and-absences.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

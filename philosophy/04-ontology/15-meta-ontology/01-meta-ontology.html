@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Meta-Ontology: Carnap and Quine - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/15-meta-ontology/01-meta-ontology.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="meta-ontology-carnap-and-quine"><a class="header" href="#meta-ontology-carnap-and-quine">Meta-Ontology: Carnap and Quine</a></h1>
+<p>Everything in this section so far has assumed that ontological questions are meaningful, that they have determinate answers, and that argument can get at them. <strong>Meta-ontology</strong> is where those assumptions are examined. It asks what ontological questions <em>mean</em>, what evidence bears on them, and whether they have answers at all.</p>
+<p>This is the hinge page of the section. If Carnap was right, most of what precedes is an elaborate confusion. If Quine was right, it is continuous with science and as serious as anything else we do.</p>
+<hr />
+<h2 id="carnaps-linguistic-frameworks"><a class="header" href="#carnaps-linguistic-frameworks">Carnap's linguistic frameworks</a></h2>
+<p>Carnap's "Empiricism, Semantics, and Ontology" (1950) was written to allow empiricists to use mathematical and abstract vocabulary without incurring metaphysical debts. Its central device is the <strong>linguistic framework</strong>: a system of rules — a vocabulary, formation rules, and criteria for settling claims — adopted for a purpose.</p>
+<p>Within a framework, questions arise and are answered by the framework's own standards. These are <strong>internal questions</strong>:</p>
+<ul>
+<li><em>Are there numbers?</em> In the framework of numbers: yes, trivially. 5 is a number; therefore there is a number. The question is settled analytically by the framework's rules.</li>
+<li><em>Are there prime numbers greater than <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span></span></span></span></span></span></span></span>?</em> Also internal, and settled mathematically.</li>
+<li><em>Is there a piece of paper on my desk?</em> Internal to the thing-language, settled empirically.</li>
+</ul>
+<p>The internal questions are thus either trivial or ordinary. Neither is what the metaphysician was asking. The metaphysician wants to ask whether there <em>really</em> are numbers — whether the framework as a whole is answerable to reality. That is an <strong>external question</strong>, asked from outside the framework, and Carnap's claim is that it has no cognitive content. There is no standard by which to answer it, because standards are what frameworks supply.</p>
+<p>External questions are not therefore meaningless in every sense. They can be understood as <strong>practical</strong> questions: shall we adopt this framework? That question has a good answer — adopt it if it is efficient, fruitful, and simple for the purposes at hand — but it is a decision about language, not a discovery about the world. Carnap's <strong>principle of tolerance</strong> follows: everyone is free to build a language as they see fit, and the only legitimate criticism is that a framework is inconvenient, not that it is false.</p>
+<p>The consequence for this section is drastic. "Are there numbers?" is trivial internally and practical externally, and there is no third reading on which it is the hard question the <a href="../08-abstracta/02-mathematical-objects.html">platonism debate</a> takes itself to be conducting. The same goes for universals, for <a href="../09-mereology/02-composition.html">mereological sums</a>, and for the rest.</p>
+<h2 id="quines-reply"><a class="header" href="#quines-reply">Quine's reply</a></h2>
+<p>Quine's "On Carnap's Views on Ontology" (1951) attacks the distinction at its root, and the attack has two parts.</p>
+<p><strong>The internal/external distinction rests on the analytic/synthetic distinction.</strong> Internal questions are supposed to be settled by the framework's rules — that is, analytically — or by observation within it. External ones are supposed not to be factual at all. But "Two Dogmas of Empiricism" had argued that no principled analytic/synthetic distinction can be drawn: there is no non-circular account of analyticity, and no statement is immune to revision in the light of experience. Remove that distinction and the internal/external line has nothing to rest on.</p>
+<p><strong>The distinction Carnap draws is one of degree.</strong> Quine's more specific point is sharp. Carnap's examples of internal questions concern <em>subclasses</em> ("are there prime numbers greater than <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span></span></span></span></span></span></span></span>?") and his external ones concern <em>whole categories</em> ("are there numbers?"). But category questions and subclass questions differ only relative to a chosen vocabulary. Introduce a general predicate under which numbers and physical objects both fall, and the question whether there are numbers becomes a subclass question — internal, factual, and hard. The line moves with the language, so it cannot mark a difference in kind between the factual and the non-factual.</p>
+<p>Quine's positive view follows from his naturalism. There is no <strong>first philosophy</strong> standing outside science and adjudicating its commitments; we are, in Neurath's image, rebuilding the ship at sea. Ontology is therefore continuous with science: we accept the best theory available and are committed to whatever its bound variables must range over, by the <a href="../04-ontological-commitment.html">criterion of commitment</a>. "Are there numbers?" is a serious question, answered by determining whether our best total theory can be formulated without quantifying over them.</p>
+<h2 id="the-neo-quinean-package"><a class="header" href="#the-neo-quinean-package">The neo-Quinean package</a></h2>
+<p>Van Inwagen's "Meta-Ontology" (1998) states the resulting orthodoxy as a set of theses, which is useful because it makes visible how many separable commitments the standard view bundles:</p>
+<ol>
+<li><strong>Being is not an activity.</strong> There is no "way of being" that things do; existing is not something a thing engages in.</li>
+<li><strong>Being is the same as existence.</strong> No distinction of the <a href="../02-existence-and-being.html">Meinongian</a> kind between things that are and things that exist.</li>
+<li><strong>Existence is univocal.</strong> "Exists" means the same thing said of numbers, tables, and God.</li>
+<li><strong>The single sense of being is adequately captured by the existential quantifier.</strong> Ontology is done in regimented notation.</li>
+<li><strong>Ontological disputes are properly conducted by finding and evaluating paraphrases.</strong></li>
+</ol>
+<p>Thesis 3 is where <a href="../02-existence-and-being.html">ontological pluralism</a> objects; thesis 4 is where the <a href="../06-universals/03-nominalism.html">truthmaker</a> rival objects; thesis 5 is the method the whole section has used. Seeing them separated makes clear that "the Quinean view" is a package, and that rejecting one component does not require rejecting the rest.</p>
+<h2 id="who-won"><a class="header" href="#who-won">Who won?</a></h2>
+<p>The standard story is that Quine won and metaphysics was restored. Three qualifications are in order.</p>
+<p><strong>Quine's victory was partial.</strong> The attack on analyticity was a general attack on a distinction Carnap needed, but it did not show that external questions have determinate answers — only that they cannot be ruled out on Carnap's grounds. Someone could accept "Two Dogmas" entirely and still doubt that "are there mereological sums?" has a fact of the matter.</p>
+<p><strong>The Carnapian position has been reconstructed.</strong> Contemporary deflationists take Carnap's conclusion without his analytic/synthetic premise. Hirsch argues from <strong><a href="02-quantifier-variance.html">quantifier variance</a></strong> that rival ontologies are notational variants; Thomasson argues from <strong><a href="03-easy-ontology.html">easy ontology</a></strong> that existence questions have trivial answers reached by conceptual competence. Both are Carnapian in spirit and immune to Quine's specific objection.</p>
+<p><strong>Quine's own naturalism cuts against much current practice.</strong> If ontology is continuous with science, then disputes with no scientific bearing — whether there are arbitrary fusions, whether the statue is the clay — are not obviously legitimate by Quine's own standard. The neo-Quinean mainstream has inherited Quine's <em>method</em> while abandoning the naturalism that justified it, which is a tension the <a href="04-ontological-realism.html">ontological realist</a> must address.</p>
+<h2 id="where-this-page-sits"><a class="header" href="#where-this-page-sits">Where this page sits</a></h2>
+<p>This is the <strong>status question</strong> in its original form, and its bearing on the other two is total rather than partial. Every dispute in this section is conducted on the assumption that it is a dispute; the Carnapian denies the assumption wholesale, and the modern deflationist denies it case by case.</p>
+<p>That is why the page belongs early rather than at the end. Each preceding dispute should be read with the deflationary diagnosis in view — asking not only which answer is correct but whether the disagreement is one that any evidence or argument could settle. Some survive the question comfortably: the debate over <a href="../08-abstracta/02-mathematical-objects.html">mathematical objects</a> has a determinate subject matter and the disputants agree on what would count. Others look more vulnerable: <a href="../09-mereology/02-composition.html">universalism versus nihilism</a> about composition is the deflationist's favourite example precisely because each side can translate the other's claims without loss.</p>
+<p>The next pages develop the two modern deflationary programmes — <a href="02-quantifier-variance.html">quantifier variance</a> and <a href="03-easy-ontology.html">easy ontology</a> — and then the realist reply that the quantifier itself carves at the joints.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/14-science/05-the-wavefunction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/15-meta-ontology/02-quantifier-variance.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/14-science/05-the-wavefunction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/15-meta-ontology/02-quantifier-variance.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

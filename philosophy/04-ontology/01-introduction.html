@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What Is Ontology? - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/01-introduction.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="what-is-ontology"><a class="header" href="#what-is-ontology">What Is Ontology?</a></h1>
+<p><strong>Ontology</strong> is the study of what there is. That formulation is due to Quine, who also gave the question its famous deflating answer: <em>what is there? Everything</em> — and everyone will accept that, since to deny it is to say there is something that is not there. The answer is correct and useless, and the gap between its correctness and its uselessness is where the subject lives. Disagreement resumes the moment we ask about <em>cases</em>. Are there numbers? Properties, over and above the things that have them? Events, as well as the objects that participate in them? Is there an object composed of your left shoe and the Eiffel Tower? Was there something Sherlock Holmes was, such that we can say true things about him? Each of these has been answered both ways by serious people, and the disputes are not obviously about the meanings of words — though whether they are is itself one of the questions here.</p>
+<p>This page fixes the subject matter, separates the three different <em>kinds</em> of question ontology pursues, lays out the map of positions, and explains why formal logic rather than empirical investigation is the discipline's characteristic tool. The other spine pages take up the concept of <a href="02-existence-and-being.html">existence</a> itself, the <a href="03-categories-of-being.html">category schemes</a> under which entities are sorted, and the criterion of <a href="04-ontological-commitment.html">ontological commitment</a> by which a theory's inventory is read off.</p>
+<hr />
+<h2 id="three-questions-not-one"><a class="header" href="#three-questions-not-one">Three questions, not one</a></h2>
+<p>"What is there?" conceals three logically independent questions, and most confusion in the field comes from sliding between them. They mirror the three-question structure used elsewhere in these notes — compare the metaphysical, epistemic, and semantic strands of the <a href="../01-freewill/01-introduction.html">free-will problem</a> and the <a href="../02-religion/01-introduction.html">philosophy of religion</a>, and the ontological, temporal, and geometric questions of the <a href="../03-spacetime/01-introduction.html">philosophy of space and time</a>.</p>
+<ul>
+<li><strong>The inventory question — <em>what entities are there?</em></strong> This is the question in its most familiar form: a list. Are universals on it, or only particulars? Numbers and sets? Possible worlds? Mereological sums? Holes? Fictional characters? Answers here are typically defended by showing that something we already accept — a true sentence, a successful scientific theory, an indispensable explanation — cannot be had without the disputed entity, or, on the other side, that it can.</li>
+<li><strong>The category question — <em>under what fundamental kinds do they fall, and which of those kinds are basic?</em></strong> Even a settled inventory leaves open how to sort it. Are properties a fundamentally different sort of thing from their bearers, or can one category do the work of both? Is the abstract/concrete divide a real joint or a rough heuristic? A category scheme is not a list but a <em>structure</em> imposed on the list, and the two can vary independently: two philosophers may agree that there are numbers and disagree about whether numbers are objects, properties, or positions in a structure. This is the subject of <a href="03-categories-of-being.html">Categories of Being</a>.</li>
+<li><strong>The status question — <em>is the dispute substantive, and by what method could it be settled?</em></strong> This is the <a href="15-meta-ontology/01-meta-ontology.html">meta-ontological</a> question, and it is not optional. Carnap held that "are there numbers?" is trivial when asked inside a linguistic framework and merely practical when asked outside one; Quine denied the distinction and made ontology continuous with science. If Carnap was right, most of the inventory question dissolves. If Quine was right, it is as serious as physics. Contemporary deflationists press the point further by arguing that rival ontologies are <a href="15-meta-ontology/02-quantifier-variance.html">notational variants</a>.</li>
+</ul>
+<p>The three interact constantly. A nominalist's answer to the inventory question (no universals) is forced by a prior commitment on the category question (one category of particulars will do); a deflationist's answer to the status question makes the first two look like exercises in bookkeeping. A complete position must address all three, and — importantly — the <em>order</em> in which one addresses them prejudges a good deal. Beginning with the inventory presupposes that the question is substantive; beginning with the status question presupposes that we know what would count as an answer.</p>
+<h2 id="the-map-of-positions"><a class="header" href="#the-map-of-positions">The map of positions</a></h2>
+<p>Ontology is not organised around one axis but several, and a philosopher's position is a selection from each. The recurring ones:</p>
+<div class="table-wrapper"><table><thead><tr><th>Axis</th><th>Positions</th></tr></thead><tbody>
+<tr><td><strong>Universals</strong></td><td><em>Realism</em> — there are universals, either transcendent (Platonic) or immanent (Aristotelian). <em>Trope theory</em> — there are only particularised properties. <em>Nominalism</em> — there are only particulars, and resemblance is primitive or explained away. See <a href="06-universals/01-problem-of-universals.html">the problem of universals</a>.</td></tr>
+<tr><td><strong>Abstracta</strong></td><td><em>Platonism</em> — there are non-spatiotemporal, acausal objects such as <a href="08-abstracta/02-mathematical-objects.html">numbers and sets</a>. <em>Nominalism</em> (in the other sense) — there are not, and mathematics must be <a href="08-abstracta/05-nominalist-programs.html">reinterpreted or shown dispensable</a>. <em>Fictionalism</em> — mathematical statements are useful falsehoods.</td></tr>
+<tr><td><strong>Composition</strong></td><td><em>Universalism</em> — any plurality <a href="09-mereology/02-composition.html">composes something</a>. <em>Nihilism</em> — nothing does; there are only simples. <em>Restricted</em> views — composition occurs under some conditions and not others.</td></tr>
+<tr><td><strong>Ordinary objects</strong></td><td><em>Permissivism</em>, <em>conservatism</em>, and <em><a href="12-contested/01-ordinary-objects.html">eliminativism</a></em> about tables, statues, and artifacts.</td></tr>
+<tr><td><strong>Fundamentality</strong></td><td><em><a href="13-fundamentality/03-fundamentality.html">Monism</a></em> — the cosmos is prior to its parts. <em>Pluralism</em> — the parts are prior. Layered vs. flat conceptions of reality; whether there is a <a href="13-fundamentality/03-fundamentality.html">bottom level</a> at all.</td></tr>
+<tr><td><strong>Meta-ontology</strong></td><td><em><a href="15-meta-ontology/04-ontological-realism.html">Ontological realism</a></em> — the disputes are substantive and have unique correct answers. <em><a href="15-meta-ontology/02-quantifier-variance.html">Deflationism</a></em> — they are verbal, or <a href="15-meta-ontology/03-easy-ontology.html">trivially settled</a>. <em>Pluralism</em> — there is more than one equally good way to carve.</td></tr>
+</tbody></table>
+</div>
+<p>Two of these labels are dangerously overloaded and worth pinning down at the outset. <strong>"Nominalism"</strong> names two different theses — the denial of <a href="06-universals/03-nominalism.html">universals</a> and the denial of <a href="08-abstracta/01-abstract-and-concrete.html">abstract objects</a> — which are logically independent: one can accept numbers while rejecting universals, or the reverse. <strong>"Realism"</strong> appears on nearly every line of the table, and <a href="06-universals/02-realism.html">realism about universals</a>, <a href="08-abstracta/02-mathematical-objects.html">about abstracta</a>, about the external world, and about ontology itself are four different commitments. These notes flag which sense is in play wherever the word appears.</p>
+<h2 id="ontology-metaphysics-and-meta-ontology"><a class="header" href="#ontology-metaphysics-and-meta-ontology">Ontology, metaphysics, and meta-ontology</a></h2>
+<p>Ontology is a <em>part</em> of metaphysics, not a synonym for it. Metaphysics also includes causation, laws, time, modality, and mind; ontology is the part that asks what entities there are and how they are categorised. The boundary is porous — the metaphysics of causation quickly becomes the question whether there are <em>events</em> to be causes — and these notes follow the ontological thread through those topics rather than treating them whole.</p>
+<p><strong>Meta-ontology</strong> is the reflection on ontology itself: what ontological questions <em>mean</em>, what evidence bears on them, and whether they have determinate answers. It is a level up, and treating it as just another ontological dispute is a category mistake that generates a good deal of talking past.</p>
+<p>One further ambiguity is worth heading off, because it sends readers arriving from computing in entirely the wrong direction. In information science, <a href="16-context/03-applied-ontology.html">an "ontology"</a> is a formal specification of a conceptual vocabulary — a taxonomy of classes and relations expressed in a description logic, used to make databases interoperable. That practice descends from this one and shares some of its concerns (categories, taxonomy, criteria of identity), but "an ontology" in that sense is an artifact one <em>builds</em>, while ontology in this sense is a subject one <em>investigates</em>, and it has no plural.</p>
+<h2 id="why-logic-is-the-tool"><a class="header" href="#why-logic-is-the-tool">Why logic is the tool</a></h2>
+<p>Ontology has no laboratory and no proprietary observations. What it has instead is <strong>regimentation</strong>: the practice of translating a body of claims into a canonical formal notation — standardly <a href="../../logic/02-first-order-logic.html">first-order logic</a> — where what is being asserted to exist becomes explicit. Quine's criterion of <a href="04-ontological-commitment.html">ontological commitment</a> then reads the ontology off the <a href="../../logic/07-model-theory.html">quantifiers</a>: a theory is committed to whatever must be in the domain for it to come out true.</p>
+<p>That makes the choice of logical resources itself an ontological choice, which is why the section leans on the logic pages so heavily. Whether one may quantify into predicate position (<a href="../../logic/03-higher-order-logic.html">higher-order logic</a>) bears directly on whether properties are entities; whether plural quantification is available changes what "there are some things" commits one to; free logic supplies a formal home for "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> does not exist"; and <a href="../../logic/05-paraconsistent-logic.html">paraconsistent</a> resources are what make impossible objects discussible at all. The formal machinery is developed in the logic section; the conceptual work of deciding what it means for ontology is done here.</p>
+<p>Empirical science is not thereby irrelevant — on the Quinean view it is decisive, since the theory to be regimented is our best scientific theory — but it enters as a <em>premise</em> rather than as a method. And it does not settle matters by itself: the same physics can be read with quite different inventories, as the <a href="../../physics/03-QM/11-foundations/05-interpretations.html">interpretations of quantum mechanics</a> and the <a href="../03-spacetime/02-substantivalism-relationism.html">substantivalism debate</a> both show.</p>
+<h2 id="does-ontology-progress"><a class="header" href="#does-ontology-progress">Does ontology progress?</a></h2>
+<p>A standing charge against the subject, made from outside and by some inside it, is that it does not get anywhere: the problem of universals has been open since Plato, and no argument has ever retired a position. Science visibly progresses; ontology, allegedly, only accumulates.</p>
+<p>The charge deserves a hearing rather than a reflex, and there are three serious answers, each of which is already a position on the status question. The <strong>naturalist</strong> grants the charge for armchair ontology and concludes that progress is available only where ontology tracks the sciences. The <strong>ontological realist</strong> denies the charge, pointing out that the modern debate has genuinely new positions and results — trope theory, weak discernibility, grounding, the argument from vagueness — and that slow progress on hard problems is also the condition of mathematics. The <strong>deflationist</strong> accepts the charge and takes it as evidence for the diagnosis: disputes that cannot be resolved by any agreed method are unresolvable because there was never a fact at issue. Which answer is right depends on the meta-ontology, and the question is taken up on the <a href="15-meta-ontology/05-method.html">method</a> page rather than settled here.</p>
+<h2 id="what-ontology-is-not"><a class="header" href="#what-ontology-is-not">What ontology is <em>not</em></a></h2>
+<ul>
+<li><strong>Not a survey of what people believe exists.</strong> That is anthropology or intellectual history. Ontology asks what there <em>is</em>, and the fact that a claim is universally believed is at best weak evidence.</li>
+<li><strong>Not the natural sciences.</strong> Physics tells us what particles there are; ontology asks what it is to be a <em>thing</em> at all, whether particles are individuals, and whether the objects of everyday experience are among the entities the world contains. No measurement answers those questions, though measurements constrain the answers.</li>
+<li><strong>Not merely lexicography.</strong> The deflationist's claim that ontological disputes are verbal is a substantive <em>thesis</em> about those disputes, defended by argument. It is not the starting assumption, and treating it as obvious begs the central question of the field.</li>
+<li><strong>Not a history of metaphysics.</strong> Aristotle, Ockham, and Quine appear throughout as authors of arguments still in play, not as objects of historical study.</li>
+</ul>
+<h2 id="where-this-leaves-us"><a class="header" href="#where-this-leaves-us">Where this leaves us</a></h2>
+<p>Ontology is best entered through a grid: three questions — what is there, how is it categorised, and is the dispute real? — crossed with the positions on each of the axes above, and worked through with the tools of formal logic rather than of observation. Almost every dispute in this section sits somewhere on that grid, and most of the section's cross-links exist because a position taken in one cell constrains what can be said in another. The <a href="06-universals/01-problem-of-universals.html">problem of universals</a> is the best worked example, and the one the later disputes are modelled on.</p>
+<p>The next page takes up the concept the whole enterprise presupposes and the one that turns out to be least clear: what it is for something to <a href="02-existence-and-being.html">exist</a> at all.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/04-ontology/00-README.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/04-ontology/02-existence-and-being.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/04-ontology/00-README.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/04-ontology/02-existence-and-being.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

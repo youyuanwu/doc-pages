@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ontological Commitment - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/04-ontological-commitment.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="ontological-commitment"><a class="header" href="#ontological-commitment">Ontological Commitment</a></h1>
+<p>Ontology needs a way of telling what a theory says there is. This is less obvious than it sounds, because theories rarely announce their inventories. A physicist writing down a field equation, a mathematician proving a theorem about groups, and someone remarking that the average family has 2.3 children are all saying things that appear to talk about entities — fields, groups, an average family — and in at least one of those cases the appearance is misleading. What is needed is a <strong>criterion of ontological commitment</strong>: a rule taking a theory as input and returning what must exist for it to be true.</p>
+<p>Quine's criterion is the one nearly everyone works from, including those who reject it. This page states it, exhibits the step where the real work is done, sets out paraphrase as the technique it licenses, and surveys the objections and the rival criteria.</p>
+<hr />
+<h2 id="quines-criterion"><a class="header" href="#quines-criterion">Quine's criterion</a></h2>
+<p>The slogan: <strong>to be is to be the value of a bound variable.</strong></p>
+<p>More carefully: a theory is ontologically committed to those entities that must lie in the domain of quantification for the theory's <a href="../../logic/02-first-order-logic.html">regimented</a> sentences to be true. If the theory says <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mord text"><span class="mord"> is a prime number between </span></span><span class="mord">8</span><span class="mord text"><span class="mord"> and </span></span><span class="mord">12</span><span class="mclose">)</span></span></span></span>, and that sentence is true, then something in the domain is a prime number between 8 and 12, and the theory is committed to numbers.</p>
+<p>Three clarifications keep the criterion from being misread, and each was insisted on by Quine himself:</p>
+<ul>
+<li><strong>It is a criterion of commitment, not of existence.</strong> It does not tell us what exists. It tells us what a theory <em>says</em> exists, so that we know what we are accepting if we accept the theory. Deciding which theory to accept is a separate matter.</li>
+<li><strong>Names carry no commitment.</strong> Only bound variables do. The occurrence of "Pegasus" in a sentence commits one to nothing, because names are eliminable in favour of descriptions and descriptions are eliminable by <a href="../../logic/02-first-order-logic.html">Russell's</a> analysis. This is the technical heart of the view — and, as the treatment of <a href="05-existence/04-negative-existentials.html">negative existentials</a> shows, its most vulnerable point, since Kripke's argument that names are rigid designators undercuts the description theory it relies on.</li>
+<li><strong>Predicates carry no commitment.</strong> That a theory uses the predicate "is red" does not commit it to <em>redness</em>. Commitment requires quantification into the position, and standard first-order logic does not permit quantifying into predicate position at all. This is why the criterion is congenial to nominalism — and why the availability of <a href="../../logic/03-higher-order-logic.html">higher-order logic</a> is not a merely technical question.</li>
+</ul>
+<p>The criterion first appears in "On What There Is" (1948), whose opening manoeuvre remains the model for how such disputes are conducted. Quine's opponents are given names — <strong>McX</strong>, who holds that Pegasus must in some sense be, or else "Pegasus does not exist" would be about nothing, and <strong>Wyman</strong>, who assigns unactualised possibles a shadowy subsistence. Quine calls the underlying difficulty <strong>Plato's beard</strong>: the doctrine that non-being must in some sense be, since otherwise what is it that there is not? The beard has historically dulled Ockham's razor, and Russell's theory of descriptions is the blade sharp enough to cut it. "Pegasus does not exist" becomes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mclose">))</span></span></span></span>, which requires nothing to be about.</p>
+<h2 id="the-work-is-in-the-regimentation"><a class="header" href="#the-work-is-in-the-regimentation">The work is in the regimentation</a></h2>
+<p>The criterion looks mechanical, and this is deceptive. It applies to <em>regimented</em> theory — sentences already translated into canonical notation — and the translation is not itself governed by the criterion. All the contentious decisions are made before the criterion is applied.</p>
+<p>"The average family has 2.3 children" is the standard illustration. Read naively it quantifies over an average family, and no such thing exists. Everyone accepts that the right regimentation divides a total by a count and quantifies only over ordinary families. But notice what this shows: we did not read the ontology off the surface sentence and then decide the average family was suspect. We decided in advance that there is no such entity, and chose the regimentation that reflects it. The criterion recorded the decision; it did not make it.</p>
+<p>That pattern generalises, and it is the central methodological fact about the criterion. Given a sentence that appears to quantify over entities we dislike, we may either accept the commitment or find a paraphrase that avoids it. The criterion tells us what is at stake in the choice but does not make it. What settles matters is whether an adequate paraphrase exists — and <em>adequate</em> is where the argument is.</p>
+<h2 id="paraphrase"><a class="header" href="#paraphrase">Paraphrase</a></h2>
+<p>Paraphrase is accordingly the ontologist's principal technique, and the discipline of it is worth stating explicitly, since an unconstrained paraphrase can eliminate anything at all.</p>
+<p>A proposed paraphrase must at minimum:</p>
+<ul>
+<li><strong>preserve truth value</strong> across the relevant range of cases, not just the example under discussion;</li>
+<li><strong>preserve inferential role</strong>, so that the arguments we accept remain valid;</li>
+<li><strong>be systematic</strong>, applying by a general rule rather than case by case — a paraphrase manual, not a list of clever tricks;</li>
+<li><strong>not covertly reintroduce</strong> the entity, for instance by quantifying over sets of the things it eliminated, or by helping itself to modal or higher-order resources whose own commitments are unexamined.</li>
+</ul>
+<p>The last condition does the most work in practice. Programmes that eliminate numbers by quantifying over possible inscriptions, or properties by quantifying over classes, are frequently charged with trading one abstract commitment for another.</p>
+<p>There is also a standing worry that paraphrase is <em>symmetric</em>. If the nominalist can paraphrase away numbers, why should we not say the platonist has paraphrased away number-free descriptions? Quine's answer is that the choice between total theories is made on the ordinary grounds of theory choice — simplicity, strength, familiarity, and fit with the rest of science — and that the ontology is then a by-product of accepting the winner. That answer only works if the criterion is embedded in a broader naturalism, which is why the criterion and Quine's philosophy of science are hard to separate.</p>
+<h2 id="objections-and-rivals"><a class="header" href="#objections-and-rivals">Objections and rivals</a></h2>
+<p><strong>The ostrich nominalist's refusal.</strong> Devitt, following Quine's own austerity, holds that from "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> is red" one is entitled to infer nothing about redness, and owes no account of what "explains" the sentence's truth beyond <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span>'s being red. Armstrong's charge that this is <a href="06-universals/03-nominalism.html">"ostrich" nominalism</a> — refusing to look at the problem — is met with the reply that the demand for a truthmaker is precisely what has not been established.</p>
+<p><strong>Second-order and plural quantification.</strong> The criterion's nominalist congeniality depends on first-order logic being the canonical notation. If <a href="../../logic/03-higher-order-logic.html">second-order quantification</a> is legitimate logic rather than "set theory in sheep's clothing" (Quine's phrase), then <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">∃</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mord mathnormal">a</span></span></span></span> is available and the criterion delivers properties after all. Boolos' <strong>plural</strong> quantification cuts the other way: it lets us say "there are some critics who admire only one another" without committing to a <em>set</em> of critics, which loosens the assumed tie between quantifying over many things and quantifying over a single collection. Either way the choice of logic is doing ontological work that the criterion presents itself as neutral about.</p>
+<p><strong>Commitment tracks truthmakers, not variables.</strong> The most substantial rival criterion holds that one is committed not to what one quantifies over but to whatever must <em>exist</em> to make one's claims true. The two come apart in both directions. They come apart for the presentist who asserts "there were dinosaurs" while denying that anything past exists — quantifier commitment says nothing, truthmaker commitment demands something to make it true. And they come apart for the ostrich nominalist, who quantifies over <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> only but is accused of owing a truthmaker for <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span>'s being red. <a href="11-events/03-truthmakers.html">Truthmaker theorists</a> press the charge of "cheating" against both. The criterion is thereby transformed from a question about logical form into one about metaphysical dependence.</p>
+<p><strong>Carnap's prior objection.</strong> Quine's criterion presupposes that "are there numbers?", asked in earnest, is a meaningful question with a determinate answer. <a href="15-meta-ontology/01-meta-ontology.html">Carnap denied it</a>: inside a linguistic framework the question is trivial, outside it is not theoretical but practical. If that is right, the criterion is an exact tool applied to a pseudo-question. This is the deepest challenge and the one the section's meta-ontology must answer.</p>
+<h2 id="where-commitment-sits"><a class="header" href="#where-commitment-sits">Where commitment sits</a></h2>
+<p>The criterion is the working method behind almost every dispute in this section, which is why it belongs on the spine. Arguments for the existence of numbers, properties, events, and mereological sums are typically arguments that some body of accepted claims cannot be paraphrased free of them; arguments against are typically the exhibition of a paraphrase.</p>
+<p>It bears on the <strong>inventory question</strong> by supplying the only widely agreed method for answering it. It bears on the <strong>category question</strong> hardly at all — and that is a limitation worth noticing, since the criterion tells us that a theory is committed to <em>something</em> satisfying a condition without saying what category that something belongs to. And it bears on the <strong>status question</strong> doubly: the criterion is what makes ontological disputes look tractable, and the objections above are attempts to show that the tractability is superficial, because the contentious work was done in the regimentation rather than by the criterion.</p>
+<p>With existence, categories, and commitment in place, the section's machinery is assembled. The detailed disputes follow — beginning with the oldest of them, the <a href="06-universals/01-problem-of-universals.html">problem of universals</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/04-ontology/03-categories-of-being.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/04-ontology/05-existence/01-existence-and-quantification.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/04-ontology/03-categories-of-being.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/04-ontology/05-existence/01-existence-and-quantification.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

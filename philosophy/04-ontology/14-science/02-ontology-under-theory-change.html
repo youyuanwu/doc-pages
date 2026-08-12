@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ontology Under Theory Change - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/14-science/02-ontology-under-theory-change.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="ontology-under-theory-change"><a class="header" href="#ontology-under-theory-change">Ontology Under Theory Change</a></h1>
+<p>Suppose we grant the realist premise of the <a href="01-science-and-ontological-commitment.html">previous page</a>: accept our best theory, and believe what it says exists. A historical difficulty follows immediately. Our best theories keep being replaced, and their posits keep being discarded.</p>
+<p>This is the sharpest challenge to any naturalised ontology, and it is specifically about <em>change</em> rather than about content.</p>
+<hr />
+<h2 id="the-pessimistic-meta-induction"><a class="header" href="#the-pessimistic-meta-induction">The pessimistic meta-induction</a></h2>
+<p>Laudan's list of theories that were genuinely successful — making novel predictions, guiding research, accepted by competent scientists — and whose central posits we now deny:</p>
+<div class="table-wrapper"><table><thead><tr><th>Theory</th><th>Central posit</th><th>Status</th></tr></thead><tbody>
+<tr><td>Phlogiston chemistry</td><td>phlogiston</td><td>abandoned</td></tr>
+<tr><td>Caloric thermodynamics</td><td>caloric fluid</td><td>abandoned</td></tr>
+<tr><td>Optical theory (18th–19th c.)</td><td>luminiferous ether</td><td>abandoned</td></tr>
+<tr><td>Electromagnetic theory</td><td>electromagnetic ether</td><td>abandoned</td></tr>
+<tr><td>Newtonian mechanics</td><td>absolute space</td><td>abandoned</td></tr>
+<tr><td>Ptolemaic and Aristotelian astronomy</td><td>crystalline spheres</td><td>abandoned</td></tr>
+<tr><td>Physiology (pre-19th c.)</td><td>vital forces</td><td>abandoned</td></tr>
+</tbody></table>
+</div>
+<p>The induction: success has repeatedly failed to guarantee reference, so success now gives no assurance either. The policy "commit to the ontology of your best theory" has a documented failure rate approaching totality.</p>
+<p>The argument also cuts against the <a href="01-science-and-ontological-commitment.html">no-miracles argument</a> directly. If false theories with non-referring terms can be predictively successful — and the list shows they can — then success does not require truth, and the miracle was never a miracle.</p>
+<h2 id="three-survival-strategies"><a class="header" href="#three-survival-strategies">Three survival strategies</a></h2>
+<p>Each is a <em>substantive ontological position</em>, not merely an epistemic hedge, and each modifies the Quinean method in a specific way.</p>
+<p><strong>Selective or deployment realism</strong> (Kitcher, Psillos). Do not commit to a theory wholesale; commit only to the parts <em>essentially deployed</em> in its successful novel predictions. Fresnel's optics made striking predictions — the bright spot at the centre of a circular shadow — and what did the work were his <em>equations</em>, not the ether that supposedly carried the waves. The ether was an idle wheel; Kitcher's distinction between <strong>working posits</strong> and <strong>presuppositional posits</strong> marks it.</p>
+<p>The ontological significance is easy to miss. This abandons Quine's all-or-nothing criterion. On the Quinean picture one accepts a theory and inherits its commitments entire; here commitment attaches to <em>parts</em> of theories, and a further criterion is needed to say which parts. The obvious worry is that the selection is made retrospectively — we know which posits were idle because we know which were discarded — and unless the distinction can be drawn prospectively, the strategy explains the past without guiding the present.</p>
+<p><strong>Entity realism</strong> (Hacking, Cartwright). Reverse the usual order: believe in entities, not theories. Hacking's criterion is manipulation — "if you can spray them, they're real." When electrons are used as <em>tools</em>, sprayed onto a niobium ball to alter its charge, their reality is established by our causal traffic with them, independently of whether any theory of the electron is true. Theories come and go; the experimental capacity to intervene persists.</p>
+<p>This is a genuinely different criterion of existence from Quine's: causal manipulability rather than indispensable quantification. Its difficulty is that manipulation is theory-laden — one must believe <em>something</em> about electrons to design the spraying — so the separation of entity from theory may not survive scrutiny.</p>
+<p><strong>Structural realism</strong> (Worrall). What is retained across theory change is mathematical <strong>structure</strong>. Fresnel's equations passed intact into Maxwell's theory though the ether was discarded; the equations of Newtonian gravitation reappear as a limiting case of general relativity. So be a realist about structure and agnostic about the entities instantiating it — "the best of both worlds," accommodating both the no-miracles argument and the pessimistic induction.</p>
+<p><strong>Epistemic</strong> structural realism says structure is all we <em>know</em>; <strong>ontic</strong> structural realism says structure is all there <em>is</em>. The step from one to the other is developed under <a href="../13-fundamentality/04-structure.html">structure</a>, where the point is made that this argument from theory change is one of two independent motivations and should be kept apart from the argument from current physics.</p>
+<p><strong>Newman's problem</strong> is the standing objection to the epistemic version. If our knowledge is of structure alone — that reality has a certain abstract relational form — then, by a theorem Newman directed against Russell in 1928, the claim is nearly trivial: any collection of the right cardinality can be given a relational structure of any specified form. Structural claims must be supplemented by something non-structural to have content, and the structural realist must say what.</p>
+<h2 id="reference-across-theory-change"><a class="header" href="#reference-across-theory-change">Reference across theory change</a></h2>
+<p>Whether an ontology survives a theory's death depends on whether its terms kept referring, which makes the philosophy of language load-bearing here.</p>
+<p><strong>The incommensurability challenge.</strong> Kuhn and Feyerabend argued that theoretical terms get their meaning from the theory containing them, so "mass" in Newtonian mechanics and "mass" in relativity mean different things and the theories cannot be compared. In Kuhn's stronger formulations, scientists working in different paradigms "practise their trades in different worlds" — which is ontological relativism, and it makes the pessimistic induction moot by denying there was ever a common subject matter.</p>
+<p><strong>The causal theory of reference</strong> is the realist's rescue. On Kripke's and Putnam's account, reference is fixed by causal-historical contact at a baptism, not by the descriptions speakers associate. Thomson's "electron" referred to electrons despite his description of them being badly wrong, because he was causally in touch with them. Reference continuity is exactly what allows an ontology to survive a theory's replacement.</p>
+<p>The account is not a panacea. If reference is fixed by causal contact with <em>whatever</em> is producing the phenomena, then "phlogiston" arguably referred to oxygen-deficit and "caloric" to energy, and the theory of reference becomes too charitable to be useful — it makes every term refer to something. <strong>Partial reference</strong> and denotational refinement (Field) are attempts at a middle way: a term may be indeterminate among several candidates, and later theory determines which was meant.</p>
+<h2 id="quines-own-qualification"><a class="header" href="#quines-own-qualification">Quine's own qualification</a></h2>
+<p>A final pressure, and it comes from inside naturalised ontology rather than from outside.</p>
+<p>Quine's <strong>ontological relativity</strong> shows that even a fixed, accepted theory does not determine its ontology uniquely. Apply a <strong>proxy function</strong> — a one-one mapping of the domain onto some other domain — and reinterpret every predicate accordingly. Map each rabbit to its cosmic complement, or to its temporal stages; adjust the predicates to compensate; and every sentence retains its truth value, every observation is equally well accounted for, and nothing in the theory or the evidence distinguishes the interpretations.</p>
+<p>The consequence: "the ontology of our best theory" is relative to a manual of translation. This is the same phenomenon as <a href="../15-meta-ontology/02-quantifier-variance.html">Putnam's model-theoretic argument</a>, and it is striking that the deflationist's best argument was supplied by the arch-anti-Carnapian. It shows that the Quinean method delivers ontology only up to a choice that the method itself cannot make.</p>
+<h2 id="where-theory-change-sits"><a class="header" href="#where-theory-change-sits">Where theory change sits</a></h2>
+<p>This page bears on the <strong>status question</strong> by way of the inventory. If ontology is continuous with science, then the instability of science is the instability of ontology, and the three survival strategies are three proposals for what to hold onto.</p>
+<p>The moral for the section is that the survivors are not <em>entities</em>. Selective realism keeps some posits and not others; entity realism keeps only those we can manipulate; structural realism keeps no entities at all. In each case what is retained is more abstract than the ontology one started with — which is a reason, independent of any argument from current physics, for taking structure seriously as a category.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/14-science/01-science-and-ontological-commitment.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/14-science/03-particles-and-individuality.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/14-science/01-science-and-ontological-commitment.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/14-science/03-particles-and-individuality.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Realism about Universals - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/06-universals/02-realism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="realism-about-universals"><a class="header" href="#realism-about-universals">Realism about Universals</a></h1>
+<p><strong>Realism</strong> is the thesis that, in addition to the particular things there are, there are <em>universals</em> — repeatable entities that numerically distinct particulars can share. The tomato and the fire engine are two, but the redness they have is one. Realism answers the <a href="01-problem-of-universals.html">explanatory demand</a> directly: what makes them both red is that a single entity is present in, or participated in by, each.</p>
+<p>The position divides at once over <em>where</em> the universal is, and the two branches face quite different objections.</p>
+<hr />
+<h2 id="transcendent-and-immanent-realism"><a class="header" href="#transcendent-and-immanent-realism">Transcendent and immanent realism</a></h2>
+<p><strong>Transcendent</strong> or Platonic realism holds that universals exist independently of their instances, outside space and time. Redness would exist even if nothing red did; the Form is the standard, and particulars are the imperfect participants. Two features follow. There can be <strong>uninstantiated universals</strong> — properties nothing has, and perhaps nothing could have. And universals are <strong>abstract</strong> in the full sense: acausal, non-spatiotemporal, known (if at all) by reason rather than perception.</p>
+<p><strong>Immanent</strong> or Aristotelian realism holds that universals exist only <em>in</em> their instances. There is no redness apart from red things; the universal is wholly present in each of them, located where they are. This is generally coupled with the <strong>Principle of Instantiation</strong>: there are no uninstantiated universals, so which properties exist is a contingent matter fixed by what the world happens to contain.</p>
+<p>The two branches trade the same difficulty back and forth. Transcendent realism keeps universals well-behaved as entities but makes their connection to the world obscure: what is <em>participation</em>, and how does a thing in space stand in any relation to something outside it? Immanent realism keeps universals in the world but must accept that one and the same entity is <strong>wholly present</strong> in many places at once — not partly here and partly there, as a road is, but entirely in each of a thousand red things simultaneously. Opponents call this unintelligible; the realist replies that the objection simply assumes universals must behave like particulars, which is precisely what is denied. Being multiply located is strange only if one already thinks everything is the sort of thing that has a location in the ordinary way.</p>
+<h2 id="the-third-man"><a class="header" href="#the-third-man">The third man</a></h2>
+<p>Plato's own most serious objection to his theory appears in the <em>Parmenides</em> and is known as the <strong>third man</strong>. If the many large things are large in virtue of participating in Largeness, and Largeness is itself large, then Largeness and the large things form a new plurality of large items — which requires a further Form to explain <em>their</em> common character, and so without end.</p>
+<p>The regress depends on two assumptions, and the standard responses deny one or the other:</p>
+<ul>
+<li><strong>Self-predication</strong> — that the Form of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> is itself <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>. Deny it, and the regress does not start. Largeness is not large, any more than the property of being a number is a number. Most modern realists deny self-predication without hesitation; it is an artifact of Plato's talk of Forms as paradigms.</li>
+<li><strong>The one-over-many principle in unrestricted form</strong> — that <em>any</em> plurality sharing a character requires a Form. Restrict it to pluralities of particulars, and again the regress halts.</li>
+</ul>
+<p>The third man is worth attention less as a live objection than as an early instance of the pattern seen in <a href="01-problem-of-universals.html">Bradley's regress</a>: a metaphysical explanation that applies to its own products generates an infinity, and the theorist must say why the explanation stops.</p>
+<h2 id="armstrongs-a-posteriori-realism"><a class="header" href="#armstrongs-a-posteriori-realism">Armstrong's a posteriori realism</a></h2>
+<p>The most developed modern realism is Armstrong's, and it is distinguished by three commitments that together make it much less extravagant than the Platonic version.</p>
+<p><strong>Universals are sparse and discovered, not stipulated.</strong> Which universals exist is not read off language but settled by total science. There is no universal of <em>grueness</em> or <em>being within three metres of a badger</em>, and quite possibly none of <em>redness</em> either — colour may turn out to be a disjunctive or structural matter, with the genuine universals lying at the level of physical magnitudes. This is <em>a posteriori</em> realism: the ontology proposes the category and lets the sciences populate it.</p>
+<p><strong>No uninstantiated universals.</strong> The Principle of Instantiation keeps the ontology inside the spatiotemporal world, which Armstrong regards as required by naturalism.</p>
+<p><strong>States of affairs are the fundamental category.</strong> Because <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> can exist without <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> being <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>, neither, nor both together, suffices as truthmaker for "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>". What is needed is the <a href="../11-events/02-facts-and-states-of-affairs.html">state of affairs</a> <em><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span>'s being <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span></em> — a genuine addition to being, with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> as constituents. The <strong><a href="../11-events/03-truthmakers.html">truthmaker principle</a></strong> thus drives the whole system, and it is also Armstrong's weapon against nominalism: the nominalist who says "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> is red, and there is nothing more to it" has not supplied a truthmaker and is, in the famous charge, an <em>ostrich</em>.</p>
+<p>The system's further payoff is that it lets laws of nature be relations between universals rather than mere regularities: it is a fact about <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> themselves that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>-ness necessitates <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>-ness, which explains why the regularity holds instead of merely restating it. Whether that explanation is genuine is contested; the standard objection is that calling a relation "necessitation" does not by itself make it necessitate anything.</p>
+<h2 id="kinds-of-universal"><a class="header" href="#kinds-of-universal">Kinds of universal</a></h2>
+<p>Realism is not confined to monadic properties, and the extensions raise their own questions.</p>
+<p><strong>Relations.</strong> If universals explain shared character, they should also explain shared <em>relatedness</em>: two pairs of things can both stand in the <em>larger than</em> relation. Admitting relational universals is natural, but it raises the question of order — the relation must apply to its relata in a definite direction, and it is not obvious what in the universal itself accounts for that.</p>
+<p><strong>Structural universals.</strong> Being a methane molecule appears to be a universal built from the universals <em>carbon</em>, <em>hydrogen</em>, and <em>bonded to</em>, arranged in a definite way. Lewis's paper "Against Structural Universals" argues that such things cannot be built by any intelligible form of composition: the methane universal would need to contain hydrogen <em>four times over</em>, and no ordinary notion of parthood permits a thing to contain the same part four times. This is one of the sharpest technical objections to realism and remains contested.</p>
+<p><strong>Determinables and determinates.</strong> Is <em>being coloured</em> a universal alongside <em>being scarlet</em>? If both, the relation between them requires an account; if only the determinates, the truth of "it is coloured" needs a truthmaker.</p>
+<h2 id="objections"><a class="header" href="#objections">Objections</a></h2>
+<ul>
+<li><strong>The epistemological objection.</strong> How do we come to know about universals? Transcendent realism has the harder problem, since acausal abstracta cannot affect us — this is the same difficulty that afflicts <a href="../08-abstracta/02-mathematical-objects.html">mathematical platonism</a>, where it takes the form of Benacerraf's dilemma. Immanent realism answers that we perceive universals <em>in</em> perceiving their instances, which is more plausible but concedes that the epistemology is parasitic on ordinary perception.</li>
+<li><strong>Multiple location.</strong> Stated above; the realist's reply is that it is not an argument but an expression of particularist prejudice.</li>
+<li><strong>The regress objections.</strong> The third man and Bradley's regress, both discussed above.</li>
+<li><strong>Ontological cost.</strong> Realism posits a whole additional category. Whether that is a cost depends on whether the explanatory work is real, which returns to whether the one-over-many demand is legitimate — the question the <a href="03-nominalism.html">ostrich</a> refuses.</li>
+</ul>
+<h2 id="where-realism-sits"><a class="header" href="#where-realism-sits">Where realism sits</a></h2>
+<p>Realism is a thesis about the <strong>category question</strong>: the fundamental division of what there is includes a second sort of entity beside particulars. It has consequences everywhere. Universals are the natural candidates for the relata of laws, the grounds of objective similarity, and the sparse properties that carve nature at the joints; a realist therefore has resources for the theory of laws and of naturalness that a nominalist must find elsewhere.</p>
+<p>The position also connects directly to the debate over abstract objects. Transcendent realism about universals and <a href="../08-abstracta/02-mathematical-objects.html">platonism about mathematics</a> share an epistemology and stand or fall together on the access problem, though they are logically independent — as the <a href="01-problem-of-universals.html">problem of universals</a> page insists.</p>
+<p>The next page turns to the denial: the varieties of <a href="03-nominalism.html">nominalism</a>, and the technical difficulties each of them meets.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/06-universals/01-problem-of-universals.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/06-universals/03-nominalism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/06-universals/01-problem-of-universals.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/06-universals/03-nominalism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

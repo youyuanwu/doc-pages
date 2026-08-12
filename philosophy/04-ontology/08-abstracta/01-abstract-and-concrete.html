@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Abstract and Concrete - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/08-abstracta/01-abstract-and-concrete.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="abstract-and-concrete"><a class="header" href="#abstract-and-concrete">Abstract and Concrete</a></h1>
+<p>The division of entities into <strong>abstract</strong> and <strong>concrete</strong> is the most-used distinction in ontology and the worst-defined. Numbers, sets, propositions, and properties are supposed to fall on one side; rocks, people, and electrons on the other. Almost everyone works with the distinction; almost no one can state it in a way that survives examination.</p>
+<p>That would be a merely technical embarrassment if nothing turned on it. But a great deal does. The standard argument against mathematical platonism is that we could not know about entities that are <em>causally inert and outside space and time</em> — which presupposes that being abstract entails exactly that. If the entailment fails, so does the argument.</p>
+<hr />
+<h2 id="the-four-ways"><a class="header" href="#the-four-ways">The four ways</a></h2>
+<p>Lewis's survey remains the standard treatment, and its conclusion is negative: there are four ways of drawing the line, they are not equivalent, and none is satisfactory.</p>
+<p><strong>The Way of Example.</strong> Give paradigms and hope the pattern is clear: "numbers, sets, and possible worlds are abstract; sticks and stones are concrete." This is how the distinction is usually introduced and it is not a definition at all. It fails exactly where it is needed, on the contested cases — and the contested cases are the reason anyone asks.</p>
+<p><strong>The Way of Conflation.</strong> Identify abstract with <em>universal</em> and concrete with <em>particular</em>. This has the virtue of reducing one obscure distinction to another that at least has a literature. But the identification is simply false in both directions. <a href="../06-universals/04-tropes.html">Tropes</a> are <em>abstract particulars</em> — the whole point of the category. And a set of concrete objects is a particular, not repeatable, yet is standardly counted abstract. The two distinctions are independent axes, as the <a href="../03-categories-of-being.html">categories page</a> insists.</p>
+<p><strong>The Negative Way.</strong> Define abstracta by what they lack: no spatiotemporal location, no causal powers. This is the working definition in most of the literature, and it is the one the epistemological arguments rely on. Its problems are set out below.</p>
+<p><strong>The Way of Abstraction.</strong> An abstract entity is one reached by <em>abstraction</em> from concrete cases — the direction is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord mathrm">North</span></span></span></span></span> abstracted from a set of parallel lines, cardinal number abstracted from equinumerous collections. This has a precise modern form in <strong>abstraction principles</strong>, of which Frege's is the model:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">Dir</span></span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">Dir</span></span><span class="mopen">(</span><span class="mord mathnormal">b</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↔</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span></span></p>
+<p>The right-hand side speaks only of lines; the left introduces a new sort of object, directions. The trouble is that this classifies by <em>how we get to</em> an entity rather than what it is like, and many paradigm abstracta — sets, possible worlds — are not obtained by abstraction from anything.</p>
+<h2 id="why-the-negative-way-leaks"><a class="header" href="#why-the-negative-way-leaks">Why the Negative Way leaks</a></h2>
+<p>The Negative Way is worth pressing on, since it carries the argumentative weight.</p>
+<p><strong>Impure sets.</strong> Consider <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord text"><span class="mord">Socrates</span></span><span class="mclose">}</span></span></span></span>, the singleton whose only member is a man. Where is it? It seems to depend for its existence on a spatiotemporal thing, and it came into existence when Socrates did and perished when he did — which is not how a timeless entity behaves. Yet nobody wants to call it concrete. One may say it is located where Socrates is; then abstracta have locations after all.</p>
+<p><strong>Spacetime points.</strong> These are located by definition, so on the Negative Way concrete. Yet they have no causal powers, no qualities, and are individuated only by their position in a structure — which is what people usually mean by abstract. The <a href="../../03-spacetime/05-ontology/05-hole-argument.html">hole argument</a> turns on whether they have identities at all.</p>
+<p><strong>Events and boundaries.</strong> A war, an explosion, the equator, the surface of a table. Located, some causally involved, yet not obviously concrete objects.</p>
+<p><strong>God.</strong> In classical theism God is causally efficacious — the cause of everything else — yet not in space and generally held not to be in time either. On the Negative Way this is a contradiction rather than a doctrine, which suggests the criterion has bundled things that come apart. The related difficulty of whether abstracta depend on God, or exist <em>a se</em> alongside him, is the <a href="../../02-religion/08-attributes/04-goodness-and-simplicity.html">aseity</a> problem.</p>
+<p><strong>The hardest case is physical.</strong> If spacetime is <em>emergent</em> — from causal sets, spin networks, or entanglement structure by way of holography — then the fundamental level of reality is neither spatial nor temporal, and there is no causation <em>in time</em> at it either. By the Negative Way it is abstract. It is obviously not abstract: it is the physical world at its most basic. The criterion fails exactly where it looked safest, which is a good reason to suspect it was tracking something else all along. See <a href="../../03-spacetime/09-physics/02-problem-of-time.html">the problem of time in quantum gravity</a>.</p>
+<h2 id="a-table-of-hard-cases"><a class="header" href="#a-table-of-hard-cases">A table of hard cases</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Entity</th><th>Located?</th><th>Causal?</th><th>Usually called</th></tr></thead><tbody>
+<tr><td>The number 7</td><td>no</td><td>no</td><td>abstract</td></tr>
+<tr><td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord text"><span class="mord">Socrates</span></span><span class="mclose">}</span></span></span></span></td><td>arguably</td><td>no</td><td>abstract</td></tr>
+<tr><td>A spacetime point</td><td>yes</td><td>no</td><td>concrete</td></tr>
+<tr><td>This tomato's redness (trope)</td><td>yes</td><td>yes</td><td>abstract <em>particular</em></td></tr>
+<tr><td>The equator</td><td>yes</td><td>no</td><td>abstract</td></tr>
+<tr><td>The Second World War</td><td>yes</td><td>yes</td><td>concrete (an event)</td></tr>
+<tr><td>A hole</td><td>yes</td><td>arguably</td><td>contested</td></tr>
+<tr><td>The game of chess</td><td>no</td><td>no</td><td>abstract artifact</td></tr>
+<tr><td>The word "the" (type)</td><td>no</td><td>no</td><td>abstract</td></tr>
+<tr><td>God (classical theism)</td><td>no</td><td>yes</td><td>neither</td></tr>
+<tr><td>A shadow</td><td>yes</td><td>arguably</td><td>contested</td></tr>
+</tbody></table>
+</div>
+<p>The pattern is that the two criteria of the Negative Way — location and causal power — come apart in both directions, and that the pre-theoretic classification tracks neither reliably.</p>
+<h2 id="does-the-distinction-matter"><a class="header" href="#does-the-distinction-matter">Does the distinction matter?</a></h2>
+<p>Three views on what to do about this.</p>
+<p><strong>Reform it.</strong> Pick one criterion and follow it wherever it leads, accepting the revisionary classifications. Most workable is <em>causal inefficacy</em>, which keeps the epistemological argument intact — the thing that made abstracta epistemically troubling was never their lack of location but our inability to interact with them.</p>
+<p><strong>Abandon it.</strong> Rosen's suggestion is that there may be no single distinction here, only a family of overlapping contrasts, and that arguments relying on "abstractness" as such are equivocating. On this view we should replace the label with whichever specific feature the argument actually needs.</p>
+<p><strong>Keep it as a rough guide.</strong> Concede that the boundary is vague and contested while denying that this undermines its use, since the paradigm cases are secure and most arguments concern them.</p>
+<p>The middle view has a sharp consequence worth registering. Benacerraf's dilemma about mathematical knowledge is usually posed as "how can we know about <em>abstract</em> objects?" If Rosen is right, the honest version is "how can we know about objects we cannot causally interact with?" — a better question, because it is answerable in principle and does not smuggle in the location criterion, which was doing no work.</p>
+<h2 id="where-the-distinction-sits"><a class="header" href="#where-the-distinction-sits">Where the distinction sits</a></h2>
+<p>This is a <strong>category question</strong> in the purest form: everyone agrees that numbers and rocks differ, and the dispute is over what the difference <em>is</em> and whether it marks a fundamental joint. It is also the place where the category question most obviously constrains the inventory, since the argument against admitting numbers proceeds entirely through claims about what abstracta are like.</p>
+<p>Its relation to the <a href="../06-universals/01-problem-of-universals.html">problem of universals</a> is one of the section's standing traps. Realism about universals and platonism about mathematics are logically independent, and the fact that both are called "platonism" and both opposed by something called "nominalism" has caused a great deal of avoidable confusion.</p>
+<p>The next page takes the argument to the case that matters most: whether there are <a href="02-mathematical-objects.html">mathematical objects</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/07-particulars/06-natural-kinds.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/08-abstracta/02-mathematical-objects.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/07-particulars/06-natural-kinds.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/08-abstracta/02-mathematical-objects.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

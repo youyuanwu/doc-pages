@@ -1,0 +1,275 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Meinongianism and Nonexistent Objects - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/05-existence/02-meinongianism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="meinongianism-and-nonexistent-objects"><a class="header" href="#meinongianism-and-nonexistent-objects">Meinongianism and Nonexistent Objects</a></h1>
+<p>We think about Pegasus, discuss Sherlock Holmes, and say true things about both. We also seem able to think about the round square, and about the golden mountain, neither of which could exist. If thought and talk require objects to be about, there had better be objects here — and there are not, if being an object requires existing.</p>
+<p>Alexius Meinong's theory of objects takes the obvious way out: there are objects that do not exist. The position has been the standard example of ontological excess for a century, and it is considerably more resilient than its reputation.</p>
+<hr />
+<h2 id="meinongs-theory"><a class="header" href="#meinongs-theory">Meinong's theory</a></h2>
+<p>The core thesis is the <strong>independence of Sosein from Sein</strong> — of so-being from being. What an object is <em>like</em> is independent of whether it <em>is</em>. The golden mountain is golden and a mountain, and these are truths about it, whether or not anything answers to the description.</p>
+<p>Three grades of ontological status:</p>
+<ul>
+<li><strong>Existence</strong> (<em>Existenz</em>): spatiotemporal being. Tables, people, stars.</li>
+<li><strong>Subsistence</strong> (<em>Bestand</em>): non-spatiotemporal being. Numbers, propositions, relations — what this section calls <a href="../08-abstracta/01-abstract-and-concrete.html">abstracta</a>.</li>
+<li><strong>Aussersein</strong>: being "outside being" altogether. Pure objects that neither exist nor subsist, but are still objects with properties: Pegasus, the round square.</li>
+</ul>
+<p>The <strong>characterisation principle</strong> is the engine: for any condition, there is an object satisfying it. The golden mountain is the object that is golden and a mountain; the round square is round and square.</p>
+<p>Note what the position is <em>not</em>. Meinong is not saying there is a strange place where nonexistent objects reside, nor that they have a shadowy watered-down existence. The claim is that being an object of thought does not require any ontological status at all — which is why "there are objects that do not exist" is not, on his view, a contradiction: the "there are" is not existentially committing.</p>
+<h2 id="the-classical-objections"><a class="header" href="#the-classical-objections">The classical objections</a></h2>
+<p><strong>Russell's</strong>, from "On Denoting" and elsewhere:</p>
+<ul>
+<li><em>The existent golden mountain.</em> By the characterisation principle there is an object that is golden, a mountain, and <strong>existent</strong>. So it exists — and it does not, since there is no such mountain. The principle proves too much.</li>
+<li><em>Contradiction.</em> The round square is round and square, hence both round and not round. Meinong accepted this, holding that the laws of logic apply to what exists rather than to objects as such. Russell took the concession as a reductio.</li>
+</ul>
+<p><strong>Quine's</strong>, from "On What There Is": the possible fat man in the doorway and the possible bald man in the doorway — are they the same man? How many possible men are in the doorway? Nonexistent objects have no criteria of identity, and "no entity without identity." The result is an "overpopulated universe... a breeding ground for disorderly elements" — a slum in need of clearance.</p>
+<p>These were taken as decisive for decades, and contemporary ontology's Quinean default is largely their legacy. But both are answerable, and the answers define the modern versions.</p>
+<h2 id="the-modern-versions"><a class="header" href="#the-modern-versions">The modern versions</a></h2>
+<p><strong>Nuclear and extranuclear properties</strong> (Parsons). Restrict the characterisation principle to <strong>nuclear</strong> properties — ordinary properties like <em>golden</em>, <em>round</em>, <em>a mountain</em> — and exclude <strong>extranuclear</strong> ones like <em>existent</em>, <em>complete</em>, <em>possible</em>. Then the existent golden mountain is not generated, because <em>existent</em> is not the sort of property the principle ranges over. Objects are individuated by their nuclear properties, which supplies exactly the identity criteria Quine demanded: the possible fat man and the possible bald man differ in a nuclear property, so they are two.</p>
+<p><strong>Encoding versus exemplifying</strong> (Zalta). Distinguish two modes of predication. Ordinary objects <em>exemplify</em> their properties; abstract objects <em>encode</em> them. Pegasus encodes <em>being a winged horse</em> — that is what makes him the object he is — while exemplifying only abstractness. The round square encodes roundness and squareness without exemplifying either, so no contradiction follows: nothing is both round and not round, because encoding roundness is not being round.</p>
+<p>This is the most technically developed version, and it is not really a theory of nonexistent objects at all; it is a theory of abstract objects with an unusual predication relation. That reframing defuses much of the traditional hostility.</p>
+<p><strong>Noneism</strong> (Priest, following Routley). Accept the characterisation principle unrestricted, accept that some objects have contradictory properties, and use a <a href="../../../logic/05-paraconsistent-logic.html">paraconsistent logic</a> so that contradictions do not explode. The round square is round and not round, and nothing follows. This is the boldest option and the one whose cost is clearest: it requires giving up classical logic, which most would count as a higher price than admitting a few odd objects.</p>
+<h2 id="what-the-theory-buys"><a class="header" href="#what-the-theory-buys">What the theory buys</a></h2>
+<p>Three jobs, each of which the Quinean must do some other way:</p>
+<p><strong>Intentionality.</strong> Thought is about things, and we can think about what does not exist. Meinongianism takes this at face value; the Quinean must make intentional states relational-seeming but not relational.</p>
+<p><strong>Fiction.</strong> "Holmes is more famous than any real detective" seems true and seems to be about Holmes. Treated on the <a href="03-fictional-objects.html">fictional objects</a> page.</p>
+<p><strong>Negative existentials.</strong> "Pegasus does not exist" is straightforwardly about Pegasus and says of him that he lacks existence — no paraphrase needed. The Russellian alternative is treated <a href="04-negative-existentials.html">here</a>.</p>
+<p>The Quinean has answers in each case, and they all involve the same move: paraphrase away the apparent reference. The Meinongian's claim is that the cumulative cost of these paraphrases exceeds the cost of the objects.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Meinongianism is a challenge to thesis 2 of the <a href="../15-meta-ontology/01-meta-ontology.html">neo-Quinean package</a> — that being is the same as existence — and thereby to the whole identification of ontology with what the quantifier ranges over. If quantification and existence come apart, "what is there?" and "what exists?" are different questions, and the section's method answers only the first.</p>
+<p>It is worth noting how this relates to <a href="../02-existence-and-being.html">ontological pluralism</a>, with which it is easily confused. The pluralist says there are several ways of <em>being</em>, all of them being. The Meinongian says some objects have no being at all while still being objects. They agree that the Quinean's single undifferentiated quantifier is inadequate, and they disagree about what to put in its place.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/05-existence/01-existence-and-quantification.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/05-existence/03-fictional-objects.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/05-existence/01-existence-and-quantification.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/05-existence/03-fictional-objects.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

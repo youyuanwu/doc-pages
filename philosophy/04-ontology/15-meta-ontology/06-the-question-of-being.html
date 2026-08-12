@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Question of Being - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/15-meta-ontology/06-the-question-of-being.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-question-of-being-heideggers-challenge"><a class="header" href="#the-question-of-being-heideggers-challenge">The Question of Being: Heidegger's Challenge</a></h1>
+<p>Every page of this section has asked what there is. Heidegger's charge is that this is not ontology at all, and that the question ontology was supposed to ask has not been posed since Plato.</p>
+<p>The challenge belongs here rather than among the inventory disputes because it does not offer a rival list. It denies that the list was ever the point.</p>
+<hr />
+<h2 id="the-ontological-difference"><a class="header" href="#the-ontological-difference">The ontological difference</a></h2>
+<p>The founding distinction is between <strong>beings</strong> (<em>Seiendes</em>) — entities, whatever they are: tables, numbers, people — and <strong>Being</strong> (<em>Sein</em>), which is what it <em>is for</em> an entity to be.</p>
+<p>The claim is that these are categorially different, so that Being is never itself a being. Any inquiry that answers "what is Being?" by naming something — a supreme entity, a substance, a substratum, matter — has confused the two. Heidegger's name for the tradition's condition is the <strong>forgetfulness of Being</strong>: it has catalogued beings with great sophistication while never re-opening the question of the sense of Being itself.</p>
+<h2 id="why-this-is-a-meta-ontological-objection"><a class="header" href="#why-this-is-a-meta-ontological-objection">Why this is a meta-ontological objection</a></h2>
+<p>The relevance to this section is precise. Quine's <a href="../04-ontological-commitment.html">criterion</a> tells us how to count entities <em>given</em> an understanding of what "is" means. It does not supply that understanding; it presupposes it. And on Heidegger's diagnosis, the understanding it silently presupposes is one particular sense of being — the being of the occurrent object, present-at-hand, available for inspection and predication.</p>
+<p>So the criterion is an exact instrument applied without asking what it measures. Sections A through K would be, in his terminology, <strong>ontic</strong> — concerned with entities — or at best <strong>regional ontology</strong>, working out the categories of some domain. Fundamental ontology, the inquiry into Being as such, has not begun.</p>
+<p>This is structurally the same move <a href="01-meta-ontology.html">Carnap</a> makes: both say the metaphysician's question is malformed rather than false. They differ in what they conclude. Carnap says drop it; Heidegger says it is the only question worth asking, and we have never asked it properly.</p>
+<h2 id="method-the-analytic-of-dasein"><a class="header" href="#method-the-analytic-of-dasein">Method: the analytic of Dasein</a></h2>
+<p>If the question is the <em>sense</em> of Being, one must start where that sense is already operative. <strong>Dasein</strong> — the entity we ourselves are — is distinguished by the fact that in its very being, its being is an issue for it. It operates with a vague, pre-theoretical understanding of Being in everything it does, and <em>Being and Time</em> proceeds by making that understanding explicit.</p>
+<p>Two clarifications matter for reading the project correctly. The existential analytic is not philosophical anthropology: Dasein is examined as the place where the Being-question is accessible, not because human beings are metaphysically special. And the method is phenomenological-hermeneutic — describe the structures of engaged existence, interpret the understanding implicit in them — rather than regimentation into canonical notation. No amount of logical form will surface something that was never a matter of what is asserted.</p>
+<h2 id="the-one-argument-with-direct-bite"><a class="header" href="#the-one-argument-with-direct-bite">The one argument with direct bite</a></h2>
+<p>The equipment analysis is where the challenge stops being programmatic and becomes an argument this section must answer.</p>
+<p>Heidegger distinguishes <strong>readiness-to-hand</strong> (<em>Zuhandenheit</em>) — the hammer as encountered in use, defined by its place in a whole of purposes and equipment, transparent in skilled activity — from <strong>presence-at-hand</strong> (<em>Vorhandenheit</em>) — the hammer as an occurrent object with properties, available for detached inspection.</p>
+<p>The claim is that presence-at-hand is <strong>derivative</strong>. It surfaces when engaged coping breaks down: the hammer is too heavy, or missing, or broken, and only then does it show up as a <em>thing with properties</em> standing over against us.</p>
+<p>The consequence for this section is sharp. Presence-at-hand is exactly the substance-with-attributes model that the <a href="../06-universals/01-problem-of-universals.html">problem of universals</a>, <a href="../07-particulars/02-bundle-vs-substratum.html">bundle theory</a>, <a href="../06-universals/04-tropes.html">trope theory</a>, and the whole <a href="../03-categories-of-being.html">category scheme</a> presuppose as their starting point. If Heidegger is right, that model is an artifact of a derivative and privative stance — what things look like when we have stopped using them — projected onto reality as its basic structure.</p>
+<p>This is a <strong>genealogical debunking argument</strong>, and it should be assessed as one. It does not show the substance model is false; it offers an explanation of why we find it obvious that does not appeal to its truth. That is the same form as the <a href="../12-contested/01-ordinary-objects.html">debunking arguments</a> against ordinary-object beliefs, and it is open to the same replies — most obviously, that an account of how we came to a belief leaves the belief's truth untouched, and that the analysis of breakdown presupposes the equipment had properties all along.</p>
+<h2 id="existentialia-and-the-fork-with-frege"><a class="header" href="#existentialia-and-the-fork-with-frege">Existentialia and the fork with Frege</a></h2>
+<p>A second structural claim: Dasein is not to be described by the categories that apply to things. Its characteristics — being-in-the-world, thrownness, projection, being-towards-death — are <strong>existentialia</strong>, and applying object-categories to Dasein is a category mistake. "The essence of Dasein lies in its existence." The consequences for the <a href="../12-contested/02-persons.html">ontology of persons</a> are direct: animalism, bundle theory, and the four-dimensional worm are all attempts to fit Dasein into a scheme built for occurrent things.</p>
+<p>The most tractable point of contact, though, concerns existence itself. Heidegger and Frege agree on Kant's negative claim: existence is not a property of individuals. They then draw opposite conclusions.</p>
+<ul>
+<li><strong>Frege</strong>: existence is univocal and quantificational. One sense, one quantifier, and differences among existents are differences in their natures.</li>
+<li><strong>Heidegger</strong>: there are plural <strong>ways of being</strong> — equipment <em>is</em> differently from how Dasein <em>is</em>, differently from how numbers <em>are</em> — and the question of what unifies these senses is the <em>Seinsfrage</em>.</li>
+</ul>
+<p>That second branch has an analytic descendant. <strong>Ontological pluralism</strong> (McDaniel, Turner) formalises plural ways of being as several restricted quantifiers, each perfectly natural, and McDaniel takes the thesis explicitly from Heidegger. It is developed on the <a href="../02-existence-and-being.html">existence and being</a> page, and it is the one place where the two traditions are demonstrably arguing about the same thing.</p>
+<h2 id="carnaps-attack"><a class="header" href="#carnaps-attack">Carnap's attack</a></h2>
+<p>The historical episode is worth recording because it explains why this material is absent from most analytic ontology.</p>
+<p>In "Überwindung der Metaphysik durch logische Analyse der Sprache" (1932), Carnap used Heidegger's <em>das Nichts selbst nichtet</em> — "the nothing itself nothings" — as his showcase example of a metaphysical pseudo-statement: grammatically well-formed, logically malformed, and therefore literally meaningless. His diagnosis was that "nothing" is a quantificational device that metaphysics had mistaken for a name.</p>
+<p>The exchange is the founding moment of the analytic–continental split. It also reveals what the <a href="01-meta-ontology.html">internal/external distinction</a> was aimed at: Carnap's target was not the philosophy of mathematics but exactly this — an inquiry claiming to ask about Being from outside all frameworks.</p>
+<h2 id="honest-limits"><a class="header" href="#honest-limits">Honest limits</a></h2>
+<p>The challenge should not be overstated:</p>
+<ul>
+<li><strong>No inventory.</strong> Heidegger will not tell you whether there are numbers, universals, or mereological sums. Those are regional-ontic questions, answerable only after fundamental ontology — which was not completed.</li>
+<li><strong>The book is a torso.</strong> Division III, which was to establish <em>time</em> as the horizon for the understanding of Being, was never published. What exists is the preparatory analytic.</li>
+<li><strong>No shared method.</strong> Truthmakers, parsimony arguments, and regimentation have no role, so there is little the two traditions can jointly assess.</li>
+<li><strong>Heidegger abandoned the label.</strong> He came to regard "ontology" as too contaminated by the metaphysics he was trying to overcome.</li>
+</ul>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>This is the <strong>status question</strong> pressed from outside the analytic tradition, and it is the one challenge in the section that targets the framing rather than the answers. The deflationists say the disputes are empty; Heidegger says they are derivative — real enough as far as they go, and not what was to be investigated.</p>
+<p>The section's response, offered without confidence, is twofold. The equipment argument is a genuine argument and has been treated as one above. The broader charge that the Being-question was never posed is harder to engage, because it is unclear what would count as answering it — and that unclarity is either the profundity of the question or, as Carnap thought, the sign that there is none.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/15-meta-ontology/05-method.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/16-context/01-history.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/15-meta-ontology/05-method.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/16-context/01-history.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

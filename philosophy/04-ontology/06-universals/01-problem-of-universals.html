@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Problem of Universals - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/06-universals/01-problem-of-universals.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-problem-of-universals"><a class="header" href="#the-problem-of-universals">The Problem of Universals</a></h1>
+<p>A tomato and a fire engine are both red. A proton and an electron both have unit charge. Two carbon atoms both have six protons. In each case the same <em>character</em> is found in numerically distinct things, and the question is what to make of that. Is there a single entity — <em>redness</em>, <em>unit charge</em> — that both things share, wholly present in each? Or are there just the tomato and the fire engine, resembling each other, with nothing over and above them?</p>
+<p>This is the <strong>problem of universals</strong>, the oldest dispute in ontology and still the best worked example of how the subject proceeds. It has survived twenty-four centuries not because the answers are hard to state but because every answer has a cost, and the disagreement is largely about which cost is worth paying. This page states the problem precisely, separates the several distinct problems that travel under the name, lays out the options as a decision tree, and sets out the difficulty about <em>combination</em> that no answer avoids.</p>
+<hr />
+<h2 id="the-one-over-many"><a class="header" href="#the-one-over-many">The one over many</a></h2>
+<p>The problem's classical form is the <strong>one over many</strong>: how can one thing — a character, a nature — be present in many? Plato's answer, that the many participate in a single Form existing apart from them, is the origin of realism. Aristotle's, that the form is present <em>in</em> the things, is the origin of the rival version.</p>
+<p>But it matters greatly how the demand is phrased, because several distinct questions are often run together and they have different answers:</p>
+<ul>
+<li><strong>The explanatory demand.</strong> What <em>explains</em> the fact that the tomato and the fire engine are both red? A realist takes this as the central question and answers: they share a universal.</li>
+<li><strong>The truthmaker demand.</strong> What in the world <em>makes</em> the sentence "the tomato is red" true? It cannot be the tomato alone, since the tomato could exist without being red; nor redness alone, for the parallel reason. This is Armstrong's route to states of affairs, and it is a stronger demand than the first.</li>
+<li><strong>The semantic demand.</strong> What does the predicate "is red" <em>mean</em>, and does it, like a name, stand for something? This is the weakest and most misleading version, because it invites the reply that predicates function differently from names — which is true, and settles nothing about ontology.</li>
+<li><strong>The resemblance demand.</strong> Why do some pairs of things resemble each other and others not, and why do <em>these</em> things fall together into a class?</li>
+</ul>
+<p>Keeping them apart matters, because the most robust nominalist positions accept some of these demands and reject others. The dispute is often less about which answer is correct than about which question one is obliged to answer at all.</p>
+<h2 id="sparse-and-abundant"><a class="header" href="#sparse-and-abundant">Sparse and abundant</a></h2>
+<p>A second preliminary. Not every predicate need correspond to a property. The predicate <em>is grue</em>, <em>is within three metres of a badger</em>, and <em>is either red or a prime number</em> apply truly to things, but few think the world contains a corresponding item.</p>
+<p>This yields the distinction between an <strong>abundant</strong> conception of properties — one for every meaningful predicate, or every set of possible objects, with no constraint on naturalness — and a <strong>sparse</strong> conception, on which properties are the genuine, world-carving characters that ground objective similarity, causation, and the laws of nature. The abundant conception is cheap and useful for semantics; the sparse one is what the problem of universals is really about. Armstrong's realism is explicitly sparse: which universals there are is a question for total science, not for the dictionary.</p>
+<h2 id="the-options"><a class="header" href="#the-options">The options</a></h2>
+<p>The main positions, with what each says about the tomato and the fire engine:</p>
+<div class="table-wrapper"><table><thead><tr><th>Position</th><th>The two red things …</th><th>Chief cost</th></tr></thead><tbody>
+<tr><td><strong>Transcendent (Platonic) realism</strong></td><td>both participate in <em>redness</em>, which exists independently of them and would exist uninstantiated</td><td>an ontology of abstract entities outside space and time, and an obscure participation relation</td></tr>
+<tr><td><strong>Immanent (Aristotelian) realism</strong></td><td>both instantiate <em>redness</em>, which exists only in its instances and is wholly present in each</td><td>one entity wholly present in many places at once</td></tr>
+<tr><td><strong>Trope theory</strong></td><td>each has its <em>own</em> redness; the two rednesses exactly resemble</td><td>resemblance taken as primitive; identity conditions for tropes</td></tr>
+<tr><td><strong>Resemblance nominalism</strong></td><td>simply resemble each other; no property is shared</td><td>resemblance primitive, and the technical problems of constructing classes from it</td></tr>
+<tr><td><strong>Class nominalism</strong></td><td>both belong to the class of red things</td><td>coextensive properties collapse; classes look worse than universals</td></tr>
+<tr><td><strong>Predicate nominalism</strong></td><td>both satisfy the predicate "red"</td><td>apparently makes the world depend on our language</td></tr>
+<tr><td><strong>Ostrich nominalism</strong></td><td>are red — and that is the end of it</td><td>denies that the explanatory demand is legitimate</td></tr>
+</tbody></table>
+</div>
+<p>The table is arranged by descending ontological commitment, and there is a rough trade-off along it: what is saved in entities is generally paid for in primitives. Realism buys an explanation of the shared character at the price of a strange kind of entity; nominalism buys ontological economy at the price of taking resemblance, or predication itself, as brute.</p>
+<p>This is worth stating as a general moral about the section's method. Ontological disputes are rarely settled by one side finding an outright contradiction in the other. They are settled — when they are — by an accounting of what each side must take as unexplained, and by argument about whether the item left unexplained is a legitimate stopping point.</p>
+<h2 id="bradleys-regress"><a class="header" href="#bradleys-regress">Bradley's regress</a></h2>
+<p>One difficulty confronts every position that admits both particulars and properties, and it is the deepest thing in the neighbourhood.</p>
+<p>Suppose the tomato <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> instantiates the universal <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>. That is not merely the two of them existing side by side: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> could both exist without <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> being <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>. Something must <em>unify</em> them. Call it the relation of instantiation, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span>. Then we have three items — <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>, and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span> — and the same question recurs: what unifies <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span>? A further relation <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span>, and so on without end. This is <strong>Bradley's regress</strong>, and Bradley took it to show that relations are unreal and reality is an undifferentiated whole.</p>
+<p>The responses are all instructive about what a metaphysical "explanation" can be:</p>
+<ul>
+<li><strong>Instantiation is not a relation but a non-relational tie.</strong> It links without being a further item requiring linkage. Critics say this is a label for the problem rather than a solution.</li>
+<li><strong>Relations are "unsaturated."</strong> Frege's proposal: predicates and relations are essentially incomplete, with gaps that objects fill, so no further glue is needed. The regress never starts because a relation is not the sort of thing that stands apart waiting to be attached.</li>
+<li><strong>States of affairs are basic.</strong> Armstrong's answer: what is fundamental is not <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> separately but the state of affairs <em><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span>'s being <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span></em>, from which the constituents are abstractions. The unity comes first, the parts second.</li>
+<li><strong>The regress is benign.</strong> Each step is entailed by the previous one rather than needed to explain it, so the series is infinite but not vicious.</li>
+<li><strong>Bite the bullet.</strong> Trope bundle theorists and ostrich nominalists take the regress as evidence that one of the relata was a mistake.</li>
+</ul>
+<p>The same structure recurs throughout ontology — it is the question of the <strong>unity of the proposition</strong>, of what distinguishes a fact from a mere list of its constituents. It reappears wherever an entity is analysed into components that must then be recombined.</p>
+<h2 id="two-things-not-to-conflate"><a class="header" href="#two-things-not-to-conflate">Two things not to conflate</a></h2>
+<p><strong>Universals and abstracta.</strong> "Nominalism" names two theses: the denial of universals, and the denial of <a href="../08-abstracta/01-abstract-and-concrete.html">abstract objects</a> such as numbers and sets. They are independent. A trope theorist rejects universals while possibly accepting sets; a <a href="../08-abstracta/02-mathematical-objects.html">mathematical platonist</a> may accept numbers while being a nominalist about properties. These notes keep the two arguments apart, and use "nominalism" for the first unless otherwise said.</p>
+<p><strong>Properties and predicates.</strong> The abundant conception ties properties to predicates, and much apparent support for realism comes from sliding between them: from the undeniable fact that we predicate to the disputed claim that there is something predicated. The sparse conception blocks the slide, but it also means that no amount of attention to language will settle the question.</p>
+<h2 id="where-the-problem-sits"><a class="header" href="#where-the-problem-sits">Where the problem sits</a></h2>
+<p>Of the three <a href="../01-introduction.html">master questions</a>, this one is squarely the <strong>category question</strong>: everyone agrees there are red things, and the dispute is over whether the inventory needs a second fundamental category alongside particulars, and what its members would be like. It shades into the <strong>inventory question</strong> only because admitting universals means admitting entities.</p>
+<p>The problem is also the section's methodological template. The <a href="../04-ontological-commitment.html">criterion of ontological commitment</a> is what makes the dispute tractable — the nominalist's task is precisely to paraphrase away apparent quantification over properties — and the objection that commitment should track truthmakers rather than variables arose here, in Armstrong's charge that the ostrich nominalist is cheating.</p>
+<p>The following pages take the options in turn: <a href="02-realism.html">realism</a> about universals, the varieties of <a href="03-nominalism.html">nominalism</a>, and <a href="04-tropes.html">trope theory</a> as the attempt to take what is right about each.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/05-existence/04-negative-existentials.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/06-universals/02-realism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/05-existence/04-negative-existentials.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/06-universals/02-realism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

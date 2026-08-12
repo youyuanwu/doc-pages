@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Easy Ontology and Neo-Fregeanism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/15-meta-ontology/03-easy-ontology.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="easy-ontology-and-neo-fregeanism"><a class="header" href="#easy-ontology-and-neo-fregeanism">Easy Ontology and Neo-Fregeanism</a></h1>
+<p>A second route to deflationism reaches the conclusion by the opposite path from <a href="02-quantifier-variance.html">quantifier variance</a>. Where the variantist says ontological questions have no determinate answers, Amie Thomasson's <strong>easy ontology</strong> says they have answers that are <em>too easy</em> — obtainable by anyone with the relevant concepts plus some uncontroversial facts, and requiring no distinctively metaphysical inquiry at all.</p>
+<p>If she is right, the conclusion for the discipline is the same: there is no serious subject here. But the diagnosis differs, and so do the objections.</p>
+<hr />
+<h2 id="the-easy-arguments"><a class="header" href="#the-easy-arguments">The easy arguments</a></h2>
+<p>The pattern is a <strong>trivial inference</strong> from an uncontested premise to an existence claim:</p>
+<blockquote>
+<p>There are five books on the table.  ⟹  The number of books on the table is five.  ⟹  There is a number, namely five.</p>
+</blockquote>
+<blockquote>
+<p>The shirt is red.  ⟹  The shirt has the property of being red.  ⟹  There is a property.</p>
+</blockquote>
+<blockquote>
+<p>There are particles arranged tablewise, in contact and functioning as a support.  ⟹  There is a table.</p>
+</blockquote>
+<p>Each step is one a competent speaker is entitled to make. The move from "there are five books" to "the number of books is five" is not a substantive discovery; it is a transformation the rules of the language license, and refusing it betrays a misunderstanding of number talk rather than a rival metaphysics.</p>
+<p>Thomasson's underlying account is that existence questions are settled by <strong>application conditions</strong>: rules, mastered in learning a term, that specify what it takes for the term to apply. To ask whether numbers exist is to ask whether the application conditions for "number" are satisfied, and those conditions are met by facts of the ordinary sort. There is no further, framework-independent question — which is where the position shows its Carnapian lineage, though Thomasson does not need the analytic/synthetic distinction to state it.</p>
+<p>The corollary is that the ontologist's characteristic activity is misconceived. Debating whether the trivial inference is <em>really</em> valid, or whether the resulting entities <em>really</em> exist, presupposes an external standpoint that easy ontology denies is available.</p>
+<h2 id="neo-fregean-abstraction"><a class="header" href="#neo-fregean-abstraction">Neo-Fregean abstraction</a></h2>
+<p>The formal counterpart is the neo-Fregean programme of Wright and Hale, treated in more detail on the <a href="../08-abstracta/05-nominalist-programs.html">nominalist programs</a> page. Its engine is <strong>Hume's Principle</strong>:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">#</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">#</span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↔</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span></span></p>
+<p>The right-hand side quantifies only over the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>s and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>s and says they are equinumerous; the left introduces numbers as objects. <strong>Frege's Theorem</strong> shows that second-order Peano arithmetic follows from Hume's Principle in second-order logic alone. So arithmetic — a substantial body of truth about a domain of objects — is derivable from a principle claimed to be available a priori as an implicit definition.</p>
+<p>The philosophical claim is that abstraction principles <em>stipulate</em> the meaning of a new term-forming operator, and that in doing so they entitle us to the objects. Knowledge of numbers then needs no causal contact and no faculty of intuition, which dissolves the access problem that drives the <a href="../08-abstracta/02-mathematical-objects.html">mathematical objects</a> debate.</p>
+<p>Thomasson's programme generalises this beyond mathematics: abstraction and trivial inference are the same phenomenon, and both show that entities can be introduced by rules rather than discovered by investigation.</p>
+<h2 id="the-objections"><a class="header" href="#the-objections">The objections</a></h2>
+<p><strong>It proves too much.</strong> The most immediate worry. If trivial inferences deliver numbers and properties, why not everything? From "the average family has 2.3 children" we should get the average family; from "he did it for her sake" we should get sakes. Thomasson's reply is that the inferences are licensed only where genuine application conditions exist, and that "average family" and "sake" are precisely cases where the surface form does not track a term with such conditions. The reply is principled, but it means a great deal turns on which terms have application conditions — and that is a question the easy method does not itself answer easily.</p>
+<p><strong>The Bad Company problem.</strong> Abstraction principles of exactly the form of Hume's Principle can be inconsistent. Frege's own Basic Law V — the extension of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> equals the extension of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> iff the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>s and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>s are coextensive — has the same shape and yields Russell's paradox. Others are individually consistent but jointly unsatisfiable, or satisfiable only in domains of some particular size. Since syntactic form does not separate the good from the bad, a criterion of acceptability is needed; and any criterion adequate to the task seems to presuppose knowledge about what there is, which was supposed to be the <em>output</em> of the method.</p>
+<p><strong>The Caesar problem.</strong> Hume's Principle fixes when the number of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>s is the number of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>s. It says nothing about whether the number of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>s is Julius Caesar. An implicit definition that leaves the identity conditions of its objects incomplete has not fully specified them, and cannot claim to have introduced determinate objects.</p>
+<p><strong>Existence cannot be cheap if the entities are substantial.</strong> The realist's complaint is that something has gone wrong when a stipulation about language yields a commitment about the world. Either the entities introduced are metaphysically weightless — in which case the platonist has not been vindicated but changed the subject — or a stipulation has produced substantial knowledge, which looks impossible. Thomasson's answer is to deny the dilemma: the entities are perfectly real, and their reality is not the kind of thing that could have been in doubt, because doubting it requires a standpoint outside all frameworks.</p>
+<h2 id="deflationism-and-what-it-deflates"><a class="header" href="#deflationism-and-what-it-deflates">Deflationism, and what it deflates</a></h2>
+<p>It is worth distinguishing what the position denies. Easy ontology is <strong>not</strong> anti-realism about numbers or tables: it affirms that they exist. What it denies is that their existence is a <em>deep</em> fact, discoverable by metaphysical inquiry and contestable by argument. It is deflationism about the <em>questions</em>, not about the <em>entities</em>.</p>
+<p>This makes it an awkward opponent. The nominalist and the platonist both take themselves to be engaged in something difficult; easy ontology agrees with the platonist's conclusion and undermines the platonist's method. That is why the neo-Fregean position is best described as a <strong>deflationary platonism</strong> — maximally permissive about what exists, maximally dismissive of the discipline that argues about it.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Like <a href="02-quantifier-variance.html">quantifier variance</a>, this is the <strong>status question</strong> answered against the substantiality of ontology, but it locates the defect differently. The variantist says the disputants are talking past each other; the easy ontologist says they are labouring over something already settled. A dispute could be verbal without being easy, or easy without being verbal, so the two deflationisms are independent — and an opponent must answer both.</p>
+<p>The realist reply to both, and the strongest defence of ontology as a substantive discipline, is the subject of the next page: <a href="04-ontological-realism.html">ontological realism</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/15-meta-ontology/02-quantifier-variance.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/15-meta-ontology/04-ontological-realism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/15-meta-ontology/02-quantifier-variance.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/15-meta-ontology/04-ontological-realism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

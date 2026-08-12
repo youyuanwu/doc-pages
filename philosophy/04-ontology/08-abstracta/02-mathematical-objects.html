@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Mathematical Objects - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/08-abstracta/02-mathematical-objects.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="mathematical-objects"><a class="header" href="#mathematical-objects">Mathematical Objects</a></h1>
+<p>Are there numbers? Mathematics asserts that there is a prime between 8 and 12, and the assertion is true; by the <a href="../04-ontological-commitment.html">criterion of ontological commitment</a> that appears to settle the matter. But numbers, if they exist, are <a href="01-abstract-and-concrete.html">abstract</a> — outside space and time, causally inert — and it is hard to see how beings like us could come to know anything about such things. Mathematics thus generates the sharpest conflict in ontology: the subject with the best claim to truth is the subject whose objects are hardest to believe in.</p>
+<p>This is the highest-leverage question for these notes, because the book's <a href="../../../logic/00-README.html">logic</a> sections supply the technical material — <a href="../../../logic/06-set-theory-zfc.html">set theory</a>, <a href="../../../logic/07-model-theory.html">model theory</a>, <a href="../../../logic/09-category-theory.html">category theory</a> — that the positions here are arguing about.</p>
+<hr />
+<h2 id="platonism-and-the-face-value-reading"><a class="header" href="#platonism-and-the-face-value-reading">Platonism and the face-value reading</a></h2>
+<p><strong>Mathematical platonism</strong> is the conjunction of three claims: there are mathematical objects; they are abstract; and they are independent of us — of our language, thought, and practice.</p>
+<p>Its main argument is disarmingly simple and is best seen as an insistence on taking mathematics <em>at face value</em>. "There are infinitely many primes" is a theorem. It is true. Its logical form is existential. A uniform semantics — the same <a href="../../../logic/07-model-theory.html">Tarskian</a> treatment for mathematical and non-mathematical language — takes it to be true in the same way "there are infinitely many stars" would be, by there being things of the relevant kind. To deny that there are numbers while affirming the theorem is to give mathematical language a semantics unlike that of every other discourse, and the burden falls on whoever proposes that.</p>
+<p>Supporting considerations: the objectivity of mathematics (there is a fact about whether every even number greater than 2 is a sum of two primes, whatever anyone thinks); its apparent discovery rather than invention; and the phenomenology of practice, in which mathematicians take themselves to be finding out how things are.</p>
+<h2 id="benacerrafs-dilemma"><a class="header" href="#benacerrafs-dilemma">Benacerraf's dilemma</a></h2>
+<p>The decisive difficulty is set out in Benacerraf's "Mathematical Truth" (1973), and its force comes from its shape: two requirements we independently want, which no available theory jointly satisfies.</p>
+<ul>
+<li><strong>The semantic requirement.</strong> Mathematical language should get the same semantics as the rest of language. This favours platonism: "there is a prime between 8 and 12" is true because of what exists.</li>
+<li><strong>The epistemological requirement.</strong> Our account of mathematical knowledge should be continuous with our account of knowledge generally. On any causal or naturalistically respectable epistemology, knowing about <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> requires some causal or counterfactual connection to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>. Abstract objects afford none — they cannot affect us and would be exactly as they are whatever we did.</li>
+</ul>
+<p>Satisfy the first and knowledge becomes inexplicable; satisfy the second and truth becomes inexplicable. This is the <strong>access problem</strong>, and it is the reason the debate has the shape it does. It should be noted that the dilemma is often stated in terms of a <em>causal theory of knowledge</em> that few now hold; the sharpened version, due to Field, avoids that dependence. Field's challenge is not "how do we causally interact with numbers?" but: our mathematical beliefs are reliably true, and the platonist owes an <em>explanation</em> of that reliability. Since the mathematical facts are causally isolated and modally invariant, no explanation seems available — the correlation between our beliefs and the facts would be an unexplained cosmic coincidence.</p>
+<p>The platonist replies:</p>
+<ul>
+<li><strong>Gödelian intuition.</strong> Gödel held that we possess a faculty of mathematical intuition analogous to perception, by which set-theoretic axioms "force themselves upon us as being true." Widely regarded as a description of the problem rather than a solution, though it correctly reports the phenomenology.</li>
+<li><strong>Maddy's naturalised platonism.</strong> Sets of physical objects can be <em>perceived</em> — you see the three eggs and thereby the set of them — locating at least impure sets inside the causal order. This addresses the lower reaches of the hierarchy and leaves the higher ones untouched.</li>
+<li><strong>Necessity blocks the challenge.</strong> Since mathematical truths are necessary, there is no possible world where our beliefs and the facts diverge, so no coincidence needs explaining. Field's response is that this trivialises reliability rather than explaining it.</li>
+<li><strong>Full-blooded platonism</strong> (Balaguer). Every consistent mathematical theory describes some part of the mathematical realm. Access is then easy: any consistent thing we believe is true of <em>something</em>. The cost is that mathematics no longer describes a determinate subject matter, and the question "is the continuum hypothesis true?" loses its point.</li>
+</ul>
+<h2 id="indispensability"><a class="header" href="#indispensability">Indispensability</a></h2>
+<p>The strongest argument for platonism does not proceed from mathematics at all but from science, and it is Quine's and Putnam's:</p>
+<ol>
+<li>We ought to be ontologically committed to all and only the entities indispensable to our best scientific theories.</li>
+<li>Mathematical entities are indispensable to our best scientific theories.</li>
+<li>Therefore we ought to be committed to mathematical entities.</li>
+</ol>
+<p>Premise 1 is Quinean naturalism plus <strong>confirmational holism</strong>: theories face the tribunal of experience as wholes, so the mathematics used in physics is confirmed along with the physics, and it would be intellectually dishonest to accept the theory while disowning part of its ontology. Colyvan's is the standard modern defence.</p>
+<p>The argument is attacked at both premises.</p>
+<p><strong>Against premise 2 — Field's programme.</strong> <em>Science Without Numbers</em> attempts to show that mathematics is <em>dispensable</em>: Newtonian gravitational theory can be reformulated quantifying only over spacetime regions, with mathematics recovered by a representation theorem, and the mathematical apparatus shown to be <strong>conservative</strong> — adding it to a nominalistic theory yields no new nominalistic consequences. If so, mathematics is a useful calculating device, not a description of anything. The programme and its difficulties are treated on the <a href="05-nominalist-programs.html">nominalist programs</a> page.</p>
+<p><strong>Against premise 1 — Maddy's objections from practice.</strong> Two are telling. First, scientists routinely use theories they know to be false — treating fluids as continuous while believing in molecules — so mere appearance in a successful theory does not signal ontological commitment. Second, mathematicians do not in fact justify their existence claims by appeal to physical applications; set theorists deciding on large cardinal axioms do not consult physics. Holism describes neither science nor mathematics as practised.</p>
+<p><strong>Against the whole strategy — the "unhappy" consequence.</strong> If numbers are believed in because physics uses them, then only the mathematics physics uses is justified, and the vast reaches of higher set theory are unsupported. Platonists generally want more than the argument delivers.</p>
+<h2 id="structuralism"><a class="header" href="#structuralism">Structuralism</a></h2>
+<p>A separate line of argument, from Benacerraf's other classic paper "What Numbers Could Not Be" (1965), reshapes the question. The natural numbers can be identified with sets in more than one way — the von Neumann ordinals (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">∅</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">{</span><span class="mord">∅</span><span class="mclose">}}</span></span></span></span>) or the Zermelo (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{{</span><span class="mord">∅</span><span class="mclose">}}</span></span></span></span>) — and the two make incompatible claims: on the first <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6835em;vertical-align:-0.0391em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span>, on the second not. Arithmetic gives no ground to prefer either. Benacerraf concludes that numbers are not objects at all; what matters about 3 is not what it <em>is</em> but its position in a progression.</p>
+<p><strong>Structuralism</strong> develops the thought: mathematics studies <em>structures</em>, and mathematical objects are positions in them with no properties beyond those the structure confers. The variants differ on what a structure is:</p>
+<ul>
+<li><strong><em>Ante rem</em> structuralism</strong> (Shapiro, Resnik): structures are abstract entities existing independently of any instances, and positions are genuine objects. Platonism relocated — it inherits the access problem, but avoids the multiple-reduction difficulty since there is now a fact about the <em>structure</em> rather than a spurious one about the objects.</li>
+<li><strong><em>In re</em> / eliminative structuralism</strong>: talk of structures is talk about all systems exemplifying a pattern, so nothing structural exists over and above the systems. Requires enough systems to exist, which for large infinite structures is a serious demand.</li>
+<li><strong>Modal structuralism</strong> (Hellman): the demand is met modally — mathematics says what would hold in any <em>possible</em> system of the right shape. Abstracta are traded for primitive modality.</li>
+<li><strong>Category-theoretic structuralism</strong>: <a href="../../../logic/09-category-theory.html">category theory</a> makes the structuralist insight mathematically explicit, since objects are individuated only up to isomorphism and only by their maps. Whether it can serve as an autonomous foundation, or presupposes set theory, is disputed.</li>
+</ul>
+<h2 id="fictionalism-and-the-alternatives"><a class="header" href="#fictionalism-and-the-alternatives">Fictionalism and the alternatives</a></h2>
+<p><strong>Fictionalism</strong> (Field) holds that mathematical statements are systematically false — there are no numbers, so "there is a prime between 8 and 12" is false, just as "Holmes lived in Baker Street" is false taken literally. Mathematics is a useful fiction, valuable because conservative. It takes mathematical language at face value, agreeing with the platonist about semantics and disagreeing about truth, which is why it must carry the burden of explaining applicability.</p>
+<p><strong>If-thenism</strong> takes mathematical assertions as conditionals: not "there is a prime between 8 and 12" but "if the Peano axioms hold, then there is one." Ontologically cheap, and it captures something real about mathematical practice, but it struggles to say why <em>these</em> axiom systems are worth studying, and it makes the truth of arithmetic vacuous if no structure satisfies the antecedent.</p>
+<p>The standing objection to every anti-realist option is <strong>applicability</strong>: mathematics works, astonishingly, in describing the physical world. Any view on which it is false or vacuous owes an explanation of that success — and "conservativeness" explains why using it is <em>safe</em>, not why it is <em>useful</em>.</p>
+<h2 id="the-set-theoretic-case"><a class="header" href="#the-set-theoretic-case">The set-theoretic case</a></h2>
+<p>Set theory concentrates all these issues, and the book treats them in two places deliberately.</p>
+<p>The <a href="../../../logic/06-set-theory-zfc.html">ZFC</a> page develops the iterative conception and the axioms; the remark on <a href="../../../logic/11-remarks/04-justifying-con-zfc.html">justifying Con(ZFC)</a> takes up the <em>foundational</em> question of what entitles us to believe the theory consistent, and notes there that the platonist's answer — the sets exist, the axioms are true of them, and truth entails consistency — is clean but trades the consistency question for the existence question. This page is where that trade is examined.</p>
+<p>The <strong>independence results</strong> are what make the case pressing. The continuum hypothesis is neither provable nor refutable from ZFC. For the platonist this must mean our axioms are incomplete descriptions of a determinate universe of sets, and the search for new axioms — large cardinals, forcing axioms, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span> and its rivals — is the search for further truths about it. For the anti-realist it means the question was never determinate: there is no fact about CH, only different consistent set theories, and the choice among them is pragmatic. That the mathematics is identical on both readings, and the ontological verdicts opposite, is a clean illustration of how far a formal result can go without settling a metaphysical one.</p>
+<h2 id="where-mathematical-objects-sit"><a class="header" href="#where-mathematical-objects-sit">Where mathematical objects sit</a></h2>
+<p>This page belongs to the <strong>inventory question</strong>, and it is the case where the <a href="../04-ontological-commitment.html">criterion of commitment</a> does its most conspicuous work: the whole indispensability argument is that criterion applied to science, and the whole nominalist response is an attempt at paraphrase.</p>
+<p>It bears on the <strong>status question</strong> too. Unlike most ontological disputes, this one has an agreed body of results that both sides accept and interpret oppositely — which is either encouraging, since the disagreement is sharply located, or discouraging, since no amount of further mathematics will resolve it.</p>
+<p>The remaining pages of this folder take up <a href="03-sets-and-classes.html">sets and pluralities</a>, the abstracta of <a href="04-propositions.html">semantics</a>, and the <a href="05-nominalist-programs.html">nominalist programs</a> that attempt to do without any of them.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/08-abstracta/01-abstract-and-concrete.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/08-abstracta/03-sets-and-classes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/08-abstracta/01-abstract-and-concrete.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/08-abstracta/03-sets-and-classes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

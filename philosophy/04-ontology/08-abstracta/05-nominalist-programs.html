@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Nominalist Programs - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/08-abstracta/05-nominalist-programs.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="nominalist-programs"><a class="header" href="#nominalist-programs">Nominalist Programs</a></h1>
+<p>The <a href="02-mathematical-objects.html">indispensability argument</a> puts the nominalist about abstracta in a specific position: it is not enough to find platonism epistemically uncomfortable, since science apparently quantifies over numbers and we believe science. The nominalist must therefore <em>do</em> something — either show that the mathematics can be removed, or show that its use does not commit us. This page surveys the programs, which divide into a hard road and an easy one, and closes with the position that accepts abstracta but makes them cheap.</p>
+<hr />
+<h2 id="fields-hard-road"><a class="header" href="#fields-hard-road">Field's hard road</a></h2>
+<p><em>Science Without Numbers</em> (1980) is the most ambitious attempt and remains the benchmark. Field accepts the whole Quinean framework — take science at face value, read the commitments off the quantifiers — and tries to show that premise 2 of the indispensability argument is false: mathematics is <em>dispensable</em>.</p>
+<p>The strategy has two halves.</p>
+<p><strong>Nominalise the physics.</strong> Field reformulates Newtonian gravitational theory quantifying only over spacetime points and regions, using primitive comparative predicates ("<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> is between <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span>", "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> is congruent to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span></span></span></span>") in place of numerical functions. The model is Hilbert's axiomatisation of geometry, where synthetic axioms about points and lines are shown by a <strong>representation theorem</strong> to be equivalent to the numerical theory: any model of the synthetic axioms admits a coordinate assignment, unique up to the relevant transformations. The numbers become a convenient description of a structure that is itself nominalistically specified.</p>
+<p><strong>Show mathematics is conservative.</strong> Even dispensable, mathematics is enormously useful, and the nominalist must explain why using it is legitimate. Field's answer: mathematics is <strong>conservative</strong> over nominalistic theories — if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> is a nominalistic theory and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> is mathematics, then any nominalistic consequence of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> is already a consequence of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>. Mathematics adds no content about the physical world; it is a device for shortening derivations. Note the shape of this claim: it explains why mathematics is <em>safe</em>, not why it is <em>useful</em>, and the difference matters.</p>
+<p>The programme's difficulties are substantial and instructive:</p>
+<ul>
+<li><strong>Spacetime points are a large concession.</strong> Field's ontology contains continuum-many points with a rich structure. Whether this is genuinely more austere than accepting the real numbers, or a relabelling of them, is disputed — the nominalist has arguably kept the mathematics and renamed it "physics." The <a href="../../03-spacetime/02-substantivalism-relationism.html">substantivalism debate</a> then becomes load-bearing for the philosophy of mathematics, which is an unexpected dependency.</li>
+<li><strong>Modality in the metatheory.</strong> Conservativeness is a modal claim about all models, and proving it uses set theory. The nominalist appears to need the very apparatus being eliminated, at one level up.</li>
+<li><strong>Quantum mechanics.</strong> The programme was carried out for a classical theory whose structure is unusually congenial. Extending it to quantum mechanics, where the state space is not the manifold of physical events and where the relevant structure is a Hilbert space, has not been achieved and is widely doubted to be achievable.</li>
+<li><strong>Not all applications are representational.</strong> Some scientific uses of mathematics — explanations that appeal to a number's being prime, or to a topological impossibility — do not look like shorthand for a nominalistic structure at all. These "explanatory indispensability" cases are the current front line.</li>
+</ul>
+<h2 id="the-easy-road"><a class="header" href="#the-easy-road">The easy road</a></h2>
+<p>An alternative strategy accepts that mathematics cannot be removed but denies that using it commits one to its objects. It is called the <strong>easy road</strong> because it skips the nominalisation.</p>
+<ul>
+<li><strong>Figuralism</strong> (Yablo): mathematical language is <em>figurative</em>, on a par with "the average family has 2.3 children" or "he did it for her sake." We do not believe in averages or sakes; the figure lets us express something about real things more efficiently. The mathematics is a representational aid whose apparent commitments are no more serious than those of a metaphor.</li>
+<li><strong>Weaseling</strong> (Melia): one may assert a theory and then take back part of what it says — "there are numbers... but of course there aren't." What is communicated is the nominalistic content, and the retraction is intelligible even though the theory as stated implies otherwise.</li>
+<li><strong>Modal structuralism</strong> (Hellman): mathematical claims are claims about what <em>would</em> hold in any possible structure of the appropriate type. Nothing actual need exist; the ontology is traded for primitive modality. Whether that is a saving depends on one's view of possible worlds, and if one is a Lewisian realist about them it is emphatically not.</li>
+<li><strong>Constructibility quantifiers</strong> (Chihara): replace assertions that mathematical objects exist with assertions that certain open sentences are <em>constructible</em>. The domain becomes possible linguistic constructions rather than abstract objects.</li>
+</ul>
+<p>Colyvan's objection to the whole family is that the easy road cannot be taken while granting that mathematics is genuinely <em>explanatory</em> in science. If the primeness of a cicada's life-cycle length explains its evolutionary success, an account on which the number is a figure of speech owes a story about how a figure of speech explains. The easy-roader replies that the explanatory work is done by the physical structure the mathematics represents.</p>
+<h2 id="neo-fregeanism-platonism-made-cheap"><a class="header" href="#neo-fregeanism-platonism-made-cheap">Neo-Fregeanism: platonism made cheap</a></h2>
+<p>A quite different response accepts abstract objects and denies that they are expensive. The <strong>neo-Fregean</strong> programme of Wright and Hale builds arithmetic from <strong>Hume's Principle</strong>:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">#</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">#</span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↔</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span></span></p>
+<p>— the number of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>s equals the number of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>s if and only if the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>s and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>s can be put in one-to-one correspondence. The right-hand side quantifies only over the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>s and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>s; the left introduces numbers as objects. <strong>Frege's Theorem</strong> is the striking technical result: second-order Peano arithmetic is derivable from Hume's Principle in <a href="../../../logic/03-higher-order-logic.html">second-order logic</a> alone, without Frege's inconsistent Basic Law V.</p>
+<p>The philosophical claim is that abstraction principles are <strong>implicit definitions</strong> — they <em>stipulate</em> the meaning of a new term-forming operator, and their truth is available a priori. If so, we get numbers without the access problem: knowing about them requires no causal contact, because the principle that introduces them is analytic of the concept. Platonism, but with the epistemology of stipulation.</p>
+<p>Two objections dominate:</p>
+<ul>
+<li><strong>The Bad Company problem.</strong> Abstraction principles of the same form can be inconsistent — Basic Law V is one — or individually consistent but jointly unsatisfiable, or satisfiable only in domains of a particular size. Since form alone does not distinguish the good from the bad, the neo-Fregean needs a criterion of acceptability, and any criterion strong enough to exclude the bad company seems to presuppose knowledge about what exists, which was to be the output rather than the input.</li>
+<li><strong>The Caesar problem.</strong> Hume's Principle fixes when the number of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>s equals the number of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>s, but says nothing about whether the number of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>s is Julius Caesar. An implicit definition that leaves identity conditions incomplete has not fully determined its objects.</li>
+</ul>
+<p>The interest of the position for this section is that it is a <strong>deflationary platonism</strong> — it accepts the entities and denies that the acceptance is a substantial commitment. That places it next to the <a href="../15-meta-ontology/03-easy-ontology.html">deflationary meta-ontology</a> treated later, where the same move is made about existence questions generally.</p>
+<h2 id="god-and-abstracta"><a class="header" href="#god-and-abstracta">God and abstracta</a></h2>
+<p>A final pressure on the debate comes from theology, and it is a genuine ontological argument rather than a piece of piety. Classical theism holds that God is <em>a se</em> — dependent on nothing — and the sovereignty-aseity intuition extends this to a claim that everything other than God depends on God. But abstract objects are standardly held to exist necessarily and independently, which contradicts it.</p>
+<p>The options are the same ones this section has been cataloguing: nominalism (there are no abstracta, so nothing competes with divine aseity), theistic activism (abstracta exist but are constituted by divine thoughts — which runs into a <strong>bootstrapping</strong> problem, since God's having properties presupposes properties), or the concession that some things exist independently of God. The theistic case is developed on the <a href="../../02-religion/08-attributes/04-goodness-and-simplicity.html">goodness, simplicity, and aseity</a> page.</p>
+<h2 id="where-the-programs-sit"><a class="header" href="#where-the-programs-sit">Where the programs sit</a></h2>
+<p>These programs are the <strong>inventory question</strong> worked out in the hardest case, and they are also the clearest demonstration of the method the <a href="../04-ontological-commitment.html">criterion of commitment</a> licenses: given an unwanted commitment, either find the paraphrase or accept the entity. Field's is the most systematic paraphrase ever attempted in ontology, and its partial success and partial failure are more informative than either outcome alone would be.</p>
+<p>They also illustrate the discipline the <a href="../04-ontological-commitment.html">commitment page</a> demands of paraphrase — that it not covertly reintroduce what it eliminates. Every program here is charged with violating it somewhere: Field with spacetime points and modal metatheory, Hellman with primitive modality, Chihara with possible constructions, the neo-Fregean with second-order logic. Whether any of these is a genuine reintroduction or an acceptable primitive is the live question, and it is not one the criterion can settle.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/08-abstracta/04-propositions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/09-mereology/01-mereology.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/08-abstracta/04-propositions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/09-mereology/01-mereology.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

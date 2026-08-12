@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Persons and Minds in the Inventory - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/12-contested/02-persons.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="persons-and-minds-in-the-inventory"><a class="header" href="#persons-and-minds-in-the-inventory">Persons and Minds in the Inventory</a></h1>
+<p>You are reading this. Something is doing so. What kind of entity is it?</p>
+<p>The question is not the one usually asked under "personal identity" — what makes the person now the same as the child then — though the two are connected. It is the prior, ontological question: which item in the inventory is the person, and does the inventory need a category for minds.</p>
+<p>The section treats both briefly and deliberately. Personal identity has its home in the <a href="../../03-spacetime/06-time/06-persistence.html">persistence</a> discussion, and the philosophy of mind is a subject of its own; what belongs here is the <em>categorial</em> question.</p>
+<hr />
+<h2 id="candidates"><a class="header" href="#candidates">Candidates</a></h2>
+<p><strong>An animal.</strong> <em>Animalism</em> (Olson, van Inwagen): you are a human organism, and your persistence conditions are biological. Its principal argument is the <strong>thinking animal</strong> problem: there is certainly a human animal sitting where you are, and that animal has a working brain, so it thinks. If you are not the animal, there are two thinkers here, and you cannot know which one you are. The cleanest way out is to identify them.</p>
+<p><strong>A psychological continuer.</strong> The Lockean tradition: you are constituted by continuity of memory, personality, and intention, and you would go with your psychology if it were transferred. This matches our practical concern — what we care about in survival seems psychological — at the cost of the thinking-animal problem and of a person who is not identical with any biological thing.</p>
+<p><strong>A brain, or a part of one.</strong> A compromise that keeps the physical basis while allowing the animal to survive without you.</p>
+<p><strong>A bundle.</strong> Hume: introspection finds perceptions, never a self that has them, so the self is a bundle of experiences. Inherits every difficulty of <a href="../07-particulars/02-bundle-vs-substratum.html">bundle theory</a> plus the special one that the bundling relation must be memory or causal connectedness, which presupposes the self it constructs.</p>
+<p><strong>A soul.</strong> A simple immaterial substance. Answers the identity question decisively — you go where the soul goes — and pays for it with the interaction problem and with the difficulty that a simple substance has no explanation of why it is associated with this body.</p>
+<p><strong>A four-dimensional worm.</strong> You are an extended spacetime object with temporal parts, and "the person now" refers to a stage. Dissolves several puzzles and requires the whole <a href="../../03-spacetime/06-time/06-persistence.html">perdurantist</a> metaphysic.</p>
+<h2 id="fission"><a class="header" href="#fission">Fission</a></h2>
+<p>The case that drives the literature. Split a brain and transplant the hemispheres into two bodies, each with your memories and character. Both are equally good candidates to be you. But they are two, and you are one, so by <a href="../07-particulars/04-identity.html">Leibniz's Law</a> you cannot be both.</p>
+<p>The options exhaust the possible shapes: you are one of them (arbitrary, since nothing distinguishes them); you are neither, so fission is death (odd, since double survival would be worse than single); you were always two coincident people (Lewis's multiple-occupancy view, requiring temporal parts); or identity is not what matters, and the important relation is psychological continuity, which can hold one-many.</p>
+<p>Parfit's conclusion — that identity is not what matters in survival — is the most influential, and its ontological upshot is deflationary: personal identity is not a deep further fact over and above physical and psychological continuities. If that is right, the question "which candidate is the person?" may have no determinate answer, and the dispute above is less substantive than it looks.</p>
+<h2 id="is-the-mental-a-category"><a class="header" href="#is-the-mental-a-category">Is the mental a category?</a></h2>
+<p>The second question. Grant that persons are animals; are mental properties an addition to the inventory?</p>
+<p><strong>Substance dualism</strong> makes minds a separate category of thing. <strong>Property dualism</strong> keeps one kind of substance and adds a category of properties not identical with, and not <a href="../13-fundamentality/01-grounding.html">grounded</a> in, physical ones. <strong>Physicalism</strong> denies both, holding that mental facts are grounded in physical facts.</p>
+<p>The <strong>exclusion argument</strong> is the standing difficulty for property dualism and for non-reductive physicalism alike. If every physical effect has a sufficient physical cause, and mental properties are distinct from physical ones, then mental causes are either redundant or systematically overdetermining. Stated in the section's vocabulary: can a <em>derivative</em> entity or property do causal work that its ground does not already do?</p>
+<p>That question was answered affirmatively for physics on the <a href="../13-fundamentality/03-fundamentality.html">fundamentality</a> page. Quasiparticles are uncontroversially derivative and indispensably explanatory; a phonon's grounding in lattice vibrations does not make phonon-explanations redundant. Whether the same move works for the mental is disputed — the physics case involves no <em>distinct</em> cause, only a coarse-grained description of the same one, which is precisely what non-reductive physicalism wants to say and property dualism cannot.</p>
+<h2 id="why-the-ontology-matters-elsewhere"><a class="header" href="#why-the-ontology-matters-elsewhere">Why the ontology matters elsewhere</a></h2>
+<p>The categorial question is not idle. Moral responsibility attaches to agents, and what kind of thing an agent is constrains what agency can be: the <a href="../../01-freewill/04-libertarianism.html">libertarian</a> appeal to <strong>agent causation</strong> requires that a <em>substance</em> be an irreducible cause, which is unavailable if persons are bundles or four-dimensional worms, and which the event ontology of <a href="../11-events/01-events-and-processes.html">Davidson</a> has no room for. The connection is developed from the other side in the discussion of <a href="../../01-freewill/08-concepts/01-moral-responsibility.html">moral responsibility</a>.</p>
+<h2 id="where-persons-sit"><a class="header" href="#where-persons-sit">Where persons sit</a></h2>
+<p>This is the <strong>category question</strong> applied to ourselves, and it is the one case where the answer is not obviously independent of us — since whatever we conclude, we are the things concluding it.</p>
+<p>Its distinctive feature is that the candidate answers are already positions taken elsewhere in the section. Animalism is a substance ontology; the bundle view is <a href="../07-particulars/02-bundle-vs-substratum.html">bundle theory</a>; the worm view is perdurantism; Parfit's deflationism about the further fact has the same shape as <a href="../15-meta-ontology/03-easy-ontology.html">deflationism</a> about existence questions generally. The person is not a special case so much as a place where every general commitment shows its consequences at once.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/12-contested/01-ordinary-objects.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/12-contested/03-social-ontology.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/12-contested/01-ordinary-objects.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/12-contested/03-social-ontology.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

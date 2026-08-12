@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Method in Ontology - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/15-meta-ontology/05-method.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="method-in-ontology"><a class="header" href="#method-in-ontology">Method in Ontology</a></h1>
+<p>Ontology has no laboratory. Its questions are not settled by observation, and — if the <a href="02-quantifier-variance.html">deflationists</a> are wrong and the disputes are real — they must be settled some other way. This page collects the standards actually appealed to across the section and asks what entitles them.</p>
+<hr />
+<h2 id="parsimony"><a class="header" href="#parsimony">Parsimony</a></h2>
+<p>Ockham's razor is the most-cited principle in ontology and among the least examined. Two distinctions are essential.</p>
+<p><strong>Quantitative versus qualitative.</strong> Quantitative parsimony counts <em>entities</em>: fewer electrons is more parsimonious than more. Qualitative parsimony counts <em>kinds</em>: an ontology of one category is more parsimonious than one of two, regardless of how many members each has.</p>
+<p>Almost everyone weights the qualitative kind more heavily, and the practice of the section bears this out. Nobody objects to <a href="../09-mereology/02-composition.html">universalism</a> on the ground that it posits enormously many fusions; the objection, when there is one, is that it posits things of a strange sort. Conversely <a href="../06-universals/03-nominalism.html">class nominalism</a> is criticised despite eliminating a category, because the set-theoretic hierarchy it accepts is vast. The two measures can point in opposite directions, and stating which is being used is the minimum required for the argument to be assessable.</p>
+<p><strong>Ontological versus ideological.</strong> Quine distinguished the <em>ontology</em> of a theory (what its variables range over) from its <em>ideology</em> (the primitive notions it employs). Economy in one is routinely bought with extravagance in the other, and this is the section's most persistent pattern:</p>
+<div class="table-wrapper"><table><thead><tr><th>Position</th><th>Saves</th><th>Spends</th></tr></thead><tbody>
+<tr><td><a href="../06-universals/03-nominalism.html">Nominalism</a></td><td>universals</td><td>primitive resemblance, or naturalness</td></tr>
+<tr><td><a href="../10-modality/02-possible-worlds.html">Ersatzism</a></td><td>concrete worlds</td><td>primitive modality</td></tr>
+<tr><td><a href="../08-abstracta/05-nominalist-programs.html">Modal structuralism</a></td><td>numbers</td><td>primitive modality</td></tr>
+<tr><td><a href="../06-universals/03-nominalism.html">Ostrich nominalism</a></td><td>everything</td><td>primitive predication</td></tr>
+<tr><td><a href="../10-modality/02-possible-worlds.html">Modal realism</a></td><td>primitive modality</td><td>concrete worlds</td></tr>
+</tbody></table>
+</div>
+<p>Lewis's own case for modal realism is explicitly a trade of the last kind: an extravagant ontology purchased with a lean ideology, on the ground that reduction is worth paying for. Whether ideological economy is even a <em>theoretical</em> virtue in the same sense as ontological economy is disputed, and no agreed exchange rate exists.</p>
+<p><strong>Is parsimony evidential?</strong> The hardest question. In science, simpler theories are often preferred and often turn out true, which is some reason to think simplicity tracks truth. In ontology there is no comparable track record, and the razor may be doing nothing more than expressing a preference. The honest position is that parsimony is a tie-breaker among theories that otherwise do equally well, and that it is very often invoked when the tie has not been established.</p>
+<h2 id="common-sense-and-intuition"><a class="header" href="#common-sense-and-intuition">Common sense and intuition</a></h2>
+<p>The Moorean strategy — "here is a hand" is more certain than any premise in an argument against it — appears throughout the section, most prominently against <a href="../12-contested/01-ordinary-objects.html">eliminativism</a> about ordinary objects.</p>
+<p>It is a legitimate form of argument: when a valid argument has an intolerable conclusion, rejecting a premise is rational even without identifying which. But it has two limits. It is available symmetrically — the eliminativist can reply that his conclusion is not intolerable, only unfamiliar — and if used without restraint it forecloses every revisionary result, including ones we accept from science. Nobody thinks Moorean certainty settles whether the table is mostly empty space.</p>
+<p>The deeper worry concerns intuitions generally. Ontological arguments trade heavily on judgements about cases — Black's spheres, the statue and the clay, the Ship of Theseus — and it is unclear what makes such judgements evidence. If they are trained responses to how our concepts work, they tell us about our concepts, which is what <a href="03-easy-ontology.html">easy ontology</a> says they are and all they are.</p>
+<h2 id="naturalised-metaphysics"><a class="header" href="#naturalised-metaphysics">Naturalised metaphysics</a></h2>
+<p>The most radical methodological position holds that armchair method is worthless. Ladyman and Ross's slogan — <strong>no domesticated metaphysics</strong> — expresses the charge that much analytic ontology consists of elaborating an intuitive picture of the world that physics abandoned a century ago, using thought experiments about tables and statues to fix beliefs about fundamental structure.</p>
+<p>Their positive proposal is that metaphysics is legitimate only as the unification of scientific hypotheses: a metaphysical claim earns its place by helping to explain how the results of different sciences fit together. Everything else is, in their phrase, "neo-scholastic."</p>
+<p>The section's own material supports the charge in part and complicates it. It supports it in that several armchair disputes have been <em>reshaped</em> by physics — <a href="../14-science/03-particles-and-individuality.html">individuation</a> by permutation invariance, <a href="../14-science/04-what-qft-is-about.html">substance</a> by the absence of bearers in quantum field theory, <a href="../10-modality/05-laws-of-nature.html">Humean supervenience</a> by entanglement — and in each case the armchair discussion had missed something.</p>
+<p>It complicates it in the way the <a href="../14-science/05-the-wavefunction.html">wavefunction</a> page sets out. Bohmian mechanics, GRW, and Everettian quantum mechanics are empirically equivalent and ontologically incompatible. Physics does not choose among them; choosing requires appeal to parsimony, explanatory depth, locality, and compatibility with relativity — that is, to the very theoretical virtues naturalised metaphysics was supposed to replace with empirical constraint. <strong>Physics constrains without determining</strong>, and where it stops the armchair resumes, whether or not one approves.</p>
+<p>This is the same conclusion the space-and-time section reaches from its own material, in its <a href="../../03-spacetime/10-context/02-method.html">method</a> page, and the two should be read together.</p>
+<h2 id="is-the-logic-neutral"><a class="header" href="#is-the-logic-neutral">Is the logic neutral?</a></h2>
+<p>A methodological assumption the section began with and has steadily undermined. Formal logic was introduced as the discipline's characteristic tool precisely because it is topic-neutral — a common instrument all parties can use.</p>
+<p>By now three points of non-neutrality have surfaced:</p>
+<ul>
+<li>Whether quantification is objectual or <a href="../05-existence/01-existence-and-quantification.html">substitutional</a> determines whether the criterion of commitment delivers anything.</li>
+<li>Whether <a href="../08-abstracta/03-sets-and-classes.html">second-order and plural</a> quantification are legitimate logic determines whether properties and classes are commitments.</li>
+<li>Whether singular terms must denote determines whether denials of existence can be stated at all.</li>
+</ul>
+<p>To these can be added the choice of logic itself. <a href="../../../logic/04-intuitionistic-logic.html">Intuitionistic logic</a> rejects excluded middle and with it the inference from the absurdity of denying something's existence to its existence; <a href="../../../logic/05-paraconsistent-logic.html">paraconsistent logic</a> permits inconsistent objects and so makes noneism viable. Choosing a logic is choosing what can be said, and thereby constraining what can be concluded.</p>
+<p>The moral is not that logic is useless but that its use is not free. Regimentation is where the contentious decisions are made — as the <a href="../04-ontological-commitment.html">commitment page</a> argued with the average-family case — and treating the choice of formalism as a preliminary rather than as part of the ontology is the most common methodological error in the field.</p>
+<h2 id="does-ontology-progress"><a class="header" href="#does-ontology-progress">Does ontology progress?</a></h2>
+<p>The question flagged in the <a href="../01-introduction.html">introduction</a>, now answerable in the section's own terms.</p>
+<p>The <strong>naturalist</strong> grants that armchair ontology does not progress and holds that progress is available where ontology tracks science. The section's evidence is mixed but real: weak discernibility, primitive ontology, and the structuralist positions are all genuinely new and all owe their existence to physics.</p>
+<p>The <strong>ontological realist</strong> denies the charge, pointing to results that would not have been available a century ago — trope theory, the argument from vagueness, Fine's separation of essence from modality, the grounding apparatus, Frege's Theorem. These are not consensus, but neither is most of mathematics at the frontier, and the standard of progress being applied to ontology is one few disciplines would meet.</p>
+<p>The <strong>deflationist</strong> takes the persistence of disagreement as evidence that there was never a fact at issue.</p>
+<p>The section's own verdict, such as it is, appears at the end of the <a href="04-ontological-realism.html">ontological realism</a> page: the enterprise is justified without being vindicated. What can be said is that the disputes have become sharper, the options better mapped, and the costs of each better understood — which is progress of a kind, even if it is not convergence.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/15-meta-ontology/04-ontological-realism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/15-meta-ontology/06-the-question-of-being.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/15-meta-ontology/04-ontological-realism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/15-meta-ontology/06-the-question-of-being.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

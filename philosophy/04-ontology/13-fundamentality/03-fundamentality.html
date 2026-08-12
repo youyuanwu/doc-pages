@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Fundamentality, Levels, and Priority - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/13-fundamentality/03-fundamentality.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="fundamentality-levels-and-priority"><a class="header" href="#fundamentality-levels-and-priority">Fundamentality, Levels, and Priority</a></h1>
+<p>Some things are more basic than others. Quarks seem more basic than tables, physics more basic than economics, parts more basic than wholes — or perhaps the reverse. <strong>Fundamentality</strong> is the notion at work in all these judgements, and once <a href="01-grounding.html">grounding</a> and <a href="02-ontological-dependence.html">dependence</a> are available it can be stated precisely enough to be argued about.</p>
+<p>Three questions organise the field: whether there is a bottom, what is at it, and whether "level" is a good way to think about any of this.</p>
+<hr />
+<h2 id="absolute-and-relative"><a class="header" href="#absolute-and-relative">Absolute and relative</a></h2>
+<p><strong>Relative</strong> fundamentality is comparative: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> is more fundamental than <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>. It is naturally defined from grounding or dependence — <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> is more fundamental than <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> is grounded in, or depends on, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>.</p>
+<p><strong>Absolute</strong> fundamentality is not comparative: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> is fundamental <em>simpliciter</em> if nothing is more fundamental than it, or if it is ungrounded. The two are related but not interdefinable in an obvious way, and one can hold either without the other: there might be comparative facts with no minimal elements, or a privileged base with no useful comparisons above it.</p>
+<p>A common further gloss is <strong>completeness</strong>: the fundamental facts are those that suffice to determine all the rest — a minimal supervenience base for reality. This is attractive but does not by itself deliver priority, since a base can be complete without being prior.</p>
+<h2 id="is-there-a-bottom"><a class="header" href="#is-there-a-bottom">Is there a bottom?</a></h2>
+<p><strong>Metaphysical foundationalism</strong> holds that grounding chains terminate: there is a fundamental level, and everything else is grounded in it. The usual argument is that without a foundation nothing would be settled — being would be "infinitely deferred," and each level would await a lower one that never arrives. Schaffer puts it as the requirement that being must be <em>generated</em>, and an infinite regress generates nothing.</p>
+<p><strong>Metaphysical infinitism</strong> denies it. Reality might descend without end, each level grounded in a lower one. Schaffer's "Is there a fundamental level?" argues that we have no good reason to believe in a foundation, and two considerations support him:</p>
+<ul>
+<li><strong>The empirical record.</strong> Each supposed bottom has been succeeded by another: atoms, then nuclei and electrons, then nucleons, then quarks. Effective field theory presents physics as a tower of descriptions each valid within its own regime, with the parameters of one fixed by integrating out the shorter-distance degrees of freedom of the next — a structure that makes no prediction of a floor.</li>
+<li><strong>Gunk.</strong> If matter can be <a href="../09-mereology/04-vagueness-and-gunk.html">atomless</a> — every part having proper parts — then a world without a mereological bottom is possible, and if it is possible for parthood it is not obviously impossible for grounding.</li>
+</ul>
+<p>The foundationalist's reply is that the generation argument is a priori and unaffected by the empirical record, since the physical tower may bottom out in something non-physical or in the whole. That reply is available, and it concedes that the question is not settled by physics.</p>
+<h2 id="priority-monism"><a class="header" href="#priority-monism">Priority monism</a></h2>
+<p>If reality does have a privileged level, is it at the bottom or the top?</p>
+<p><strong>Priority pluralism</strong> — the default — holds that the parts are prior to the whole: the cosmos is derivative, built from its constituents. <strong>Priority monism</strong> (Schaffer) holds the reverse: the cosmos is the one fundamental entity, and its parts are derivative abstractions from it. Note that this is not <em>existence</em> monism, the absurd view that there is only one thing; the parts exist, and are merely posterior.</p>
+<p>Two arguments for monism, and both are cases where a general metaphysical thesis is supported by a specific physical fact:</p>
+<p><strong>Gunk.</strong> If the world could be gunky, there is no bottom level of parts to be prior. But there is always a whole. So the whole is the better candidate for the fundamental entity, since only the top is guaranteed to exist.</p>
+<p><strong>Non-separability.</strong> Quantum entanglement means the state of a composite system is not determined by the intrinsic states of its parts together with their spatiotemporal relations. If the whole's state is not derived from the parts', the parts cannot be what everything else is grounded in — the priority runs the other way. The formal situation is in <a href="../../../physics/03-QM/12-topics/02-bell-nonlocality.html">Bell nonlocality</a> and the interpretive options in the remark on <a href="../../A-remarks/03-philosophy-of-bells-theorem.html">the philosophy of Bell's theorem</a>.</p>
+<p>The pluralist replies that non-separability shows the parts have irreducibly relational properties, not that they are posterior; a system of interrelated parts is still a system of parts. Whether relational holism amounts to priority is the crux, and it is not settled by the physics.</p>
+<h2 id="levels-and-doubts-about-them"><a class="header" href="#levels-and-doubts-about-them">Levels, and doubts about them</a></h2>
+<p>The <strong>layered conception</strong> (Oppenheim and Putnam) pictures reality as a hierarchy — elementary particles, atoms, molecules, cells, organisms, societies — each level composed of the one below and studied by its own science, with the whole in principle reducible downward.</p>
+<p>Three pressures on the picture:</p>
+<p><strong>Multiple realisability.</strong> A functional kind can be realised by indefinitely many physical arrangements, so the special-science kind corresponds to no physical kind. Fodor's conclusion is that the special sciences are autonomous: their generalisations are real and not reducible, though everything is made of physical stuff.</p>
+<p><strong>Quasiparticles.</strong> Phonons, Cooper pairs, and semiconductor holes are indispensable in condensed-matter explanation. They are quantified over, assigned mass and charge, and used to predict — while being uncontroversially derivative, being collective excitations rather than constituents. They are the cleanest test case for grounding, because both sides agree on the physics and on the derivative status; what they show is that being derivative is no obstacle to being explanatorily essential. It is also worth noting that a semiconductor "hole" is an <em>absence</em> promoted to a causal entity by a working science, which bears on the general question of <a href="../12-contested/04-holes-and-absences.html">absences</a>.</p>
+<p><strong>Disunity.</strong> Dupré's <strong>promiscuous realism</strong> and Cartwright's <strong>dappled world</strong> deny the picture outright. The sciences proliferate incompatible-but-legitimate classifications; laws hold only locally and <em>ceteris paribus</em>; there is no single hierarchy and no reason to expect the levels to nest. If this is right, then a <em>naturalised</em> ontology has to be pluralist — an awkward result, since naturalism was supposed to discipline ontology rather than fragment it.</p>
+<h2 id="physicalism-as-an-ontological-thesis"><a class="header" href="#physicalism-as-an-ontological-thesis">Physicalism as an ontological thesis</a></h2>
+<p><strong>Physicalism</strong> is a fundamentality claim: everything is either physical or grounded in the physical. Stating it precisely is notoriously hard — supervenience formulations are too weak for the reasons given under <a href="01-grounding.html">grounding</a>, and "is physical" must be specified without either triviality or hostage to current physics (Hempel's dilemma: define it by current physics and it is probably false, by ideal future physics and it is empty).</p>
+<p>The <strong>exclusion argument</strong> is the sharpest pressure on non-reductive versions. If every physical effect has a sufficient physical cause, and the mental is distinct from the physical, then either mental causes are redundant or effects are systematically overdetermined. Stated ontologically rather than in terms of causation, the question is whether a derivative entity can do work its ground does not already do — which is exactly the question the quasiparticle case answers affirmatively for physics, and which is why that case matters beyond its own domain.</p>
+<h2 id="where-fundamentality-sits"><a class="header" href="#where-fundamentality-sits">Where fundamentality sits</a></h2>
+<p>This is the <strong>structure</strong> question in its most general form, and it is where the section's threads converge. Whether there is a bottom bears on mereological <a href="../09-mereology/02-composition.html">nihilism</a>, which needs simples. Whether the whole or the parts are prior bears on <a href="../09-mereology/01-mereology.html">composition</a>. Whether levels nest bears on <a href="../07-particulars/06-natural-kinds.html">natural kinds</a> and on what the sciences are describing.</p>
+<p>It is also where ontology is most exposed to physics — and where the exposure is least conclusive. Effective field theory suggests no floor without establishing there is none; entanglement suggests the whole is prior without establishing it; the special sciences suggest disunity without establishing that it is more than epistemic. In each case the physics constrains the metaphysics and stops short of deciding it, which is the general moral the section draws when it turns to the sciences directly.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/13-fundamentality/02-ontological-dependence.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/13-fundamentality/04-structure.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/13-fundamentality/02-ontological-dependence.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/13-fundamentality/04-structure.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

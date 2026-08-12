@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Events and Processes - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/11-events/01-events-and-processes.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="events-and-processes"><a class="header" href="#events-and-processes">Events and Processes</a></h1>
+<p>Something happened: a window broke, an election was won, a war was fought. Are these <em>entities</em> — items in the inventory alongside the window and the voters — or is talk of happenings a way of talking about objects and the properties they have at times?</p>
+<p>The question is not idle bookkeeping. Causation relates causes to effects, and if the relata are events, then admitting causation admits events. Explanation, perception, action, and memory all appear to involve them.</p>
+<hr />
+<h2 id="davidsons-argument"><a class="header" href="#davidsons-argument">Davidson's argument</a></h2>
+<p>The most influential argument for events is linguistic in form and ontological in conclusion. Consider:</p>
+<blockquote>
+<p>Jones buttered the toast slowly, deliberately, in the bathroom, with a knife, at midnight.</p>
+</blockquote>
+<p>From this any subset of the modifiers can be dropped and the result still follows. "Jones buttered the toast with a knife" follows; so does "Jones buttered the toast." That is a valid inference pattern, and a semantics must explain it.</p>
+<p>Treating "buttered" as a five-place predicate does not: from a five-place relation nothing follows about a three-place one, and we would need a separate predicate for every combination of modifiers, with the entailments stipulated one by one. Davidson's proposal is that action sentences contain a hidden quantifier over <strong>events</strong>:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord">∃</span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="delimsizing size1">(</span></span><span class="mord"><span class="mord mathit">Buttered</span></span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">Jones</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">toast</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathit">Slow</span></span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathit">In</span></span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">bathroom</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathit">With</span></span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">knife</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord"><span class="mord mathit">At</span></span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">midnight</span></span><span class="mclose">)</span><span class="mord"><span class="delimsizing size1">)</span></span></span></span></span></span></p>
+<p>Now the entailments are simply conjunction elimination. The logical form explains the inferences, and by the <a href="../04-ontological-commitment.html">criterion of ontological commitment</a> the quantifier commits us to events.</p>
+<p>Two further considerations support the same conclusion. <strong>Singular causal statements</strong> — "the short circuit caused the fire" — appear to relate two particulars, and the particulars are events. And <strong>anaphora</strong>: "the window broke; it happened at noon and was heard next door" picks up a thing to say more about, and that thing is not the window.</p>
+<p>This is the section's cleanest example of an ontological argument built from logical form, and it is worth noting how much rests on the claim that no alternative semantics does the job. Adverbial approaches that treat modifiers as predicate operators have been developed precisely to resist it.</p>
+<h2 id="what-is-an-event"><a class="header" href="#what-is-an-event">What is an event?</a></h2>
+<p>Granting events, their nature and individuation are disputed, and the accounts differ chiefly over how <em>fine-grained</em> they are.</p>
+<p><strong>Kim's property-exemplification account.</strong> An event is a structured entity <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mclose">]</span></span></span></span> — an object <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> exemplifying a property <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> at a time <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> — with identity conditions to match: two events are identical only if they have the same constitutive object, property, and time. This makes events very fine-grained. Brutus's stabbing Caesar and Brutus's killing Caesar involve different properties and so are different events, even though there was only one plunge of the knife.</p>
+<p><strong>Davidson's own view.</strong> Events are unstructured particulars, individuated originally by their causes and effects (an account he later abandoned as circular) and subsequently by spatiotemporal region: events are identical if they occupy the same region. This is very coarse-grained. The stabbing and the killing occupy the same region, so they are one event under two descriptions.</p>
+<p><strong>Lewis's account.</strong> An event is a property of a spacetime region — equivalently, a class of regions across possible worlds. This allows intermediate grain, since properties can be more or less specific, and integrates events with his <a href="../10-modality/02-possible-worlds.html">modal</a> framework.</p>
+<p>The disagreement matters because of causation. If the stabbing and the killing are one event, then citing either gives the same cause; if they are two, we must say which caused Caesar's death, and the answer that the <em>killing</em> caused the death is uncomfortably close to saying the death caused itself. Conversely, coarse individuation makes trouble for explanation: the flipping of the switch and the illuminating of the room may occupy the same region, but "he turned on the light <em>because</em> he flipped the switch" is not trivial.</p>
+<h2 id="processes"><a class="header" href="#processes">Processes</a></h2>
+<p>A separate category, or possibly a rival one. <strong>Processes</strong> are ongoing rather than completed: the running, not the run; the melting, not the having melted.</p>
+<p>The linguistic marker is the mass/count distinction applied to occurrences. Processes are <em>atelic</em> and homogeneous — any part of a running is itself a running, as any part of water is water — whereas events are <em>telic</em> and have natural completions, so that a part of a crossing of the road is not itself a crossing. This is the same structure as the distinction between stuff and things, transposed to time.</p>
+<p><strong>Process ontology</strong> (Whitehead, Rescher) takes the more radical step of making processes basic and treating apparently enduring objects as stable patterns in them. A river is the obvious case, an organism a better one, since it exchanges its matter continuously while maintaining organisation.</p>
+<p>Two areas make this attractive. In <strong>biology</strong>, organisms are far better described as persisting processes than as objects that happen to change: metabolic turnover means the matter is not the same, and the identity is carried by organisation. In <strong><a href="../../../physics/04-QFT/00-README.html">quantum field theory</a></strong>, the fundamental description is of field excitations, interactions, and scattering, and the "particles" are not stable localisable objects — which is a point developed in the section's treatment of the sciences.</p>
+<p>The objection to process ontology is the one facing every attempt to make the derivative basic: it must explain what makes a process <em>one</em> process, and the natural answer refers to the object undergoing it.</p>
+<h2 id="agents-and-events"><a class="header" href="#agents-and-events">Agents and events</a></h2>
+<p>A challenge from a different direction. If causation relates events, then every cause is an occurrence, and an agent's causing something must be some event involving the agent causing it. <strong>Agent causation</strong> denies this: on the libertarian view developed under <a href="../../01-freewill/04-libertarianism.html">libertarianism</a>, an agent — a substance, not an event — can be an irreducible cause, not analysable as a causing by any event.</p>
+<p>If agent causation is coherent, the inventory of causal relata includes substances as well as events, and the tidy Davidsonian picture is incomplete. If it is not, the free-will debate loses its principal libertarian option. The two sections make the same choice from opposite ends, which is why they cross-link.</p>
+<h2 id="where-events-sit"><a class="header" href="#where-events-sit">Where events sit</a></h2>
+<p>This is an <strong>inventory question</strong> whose interest is that the argument for it is almost entirely formal. Nothing observational settles whether there are events; what settles it, if anything does, is whether the semantics of action sentences and causal statements can be given without them.</p>
+<p>That makes it the best illustration of the Quinean method at work, and also of the method's limits. The criterion tells us that Davidson's regimentation commits us to events; it does not tell us that Davidson's regimentation is the right one, and the alternatives were constructed precisely to avoid the commitment. Which regimentation to accept is settled — if at all — by the usual theoretical virtues, which is exactly what the <a href="../04-ontological-commitment.html">commitment page</a> warned would happen.</p>
+<p>The next page takes up the entities that stand to <em>true sentences</em> as events stand to <em>happenings</em>: <a href="02-facts-and-states-of-affairs.html">facts and states of affairs</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/10-modality/05-laws-of-nature.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/11-events/02-facts-and-states-of-affairs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/10-modality/05-laws-of-nature.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/11-events/02-facts-and-states-of-affairs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

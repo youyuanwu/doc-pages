@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Key Figures - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/16-context/02-figures.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="key-figures"><a class="header" href="#key-figures">Key Figures</a></h1>
+<p>A compact reference to the principal contributors, with the claim each is cited for in this section. Arranged chronologically. The narrative thread is on the <a href="01-history.html">history</a> page.</p>
+<hr />
+<h2 id="ancient-and-medieval"><a class="header" href="#ancient-and-medieval">Ancient and medieval</a></h2>
+<ul>
+<li><strong>Parmenides</strong> (early 5th c. BCE) — the argument that what is not cannot be thought, hence that change and plurality are impossible; the origin of the problem of <a href="../05-existence/04-negative-existentials.html">negative existentials</a> and of Plato's beard.</li>
+<li><strong>Plato</strong> (c. 428–348 BCE) — the Forms as the answer to the one over many; transcendent <a href="../06-universals/02-realism.html">realism</a>; the <a href="../06-universals/02-realism.html">third man</a> objection in the <em>Parmenides</em>.</li>
+<li><strong>Aristotle</strong> (384–322 BCE) — the ten <a href="../03-categories-of-being.html">categories</a>; primary <a href="../07-particulars/01-substance.html">substance</a>; hylomorphism; "being is said in many ways"; immanent realism about universals.</li>
+<li><strong>Porphyry</strong> (c. 234–305) — the three questions about genera and species that framed the medieval problem of universals.</li>
+<li><strong>Boethius</strong> (c. 477–524) — transmitted Porphyry's questions to the Latin West.</li>
+<li><strong>Avicenna / Ibn Sīnā</strong> (c. 980–1037) — the <a href="../07-particulars/05-essence-and-accident.html">essence/existence</a> distinction; essence neutral as to existence and universality.</li>
+<li><strong>Abelard</strong> (1079–1142) — early non-realism about universals: what is shared is a <em>status</em>, not a thing.</li>
+<li><strong>Aquinas</strong> (1225–1274) — the real distinction between essence and <em>esse</em> in creatures; their identity in God.</li>
+<li><strong>Duns Scotus</strong> (c. 1266–1308) — <strong>haecceity</strong> as the principle of <a href="../07-particulars/03-individuation.html">individuation</a>; the univocity of being against the analogists.</li>
+<li><strong>Ockham</strong> (c. 1287–1347) — rigorous nominalism; the <a href="../15-meta-ontology/05-method.html">parsimony principle</a>.</li>
+</ul>
+<h2 id="early-modern"><a class="header" href="#early-modern">Early modern</a></h2>
+<ul>
+<li><strong>Descartes</strong> (1596–1650) — two created <a href="../07-particulars/01-substance.html">substances</a> distinguished by principal attributes; the mind–body problem as a consequence of the scheme.</li>
+<li><strong>Spinoza</strong> (1632–1677) — substance monism from the independence criterion taken literally.</li>
+<li><strong>Locke</strong> (1632–1704) — real versus nominal essence; the substratum as "something, we know not what."</li>
+<li><strong>Leibniz</strong> (1646–1716) — monads as true unities; the <a href="../07-particulars/03-individuation.html">Identity of Indiscernibles</a>; possible worlds as ideas in the divine mind.</li>
+<li><strong>Hume</strong> (1711–1776) — the <a href="../07-particulars/02-bundle-vs-substratum.html">bundle</a> theory of objects and of the self; no impression of substance or of necessary connection.</li>
+<li><strong>Kant</strong> (1724–1804) — categories as conditions of experience rather than divisions of being; <a href="../02-existence-and-being.html">existence is not a real predicate</a>.</li>
+</ul>
+<h2 id="the-two-traditions"><a class="header" href="#the-two-traditions">The two traditions</a></h2>
+<ul>
+<li><strong>Brentano</strong> (1838–1917) — intentionality: every mental act is directed at an object, which makes non-existent objects a problem.</li>
+<li><strong>Frege</strong> (1848–1925) — <a href="../02-existence-and-being.html">existence as a second-order property</a> expressed by the quantifier; abstraction principles; the ancestor of <a href="../15-meta-ontology/03-easy-ontology.html">neo-Fregeanism</a>.</li>
+<li><strong>Meinong</strong> (1853–1920) — the <a href="../05-existence/02-meinongianism.html">theory of objects</a>: independence of <em>Sosein</em> from <em>Sein</em>; <em>Aussersein</em>.</li>
+<li><strong>Husserl</strong> (1859–1938) — formal versus regional ontology.</li>
+<li><strong>Russell</strong> (1872–1970) — the theory of descriptions; logical atomism and <a href="../11-events/02-facts-and-states-of-affairs.html">facts</a>; the objections to Meinong.</li>
+<li><strong>Leśniewski</strong> (1886–1939) — <a href="../09-mereology/01-mereology.html">mereology</a> as a nominalist alternative to set theory.</li>
+<li><strong>Wittgenstein</strong> (1889–1951) — "the world is the totality of facts, not of things."</li>
+<li><strong>Carnap</strong> (1891–1970) — linguistic frameworks and the <a href="../15-meta-ontology/01-meta-ontology.html">internal/external</a> distinction; the 1932 attack on Heidegger.</li>
+<li><strong>Heidegger</strong> (1889–1976) — the ontological difference and the <a href="../15-meta-ontology/06-the-question-of-being.html"><em>Seinsfrage</em></a>; ready-to-hand versus present-at-hand.</li>
+</ul>
+<h2 id="the-quinean-era"><a class="header" href="#the-quinean-era">The Quinean era</a></h2>
+<ul>
+<li><strong>Quine</strong> (1908–2000) — <a href="../04-ontological-commitment.html">to be is to be the value of a bound variable</a>; the attack on the analytic/synthetic distinction; <a href="../14-science/02-ontology-under-theory-change.html">ontological relativity</a> and proxy functions.</li>
+<li><strong>Goodman</strong> (1906–1998) — the calculus of individuals; the companionship and imperfect-community problems for <a href="../06-universals/03-nominalism.html">resemblance nominalism</a>.</li>
+<li><strong>Strawson</strong> (1919–2006) — descriptive versus revisionary metaphysics.</li>
+<li><strong>D. C. Williams</strong> (1899–1983) — <a href="../06-universals/04-tropes.html">tropes</a> as "the alphabet of being."</li>
+<li><strong>Davidson</strong> (1917–2003) — <a href="../11-events/01-events-and-processes.html">events</a> from adverbial modification; the slingshot.</li>
+<li><strong>Putnam</strong> (1926–2016) — Twin Earth and <a href="../07-particulars/06-natural-kinds.html">natural-kind</a> externalism; the <a href="../15-meta-ontology/02-quantifier-variance.html">model-theoretic argument</a>; conceptual relativity.</li>
+<li><strong>Kripke</strong> (1940–2022) — rigid designation; the <a href="../07-particulars/04-identity.html">necessity of identity</a>; necessary a posteriori and contingent a priori; origin and kind <a href="../07-particulars/05-essence-and-accident.html">essentialism</a>.</li>
+<li><strong>Armstrong</strong> (1926–2014) — <em>a posteriori</em> <a href="../06-universals/02-realism.html">realism about universals</a>; <a href="../11-events/02-facts-and-states-of-affairs.html">states of affairs</a>; the <a href="../11-events/03-truthmakers.html">truthmaker</a> principle; laws as relations among universals; the "ostrich" charge.</li>
+<li><strong>Lewis</strong> (1941–2001) — <a href="../10-modality/02-possible-worlds.html">modal realism</a> and counterpart theory; <a href="../13-fundamentality/04-structure.html">naturalness</a>; the ontological innocence of <a href="../09-mereology/01-mereology.html">mereology</a>; the best-system account of <a href="../10-modality/05-laws-of-nature.html">laws</a>; Humean supervenience; "Holes."</li>
+<li><strong>Field</strong> (b. 1946) — <a href="../08-abstracta/05-nominalist-programs.html">nominalist</a> physics and conservativeness; the reliability challenge to platonism.</li>
+<li><strong>van Inwagen</strong> (b. 1942) — the <a href="../09-mereology/02-composition.html">Special Composition Question</a>; meta-ontology as a Quinean package.</li>
+<li><strong>van Fraassen</strong> (b. 1941) — <a href="../14-science/01-science-and-ontological-commitment.html">constructive empiricism</a>; the identification and inference problems for laws.</li>
+<li><strong>Laudan</strong> (b. 1941) — the <a href="../14-science/02-ontology-under-theory-change.html">pessimistic meta-induction</a>.</li>
+<li><strong>Hacking</strong> (1936–2023) — <a href="../14-science/02-ontology-under-theory-change.html">entity realism</a>; the taxonomy of <a href="../12-contested/03-social-ontology.html">social construction</a> and interactive kinds.</li>
+<li><strong>Cartwright</strong> (b. 1944) — the dappled world; laws as <em>ceteris paribus</em>; entity realism.</li>
+<li><strong>Searle</strong> (b. 1932) — constitutive rules and <a href="../12-contested/03-social-ontology.html">institutional facts</a>.</li>
+<li><strong>Parfit</strong> (1942–2017) — fission and the claim that <a href="../12-contested/02-persons.html">identity is not what matters</a>.</li>
+</ul>
+<h2 id="contemporary"><a class="header" href="#contemporary">Contemporary</a></h2>
+<ul>
+<li><strong>Fine</strong> (b. 1945) — <a href="../07-particulars/05-essence-and-accident.html">essence prior to modality</a>; <a href="../13-fundamentality/01-grounding.html">grounding</a> as an operator; the critique of the modal analysis of dependence.</li>
+<li><strong>Sider</strong> (b. 1967) — <a href="../13-fundamentality/04-structure.html">structure</a> as primitive; the quantifier as joint-carving; the argument from vagueness.</li>
+<li><strong>Schaffer</strong> (b. 1973) — <a href="../13-fundamentality/03-fundamentality.html">priority monism</a>; "Is there a fundamental level?"; grounding as a relation.</li>
+<li><strong>Thomasson</strong> (b. 1968) — <a href="../15-meta-ontology/03-easy-ontology.html">easy ontology</a>; <a href="../05-existence/03-fictional-objects.html">fictional characters</a> as abstract artifacts.</li>
+<li><strong>Hirsch</strong> (b. 1939) — <a href="../15-meta-ontology/02-quantifier-variance.html">quantifier variance</a>.</li>
+<li><strong>Wright</strong> and <strong>Hale</strong> — <a href="../15-meta-ontology/03-easy-ontology.html">neo-Fregeanism</a>; Hume's Principle and Frege's Theorem.</li>
+<li><strong>Zalta</strong> (b. 1952) — encoding versus exemplifying; <a href="../05-existence/02-meinongianism.html">abstract objects</a> theory.</li>
+<li><strong>Priest</strong> (b. 1948) — noneism and <a href="../../../logic/05-paraconsistent-logic.html">paraconsistent</a> treatment of impossible objects.</li>
+<li><strong>Rodriguez-Pereyra</strong> (b. 1968) — <a href="../06-universals/03-nominalism.html">resemblance nominalism</a> defended.</li>
+<li><strong>Lowe</strong> (1950–2014) — the <a href="../03-categories-of-being.html">four-category ontology</a>; substance as irreducible.</li>
+<li><strong>Saunders</strong> (b. 1954) — <a href="../14-science/03-particles-and-individuality.html">weak discernibility</a>.</li>
+<li><strong>French</strong> and <strong>Ladyman</strong> — <a href="../13-fundamentality/04-structure.html">ontic structural realism</a>; quasi-set theory; naturalised metaphysics.</li>
+<li><strong>Korman</strong> — <a href="../12-contested/01-ordinary-objects.html">conservatism</a> about ordinary objects and the reply to debunking arguments.</li>
+<li><strong>McDaniel</strong> and <strong>Turner</strong> — <a href="../02-existence-and-being.html">ontological pluralism</a>, and its Heideggerian source.</li>
+<li><strong>Wallace</strong> (b. 1976) — Everettian <a href="../14-science/05-the-wavefunction.html">real patterns</a> and functionalism about macroscopic objects.</li>
+<li><strong>Wilson</strong> and <strong>Hofweber</strong> — <a href="../13-fundamentality/01-grounding.html">scepticism about grounding</a> and about esoteric metaphysics.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/16-context/01-history.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/16-context/03-applied-ontology.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/16-context/01-history.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/16-context/03-applied-ontology.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

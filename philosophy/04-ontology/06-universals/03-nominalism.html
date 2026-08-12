@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Nominalism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/06-universals/03-nominalism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="nominalism"><a class="header" href="#nominalism">Nominalism</a></h1>
+<p><strong>Nominalism</strong>, in the sense used here, is the denial of universals: there are only particulars, and nothing is wholly present in many places at once. What it must then supply is some replacement account of the phenomena realism explained — objective similarity, the truth of predications, and the classification of things into kinds.</p>
+<p>The label covers a family of quite different theories, and their differences matter more than their agreement. Ordered roughly by how much work they try to do, they are: predicate, concept, class, mereological, and resemblance nominalism, with <strong>ostrich</strong> nominalism standing apart as a refusal of the question rather than an answer to it.</p>
+<p>A reminder of the ambiguity flagged in the <a href="01-problem-of-universals.html">problem of universals</a>: "nominalism" also names the denial of <em>abstract objects</em>, which is a separate thesis. A resemblance nominalist who quantifies over classes has abandoned nominalism in the second sense while keeping it in the first.</p>
+<hr />
+<h2 id="predicate-and-concept-nominalism"><a class="header" href="#predicate-and-concept-nominalism">Predicate and concept nominalism</a></h2>
+<p><strong>Predicate nominalism</strong>: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> is red in virtue of the predicate "red" applying to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span>. <strong>Concept nominalism</strong> substitutes a mental concept for the linguistic predicate.</p>
+<p>Both are usually treated as non-starters, for a reason worth stating carefully because it recurs. They get the <strong>order of explanation</strong> backwards. The predicate "red" applies to the tomato <em>because</em> the tomato is red; the tomato is not red because we apply the word. Otherwise the world's characters would depend on our vocabulary, and before there were speakers nothing would have had any properties at all — which is not merely counterintuitive but incompatible with the fact that things had properties in virtue of which our predicates later came to apply to them.</p>
+<p>There is a second problem. Predicates are themselves repeatable: the word-type "red" has many tokens. Explaining the sharing of characters by appeal to the sharing of a predicate uses a universal, or at least a type, at exactly the point where one was to be eliminated.</p>
+<p>These positions are worth recording chiefly because they mark the failure mode the better versions are designed to avoid: any account on which the explanation runs from <em>us</em> to <em>the world</em> is doomed.</p>
+<h2 id="class-nominalism"><a class="header" href="#class-nominalism">Class nominalism</a></h2>
+<p><strong>Class nominalism</strong>: to be red is to be a member of the class of red things. Properties are identified with classes of their instances — a natural thought, and the one Quine's austere ontology of physical objects and sets exploits, since sets are admitted anyway.</p>
+<p>Three difficulties:</p>
+<ul>
+<li><strong>Coextension.</strong> Any two properties with exactly the same instances become identical. If everything with a heart happens to be a creature with a kidney, then <em>cordate</em> and <em>renate</em> are one property, which is wrong. Extending to classes of <em>possible</em> objects helps — the properties differ because they differ in some possible world — but at the cost of an ontology of possibilia, and it still identifies all necessarily coextensive properties, so that <em>being triangular</em> and <em>being trilateral</em> collapse.</li>
+<li><strong>Arbitrariness.</strong> For any objects at all there is a class containing exactly them. If properties are classes, then there are as many properties as there are classes, and the sparse/abundant distinction is lost. The class of <em>this tomato, the Eiffel Tower, and the number 7</em> is no worse a property than redness. Lewis's response is to add primitive <strong>naturalness</strong> as a further distinction among classes — which is a substantial concession, since it reintroduces an unexplained sparse structure that the universals were meant to supply.</li>
+<li><strong>Explanatory direction.</strong> Membership in the class of red things looks like a consequence of being red, not an explanation of it. The realist charge of getting the order backwards applies here too, though less obviously than for predicate nominalism.</li>
+</ul>
+<p><strong>Mereological nominalism</strong> — identifying redness with the scattered <em>sum</em> of all red things — fares worse, because parthood is transitive in a way that membership is not: any part of a red thing is a part of the sum, so a colourless molecule inside a tomato would come out red.</p>
+<h2 id="resemblance-nominalism"><a class="header" href="#resemblance-nominalism">Resemblance nominalism</a></h2>
+<p>The most serious version. <strong>Resemblance nominalism</strong> takes the resemblance relation among particulars as primitive and builds classes from it: the red things are those resembling one another appropriately, with no shared entity to explain the resemblance. Its most developed defence is Rodriguez-Pereyra's, which argues the position can meet the standard technical objections and is preferable on grounds of ontological economy.</p>
+<p>Goodman's two problems for constructing classes out of resemblance are the classic technical hurdles, and they are worth stating because they show how much structure "resemblance" must carry:</p>
+<ul>
+<li><strong>The companionship problem.</strong> Suppose everything red is also round, though not everything round is red. Then the class of red things is a proper subclass of the round things, and no purely resemblance-based construction distinguishes the property <em>red</em> from the property <em>round</em> by mutual-resemblance circles alone — the red things all resemble one another, but so do all the round ones, and the smaller class is "companioned" by the larger.</li>
+<li><strong>The imperfect community problem.</strong> Take three things: one red and round, one round and hot, one hot and red. Every pair resembles in <em>something</em>, so they form a mutual-resemblance class — but there is no single respect they all share. Mutual resemblance is therefore not sufficient for a genuine property class.</li>
+</ul>
+<p>Both push toward <em>resemblance in a respect</em>, but a respect looks very much like a property, which is the thing being eliminated. The standard nominalist repair is to make resemblance a <strong>primitive relation of degree</strong> among <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>-tuples rather than pairs, which handles the imperfect community at the price of considerable complexity.</p>
+<p><strong>Russell's regress</strong> is the deeper objection. If the resemblance nominalist explains "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span> are both red" by "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> resembles <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span>", then consider the pairs <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mclose">⟩</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathnormal">c</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">d</span><span class="mclose">⟩</span></span></span></span>: both are resembling pairs. What explains <em>that</em> shared character? Either resemblance itself is a universal — in which case nominalism has failed at the first step, having admitted exactly one universal — or the resemblance of resemblances requires a further resemblance, and a regress begins. Rodriguez-Pereyra's reply is that resemblance facts are internal, holding in virtue of the natures of the relata and so requiring no additional entity; whether that is an answer or a restatement is precisely what is disputed.</p>
+<h2 id="ostrich-nominalism"><a class="header" href="#ostrich-nominalism">Ostrich nominalism</a></h2>
+<p>The remaining position is not a rival theory but a rejection of the question. <strong>Ostrich nominalism</strong> — Armstrong's dismissive name for it; Devitt, its defender, accepts the label with the sting removed — holds that "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> is red" is made true by <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span>'s being red, full stop. There is no further entity, no shared item, and no obligation to explain the "one over many," because the demand for such an explanation has never been justified.</p>
+<p>The dispute turns on the <strong><a href="../11-events/03-truthmakers.html">truthmaker principle</a></strong>. Armstrong argues that every truth requires something in the world in virtue of which it is true, and that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> alone cannot serve, since <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> could exist without being red. The ostrich replies that this argument proves too much: it would require a truthmaker for every predication whatever, including "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> is identical to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span>" and "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> exists", and that the demand rests on treating predicates as if they were names — the very slide the <a href="01-problem-of-universals.html">problem of universals</a> page warns against. The predicate does not need something to stand for in order to apply.</p>
+<p>This is where the debate now largely sits, which is significant methodologically: it has migrated from <em>what entities are there</em> to <em>what explanations are we owed</em>. That is the pattern the <a href="01-problem-of-universals.html">problem of universals</a> page identified as typical of ontological disputes generally.</p>
+<h2 id="assessing-the-trade"><a class="header" href="#assessing-the-trade">Assessing the trade</a></h2>
+<p>Nominalism's advertised virtue is parsimony. But the accounting is more delicate than a simple count of entities:</p>
+<ul>
+<li><strong>Qualitative economy is what it buys.</strong> Nominalism eliminates a <em>category</em>, not merely some entities — ideological rather than merely ontological economy, which most theorists regard as the more valuable kind.</li>
+<li><strong>Quantitatively it may lose.</strong> Class nominalism accepts classes, and there are vastly more classes than there are universals on Armstrong's sparse conception. Trading a modest number of universals for the full set-theoretic hierarchy is not obviously a saving.</li>
+<li><strong>Primitives are the real cost.</strong> Every version takes something unexplained: resemblance, naturalness, or predication itself. If a primitive is a cost, nominalism has not eliminated the problem but relocated it — which is the realist's central charge, and the reason the dispute has proved so durable.</li>
+</ul>
+<h2 id="where-nominalism-sits"><a class="header" href="#where-nominalism-sits">Where nominalism sits</a></h2>
+<p>Nominalism is an answer to the <strong>category question</strong>: one fundamental category of entity, not two. Its bearing on the <strong>status question</strong> is what makes it interesting here — the ostrich position is not a first-order ontological thesis at all but a claim about what ontology is entitled to demand, and so it belongs with the meta-ontological material as much as with this debate.</p>
+<p>The remaining option takes something from each side: <a href="04-tropes.html">trope theory</a>, which agrees with the nominalist that everything is particular and with the realist that properties are genuine entities.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/06-universals/02-realism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/06-universals/04-tropes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/06-universals/02-realism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/06-universals/04-tropes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

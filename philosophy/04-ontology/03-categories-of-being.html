@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Categories of Being - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/03-categories-of-being.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="categories-of-being"><a class="header" href="#categories-of-being">Categories of Being</a></h1>
+<p>A list of what exists is not yet an ontology. Suppose we agree that there are tables, electrons, numbers, colours, wars, and holes. We have said nothing about how these are <em>sorted</em> — which of them are things of the same fundamental sort, which are entities of a wholly different order, and which are basic in the sense that everything else is built from them. That is the <strong>category question</strong>, and it is independent of the inventory: two philosophers can agree entirely about what there is and disagree completely about how it divides.</p>
+<p>This page sets out what an ontological category scheme is, what constrains a good one, the historically important schemes and the axes they employ, and the minimalist alternative of getting by with a single category.</p>
+<hr />
+<h2 id="what-a-category-is"><a class="header" href="#what-a-category-is">What a category is</a></h2>
+<p>An <strong>ontological category</strong> is a most general kind — a division of what there is that is not itself a species of some more general division (other than <em>entity</em> itself). <em>Mammal</em> is a kind but not a category, since it falls under <em>animal</em>, <em>organism</em>, <em>material object</em>. <em>Substance</em>, <em>property</em>, <em>relation</em>, and <em>event</em> are the sort of thing meant.</p>
+<p>Two features distinguish categories from ordinary kinds. First, categorial differences show up in the <em>logic</em> of the terms: it is not false but ill-formed to ask how much the number seven weighs, or what colour the war was. Categories mark where predication breaks down rather than merely coming out false. Second, categories carry different <strong>criteria of identity</strong>. Sets are identical when they have the same members; events perhaps when they have the same causes and effects; substances by something else again. A candidate category with no distinctive identity criterion is under suspicion — this is the force of Quine's slogan "no entity without identity."</p>
+<p>A category <em>scheme</em> is a structured system of such kinds, and reasonable demands on one include:</p>
+<ul>
+<li><strong>Exhaustiveness</strong> — everything falls under some category.</li>
+<li><strong>Exclusivity</strong> — nothing falls under two at the same level, on pain of the divisions not being divisions.</li>
+<li><strong>Fundamentality</strong> — the scheme should mark real divisions rather than convenient ones. This is where the pressure is greatest, since exhaustiveness and exclusivity can be secured by gerrymandering.</li>
+<li><strong>Explanatory work</strong> — the categories should earn their keep: predication, change, causation, and identity should come out better explained by this sorting than by another.</li>
+</ul>
+<p>The fundamentality demand is what turns the exercise from taxonomy into metaphysics. Everyone can invent a partition; the question is whether it carves at the joints, and answering it drags in the whole apparatus of naturalness, structure, and grounding.</p>
+<h2 id="historical-schemes"><a class="header" href="#historical-schemes">Historical schemes</a></h2>
+<p><strong>Aristotle's ten categories</strong> (<em>Categories</em>, ch. 4) are the origin of the enterprise: substance, quantity, quality, relation, place, time, position, state, action, and passion. Two structural features matter more than the list. First, <strong>substance is primary</strong>: the other nine are ways of being <em>of</em> a substance, which is why "being is said in many ways" but all with reference to substance (see <a href="02-existence-and-being.html">Existence and Being</a>). Second, Aristotle generates the scheme from the forms of predication — the categories are the highest genera of things that can be said of a subject — which makes the scheme hostage to the grammar of Greek, an objection pressed ever since.</p>
+<p><strong>The substance/attribute model</strong> distilled from this is the default of Western metaphysics: the world consists of individual things bearing properties and standing in relations. Nearly every debate in this section is an argument about some part of that model — whether the attributes are universals or tropes, whether the substance is a bare substratum or a bundle, whether relations reduce to attributes.</p>
+<p><strong>Descartes</strong> simplified radically to two created substances, <em>res extensa</em> and <em>res cogitans</em>, distinguished by their principal attributes, extension and thought. The scheme is elegant and generates the mind–body problem directly from its own structure, which is a good illustration of how much work a category scheme does.</p>
+<p><strong>Husserl's formal ontology</strong> distinguishes formal categories (object, property, relation, state of affairs, number, set) from <em>material</em> or <em>regional</em> ones (physical thing, living being, consciousness, cultural object), the formal ones applying to any subject matter whatever and the regional ones defining the domains of particular sciences. The distinction survives usefully: the <a href="../03-spacetime/02-substantivalism-relationism.html">philosophy of space and time</a> is a regional ontology in exactly this sense, asking what categories spacetime falls under rather than what the categories are.</p>
+<p><strong>The four-category ontologies</strong> of Chisholm and, more influentially, E. J. Lowe revive an Aristotelian scheme by crossing two independent distinctions:</p>
+<div class="table-wrapper"><table><thead><tr><th></th><th><strong>Substantial</strong></th><th><strong>Non-substantial</strong></th></tr></thead><tbody>
+<tr><td><strong>Universal</strong></td><td>kinds (<em>the tiger</em>)</td><td>attributes (<em>redness</em>)</td></tr>
+<tr><td><strong>Particular</strong></td><td>objects (<em>this tiger</em>)</td><td>modes / tropes (<em>this tiger's redness</em>)</td></tr>
+</tbody></table>
+</div>
+<p>Lowe's argument is that all four corners are needed: kinds to make sense of natural-kind terms and laws, attributes for genuine universals, objects as bearers, and modes as the particularised property-instances that do the causal work. Reducing any corner to another, he argues, leaves some indispensable form of predication unexplained.</p>
+<p><strong>Armstrong's scheme</strong> is the leading modern rival: the fundamental category is the <strong><a href="11-events/02-facts-and-states-of-affairs.html">state of affairs</a></strong> — a particular's having a universal — with particulars and universals as abstractions from states of affairs rather than independent building blocks. The motivation is <a href="11-events/03-truthmakers.html">truthmaking</a>: what makes "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>" true cannot be <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> alone or <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> alone, since both could exist without the truth, so the state of affairs is required as an additional entity.</p>
+<h2 id="the-axes"><a class="header" href="#the-axes">The axes</a></h2>
+<p>Beneath the specific schemes, a small number of distinctions do most of the classificatory work, and it is worth being explicit that they are <em>independent</em>.</p>
+<ul>
+<li><strong>Particular / universal.</strong> Is the entity capable of being wholly present in many places at once, or repeatable across instances? This is the axis of the <a href="06-universals/01-problem-of-universals.html">problem of universals</a>.</li>
+<li><strong>Abstract / concrete.</strong> Non-spatiotemporal and acausal, or located and causally efficacious? The most-used and least well-defined of the axes; <a href="08-abstracta/01-abstract-and-concrete.html">every attempt to draw it precisely leaks</a>.</li>
+<li><strong>Dependent / independent.</strong> Can the entity exist alone, or only as the entity <em>of</em> something else? Modes depend on their bearers, holes on their hosts, sets on their members. This is the axis that leads to grounding and fundamentality.</li>
+<li><strong>Substance / mode.</strong> <a href="07-particulars/01-substance.html">Subject of predication</a>, or way a subject is? The oldest axis, and the one carrying the most theoretical baggage.</li>
+</ul>
+<p>Two frequent confusions are worth naming. The first is running <em>abstract</em> together with <em>universal</em>: tropes are particular yet, on the traditional usage, abstract, and sets of concrete objects are abstract yet not universals. The second is running <em>dependent</em> together with <em>non-fundamental</em>: an entity can depend on another without being any less real, as a mode depends on its substance while being perfectly actual.</p>
+<h2 id="one-category-ontologies"><a class="header" href="#one-category-ontologies">One-category ontologies</a></h2>
+<p>Against the proliferation of categories stands the impulse to make do with one. The attraction is parsimony of a distinctive sort — not fewer <em>entities</em> but fewer <em>kinds</em> of entity, which is ideological rather than ontological economy, and it is a live question whether that is a theoretical virtue at all.</p>
+<ul>
+<li><strong>Trope monism</strong> (Williams, Campbell): there are only <a href="06-universals/04-tropes.html">tropes</a>. Objects are bundles of compresent tropes; universals are resemblance classes of tropes. One category yields both particulars and properties.</li>
+<li><strong>Bundle theory with universals</strong>: there are only universals; objects are <a href="07-particulars/02-bundle-vs-substratum.html">bundles</a> of them held together by compresence. Cheap in categories, but it inherits the difficulty that two exactly similar objects become one bundle, so the <a href="07-particulars/03-individuation.html">identity of indiscernibles</a> is forced true.</li>
+<li><strong>Quine's austere scheme</strong>: everything is a physical object or a set. Properties are dispensed with in favour of open sentences and classes; the resulting ontology is exactly what our best-regimented science quantifies over, which makes it an application of the <a href="04-ontological-commitment.html">criterion of commitment</a> rather than an independent proposal.</li>
+<li><strong>Ontic structuralism</strong>, at the far end: what exists is structure, and objects are nodes in it with no independent standing — a position pressed by the <a href="../03-spacetime/05-ontology/05-hole-argument.html">hole argument</a> and by the treatment of <a href="../../physics/03-QM/11-foundations/01-identical-particles.html">identical particles</a> in quantum theory.</li>
+</ul>
+<p>The standing objection to every one-category scheme is that the reduction quietly reappears as structure <em>within</em> the single category — compresence is not itself a trope, membership is not itself a set — and that the saving in categories is paid for in primitive relations.</p>
+<h2 id="where-the-category-question-sits"><a class="header" href="#where-the-category-question-sits">Where the category question sits</a></h2>
+<p>Of the three <a href="01-introduction.html">master questions</a>, this is the one that most often decides the others without being explicitly raised. A philosopher who takes the substance/attribute model as given will read the problem of universals as a question about the second term of that model; one who begins from states of affairs, or from tropes, will not recognise the problem in the same form. Disagreements about the inventory are frequently disagreements about the scheme, conducted as if they were about the list.</p>
+<p>The scheme also determines what a <em>reduction</em> can look like. To say that events are property-exemplifications, or that holes are shapes of their hosts, is to propose a movement between categories; whether that counts as elimination, identification, or grounding depends on the structure the scheme provides.</p>
+<p>The next page turns from the categories to the method — how, given a theory, one determines what it says there is: the criterion of <a href="04-ontological-commitment.html">ontological commitment</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/04-ontology/02-existence-and-being.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/04-ontology/04-ontological-commitment.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/04-ontology/02-existence-and-being.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/04-ontology/04-ontological-commitment.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

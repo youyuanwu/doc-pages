@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Existence and Being - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/02-existence-and-being.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="existence-and-being"><a class="header" href="#existence-and-being">Existence and Being</a></h1>
+<p>Every ontological dispute presupposes a grip on what it is for something to <em>exist</em>, and that grip is much weaker than it looks. The trouble surfaces in a sentence as ordinary as "tigers exist, unicorns do not." If "exists" ascribes a property to things, the second half is incoherent: there are no unicorns to lack it. If it does not ascribe a property, what does it do? The dominant modern answer — that existence is not a property of individuals at all but what the quantifier expresses — is elegant, has a distinguished pedigree, and settles a great deal. It also carries a commitment that has come under sustained attack in the last two decades: that "exists" means exactly one thing, whether said of tigers, numbers, holes, or God.</p>
+<p>This page sets out the orthodoxy and then the challenge to it. The dispute over univocity is the page's centre of gravity, because how it is settled determines whether the <a href="01-introduction.html">inventory question</a> has one answer or several.</p>
+<hr />
+<h2 id="is-existence-a-property"><a class="header" href="#is-existence-a-property">Is existence a property?</a></h2>
+<p>The natural reading of "tigers exist" treats <em>exists</em> as a predicate on a par with <em>are striped</em>. Kant's objection, made against the ontological argument for God's existence, is that this gets the logic wrong: existence "is not a real predicate," not a determination that could be added to the concept of a thing. A hundred real thalers contain no more coin than a hundred possible ones; the concept is the same, and to say the coins exist is to say something about whether the concept is <em>instantiated</em>, not to enrich it.</p>
+<p>Frege turned that insight into a formal theory. Existence is a <strong>second-order</strong> property — a property of properties, not of objects. To say that horses exist is to say that the concept <em>horse</em> has at least one instance:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal">x</span></span></span></span></span></p>
+<p>and the work is done entirely by the quantifier. "Numbers exist" is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord mathnormal">x</span></span></span></span>; "unicorns do not exist" is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">¬∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">Ux</span></span></span></span>, which is now perfectly coherent, since it asserts of a concept that it is empty rather than of some unicorns that they lack a feature. Russell's theory of descriptions extends the treatment to singular terms: "the present King of France does not exist" becomes the denial that anything uniquely satisfies the description, with no need for a subject to bear the denial. Quine completed the picture by making the quantifier the sole bearer of existential import, so that the <a href="04-ontological-commitment.html">criterion of ontological commitment</a> reads a theory's ontology directly off its bound variables.</p>
+<p>Three things are worth separating in this package, because they are often taken as one and can be prised apart:</p>
+<ol>
+<li><strong>Existence is not a first-order property.</strong> Kant's negative claim.</li>
+<li><strong>Existence is what the existential quantifier expresses.</strong> Frege's positive proposal.</li>
+<li><strong>There is exactly one existential quantifier, hence one sense of "exists."</strong> The tacit uniqueness assumption, which neither of the first two entails.</li>
+</ol>
+<p>The first two are close to consensus. The third is the live issue, and the rest of the page is about it.</p>
+<p>The formal cost of the package is worth noting. If existence is carried by the quantifier, then in standard <a href="../../logic/02-first-order-logic.html">first-order logic</a> every singular term must denote something in the domain, and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mclose">)</span></span></span></span> is a theorem. That makes "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> does not exist" <a href="05-existence/04-negative-existentials.html">inexpressible</a> for a name <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> — a serious limitation, given how much ontology consists of denying that things exist. The repair is <a href="05-existence/01-existence-and-quantification.html"><strong>free logic</strong></a>, which permits empty terms and adds an explicit existence predicate <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">!</span></span></span></span>, restoring the ability to say the thing the theory was invented to say.</p>
+<h2 id="being-existence-and-subsistence"><a class="header" href="#being-existence-and-subsistence">Being, existence, and subsistence</a></h2>
+<p>A second tradition insists that the orthodoxy collapses a distinction. On this view "being" is wider than "existence": there is something it is to <em>be</em> an object of thought or a subject of true predication that falls short of concrete existence. <a href="05-existence/02-meinongianism.html">Meinong's version</a> distinguishes objects that <em>exist</em> (tigers), objects that <em>subsist</em> without existing (numbers, propositions), and objects that have neither but are still objects with properties (the golden mountain, the round square) — so that "the round square is square" is a truth about a non-existent object rather than a falsehood or a piece of nonsense.</p>
+<p>Quine's polemic against this position — that it burdens ontology with an "overpopulated slum" of possibilia with no criteria of identity — was for decades taken as decisive, and it is the reason contemporary ontology is Quinean by default. It is less decisive than it looked: modern versions distinguish <em>nuclear</em> from <em>extranuclear</em> properties, or <em>encoding</em> from <em>exemplifying</em>, precisely to supply the identity conditions Quine found lacking. What the tradition is really after is that the connection between quantification and existence should be loosened — that one might quantify over things without thereby saying they exist.</p>
+<p>Adjacent to this is the medieval and scholastic question of <strong>degrees and analogy of being</strong>. Aristotle held that "being is said in many ways" (<em>pollachōs legetai to on</em>) — substance, quality, quantity, relation each <em>are</em> in a different but related way, all referring back to substance as the focal case (the <em>pros hen</em> structure). The medievals developed this into the doctrine of the <strong>analogy of being</strong>: "exists" said of God and of creatures is neither the same in sense (univocal) nor unrelated (equivocal) but analogical. Duns Scotus dissented, arguing that unless "being" is <strong>univocal</strong> across God and creatures no inference from creatures to God — and so no natural theology — can go through; the point is still live in the <a href="../02-religion/08-attributes/04-goodness-and-simplicity.html">philosophy of religion</a>.</p>
+<p>It is easy to dismiss all this as pre-Fregean confusion. It should not be: Scotus and the analogists were arguing about exactly the question the Fregean package settles by stipulation, and they were arguing about it well.</p>
+<h2 id="univocity-versus-ontological-pluralism"><a class="header" href="#univocity-versus-ontological-pluralism">Univocity versus ontological pluralism</a></h2>
+<p>Set aside the question whether existence is a property. Grant that it is expressed by the quantifier. There remains the question whether there is <strong>one</strong> quantifier or several — whether "there are numbers" and "there are tables" employ the same notion of <em>there are</em>, or two.</p>
+<p>The <strong>Quinean orthodoxy</strong> says one. Existence is univocal, the quantifier is topic-neutral, and apparent differences between numbers and tables are differences in the <em>nature</em> of what exists, not in the <em>manner</em> of its existing. Numbers are abstract, tables concrete; but both simply are. On this view the very idea of "modes of being" is a confusion of a thing's properties with its existing.</p>
+<p><strong>Ontological pluralism</strong> says several. There are multiple <strong>ways of being</strong>, formalisable as several restricted quantifiers, each perfectly natural — carving at the joints in Lewis's and Sider's sense rather than being a mere gerrymandered restriction of one master quantifier. On this view abstracta and concreta do not merely differ in what they are like; they <em>are</em> in different ways, and a fundamental description of reality would use both quantifiers and could not do with either alone. The position is developed most fully by Kris McDaniel, who takes the thesis explicitly from Heidegger, and by Jason Turner, who gives it a formal semantics.</p>
+<p>The case for pluralism rests on several observations pulling the same way:</p>
+<ul>
+<li>The history is on its side. Aristotle, Aquinas, Scotus, Meinong, and Heidegger all held some version of it; univocity is the recent innovation, made almost invisible by the success of the quantifier analysis.</li>
+<li>It explains, rather than merely records, the intuition that the existence of the number 7 and the existence of the Eiffel Tower are not the same sort of achievement.</li>
+<li>It supplies a natural account of <em>derivative</em> entities: perhaps holes, shadows, and mereological sums exist in a thinner way than their hosts, which is neither eliminativism nor full-blooded acceptance.</li>
+</ul>
+<p>Two objections carry most of the weight against it:</p>
+<ul>
+<li><strong>The disjunction objection.</strong> If <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">∃</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">∃</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> are the two quantifiers, their disjunction defines a perfectly good general quantifier: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">φ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord">∃</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">φ</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord">∃</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">φ</span></span></span></span>. This looks like the ordinary univocal quantifier reappearing, so the pluralist must say that the disjunctive one is less natural than its disjuncts — which is coherent, but is a substantial commitment about naturalness, not a free move.</li>
+<li><strong>The intelligibility objection.</strong> Do we understand "there are two ways of being" other than as "there are two kinds of thing"? The pluralist owes an account on which the difference is not just a difference in the properties of the things quantified over. Turner's formal work is the attempt to pay that debt.</li>
+</ul>
+<p>Note how much rides on the outcome. If pluralism is right, then a question like "are there numbers?" may be badly formed until one specifies <em>which</em> sense of "are" is meant, and several long-running disputes may be neither substantive nor merely verbal but <em>ambiguous</em>. It is also the cleanest available bridge between analytic ontology and the tradition that rejected it, which is the subject of the next section. The contrast with <a href="15-meta-ontology/02-quantifier-variance.html">quantifier variance</a> — which also denies a unique privileged quantifier but concludes that there is nothing to get right — is developed under <a href="15-meta-ontology/04-ontological-realism.html">ontological realism</a>.</p>
+<h2 id="the-ontological-difference"><a class="header" href="#the-ontological-difference">The ontological difference</a></h2>
+<p>Heidegger's charge against the whole enterprise begins from a distinction the Fregean package cannot state: that between <strong>beings</strong> (<em>Seiendes</em> — entities, whatever they are) and <strong>Being</strong> (<em>Sein</em> — what it is for an entity to be). The claim is that the tradition, from Plato onward, has busied itself cataloguing beings while never re-asking the question of the sense of Being itself, and that Quine's criterion is a case in point: it tells you how to count entities <em>given</em> an already-fixed understanding of what "is" means, and silently fixes that understanding as one particular sense — the being of the occurrent, present-at-hand object.</p>
+<p>Whether this is a profound objection or a change of subject is disputed, and the full case belongs to <a href="15-meta-ontology/06-the-question-of-being.html">meta-ontology</a> rather than here. What is worth registering at this point is the shape of the fork. Heidegger and Frege agree on Kant's negative claim, that existence is not a property of individuals. They then draw opposite conclusions: Frege that existence is univocal and quantificational, Heidegger that there are plural ways of being and that the question of Being was never properly posed. Ontological pluralism is the analytic descendant of the second branch, which is why McDaniel treats <em>Being and Time</em> as a source rather than an obstacle.</p>
+<h2 id="where-existence-sits"><a class="header" href="#where-existence-sits">Where existence sits</a></h2>
+<p>This page bears on all three of the <a href="01-introduction.html">master questions</a>, which is why it comes first among the substantive ones. It bears on the <strong>inventory question</strong> because a criterion for reading inventories off theories presupposes a settled meaning for "there is" — supplied here, and destabilised by pluralism. It bears on the <strong>category question</strong> because if there are several ways of being, then the deepest division in the category scheme is not between kinds of entity but between modes of existing. And it bears most sharply on the <strong>status question</strong>: an ambiguity in the quantifier is exactly the sort of thing that could make a dispute look substantive when it is not, which is the deflationist's standing suspicion.</p>
+<p>The theological face of the same question is developed in the <a href="../02-religion/06-arguments/01-ontological.html">ontological argument</a>, where Kant's "existence is not a real predicate" was first deployed and where the modern modal versions turn on whether <em>necessary existence</em> is a genuine perfection. The next page turns from the concept of existence to the question of how what exists is to be <a href="03-categories-of-being.html">sorted</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/04-ontology/01-introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/04-ontology/03-categories-of-being.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/04-ontology/01-introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/04-ontology/03-categories-of-being.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Laws of Nature - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/10-modality/05-laws-of-nature.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="laws-of-nature"><a class="header" href="#laws-of-nature">Laws of Nature</a></h1>
+<p>Nothing travels faster than light; every action has an equal and opposite reaction; like charges repel. These are <strong>laws</strong>, and they are distinguished from accidental regularities — every sphere of gold is less than a mile across, and always will be, but that is not a law.</p>
+<p>The ontological question is what a law <em>is</em>. Is it an entity in its own right, a relation among universals, a consequence of what properties are, or merely a summary of what happens? The epistemology of laws — how they are confirmed, what makes a generalisation lawlike — is a separate subject, and this page stays on the ontological side.</p>
+<hr />
+<h2 id="humean-regularity-and-the-best-system"><a class="header" href="#humean-regularity-and-the-best-system">Humean regularity and the best system</a></h2>
+<p>The Humean tradition denies necessary connections in nature. All that exists is the <strong>mosaic</strong>: the total distribution of local qualities across spacetime, one thing after another. Laws are not additional items; they are patterns in the mosaic.</p>
+<p>Naïve regularity theory — a law is a true universal generalisation — fails at once, since it cannot distinguish laws from accidents and counts "all gold spheres are under a mile wide" as a law.</p>
+<p>The <strong>best system account</strong> (Mill, Ramsey, Lewis) is the sophisticated version. Consider all true deductive systematisations of the mosaic. Each can be evaluated for <strong>strength</strong> (how much it entails) and <strong>simplicity</strong> (how briefly it can be axiomatised), and these trade off: the list of every particular fact is maximally strong and hopelessly unsimple; "everything is self-identical" is simple and weak. The laws are the theorems of the system that best balances them.</p>
+<p>This elegantly separates laws from accidents. Including the gold-sphere generalisation adds an axiom for negligible gain in strength, so it does not make the best system; the conservation laws pay for themselves many times over.</p>
+<p>Two objections:</p>
+<ul>
+<li><strong>Mind-dependence.</strong> Simplicity and strength are relative to a language. In a perverse language with a predicate <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> true of all and only the actual particular facts, "everything is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>" is a very simple and very strong axiom, and the "best system" is a triviality. Lewis's reply is to require that the systems be formulated in terms of <strong>perfectly natural</strong> properties, which blocks the trick — but it means the account depends on primitive naturalness, and so on a substantial piece of metaphysics of the sort Humeans usually avoid.</li>
+<li><strong>No explanation.</strong> On this account laws do not <em>make</em> anything happen; they are summaries. But we take laws to explain the regularities, and a summary of the regularities cannot explain them. Humeans reply that explanation is unification, and that a systematising summary is exactly what unifies.</li>
+</ul>
+<h2 id="nomic-necessitation"><a class="header" href="#nomic-necessitation">Nomic necessitation</a></h2>
+<p>The leading realist alternative is the <strong>DTA</strong> account (Dretske, Tooley, Armstrong): a law is a second-order relation of <strong>nomic necessitation</strong> holding between universals. That all <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>s are <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>s is a law when the universal <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> stands in the necessitation relation <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> to the universal <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">G</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⇒</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">G</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span></p>
+<p>Laws are thus genuine entities — states of affairs relating universals — and they explain the regularities because the regularity follows from the law rather than constituting it. This requires <a href="../06-universals/02-realism.html">realism about universals</a>, which is why Armstrong's theory of laws and his theory of universals are one package.</p>
+<p><strong>Van Fraassen's objections</strong> are the standard difficulties, and Lewis's statement of the second is the most quoted line in the literature:</p>
+<ul>
+<li><strong>The identification problem.</strong> Which relation is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>? What distinguishes it from any other second-order relation that happens to hold between <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>?</li>
+<li><strong>The inference problem.</strong> How does <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">G</span><span class="mclose">)</span></span></span></span>, a fact about two universals, entail the regularity that every particular <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>? Calling the relation "necessitation" does not give it the power to necessitate. In Lewis's words: "I say that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> deserves the name of <em>necessitation</em> only if... it can enter into these remarkable relations. But I do not see how it can."</li>
+</ul>
+<p>The realist's reply is that the entailment is primitive — <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> is a <em>sui generis</em> relation whose nature is to necessitate — and the Humean's rejoinder is that this is a name for the mystery rather than a solution to it. The exchange is a good instance of the general pattern the <a href="../06-universals/01-problem-of-universals.html">problem of universals</a> page identified: the dispute is over which primitive is acceptable.</p>
+<h2 id="laws-from-powers"><a class="header" href="#laws-from-powers">Laws from powers</a></h2>
+<p>The third option removes laws from the inventory entirely. If properties are essentially <a href="04-dispositions-and-powers.html">powers</a>, then what a charged particle does is fixed by what charge <em>is</em>, and there is no need for a further entity to govern it. Laws are then true descriptions of how things must behave given their natures — necessary, but not because a law-entity enforces them.</p>
+<p>The advantages are that the inference problem cannot arise (the connection between property and behaviour is one of essence, not of an external relation), the laws come out metaphysically necessary rather than contingent, and no additional category is required.</p>
+<p>That laws come out <strong>necessary</strong> is also the main objection. It seems possible that the laws could have been different — that gravity might have obeyed an inverse-cube law — and dispositional essentialism must deny it, or else say that in such a world the properties would be different ones, so that it is not <em>gravity</em> obeying a different law. That is a coherent position and a revisionary one.</p>
+<h2 id="antirealism"><a class="header" href="#antirealism">Antirealism</a></h2>
+<p>Two positions deny there are laws in anything like the intended sense.</p>
+<p><strong>Cartwright</strong>: the fundamental laws of physics are literally false. They describe idealised situations — frictionless planes, isolated systems — and hold only <em>ceteris paribus</em>. What is true and useful is a patchwork of local, domain-specific models; the world is "dappled," not governed by a unified system. This bears directly on <a href="../07-particulars/06-natural-kinds.html">fundamentality</a>, since it denies the layered picture on which everything answers ultimately to fundamental physics.</p>
+<p><strong>Van Fraassen</strong>: there are no laws, and science does not need them. What science provides is empirically adequate models; "law" is a piece of metaphysics projected onto the practice.</p>
+<h2 id="humean-supervenience-and-its-threat"><a class="header" href="#humean-supervenience-and-its-threat">Humean supervenience and its threat</a></h2>
+<p>Lewis's broader thesis, <strong>Humean supervenience</strong>, holds that everything supervenes on the mosaic of local matters of particular fact: all there is, is a spatiotemporal arrangement of intrinsic properties at points, and everything else — laws, chances, causation, counterfactuals — supervenes on it.</p>
+<p>Quantum entanglement is the standing threat. Entangled systems are <strong>non-separable</strong>: the state of the whole is not determined by the intrinsic states of the parts together with their spatiotemporal relations. If that is right, the mosaic of local qualities does not fix the physical facts, and Humean supervenience is false — not for philosophical reasons but empirically. The formal situation is set out in <a href="../../../physics/03-QM/12-topics/02-bell-nonlocality.html">Bell nonlocality</a> and the interpretive options in the remark on <a href="../../A-remarks/03-philosophy-of-bells-theorem.html">the philosophy of Bell's theorem</a>.</p>
+<p>Lewis himself acknowledged the difficulty and described Humean supervenience as a thesis about how things might have been — a philosophy worth developing even if quantum mechanics falsifies it.</p>
+<h2 id="where-laws-sit"><a class="header" href="#where-laws-sit">Where laws sit</a></h2>
+<p>Laws sit at the junction of the <strong>inventory</strong> and <strong>category</strong> questions: whether the inventory contains law-entities, and if so what category they fall under — relations among universals, patterns in the mosaic, or nothing at all because the work is done by properties.</p>
+<p>The page also shows how tightly the section's disputes interlock. One's account of laws is nearly determined by one's answers elsewhere: a nominalist cannot take the DTA route, a dispositionalist has no need of laws as entities, and a Humean about laws needs primitive naturalness to make the best-system account work — which is a commitment first incurred back in the <a href="../06-universals/01-problem-of-universals.html">problem of universals</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/10-modality/04-dispositions-and-powers.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/11-events/01-events-and-processes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/10-modality/04-dispositions-and-powers.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/11-events/01-events-and-processes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

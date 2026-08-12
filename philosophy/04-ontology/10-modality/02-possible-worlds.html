@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Possible Worlds - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/10-modality/02-possible-worlds.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="possible-worlds"><a class="header" href="#possible-worlds">Possible Worlds</a></h1>
+<p>The apparatus is irresistibly useful. Say that a proposition is <strong>possible</strong> if it is true at some possible world, <strong>necessary</strong> if true at all, <strong>contingent</strong> if true at some and false at others. Counterfactuals become claims about the closest worlds where the antecedent holds; properties become sets of possible individuals; propositions become sets of worlds. A great deal of philosophy has been done with this machinery since the 1960s.</p>
+<p>The ontological question is what a possible world <em>is</em>. Leibniz introduced them as ideas in the divine mind; the modern debate offers two answers, and the first is among the most notorious positions in analytic philosophy.</p>
+<hr />
+<h2 id="lewiss-modal-realism"><a class="header" href="#lewiss-modal-realism">Lewis's modal realism</a></h2>
+<p>David Lewis held that possible worlds are <strong>concrete</strong>: they are things of the same kind as the universe we inhabit — spatiotemporally extended systems of objects, with people and stars and dust in them. They are causally and spatiotemporally isolated from one another, and there are enough of them to realise every way things could have been.</p>
+<p>Two supporting doctrines complete the view:</p>
+<p><strong>Actuality is indexical.</strong> "Actual" does not mark a special metaphysical status. It means <em>this world</em>, in the way "here" means <em>this place</em> and "now" means <em>this time</em>. The inhabitants of other worlds truly call their own worlds actual, and they are as right as we are. There is nothing more real about ours.</p>
+<p><strong>Counterpart theory.</strong> Nothing exists at more than one world. When we say Humphrey might have won the election, we do not mean that Humphrey — that very man — wins in another world; we mean that a <strong>counterpart</strong> of his, someone sufficiently similar, wins there. <em>De re</em> modality is thereby analysed without trans-world identity, and the counterpart relation is one of similarity, so it is context-sensitive, non-transitive, and possibly one-many.</p>
+<p><strong>Why believe it?</strong> The argument is not from intuition but from theoretical utility. Modal realism supplies reductive analyses of an extraordinary range of notions — modality, counterfactuals, properties, propositions, content, causation, supervenience, verisimilitude — using only the resources of set theory and a primitive similarity relation. Lewis's case is that the ontological cost buys more unification than any rival, and that this is the ordinary way theories are judged. It is, in his phrase, a matter of accepting "an ontology that is admittedly extravagant, in exchange for theoretical benefits."</p>
+<h2 id="the-costs"><a class="header" href="#the-costs">The costs</a></h2>
+<p><strong>The incredible stare.</strong> Lewis's own name for the principal objection: most philosophers simply do not believe there are infinitely many concrete universes containing talking donkeys and blue swans. He conceded that the stare is a real objection — an appeal to common sense is a genuine reason — while denying it is decisive against the theoretical benefits.</p>
+<p><strong>Epistemology.</strong> How could we know anything about causally isolated concrete worlds? Lewis's answer is that modal knowledge is a priori and combinatorial: we know what worlds there are by recombination, not by inspection. But this concedes that the worlds themselves play no role in our access to modal truth, which invites the parallel with the <a href="../08-abstracta/02-mathematical-objects.html">access problem</a> for mathematical objects. If we would believe the same modal claims whether or not the worlds existed, what work are they doing?</p>
+<p><strong>Irrelevance.</strong> Kripke's objection: "Humphrey could not care less whether someone <em>else</em>, however similar, wins in another world." Counterpart theory arguably changes the subject — the modal claim was about Humphrey, and the analysis makes it about someone who is not him.</p>
+<p><strong>Island universes.</strong> Lewis individuates worlds by spatiotemporal connectedness: everything in one world is spatiotemporally related to everything else in it. But it seems possible that reality contain two spatiotemporally disconnected universes. Modal realism cannot represent this, since two disconnected regions would automatically be two worlds rather than one world with two parts.</p>
+<p><strong>No possibility of a moral difference.</strong> If every possibility is realised somewhere, then no matter what we do, worlds where we do otherwise exist and are equally real. Whether this undermines practical deliberation is disputed; Lewis argued it does not, since our concern is properly with our own world.</p>
+<h2 id="ersatzism"><a class="header" href="#ersatzism">Ersatzism</a></h2>
+<p>The alternative is to keep the worlds and make them <strong>abstract</strong>: representations of ways things could be, rather than concrete universes. There is one concrete world — ours — and the others are <em>ersatz</em>, built from materials we already accept. Lewis's taxonomy of the varieties, and his objections to each, remains standard:</p>
+<ul>
+<li><strong>Linguistic ersatzism.</strong> A world is a maximal consistent set of sentences in some suitably rich language. Cheap and well-understood. But "consistent" must be explained, and if it means <em>possibly all true</em>, the analysis is circular: modality has been presupposed rather than analysed. There is also a <strong>descriptive power</strong> problem — a language with countably many names cannot describe worlds containing more objects than it has names for, so some possibilities are inexpressible.</li>
+<li><strong>Pictorial ersatzism.</strong> A world is a picture or model, isomorphic to the way it represents. Lewis objects that a picture of a concrete world would have to have properties corresponding to those it represents, so an abstract picture of a donkey-containing world is hard to make sense of.</li>
+<li><strong>Magical ersatzism.</strong> Worlds are simple abstract entities that represent by a primitive, unanalysable relation. Lewis's complaint is that the representation is left mysterious — the entity is "magically" about a way things could be, with nothing said about how.</li>
+</ul>
+<p>The most popular versions in practice are <strong>states-of-affairs</strong> accounts: Plantinga's worlds are maximal possible states of affairs, Stalnaker's are maximal properties that the world could have had, and Adams' are maximal consistent sets of propositions. All are honest about taking modality as primitive rather than analysing it — which is a serious concession if the point was to reduce modality, and no concession at all if the point was merely to systematise it.</p>
+<p><strong>The general trade</strong> is clean, and worth stating plainly: Lewis gets a genuine <em>reduction</em> of modality at the cost of an extravagant ontology; the ersatzer gets a modest ontology at the cost of primitive modality. Whether reduction was worth wanting is the underlying disagreement.</p>
+<h2 id="actualism-and-possibilism"><a class="header" href="#actualism-and-possibilism">Actualism and possibilism</a></h2>
+<p>A related division concerns the objects in the worlds rather than the worlds themselves.</p>
+<p><strong>Possibilism</strong> holds there are merely possible objects — things that do not exist but could have. <strong>Actualism</strong> holds that everything there is, is actual; talk of merely possible objects must be paraphrased, typically in terms of uninstantiated essences or unexemplified properties.</p>
+<p>The dispute is sharpened by the <strong>Barcan formula</strong> and its converse:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8055em;vertical-align:-0.1111em;"></span><span class="mord amsrm">◊</span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8055em;vertical-align:-0.1111em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord amsrm">◊</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:2em;"></span><span class="mspace" style="margin-right:2em;"></span><span class="mord amsrm">□</span><span class="mord">∀</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">∀</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord amsrm">□</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal">x</span></span></span></span></span></p>
+<p>The Barcan formula says that if it is possible that something be <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>, then something actually existing is possibly <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> — which entails that nothing could exist that does not already exist, so the domain does not vary across worlds. The converse rules out things ceasing to exist across worlds. Accepting both gives a <strong>constant domain</strong>, which is technically convenient and metaphysically strong: it means the same objects exist in every world, differing only in their properties. Rejecting them gives <strong>variable domains</strong>, which matches the intuition that there could have been more or fewer things, at the cost of complications in the logic — particularly about how to evaluate claims about objects at worlds where they do not exist.</p>
+<p>This connects to the treatment of nonexistent objects: a possibilist about merely possible individuals has made a move very close to the <a href="../02-existence-and-being.html">Meinongian's</a>, and faces the same demand for identity conditions. What distinguishes them is that possible objects are at least the sort of thing that <em>could</em> exist, where Meinong's round square could not.</p>
+<h2 id="where-possible-worlds-sit"><a class="header" href="#where-possible-worlds-sit">Where possible worlds sit</a></h2>
+<p>This is the <strong>inventory question</strong> at its most extravagant, and the clearest case in the section where the <a href="../04-ontological-commitment.html">criterion of commitment</a> delivers an unwelcome result that must then be either swallowed or paraphrased. Lewis swallows; the ersatzer paraphrases into abstracta; the modalist refuses the translation altogether, taking <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.675em;"></span><span class="mord amsrm">□</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8034em;vertical-align:-0.1111em;"></span><span class="mord amsrm">◊</span></span></span></span> as primitive operators and denying that modal talk quantifies over anything.</p>
+<p>That last option deserves note because it is the one the <a href="../04-ontological-commitment.html">criterion</a> makes hardest to see. If modal operators are primitive, "there might have been talking donkeys" contains no quantifier over worlds and carries no commitment. The cost is that all the theoretical benefits Lewis catalogued are forfeited, since they came from <em>translating</em> modal claims into quantificational ones. The choice between a primitive operator and an ontology of worlds is a recurring shape in ontology: it is the same choice as between <a href="../06-universals/03-nominalism.html">primitive resemblance</a> and universals, and between primitive <a href="03-modality-and-essence.html">essence</a> and modal analysis.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/10-modality/01-possibility-and-necessity.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/10-modality/03-modality-and-essence.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/10-modality/01-possibility-and-necessity.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/10-modality/03-modality-and-essence.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

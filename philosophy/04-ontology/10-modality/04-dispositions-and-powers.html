@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Dispositions and Powers - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/10-modality/04-dispositions-and-powers.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="dispositions-and-powers"><a class="header" href="#dispositions-and-powers">Dispositions and Powers</a></h1>
+<p>A glass is fragile, sugar is soluble, an electron is negatively charged. These predicates ascribe not what a thing <em>is doing</em> but what it <em>would</em> do — properties with modality built into them. The glass is fragile now, while intact and unbroken; its fragility consists in what would happen if it were struck.</p>
+<p>Two questions follow. Can dispositions be analysed away in terms of what happens under conditions? And are dispositional properties fundamental, or grounded in properties of another kind?</p>
+<hr />
+<h2 id="the-conditional-analysis-and-its-failures"><a class="header" href="#the-conditional-analysis-and-its-failures">The conditional analysis and its failures</a></h2>
+<p>The natural analysis:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">x</span><span class="mord text"><span class="mord"> is fragile</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel">=</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathrm mtight" style="margin-right:0.07778em;">df</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">if </span></span><span class="mord mathnormal">x</span><span class="mord text"><span class="mord"> were struck, </span></span><span class="mord mathnormal">x</span><span class="mord text"><span class="mord"> would break</span></span></span></span></span></span></p>
+<p>Three families of counterexample have made this the textbook case of a failed analysis.</p>
+<p><strong>Finks</strong> (Martin). A fink is a mechanism that removes the disposition precisely when the trigger occurs. Attach a device to a fragile glass that detects an incoming blow and instantaneously toughens the glass. The glass is fragile, but it is false that if struck it would break — the striking removes the fragility. Conversely, a <em>reverse fink</em> attached to a steel bar makes it fragile the moment it is struck: the conditional is true, the disposition absent.</p>
+<p><strong>Masks and antidotes</strong> (Bird, Johnston). A masker leaves the disposition in place but prevents the manifestation. A fragile glass packed carefully in polystyrene is still fragile; struck, it does not break. A poison remains lethal even if an antidote is available.</p>
+<p><strong>Mimics.</strong> A sturdy glass sitting on a stand rigged to shatter it when struck satisfies the conditional without having the disposition.</p>
+<p>The lesson is not merely technical. Every attempted repair — reference to intrinsic properties, ceteris paribus clauses, "in ideal conditions" — either fails to a new counterexample or smuggles in the disposition it was analysing. The natural conclusion is that dispositional talk cannot be reduced to conditional talk, which raises the question of what dispositions <em>are</em>.</p>
+<h2 id="categoricalism"><a class="header" href="#categoricalism">Categoricalism</a></h2>
+<p><strong>Categoricalism</strong> (Armstrong, Lewis) holds that all fundamental properties are <strong>categorical</strong>: purely qualitative, involving no reference to what things would do. Dispositions are real but not fundamental — a disposition is the state of having some categorical property that, <em>given the laws of nature</em>, results in the manifestation. Fragility is the molecular structure; the structure plus the laws yields the breaking.</p>
+<p>The view keeps the modal structure of the world outside the properties, in the laws. That is its attraction for a Humean: properties are inert qualities, laws are patterns, and there is no necessary connection anywhere.</p>
+<p>Its cost is <strong>quidditism</strong>. If a property's identity is exhausted by a bare qualitative nature with no essential connection to what it does, then the same property could have played a completely different causal role under different laws, and two properties could have swapped roles with no detectable difference. Charge might have behaved as mass does. Many find this as objectionable as <a href="../07-particulars/03-individuation.html">haecceitism</a> about individuals, and for the same reason: it posits differences that make no difference.</p>
+<h2 id="dispositionalism"><a class="header" href="#dispositionalism">Dispositionalism</a></h2>
+<p><strong>Dispositional essentialism</strong> (Ellis, Bird, Mumford) holds the reverse: fundamental properties are <strong>powers</strong>, individuated by what they dispose their bearers to do. Charge just <em>is</em> the power to attract and repel in certain ways; there is no further qualitative nature underlying it. A property's causal role is its essence.</p>
+<p>The payoffs are considerable:</p>
+<ul>
+<li><strong>No quidditism.</strong> Properties could not have had different roles, because the role is what makes the property the one it is.</li>
+<li><strong>Laws are not extra.</strong> If properties are essentially powers, the <a href="05-laws-of-nature.html">laws of nature</a> follow from what the properties are, rather than being an independent addition governing inert qualities. This is the most attractive feature of the view and the reason it has grown.</li>
+<li><strong>Modality has a home in the world.</strong> The modal facts about what can happen are grounded in the natures of properties, which continues the <a href="03-modality-and-essence.html">essence-first</a> programme from the previous page.</li>
+<li><strong>It fits physics.</strong> Fundamental physical properties are specified by their dynamical roles — mass by its role in the equations of motion, charge by its coupling — and it is hard to say what more to them there could be.</li>
+</ul>
+<p>The objections:</p>
+<p><strong>Armstrong's regress.</strong> If every property is a power to produce a further manifestation, and the manifestation is itself a matter of conferring further powers, then nothing ever gets <em>done</em>: the world is "always packing, never travelling." Each property points to another, which points to another, without reaching anything actual.</p>
+<p><strong>Swinburne's circularity.</strong> Properties are individuated by their relations to other properties, which are individuated by their relations to these — so the whole system is defined only relationally and nothing anchors it.</p>
+<p>The pandispositionalist reply is that these assume a property must have a non-relational core to be a genuine property, and that this is precisely what is denied. The structure of the powers network can be individuating even if no node is individuated independently — which is the same claim that <a href="../15-meta-ontology/04-ontological-realism.html">ontic structural realism</a> makes about objects, and it faces the same "relations without relata" objection.</p>
+<h2 id="mixed-and-identity-views"><a class="header" href="#mixed-and-identity-views">Mixed and identity views</a></h2>
+<p>Two intermediate positions:</p>
+<ul>
+<li><strong>Mixed views</strong>: some fundamental properties are categorical, others dispositional. Tidy, but it invites the question what distinguishes the two classes and why nature would use both.</li>
+<li><strong>The identity theory</strong> (Martin, Heil): every fundamental property is <em>both</em> — dispositional and qualitative are two ways of considering one property, not two kinds of property or two parts of one. Attractive as a dissolution, and criticised as either unintelligible or a restatement of the problem.</li>
+</ul>
+<h2 id="where-powers-sit"><a class="header" href="#where-powers-sit">Where powers sit</a></h2>
+<p>This is a <strong>category question</strong> about the internal nature of properties, and it inherits directly from the <a href="../06-universals/01-problem-of-universals.html">problem of universals</a>: having settled whether properties are entities, one must say what kind.</p>
+<p>Its wider importance is that it is the third answer to where modality comes from. The <a href="02-possible-worlds.html">worlds</a> account puts modality in a plurality of concrete universes; the <a href="03-modality-and-essence.html">essentialist</a> account puts it in the natures of things; dispositionalism puts it in the properties, which is a version of the second restricted to the properties science studies. And because laws then follow from powers rather than governing inert qualities, the choice made here largely settles the next page.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/10-modality/03-modality-and-essence.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/10-modality/05-laws-of-nature.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/10-modality/03-modality-and-essence.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/10-modality/05-laws-of-nature.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

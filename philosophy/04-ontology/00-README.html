@@ -1,0 +1,343 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ontology - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/00-README.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="ontology"><a class="header" href="#ontology">Ontology</a></h1>
+<p>Reference notes on <strong>ontology</strong> — the theory of what there is. These pages ask Quine's question in its general form: not "does <em>this</em> thing exist?" for some particular case, but what kinds of thing there are at all, under what fundamental categories they fall, and by what method such a question could possibly be settled. Are there universals as well as the particular things that share them? Numbers, sets, and propositions as well as tables? Events as well as objects? Do the parts of a thing compose a further thing, and if so, when? And is any of this a genuine dispute, or a disagreement about how to talk?</p>
+<p>The distinctive feature of these notes is their reliance on the book's <a href="../../logic/00-README.html">logic</a> sections for the formal machinery. The modern criterion of ontological commitment is stated in terms of <a href="../../logic/02-first-order-logic.html">first-order quantification</a>; the debate over abstract objects runs directly into <a href="../../logic/06-set-theory-zfc.html">set theory</a>, <a href="../../logic/07-model-theory.html">model theory</a>, <a href="../../logic/03-higher-order-logic.html">higher-order logic</a>, and <a href="../../logic/09-category-theory.html">category theory</a>; and the existing remark on <a href="../../logic/11-remarks/04-justifying-con-zfc.html">justifying Con(ZFC)</a> already stakes out the ground between platonism and its rivals. Rather than re-derive that machinery, these pages put it to work on the ontological question. The section also cross-links to the <a href="../03-spacetime/00-README.html">philosophy of space and time</a>, which treats spacetime as a <em>regional</em> ontology of the kind theorised here, to the <a href="../02-religion/06-arguments/01-ontological.html">philosophy of religion</a> for the theological face of "existence is not a predicate," and to <a href="../01-freewill/00-README.html">free will</a> for the ontology of agents, events, and causes.</p>
+<p>The treatment is <strong>philosophical</strong> — arguments, distinctions, and the logical structure of positions — rather than a history of metaphysics. Historical figures appear as authors of arguments still in play.</p>
+<blockquote>
+<p><strong>Status.</strong> This section is under construction. All topic folders and the meta-ontology and context material below are written; the plain-language companion in <code>general/</code> is planned and will be added when it lands.</p>
+</blockquote>
+<h2 id="contents"><a class="header" href="#contents">Contents</a></h2>
+<h3 id="the-spine"><a class="header" href="#the-spine">The spine</a></h3>
+<ul>
+<li><a href="01-introduction.html">What Is Ontology?</a> — the field defined: the three master questions (the inventory, the category, and the status question), the map of positions, why formal logic is the section's main tool, and the standing worry about whether ontology makes progress.</li>
+<li><a href="02-existence-and-being.html">Existence and Being</a> — is existence a property of individuals, or what the quantifier expresses? Kant's "existence is not a real predicate," the Frege–Russell–Quine orthodoxy, and the central dispute over whether "exists" is univocal or whether there are plural <em>ways of being</em>.</li>
+<li><a href="03-categories-of-being.html">Categories of Being</a> — what an ontological category scheme is and what constrains one: Aristotle's ten categories, the substance/attribute model, the four-category ontologies of Chisholm and Lowe, the main classificatory axes, and the minimalist one-category alternatives.</li>
+<li><a href="04-ontological-commitment.html">Ontological Commitment</a> — Quine's criterion (<em>to be is to be the value of a bound variable</em>), the regimentation step that does most of the work, paraphrase as an ontological weapon, and the rival criteria that would replace it.</li>
+</ul>
+<h3 id="existence-quantification-and-nonexistent-objects"><a class="header" href="#existence-quantification-and-nonexistent-objects">Existence, quantification, and nonexistent objects</a></h3>
+<ul>
+<li><a href="05-existence/01-existence-and-quantification.html">Existence and the Quantifier</a> — objectual versus substitutional quantification and what each costs; free logic and the existence predicate; whether absolutely unrestricted quantification is possible, and how plural resources answer the all-in-one principle.</li>
+<li><a href="05-existence/02-meinongianism.html">Meinongianism and Nonexistent Objects</a> — the independence of <em>Sosein</em> from <em>Sein</em>; Russell's and Quine's objections; and the modern repairs — nuclear properties, encoding versus exemplifying, and paraconsistent noneism.</li>
+<li><a href="05-existence/03-fictional-objects.html">Fictional and Intentional Objects</a> — the argument from literary criticism; characters as created abstract artifacts and what that does to the abstract/concrete line; pretense theories and the problems of incompleteness and cross-fiction comparison.</li>
+<li><a href="05-existence/04-negative-existentials.html">Negative Existentials and Empty Names</a> — the inconsistent triad, five solutions classified by which claim each denies, and a comparison table; why the section's own eliminativist theses depend on getting this right.</li>
+</ul>
+<h3 id="universals-properties-and-relations"><a class="header" href="#universals-properties-and-relations">Universals, properties, and relations</a></h3>
+<ul>
+<li><a href="06-universals/01-problem-of-universals.html">The Problem of Universals</a> — the one over many: what explains that two things share a character? The several distinct demands that travel under the name, the sparse/abundant distinction, the options as a decision tree, and Bradley's regress about how a particular and a property combine at all.</li>
+<li><a href="06-universals/02-realism.html">Realism about Universals</a> — transcendent (Platonic) versus immanent (Aristotelian) realism; the third man; multiple location; Armstrong's <em>a posteriori</em> realism, the Principle of Instantiation, and states of affairs as truthmakers; structural universals and Lewis's objection.</li>
+<li><a href="06-universals/03-nominalism.html">Nominalism</a> — the varieties (predicate, concept, class, mereological, resemblance), Goodman's companionship and imperfect-community problems, Russell's regress, and the ostrich position that denies the explanatory demand is legitimate.</li>
+<li><a href="06-universals/04-tropes.html">Trope Theory</a> — abstract particulars: properties that are entities but not repeatable. Objects as bundles of compresent tropes, universals as resemblance classes, the advantages for causation and truthmaking, and the problems of trope identity and compresence.</li>
+</ul>
+<h3 id="particulars-substance-and-identity"><a class="header" href="#particulars-substance-and-identity">Particulars, substance, and identity</a></h3>
+<ul>
+<li><a href="07-particulars/01-substance.html">Substance</a> — the three conceptions (independence, subject of predication, bearer) and how playing them against each other drives Descartes to dualism, Spinoza to monism, and Leibniz to simples; Locke's "something we know not what"; the modern substance ontologies and their rivals.</li>
+<li><a href="07-particulars/02-bundle-vs-substratum.html">Bundle Theory versus Substratum</a> — is an object its properties, or something that has them? Why bundles of universals force the identity of indiscernibles, the trope repair, the change and compresence objections, the bare particular and the charge that it is unintelligible, and the middle positions.</li>
+<li><a href="07-particulars/03-individuation.html">Individuation, Haecceity, and Indiscernibles</a> — the Principle of the Identity of Indiscernibles in three strengths; Black's two spheres and why relations do not save it; <strong>weak discernibility</strong> as the most important recent move; haecceitism and its role in the hole argument.</li>
+<li><a href="07-particulars/04-identity.html">Identity</a> — numerical versus qualitative; Leibniz's Law and why running its two directions together causes confusion; the Barcan–Kripke proof of the necessity of identity and the necessary a posteriori; contingent and relative identity; Evans on vague identity.</li>
+<li><a href="07-particulars/05-essence-and-accident.html">Essence and Accident</a> — the modal analysis and Fine's counterexamples (Socrates and his singleton) driving the return to real definition, with essence prior to modality; Kripke on origin and kind essentialism; Quine's objection from the cyclist and the reply.</li>
+<li><a href="07-particulars/06-natural-kinds.html">Natural Kinds</a> — Kripke–Putnam kind essentialism and Twin Earth; why chemistry only roughly cooperates and biology does not; species as individuals and homeostatic property clusters; Dupré's promiscuous realism; and what category a kind belongs to.</li>
+</ul>
+<h3 id="abstract-objects"><a class="header" href="#abstract-objects">Abstract objects</a></h3>
+<ul>
+<li><a href="08-abstracta/01-abstract-and-concrete.html">Abstract and Concrete</a> — the four ways of drawing the line (example, conflation, negation, abstraction) and why none survives the hard cases: impure sets, spacetime points, created works, God, and — hardest of all — an emergent spacetime.</li>
+<li><a href="08-abstracta/02-mathematical-objects.html">Mathematical Objects</a> — platonism and the face-value reading; Benacerraf's dilemma and Field's reliability challenge; the Quine–Putnam indispensability argument and Maddy's objections from practice; structuralism in its four varieties; fictionalism; and what the independence of the continuum hypothesis does and does not settle.</li>
+<li><a href="08-abstracta/03-sets-and-classes.html">Sets, Classes, and Pluralities</a> — the iterative conception and why it makes sets posterior to their members; proper classes and indefinite extensibility; Boolos on plural quantification and what it does to the criterion of commitment; sets versus mereological sums.</li>
+<li><a href="08-abstracta/04-propositions.html">Propositions and Other Abstracta</a> — the case for propositions, the granularity problem for the possible-worlds account, structured propositions and the unity problem, types and tokens, and the awkward category of <em>created</em> abstracta such as musical works.</li>
+<li><a href="08-abstracta/05-nominalist-programs.html">Nominalist Programs</a> — Field's hard road (nominalised physics, representation theorems, conservativeness) and its difficulties; the easy road (figuralism, weaseling, modal structuralism); neo-Fregean abstraction as a <em>deflationary platonism</em>, with the Bad Company and Caesar problems.</li>
+</ul>
+<h3 id="parts-and-wholes"><a class="header" href="#parts-and-wholes">Parts and wholes</a></h3>
+<ul>
+<li><a href="09-mereology/01-mereology.html">Mereology</a> — the formal theory of parthood: the axioms of classical extensional mereology, extensionality and the counterexamples to it, non-classical alternatives, and Lewis's claim that composition is <em>ontologically innocent</em>.</li>
+<li><a href="09-mereology/02-composition.html">Composition</a> — van Inwagen's Special Composition Question and why it admits only radical answers: universalism, nihilism, and the restricted views; the argument from vagueness; whether nihilism has any simples to work with; and the Moorean reply.</li>
+<li><a href="09-mereology/03-material-constitution.html">Material Constitution</a> — the statue and the clay: the inconsistent set that generates the puzzle, the grounding problem for coincident objects, the six responses classified by which claim they deny, the Ship of Theseus, and the problem of the many.</li>
+<li><a href="09-mereology/04-vagueness-and-gunk.html">Vagueness, Gunk, and Boundaries</a> — ontic versus semantic vagueness and Evans' argument; atomless gunk and why it refutes nihilism outright; junk and hunk; Brentano on boundaries and contact; location and multilocation.</li>
+</ul>
+<h3 id="modality-possible-worlds-and-powers"><a class="header" href="#modality-possible-worlds-and-powers">Modality, possible worlds, and powers</a></h3>
+<ul>
+<li><a href="10-modality/01-possibility-and-necessity.html">Possibility and Necessity</a> — the flavours of modality and why the ontologist wants the metaphysical one; <em>de dicto</em> versus <em>de re</em> and Quine's three grades; Kripke on the necessary a posteriori and the contingent a priori; the modal systems and what S5 buys.</li>
+<li><a href="10-modality/02-possible-worlds.html">Possible Worlds</a> — Lewis's modal realism, indexical actuality, and counterpart theory; the incredulous stare, epistemology, irrelevance, and island universes; the three ersatzisms and their common concession of primitive modality; actualism, possibilism, and the Barcan formulas.</li>
+<li><a href="10-modality/03-modality-and-essence.html">Modality and Essence</a> — Fine's reversal and the essentialist theory of modality; conventionalism and modal deflationism; and modal epistemology from conceivability through two-dimensional semantics to Williamson's counterfactuals.</li>
+<li><a href="10-modality/04-dispositions-and-powers.html">Dispositions and Powers</a> — the conditional analysis and its finks, masks, and mimics; categoricalism and the charge of quidditism; dispositional essentialism and the "always packing, never travelling" regress; the identity theory.</li>
+<li><a href="10-modality/05-laws-of-nature.html">Laws of Nature</a> — are laws entities? The best-system account and its dependence on primitive naturalness; DTA nomic necessitation and the identification and inference problems; laws from powers; Cartwright and van Fraassen; Humean supervenience and the threat from entanglement.</li>
+</ul>
+<h3 id="events-facts-and-truthmakers"><a class="header" href="#events-facts-and-truthmakers">Events, facts, and truthmakers</a></h3>
+<ul>
+<li><a href="11-events/01-events-and-processes.html">Events and Processes</a> — Davidson's argument from adverbial modification and what it commits us to; the fine- and coarse-grained accounts of event identity and why causation and explanation pull opposite ways; process ontology and its appeal to biology and quantum field theory; agent causation as a challenge.</li>
+<li><a href="11-events/02-facts-and-states-of-affairs.html">Facts and States of Affairs</a> — logical atomism and the trouble with negative, general, and totality facts; Armstrong's truthmaker argument in six steps and why states of affairs are non-mereological; the slingshot argument and the three ways out.</li>
+<li><a href="11-events/03-truthmakers.html">Truthmakers</a> — the principle and its necessitation form; cheater-catching against ostrich nominalism and presentism; negative existentials and the totality-fact device; why necessitation is too coarse, and the move to truthmaking as grounding.</li>
+</ul>
+<h3 id="contested-and-derivative-entities"><a class="header" href="#contested-and-derivative-entities">Contested and derivative entities</a></h3>
+<ul>
+<li><a href="12-contested/01-ordinary-objects.html">Ordinary Objects</a> — eliminativism, permissivism, and conservatism about tables and hands; the debunking arguments from arbitrariness, vagueness, overdetermination, and genealogy, with the conservative replies; emergent-pattern functionalism as a fourth stance; and the mind-dependence of artifacts.</li>
+<li><a href="12-contested/02-persons.html">Persons and Minds in the Inventory</a> — what kind of entity a person is: animal, psychological continuer, brain, bundle, soul, or four-dimensional worm; the thinking-animal argument; fission and Parfit's deflationism; and whether the mental is a category.</li>
+<li><a href="12-contested/03-social-ontology.html">Social Ontology</a> — Searle's constitutive rules, status functions, and collective intentionality; whether groups are entities or patterns; Hacking's three senses of social construction and interactive kinds; and the dependence structure of institutional reality.</li>
+<li><a href="12-contested/04-holes-and-absences.html">Holes, Absences, and Boundaries</a> — the canonical exercise in ontological paraphrase, worked through Argle and Bargle; what category a hole could belong to; absences as causes; and the semiconductor holes that a working science quantifies over.</li>
+</ul>
+<h3 id="fundamentality-grounding-and-structure"><a class="header" href="#fundamentality-grounding-and-structure">Fundamentality, grounding, and structure</a></h3>
+<ul>
+<li><a href="13-fundamentality/01-grounding.html">Grounding</a> — "in virtue of" as a non-causal explanatory relation; why supervenience was a bad proxy for it; the challenges to irreflexivity, transitivity, and well-foundedness; relation versus operator; and the sceptics who say there is no big-G grounding, only the small-g relations.</li>
+<li><a href="13-fundamentality/02-ontological-dependence.html">Ontological Dependence</a> — rigid versus generic, existential versus essential; why the modal analysis fails in exactly the way it fails for essence, and Fine's repair; a table of applications; and the precise sense it gives to "nothing over and above."</li>
+<li><a href="13-fundamentality/03-fundamentality.html">Fundamentality, Levels, and Priority</a> — absolute versus relative; whether grounding chains must terminate, and what effective field theory and gunk suggest; priority monism and the arguments from gunk and non-separability; multiple realisability, quasiparticles, and the disunity of science; physicalism and the exclusion argument.</li>
+<li><a href="13-fundamentality/04-structure.html">Structure and Ontic Structural Realism</a> — from Lewisian naturalness to Siderian structure; the <strong>two independent motivations</strong> for ontic structural realism, from theory change and from current physics, kept apart; and the objections that relations need relata and that structure needs individuating.</li>
+</ul>
+<h3 id="ontology-and-the-sciences"><a class="header" href="#ontology-and-the-sciences">Ontology and the sciences</a></h3>
+<ul>
+<li><a href="14-science/01-science-and-ontological-commitment.html">Science and Ontological Commitment</a> — the no-miracles argument and the best-of-a-bad-lot reply; van Fraassen's constructive empiricism and the distinction between what a theory <em>says</em> exists and what we should <em>believe</em> exists; whether the observable line carries ontological weight.</li>
+<li><a href="14-science/02-ontology-under-theory-change.html">Ontology Under Theory Change</a> — Laudan's list and the pessimistic meta-induction; selective, entity, and structural realism as three survival strategies, each modifying the Quinean method; reference across theory change; and Quine's own proxy-function qualification.</li>
+<li><a href="14-science/03-particles-and-individuality.html">Particles, Individuals, and Discernibility</a> — permutation invariance and the statistics that show the world does not recognise particle identity; French and Redhead against the identity of indiscernibles; Saunders on weak discernibility; quasi-set theory.</li>
+<li><a href="14-science/04-what-qft-is-about.html">What Is Quantum Field Theory About?</a> — Malament, Unruh, Reeh–Schlieder, and Haag against particles; why fields as operator-valued distributions supply no better bearers; gauge and surplus structure, and the principle that the ontology is what is invariant.</li>
+<li><a href="14-science/05-the-wavefunction.html">The Wavefunction and Primitive Ontology</a> — wavefunction realism, primitive ontology and a nomological <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">ψ</span></span></span></span>, PBR, and Everettian real patterns as a fourth position on ordinary objects; and the negative result that three empirically equivalent theories give three incompatible inventories.</li>
+</ul>
+<h3 id="meta-ontology"><a class="header" href="#meta-ontology">Meta-ontology</a></h3>
+<ul>
+<li><a href="15-meta-ontology/01-meta-ontology.html">Meta-Ontology: Carnap and Quine</a> — the hinge of the section. Carnap's linguistic frameworks and the internal/external distinction; Quine's two-part reply and his naturalism; the neo-Quinean package stated as five separable theses; and why Quine's victory was more partial than the standard story allows.</li>
+<li><a href="15-meta-ontology/02-quantifier-variance.html">Quantifier Variance and Deflationism</a> — Hirsch on rival ontologies as notational variants, with the translation scheme for the composition debate; Putnam's conceptual relativity and the model-theoretic argument; the joint-carving, metalanguage, and translatability replies.</li>
+<li><a href="15-meta-ontology/03-easy-ontology.html">Easy Ontology and Neo-Fregeanism</a> — Thomasson's trivial inferences and application conditions; Hume's Principle and Frege's Theorem; the objections from proving too much, Bad Company, and Caesar; and why the position is <em>deflationary platonism</em> rather than anti-realism.</li>
+<li><a href="15-meta-ontology/04-ontological-realism.html">Ontological Realism</a> — Sider on structure as primitive and the quantifier as joint-carving; reference magnetism; what the argument does and does not establish; and the three-way map of realism, deflationism, and pluralism.</li>
+<li><a href="15-meta-ontology/05-method.html">Method in Ontology</a> — parsimony in its quantitative/qualitative and ontological/ideological forms, with a table of what each position saves and spends; Moorean argument and the status of intuitions; naturalised metaphysics and why physics constrains without determining; whether the logic was ever neutral; and whether ontology progresses.</li>
+<li><a href="15-meta-ontology/06-the-question-of-being.html">The Question of Being: Heidegger's Challenge</a> — the ontological difference and the charge that Quine's criterion presupposes what it should ask; the equipment analysis as a genealogical debunking of the substance–attribute scheme; the Frege–Heidegger fork on existence; Carnap's 1932 attack; and the honest limits.</li>
+</ul>
+<h3 id="history-figures-and-the-other-ontology"><a class="header" href="#history-figures-and-the-other-ontology">History, figures, and the other "ontology"</a></h3>
+<ul>
+<li><a href="16-context/01-history.html">A History of Ontology</a> — Parmenides to the present, keeping to arguments still in play: the ancient and medieval sources of the modern positions, the early modern substance theories, the analytic and phenomenological lines run as parallel tracks, the Quinean revival, and the recurring shape of how these disputes get settled.</li>
+<li><a href="16-context/02-figures.html">Key Figures</a> — a compact reference to the principal contributors, with the claim each is cited for in this section.</li>
+<li><a href="16-context/03-applied-ontology.html">Applied and Formal Ontology</a> — the other sense of the word: upper ontologies, description logics, and knowledge graphs; what the two enterprises genuinely share; where they diverge; and why the plurality of good engineering ontologies is evidence for nothing about the philosophical question.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/03-spacetime/10-context/03-figures.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/04-ontology/01-introduction.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/03-spacetime/10-context/03-figures.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/04-ontology/01-introduction.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

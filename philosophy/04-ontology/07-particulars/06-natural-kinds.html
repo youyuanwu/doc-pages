@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Natural Kinds - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/07-particulars/06-natural-kinds.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="natural-kinds"><a class="header" href="#natural-kinds">Natural Kinds</a></h1>
+<p>Gold, water, electron, tiger. These look like categories the world provides rather than ones we impose — unlike <em>jade</em> (two different minerals), <em>weed</em> (a plant somewhere unwanted), or <em>thing weighing under a kilogram</em>. A <strong>natural kind</strong> is a grouping that carves nature at the joints, supports inductive inference and lawlike generalisation, and would be there whether or not anyone classified.</p>
+<p>Whether there are any, and what they are, is the point where <a href="05-essence-and-accident.html">essentialism</a> meets the sciences — and where the sciences turn out to be less cooperative than the philosophical theory expected.</p>
+<hr />
+<h2 id="kind-essentialism"><a class="header" href="#kind-essentialism">Kind essentialism</a></h2>
+<p>The Kripke–Putnam account is the standard realist position. A natural kind term rigidly designates a kind whose membership is fixed by an underlying <strong>essence</strong>, typically a microstructural property discovered empirically:</p>
+<ul>
+<li>Water is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">O</span></span></span></span></span>, necessarily and a posteriori.</li>
+<li>Gold is the element with atomic number 79 — not "the yellow malleable metal", which is how we identify it, not what it is.</li>
+<li>A tiger is an animal of a particular species, whatever its stripes.</li>
+</ul>
+<p>Putnam's <strong>Twin Earth</strong> case makes the semantic point. On a planet superficially identical to ours, the clear drinkable liquid in lakes is not <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">O</span></span></span></span></span> but a different compound, XYZ. Speakers there use "water" as we do and are in the same internal state. Yet they are not talking about water. Reference is fixed by the actual stuff sampled at baptism, not by the description in anyone's head — "meanings ain't in the head."</p>
+<p>The account is attractive: it explains why the sciences look like discovery rather than stipulation, why kind membership can surprise us, and why induction from samples to kinds is licensed.</p>
+<h2 id="chemistry-is-less-obliging-than-advertised"><a class="header" href="#chemistry-is-less-obliging-than-advertised">Chemistry is less obliging than advertised</a></h2>
+<p>The paradigm case is more complicated than the philosophical literature usually allows, and the complications are not marginal.</p>
+<ul>
+<li><strong>Isotopes.</strong> Heavy water is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">O</span></span></span></span></span>. Is it water? Chemically it behaves nearly identically and is lethal in quantity. If the essence is molecular composition, deuterium oxide is a different substance — but no chemist treats "water" as excluding it in general.</li>
+<li><strong>Water is not <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">O</span></span></span></span></span> molecules.</strong> Liquid water is a dynamic network of hydrogen-bonded molecules with constant proton exchange, including <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9213em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathrm">O</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span class="mord mathrm">O</span><span class="mord"><span class="mord mathrm">H</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">−</span></span></span></span></span></span></span></span></span></span></span></span>; a glass of water contains many species, and the macroscopic substance is not a collection of isolated <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathrm">O</span></span></span></span></span> units.</li>
+<li><strong>Macromolecules and mixtures.</strong> For polymers, alloys, and minerals, there is no single molecular formula, and classification proceeds by structure, provenance, or function.</li>
+</ul>
+<p>None of this refutes kind essentialism, but it shifts the burden: which microstructural property is the essence turns out to be a decision informed by chemical practice rather than something read off nature.</p>
+<h2 id="biology-is-worse"><a class="header" href="#biology-is-worse">Biology is worse</a></h2>
+<p>Species are the traditional paradigm of natural kinds and the clearest case where essentialism fails.</p>
+<p><strong>There are no essential properties of species members.</strong> Evolutionary populations vary continuously; any morphological, genetic, or behavioural property has exceptions. A tiger with a genetic abnormality is still a tiger. Nothing is common and peculiar to all and only members of a species.</p>
+<p><strong>Species may be individuals, not kinds.</strong> Ghiselin and Hull argue that a species is a spatiotemporally extended particular — a lineage — rather than a kind with instances. Organisms are <em>parts</em> of the species, not members of it. On this view "tiger" names an individual, which explains why species have origins and extinctions and why membership depends on ancestry rather than qualities, and dissolves the search for essences at the price of removing biology's paradigm from the natural-kind category altogether.</p>
+<p><strong>Homeostatic property clusters.</strong> Boyd's alternative keeps species as kinds while abandoning essences: a kind is a cluster of properties that tend to co-occur because some mechanism keeps them together — interbreeding, developmental constraint, shared selective pressure. Membership is a matter of degree and the boundaries are vague, but the kind is real because the clustering is objective and supports induction. This is now the most widely accepted account, and it deliberately weakens what "natural kind" requires.</p>
+<h2 id="does-progress-reveal-joints-or-re-cut-them"><a class="header" href="#does-progress-reveal-joints-or-re-cut-them">Does progress reveal joints or re-cut them?</a></h2>
+<p>The historical record is used by both sides, and reading it honestly gives neither a clean victory.</p>
+<p>For the realist: the chemical revolution replaced phlogiston with oxygen and the periodic table replaced a jumble of substances with a principled classification by atomic number. That looks like discovering joints that were always there.</p>
+<p>For the sceptic: the same record shows repeated re-cutting. "Jade" split into jadeite and nephrite; "fish" lost the whales; the species concept remains contested among biologists after two centuries, with a dozen live definitions serving different purposes. Where classification has been stable, that may reflect the stability of our interests.</p>
+<p><strong>Dupré's promiscuous realism</strong> takes the sceptical reading furthest: there are many equally legitimate ways of classifying, each answering to different explanatory purposes, and no single one is privileged. Kinds are real — the groupings are not arbitrary — but there is no unique correct taxonomy. This is realism about kinds combined with pluralism about classification, and it directly opposes the assumption, built into most of this section, that there is one way the world divides.</p>
+<h2 id="what-kind-of-thing-is-a-kind"><a class="header" href="#what-kind-of-thing-is-a-kind">What kind of thing is a kind?</a></h2>
+<p>If there are natural kinds, they must fall somewhere in the <a href="../03-categories-of-being.html">category scheme</a>:</p>
+<ul>
+<li><strong>Universals.</strong> Kinds as substantial universals is Lowe's four-category answer, with kinds and attributes as two sorts of universal. It explains lawlike generalisation directly: a law relates kinds.</li>
+<li><strong>Sets.</strong> Kinds as sets of their members, with the familiar difficulty that a set is individuated by its actual members, so a kind could not have had different instances.</li>
+<li><strong>Individuals.</strong> The species-as-individuals view, above.</li>
+<li><strong>Sui generis.</strong> Kinds as a primitive category, resisting reduction to any of the above.</li>
+</ul>
+<p>The choice interacts with the <a href="../06-universals/01-problem-of-universals.html">problem of universals</a> in the obvious way: a nominalist cannot take the first option and must construct kinds from resemblance or classes, inheriting the difficulties of doing so.</p>
+<h2 id="where-natural-kinds-sit"><a class="header" href="#where-natural-kinds-sit">Where natural kinds sit</a></h2>
+<p>Natural kinds are where the <strong>category question</strong> stops being an armchair matter. The scheme's demand that categories be <em>fundamental</em> rather than convenient is exactly the demand that they be natural kinds, and it is the sciences that are supposed to tell us which groupings meet it.</p>
+<p>The honest summary is that they tell us less cleanly than the philosophical theory assumed. Chemistry roughly cooperates, biology does not, and the historical record supports both a realist and a pluralist reading. That leaves natural kinds as a live case for the general question of how much ontology can be read off science — which is the subject the section takes up when it turns to the sciences directly.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/07-particulars/05-essence-and-accident.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/08-abstracta/01-abstract-and-concrete.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/07-particulars/05-essence-and-accident.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/08-abstracta/01-abstract-and-concrete.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

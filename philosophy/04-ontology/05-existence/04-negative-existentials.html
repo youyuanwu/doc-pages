@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Negative Existentials and Empty Names - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/05-existence/04-negative-existentials.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="negative-existentials-and-empty-names"><a class="header" href="#negative-existentials-and-empty-names">Negative Existentials and Empty Names</a></h1>
+<p>"Pegasus does not exist." The sentence is true, and saying it is a paradigm of what ontologists do — most of the section's positions consist in denying that something exists.</p>
+<p>It is also, on the most natural semantic theory, impossible. If the meaning of a name is its bearer, and "Pegasus" has no bearer, then the sentence has no subject and expresses nothing. If it does express something, that something is about Pegasus — so there is a Pegasus for it to be about, and the sentence is false.</p>
+<p>This is the <strong>problem of negative existentials</strong>, and it matters here because the section's entire practice presupposes a solution.</p>
+<hr />
+<h2 id="the-problem-stated"><a class="header" href="#the-problem-stated">The problem stated</a></h2>
+<p>The difficulty is a small inconsistent set:</p>
+<ol>
+<li>"Pegasus does not exist" is true.</li>
+<li>A subject–predicate sentence is true only if its subject denotes.</li>
+<li>"Pegasus" does not denote.</li>
+</ol>
+<p>The solutions differ over which to deny, and each denial has been developed into a full theory.</p>
+<h2 id="russell-eliminate-the-name"><a class="header" href="#russell-eliminate-the-name">Russell: eliminate the name</a></h2>
+<p>The classical solution denies (2)'s applicability by denying that "Pegasus" is a genuine subject at all. Ordinary proper names are <strong>disguised definite descriptions</strong> — "Pegasus" abbreviates something like "the winged horse captured by Bellerophon" — and descriptions are analysed away:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord">¬</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="delimsizing size1">(</span></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mord"><span class="delimsizing size1">)</span></span></span></span></span></span></p>
+<p>The sentence says that nothing uniquely satisfies the description. It has no singular term, so nothing needs to denote, and it is true. This is the manoeuvre Quine calls the razor sharp enough to cut through <a href="../04-ontological-commitment.html">Plato's beard</a>, and it is why the <a href="../04-ontological-commitment.html">criterion of commitment</a> can hold that names carry no ontological weight.</p>
+<p>Its cost is the description theory of names, which Kripke's <em>Naming and Necessity</em> dismantled. Names are <strong>rigid designators</strong> and are not synonymous with any description: Gödel would still be Gödel had he not proved incompleteness, whereas "the man who proved incompleteness" would then pick out someone else. If names are not descriptions, they cannot be eliminated in Russell's way, and the solution loses its foundation.</p>
+<h2 id="free-logic-allow-empty-terms"><a class="header" href="#free-logic-allow-empty-terms">Free logic: allow empty terms</a></h2>
+<p>Deny (2) directly. In a <a href="01-existence-and-quantification.html">free logic</a>, singular terms need not denote, and the sentence is regimented with an explicit existence predicate:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">¬</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">!</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">p</span></span></span></span></span></p>
+<p>"Pegasus" is a genuine name that happens to denote nothing, and the sentence says exactly what it appears to say. This is the tidiest formal solution and it is compatible with Kripke's semantics for names.</p>
+<p>What it does not do is explain the <em>semantics</em>: how does a name with no bearer contribute to the meaning of a sentence? Free logic provides a well-behaved formal system and leaves the philosophical question open.</p>
+<h2 id="meinong-let-the-name-denote"><a class="header" href="#meinong-let-the-name-denote">Meinong: let the name denote</a></h2>
+<p>Deny (3). "Pegasus" denotes an object that does not exist, and the sentence ascribes non-existence to it. The truth conditions are as transparent as they look, and no paraphrase is required.</p>
+<p>This is the <a href="02-meinongianism.html">Meinongian's</a> strongest case, because negative existentials are exactly what the theory was built to handle. It is also where the theory's cost is clearest: the sentence is true because there is something that lacks existence, which requires the being/existence distinction the rest of the section's method denies.</p>
+<h2 id="pretense-deny-the-assertion-is-straightforward"><a class="header" href="#pretense-deny-the-assertion-is-straightforward">Pretense: deny the assertion is straightforward</a></h2>
+<p>Deny (1), or rather qualify it. On Walton's account, uttering "Pegasus does not exist" is a move that steps <em>outside</em> a pretence: one engages the myth far enough to invoke it, then disavows it. What is communicated is roughly that the pretence involving "Pegasus" is not answerable to anything real.</p>
+<p>The account handles the intuitive force of the utterance well — there is something performatively odd about denying existence, and the pretense theory explains the oddity. It is criticised for making a plain assertion into a complicated speech act, and for difficulty with embedded occurrences: "if Pegasus does not exist, then the myth is false" is a conditional, not a performance.</p>
+<h2 id="metalinguistic-change-the-subject"><a class="header" href="#metalinguistic-change-the-subject">Metalinguistic: change the subject</a></h2>
+<p>A different denial of (2): the sentence is not about Pegasus but about the <em>name</em>. "Pegasus does not exist" says that "Pegasus" does not refer — or, in the more sophisticated versions, that the associated <em>file</em>, <em>dossier</em>, or <em>practice of using the name</em> has no object at its origin.</p>
+<p>The reading is natural for some cases ("there is no Santa Claus" plausibly is about a story and a word) and forced for others. It also faces the objection that the two claims differ in modal profile: the name might not have existed while Pegasus still would not have existed, so they cannot be the same claim.</p>
+<h2 id="comparison"><a class="header" href="#comparison">Comparison</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Solution</th><th>Denies</th><th>Keeps rigid names?</th><th>Keeps one category of object?</th><th>Chief cost</th></tr></thead><tbody>
+<tr><td>Russellian</td><td>(2), by eliminating the name</td><td>no</td><td>yes</td><td>the description theory is false</td></tr>
+<tr><td>Free logic</td><td>(2)</td><td>yes</td><td>yes</td><td>formal, not semantic</td></tr>
+<tr><td>Meinongian</td><td>(3)</td><td>yes</td><td>no</td><td>being without existence</td></tr>
+<tr><td>Pretense</td><td>(1), by requalifying</td><td>yes</td><td>yes</td><td>complex speech act; embedding</td></tr>
+<tr><td>Metalinguistic</td><td>(2), by reconstrual</td><td>yes</td><td>yes</td><td>wrong modal profile</td></tr>
+</tbody></table>
+</div>
+<p>No option is cost-free, and the current situation is that the free-logical treatment is standard as a <em>formalism</em> while the semantic question remains open. That is a tolerable position for the section's purposes: what the method needs is a way of <em>writing down</em> denials of existence, and free logic supplies it.</p>
+<h2 id="where-negative-existentials-sit"><a class="header" href="#where-negative-existentials-sit">Where negative existentials sit</a></h2>
+<p>This belongs with the <strong>status question</strong>, as a check on the section's own vocabulary. Every eliminativist thesis in the preceding pages — there are no universals, no numbers, no composite objects, no tables — is a negative existential, and if such claims were unstatable the disputes would be unstatable too.</p>
+<p>The connection to the theory of meaning runs deep, and the book's treatment of reference, truth-conditions, and what a semantic theory must deliver is in the remark on <a href="../../A-remarks/01-semantics-and-meaning.html">semantics and the theory of meaning</a>. The moral for ontology is the one this folder has been accumulating: the logical apparatus that looked like a neutral instrument turns out to embody substantive commitments, and choosing it is part of the ontology rather than a preliminary to it.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/05-existence/03-fictional-objects.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/06-universals/01-problem-of-universals.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/05-existence/03-fictional-objects.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/06-universals/01-problem-of-universals.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

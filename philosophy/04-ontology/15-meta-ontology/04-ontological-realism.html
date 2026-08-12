@@ -1,0 +1,271 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ontological Realism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/15-meta-ontology/04-ontological-realism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="ontological-realism"><a class="header" href="#ontological-realism">Ontological Realism</a></h1>
+<p><strong>Ontological realism</strong> is the thesis that ontological disputes are substantive: they have unique correct answers, the answers are not settled by convention or conceptual competence, and getting them right is a genuine achievement. It is the position the whole of this section presupposes, and it needs defending against the two deflationary programmes already surveyed.</p>
+<p>The most developed defence is Ted Sider's in <em>Writing the Book of the World</em> (2011), and its strategy is to grant the deflationist almost everything except one thing: that no candidate meaning for the quantifier is metaphysically privileged.</p>
+<hr />
+<h2 id="structure-as-primitive"><a class="header" href="#structure-as-primitive">Structure as primitive</a></h2>
+<p>Sider's central notion is <strong>structure</strong>, a generalisation of Lewis's <a href="../06-universals/01-problem-of-universals.html">naturalness</a>. Lewis held that some properties are more natural than others — <em>green</em> carves at the joints where <em>grue</em> does not — and used naturalness to do work throughout metaphysics: to explain duplication, intrinsicality, similarity, and the difference between laws and accidental regularities.</p>
+<p>Sider's move is to detach the notion from properties and let it apply to <em>any</em> piece of ideology. A term of any grammatical category — predicate, connective, operator, or quantifier — either carves at the joints or does not. Structure is primitive, not analysed further, and the fundamental description of the world is the one written entirely in joint-carving terms. This is what "writing the book of the world" means: not merely stating truths, but stating them in the right vocabulary.</p>
+<p>The consequence for meta-ontology is immediate. The <a href="02-quantifier-variance.html">quantifier variantist</a> argues that nihilese and universalese are equally good languages, and infers that the composition dispute is verbal. Sider grants that both are consistent, that both are internally adequate, and that each can translate the other. He denies the inference, because <em>equally good</em> was doing more work than it was entitled to. One of the candidate quantifier meanings may be more <strong>natural</strong> than the others — and if so, the ontologist who uses it is describing reality in reality's own terms, while the other is speaking a language that gets truths right in a distorting vocabulary.</p>
+<p>Two languages can then be equally good at stating truths and unequally good at limning structure. The dispute is not about which sentences are true but about which language carves — and that is a substantive question with a determinate answer.</p>
+<h2 id="reference-magnetism"><a class="header" href="#reference-magnetism">Reference magnetism</a></h2>
+<p>The supporting mechanism is <strong>reference magnetism</strong>, itself due to Lewis in reply to Putnam. Putnam's <a href="02-quantifier-variance.html">model-theoretic argument</a> says that nothing in our use of language determines a unique interpretation, since many interpretations satisfy all our constraints. Lewis's reply: use is not the only constraint. Reference is determined by use <em>plus</em> eligibility, and more natural meanings are more eligible — they act as magnets, so that our terms latch onto joint-carving properties even when use underdetermines the assignment.</p>
+<p>Applied to the quantifier: even if we use "there is" sloppily, it means the joint-carving thing if there is one. Deflationism about ontology therefore requires denying that there is a most natural quantifier meaning, which is a substantive metaphysical claim rather than the modest default it presents itself as.</p>
+<h2 id="the-dialectical-situation"><a class="header" href="#the-dialectical-situation">The dialectical situation</a></h2>
+<p>It is worth being clear about what Sider has and has not shown, because the argument is often overstated in both directions.</p>
+<p>He has shown that deflationism is not the safe, minimal position. To be a quantifier variantist one must hold that quantificational structure is <em>not</em> among the world's joints — a positive claim about fundamentality, defended by argument, and not a refusal to speculate.</p>
+<p>He has not shown that quantificational structure <em>is</em> among the joints. The argument establishes a conditional: <em>if</em> "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">∃</span></span></span></span>" carves at the joints, ontological disputes are substantive. Whether it does is not proved, and Sider concedes it is a further question. He argues for it partly on the ground that a theory positing quantificational structure is simpler and more explanatory, and partly on the ground that the alternative makes our fundamental theorising unstatable.</p>
+<p>The result is a stand-off of an unusually clean kind. Both sides agree on the mathematics, on the translations, and on which sentences are true in which languages. They disagree about whether there is a privileged vocabulary — and that disagreement cannot be settled by finding more truths, since both sides have all of them.</p>
+<h2 id="the-neo-quinean-mainstream"><a class="header" href="#the-neo-quinean-mainstream">The neo-Quinean mainstream</a></h2>
+<p>Alongside Sider's structural defence stands the more conservative position associated with van Inwagen: the <a href="01-meta-ontology.html">Quinean package</a> is simply correct, ontology is conducted by regimentation and paraphrase, and the burden lies on anyone who says the resulting disputes are not real. This view does not need structure as a primitive; it needs only the claim that the ordinary practice of theory choice — simplicity, strength, fit with science, the ability to answer the arguments — applies to ontological theories as it does to any others.</p>
+<p>Its weakness is the tension noted on the <a href="01-meta-ontology.html">Carnap and Quine</a> page: Quine's method was justified by his naturalism, and much contemporary ontology addresses questions on which science is silent. The neo-Quinean who has kept the method while dropping the naturalism owes an account of what now justifies it. Sider's structure is one such account, which is why the two positions are usually found together.</p>
+<h2 id="realism-deflationism-pluralism"><a class="header" href="#realism-deflationism-pluralism">Realism, deflationism, pluralism</a></h2>
+<p>The three-way map, and the section's final dialectical position:</p>
+<div class="table-wrapper"><table><thead><tr><th></th><th>Are the disputes substantive?</th><th>Is there one right answer?</th></tr></thead><tbody>
+<tr><td><strong>Ontological realism</strong></td><td>yes</td><td>yes — the one written in joint-carving terms</td></tr>
+<tr><td><strong>Deflationism</strong></td><td>no</td><td>the question does not arise</td></tr>
+<tr><td><strong>Ontological pluralism</strong></td><td>yes</td><td>no single answer — several equally fundamental quantifiers, several ways of being</td></tr>
+</tbody></table>
+</div>
+<p>The third column shows why <a href="../02-existence-and-being.html">ontological pluralism</a> is not a form of deflationism, despite denying a unique privileged quantifier. The pluralist holds that reality has several modes of being, all of them real and all of them describable; the variantist holds that there is nothing for the descriptions to get right. They agree on the negative claim and differ entirely on what follows from it — which is a good illustration of how much depends on distinguishing "there is no single privileged description" from "there is nothing to describe."</p>
+<h2 id="where-this-leaves-the-section"><a class="header" href="#where-this-leaves-the-section">Where this leaves the section</a></h2>
+<p>Ontological realism is the answer to the <strong>status question</strong> on which the rest of this section depends, and the honest summary is that it has not been established. What has been established is that its denial is not free: both deflationary routes require substantive commitments of their own, and neither dissolves ontology as cleanly as advertised.</p>
+<p>That is enough to justify the enterprise without vindicating it. The disputes over <a href="../06-universals/01-problem-of-universals.html">universals</a>, <a href="../08-abstracta/02-mathematical-objects.html">abstracta</a>, and <a href="../09-mereology/02-composition.html">composition</a> are worth conducting because we do not know that they are empty, because the arguments in them are good ones, and because the attempt to show them empty has so far produced positions at least as contentious as the ones it was meant to replace.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/15-meta-ontology/03-easy-ontology.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/15-meta-ontology/05-method.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/15-meta-ontology/03-easy-ontology.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/15-meta-ontology/05-method.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

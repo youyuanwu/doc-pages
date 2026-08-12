@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ontological Dependence - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/13-fundamentality/02-ontological-dependence.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="ontological-dependence"><a class="header" href="#ontological-dependence">Ontological Dependence</a></h1>
+<p>A hole cannot exist without something it is a hole in. A smile cannot exist without a face. The set <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.02778em;">ocr</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">es</span><span class="mclose">}</span></span></span></span> could not have existed had Socrates not. In each case one entity's existence requires another's, and the requirement runs one way.</p>
+<p><strong>Ontological dependence</strong> is this relation. It differs from <a href="01-grounding.html">grounding</a> in relating <em>entities</em> rather than facts, and it is the older notion — Aristotle's distinction between substance and the categories that exist only <em>in</em> a substance is a dependence claim.</p>
+<hr />
+<h2 id="varieties"><a class="header" href="#varieties">Varieties</a></h2>
+<p>Two cross-cutting distinctions generate the main kinds.</p>
+<p><strong>Rigid versus generic.</strong> <em>Rigid</em> dependence is on a particular individual: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.02778em;">ocr</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">es</span><span class="mclose">}</span></span></span></span> depends on Socrates, that very man, and could not have existed with a different member. <em>Generic</em> dependence is on there being <em>some</em> thing of a kind: a person depends on there being cells, but not on any particular cell, and survives their wholesale replacement. Missing the distinction produces bad arguments in both directions — an organism's generic dependence on matter does not make it dependent on the matter it happens to have.</p>
+<p><strong>Existential versus essential.</strong> <em>Existential</em> dependence concerns what must exist for the dependent thing to exist. <em>Essential</em> dependence concerns what must be mentioned in saying what the dependent thing <em>is</em>. These come apart, and the divergence is the subject of the next section.</p>
+<p>A third distinction is sometimes needed: <strong>identity dependence</strong>, where what the thing <em>is</em> — its identity conditions — is fixed by another. A set's identity is fixed by its members; a boundary's by what it bounds.</p>
+<h2 id="the-modal-analysis-and-its-failure"><a class="header" href="#the-modal-analysis-and-its-failure">The modal analysis and its failure</a></h2>
+<p>The obvious account uses necessity:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">x</span><span class="mord text"><span class="mord"> depends on </span></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel">=</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathrm mtight" style="margin-right:0.07778em;">df</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord amsrm">□</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="delimsizing size1">(</span></span><span class="mord mathnormal">x</span><span class="mord text"><span class="mord"> exists</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord text"><span class="mord"> exists</span></span><span class="mord"><span class="delimsizing size1">)</span></span></span></span></span></span></p>
+<p>It fails in exactly the way the modal analysis of <a href="../07-particulars/05-essence-and-accident.html">essence</a> fails, and the parallel is not a coincidence.</p>
+<p><strong>It gets the direction wrong.</strong> Necessarily, if Socrates exists then <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.02778em;">ocr</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">es</span><span class="mclose">}</span></span></span></span> exists. So on the analysis Socrates depends on his singleton — which is backwards. The set depends on the man; the man does not depend on the set. Necessitation is symmetric here and dependence is not.</p>
+<p><strong>It over-generates.</strong> Necessarily, if Socrates exists then <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span>, and the number 2 exists, and the empty set exists. So Socrates depends on every necessary existent, which is not a substantive claim about Socrates at all.</p>
+<p>Fine's repair is the same as for essence: replace modality with <strong>real definition</strong>. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> depends on <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> just in case <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> is a constituent of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>'s essence — just in case one cannot say what <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> is without mentioning <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>. Saying what <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.02778em;">ocr</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">es</span><span class="mclose">}</span></span></span></span> is requires mentioning Socrates; saying what Socrates is does not require mentioning the set. The asymmetry the modal account could not see is visible immediately, because essences are not symmetric even where necessitation is.</p>
+<p>This is the second place in the section where the same repair is applied to the same failure, and it is the strongest evidence for Fine's general claim that modality is the wrong tool for these notions.</p>
+<h2 id="applications"><a class="header" href="#applications">Applications</a></h2>
+<p>The notion earns its keep by classifying cases the section has already met.</p>
+<div class="table-wrapper"><table><thead><tr><th>Dependent</th><th>Depends on</th><th>Kind</th></tr></thead><tbody>
+<tr><td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.02778em;">ocr</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">es</span><span class="mclose">}</span></span></span></span></td><td>Socrates</td><td>rigid, essential</td></tr>
+<tr><td>A <a href="../06-universals/04-tropes.html">trope</a></td><td>its bearer</td><td>rigid (disputed — bundle theorists deny it)</td></tr>
+<tr><td>A <a href="../09-mereology/03-material-constitution.html">hole</a></td><td>its host</td><td>rigid</td></tr>
+<tr><td>A boundary</td><td>what it bounds</td><td>rigid, identity</td></tr>
+<tr><td>An <a href="../06-universals/02-realism.html">immanent universal</a></td><td>its instances</td><td>generic</td></tr>
+<tr><td>A fictional character</td><td>its author's activity</td><td>rigid, historical</td></tr>
+<tr><td>A <a href="../08-abstracta/04-propositions.html">musical work</a></td><td>its composer</td><td>rigid, historical</td></tr>
+<tr><td>An organism</td><td>matter of some kind</td><td>generic</td></tr>
+<tr><td>A <a href="../11-events/02-facts-and-states-of-affairs.html">state of affairs</a></td><td>its constituents</td><td>rigid</td></tr>
+</tbody></table>
+</div>
+<p>Two entries repay attention. The <strong>trope</strong> case is where bundle theory and substance–attribute theory disagree most sharply: if tropes depend rigidly on their bearers, they cannot be what bearers are made of, so the bundle theorist must deny the dependence. And the <strong>created abstracta</strong> — characters, works — are the cases that make trouble for the <a href="../08-abstracta/01-abstract-and-concrete.html">abstract/concrete</a> distinction, since they are unlocated and acausal yet historically dependent.</p>
+<h2 id="dependence-and-fundamentality"><a class="header" href="#dependence-and-fundamentality">Dependence and fundamentality</a></h2>
+<p>Dependence supplies one natural definition of fundamentality: an entity is <strong>fundamental</strong> if nothing else depends on it for its existence — or better, if it depends on nothing else. The dependence structure of reality is then a partial order, and the fundamental entities are its minimal elements.</p>
+<p>Two questions follow, both taken up on the next page. Does the order terminate — must there be minimal elements at all? And is dependence the right relation for fundamentality, or is grounding, or naturalness, or the relation of parts to wholes? These give different answers in cases that matter: a whole may depend on its parts while being <em>prior</em> to them in Schaffer's sense, so dependence and priority can run in opposite directions.</p>
+<h2 id="where-dependence-sits"><a class="header" href="#where-dependence-sits">Where dependence sits</a></h2>
+<p>Like grounding, this belongs to the structural rather than the inventory or category question. Its distinctive contribution is that it operates on entities, which makes it the natural tool for the many places in this section where something exists but not <em>independently</em> — modes, tropes, boundaries, holes, sets, works, characters.</p>
+<p>It also gives a precise sense to a phrase used loosely throughout: <em>nothing over and above</em>. To say the fusion is nothing over and above its parts, or the statue nothing over and above the clay, is to make a dependence claim, and whether it is true is settled by whether one can say what the fusion is without mentioning anything beyond the parts. That is a determinate question, which is more than the phrase had before.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/13-fundamentality/01-grounding.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/13-fundamentality/03-fundamentality.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/13-fundamentality/01-grounding.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/13-fundamentality/03-fundamentality.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

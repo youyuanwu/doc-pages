@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ordinary Objects - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/12-contested/01-ordinary-objects.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="ordinary-objects"><a class="header" href="#ordinary-objects">Ordinary Objects</a></h1>
+<p>Tables, trees, hands, statues, and chairs. Almost nothing is less controversial outside philosophy and few things are more controversial inside it. The <a href="../09-mereology/02-composition.html">Special Composition Question</a> delivered two extreme answers — everything composes, or nothing does — and both are inconsistent with the common-sense inventory. This page takes up the resulting question directly: are there ordinary objects, all and only the ones we ordinarily recognise?</p>
+<hr />
+<h2 id="the-three-stances"><a class="header" href="#the-three-stances">The three stances</a></h2>
+<p><strong>Eliminativism.</strong> There are no tables. The versions differ in what survives: mereological nihilism leaves only simples; van Inwagen leaves simples and living organisms, so there are cats but no chairs; Unger's argument from the problem of the many concludes that ordinary terms fail to denote because millions of equally good candidates compete. The common commitment is that ordinary talk is strictly false but assertible, paraphrasable as talk about simples arranged thus-and-so.</p>
+<p><strong>Permissivism.</strong> There are tables — and also the object composed of the Eiffel Tower and your left shoe, and Hirsch's <em>incars</em> (things that are car-shaped while inside a garage and shrink as they leave), and trout-turkeys. Every plurality composes, and our vocabulary picks out an interest-relative sliver of what there is. Nothing is missing from the common-sense inventory; a great deal is added.</p>
+<p><strong>Conservatism.</strong> There are all and only the ordinary objects. Korman's position, and the one that matches pre-theoretic belief exactly — which is either its chief virtue or its chief embarrassment, since it must then explain why the boundaries of the ordinary kinds are where they are.</p>
+<p>The dialectical situation is unusual and worth naming. Both extremes are motivated by <em>principle</em> — the demand for a non-arbitrary answer to the composition question — and the middle position is motivated by the data. That inverts the usual pattern in which the moderate view is the principled one.</p>
+<h2 id="the-debunking-arguments"><a class="header" href="#the-debunking-arguments">The debunking arguments</a></h2>
+<p>Conservatism's burden is a family of arguments that our ordinary judgements about what exists are unreliable.</p>
+<p><strong>Arbitrariness.</strong> Why should particles arranged tablewise compose something while particles arranged tower-and-shoe-wise do not? Any line the conservative draws will look like a projection of human interest rather than a joint in nature. The permissivist and the nihilist agree in rejecting the line and disagree only about which way to erase it.</p>
+<p><strong>Vagueness.</strong> The <a href="../09-mereology/02-composition.html">argument from vagueness</a> shows that a restricted answer implies borderline cases of composition, hence indeterminacy in how many things exist, which cannot be if the counting vocabulary is precise.</p>
+<p><strong>Causal overdetermination.</strong> If the particles arranged tablewise are collectively sufficient to hold up the book, the table has no work left to do. Either its causing is redundant, or every effect is systematically overdetermined. This is the <a href="../13-fundamentality/03-fundamentality.html">exclusion argument</a> applied to composites rather than to minds.</p>
+<p><strong>Debunking proper.</strong> Korman's own target: our beliefs about which kinds there are can be explained by our perceptual and practical make-up — we notice things that move together, matter to us, and persist at our timescales — without supposing the beliefs are true. An explanation of a belief that does not appeal to its truth undercuts its warrant.</p>
+<p>The conservative's replies, in the same order: that a principle need not be simple to be true, and the boundaries of the ordinary kinds may just be where they are; that the vagueness argument proves too much, since it applies equally to <em>any</em> restricted answer including van Inwagen's; that the table and the particles are not distinct causes, so there is no overdetermination — the causing by the table just is the causing by the particles arranged tablewise; and that debunking arguments generalise viciously, since our perceptual make-up explains our beliefs about <em>anything</em>, including simples.</p>
+<p>Korman's positive reply to all of them is Moorean: "here is a hand" is more certain than any premise in any argument for its denial. That is a legitimate move — it is how sceptical arguments are properly handled — but it is also available to the eliminativist's opponent in <em>every</em> dispute, and its unrestricted use would end metaphysics.</p>
+<h2 id="a-fourth-stance"><a class="header" href="#a-fourth-stance">A fourth stance</a></h2>
+<p>The three-way taxonomy is standard and incomplete. <strong>Emergent-pattern functionalism</strong> — Wallace's Everettian position, using Dennett's real-patterns criterion — holds that a table is real because positing it affords substantial predictive and explanatory gain over describing the underlying physics directly.</p>
+<p>This fits none of the three cells. It is not eliminativism, since tables are real; not permissivism, since arbitrary fusions are not patterns and so do not qualify; not conservatism, since reality comes in degrees of explanatory indispensability rather than by joining a fundamental inventory. And it answers the arbitrariness objection with something the conservative lacks: the line between tables and tower-shoe fusions is drawn by <em>projectibility</em>, which is an objective matter, not by human interest.</p>
+<p>Its cost is that existence becomes a matter of degree and of explanatory role, which many will regard as changing the subject. It is developed in the section's discussion of <a href="../14-science/05-the-wavefunction.html">the wavefunction</a>, and it deserves a place in this debate that it does not currently have.</p>
+<h2 id="artifacts"><a class="header" href="#artifacts">Artifacts</a></h2>
+<p>Artifacts are the hardest case for any realist about ordinary objects, because they are so obviously ours.</p>
+<ul>
+<li><strong>Creation.</strong> A table comes into existence when someone makes it. Nothing about the particles changed except their arrangement, so the table's existence appears to depend on the maker's intentions.</li>
+<li><strong>Modal profile.</strong> A table can survive replacement of a leg but not being melted down; a statue cannot survive squashing though its clay can. These persistence conditions come from the artifact <em>kind</em>, and the kinds are ours.</li>
+<li><strong>Thomasson's account.</strong> Artifact kinds exist because there are intentions to make things of that kind together with substantially successful execution. This makes artifacts mind-dependent without making them unreal — they are as real as anything, and their existence conditions simply involve us.</li>
+</ul>
+<p>The eliminativist takes the mind-dependence as decisive: what depends on our intentions for its existence is not an addition to the world's furniture. The conservative replies that plenty of real things depend on us — marriages, debts, and <a href="03-social-ontology.html">social entities</a> generally — and that dependence is not unreality.</p>
+<h2 id="where-ordinary-objects-sit"><a class="header" href="#where-ordinary-objects-sit">Where ordinary objects sit</a></h2>
+<p>This is the <strong>inventory question</strong> where it is most sharply at odds with common sense, and the place where the section's method is most visibly under strain. The arguments for eliminativism are good; the conclusion is one nobody can believe outside the study; and the resulting stand-off has produced more appeals to methodology — Moorean certainty, debunking, theoretical virtue — than to first-order argument.</p>
+<p>That makes it the <a href="../15-meta-ontology/02-quantifier-variance.html">deflationist's</a> best case after composition. If the eliminativist and the conservative agree on where the particles are and how they are arranged, and differ only on whether to call the arrangement a thing, the suspicion that nothing further is at issue is hard to shake — and equally hard to establish.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/11-events/03-truthmakers.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/12-contested/02-persons.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/11-events/03-truthmakers.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/12-contested/02-persons.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

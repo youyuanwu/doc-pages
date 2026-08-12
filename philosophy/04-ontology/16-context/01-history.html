@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>A History of Ontology - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/16-context/01-history.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="a-history-of-ontology"><a class="header" href="#a-history-of-ontology">A History of Ontology</a></h1>
+<p>The questions in this section are old, and their history is not decoration. Most of the positions still defended were first stated by someone whose reasons are worth knowing, and several apparent innovations are recoveries. This page runs the thread from Parmenides to the present, keeping to <em>arguments still in play</em> rather than attempting a survey.</p>
+<hr />
+<h2 id="ancient"><a class="header" href="#ancient">Ancient</a></h2>
+<p><strong>Parmenides</strong> begins the subject with an argument rather than a doctrine. What is not cannot be thought or spoken of, since to think is to think <em>something</em>; therefore only what is can be thought; therefore change, which requires something to come from what is not, is impossible, and reality is one, unchanging, and undivided. The argument is bad, and identifying exactly where it goes wrong took two millennia — it conflates the "is" of predication, of identity, and of existence, distinctions not available to him. Its legacy is the problem of <a href="../05-existence/04-negative-existentials.html">negative existentials</a> and Plato's "beard."</p>
+<p><strong>Plato</strong> answers the one-over-many with the Forms: what many things share is a single entity, existing apart from them, in which they participate. The <em>Parmenides</em> contains his own best objection, the <a href="../06-universals/02-realism.html">third man</a>. The Forms are the origin of transcendent <a href="../06-universals/02-realism.html">realism about universals</a> and, by a different route, of <a href="../08-abstracta/02-mathematical-objects.html">mathematical platonism</a>.</p>
+<p><strong>Aristotle</strong> supplies most of the vocabulary still in use. The <em>Categories</em> gives the first <a href="../03-categories-of-being.html">category scheme</a> and makes primary substance basic; the <em>Metaphysics</em> adds hylomorphism and the thesis that <strong>being is said in many ways</strong>, with substance as the focal case — the ancestor of <a href="../02-existence-and-being.html">ontological pluralism</a>. His realism about universals is immanent rather than transcendent: the form is <em>in</em> the thing.</p>
+<h2 id="medieval"><a class="header" href="#medieval">Medieval</a></h2>
+<p>The medieval contribution is standardly reduced to the problem of universals, which undersells it, but that problem does frame the period. It reaches the Latin West through <strong>Boethius</strong>, translating Porphyry's three unanswered questions: do genera and species subsist or reside in the understanding; if they subsist, are they corporeal or incorporeal; and are they separate from sensibles or in them?</p>
+<ul>
+<li><strong>Abelard</strong> develops an early non-realism: what is common is not a thing but a <em>status</em>, a way things are, since only individuals exist.</li>
+<li><strong>Ockham</strong> gives nominalism its most rigorous form, with concepts as natural signs, and states the <a href="../15-meta-ontology/05-method.html">parsimony principle</a> that bears his name.</li>
+</ul>
+<p>Two other developments matter to this section:</p>
+<ul>
+<li><strong>Avicenna's essence/existence distinction.</strong> What a thing <em>is</em> is separable in thought from <em>that</em> it is; essence is neutral as regards existence and universality. This is the ancestor of the <a href="../07-particulars/05-essence-and-accident.html">essence</a> tradition and, at a distance, of Meinong's independence of <em>Sosein</em> from <em>Sein</em>.</li>
+<li><strong>Aquinas on <em>esse</em>.</strong> In creatures, essence and existence are really distinct and existence is received; in God alone they coincide. This makes existence something a thing <em>has</em> rather than a further property, and it is the background against which Kant's "existence is not a real predicate" is a rejection rather than a discovery.</li>
+<li><strong>Duns Scotus</strong> contributes both <strong>haecceity</strong> — the individuating principle contracting a common nature to this individual, still the standard term in the <a href="../07-particulars/03-individuation.html">individuation</a> debate — and the <strong>univocity of being</strong>, against the analogists, on the ground that no inference from creatures to God is possible otherwise.</li>
+</ul>
+<h2 id="early-modern"><a class="header" href="#early-modern">Early modern</a></h2>
+<p><strong>Descartes</strong> reduces the categories to two created substances, distinguished by principal attributes, and generates the mind–body problem from the scheme itself. <strong>Spinoza</strong> takes the independence criterion for substance literally and concludes there is exactly one. <strong>Leibniz</strong> takes the unity criterion literally and concludes there are infinitely many simple ones, and formulates the <a href="../07-particulars/03-individuation.html">Identity of Indiscernibles</a>.</p>
+<p><strong>Locke</strong> distinguishes real from nominal essence — the underlying constitution versus the classificatory definition, which anticipates the <a href="../07-particulars/06-natural-kinds.html">natural kinds</a> debate — and confesses that the substratum is "something, we know not what." <strong>Hume</strong> draws the conclusion: with no impression of substance, there is no idea of it, and a thing is a <a href="../07-particulars/02-bundle-vs-substratum.html">bundle</a> of qualities.</p>
+<p><strong>Kant</strong> ends the tradition in its old form. Categories are not divisions of being but conditions of possible experience; ontology as a science of things in themselves is impossible, and its legitimate remnant is the analytic of the understanding. He also supplies the argument the modern treatment of <a href="../02-existence-and-being.html">existence</a> begins from: existence is not a real predicate, and a hundred real thalers contain no more coin than a hundred possible ones.</p>
+<h2 id="the-two-twentieth-centuries"><a class="header" href="#the-two-twentieth-centuries">The two twentieth centuries</a></h2>
+<p>After Kant the subject splits, and the two lines answer his negative claim in opposite ways. Running them as parallel tracks makes the structure visible:</p>
+<div class="table-wrapper"><table><thead><tr><th></th><th>Analytic line</th><th>Phenomenological line</th></tr></thead><tbody>
+<tr><td>Origin</td><td>Frege</td><td>Brentano</td></tr>
+<tr><td>Development</td><td>Russell, early Wittgenstein</td><td>Meinong, Husserl</td></tr>
+<tr><td>Radical turn</td><td>Carnap's dissolution</td><td>Heidegger's <em>Seinsfrage</em></td></tr>
+<tr><td>Result</td><td>existence is univocal and quantificational</td><td>plural ways of being; the question was never posed</td></tr>
+</tbody></table>
+</div>
+<p><strong>The analytic line.</strong> Frege makes existence a second-order property expressed by the quantifier; Russell's theory of descriptions eliminates apparent reference to what does not exist; the <em>Tractatus</em> proposes an ontology of <a href="../11-events/02-facts-and-states-of-affairs.html">facts</a>; Carnap concludes that external existence questions are pseudo-questions.</p>
+<p><strong>The phenomenological line.</strong> Brentano revives intentionality — every mental act is directed at an object — which makes the status of non-existent objects urgent. Meinong answers with <a href="../05-existence/02-meinongianism.html">objects beyond being</a>. Husserl distinguishes formal from regional ontology. Heidegger charges the whole tradition with the <a href="../15-meta-ontology/06-the-question-of-being.html">forgetfulness of Being</a>.</p>
+<p><strong>Where the tracks stop talking</strong>: Carnap's 1932 attack on Heidegger, which takes <em>das Nichts selbst nichtet</em> as the paradigm of a meaningless pseudo-statement. Note the shared premise — both traditions inherit Kant's denial that existence is a real predicate — and the opposite conclusions drawn from it. The contemporary reconvergence is <a href="../02-existence-and-being.html">ontological pluralism</a>.</p>
+<h2 id="the-quinean-revival-and-after"><a class="header" href="#the-quinean-revival-and-after">The Quinean revival and after</a></h2>
+<p><strong>Quine's</strong> "On What There Is" (1948) restores ontology to respectability within the analytic tradition by making it tractable: a <a href="../04-ontological-commitment.html">criterion of commitment</a>, a method of paraphrase, and a naturalism that ties the whole to science. <strong>Strawson's</strong> <em>Individuals</em> (1959) adds <em>descriptive</em> metaphysics — describing the structure of our conceptual scheme rather than revising it — which licenses a great deal of subsequent work.</p>
+<p>The boom follows: <strong>Goodman</strong> on nominalism and the calculus of individuals; <strong>Armstrong</strong> on universals, states of affairs, and laws; <strong>Lewis</strong> on modal realism, naturalness, and mereology; <strong>Kripke</strong> on necessity, rigid designation, and essence; <strong>van Inwagen</strong> on composition; <strong>Fine</strong> on essence and grounding.</p>
+<p><strong>Now.</strong> Three currents. <em>Grounding and fundamentality</em> have replaced supervenience as the tools for stating dependence claims. <em>Meta-ontology</em> has become a subject in its own right, with <a href="../15-meta-ontology/02-quantifier-variance.html">deflationary</a> and <a href="../15-meta-ontology/04-ontological-realism.html">realist</a> programmes in direct competition. And <em>naturalised metaphysics</em> presses the charge that the armchair tradition ignores the sciences — a charge the section's own <a href="../14-science/01-science-and-ontological-commitment.html">treatment of physics</a> takes seriously without conceding.</p>
+<h2 id="the-recurring-shape"><a class="header" href="#the-recurring-shape">The recurring shape</a></h2>
+<p>One pattern is worth naming, because it recurs in almost every period. Ontological disputes are seldom settled by refutation. They are settled — where they are — by one side showing that the other's <em>primitive</em> is unacceptable, or by a distinction that dissolves the question. Parmenides was answered by distinguishing senses of "is"; the third man by distinguishing self-predication from participation; Quine's attack on modality by distinguishing <em>de re</em> from <em>de dicto</em>; the modal analysis of essence by distinguishing necessity from real definition.</p>
+<p>That is a kind of progress, and it is the kind the <a href="../15-meta-ontology/05-method.html">method</a> page argues is available.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/15-meta-ontology/06-the-question-of-being.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/16-context/02-figures.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/15-meta-ontology/06-the-question-of-being.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/16-context/02-figures.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

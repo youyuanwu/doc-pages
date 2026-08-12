@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Holes, Absences, and Boundaries - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/04-ontology/12-contested/04-holes-and-absences.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="holes-absences-and-boundaries"><a class="header" href="#holes-absences-and-boundaries">Holes, Absences, and Boundaries</a></h1>
+<p>There is a hole in my sock. That seems as plain a fact as any, and it appears to say that something exists — a hole — whose nature is to be where the sock is not. A hole has a shape, a size, a location; holes can be counted, compared, enlarged, and repaired. Yet a hole is made of nothing.</p>
+<p>This is the section's method in miniature, on a case light enough to see all the way through. Lewis and Lewis's "Holes" (1970) is a dialogue between Argle, a materialist who holds that everything is made of matter, and Bargle, who presses him with the sock.</p>
+<hr />
+<h2 id="argles-paraphrase"><a class="header" href="#argles-paraphrase">Argle's paraphrase</a></h2>
+<p>Bargle's argument is a straightforward application of the <a href="../04-ontological-commitment.html">criterion of ontological commitment</a>:</p>
+<ol>
+<li>There are three holes in this piece of cheese.</li>
+<li>So there are things that are holes.</li>
+<li>Holes are immaterial.</li>
+<li>So not everything is material.</li>
+</ol>
+<p>Argle cannot deny (1) — it is plainly true and he is not about to say otherwise. He must therefore find a <strong>paraphrase</strong>: an account on which the sentence is true and the commitment absent. His proposal is that holes are <strong>hole-linings</strong> — the material lips of matter surrounding a cavity. To say there are three holes in the cheese is to say there are three hole-linings, and hole-linings are perfectly material.</p>
+<p>Bargle's objections and Argle's replies are the whole discipline of paraphrase compressed into a few pages:</p>
+<ul>
+<li><em>The hole is not the lining; the lining surrounds the hole.</em> Argle: this is a way of talking, and the identification is no stranger than identifying a knot with the rope.</li>
+<li><em>A hole can be filled while remaining the same hole; a lining cannot be filled.</em> Argle amends: a filled hole is a hole-lining whose interior is occupied.</li>
+<li><em>Two holes can share a lining</em> (a hole through a torus). Argle accepts a more complex account of when linings are one and when two.</li>
+</ul>
+<p>The exchange is not a game. It exhibits the constraints on paraphrase that the <a href="../04-ontological-commitment.html">commitment page</a> sets out: preserve truth value across the range of cases, preserve inferential role, be systematic, and do not covertly reintroduce what was eliminated. Argle's account is under pressure on the third and fourth counts, and whether it finally succeeds is less important than that the criteria for success are clear.</p>
+<h2 id="what-kind-of-thing-could-a-hole-be"><a class="header" href="#what-kind-of-thing-could-a-hole-be">What kind of thing could a hole be?</a></h2>
+<p>The candidate answers each place holes in a different category, which makes them a useful test of the <a href="../03-categories-of-being.html">category scheme</a>.</p>
+<ul>
+<li><strong>Hole-linings</strong> — holes are material objects under an unusual description.</li>
+<li><strong>Properties of hosts</strong> — "there is a hole in the sock" ascribes a shape property to the sock. No new entity; the difficulty is counting, since properties do not obviously come in threes the way holes do.</li>
+<li><strong>Immaterial bodies</strong> — holes are genuine entities, made of nothing, located where their hosts are not. Honest, and it concedes Bargle's argument.</li>
+<li><strong>Negative parts</strong> — a hole is a negative part of its host, requiring a mereology with complements.</li>
+<li><strong>Dependent particulars</strong> — holes exist but depend rigidly on their hosts, as <a href="../13-fundamentality/02-ontological-dependence.html">modes</a> depend on substances. Probably the most natural view: a hole is no more mysterious than a smile, and no more capable of independent existence.</li>
+</ul>
+<p>Shadows, surfaces, edges, and disturbances form the same family. A surface is where an object ends; a shadow is where light is not; a wave in water is a pattern moving through a medium none of whose parts travels with it. Each is countable, locatable, and causally relevant, while being nothing extra in the way of stuff.</p>
+<h2 id="absences-and-causation"><a class="header" href="#absences-and-causation">Absences and causation</a></h2>
+<p>The question becomes serious when absences are invoked as <strong>causes</strong>. The gardener's failure to water the plant killed it; the absence of oxygen caused the flame to go out; the lack of a vaccine caused the outbreak.</p>
+<p>If causation relates <a href="../11-events/01-events-and-processes.html">events</a>, and events are occurrences, then absences are not the sort of thing that can be a relatum — nothing happened. Yet omission-based causal claims are indispensable in law, medicine, and ordinary explanation.</p>
+<p>Three responses:</p>
+<ul>
+<li><strong>Absences are causes.</strong> Accept negative entities or negative events as relata, and pay the ontological price.</li>
+<li><strong>Absence-causation is not causation</strong> but a distinct relation of <em>causal explanation</em>, in which we cite what would have prevented the outcome. Preserves the ontology and must explain why the two behave so similarly.</li>
+<li><strong>Contrastive causation.</strong> Causal claims are relative to a contrast class; "the failure to water caused the death" says that the actual history, contrasted with a watering, made the difference. The relata remain positive; the contrast does the negative work.</li>
+</ul>
+<p>The connection to <a href="../11-events/03-truthmakers.html">truthmakers</a> is direct. The same problem arises there for negative existentials — what makes "there are no unicorns" true — and the same options recur: totality facts, absences as entities, or a principled non-maximalism. That the two debates converge on the same three options is a sign they concern one underlying question about whether <em>what is not the case</em> needs a worldly correlate.</p>
+<h2 id="holes-that-physics-quantifies-over"><a class="header" href="#holes-that-physics-quantifies-over">Holes that physics quantifies over</a></h2>
+<p>A hole in a semiconductor is the absence of an electron in the valence band. Physicists treat these holes as entities: they have an effective mass, a positive charge, a mobility; they carry current; p-type doping is the deliberate creation of them; and their behaviour is predicted quantitatively.</p>
+<p>This is an absence promoted to a causal entity by a working science, and it makes the philosophical case harder to dismiss as a curiosity. It also fits the pattern of <a href="../13-fundamentality/03-fundamentality.html">quasiparticles</a> generally — phonons and Cooper pairs are equally derivative and equally indispensable — and it supplies the <a href="../14-science/01-science-and-ontological-commitment.html">naturalised</a> ontologist with a genuine dilemma: the criterion of commitment applied to solid-state physics delivers holes, and the metaphysician's paraphrase must then be run against the physics rather than against the sock.</p>
+<h2 id="where-holes-sit"><a class="header" href="#where-holes-sit">Where holes sit</a></h2>
+<p>An <strong>inventory question</strong> whose interest is entirely methodological. Nothing important turns on whether there are holes; a great deal turns on what a successful paraphrase looks like, and this is the case where that can be examined without the stakes distorting the reasoning.</p>
+<p>Two morals for the section. First, paraphrase is not cheating — it is the standard method, and its constraints are real. Second, the availability of a paraphrase does not settle matters, because paraphrase runs both ways: Bargle could paraphrase talk of hole-linings into talk of holes. What decides, if anything does, is which regimentation makes the better total theory, which is exactly where the <a href="../04-ontological-commitment.html">commitment page</a> left the question and where it must be left.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/04-ontology/12-contested/03-social-ontology.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/04-ontology/13-fundamentality/01-grounding.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/04-ontology/12-contested/03-social-ontology.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/04-ontology/13-fundamentality/01-grounding.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>
