@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Typicality and Probability - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/08-chance-and-laws/05-typicality.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="typicality-and-probability"><a class="header" href="#typicality-and-probability">Typicality and Probability</a></h1>
+<p><strong>Typicality</strong> is the notion that a property holds of <em>almost all</em> members of a set — that exceptions form a vanishingly small proportion. It looks like probability, is measured by a measure, and does explanatory work of a similar shape. But it is not probability, and conflating the two obscures what is going on in statistical mechanics, in Bohmian mechanics, and in cosmology.</p>
+<p>The distinction is worth stating at the outset. A probability claim says how likely an outcome is. A typicality claim says that a property is shared by all but an exceptionally small set — and it says nothing about the likelihood of any individual case being in the exceptional set, because it makes no claim about sampling from the set at all.</p>
+<hr />
+<h2 id="the-notion"><a class="header" href="#the-notion">The notion</a></h2>
+<p>Let <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span> be a set with a measure <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span></span></span></span>, normalised so <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">μ</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>. A property <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> is <strong>typical</strong> if</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">μ</span><span class="mopen">({</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)})</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span></span></span></span></span></p>
+<p>for very small <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span></span></span></span>. Typicality is thus relative to two things: the set and the measure. Both must be specified, and both are contestable.</p>
+<p>The paradigm application is the second law of thermodynamics. Consider a gas confined to one half of a chamber, and the set of microstates compatible with that macrostate. Of these, the overwhelming majority — in the Liouville measure, all but a set of measure around <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9869em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9869em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span><span class="mord mtight"><span class="mord mtight">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.931em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">20</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span> — evolve so that the gas spreads out and stays spread. Expansion is <strong>typical</strong>.</p>
+<p>Note what has and has not been claimed. It has <em>not</em> been claimed that expansion has probability <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span></span></span></span> for this gas, nor that the actual microstate was drawn at random from the compatible set. The claim is that the set of non-expanding initial conditions is unimaginably small in the relevant measure, so the actual condition would have to be extraordinarily special for the gas not to expand.</p>
+<h2 id="why-not-just-call-it-probability"><a class="header" href="#why-not-just-call-it-probability">Why not just call it probability?</a></h2>
+<p>Three differences, each of which does work.</p>
+<p><strong>No sampling.</strong> A probability claim about a coin presupposes a chance process producing outcomes with stable frequencies. The universe's initial conditions were not sampled from anything: there was one initial condition, and no process selected it from a distribution. Calling the measure over initial conditions a "probability" suggests a selection that never occurred. Typicality talk avoids the suggestion.</p>
+<p><strong>No repeated trials.</strong> Statistical mechanics is applied to individual systems and, in cosmology, to a single universe. Typicality is meaningful for a one-off: this initial condition either is or is not among the exceptional ones, and the claim that the exceptional set is tiny stands regardless.</p>
+<p><strong>Explanatory form.</strong> A probabilistic explanation says the outcome was likely. A typicality explanation says the outcome required nothing special — that the actual condition was not among the vanishingly rare ones producing anomalous behaviour. Goldstein, Dürr, and Lebowitz argue that this is the correct form for statistical-mechanical explanation, and that it is stronger: it explains <em>without</em> attributing a chance to an event that never had one.</p>
+<h2 id="the-measure-problem"><a class="header" href="#the-measure-problem">The measure problem</a></h2>
+<p>Typicality's dependence on a measure is its central vulnerability. "Almost all" is meaningless until a measure is fixed, and a different measure can reverse the verdict — sets of measure zero under one can have measure one under another.</p>
+<p>The standard measure in statistical mechanics is <strong>Liouville measure</strong> on phase space, and its use is not arbitrary: it is the unique measure (up to constants) invariant under the Hamiltonian flow. Invariance is a strong credential — it means the measure is not an artifact of a choice of coordinates or of a moment in time, and that typicality claims made now remain true later. This is a substantially better justification than any available for an indifference-based prior, and it is the same style of argument as <a href="../06-rational-credence/05-priors-and-indifference.html">invariance-based priors</a>.</p>
+<p>The justification is nonetheless incomplete, in ways that matter:</p>
+<ul>
+<li>Dynamical invariance singles out Liouville measure among <em>stationary</em> measures, but the question is why the relevant set of initial conditions should be weighted by a stationary measure at all.</li>
+<li>In <strong>cosmology</strong> there is no analogue. The measure over initial conditions of the universe, or over the landscape of possible vacua, is exactly what is disputed, and there is no invariance argument to appeal to. This is why measure problems are endemic to inflationary cosmology and to fine-tuning arguments.</li>
+<li><strong>Absolute continuity</strong> does real work: what typicality arguments actually require is that the true measure not be wildly concentrated on the exceptional set. That is plausible but is an assumption, not a theorem.</li>
+</ul>
+<h2 id="the-past-hypothesis"><a class="header" href="#the-past-hypothesis">The Past Hypothesis</a></h2>
+<p>Typicality alone does not deliver the second law, and seeing why is instructive. The dynamics is time-symmetric, so if most microstates compatible with a macrostate evolve to higher entropy in the future, most also evolve <em>from</em> higher entropy in the past. Typicality reasoning applied naively predicts that entropy was higher yesterday — which is false, and would make all our records worthless.</p>
+<p>The fix is the <strong>Past Hypothesis</strong>: a boundary condition asserting that the universe began in a very low-entropy macrostate. Typicality is then applied to the set of microstates compatible with <em>that</em> initial macrostate, and the asymmetry follows because the constraint is imposed at one temporal end.</p>
+<p>The Past Hypothesis is doing indispensable work, and it is not itself a typicality claim: the initial state was, in the relevant measure, <em>extraordinarily atypical</em>. Explaining why the universe started in such a state is an open problem, treated in the <a href="../../03-spacetime/09-physics/01-thermodynamic-arrow.html">thermodynamic arrow</a> and in <a href="../../03-spacetime/09-physics/03-cosmology.html">cosmology</a>. This is the standing awkwardness of the framework: it explains everyday irreversibility by an appeal to typicality resting on a boundary condition that is itself maximally atypical.</p>
+<h2 id="other-applications"><a class="header" href="#other-applications">Other applications</a></h2>
+<p><strong>Bohmian mechanics.</strong> The theory is deterministic, with particles having definite positions guided by the wavefunction. Its statistical predictions require the <strong>quantum equilibrium hypothesis</strong> — that particle configurations are distributed as <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.03588em;">ψ</span><span class="mord"><span class="mord">∣</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>. Dürr, Goldstein, and Zanghì argue this is not a probabilistic postulate but a typicality result: the set of initial configurations of the universe failing to produce <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.03588em;">ψ</span><span class="mord"><span class="mord">∣</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> statistics in subsystems is of vanishing measure. If successful, this shows how a deterministic theory recovers the Born rule without introducing chance, and it is one of the strongest applications of the notion.</p>
+<p><strong>Everettian quantum mechanics</strong> faces a related problem in deriving the Born rule from a deterministic universal wavefunction, and typicality of branch structure has been one proposed route.</p>
+<p><strong>Cosmology and anthropic reasoning.</strong> Claims that our universe is typical or atypical among possible universes are typicality claims lacking a defensible measure — the reason such arguments are contested. The <strong>Boltzmann brain</strong> problem is the sharpest case: on some measures, observers arising from random fluctuations vastly outnumber ordinary ones, so a theory predicting them is arguably self-undermining.</p>
+<h2 id="objections"><a class="header" href="#objections">Objections</a></h2>
+<p><strong>Is it really different from probability?</strong> Sceptics argue that typicality is probability with the epistemology suppressed. The measure is a probability measure; "almost all" means "probability nearly one"; and the inference from typicality to expectation about the actual case is a probabilistic inference. On this view the terminological distinction hides an assumption — that the actual case is not exceptional — which is precisely a probabilistic assumption about sampling.</p>
+<p><strong>The inference problem.</strong> Granting that a property is typical, why expect <em>this</em> case to have it? Without the assumption that the actual case is in some sense randomly selected, the inference from "almost all" to "probably this one" does not go through. This is the sharpest form of the previous objection: typicality wants the benefits of a measure over cases without the commitment to sampling from it, and it is contested whether both can be had.</p>
+<p><strong>It cannot ground the Principal Principle.</strong> Typicality does not obviously constrain credence in the way <a href="01-principal-principle.html">chance</a> does. If typicality is not chance, why should learning that an outcome is typical make one confident of it? The natural answer reintroduces exactly the probabilistic reading that the framework was meant to avoid.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Typicality is best understood as a distinct explanatory strategy rather than a rival interpretation of probability. It earns its place where there is no repeated trial and no sampling — a single universe, a single initial condition — which is exactly where the <a href="../03-interpretations-overview.html">interpretations</a> of probability are least comfortable.</p>
+<p>Its relation to the <a href="../05-interpretations/07-humean-chance.html">best-system account</a> is close: Loewer's Mentaculus incorporates the uniform measure over initial conditions as part of the best system, effectively treating the typicality measure as an objective chance distribution. Whether that is an improvement or a category error is exactly the dispute above.</p>
+<p>This completes the chance and laws folder. The remaining folders take up induction and confirmation, probability and causation, the standing puzzles, and the scientific case studies where these notions are put to work.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/08-chance-and-laws/04-chance-over-time.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/07-induction-confirmation/01-problem-of-induction.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/08-chance-and-laws/04-chance-over-time.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/07-induction-confirmation/01-problem-of-induction.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

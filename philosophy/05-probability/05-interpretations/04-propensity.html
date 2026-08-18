@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Propensity Interpretations - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/05-interpretations/04-propensity.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="propensity-interpretations"><a class="header" href="#propensity-interpretations">Propensity Interpretations</a></h1>
+<p>A <strong>propensity</strong> is a physical tendency: a disposition of a concrete setup to produce an outcome, present in the individual case whether or not the setup is ever repeated. On this interpretation, that a nucleus has probability <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span> of decaying within its half-life is a fact about <em>that nucleus</em> — as much a property of it as its mass — and not a fact about a sequence, a class, or anybody's beliefs.</p>
+<p>Popper introduced the view in the 1950s for a specific reason: quantum mechanics assigns probabilities to single events, and <a href="03-frequentism.html">frequentism</a> cannot make sense of single-case probability. If the <a href="../../../physics/03-QM/02-postulates.html">Born rule</a> gives the chance that <em>this</em> atom decays now, and if that chance is a genuine physical fact, then probability must be capable of attaching to individuals. Propensity is the interpretation designed to let it.</p>
+<p>This page distinguishes the long-run and single-case versions, sets out what recommends the view, and then examines the two objections that dominate the literature: that "propensity" merely names the explanandum, and that propensities — being causal and directed — cannot obey a calculus that is symmetric under inversion.</p>
+<hr />
+<h2 id="two-versions"><a class="header" href="#two-versions">Two versions</a></h2>
+<p><strong>Long-run propensity.</strong> A propensity is a disposition of a <em>repeatable experimental arrangement</em> to produce outcomes with a certain limiting frequency. The propensity belongs to the setup — the coin plus the tossing device plus the conditions — rather than to any individual trial. Popper's earlier formulation and Gillies's developed version take this line.</p>
+<p>This is close to hypothetical frequentism, and deliberately so: it supplies the <em>ground</em> of the hypothetical frequency that frequentism has to posit without explanation. Where a frequentist says the probability is what the frequency would converge to, the long-run propensity theorist says it is the physical disposition <em>in virtue of which</em> it would converge, which answers the natural question of why the counterfactual has a determinate truth value.</p>
+<p>The cost is that it does not solve the problem it was introduced for. If the propensity belongs to the arrangement rather than to the trial, then a genuinely unrepeatable event — the decay of this particular nucleus, or the outcome of a unique historical situation — still has no propensity of its own.</p>
+<p><strong>Single-case propensity.</strong> A propensity is a disposition of the <em>individual case</em>, given its complete physical state. This is Popper's later view and the one Giere and Fetzer develop. It delivers exactly what was wanted: a probability for the individual event, with the long-run frequency an <em>effect</em> of many trials with similar propensities rather than the definition of one.</p>
+<p>Everything distinctive about the interpretation, and every serious problem, belongs to this version.</p>
+<h2 id="what-recommends-it"><a class="header" href="#what-recommends-it">What recommends it</a></h2>
+<p><strong>It takes physics at face value.</strong> In quantum mechanics probabilities appear in the fundamental dynamics, attached to individual systems, and are not obviously reducible to anything else. A decay probability is not a summary of a class — the nucleus does not consult a reference class before decaying — and is not plausibly a fact about our ignorance, since (on standard interpretations) there is no further fact to be ignorant of. Propensity is the interpretation that reads the theory literally.</p>
+<p><strong>It handles the single case and the reference class.</strong> Both problems that sink frequentism are solved at a stroke: the probability belongs to the concrete situation with all its properties, so there is no class to select and no question of which description to use. This is a genuine advantage and the reason the view persists despite the objections below.</p>
+<p><strong>It fits a broader metaphysics.</strong> Propensities are a species of <a href="../../04-ontology/10-modality/04-dispositions-and-powers.html">disposition</a>, and dispositional realism is an independently motivated position. On a powers ontology, fundamental properties just <em>are</em> dispositions to produce effects, and probabilistic dispositions are then no more mysterious than deterministic ones — a radium atom's tendency to decay differs only in degree from a charge's tendency to attract. An interpretation of probability that comes free with a metaphysics one holds anyway is attractive.</p>
+<p><strong>It explains why frequencies are evidence.</strong> Since propensities produce frequencies, observed frequencies are the natural evidence for propensities, and the <a href="../../../math/11-probability/07-laws-of-large-numbers.html">law of large numbers</a> is the theorem connecting them. The evidential role of statistics is preserved without the identification that causes frequentism its trouble.</p>
+<h2 id="the-objections"><a class="header" href="#the-objections">The objections</a></h2>
+<h3 id="propensity-names-the-problem"><a class="header" href="#propensity-names-the-problem">"Propensity" names the problem</a></h3>
+<p>The most common complaint is that the interpretation is empty. Told that the coin has a propensity of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span> to land heads, we ask what that consists in, and the only available answers are that it <em>would</em> produce heads about half the time in a long run — which is frequentism again — or that it is a primitive physical fact admitting no further analysis.</p>
+<p>The second answer is not obviously illegitimate; every theory has primitives, and there is no rule that probability must be reducible to something non-probabilistic. But it does mean the interpretation is less informative than it appears. It relocates the mystery rather than dispelling it, and this is the same pattern the <a href="01-classical.html">classical interpretation</a> exhibits with equipossibility. The reply available to the propensity theorist is that a primitive with a clear role in physical explanation is in better standing than one with no role, and that dispositional properties are ubiquitous in science.</p>
+<p>There is also an <strong>ascertainability</strong> worry. If the propensity of the individual case depends on its complete physical state, and two apparently similar setups can differ in propensity, then we can never be confident that our statistics are estimating the propensity we care about rather than an average over heterogeneous cases. The theory's metaphysical strength — attaching probability to the fully specific situation — is an epistemic weakness.</p>
+<h3 id="humphreys-paradox"><a class="header" href="#humphreys-paradox">Humphreys' paradox</a></h3>
+<p>The sharpest technical objection, due to Paul Humphreys (1985), is that propensities cannot satisfy the probability calculus. The argument turns on <strong>asymmetry</strong>.</p>
+<p>Probabilities invert freely. Given <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span>, Bayes' theorem yields</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.363em;vertical-align:-0.936em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>and both quantities are perfectly well defined probabilities. But propensities are <em>causal tendencies</em>, and causation is asymmetric. A photon's propensity to be transmitted by a filter is a genuine physical tendency; the "propensity" of a transmitted photon to have been emitted by a particular source is not a tendency of anything at all — the emission has already happened, and nothing is being brought about. Yet the calculus generates a number for it.</p>
+<p>So either propensities do not obey the calculus — in which case they are not an interpretation of probability — or there exist inverse propensities, which appear to be causal tendencies running backwards in time. Neither horn is comfortable.</p>
+<p>Responses fall into three groups, and none commands agreement.</p>
+<ul>
+<li><strong>Deny that propensities must be conditional probabilities.</strong> Treat propensity as attaching to unconditional single-case chances, with conditional probabilities defined from them in the ordinary way. This blunts the paradox, at the cost of making it unclear what the propensity is a propensity <em>of</em>, since dispositions are naturally relative to a triggering condition.</li>
+<li><strong>Accept the inverse quantities as probabilities but not as propensities.</strong> The calculus generates numbers that are legitimate degrees of belief without being tendencies. This is the most popular line, and it concedes something important: the propensity interpretation covers only part of the probability calculus, and needs a credence-based reading for the rest. That is pluralism, and it undercuts propensity's claim to be <em>the</em> interpretation of probability.</li>
+<li><strong>Restrict the domain.</strong> Hold that propensities are defined only for the forward-directed conditionals, treating the inverse as a formal artifact. This is coherent but concedes that "propensity" and "probability" are not co-extensive.</li>
+</ul>
+<p>Humphreys himself drew the strong conclusion: probability theory is simply the wrong formalism for causal tendencies, and the attempt to interpret it propensity-wise should be abandoned rather than patched.</p>
+<h3 id="determinism"><a class="header" href="#determinism">Determinism</a></h3>
+<p>If the world is deterministic, single-case propensities are trivial — every outcome has propensity <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> or <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> given the complete prior state. Yet statistical mechanics, population genetics, and actuarial science all use non-trivial probabilities, and they do not appear to be false.</p>
+<p>The propensity theorist can say those probabilities are epistemic rather than physical, which is a coherent division of labour but concedes that propensity covers only fundamental-physical chance and nothing else. Since fundamental physics might turn out to be deterministic — Bohmian mechanics is empirically equivalent to standard quantum mechanics and fully deterministic — the interpretation risks having no application at all. Contrast the <a href="07-humean-chance.html">best-system account</a>, which accommodates deterministic chance without strain, and see <a href="../08-chance-and-laws/02-determinism-and-chance.html">determinism and chance</a> for the general question.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><strong>Admissibility</strong></td><td><strong>contested</strong> — this is precisely what Humphreys' paradox denies</td></tr>
+<tr><td><strong>Ascertainability</strong></td><td>indirect only, via frequencies, with the heterogeneity worry above</td></tr>
+<tr><td><strong>Applicability</strong></td><td>strong in fundamental physics, weak or absent elsewhere</td></tr>
+<tr><td><strong>Single case</strong></td><td><strong>passes</strong> — its reason for existing</td></tr>
+<tr><td><strong>Explains the calculus</strong></td><td><strong>poor</strong> — the calculus is imposed on propensities, not derived from them</td></tr>
+<tr><td><strong>Guidance</strong></td><td>good, if the <a href="../08-chance-and-laws/01-principal-principle.html">Principal Principle</a> is granted — a known propensity plainly should guide belief</td></tr>
+</tbody></table>
+</div>
+<p>The profile is the mirror image of frequentism's. Frequentism explains the calculus and fails the single case; propensity passes the single case and struggles with the calculus. That complementarity is one of the better arguments for pluralism about probability.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Propensity is the most straightforwardly <strong>realist</strong> answer to the metaphysical question of the <a href="../01-introduction.html">introduction</a>: chances are physical properties of individual systems, as objective as masses. Its difficulties are the price of that realism, and they are all versions of one worry — that a directed causal tendency and a symmetric measure are different kinds of thing.</p>
+<p>It is also the position most directly at stake in interpreting quantum mechanics. Whether the Born probabilities are propensities, frequencies, best-system chances, or degrees of belief is not settled by the formalism, and the <a href="../../../math/11-probability/17-quantum-probability.html">mathematics of quantum probability</a> — Gleason's theorem fixing the <em>form</em> of the measure without fixing its interpretation — is a further instance of the neutrality this section keeps returning to. The <a href="../11-science/01-quantum-chance.html">quantum chance</a> page takes that up directly.</p>
+<p>The next two pages cross to the epistemic side of the <a href="../02-chance-and-credence.html">chance/credence divide</a>, beginning with the position that dispenses with objective chance altogether: <a href="05-subjective-bayesianism.html">subjective Bayesianism</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/05-interpretations/03-frequentism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/05-interpretations/05-subjective-bayesianism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/05-interpretations/03-frequentism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/05-interpretations/05-subjective-bayesianism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

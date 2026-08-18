@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Humean Best-System Chance - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/05-interpretations/07-humean-chance.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="humean-best-system-chance"><a class="header" href="#humean-best-system-chance">Humean Best-System Chance</a></h1>
+<p>The <strong>best-system account</strong> is the leading attempt to have objective chance without objective modality. It is Humean in Lewis's sense: everything supervenes on the total distribution of local qualitative fact — the <strong>mosaic</strong> of what actually happens, point by point, throughout the history of the world. There are no irreducible powers, necessary connections, or governing laws over and above the pattern. Chances, like laws, are features of the <em>best summary</em> of that pattern.</p>
+<p>The account inherits the empiricist economy that made <a href="03-frequentism.html">frequentism</a> attractive while avoiding its technical failures, and it supplies the objective chances that <a href="06-objective-bayesianism.html">objective Bayesianism</a> presupposes but does not provide. It is also the account with the most interesting internal problem: chance so defined depends on the whole of history including the future, which sits badly with the very principle that gives chance its point.</p>
+<hr />
+<h2 id="the-best-system"><a class="header" href="#the-best-system">The best system</a></h2>
+<p>Start with laws. On the <strong>Mill–Ramsey–Lewis</strong> view, the <a href="../../04-ontology/10-modality/05-laws-of-nature.html">laws of nature</a> are the theorems of the deductive system that best balances two virtues:</p>
+<ul>
+<li><strong>Simplicity</strong> — the system should be economical in its axioms.</li>
+<li><strong>Strength</strong> — it should say as much as possible about the world.</li>
+</ul>
+<p>These trade off: "everything that happens, happens" is maximally simple and useless; a complete list of every event is maximally strong and no summary at all. The laws are the generalisations appearing in the system striking the best balance.</p>
+<p>Lewis's insight was that adding probabilistic axioms lets a system buy enormous strength for very little simplicity. A system stating the chance of decay for each isotope is far simpler than one listing every decay event, and nearly as informative for practical purposes. To make this work a third virtue is needed:</p>
+<ul>
+<li><strong>Fit</strong> — how probable the actual course of history is according to the system. A system assigning higher probability to what actually happened fits better.</li>
+</ul>
+<p>So: <strong>the chances are whatever the best system says they are</strong>, where "best" optimises simplicity, strength, and fit jointly. If the best summary of our world's history assigns each caesium-137 nucleus a decay chance per unit time, then that <em>is</em> its chance — not because of a propensity in the nucleus, but because that number appears in the best systematisation of the mosaic.</p>
+<p>Fit can be made precise for a finite world as the probability the system assigns to the entire history, and comparisons are then straightforward. For infinite worlds every history typically gets probability zero, and comparing fit requires more care — a known technical difficulty rather than a decisive objection.</p>
+<h2 id="what-the-account-gets-right"><a class="header" href="#what-the-account-gets-right">What the account gets right</a></h2>
+<p><strong>It makes chance objective without making it primitive.</strong> Chances are determinate, mind-independent, and discoverable, but they are not extra ingredients of reality. For anyone attracted to Humean supervenience — the thesis that the world is a mosaic of local matters of fact and everything else supervenes — this is exactly what is wanted.</p>
+<p><strong>It permits deterministic chance.</strong> The mosaic of a deterministic world can still be best summarised by a system with probabilistic axioms. This is a substantial advantage over <a href="04-propensity.html">propensity</a>, which makes non-trivial chances impossible under determinism. It means the probabilities of statistical mechanics, population genetics, and actuarial science can be <em>literally true chances</em> rather than disguised ignorance. Loewer's "Mentaculus" develops this: the best system of our world comprises the fundamental dynamics, the <strong>Past Hypothesis</strong> fixing a low-entropy initial macrostate, and a uniform probability distribution over the microstates compatible with it — from which the <a href="../../03-spacetime/09-physics/01-thermodynamic-arrow.html">thermodynamic asymmetry</a> and all the special-science probabilities are supposed to follow.</p>
+<p><strong>It explains the chance–frequency connection.</strong> The fit criterion builds in that chances track frequencies without identifying them. A system whose chances diverged wildly from actual frequencies would fit badly and so would not be best; but chances need not equal frequencies exactly, so a fair coin can land heads seven times in ten. This is precisely the connection <a href="03-frequentism.html">finite frequentism</a> could not draw, and it comes out as a consequence rather than a stipulation.</p>
+<p><strong>It handles the single case and the reference class.</strong> The chance attaches to an event via the system's general axioms, and the system, not our choice of description, determines which properties are chance-relevant.</p>
+<h2 id="the-problems"><a class="header" href="#the-problems">The problems</a></h2>
+<h3 id="undermining-and-the-big-bad-bug"><a class="header" href="#undermining-and-the-big-bad-bug">Undermining and the Big Bad Bug</a></h3>
+<p>The account's central difficulty, and Lewis's own name for it. Because chances supervene on the <em>whole</em> mosaic including the future, and because a chancy system assigns non-zero probability to many possible futures, some of those futures would — if they came about — make a <em>different</em> system best. So the present chances assign positive probability to a future in which the present chances are different from what they are.</p>
+<p>Call such a future <strong>undermining</strong>. Let <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> be the proposition describing an undermining future, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> the true theory of chance, and let the present chance of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> be some small <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>. The <a href="../02-chance-and-credence.html">Principal Principle</a> requires <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>. But <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> entails that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> is false, since <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> would make a different theory true, so any coherent agent must have <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>. Contradiction.</p>
+<p>The bug is not a peripheral irritant. It arises from the conjunction of Humean supervenience and the principle that gives chance its connection to belief, and Lewis regarded it as the most serious problem for his system.</p>
+<p>The standard repair is the <strong>New Principle</strong> of Hall and Thau, adopted by Lewis in "Humean Supervenience Debugged":</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mclose">)</span></span></span></span></span></p>
+<p>Credence should match the chance <em>conditional on the theory of chance being true</em>, rather than the unconditional chance. This restores consistency. The cost is philosophical rather than formal: chance no longer straightforwardly guides belief, and one has to explain why a modified principle is still recognisably a principle about chance. Some — notably Hall — regard the New Principle as the correct formulation all along; others take the need for repair as evidence that Humean chance is not really chance.</p>
+<h3 id="can-a-summary-guide-belief"><a class="header" href="#can-a-summary-guide-belief">Can a summary guide belief?</a></h3>
+<p>A more basic worry. Why should a rational agent set credence by the numbers appearing in the best <em>summary</em> of history? On a propensity view the answer is easy: the chance is a physical tendency, and matching belief to tendency is obviously sensible. On the Humean view, the chance is a term in a compression of the mosaic, and it is less clear why a fact about the <em>best description</em> of the whole should constrain belief about a particular event.</p>
+<p>Humeans reply that the best system's chances are precisely the ones that best fit the pattern of events, so an agent guided by them is guided by the most informative available summary — deference to the best system is deference to the pattern. Critics respond that this makes the Principal Principle a happy accident rather than a constitutive truth about chance.</p>
+<h3 id="can-a-summary-explain"><a class="header" href="#can-a-summary-explain">Can a summary explain?</a></h3>
+<p>Related. We ordinarily take it that the sample dissolved <em>because</em> the chance of dissolution was high. If chances are summaries of the total pattern of events, then citing a chance to explain an event is citing a summary that partly includes the event itself. Whether this is viciously circular, or merely the usual situation for explanation by subsumption under a regularity, is disputed — and it is the same objection Humeans face about laws generally. The <a href="../08-chance-and-laws/03-chance-and-explanation.html">chance and explanation</a> page takes it up.</p>
+<h3 id="ratbag-idealism-and-the-naturalness-problem"><a class="header" href="#ratbag-idealism-and-the-naturalness-problem">Ratbag idealism and the naturalness problem</a></h3>
+<p>"Best" is defined by simplicity, strength, and fit, and simplicity is language-relative: a system's axiom count depends on which predicates count as simple. Without a constraint, one could gerrymander a predicate making any system trivially simple, and chances would then depend on our choice of vocabulary — the "ratbag idealist" worry that Lewis wanted to avoid.</p>
+<p>Lewis's answer is <strong>perfectly natural properties</strong>: the ones carving nature at the joints, whose identification is a job for fundamental physics. Simplicity is measured in a language whose primitives are the natural properties. This works, but it means the account is not fully reductive — it takes naturalness as a primitive, so the Humean has traded primitive modality for primitive naturalness. Whether that is a good trade is a live question, treated in <a href="../../04-ontology/10-modality/05-laws-of-nature.html">Ontology</a>.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><strong>Admissibility</strong></td><td>passes — the system's axioms are probability measures</td></tr>
+<tr><td><strong>Ascertainability</strong></td><td>passes in principle — we find the chances by finding the best theory, which is what science does</td></tr>
+<tr><td><strong>Applicability</strong></td><td>strong, and uniquely good at <em>deterministic</em> chance</td></tr>
+<tr><td><strong>Single case</strong></td><td>passes</td></tr>
+<tr><td><strong>Explains the calculus</strong></td><td>passes — the system's probabilistic axioms are probabilities by construction</td></tr>
+<tr><td><strong>Guidance</strong></td><td><strong>contested</strong> — requires the New Principle, and the rationale is disputed</td></tr>
+</tbody></table>
+</div>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Best-system chance is the <strong>chance-first</strong> position of the <a href="../02-chance-and-credence.html">chance/credence taxonomy</a> reconciled with Humean metaphysics: objective, discoverable chances that are nonetheless nothing over and above the pattern of what happens. It is the natural partner for <a href="06-objective-bayesianism.html">objective Bayesianism</a>, supplying the chances its calibration norm defers to, and the natural rival to <a href="04-propensity.html">propensity</a>, which locates chance in the individual system rather than the global pattern.</p>
+<p>The choice between them is not settled by probability theory and is largely a proxy for a prior question about laws and modality: whether the world contains genuine powers and necessitation, or only a mosaic and our summaries of it. That question belongs to <a href="../../04-ontology/10-modality/05-laws-of-nature.html">Ontology</a>, and the pages here inherit its answer rather than settling it.</p>
+<p>This completes the interpretations. Every position surveyed has now met the same pattern — each answers some of the <a href="../03-interpretations-overview.html">criteria of adequacy</a> well and fails others, and none dominates. The next folder turns from what probability <em>is</em> to how credence <em>ought</em> to behave, taking up probabilism, Dutch books, accuracy, conditionalization, and the persistent problem of the priors.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/05-interpretations/06-objective-bayesianism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/06-rational-credence/01-probabilism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/05-interpretations/06-objective-bayesianism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/06-rational-credence/01-probabilism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Probability in Statistical Mechanics - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/11-science/02-statistical-mechanics.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="probability-in-statistical-mechanics"><a class="header" href="#probability-in-statistical-mechanics">Probability in Statistical Mechanics</a></h1>
+<p>Statistical mechanics derives the thermodynamic behaviour of macroscopic systems from the mechanics of their constituents, and it cannot do so without probabilities. Yet the underlying dynamics — classical Hamiltonian mechanics, or unitary quantum evolution — is deterministic and time-reversible, while the behaviour derived is probabilistic and irreversible. Something has to bridge the gap, and what does the bridging is a probability distribution whose status has been disputed since Boltzmann.</p>
+<p>The <a href="../../03-spacetime/09-physics/01-thermodynamic-arrow.html">thermodynamic arrow</a> page treats the temporal asymmetry. This page treats the probabilities themselves: what they are, where they come from, and whether they are chances or ignorance.</p>
+<hr />
+<h2 id="two-frameworks"><a class="header" href="#two-frameworks">Two frameworks</a></h2>
+<p><strong>Gibbsian.</strong> The object of study is an <strong>ensemble</strong> — a probability distribution over phase space representing a collection of systems similarly prepared. Equilibrium corresponds to a stationary distribution (microcanonical, canonical, grand canonical), and thermodynamic quantities are ensemble averages.</p>
+<p>This is what physicists calculate with, and it works superbly. Its interpretive difficulty is that a real gas is <em>one</em> system, not an ensemble, and it is unclear what an average over imaginary copies has to do with it. The natural readings are that the ensemble represents our uncertainty about the actual microstate, which makes the probabilities epistemic, or that it is a calculational device with no direct physical referent.</p>
+<p><strong>Boltzmannian.</strong> The object of study is an individual system. Phase space is partitioned into <strong>macrostates</strong> — regions whose points share the same macroscopic description — and the entropy of a microstate is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span>, where <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span> is the phase-space volume of its macrostate. The equilibrium macrostate is overwhelmingly the largest: for a gas of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">23</span></span></span></span></span></span></span></span></span></span></span></span> particles, it occupies all but a fraction of order <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9869em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9869em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span><span class="mord mtight"><span class="mord mtight">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.931em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">20</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span> of the accessible volume.</p>
+<p>Entropy increases because a system in a small macrostate, evolving under the dynamics, is overwhelmingly likely to enter larger ones — simply because they are larger. This account applies to individual systems, which is its principal advantage, and it is the framework in which the philosophical questions are sharpest.</p>
+<h2 id="the-reversibility-objections"><a class="header" href="#the-reversibility-objections">The reversibility objections</a></h2>
+<p>Two nineteenth-century objections established that the dynamics alone cannot yield the second law, and both remain the fixed points of the discussion.</p>
+<p><strong>Loschmidt's reversibility objection.</strong> The microdynamics is time-reversal invariant. For every trajectory along which entropy increases, the velocity-reversed trajectory has entropy decreasing. So the dynamics cannot by itself favour increase.</p>
+<p><strong>Zermelo's recurrence objection.</strong> By the Poincaré recurrence theorem, a bounded system returns arbitrarily close to its initial state after a finite time. So entropy cannot increase monotonically forever. (The recurrence times are astronomically long — vastly exceeding the age of the universe for any macroscopic system — so this is a problem of principle rather than of practice.)</p>
+<p>Both objections are correct, and they show that any derivation of the second law needs an ingredient beyond the dynamics. That ingredient is a probability distribution over initial conditions, plus a boundary condition.</p>
+<h2 id="the-statistical-postulate-and-the-past-hypothesis"><a class="header" href="#the-statistical-postulate-and-the-past-hypothesis">The Statistical Postulate and the Past Hypothesis</a></h2>
+<p>The standard package has two components.</p>
+<p><strong>The Statistical Postulate.</strong> The probability distribution over microstates compatible with a given macrostate is uniform with respect to the <strong>Liouville measure</strong>.</p>
+<p>Liouville measure is not an arbitrary choice: it is the unique measure (up to a constant) preserved by Hamiltonian flow. That invariance is a genuine credential — the measure is not an artifact of coordinates, and typicality judgements made with it do not change under time evolution. It is a considerably better-motivated choice than any indifference-based prior, though as <a href="../08-chance-and-laws/05-typicality.html">typicality</a> notes, the argument singles out Liouville measure among <em>stationary</em> measures without establishing that the relevant distribution must be stationary.</p>
+<p><strong>The Past Hypothesis.</strong> The universe began in a very low-entropy macrostate.</p>
+<p>This is required because the Statistical Postulate alone is time-symmetric and yields the wrong retrodictions. Applied to a half-melted ice cube, it predicts higher entropy in the future — correct — and also higher entropy in the past — badly wrong, since it implies the ice cube fluctuated into existence rather than being placed there, and undermines every record and memory. Imposing the low-entropy boundary condition at one temporal end breaks the symmetry and restores correct retrodiction.</p>
+<p>Albert's and Loewer's package — dynamics plus Past Hypothesis plus Statistical Postulate — is the standard modern formulation.</p>
+<h2 id="what-are-these-probabilities"><a class="header" href="#what-are-these-probabilities">What are these probabilities?</a></h2>
+<p>Four answers, each corresponding to a position from the <a href="../03-interpretations-overview.html">interpretations</a>.</p>
+<p><strong>Epistemic (Jaynes).</strong> The distribution represents our ignorance of the microstate, and the equilibrium distributions are the <a href="../05-interpretations/06-objective-bayesianism.html">maximum-entropy</a> distributions given the macroscopic constraints. Statistical mechanics is inference, not physics.</p>
+<p>This is elegant and derives the standard ensembles from a single principle. The objection is that it seems to make thermodynamic behaviour depend on what we know: gases expanded before there were observers, and a demon with more information would not thereby change the gas. Jaynesians reply that the predictions concern what is inferable from macroscopic data, and that the objection conflates the probabilities with the phenomena they predict — but the worry that irreversibility becomes observer-dependent is persistent.</p>
+<p><strong>Objective chance (best-system).</strong> Loewer's Mentaculus treats the whole package — dynamics, Past Hypothesis, Statistical Postulate — as the <a href="../05-interpretations/07-humean-chance.html">best system</a> of our world, so the probabilities are objective chances despite the deterministic dynamics. This is the leading realist option and the main application of best-system chance outside fundamental physics.</p>
+<p><strong>Typicality.</strong> No probabilities at all: the claim is that non-thermodynamic behaviour is <em>atypical</em>, holding only on a set of vanishing measure. This avoids attributing a chance to an unrepeatable event — the universe's initial condition was not sampled from anything — at the cost of the inference problem set out under <a href="../08-chance-and-laws/05-typicality.html">typicality</a>: why expect <em>this</em> case to be typical?</p>
+<p><strong>Deterministic chance via coarse-graining.</strong> The probabilities are objective features of the macro-level description, real in the same way that macro-variables are, and not reducible to ignorance. This connects to the general treatment in <a href="../08-chance-and-laws/02-determinism-and-chance.html">determinism and chance</a>.</p>
+<h2 id="the-status-of-the-past-hypothesis"><a class="header" href="#the-status-of-the-past-hypothesis">The status of the Past Hypothesis</a></h2>
+<p>The framework's most conspicuous awkwardness. Everyday irreversibility is explained by an appeal to typicality that rests on a boundary condition which is itself, in the same measure, extraordinarily <em>atypical</em>: Penrose's estimate for the initial state's improbability is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> in <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9869em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9869em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight"><span class="mord mtight">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.931em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">123</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>.</p>
+<p>The options:</p>
+<ul>
+<li><strong>A brute law.</strong> The Past Hypothesis is a fundamental law with no further explanation. Defensible — laws have to stop somewhere — but unsatisfying given the magnitude of the improbability.</li>
+<li><strong>Explained by cosmology.</strong> Inflation or some other mechanism accounts for the low-entropy start. Attractive, but inflationary explanations tend to require their own finely-tuned initial conditions, relocating rather than removing the problem.</li>
+<li><strong>A selection effect.</strong> Only low-entropy regions support observers. This is <a href="../10-puzzles/06-anthropic-reasoning.html">anthropic reasoning</a> and inherits the measure problem, plus the Boltzmann-brain worry: a fluctuation producing just an observer with false memories is vastly more likely than one producing an entire low-entropy universe.</li>
+<li><strong>Not improbable at all.</strong> The improbability is measure-relative, and no defensible measure over initial conditions of the universe exists. This is the deflationary reply and it applies to the fine-tuning literature equally.</li>
+</ul>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Statistical mechanics is the most consequential application of probability outside fundamental physics, and its probabilities are indispensable, empirically vindicated, and interpretively unsettled. The pattern matches <a href="01-quantum-chance.html">quantum chance</a> exactly: the formalism is agreed, the predictions confirmed, and the question of what the numbers <em>are</em> remains open across the same range of positions.</p>
+<p>The case is also the best available test of whether <a href="../08-chance-and-laws/02-determinism-and-chance.html">deterministic chance</a> is coherent. Anyone who denies it must say that statistical-mechanical probabilities are epistemic, and then explain why gases expanded before anyone was uncertain about them.</p>
+<p>The next page takes up a notion these frameworks use without defining: what it is for a sequence or a process to be <a href="03-randomness.html">random</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/11-science/01-quantum-chance.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/11-science/03-randomness.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/11-science/01-quantum-chance.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/11-science/03-randomness.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

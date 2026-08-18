@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Key Figures - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/12-context/03-figures.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="key-figures"><a class="header" href="#key-figures">Key Figures</a></h1>
+<p>A compact reference to the principal contributors, with the claim each is cited for in this section. Ordered chronologically.</p>
+<hr />
+<h2 id="the-founders"><a class="header" href="#the-founders">The founders</a></h2>
+<p><strong>Blaise Pascal</strong> (1623–1662) — with Fermat, the 1654 correspondence on the division of stakes that founded the calculus. The <strong>Wager</strong> is the first decision-theoretic argument; see <a href="../../02-religion/09-epistemology/05-pragmatic-arguments.html">pragmatic arguments</a>.</p>
+<p><strong>Christiaan Huygens</strong> (1629–1695) — the first textbook (1657); expectation as the primary notion.</p>
+<p><strong>Jacob Bernoulli</strong> (1655–1705) — <em>Ars Conjectandi</em> (1713): the first <a href="../../../math/11-probability/07-laws-of-large-numbers.html">law of large numbers</a>, and the first clear statement of the aleatory/epistemic distinction that became the <a href="../02-chance-and-credence.html">chance/credence</a> divide. Saw that his theorem addressed the inverse problem only indirectly.</p>
+<p><strong>Thomas Bayes</strong> (1701–1761) — the posthumous <em>Essay</em> (1763) solving a version of the inverse problem; an early recognition that the prior requires justification.</p>
+<p><strong>Pierre-Simon Laplace</strong> (1749–1827) — the <a href="../05-interpretations/01-classical.html">classical interpretation</a> in canonical form; the Principle of Indifference; a determinist for whom probability is entirely epistemic.</p>
+<h2 id="the-nineteenth-century-critics"><a class="header" href="#the-nineteenth-century-critics">The nineteenth-century critics</a></h2>
+<p><strong>George Boole</strong> (1815–1864) — the circularity objection to equipossibility.</p>
+<p><strong>John Venn</strong> (1834–1923) — <em>The Logic of Chance</em> (1866): <a href="../05-interpretations/03-frequentism.html">frequentism</a> and a sustained attack on indifference.</p>
+<p><strong>Charles Sanders Peirce</strong> (1839–1914) — an early <strong>propensity</strong> theorist: a die's probability is a "would-be", a disposition of the object.</p>
+<p><strong>Ludwig Boltzmann</strong> (1844–1906) — the statistical account of entropy; the origin of the problems treated in <a href="../11-science/02-statistical-mechanics.html">statistical mechanics</a>.</p>
+<p><strong>Henri Poincaré</strong> (1854–1912) — the <strong>method of arbitrary functions</strong>, explaining why symmetric mechanical devices produce stable frequencies whatever the input distribution. The best vindication of the classical intuition, and relevant to <a href="../08-chance-and-laws/02-determinism-and-chance.html">deterministic chance</a>.</p>
+<h2 id="the-interpretation-builders"><a class="header" href="#the-interpretation-builders">The interpretation-builders</a></h2>
+<p><strong>John Maynard Keynes</strong> (1883–1946) — <em>A Treatise on Probability</em> (1921): the <a href="../05-interpretations/02-logical-probability.html">logical interpretation</a>, with probability as a primitive logical relation, and the admission that some probabilities are merely ordinal or incomparable.</p>
+<p><strong>Richard von Mises</strong> (1883–1953) — rigorous <a href="../05-interpretations/03-frequentism.html">frequentism</a>: collectives, limiting frequencies, and the axiom of randomness via place selection. Accepted that single-case probability is meaningless.</p>
+<p><strong>Frank Ramsey</strong> (1903–1930) — "Truth and Probability" (1926): the <a href="../05-interpretations/05-subjective-bayesianism.html">subjectivist</a> foundation, the first Dutch-book argument, and the joint derivation of probability and utility from preference. Written against Keynes.</p>
+<p><strong>Bruno de Finetti</strong> (1906–1985) — "probability does not exist"; the <a href="../../../math/11-probability/13-exchangeability-de-finetti.html">representation theorem</a> for exchangeable sequences; the rejection of <a href="../06-rational-credence/01-probabilism.html">countable additivity</a>.</p>
+<p><strong>Harold Jeffreys</strong> (1891–1989) — invariant priors; the <strong>Jeffreys prior</strong>; the bridge from logical probability to <a href="../05-interpretations/06-objective-bayesianism.html">objective Bayesianism</a>.</p>
+<p><strong>Andrey Kolmogorov</strong> (1903–1987) — the measure-theoretic <a href="../../../math/11-probability/01-kolmogorov-axioms.html">axiomatisation</a> (1933), whose philosophical significance is its neutrality among interpretations. Also the founder of <a href="../11-science/03-randomness.html">algorithmic randomness</a>.</p>
+<p><strong>Rudolf Carnap</strong> (1891–1970) — <em>Logical Foundations of Probability</em> (1950) and the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span></span></span></span>-continuum; the most systematic inductive logic, and the most instructive failure.</p>
+<p><strong>Hans Reichenbach</strong> (1891–1953) — frequentism; the pragmatic vindication of <a href="../07-induction-confirmation/01-problem-of-induction.html">induction</a>; the <a href="../09-causation/02-screening-off-common-causes.html">common-cause principle</a> and screening off.</p>
+<p><strong>Karl Popper</strong> (1902–1994) — falsificationism; the <a href="../05-interpretations/04-propensity.html">propensity</a> interpretation, introduced for single-case quantum probabilities.</p>
+<p><strong>Richard Cox</strong> (1898–1991) — the derivation of the probability axioms from structural desiderata on plausible reasoning.</p>
+<p><strong>Leonard Savage</strong> (1917–1971) — <em>The Foundations of Statistics</em> (1954): the definitive representation theorem; the sure-thing principle, relevant to <a href="../09-causation/03-simpsons-paradox.html">Simpson's paradox</a>.</p>
+<h2 id="the-modern-period"><a class="header" href="#the-modern-period">The modern period</a></h2>
+<p><strong>Nelson Goodman</strong> (1906–1998) — <strong>grue</strong> and the new riddle of <a href="../07-induction-confirmation/01-problem-of-induction.html">induction</a>; the demonstration that no purely formal confirmation theory can succeed.</p>
+<p><strong>E. T. Jaynes</strong> (1922–1998) — <a href="../05-interpretations/06-objective-bayesianism.html">maximum entropy</a> and transformation groups; the invariance resolution of <a href="../10-puzzles/01-bertrand-and-model-selection.html">Bertrand's paradox</a>.</p>
+<p><strong>Wesley Salmon</strong> (1925–2001) — statistical-relevance and causal-mechanical accounts of <a href="../08-chance-and-laws/03-chance-and-explanation.html">explanation</a>; objective homogeneity as an answer to the <a href="../10-puzzles/03-reference-classes.html">reference-class problem</a>.</p>
+<p><strong>Richard Jeffrey</strong> (1926–2002) — <a href="../06-rational-credence/04-conditionalization.html">Jeffrey conditionalization</a> for uncertain evidence; radical probabilism.</p>
+<p><strong>John Bell</strong> (1928–1990) — <a href="../../A-remarks/03-philosophy-of-bells-theorem.html">Bell's theorem</a>: the empirical refutation of local common-cause explanations of quantum correlations.</p>
+<p><strong>Patrick Suppes</strong> (1922–2014) — the probabilistic theory of <a href="../09-causation/01-probabilistic-causation.html">causation</a> in its systematic form.</p>
+<p><strong>David Lewis</strong> (1941–2001) — the <a href="../08-chance-and-laws/01-principal-principle.html">Principal Principle</a>; <a href="../05-interpretations/07-humean-chance.html">best-system chance</a>; Humean supervenience and the discovery of the Big Bad Bug; the diachronic Dutch book. The single most influential figure in the contemporary debate.</p>
+<p><strong>Nancy Cartwright</strong> (b. 1943) — contextual unanimity in probabilistic causation; scepticism about universal laws.</p>
+<p><strong>Clark Glymour</strong> (b. 1942) — the <a href="../07-induction-confirmation/04-old-evidence-and-new-theories.html">old-evidence problem</a>; with Spirtes and Scheines, causal discovery algorithms.</p>
+<p><strong>Judea Pearl</strong> (b. 1936) — <a href="../09-causation/04-causal-models.html">causal models</a>, the do-operator, the back-door criterion, and the ladder of causation.</p>
+<p><strong>Deborah Mayo</strong> (b. 1947) — error statistics and the <strong>severity</strong> requirement; the principal alternative to Bayesian <a href="../07-induction-confirmation/03-likelihood-and-evidence.html">evidence</a>.</p>
+<p><strong>Alan Hájek</strong> (b. 1962) — the systematic catalogue of objections to each interpretation; the <a href="../03-interpretations-overview.html">criteria of adequacy</a> used throughout this section; the generality of the reference-class problem; the case for pluralism.</p>
+<p><strong>James Joyce</strong> (b. 1959) — the <a href="../06-rational-credence/03-accuracy-and-scoring.html">accuracy-dominance</a> argument for probabilism, replacing pragmatic Dutch books with an epistemic argument.</p>
+<p><strong>Adam Elga</strong> (b. 1971) — <a href="../10-puzzles/05-sleeping-beauty.html">Sleeping Beauty</a> and the thirder argument; self-locating belief.</p>
+<p><strong>Nick Bostrom</strong> (b. 1973) — <em>Anthropic Bias</em>: the Self-Sampling and Self-Indication assumptions; the presumptuous philosopher; the systematic treatment of <a href="../10-puzzles/06-anthropic-reasoning.html">anthropic reasoning</a>.</p>
+<p><strong>Barry Loewer</strong> (b. 1942) — the <strong>Mentaculus</strong>; the best-system treatment of <a href="../11-science/02-statistical-mechanics.html">statistical-mechanical</a> probability.</p>
+<p><strong>David Wallace</strong> (b. 1976) — with Deutsch, the decision-theoretic derivation of the Born rule in <a href="../11-science/01-quantum-chance.html">Everettian quantum mechanics</a>.</p>
+<p><strong>Jon Williamson</strong> (b. 1971) — the three-norm formulation of <a href="../05-interpretations/06-objective-bayesianism.html">objective Bayesianism</a>.</p>
+<p><strong>Peter Walley</strong> (b. 1946) — the theory of lower previsions and <a href="../06-rational-credence/06-imprecise-probability.html">imprecise probability</a>.</p>
+<p><strong>Paul Humphreys</strong> (b. 1950) — <a href="../05-interpretations/04-propensity.html">Humphreys' paradox</a>: propensities are asymmetric, probabilities invert, so propensities are not probabilities.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/12-context/02-method.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/A-remarks/00-README.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/12-context/02-method.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/A-remarks/00-README.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Old Evidence and New Theories - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/07-induction-confirmation/04-old-evidence-and-new-theories.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="old-evidence-and-new-theories"><a class="header" href="#old-evidence-and-new-theories">Old Evidence and New Theories</a></h1>
+<p><a href="02-bayesian-confirmation.html">Bayesian confirmation</a> requires that evidence raise a hypothesis's probability. If the evidence is already known, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>, and then</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.363em;vertical-align:-0.936em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mclose">)</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mclose">)</span></span></span></span></span></p>
+<p>Known evidence confirms nothing. This is Glymour's <strong>problem of old evidence</strong> (1980), and it is not a marginal difficulty: some of the most celebrated confirmations in science are of exactly this form.</p>
+<p>The standing example is Mercury's perihelion. Its anomalous precession was measured by Le Verrier in 1859 and remained unexplained for decades. When Einstein derived the correct value from general relativity in 1915, this was universally regarded — by Einstein above all — as powerful confirmation. But the observation was old and certain. On the strict Bayesian account it could not have confirmed anything.</p>
+<hr />
+<h2 id="the-problems-real-shape"><a class="header" href="#the-problems-real-shape">The problem's real shape</a></h2>
+<p>The difficulty is not really about the <em>age</em> of the evidence. It is about a mismatch between the Bayesian model of an agent and the situation of an actual scientist, and diagnosing it correctly determines which solutions are even candidates.</p>
+<p>The Bayesian agent is <strong>logically omniscient</strong> over a <strong>fixed algebra</strong> of propositions. Every logical and mathematical consequence of what they believe is already assigned its correct probability, and every hypothesis that will ever be considered is already in the space with a prior.</p>
+<p>Einstein in 1915 was in neither position. The theory was new — it had no prior in 1914 because it did not exist — and the <em>derivation</em> was new: what Einstein discovered was not the observation but the logical relation between his field equations and the observed value, and that relation is a mathematical fact which a logically omniscient agent would have known all along.</p>
+<p>So the old-evidence problem is a symptom of two idealisations, and there are correspondingly two problems, usually run together:</p>
+<ul>
+<li><strong>The static problem</strong> — how can known evidence confirm, given <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>?</li>
+<li><strong>The dynamic problem</strong> — how can a <em>newly formulated</em> hypothesis be assigned a prior, and what happens to everyone else's credences when the hypothesis space expands?</li>
+</ul>
+<h2 id="solutions-to-the-static-problem"><a class="header" href="#solutions-to-the-static-problem">Solutions to the static problem</a></h2>
+<h3 id="counterfactual-priors"><a class="header" href="#counterfactual-priors">Counterfactual priors</a></h3>
+<p>Garber's and Howson's proposal: confirmation is assessed relative to a counterfactual credence function in which the agent does <em>not</em> know <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>. Ask what <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span></span> would be relative to a background from which <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> has been subtracted, and the intuitive verdict returns.</p>
+<p>The difficulty is specifying the subtraction. Removing Mercury's perihelion from one's beliefs while retaining everything else is not well defined: the observation is entangled with beliefs about telescopes, Newtonian predictions, and the reliability of Le Verrier. Different ways of excising it yield different counterfactual priors and different confirmation verdicts. There is also a worry about relevance: it is unclear why what an agent <em>would</em> have believed in a situation they are not in should determine what their evidence supports now.</p>
+<h3 id="learning-the-logical-relation"><a class="header" href="#learning-the-logical-relation">Learning the logical relation</a></h3>
+<p>Garber's more influential proposal, developed by Jeffrey and Niiniluoto, relocates the learning. What Einstein learned in 1915 was not <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> but the <strong>entailment</strong>: that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span> together with the auxiliaries implies <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>. Call that proposition <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊢</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>. Then</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊢</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mclose">)</span></span></span></span></span></p>
+<p>and confirmation proceeds normally. The evidence is old; the <em>logical discovery</em> is new.</p>
+<p>This is the most widely accepted treatment, and it locates the phenomenon correctly: what changed in 1915 was Einstein's knowledge of a mathematical relation, not his knowledge of astronomy. It requires abandoning logical omniscience and building models in which agents have non-trivial credences in mathematical propositions — which is technically awkward, since standard probability assigns every logical truth probability <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>, and the frameworks for logically non-omniscient agents are still developing.</p>
+<p>There is also a residual question of scope: the account explains why <em>Einstein's</em> credence rose, but the confirmation seems to be a fact about the evidential relation rather than about anyone's discovery, and a logically omniscient agent would presumably still regard the perihelion as evidence for general relativity.</p>
+<h3 id="deny-the-problem"><a class="header" href="#deny-the-problem">Deny the problem</a></h3>
+<p>A third response holds that the objection misconstrues confirmation. The evidential relation between the perihelion data and general relativity is an objective matter, holding whether or not anyone learns anything. Bayesian conditionalization models an agent's <em>belief change</em>, and it is a mistake to expect it to double as an account of timeless evidential support.</p>
+<p>This is clean, but it concedes that Bayesianism does not by itself provide a theory of evidence — which is a substantial concession, since providing one is much of its appeal.</p>
+<h2 id="the-dynamic-problem"><a class="header" href="#the-dynamic-problem">The dynamic problem</a></h2>
+<p>The deeper difficulty, and the less well handled.</p>
+<p>Conditionalization operates on a fixed algebra. It has nothing to say about the introduction of a hypothesis nobody had formulated. Yet this is the central event in scientific change: general relativity, natural selection, and plate tectonics each entered a space that had not contained them.</p>
+<p>Two problems arise together. <strong>Where does the new hypothesis's prior come from?</strong> It cannot be derived, since the agent's previous distribution assigned it nothing. And <strong>what happens to the others?</strong> Adding a hypothesis with non-zero probability requires taking probability from existing ones, which is not an update licensed by any Bayesian norm.</p>
+<p>The main proposals:</p>
+<ul>
+<li><strong>The catch-all.</strong> Reserve credence for "some hypothesis not yet formulated", and redistribute from it when a new theory arrives. This preserves the formalism, but the catch-all's likelihoods are uninterpretable — one cannot say how probable the data are given an unspecified theory — and the redistribution is unconstrained.</li>
+<li><strong>Probabilistic revision.</strong> Treat the introduction of a hypothesis as a <em>revision</em> rather than an update, governed by norms of minimal change such as relative-entropy minimisation. Reasonable, but it is a supplement to Bayesianism rather than a consequence.</li>
+<li><strong>Implicit algebras.</strong> Model the agent as having an implicit distribution over a much larger space, only part of which is explicit at any time. Formulating a theory makes an implicit commitment explicit. This preserves the letter of the framework at the cost of attributing to agents credences in propositions they cannot state.</li>
+</ul>
+<p>None is fully satisfactory. This is the sharpest form of the point that Bayesian epistemology describes belief <em>revision</em> within a settled conceptual scheme and not conceptual innovation — which is exactly the part of science philosophers of science most want to understand.</p>
+<h2 id="prediction-and-accommodation"><a class="header" href="#prediction-and-accommodation">Prediction and accommodation</a></h2>
+<p>A related dispute, often confused with the old-evidence problem and worth separating. Does it matter whether evidence was <strong>predicted</strong> before observation or <strong>accommodated</strong> afterwards?</p>
+<p><strong>Predictivism</strong> says yes: novel predictions confirm more than accommodations. The intuition is strong. A theory constructed to fit known data may have been gerrymandered, whereas a theory that sticks its neck out and survives has done something harder.</p>
+<p><strong>Anti-predictivism</strong> replies that the evidential relation between <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> cannot depend on the order in which a scientist happened to encounter them. The likelihoods are what they are.</p>
+<p>The Bayesian reconciliation is instructive, and it shows the intuition is tracking something real but misdescribing it. Temporal order does not matter <em>directly</em>; what matters is what the order is <em>evidence of</em>. If a theory was constructed to fit <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>, that raises the probability that it contains ad hoc adjustments — which lowers its prior and means it would have fitted whatever data appeared, so <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mclose">)</span></span></span></span> is high and the likelihood ratio is unimpressive. If the theory was formulated independently and then found to predict <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>, no such discount applies.</p>
+<p>So novelty is evidence about the theory's construction, not an independent confirmational virtue. This explains the cases predictivists cite and also the exceptions: accommodation of data by a theory with no free parameters is as impressive as prediction, which is why Einstein's derivation counted so heavily — general relativity had no adjustable constant to tune, and the perihelion value fell out of the theory as it stood.</p>
+<p>This also explains why the Mercury case is <em>not</em> really an old-evidence problem in the damaging sense. The relevant likelihood comparison — the data are near-certain given general relativity and very improbable given Newtonian gravitation plus known planets — is unaffected by when anyone looked.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Old evidence and new theories are the two places where the Bayesian idealisation of a logically omniscient agent over a fixed algebra visibly fails. The static problem has a good treatment in the learning-the-entailment account, at the cost of the logical-omniscience assumption. The dynamic problem does not have a good treatment, and is the most serious open difficulty in Bayesian philosophy of science.</p>
+<p>Both connect to the general point of <a href="../04-models-and-applications.html">models and applications</a>: a formal model can be well behaved precisely because of an idealisation, and conclusions resting essentially on that idealisation do not transfer to the systems being modelled.</p>
+<p>The next page takes up a further limitation of confirmation theory: that evidence may fail to discriminate between rival hypotheses at all, and that the <a href="05-underdetermination-and-simplicity.html">simplicity</a> considerations invoked to break the tie are themselves in need of justification.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/07-induction-confirmation/03-likelihood-and-evidence.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/07-induction-confirmation/05-underdetermination-and-simplicity.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/07-induction-confirmation/03-likelihood-and-evidence.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/07-induction-confirmation/05-underdetermination-and-simplicity.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

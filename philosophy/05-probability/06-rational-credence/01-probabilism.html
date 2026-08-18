@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Probabilism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/06-rational-credence/01-probabilism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="probabilism"><a class="header" href="#probabilism">Probabilism</a></h1>
+<p><strong>Probabilism</strong> is the thesis that a rational agent's degrees of belief satisfy the probability axioms. It is the foundational commitment of Bayesian epistemology, and everything in this folder is either an argument for it, a refinement of it, or a challenge to it.</p>
+<p>The thesis is easy to state and easy to misunderstand. It is not a claim about how people actually reason — they demonstrably do not — nor a definition of "degree of belief". It is a <strong>normative</strong> claim: a standard against which credences can be assessed and found wanting. And it is substantive, in the sense that its denial is coherent: one could hold that graded confidence is real but obeys some other calculus, or none at all.</p>
+<p>This page sets out what the thesis asserts, what has to be true of credences before the question even arises, the dispute over countable additivity, and the two arguments — pragmatic and epistemic — that occupy the following pages.</p>
+<hr />
+<h2 id="the-thesis"><a class="header" href="#the-thesis">The thesis</a></h2>
+<p>Let <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> be an agent's credence function over an algebra of propositions. Probabilism requires:</p>
+<ol>
+<li><strong>Non-negativity</strong> — <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> for all <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>.</li>
+<li><strong>Normalisation</strong> — <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord">⊤</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> for any logical truth <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">⊤</span></span></span></span>.</li>
+<li><strong>Finite additivity</strong> — <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span></span></span> when <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> are incompatible.</li>
+</ol>
+<p>Most Bayesians add a dynamic norm — update by <a href="04-conditionalization.html">conditionalization</a> — and many add <strong>countable additivity</strong>, discussed below. The three static axioms are the core, and the arguments for them come in two flavours: <a href="02-dutch-books.html">Dutch-book</a> arguments, which show that violators are exploitable, and <a href="03-accuracy-and-scoring.html">accuracy</a> arguments, which show that violators are guaranteed to be less accurate than some alternative.</p>
+<p>Note what the axioms already impose, since it is more than it looks. Normalisation requires assigning <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> to <em>every</em> logical truth, including theorems not yet proved. Additivity requires recognising incompatibility, which for arbitrary propositions is not decidable. Probabilism is therefore a demanding ideal, and the extent of the idealisation is a standing objection rather than a detail.</p>
+<h2 id="before-the-thesis-are-there-degrees-of-belief"><a class="header" href="#before-the-thesis-are-there-degrees-of-belief">Before the thesis: are there degrees of belief?</a></h2>
+<p>Probabilism presupposes that credences exist and are precise enough to be numbers. Neither is obvious, and the presupposition is doing real work.</p>
+<p><strong>Do beliefs come in degrees at all?</strong> The traditional epistemological picture is <em>categorical</em>: one believes, disbelieves, or suspends judgement. The graded picture is a different model, and the relation between them is unresolved — the <a href="../10-puzzles/04-lottery-and-preface.html">lottery and preface paradoxes</a> are precisely the difficulty of fitting them together. A <strong>threshold view</strong>, on which belief is credence above some level, faces the lottery paradox directly: every ticket in a fair million-ticket lottery is one you rationally believe will lose, yet you believe some ticket wins, so your beliefs are inconsistent.</p>
+<p><strong>Are they numerically precise?</strong> Real agents do not have a credence of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.6237</span></span></span></span> in the proposition that it will rain. Asked to bet, they produce intervals, hesitate, and give different answers depending on how the question is framed. Whether this is noise around an underlying precise value or evidence that credences are <em>intrinsically</em> imprecise is the question <a href="06-imprecise-probability.html">imprecise probability</a> takes up, and it is a genuine challenge to probabilism rather than a quibble, since if credences are sets of measures the axioms apply only derivatively.</p>
+<p><strong>How are they identified?</strong> The operational answer — betting quotients — was Ramsey's, and it has known problems: stakes have diminishing marginal utility, the agent may care about the bet's outcome for reasons other than the proposition, and being <em>asked</em> to bet is itself evidence. Savage's representation theorem is the sophisticated version, deriving probability and utility jointly from preferences. But it delivers only that a suitably-behaved agent can be <em>represented</em> as having a probability function, which is weaker than the claim that they <em>have</em> one, and the gap matters for what the Dutch-book argument establishes.</p>
+<h2 id="finite-or-countable-additivity"><a class="header" href="#finite-or-countable-additivity">Finite or countable additivity?</a></h2>
+<p>The <a href="../../../math/11-probability/01-kolmogorov-axioms.html">mathematical treatment</a> of probability assumes <strong>countable additivity</strong>: for a countable sequence of pairwise disjoint events,</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.0277em;vertical-align:-1.2777em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">(</span></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6514em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">⋃</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∞</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size4">)</span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.9291em;vertical-align:-1.2777em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6514em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∞</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
+<p>This is the axiom that makes measure theory work, and without it the limit theorems fail. But it is <em>not</em> delivered by the standard arguments for probabilism: Dutch-book arguments concern finitely many bets, so they establish finite additivity only, and extending them requires the assumption that infinitely many bets can be placed at once.</p>
+<p>De Finetti rejected countable additivity, and his reason is worth taking seriously. Consider a fair lottery over the natural numbers, where each integer is equally likely to be drawn. Countable additivity forbids this: if each has probability <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> the total is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>, and if each has some <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">ε</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> the total is infinite. Either way the axioms are violated. Yet the situation seems describable, and a <em>merely finitely additive</em> measure assigning <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> to each integer and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> to the whole set exists. De Finetti concluded that countable additivity is a mathematical convenience rather than a requirement of rationality, and that imposing it rules out coherent epistemic states by fiat.</p>
+<p>The costs of dropping it are severe, and the <a href="../../../math/11-probability/14-finite-additivity.html">mathematics of finite additivity</a> sets them out: <strong>non-conglomerability</strong> — the probability of an event can lie outside the range of its conditional probabilities across a partition, so the tower property fails — and the loss of the convergence theorems that make Bayesian updating well behaved.</p>
+<p>The dispute is a clean example of the section's recurring pattern. Countable additivity is not a discovery about degrees of belief; it is a <strong>choice</strong>, defensible by its fruits and rejectable at a price. Anyone who asserts it as though it were part of the concept of probability has skipped an argument.</p>
+<h2 id="regularity"><a class="header" href="#regularity">Regularity</a></h2>
+<p>A further optional axiom: <strong>regularity</strong> requires that only logical falsehoods receive credence <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>, and only logical truths credence <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>. The motivation is dynamic. Conditionalization cannot raise a credence from zero, so an agent who assigns <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> to a contingent hypothesis can never learn it however strong the evidence — Cromwell's rule, from Cromwell's "I beseech you, think it possible you may be mistaken."</p>
+<p>Regularity is attractive and hard to satisfy. In a continuous sample space every individual outcome has probability zero, so a regular credence function over the reals is impossible on the standard axioms. Proposed repairs use infinitesimal probabilities — assigning each point a non-zero hyperreal value, using the machinery of <a href="../../../math/07-nonstandard/00-README.html">non-standard analysis</a> — and this is one of the few places where infinitesimals do genuine philosophical work. The <a href="../../../math/11-probability/16-nonstandard-probability.html">non-standard probability</a> page develops the formal side. Williamson has argued that infinitesimal assignments fail for other reasons, and the debate is open.</p>
+<h2 id="permissivism-and-uniqueness"><a class="header" href="#permissivism-and-uniqueness">Permissivism and uniqueness</a></h2>
+<p>Probabilism constrains credence but does not determine it. A further question is how much latitude remains:</p>
+<ul>
+<li><strong>Permissivism</strong> — a body of evidence can rationally permit more than one credence function. Two agents may respond differently to identical evidence without either being at fault. This is <a href="../05-interpretations/05-subjective-bayesianism.html">subjective Bayesianism's</a> position.</li>
+<li><strong>Uniqueness</strong> — evidence determines exactly one rational credence, so any disagreement between equally-informed agents is a mistake. This is what the <a href="../05-interpretations/02-logical-probability.html">logical interpretation</a> wanted and what <a href="../05-interpretations/06-objective-bayesianism.html">objective Bayesianism</a> partially defends.</li>
+</ul>
+<p>The dispute is not special to probability; it is the general question in epistemology of whether evidence rationally determines response. But it is sharpest here, because the Bayesian framework makes the latitude explicit and measurable: it is exactly the freedom in the choice of <a href="05-priors-and-indifference.html">prior</a>.</p>
+<h2 id="objections"><a class="header" href="#objections">Objections</a></h2>
+<p><strong>The idealisation objection.</strong> Probabilism requires logical omniscience — credence <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> in every logical truth — which no computable agent can satisfy. This is not a matter of falling short of a demanding standard but of the standard being unsatisfiable in principle, and a norm that cannot be met arguably has no force. Responses include treating probabilism as an idealisation in the same sense as a frictionless plane, or developing weaker frameworks for logically non-omniscient agents.</p>
+<p><strong>The categorical-belief objection.</strong> If graded credence is the whole story, the ordinary notion of belief has to be either reduced to it or abandoned, and both have costs. Full belief plays roles — in assertion, in action, in reasoning — that a credence does not obviously fill.</p>
+<p><strong>The precision objection.</strong> Probabilism requires point-valued credences, and the case for imprecision is strong when evidence is scant. Assigning <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.5</span></span></span></span> to a proposition about which one knows nothing, and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.5</span></span></span></span> to a well-studied fair coin, represents two very different epistemic situations with the same number. See <a href="06-imprecise-probability.html">imprecise probability</a>.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Probabilism is the minimal Bayesian commitment and the one nearly all parties share; the disputes in this section are mostly about what to add. Adding constraints on priors yields <a href="../05-interpretations/06-objective-bayesianism.html">objective Bayesianism</a>; adding deference to chance yields the <a href="../08-chance-and-laws/01-principal-principle.html">Principal Principle</a>; adding nothing yields <a href="../05-interpretations/05-subjective-bayesianism.html">subjectivism</a>; relaxing precision yields <a href="06-imprecise-probability.html">imprecise probability</a>.</p>
+<p>The next two pages give the arguments. <a href="02-dutch-books.html">Dutch books</a> argue from vulnerability to sure loss; <a href="03-accuracy-and-scoring.html">accuracy</a> argues from guaranteed inferiority in tracking truth. They reach the same conclusion by routes different enough that their agreement is itself evidence.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/05-interpretations/07-humean-chance.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/06-rational-credence/02-dutch-books.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/05-interpretations/07-humean-chance.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/06-rational-credence/02-dutch-books.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

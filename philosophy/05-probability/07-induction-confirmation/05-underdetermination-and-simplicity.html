@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Underdetermination, Simplicity, and Model Choice - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/07-induction-confirmation/05-underdetermination-and-simplicity.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="underdetermination-simplicity-and-model-choice"><a class="header" href="#underdetermination-simplicity-and-model-choice">Underdetermination, Simplicity, and Model Choice</a></h1>
+<p>Evidence does not always discriminate. For any body of data there are, in principle, many hypotheses compatible with it, and sometimes indefinitely many that fit it perfectly. If theory choice is to be rational, something beyond fit to the data must do work — and the leading candidate is <strong>simplicity</strong>.</p>
+<p>This creates an obligation. Simplicity is a preference for one kind of hypothesis over another, and unless it can be shown to be truth-conducive, favouring simple theories is an aesthetic policy dressed as a method. This page sets out the varieties of underdetermination, the Bayesian treatments of simplicity, and the extent to which the appeal succeeds.</p>
+<hr />
+<h2 id="varieties-of-underdetermination"><a class="header" href="#varieties-of-underdetermination">Varieties of underdetermination</a></h2>
+<p>Three distinct claims travel under the name, and they differ enormously in strength.</p>
+<p><strong>Holist underdetermination</strong> (Duhem–Quine). Hypotheses face evidence only in bundles, so a recalcitrant observation never refutes a single claim; any hypothesis can be retained by adjusting auxiliaries. This is uncontroversial as stated and, as <a href="02-bayesian-confirmation.html">Bayesian confirmation</a> shows, well handled: disconfirmation distributes over the conjuncts according to their priors and likelihoods, so retention is possible but has a probabilistic cost.</p>
+<p><strong>Transient underdetermination.</strong> The evidence available <em>now</em> does not settle the matter, though further evidence would. This is the ordinary condition of science and poses no philosophical problem.</p>
+<p><strong>Strong (empirical-equivalence) underdetermination.</strong> There exist rival theories with <em>identical</em> empirical consequences, so no possible evidence could discriminate. This is the philosophically interesting claim, and its instances are fewer than often supposed. The standard examples are genuine: Lorentzian ether theory versus special relativity; Newtonian mechanics with the universe at absolute rest versus in uniform motion; Bohmian versus standard quantum mechanics. But manufacturing empirically equivalent rivals for an arbitrary theory — say, by conjoining "and reality is as the theory says, except that an undetectable demon exists" — produces hypotheses nobody takes seriously, and the reason is precisely that they are gratuitously complex.</p>
+<h2 id="curve-fitting"><a class="header" href="#curve-fitting">Curve fitting</a></h2>
+<p>The cleanest instance. Given <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> data points, a polynomial of degree <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> passes exactly through all of them, and infinitely many curves fit the data perfectly. Yet a straight line through slightly scattered points is preferred to a wiggling high-degree polynomial that hits each one.</p>
+<p>The justification is not that the simple curve fits better — it fits worse — but that it will <strong>predict better</strong>. A curve fitted to noise reproduces the noise, and noise does not recur. This is <strong>overfitting</strong>, and its existence is a mathematical fact rather than a methodological preference: as model flexibility increases, error on the training data falls monotonically while error on new data eventually rises.</p>
+<p>This is the single strongest argument that simplicity is truth-conducive rather than merely convenient, and it is worth being clear about what it establishes. It shows that, <em>given</em> that data contain noise and that the underlying signal is not itself arbitrarily complex, restricting flexibility improves prediction. The second condition is an inductive assumption — it is a claim about the world — so the argument does not escape the <a href="01-problem-of-induction.html">problem of induction</a>. What it does establish is that the preference for simplicity is not arbitrary: it has a precise rationale, quantifiable in the bias–variance decomposition, and it can be <em>checked</em> by cross-validation.</p>
+<p>The model-selection criteria formalise the trade-off. <strong>AIC</strong> penalises the log-likelihood by the number of parameters, targeting predictive accuracy; <strong>BIC</strong> penalises more heavily and, under assumptions, converges on the true model if it is among those considered. That the two criteria have different goals — prediction versus truth — and therefore recommend different models is itself philosophically instructive: "the best model" is not well defined independently of what one wants it for.</p>
+<h2 id="bayesian-treatments-of-simplicity"><a class="header" href="#bayesian-treatments-of-simplicity">Bayesian treatments of simplicity</a></h2>
+<p>Bayesianism can locate a preference for simplicity in either the prior or the likelihood, and only the second is explanatory.</p>
+<p><strong>In the prior.</strong> Assign simpler hypotheses higher prior probability. This works formally and explains nothing: it <em>encodes</em> the preference rather than justifying it, and invites the question why the world should be expected to be simple. The <strong>Solomonoff prior</strong>, weighting hypotheses by <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span></span></span></span></span></span></span></span></span></span></span></span> for Kolmogorov complexity <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span>, is the principled version and has attractive convergence properties, but it is uncomputable and depends on the choice of universal machine — the machine-dependence being a formal echo of Goodman's language-dependence.</p>
+<p><strong>In the likelihood.</strong> The better answer, and the one that constitutes a genuine explanation. A complex theory with many adjustable parameters can accommodate many possible data sets, so it must spread its probability thinly across them; a simple theory concentrates its probability on the few data sets it predicts. When those data are observed, the simple theory's likelihood is much higher, and it wins the <a href="03-likelihood-and-evidence.html">Bayes factor</a> comparison decisively.</p>
+<p>This is the <strong>Ockham factor</strong>, and it derives the preference for simplicity from the probability axioms plus the requirement that likelihoods be normalised. No separate simplicity prior is needed: flexible theories are penalised automatically because their predictive commitments are diffuse. It also explains why the penalty is proportional to <em>unused</em> flexibility — a complex theory whose extra parameters are all doing genuine work is not penalised in the same way.</p>
+<p>The qualification is that this requires priors over the parameters, so the Bayes factor is not prior-free and can be sensitive to how parameter space is carved.</p>
+<h2 id="what-simple-means"><a class="header" href="#what-simple-means">What "simple" means</a></h2>
+<p>Both treatments presuppose a measure of simplicity, and here the difficulty is Goodman's, arriving for the third time in this section.</p>
+<p>Simplicity is <strong>language-relative</strong>. Counting parameters depends on the parameterisation; counting symbols depends on the vocabulary; Kolmogorov complexity depends on the universal machine. A language with <em>grue</em> as a primitive makes grue-hypotheses simple.</p>
+<p>Three responses, none decisive. One may take the natural-language or scientific vocabulary as given, which is honest but concedes that simplicity judgements presuppose an already-inductively-shaped conceptual scheme. One may appeal to <strong>natural properties</strong> in Lewis's sense — the joint-carving ones — which grounds simplicity objectively at the cost of a further primitive, exactly as in the <a href="../05-interpretations/07-humean-chance.html">best-system account</a> of laws. Or one may note that machine-dependence in Kolmogorov complexity is bounded by a constant, so that for sufficiently complex hypotheses the ordering is machine-independent — true, but the constant can swamp the comparisons that actually arise.</p>
+<p>There is also more than one virtue here. <strong>Parsimony</strong> (few entities), <strong>elegance</strong> (few or simple equations), and <strong>unification</strong> (one mechanism for many phenomena) are distinct and can conflict; a theory positing fewer entities may require uglier laws. Treating them as a single desideratum obscures real trade-offs.</p>
+<h2 id="does-underdetermination-undermine-realism"><a class="header" href="#does-underdetermination-undermine-realism">Does underdetermination undermine realism?</a></h2>
+<p>The sceptical argument: if empirically equivalent rivals exist, and evidence cannot discriminate, belief in any particular theory is unwarranted, so scientific realism fails.</p>
+<p>The Bayesian reply is that empirical equivalence leaves the <em>likelihoods</em> equal but not the <em>posteriors</em>, since the priors differ. If the demon-augmented theory has a lower prior — because it is more complex, or gratuitously adds structure — its posterior stays lower however much evidence arrives.</p>
+<p>Whether this vindicates realism or relocates the problem is exactly the question. It makes theory choice depend on priors, and if those merely encode a taste for simplicity, the realist has shown only that a preference plus evidence yields a preference. If the simplicity preference is grounded — by the overfitting argument, or by the Ockham factor — the reply has real force. The honest position is that the Bayesian framework converts a question about evidence into a question about priors, and that the priors can be partly but not wholly defended.</p>
+<p>There is also a deflationary observation worth recording: in the actual history of science, cases of genuine strong underdetermination are rare, and the ones that occur — Lorentz versus Einstein, Bohm versus Copenhagen — are treated as live interpretive disputes rather than as demonstrations that belief is impossible. The philosophical problem is more acute in principle than in practice.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Simplicity is where confirmation theory meets the <a href="01-problem-of-induction.html">problem of induction</a> most directly, and the results are mixed but not empty. The overfitting argument shows the preference is not arbitrary; the Ockham factor derives it from the probability calculus rather than positing it; and the residual language-relativity is Goodman's problem, which no framework in this section escapes.</p>
+<p>The pattern established in the <a href="../05-interpretations/02-logical-probability.html">logical interpretation</a> recurs: a formal apparatus does substantial work once a vocabulary is fixed, and cannot fix the vocabulary. What is new here is that the work done is considerable — enough to explain why science prefers simple theories and why that preference tends to pay.</p>
+<p>The last page of this folder turns from evidence about the world to evidence from other people: <a href="06-testimony-and-disagreement.html">testimony and disagreement</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/07-induction-confirmation/04-old-evidence-and-new-theories.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/07-induction-confirmation/06-testimony-and-disagreement.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/07-induction-confirmation/04-old-evidence-and-new-theories.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/07-induction-confirmation/06-testimony-and-disagreement.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

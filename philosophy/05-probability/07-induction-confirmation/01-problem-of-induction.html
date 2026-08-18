@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Problem of Induction - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/07-induction-confirmation/01-problem-of-induction.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-problem-of-induction"><a class="header" href="#the-problem-of-induction">The Problem of Induction</a></h1>
+<p>Inductive inference — from observed cases to unobserved ones, from samples to populations, from the past to the future — is indispensable. It is also, as Hume argued, without any justification that does not presuppose it. This is <strong>the problem of induction</strong>, and it is the reason the philosophy of probability is not merely a taxonomy of interpretations: probability is the most developed attempt to say what makes such inferences good, and whether it succeeds is the question.</p>
+<p>The short answer given on this page is that probability <em>systematises</em> inductive inference without <em>justifying</em> it. The Bayesian framework tells us how evidence should shift credence given a prior, and the shift is often dramatic and always coherent. What it does not do is supply the prior, and it is in the prior that the inductive commitment resides.</p>
+<hr />
+<h2 id="humes-argument"><a class="header" href="#humes-argument">Hume's argument</a></h2>
+<p>Hume's argument, in the <em>Treatise</em> and the first <em>Enquiry</em>, is a dilemma. Consider any inference from observed regularities to unobserved cases — bread has nourished before, so it will nourish now. The inference is valid only given a further premise, roughly that nature is uniform: that unobserved cases resemble observed ones. What justifies <em>that</em>?</p>
+<ul>
+<li><strong>Not demonstrative reasoning.</strong> No contradiction follows from supposing the future to differ from the past. A world in which bread ceases to nourish tomorrow is perfectly conceivable, so uniformity is not a truth of reason.</li>
+<li><strong>Not experience.</strong> Experience tells us only about observed cases. To argue that uniformity has held so far and will therefore continue is to use an inductive inference to justify induction — circular.</li>
+</ul>
+<p>Since these exhaust the options, the uniformity principle is unjustified, and so is every inference resting on it. Hume's own conclusion was not that we should stop making such inferences — he thought we cannot — but that they rest on <strong>custom or habit</strong> rather than reason. Inductive practice is psychologically inevitable and rationally ungrounded.</p>
+<p>Two clarifications forestall common misreadings. Hume is not arguing that induction is <em>unreliable</em>; he is arguing that we have no non-circular reason to think it reliable. And the problem is not solved by making the conclusion probabilistic rather than certain: the inference from "most observed As have been B" to "the next A is probably B" needs uniformity every bit as much.</p>
+<h2 id="the-new-riddle"><a class="header" href="#the-new-riddle">The new riddle</a></h2>
+<p>Goodman's <em>Fact, Fiction, and Forecast</em> (1955) adds a second problem, orthogonal to the first and arguably worse. Grant that induction is legitimate. Which inductions?</p>
+<p>Define <strong>grue</strong>: an object is grue if it is observed before time <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> and green, or not so observed and blue. Every observed emerald is green; every observed emerald is also grue. The evidence equally supports "all emeralds are green" and "all emeralds are grue", but these predict different things about emeralds observed after <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span>.</p>
+<p>The natural reply — that "grue" is gerrymandered, defined by reference to a time — fails on inspection. Taking <em>grue</em> and <em>bleen</em> as primitives, "green" is defined as "grue if observed before <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span>, bleen otherwise". The temporal complexity is symmetric; which predicates look gerrymandered depends on which are taken as basic. Goodman's own answer appealed to <strong>entrenchment</strong> — "green" has a track record of successful projection — which is frankly circular in the way Hume identified, and which Goodman accepted as unavoidable.</p>
+<p>The riddle is fatal to any purely formal theory of confirmation, since a formal relation between evidence and hypothesis cannot distinguish the two hypotheses. This is why it broke the <a href="../05-interpretations/02-logical-probability.html">logical interpretation</a>, and why it constrains every proposal about <a href="../06-rational-credence/05-priors-and-indifference.html">priors</a>: a prior favouring green over grue encodes an inductive commitment that no evidence forced.</p>
+<h2 id="probabilistic-responses"><a class="header" href="#probabilistic-responses">Probabilistic responses</a></h2>
+<h3 id="reichenbachs-pragmatic-vindication"><a class="header" href="#reichenbachs-pragmatic-vindication">Reichenbach's pragmatic vindication</a></h3>
+<p>Reichenbach conceded that induction cannot be <em>justified</em> — we cannot show it will work — but argued it can be <strong>vindicated</strong>: if any method works, induction works. Suppose the limiting frequency of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>s that are <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> exists. Then the straight rule — estimate the limit by the observed frequency — is guaranteed to converge to it. So induction succeeds if success is possible at all, and using it is rational in the way that undergoing surgery with an unknown but non-zero chance of success is rational when the alternative is certain death.</p>
+<p>This is the strongest pragmatic argument available, and its weaknesses are precise. The guarantee is purely <strong>asymptotic</strong>, saying nothing about any finite stage, which is where all actual inference happens. And it does not single out the straight rule: infinitely many "counter-inductive" rules that differ from it by an amount shrinking to zero also converge, so convergence does not select a unique method. Reichenbach's appeal to simplicity to break the tie is exactly the move the new riddle attacks.</p>
+<h3 id="bayesian-conditionalization"><a class="header" href="#bayesian-conditionalization">Bayesian conditionalization</a></h3>
+<p>The Bayesian response is that induction is simply <a href="../06-rational-credence/04-conditionalization.html">conditionalization</a>: observing black ravens raises the probability of "all ravens are black" by Bayes' theorem, provided the hypothesis has non-zero prior and the evidence is more likely given it than not.</p>
+<p>The machinery works and is illuminating. Convergence and <strong>merging-of-opinions</strong> results show that agents updating on shared evidence approach agreement, which some present as a solution.</p>
+<p>It is not one, and the reason is worth stating carefully because the claim recurs. Everything depends on the prior, and the prior is exactly where the inductive assumption lives. An agent with a "grue-ish" prior conditionalizes just as correctly and reaches the opposite conclusion. Merging requires priors already agreeing on which events are possible, which begs the question against the grue-agent. Formally, Bayesianism is neutral between inductive and counter-inductive agents: both are coherent, and coherence is all the framework requires. The <strong>no-free-lunch</strong> theorems in learning theory make the same point in another idiom — averaged over all possible worlds, no inductive method outperforms any other.</p>
+<p>So Bayesianism provides a <strong>systematisation</strong> of inductive reasoning, not a justification. That is a real contribution: it shows what inductive inference commits us to and where the commitment enters, which is more than Hume's opponents managed. But the commitment is not thereby discharged.</p>
+<h3 id="williams-and-stove"><a class="header" href="#williams-and-stove">Williams and Stove</a></h3>
+<p>A less-known line deserves mention because it is a genuine attempt at a non-circular justification. D. C. Williams and David Stove argued that the <strong>statistical syllogism</strong> plus a purely combinatorial fact does the job. It is a theorem of the probability calculus — no empirical assumption needed — that the great majority of large samples from a population are approximately representative of it. Hence a randomly drawn large sample is probably representative, and inference from sample to population is licensed a priori.</p>
+<p>The objection is that "randomly drawn" is doing the work, and it is an empirical assumption that our samples are random with respect to the property of interest. Our samples are drawn from a particular time and place, and that they are representative of all times and places is precisely what is at issue. The combinatorial fact is a fact about the <em>space of possible samples</em>, and getting from it to a conclusion about <em>this</em> sample requires the sampling assumption — which is Hume's uniformity in new dress. The structure of the difficulty is exactly that of the inference problem for <a href="../08-chance-and-laws/05-typicality.html">typicality</a>.</p>
+<h2 id="dissolutions"><a class="header" href="#dissolutions">Dissolutions</a></h2>
+<p>Two responses reject the demand rather than meeting it.</p>
+<p><strong>The ordinary-language dissolution</strong> (Strawson): asking whether induction is rational is like asking whether the law is legal. "Rational" just <em>means</em>, in part, proportioning belief to evidence in the inductive way, so the demand for an external justification is confused. The reply is that the practice's being constitutive of our concept of rationality does not show the practice is truth-conducive, and it is truth-conduciveness that was at issue.</p>
+<p><strong>Falsificationism</strong> (Popper): science does not use induction. Theories are conjectured and tested; corroboration is not confirmation, and no theory is ever made probable. The problem dissolves because the practice it concerns does not exist.</p>
+<p>Popper's position is coherent but pays a heavy price. If corroboration confers no probability, it gives no reason to <em>rely</em> on a well-tested theory over a refuted alternative — yet we build bridges on the assumption that it does. And preferring the better-corroborated theory for future application is itself an inductive step, which Popper's framework must either disown or smuggle in.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Hume's problem is not solved, and the honest summary of the probabilistic literature is that it clarifies the problem rather than dissolving it. Bayesianism locates the inductive commitment precisely — in the prior — and shows that everything downstream is deductive. Reichenbach shows that if any method converges, the straight rule does. Neither gives a non-circular reason to expect the future to resemble the past.</p>
+<p>What follows is that inductive inference rests on substantive assumptions that are not themselves products of inference: about which predicates are projectible, which priors are reasonable, and whether our samples are representative. Making those assumptions explicit is the real work, and it is what the rest of this folder does — beginning with <a href="02-bayesian-confirmation.html">Bayesian confirmation</a>, the most developed account of how evidence bears on hypotheses once the inductive commitment is in place.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/08-chance-and-laws/05-typicality.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/07-induction-confirmation/02-bayesian-confirmation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/08-chance-and-laws/05-typicality.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/07-induction-confirmation/02-bayesian-confirmation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

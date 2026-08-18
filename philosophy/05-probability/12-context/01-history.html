@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>A History of the Philosophy of Probability - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/12-context/01-history.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="a-history-of-the-philosophy-of-probability"><a class="header" href="#a-history-of-the-philosophy-of-probability">A History of the Philosophy of Probability</a></h1>
+<p>Probability has a short history and a strange one. The mathematics arrived late — there is no ancient theory of probability, though dice are as old as civilisation — and when it came, it came with two faces at once. From the beginning the calculus was applied both to physical setups (dice, mortality, errors of measurement) and to degrees of belief (the credibility of testimony, the reasonableness of a wager), and the question of which use was fundamental was not raised for two centuries.</p>
+<p>This page traces the arguments still in play. The historical narrative is a means to that end rather than the object.</p>
+<hr />
+<h2 id="before-1654"><a class="header" href="#before-1654">Before 1654</a></h2>
+<p>Games of chance are ancient; a mathematics of chance is not. The standard explanations for the delay — absence of good notation, fatalism, the low status of gambling, poorly standardised dice — are each partial, and the puzzle remains genuinely open.</p>
+<p>There was, however, a rich pre-mathematical tradition. Medieval jurists and theologians developed sophisticated qualitative accounts of <strong>probability</strong> as <em>approvability</em> — the credibility of an opinion, its endorsement by authorities. This is closer to evidential probability than to chance, and the modern quantitative notion partly displaced and partly absorbed it.</p>
+<h2 id="16541750-the-calculus-emerges"><a class="header" href="#16541750-the-calculus-emerges">1654–1750: the calculus emerges</a></h2>
+<p><strong>Pascal and Fermat</strong> (1654), corresponding about the division of stakes in an interrupted game, produced the first systematic treatment. Their solution introduced expectation as the central notion — the value of a position is the probability-weighted average of outcomes — and expectation, not probability, remained primary for a century.</p>
+<p><strong>Huygens</strong> (1657) wrote the first published textbook. <strong>Pascal's Wager</strong>, in the <em>Pensées</em>, is the first decision-theoretic argument, and it made probability a tool of philosophy immediately; it is treated in <a href="../../02-religion/09-epistemology/05-pragmatic-arguments.html">pragmatic arguments</a>.</p>
+<p><strong>Jacob Bernoulli</strong>'s <em>Ars Conjectandi</em> (posthumous, 1713) is the first great philosophical work on the subject. It contains the first <strong>law of large numbers</strong>, proving that observed frequencies converge in probability to the underlying ratio — and Bernoulli's motivation was explicitly epistemological. He wanted to justify inferring an unknown ratio from observed frequencies, which is the inverse problem, and he saw clearly that his theorem addressed it only indirectly. That gap — between "frequencies converge to the probability" and "the observed frequency tells us the probability" — is the one <a href="../05-interpretations/03-frequentism.html">frequentism</a> and Bayesianism have been arguing about ever since.</p>
+<p>Bernoulli also distinguished <strong>aleatory</strong> probability (chance in the setup) from <strong>epistemic</strong> probability (degree of certainty), which is the <a href="../02-chance-and-credence.html">chance/credence distinction</a> in its first clear statement.</p>
+<p><strong>Bayes</strong> (posthumous, 1763) solved a version of the inverse problem, giving a rule for the probability of a hypothesis given evidence. His use of a uniform prior over the unknown parameter was defended by an ingenious argument about a ball rolled on a table — an early recognition that the prior needs justification rather than stipulation.</p>
+<h2 id="17501900-classical-confidence-and-its-collapse"><a class="header" href="#17501900-classical-confidence-and-its-collapse">1750–1900: classical confidence and its collapse</a></h2>
+<p><strong>Laplace</strong> dominates. His <em>Théorie analytique</em> (1812) and <em>Essai philosophique</em> (1814) gave the <a href="../05-interpretations/01-classical.html">classical interpretation</a> its canonical form and applied probability across astronomy, jurisprudence, and demography. Laplace was a determinist: his demon knows the complete state and assigns no intermediate probabilities, so probability is entirely a measure of human ignorance. The classical interpretation is therefore epistemic in its founder's hands, which is often forgotten.</p>
+<p>The nineteenth century then dismantled the classical framework from two directions.</p>
+<p><strong>The frequency turn.</strong> Ellis, Cournot, and above all <strong>Venn</strong> (<em>The Logic of Chance</em>, 1866) argued that probability is relative frequency in a series, and that the Principle of Indifference is worthless — it manufactures numbers from ignorance. <strong>Boole</strong> pressed the circularity charge against equipossibility.</p>
+<p><strong>The statistical turn in physics.</strong> Maxwell and <strong>Boltzmann</strong> brought probability into fundamental science. Boltzmann's statistical account of entropy, and the <a href="../11-science/02-statistical-mechanics.html">reversibility and recurrence objections</a> of Loschmidt and Zermelo, made the interpretation of physical probability urgent for the first time.</p>
+<p><strong>Peirce</strong> deserves mention as an early propensity theorist, holding that a die's probability is a <em>disposition</em> — a "would-be" — and anticipating the twentieth-century position by fifty years.</p>
+<h2 id="19001950-the-interpretations-crystallise"><a class="header" href="#19001950-the-interpretations-crystallise">1900–1950: the interpretations crystallise</a></h2>
+<p>The classical consensus having collapsed, the modern positions were staked out within four decades.</p>
+<ul>
+<li><strong>Keynes</strong>, <em>A Treatise on Probability</em> (1921) — the <a href="../05-interpretations/02-logical-probability.html">logical interpretation</a>: probability as an objective logical relation between propositions, sometimes merely ordinal.</li>
+<li><strong>von Mises</strong>, <em>Grundlagen</em> (1919) — rigorous <a href="../05-interpretations/03-frequentism.html">frequentism</a> via collectives and the axiom of randomness.</li>
+<li><strong>Ramsey</strong>, "Truth and Probability" (1926) — the <a href="../05-interpretations/05-subjective-bayesianism.html">subjectivist</a> foundation: degrees of belief measured by betting behaviour, constrained by coherence, with the first Dutch-book argument and the first representation theorem. Written against Keynes, and decisive.</li>
+<li><strong>de Finetti</strong> (1930s) — "probability does not exist"; the representation theorem for exchangeable sequences; the rejection of countable additivity.</li>
+<li><strong>Kolmogorov</strong>, <em>Grundbegriffe</em> (1933) — the measure-theoretic <a href="../../../math/11-probability/01-kolmogorov-axioms.html">axiomatisation</a>. Its importance for philosophy is precisely its <strong>neutrality</strong>: it settles the calculus and leaves the interpretation entirely open, which is why the disputes above continue unaffected by it.</li>
+<li><strong>Popper</strong> (1930s–50s) — falsificationism, and later the <a href="../05-interpretations/04-propensity.html">propensity</a> interpretation, introduced to make sense of single-case quantum probabilities.</li>
+<li><strong>Reichenbach</strong> (1930s–50s) — frequentism, the pragmatic vindication of induction, and the <a href="../09-causation/02-screening-off-common-causes.html">common-cause principle</a>.</li>
+<li><strong>Cox</strong> (1946) — the derivation of the probability axioms from structural desiderata on plausible reasoning.</li>
+<li><strong>Carnap</strong>, <em>Logical Foundations</em> (1950) — the most systematic inductive logic, and the one whose failure was most instructive.</li>
+</ul>
+<h2 id="1950present"><a class="header" href="#1950present">1950–present</a></h2>
+<p><strong>The Bayesian revival.</strong> <strong>Savage</strong>'s <em>Foundations of Statistics</em> (1954) gave the definitive representation theorem. <strong>Jeffrey</strong>'s <em>The Logic of Decision</em> (1965) generalised conditionalization to uncertain evidence. Bayesian methods spread through statistics, philosophy of science, and eventually machine learning.</p>
+<p><strong>Lewis.</strong> "A Subjectivist's Guide to Objective Chance" (1980) introduced the <a href="../08-chance-and-laws/01-principal-principle.html">Principal Principle</a> and reframed the entire chance/credence question. The <a href="../05-interpretations/07-humean-chance.html">best-system account</a>, and Lewis's own discovery of the Big Bad Bug, set the agenda for the following decades.</p>
+<p><strong>Negative results.</strong> Goodman's grue (1955), Putnam's diagonal argument, and the collapse of Carnap's programme established that no purely formal inductive logic is possible. <strong>Bell's theorem</strong> (1964) and its experimental confirmation showed that a philosophical principle about probability and causation could be empirically refuted.</p>
+<p><strong>Causal modelling.</strong> Suppes, then Spirtes–Glymour–Scheines and <strong>Pearl</strong> (1980s–2000s) developed the <a href="../09-causation/04-causal-models.html">graphical framework</a>, giving a rigorous account of the relation between probability and causation after a century of failed reductive analyses.</p>
+<p><strong>Accuracy-first epistemology.</strong> Joyce (1998) replaced pragmatic Dutch-book arguments with <a href="../06-rational-credence/03-accuracy-and-scoring.html">accuracy-dominance</a> arguments, and the programme has since been extended to conditionalization and the Principal Principle.</p>
+<p><strong>Self-location.</strong> Elga's Sleeping Beauty paper (2000) and Bostrom's <em>Anthropic Bias</em> (2002) opened the <a href="../10-puzzles/05-sleeping-beauty.html">self-locating</a> problem, which remains the clearest unresolved gap in the Bayesian framework.</p>
+<h2 id="the-shape-of-the-history"><a class="header" href="#the-shape-of-the-history">The shape of the history</a></h2>
+<p>Three observations worth carrying away.</p>
+<p><strong>The two faces were there from the start.</strong> Bernoulli distinguished aleatory from epistemic probability in 1713, and the field has been trying to relate them ever since. The <a href="../02-chance-and-credence.html">chance/credence distinction</a> is not a modern refinement but the subject's founding structure.</p>
+<p><strong>Formalisation settled less than expected.</strong> Kolmogorov's axiomatisation was decisive mathematically and inert philosophically. Every interpretive dispute alive in 1930 is alive now, because the axioms are neutral among them.</p>
+<p><strong>The most durable results are negative.</strong> Grue, the failure of Carnap's programme, Bell's theorem, the Big Bad Bug, the pooling impossibility results, Simpson's paradox, and Bertrand's paradox are what the field has established most securely. That is not a poor showing: knowing precisely which inferences fail, and why, is the main protection against the invalid ones catalogued on the <a href="02-method.html">method</a> page.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/11-science/04-free-will-and-chance.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/12-context/02-method.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/11-science/04-free-will-and-chance.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/12-context/02-method.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

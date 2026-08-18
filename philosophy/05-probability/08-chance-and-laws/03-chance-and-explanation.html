@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Chance and Explanation - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/08-chance-and-laws/03-chance-and-explanation.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="chance-and-explanation"><a class="header" href="#chance-and-explanation">Chance and Explanation</a></h1>
+<p>We routinely explain by citing probabilities. The sample decayed because the isotope has a short half-life; the patient recovered because the drug is effective in most cases; the gas expanded because expansion is overwhelmingly likely. Whether these are genuine explanations, and if so what makes them so, is a harder question than the frequency of such talk suggests.</p>
+<p>The difficulty is structural. A <strong>deductive</strong> explanation shows why the outcome <em>had</em> to occur. A probabilistic explanation cannot do this: it is consistent with the outcome's not occurring, and — in the awkward cases — it is consistent with the outcome's having been very unlikely. If explanation is a matter of showing that the event was to be expected, then improbable events cannot be explained. Yet improbable events happen constantly, and we explain them.</p>
+<hr />
+<h2 id="the-covering-law-model-and-its-failure"><a class="header" href="#the-covering-law-model-and-its-failure">The covering-law model and its failure</a></h2>
+<p>Hempel's <strong>deductive-nomological</strong> model treats explanation as derivation: an event is explained by exhibiting laws and initial conditions from which its occurrence follows. His <strong>inductive-statistical</strong> model extends this to probabilistic cases, requiring that the explanans confer <em>high</em> probability on the explanandum. To explain a recovery, cite the treatment and the statistical law that the treatment usually works.</p>
+<p>The high-probability requirement fails in both directions, and the failures have shaped everything since.</p>
+<p><strong>High probability is not sufficient.</strong> The classic counterexample: taking birth-control pills is highly correlated with not becoming pregnant, so "John took birth-control pills" confers high probability on "John did not become pregnant". This is not an explanation. Nor is a barometer's fall an explanation of the storm, though it makes it highly probable. What is missing is a <strong>causal</strong> connection: the probability is high, but for the wrong reason.</p>
+<p><strong>High probability is not necessary.</strong> Paresis occurs only in untreated syphilitics but develops in only a small minority of them. Asked why this patient has paresis, the answer is that he had untreated syphilis — the only available explanation, and manifestly the right one, despite conferring low probability. Similarly, a low-probability radioactive decay is explained by the isotope's instability even though the decay was unlikely in any given interval.</p>
+<p>Hempel also faced the <strong>problem of ambiguity</strong>: the same event can be given statistical explanations with conflicting probabilities depending on which reference class is used, and nothing in the model selects one. This is the <a href="../02-chance-and-credence.html">reference-class problem</a> arriving in the theory of explanation.</p>
+<h2 id="statistical-relevance"><a class="header" href="#statistical-relevance">Statistical relevance</a></h2>
+<p>Salmon's response was to abandon high probability altogether. What matters is not that the explanans makes the outcome likely but that it is <strong>statistically relevant</strong> — that it changes the probability:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span></span></span></span></span></p>
+<p>A factor explains by making a difference, whether it raises the probability to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.9</span></span></span></span> or from <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.001</span></span></span></span> to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.01</span></span></span></span>. The paresis case is handled immediately: untreated syphilis is enormously relevant to paresis even though the absolute probability stays low.</p>
+<p>The model requires partitioning the reference class into cells that are <strong>homogeneous</strong> — containing no further statistically relevant subdivisions — and an explanation consists in locating the event in the right cell and giving the probability distribution across the partition.</p>
+<p>The residual problem is that statistical relevance is symmetric and undirected, so it cannot by itself distinguish cause from effect or either from a common cause. The barometer is statistically relevant to the storm. Salmon himself came to regard relevance as insufficient and moved to a <strong>causal-mechanical</strong> account, on which explanation requires exhibiting the processes and interactions producing the outcome — which is to say that the probabilities are evidence of the explanatory relation rather than constitutive of it. This anticipates the <a href="../02-chance-and-credence.html">causation folder's</a> conclusion that statistical dependence underdetermines causal structure.</p>
+<h2 id="do-chances-explain-at-all"><a class="header" href="#do-chances-explain-at-all">Do chances explain at all?</a></h2>
+<p>A more radical question. Grant that the chance of decay in this interval is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>. Does citing <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> explain why <em>this</em> atom decayed <em>now</em>?</p>
+<p>There is a real case for saying no. The chance is the same for every atom of the isotope, and most did not decay. A factor common to decayers and non-decayers alike cannot explain the difference between them, and on standard contrastive accounts explanation is a matter of accounting for why <em>this</em> rather than <em>that</em>. If the chance is genuinely irreducible, there is no fact that makes the difference — that is what irreducible chance means — and so there is nothing to cite.</p>
+<p>Three responses:</p>
+<ul>
+<li><strong>Chances explain the pattern, not the instance.</strong> The half-life explains why roughly half the sample decayed in the period. Individual decays are not explicable, and this is a discovery about the world rather than a defect in the theory of explanation. Many find this the honest answer for genuinely indeterministic events.</li>
+<li><strong>Explanation need not be contrastive.</strong> Citing the chance tells us the event was a manifestation of a known propensity operating in a known way, which is genuine understanding even without contrast. On this view we should weaken the demand rather than deny the explanation.</li>
+<li><strong>Explanation comes in degrees.</strong> A chance of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.9</span></span></span></span> explains better than a chance of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.001</span></span></span></span>, without either being no explanation at all. This preserves the intuition that likelier outcomes are better explained while allowing improbable ones to be explained at all.</li>
+</ul>
+<h2 id="what-the-interpretation-contributes"><a class="header" href="#what-the-interpretation-contributes">What the interpretation contributes</a></h2>
+<p>The available answers depend on what chances are, and this is one of the places where the <a href="../03-interpretations-overview.html">interpretive dispute</a> has clear downstream consequences.</p>
+<ul>
+<li>On a <strong><a href="../05-interpretations/04-propensity.html">propensity</a></strong> account, chances are physical tendencies, so citing one identifies a real feature of the system that produced the outcome. Explanation is straightforward, and this is among propensity's best arguments.</li>
+<li>On a <strong><a href="../05-interpretations/07-humean-chance.html">best-system</a></strong> account, chances are terms in the best summary of the total pattern of events. Citing a chance to explain an event then means citing a summary that includes that event among its data. Whether this is viciously circular or merely the ordinary situation of explanation-by-subsumption is disputed, and it is the same objection Humeans face about laws generally — treated in <a href="../../04-ontology/10-modality/05-laws-of-nature.html">laws of nature</a>.</li>
+<li>On a <strong><a href="../05-interpretations/03-frequentism.html">frequency</a></strong> account, matters are worse: the frequency is a fact about the class, and explaining a member by citing a property of the class it belongs to is at best indirect.</li>
+<li>On a <strong><a href="../05-interpretations/05-subjective-bayesianism.html">subjectivist</a></strong> account, chances do not explain because there are none; probabilistic "explanations" are really summaries of our epistemic position.</li>
+</ul>
+<h2 id="typicality-explanations"><a class="header" href="#typicality-explanations">Typicality explanations</a></h2>
+<p>A distinct explanatory strategy, important in statistical mechanics and treated fully under <a href="05-typicality.html">typicality</a>, deserves flagging here because it is often mistaken for a probabilistic explanation.</p>
+<p>Why does a gas released into a chamber expand? The typicality answer is not that expansion is <em>probable</em> but that the initial conditions leading to expansion are <strong>overwhelmingly typical</strong> in the space of conditions compatible with the initial macrostate — the non-expanding ones form a set of vanishingly small measure. The explanation is that the actual initial condition was not special, and no probability is assigned to any individual event.</p>
+<p>This is a different explanatory form: it explains by showing the outcome required nothing exceptional, rather than by assigning it high probability. Its cost is that "typical" is relative to a measure, and justifying the measure is exactly the difficulty <a href="../04-models-and-applications.html">models and applications</a> identified.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Probabilistic explanation is the place where the theory of chance meets the theory of explanation, and neither discipline gets what it wants. The high-probability requirement fails; statistical relevance is undirected; and whether an irreducible chance can explain an individual outcome depends on contested views about contrastive explanation.</p>
+<p>The stable results are worth separating from the disputed ones. It is settled that probability alone does not suffice for explanation, since the barometer and birth-control cases show correlation without explanatory force — so an explanatory probabilistic claim carries causal or nomic commitments beyond the numbers. It is disputed whether individual chancy events are explicable at all.</p>
+<p>The next page turns to a structural feature of chance that the Principal Principle presupposed without examining: that chances are indexed to times, and change as history unfolds. That raises the question of what happens to the chance of an event once it has <a href="04-chance-over-time.html">already occurred</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/08-chance-and-laws/02-determinism-and-chance.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/08-chance-and-laws/04-chance-over-time.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/08-chance-and-laws/02-determinism-and-chance.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/08-chance-and-laws/04-chance-over-time.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

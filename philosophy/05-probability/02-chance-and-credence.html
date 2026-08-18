@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Chance and Credence - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/02-chance-and-credence.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="chance-and-credence"><a class="header" href="#chance-and-credence">Chance and Credence</a></h1>
+<p>The single most useful distinction in the philosophy of probability is between <strong>objective chance</strong> — a probabilistic feature of the world, if there is such a thing — and <strong>credence</strong> — the degree of confidence an agent invests in a proposition. Both are measured on the interval <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span>, both obey the same calculus, and ordinary language uses "probability" for each without warning. But they are claims about entirely different subject matters. That a coin has a chance of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span> of landing heads is, if true, a fact about the coin and the tossing setup, and would remain true if nobody ever thought about it. That I am <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span> confident it will land heads is a fact about me, and would be true even if the coin were double-headed and I were badly misinformed.</p>
+<p>This page sets out the distinction, the notation the section uses to keep it visible, the third notion that sits awkwardly between the two, and the central problem the distinction creates: if chance and credence really are different, why should learning a chance oblige anyone to adopt a matching credence? That is the <strong>coordination problem</strong>, and Lewis's <strong>Principal Principle</strong> is the canonical answer to it.</p>
+<hr />
+<h2 id="two-notions-one-calculus"><a class="header" href="#two-notions-one-calculus">Two notions, one calculus</a></h2>
+<p>The contrast can be drawn along several axes at once.</p>
+<div class="table-wrapper"><table><thead><tr><th></th><th><strong>Objective chance</strong></th><th><strong>Credence</strong></th></tr></thead><tbody>
+<tr><td>What it is about</td><td>a physical setup, a system, a world</td><td>an agent's state of mind</td></tr>
+<tr><td>Truthmaker</td><td>facts about the world's dynamics or history</td><td>facts about the agent's doxastic state</td></tr>
+<tr><td>Notation used here</td><td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span></span></span></span>, or <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span></span></span></span> when time-indexed</td><td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span></span></span></span></td></tr>
+<tr><td>Can be <em>mistaken</em></td><td>no — it is whatever it is</td><td>yes — a credence can be unreasonable or badly calibrated</td></tr>
+<tr><td>Relative to evidence</td><td>no</td><td>yes — it is always a credence <em>given</em> what the agent knows</td></tr>
+<tr><td>Trivial values</td><td>typically <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> or <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> once the outcome is settled</td><td>may remain intermediate long after the fact is settled</td></tr>
+<tr><td>Requires an agent</td><td>no</td><td>yes</td></tr>
+</tbody></table>
+</div>
+<p>The last three rows do most of the work. A chance is not relative to evidence: the atom's decay probability does not change when a physicist looks it up. A credence is essentially evidence-relative, and the <em>same</em> agent will have different credences at different times as evidence accumulates. Conversely, once a coin has landed, its chance of having landed heads is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> or <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>; an agent who did not see the result may quite reasonably retain a credence of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span>. Anyone who says "the probability is one half" about a coin already lying under a cup is making a claim that is false read as a chance and possibly true read as a credence.</p>
+<p>Because both satisfy the <a href="../../math/11-probability/01-kolmogorov-axioms.html">Kolmogorov axioms</a>, no formal test distinguishes them. The mathematics is deliberately indifferent to the difference, which is precisely why the difference has to be maintained by the interpreter.</p>
+<h2 id="a-third-notion-evidential-probability"><a class="header" href="#a-third-notion-evidential-probability">A third notion: evidential probability</a></h2>
+<p>Between the two sits a notion that is neither, and that different traditions assign to one side or the other: the probability of a hypothesis <strong>on</strong> a body of evidence, written <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">e</span><span class="mclose">)</span></span></span></span> and understood as measuring how strongly <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">e</span></span></span></span> supports <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span></span></span></span>, independently of whether anyone believes either.</p>
+<p>This is <em>objective</em> in that it does not depend on any agent's psychology — two people with the same evidence face the same evidential probability — but it is not a feature of the physical world in the way a chance is. It is a relation between propositions. This is the notion the <a href="05-interpretations/02-logical-probability.html">logical interpretation</a> attempts to formalise, and it is what an <a href="05-interpretations/06-objective-bayesianism.html">objective Bayesian</a> means by saying priors are rationally constrained. If a defensible notion of evidential probability exists, the epistemic side of the field looks much more objective than subjectivists allow; if it does not, credence is the only epistemic notion available and its variability across agents has to be tolerated.</p>
+<p>The three-way distinction is worth carrying explicitly, because arguments frequently equivocate between the second and third:</p>
+<ul>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> — the world is so structured that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> has chance <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>.</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> — this agent, now, is confident of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> to degree <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>.</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> — the evidence <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> supports <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> to degree <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>, whoever holds it.</li>
+</ul>
+<h2 id="the-coordination-problem"><a class="header" href="#the-coordination-problem">The coordination problem</a></h2>
+<p>Grant that chance and credence are distinct. Then a question arises that would not arise if they were the same: <strong>why should knowing a chance constrain belief at all?</strong></p>
+<p>The connection is not a logical truth, and it is not optional either. If I am told, on impeccable authority, that this coin is biased with a chance of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.7</span></span></span></span> for heads, and I nonetheless set my credence at <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.2</span></span></span></span>, I have made a mistake — but not a mistake of arithmetic. Nothing in the axioms links <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">h</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span>; they are simply two functions. So the link must be a <strong>normative principle</strong> about rationality, and it must be stated carefully enough to be both true and non-trivial.</p>
+<p>Lewis's <strong>Principal Principle</strong> is the standard formulation, treated in full on <a href="08-chance-and-laws/01-principal-principle.html">its own page</a>. In a simplified form:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.5556em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></span></p>
+<p>for any rational initial credence function <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span>, provided <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> is <strong>admissible</strong>. The proviso is essential and is where the difficulty concentrates. Without it the principle is plainly false: if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> includes the information that the coin in fact landed tails, no rational agent keeps credence <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.7</span></span></span></span> in heads. Admissible evidence is, roughly, evidence that bears on <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> only by way of bearing on <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>'s chance — historical information, information about the setup — and not evidence that bypasses the chance, such as a report from the future, a crystal ball, or inside knowledge of the outcome.</p>
+<p>Three features of this principle deserve emphasis, and each generates its own literature.</p>
+<ul>
+<li><strong>It is a constraint on credence, not a definition of chance.</strong> Read one way it tells us how to believe; read another it functions as an <em>implicit definition</em>, on the grounds that chance simply is whatever plays this role in guiding rational belief. Lewis leaned toward the second reading — "chance is the thing that satisfies the Principal Principle" — which makes the principle constitutive rather than merely regulative, and correspondingly harder to revise.</li>
+<li><strong>"Admissible" resists sharp definition.</strong> Every attempt to give necessary and sufficient conditions either lets in too much or presupposes the notion of chance it was meant to help explicate. This is a genuine soft spot rather than a technicality.</li>
+<li><strong>It creates trouble for Humean accounts of chance.</strong> If chances are determined by the whole history of the world — as on the best-system view — then present chances depend on what will happen, and an agent who conditioned on a full specification of the chances would sometimes have to assign non-zero credence to futures that would <em>undermine</em> those very chances. This is Lewis's "Big Bad Bug", and it motivated the <strong>New Principle</strong> of Hall and Thau, which conditionalises on the theory of chance rather than on the chance values directly.</li>
+</ul>
+<h2 id="the-reference-class-problem"><a class="header" href="#the-reference-class-problem">The reference-class problem</a></h2>
+<p>The coordination problem has a mirror image on the objective side. Suppose we want to <em>find out</em> a chance rather than to respond to a known one. The natural method is statistical: look at what happens in similar cases. But "similar" has to be made precise, and every individual belongs to indefinitely many classes with different frequencies.</p>
+<p>A fifty-year-old smoker with a family history of longevity, who exercises daily and lives at altitude, belongs to the class of fifty-year-olds, of smokers, of smokers who exercise, of people at altitude, and to the intersection of all of these. Each class has its own mortality rate, and the rates differ. Which one is <em>his</em> probability of surviving the decade?</p>
+<p>The problem is genuinely general, and its bite differs by interpretation:</p>
+<ul>
+<li>For <strong><a href="05-interpretations/03-frequentism.html">frequentism</a></strong> it is close to fatal, because a frequency is defined only relative to a class, and nothing in the theory selects one. The individual has no probability <em>simpliciter</em>.</li>
+<li>For <strong><a href="05-interpretations/04-propensity.html">propensity</a></strong> views it is less pressing in principle — the chance belongs to the concrete setup, not to a class — but returns as an epistemological problem, since we still have to estimate the propensity from data about other cases.</li>
+<li>For <strong><a href="05-interpretations/05-subjective-bayesianism.html">subjectivism</a></strong> it is not a problem about probability at all but about evidence: the agent has a credence, and the question is only which statistics are relevant to forming it. This is arguably the position's most attractive feature.</li>
+</ul>
+<p>Note that the reference-class problem is not confined to philosophy. It is the same problem faced by actuaries choosing rating factors, by courts assessing statistical evidence about a defendant, and by any predictive model asked for the risk attaching to a particular individual rather than to a population.</p>
+<h2 id="can-credence-do-without-chance"><a class="header" href="#can-credence-do-without-chance">Can credence do without chance?</a></h2>
+<p>A <strong>radical subjectivist</strong> — <a href="05-interpretations/05-subjective-bayesianism.html">de Finetti</a> is the exemplar — holds that objective chance is a metaphysical extravagance and that everything worth saying can be said with credence alone. The position is stronger than it first appears, because two formal results appear to supply what chance was wanted for.</p>
+<p><strong>De Finetti's representation theorem</strong> shows that an agent whose credences over an infinite sequence of trials are <strong>exchangeable</strong> — invariant under permutation of the trials — must represent them as a mixture of i.i.d. distributions, weighted by a measure over the possible "chances". Objective chance is thereby <em>recovered as a mathematical artifact</em> of a symmetry in the agent's own credences, without any commitment to its existence. <strong>Merging-of-opinions</strong> results add that agents with different but mutually absolutely continuous priors converge as evidence accumulates, so the apparent objectivity of scientific probability can be explained as intersubjective agreement in the limit rather than as correspondence to a worldly chance.</p>
+<p>The reply, developed at length in the interpretations folder, is that these results deliver less than they appear to.</p>
+<ul>
+<li>The representation theorem is a theorem about <em>credences</em>, and it applies only to agents whose credences are already exchangeable. Exchangeability is a substantive assumption that itself needs justification, and in many scientific applications — where trials are known not to be symmetric — it is simply false.</li>
+<li>Merging requires agreement on which events have probability zero, and can be arbitrarily slow. It is an asymptotic result and is silent about the finite case, which is the only case anyone is ever in.</li>
+<li>Most importantly, neither result explains why we should <em>defer</em> to physical chances. The de Finetti reconstruction shows that chance-talk can be paraphrased away; it does not show that a physicist who says the decay chance is fixed by the nucleus is saying something about their own doxastic symmetries. The <a href="../../math/11-probability/07-laws-of-large-numbers.html">strong law</a> is likewise a theorem <em>about</em> a measure and cannot supply an independent standard the measure must meet.</li>
+</ul>
+<h2 id="where-this-leaves-us"><a class="header" href="#where-this-leaves-us">Where this leaves us</a></h2>
+<p>The distinction between chance and credence is not a piece of terminological hygiene but the structural fact that organises the field. The metaphysical question of the <a href="01-introduction.html">introduction</a> is a question about chance; the epistemic question is a question about credence; and the Principal Principle is the bridge, which is why so much weight rests on a principle whose central term nobody can define precisely.</p>
+<p>Three positions on the relation are available, and most disputes in the section are downstream of the choice:</p>
+<div class="table-wrapper"><table><thead><tr><th>Position</th><th>Chance</th><th>Credence</th><th>Relation</th></tr></thead><tbody>
+<tr><td><strong>Dualist</strong></td><td>real, irreducible</td><td>real, distinct</td><td>Principal Principle, taken as primitive or constitutive</td></tr>
+<tr><td><strong>Chance-first</strong></td><td>fundamental</td><td>an estimate of chance</td><td>credence aims at chance; deviation is error</td></tr>
+<tr><td><strong>Credence-first</strong></td><td>reducible or eliminable</td><td>fundamental</td><td>chance is a projection of credal symmetry, or a summary of frequencies</td></tr>
+</tbody></table>
+</div>
+<p>The next page maps the <a href="03-interpretations-overview.html">interpretations</a> that fill in these columns, and shows how each handles the single case, the choice of priors, and the relation to laws.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/05-probability/01-introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/05-probability/03-interpretations-overview.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/05-probability/01-introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/05-probability/03-interpretations-overview.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

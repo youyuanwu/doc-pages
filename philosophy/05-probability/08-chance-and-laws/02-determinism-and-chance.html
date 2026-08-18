@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Determinism and Chance - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/08-chance-and-laws/02-determinism-and-chance.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="determinism-and-chance"><a class="header" href="#determinism-and-chance">Determinism and Chance</a></h1>
+<p>Can there be objective chance in a deterministic world? The question looks like it should have an easy answer, and the easy answer is no: if the state of the world at one time plus the laws fixes the state at every other time, then every event has a probability of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> or <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>, and any intermediate number reflects our ignorance rather than the world's structure.</p>
+<p>That answer is too quick, and taking it seriously would make most scientific probabilities false. Statistical mechanics, population genetics, evolutionary biology, epidemiology, and actuarial science all state probabilities, and none of them waits on the resolution of quantum foundations before doing so. If the fundamental dynamics turned out to be deterministic — as it is in Bohmian mechanics, which is empirically equivalent to standard quantum mechanics — it would be strange if the half-life of a population, the fixation probability of an allele, and the entropy of a gas all became falsehoods overnight.</p>
+<p>This page distinguishes the varieties of determinism and indeterminism, sets out the ways deterministic chance has been defended, and relates the dispute to the <a href="../03-interpretations-overview.html">interpretations</a> and to <a href="../../01-freewill/01-introduction.html">free will</a>.</p>
+<hr />
+<h2 id="distinctions"><a class="header" href="#distinctions">Distinctions</a></h2>
+<p>The debate is bedevilled by conflation of distinct notions, and separating them resolves a good deal.</p>
+<p><strong>Determinism</strong> is a thesis about laws and states: the complete state at any time, together with the laws, entails the state at every other time. It is a claim about the <em>world</em>, and it is neither obviously true nor obviously false — the <a href="../../01-freewill/01-introduction.html">free-will pages</a> set out its formulation in detail.</p>
+<p><strong>Predictability</strong> is epistemic: whether an agent could in practice compute the future from available information. The two come apart in both directions, and the gap is larger than intuition suggests.</p>
+<ul>
+<li><strong>Deterministic but unpredictable.</strong> Chaotic systems have sensitive dependence on initial conditions: arbitrarily small differences amplify exponentially. A deterministic double pendulum is unpredictable beyond a short horizon, since the required precision in initial data exceeds any attainable measurement. Determinism guarantees a unique future; it does not guarantee epistemic access to it.</li>
+<li><strong>Indeterministic but predictable.</strong> A system with tiny objective chances of deviating from a stable trajectory is indeterministic but predictable to high accuracy.</li>
+</ul>
+<p><strong>Ontic indeterminism</strong> — the laws themselves assign non-trivial probabilities — is what "irreducible chance" means. Whether the actual world exhibits it is an open question of physics interpretation, not of philosophy: standard quantum mechanics with collapse is indeterministic, Bohmian mechanics is deterministic, and Everettian quantum mechanics is deterministic at the level of the universal wavefunction while presenting agents with branch-uncertainty.</p>
+<p>The crucial observation is that these come apart from the question of whether chances are <em>real</em>. Deterministic and unpredictable is a perfectly coherent combination, and it is the situation of most of the special sciences.</p>
+<h2 id="the-case-against-deterministic-chance"><a class="header" href="#the-case-against-deterministic-chance">The case against deterministic chance</a></h2>
+<p>The argument is short. If determinism holds, then for any event <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> and any time <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span>, the complete state at <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> plus the laws either entails <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> or entails <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">¬</span><span class="mord mathnormal">A</span></span></span></span>. The chance of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> at <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> is therefore <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> or <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>. Any other number is not a chance but a measure of ignorance — a credence, not a <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">h</span></span></span></span>.</p>
+<p>This position — sometimes called <strong>chance–determinism incompatibilism</strong> — has a distinguished lineage running back to Laplace, whose demon knows the complete state and assigns no intermediate probabilities to anything. On this view the probabilities of statistical mechanics are epistemic: they measure what we do not know about the microstate, and a Laplacean intelligence would dispense with them.</p>
+<p>The position is coherent and has real costs. It implies that only fundamental physics can host genuine chances, and only if that physics turns out to be indeterministic; that all special-science probabilities are epistemic; and that whether the actuarial tables state chances depends on the correct interpretation of quantum mechanics, which is an odd hostage for demography to give.</p>
+<h2 id="three-routes-to-deterministic-chance"><a class="header" href="#three-routes-to-deterministic-chance">Three routes to deterministic chance</a></h2>
+<h3 id="best-system-chance"><a class="header" href="#best-system-chance">Best-system chance</a></h3>
+<p>The most developed defence. On the <a href="../05-interpretations/07-humean-chance.html">best-system account</a>, chances are whatever appears in the system that best balances simplicity, strength, and fit. Nothing in that criterion requires the underlying dynamics to be indeterministic. A deterministic world whose detailed history is enormously complex may be best summarised by a system with probabilistic axioms, since stating chances buys great strength for little simplicity.</p>
+<p>Loewer's <strong>Mentaculus</strong> is the worked example: the best system of our world comprises the deterministic microdynamics, the <strong>Past Hypothesis</strong> fixing a low-entropy initial macrostate, and a uniform probability distribution over microstates compatible with it. These three together generate the probabilities of statistical mechanics and, Loewer argues, of the special sciences — and they are objective chances despite the deterministic dynamics, because they are part of the best system.</p>
+<p>The objection is that adding a probability distribution over initial conditions to a deterministic theory looks like adding a credence rather than discovering a chance. The Humean reply is that the distribution earns its place by its contribution to the system's strength and fit, not by anyone's ignorance, and that this is what objectivity amounts to on a Humean view.</p>
+<h3 id="levels-and-coarse-graining"><a class="header" href="#levels-and-coarse-graining">Levels and coarse-graining</a></h3>
+<p>A second route holds that chance is level-relative. The microlevel may be deterministic while the macrolevel supports genuine probabilistic laws, because macrostates are multiply realised: a macrostate does not fix the microstate, so a macro-description plus macro-laws genuinely fails to determine the macro-future.</p>
+<p>The appeal is that it makes special-science chances autonomous rather than approximations. The worry is whether coarse-graining <em>creates</em> chance or merely records our decision to ignore detail — and the answer turns on whether the macrolevel description is objectively privileged or merely convenient, which is a question about <a href="../../04-ontology/13-fundamentality/03-fundamentality.html">fundamentality</a> rather than about probability.</p>
+<h3 id="the-method-of-arbitrary-functions"><a class="header" href="#the-method-of-arbitrary-functions">The method of arbitrary functions</a></h3>
+<p>The most satisfying route technically, and the one that best explains the <em>stability</em> of statistical patterns in deterministic systems.</p>
+<p>Consider a roulette wheel, coin flip, or gas. The dynamics maps initial conditions to outcomes, and for these systems the map oscillates rapidly: nearby initial conditions give different outcomes, and the regions producing each outcome are finely interleaved in initial-condition space. It follows that for <strong>any</strong> reasonably smooth distribution over initial conditions, the induced distribution over outcomes is nearly the same — <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span> for the coin, uniform for the roulette wheel.</p>
+<p>This is Poincaré's result, developed by Hopf, Engel, and von Plato, and encountered already in the <a href="../05-interpretations/01-classical.html">classical interpretation</a>. Its philosophical significance here is that the outcome probabilities are <strong>robust</strong>: they do not depend on the exact initial distribution, so they are not an artifact of any particular ignorance. Whatever the croupier's habits, the wheel gives the same statistics. That robustness is a real and objective feature of the dynamics, and it explains why deterministic systems display stable frequencies at all.</p>
+<p>What it does not quite deliver is a chance for the individual case. The result concerns the induced distribution given <em>some</em> smooth input distribution, and one still has to say what that input distribution represents. Advocates say it represents an objective feature of the system's dynamics; critics say the smoothness assumption smuggles in an epistemic measure.</p>
+<h2 id="bearing-on-free-will"><a class="header" href="#bearing-on-free-will">Bearing on free will</a></h2>
+<p>The relation between determinism and chance is where this section touches the <a href="../../01-freewill/01-introduction.html">free-will problem</a>, and the connection is worth stating precisely because it is frequently mishandled.</p>
+<p>Libertarians about free will require indeterminism, on the grounds that determinism leaves no alternative possibilities. But indeterminism alone supplies only <strong>chance</strong>, and a choice settled by chance is not thereby settled by the agent — this is the <strong>luck objection</strong>, developed in <a href="../../01-freewill/04-libertarianism.html">libertarianism</a>. If an agent's decision has an objective chance of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.6</span></span></span></span> of going one way, then given the complete prior state including everything about the agent, nothing determines which way it goes. That looks less like control than determinism did.</p>
+<p>The probability-theoretic point is that objective chance is precisely a measure of what is <em>not</em> settled by the prior state. It cannot therefore be what settles an outcome, and any account that expects chance to provide agential control is asking of it something its formal nature excludes. Event-causal libertarians respond by relocating the chance — placing it upstream of the decision, in the generation of alternatives — which concedes the point about what chance itself can do.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>The question of whether deterministic chance is possible is largely a proxy for the choice between the <a href="../03-interpretations-overview.html">interpretations</a>. <a href="../05-interpretations/04-propensity.html">Propensity</a> theories say no: chances are physical tendencies, and a deterministic world has none. <a href="../05-interpretations/07-humean-chance.html">Best-system</a> accounts say yes, and count this as a leading advantage. <a href="../05-interpretations/03-frequentism.html">Frequentism</a> says yes trivially, since frequencies exist regardless of the dynamics. <a href="../05-interpretations/05-subjective-bayesianism.html">Subjectivism</a> sidesteps the question, since credence is available either way.</p>
+<p>The practical stake is whether the probabilities of the special sciences are literally true. The next pages take up what those probabilities can <em>do</em> — whether a chance can <a href="03-chance-and-explanation.html">explain</a> an outcome, and how chance behaves <a href="04-chance-over-time.html">over time</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/08-chance-and-laws/01-principal-principle.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/08-chance-and-laws/03-chance-and-explanation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/08-chance-and-laws/01-principal-principle.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/08-chance-and-laws/03-chance-and-explanation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Bertrand&#x27;s Paradox and Model Selection - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/10-puzzles/01-bertrand-and-model-selection.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="bertrands-paradox-and-model-selection"><a class="header" href="#bertrands-paradox-and-model-selection">Bertrand's Paradox and Model Selection</a></h1>
+<p>Bertrand's paradox is the standard demonstration that "at random" does not, by itself, specify a probability distribution. It was introduced in <a href="../04-models-and-applications.html">models and applications</a> as the clearest case of the application problem; this page examines it in detail, works through Jaynes's attempted resolution, and draws out what generalises.</p>
+<p>The problem, from Bertrand's <em>Calcul des probabilités</em> (1889): inscribe an equilateral triangle in a circle. Draw a chord <strong>at random</strong>. What is the probability that the chord is longer than a side of the triangle?</p>
+<hr />
+<h2 id="three-answers"><a class="header" href="#three-answers">Three answers</a></h2>
+<p>Each method randomises a different parameter, and each is a perfectly natural reading of "at random".</p>
+<p><strong>Random endpoints.</strong> Fix one endpoint anywhere on the circumference; choose the other uniformly. Rotating so the fixed endpoint sits at a vertex, the chord is longer than a side exactly when the second endpoint lies on the arc between the other two vertices — one of three equal arcs. Probability <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/3</span></span></span></span>.</p>
+<p><strong>Random radius.</strong> Choose a radius, then a point uniformly along it, and take the chord perpendicular to the radius at that point. The chord exceeds a side when the point lies within half a radius of the centre. Probability <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span>.</p>
+<p><strong>Random midpoint.</strong> Choose a point uniformly over the disc as the chord's midpoint. The chord exceeds a side when the midpoint lies within the concentric circle of half the radius, whose area is one quarter of the whole. Probability <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/4</span></span></span></span>.</p>
+<p>All three calculations are correct. They compute different things, because uniformity in one parameterisation is not uniformity in another: the map from endpoint-pairs to midpoints is not measure-preserving, so a distribution that is uniform under one is not under the other.</p>
+<p>The paradox is therefore not an inconsistency in probability theory but a demonstration that the <em>question was incomplete</em>. A probability model requires a measure, and "at random" does not supply one.</p>
+<h2 id="jayness-resolution"><a class="header" href="#jayness-resolution">Jaynes's resolution</a></h2>
+<p>Jaynes (1973) argued that the problem is better posed than it looks, and that one answer is uniquely correct.</p>
+<p>His argument is from <strong>invariance</strong>. The problem statement mentions a circle and a chord but specifies neither the circle's size, nor its position, nor any preferred direction. A solution should therefore be invariant under the transformations the statement leaves unspecified: <strong>scale</strong>, <strong>translation</strong>, and <strong>rotation</strong>. Concretely, if one tosses straws onto a circle drawn on the floor and then draws a slightly smaller circle nearby, the distribution of chords induced on the second circle should follow the same law.</p>
+<p>Requiring all three invariances determines the distribution uniquely, and it is the one generated by the <strong>random radius</strong> method: probability <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span>. Rotational invariance alone is satisfied by all three; scale and translation invariance eliminate the others. Jaynes also reported experimental confirmation — physically tossing straws at a circle yields approximately <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span>.</p>
+<p>The result is a genuine achievement, and it is the same style of argument as the <a href="../06-rational-credence/05-priors-and-indifference.html">invariance-based priors</a> that replace the Principle of Indifference. It converts a vague appeal to ignorance into a checkable symmetry claim.</p>
+<h2 id="why-it-does-not-settle-everything"><a class="header" href="#why-it-does-not-settle-everything">Why it does not settle everything</a></h2>
+<p>Three objections, and together they show what the resolution does and does not accomplish.</p>
+<p><strong>The invariances are a choice.</strong> Requiring translation and scale invariance amounts to a substantive assumption about the physical process generating chords — that it is indifferent to where the circle sits and how big it is. That is right for straws tossed onto a floor. It is wrong for a process that selects two points on the circumference by some mechanism tied to the circle itself, such as spinning two pointers, which genuinely yields <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/3</span></span></span></span>. Jaynes's argument shows that <em>one</em> well-specified process is uniquely picked out by his invariances, not that other processes are illegitimate.</p>
+<p><strong>Different problems, not one problem.</strong> The deflationary reading, and the one these notes take: the three methods describe three different physical setups, each with a determinate and different answer. There is no single fact about "random chords" that the methods disagree about. Jaynes's contribution is to identify which setup corresponds to the most natural reading of an under-described problem, which is a contribution to interpreting the question rather than a proof that the other answers are wrong.</p>
+<p><strong>It does not generalise.</strong> The invariance method works when a transformation group acts naturally on the problem. Many problems have no such group — there is no natural group acting on the space of scientific theories, or on the space of possible universes — and there the method is silent. Since those are precisely the cases where the choice of measure is most contested, the resolution is least available where it is most needed.</p>
+<h2 id="the-general-structure"><a class="header" href="#the-general-structure">The general structure</a></h2>
+<p>Bertrand's paradox is one instance of a pattern that recurs throughout this section:</p>
+<blockquote>
+<p>A probability is well defined only relative to a measure; a measure is fixed by a <em>description</em> of the situation; descriptions that appear equivalent may induce inequivalent measures.</p>
+</blockquote>
+<p>Instances already met:</p>
+<ul>
+<li><strong>The wine–water and cube-factory paradoxes</strong> (<a href="../05-interpretations/01-classical.html">classical probability</a>) — indifference over a quantity is not indifference over its powers or reciprocals.</li>
+<li><strong>Uninformative priors</strong> (<a href="../06-rational-credence/05-priors-and-indifference.html">priors and indifference</a>) — uniform in a parameter is not uniform in a reparameterisation, which is why scale-invariant and Jeffreys priors exist.</li>
+<li><strong>Conditioning on null events</strong> (<a href="02-conditioning-on-null-events.html">the next page</a>) — the same event, approached through different limiting families, yields different conditional distributions.</li>
+<li><strong>Fine-tuning and anthropic arguments</strong> (<a href="06-anthropic-reasoning.html">anthropic reasoning</a>) — claims that life-permitting constants occupy a "small" region presuppose a measure over a parameter space, often unbounded, where no normalisable uniform measure exists.</li>
+<li><strong>Typicality in cosmology</strong> (<a href="../08-chance-and-laws/05-typicality.html">typicality</a>) — "most initial conditions" requires a measure, and outside statistical mechanics there is no invariance argument to supply one.</li>
+</ul>
+<p>The lesson is not scepticism about probability. It is that a probability claim carries a suppressed clause — <em>relative to this model</em> — and that arguments turning on the suppressed clause should make it explicit and defend it.</p>
+<h2 id="what-resolves-a-case"><a class="header" href="#what-resolves-a-case">What resolves a case</a></h2>
+<p>Restating the four considerations from <a href="../04-models-and-applications.html">models and applications</a>, in the order of their strength:</p>
+<ol>
+<li><strong>A specified generating procedure.</strong> If the mechanism producing outcomes is described, the measure is determined and the paradox does not arise. This is decisive when available.</li>
+<li><strong>Physical symmetry.</strong> Where the setup is genuinely invariant under a group, the measure should be too. Jaynes's method, and the strongest available principle in the absence of a specified mechanism.</li>
+<li><strong>Empirical test.</strong> Models make frequency predictions and can be checked, which is how Jaynes's straw-tossing result functions.</li>
+<li><strong>Robustness.</strong> Where none of the above settles it, ask whether the conclusion survives across the plausible measures. If it does, the underdetermination is harmless; if it does not, the argument rests on the modelling choice.</li>
+</ol>
+<p>Applied to the contested cases, the fourth is often the only one available, and it is applied far less often than it should be.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Bertrand's paradox earns its place at the head of the puzzles folder because it is the simplest complete example of the application problem, and because every other puzzle here has the same structure at bottom: a question that appears to have a determinate probabilistic answer turns out to be underdetermined until a modelling choice is made explicit.</p>
+<p>The next page examines the case where the modelling choice is hidden inside a piece of standard notation: conditioning on an event of <a href="02-conditioning-on-null-events.html">probability zero</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/09-causation/05-correlation-and-explanation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/10-puzzles/02-conditioning-on-null-events.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/09-causation/05-correlation-and-explanation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/10-puzzles/02-conditioning-on-null-events.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Correlation, Prediction, and Explanation - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/09-causation/05-correlation-and-explanation.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="correlation-prediction-and-explanation"><a class="header" href="#correlation-prediction-and-explanation">Correlation, Prediction, and Explanation</a></h1>
+<p>The slogan that correlation does not imply causation is universally known and routinely misapplied. It is often taken to mean that statistical evidence is worthless for causal questions, which is false — randomised trials are statistical evidence, and epidemiology established that smoking causes cancer without a single controlled human experiment. The accurate statement is narrower and more useful: <strong>correlation constrains causal structure without determining it</strong>, and closing the gap requires assumptions that data alone cannot supply.</p>
+<p>This page collects the practical consequences of the folder's argument: the ways correlations mislead, why predictive success does not confer causal understanding, and what statistical evidence <em>can</em> establish.</p>
+<hr />
+<h2 id="how-correlations-arise-without-direct-causation"><a class="header" href="#how-correlations-arise-without-direct-causation">How correlations arise without direct causation</a></h2>
+<p>A correlation between <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> has a limited menu of explanations, and enumerating them is the first step in any causal assessment.</p>
+<ul>
+<li><strong><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> causes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span></strong> — the hypothesis of interest.</li>
+<li><strong><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> causes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span></strong> — reverse causation. Poverty correlates with poor health in both directions.</li>
+<li><strong>A common cause</strong> — <a href="02-screening-off-common-causes.html">confounding</a>.</li>
+<li><strong>Selection</strong> — the sample was chosen in a way that induces the association.</li>
+<li><strong>Chance</strong> — particularly with small samples or many comparisons.</li>
+<li><strong>Artifact</strong> — shared measurement error, shared denominators, or definitional overlap.</li>
+</ul>
+<p>Distinguishing these is the whole problem, and it cannot be done from the joint distribution of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> alone.</p>
+<h2 id="selection-and-collider-bias"><a class="header" href="#selection-and-collider-bias">Selection and collider bias</a></h2>
+<p>The most treacherous case, because conditioning on the wrong variable <em>creates</em> an association that does not exist in the population, and the resulting correlation is entirely real within the sample.</p>
+<p>If <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span></span></span></span> is a common effect of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> — a <strong>collider</strong> — then conditioning on <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span></span></span></span> makes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> dependent even when they are independent. The mechanism is simple: given that the effect occurred, one cause being absent makes the other more likely.</p>
+<p><strong>Berkson's paradox</strong> is the medical instance. Among hospital patients, two unrelated diseases appear negatively correlated, because either disease alone can cause hospitalisation — so a patient with one is less likely to also have the other than a member of the general population. The correlation is genuine in the hospital and absent in the population, and the hospital sample is selected on a collider.</p>
+<p>The pattern is pervasive: restaurant quality and location among <em>surviving</em> restaurants; talent and attractiveness among <em>celebrities</em>; test scores and interview performance among <em>admitted</em> students. In each case the sample is conditioned on a common effect, and the induced correlation is an artifact of selection.</p>
+<p>This is why "controlling for more variables" is not a conservative strategy. Adding a collider to a regression introduces bias where none existed. As the <a href="03-simpsons-paradox.html">Simpson</a> discussion showed, whether to condition depends on causal role, and the data do not reveal it.</p>
+<h2 id="prediction-without-understanding"><a class="header" href="#prediction-without-understanding">Prediction without understanding</a></h2>
+<p>Modern machine learning makes vivid a distinction that was always available: a model can predict superbly while encoding no causal structure at all.</p>
+<p>A model predicting hospital mortality may rely on the fact that patients receiving palliative care die more often. The correlation is strong and stable, and the model will perform well on data drawn from the same regime. But intervening on the predictor — withholding palliative care — would not reduce mortality, and might increase it.</p>
+<p>The general principle: <strong>predictive models exploit any stable association, causal or not</strong>, and they are optimised for exactly that. Purely predictive accuracy is therefore no evidence of causal correctness.</p>
+<p>The distinction matters for three practical reasons.</p>
+<ul>
+<li><strong>Intervention.</strong> Acting on a variable changes the distribution, which is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">o</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">))</span></span></span></span> and not <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span>. A model trained on observational data estimates the latter.</li>
+<li><strong>Transportability.</strong> A model relying on a confounded association fails when transferred to a population where the confounding differs. Causal relationships are more stable across populations than correlations precisely because they reflect mechanisms, which is one of the better arguments for caring about causal structure at all.</li>
+<li><strong>Distribution shift.</strong> When a predictor is itself acted upon — because the model's use changes behaviour — the association it relies on can disappear. Goodhart's law is this phenomenon: a measure that becomes a target ceases to be a good measure, because the correlation between measure and underlying quality was not causal in the direction assumed.</li>
+</ul>
+<h2 id="what-statistical-evidence-can-establish"><a class="header" href="#what-statistical-evidence-can-establish">What statistical evidence <em>can</em> establish</a></h2>
+<p>The negative points should not obscure how much is achievable, since the sceptical slogan is more often used to dismiss good evidence than to catch bad.</p>
+<p><strong>Randomisation</strong> severs the edges from confounders into the treatment, making assignment independent of everything prior. The observed association then estimates the causal effect, and this is why controlled trials are the standard. The assumptions are not nil — compliance, blinding, no interference between units — but they are far weaker than in observational work.</p>
+<p><strong>Observational inference with explicit assumptions.</strong> Given a causal graph and the <a href="04-causal-models.html">back-door criterion</a>, effects can be identified from observational data. The assumptions are strong and usually untestable, but they are <em>stateable</em>, which allows disagreement to be located precisely. Natural experiments, instrumental variables, and regression discontinuity exploit situations where something approximating randomisation occurs naturally.</p>
+<p><strong>Convergent evidence.</strong> The case that smoking causes lung cancer was made without human experiments, by combining dose–response relationships, temporal ordering, animal experiments, biological mechanism, consistency across populations with different confounding structures, and the implausibility of any common cause accounting for the magnitude of the association. The <strong>Bradford Hill considerations</strong> systematise this, and the argument's strength comes from the fact that no single confounder could explain all the strands at once. This is the practical answer to the sceptic: not one decisive statistic, but a structure of evidence whose alternative explanations have been eliminated piecemeal.</p>
+<p><strong>Elimination of alternatives.</strong> Fisher's suggestion that a genetic common cause explained the smoking–cancer association was a serious hypothesis, and it was refuted by evidence — twin studies, dose–response, the effect of cessation — not by assertion. That is how causal inference from observational data proceeds: by making the alternatives explicit and testing them.</p>
+<h2 id="explanation"><a class="header" href="#explanation">Explanation</a></h2>
+<p>The final connection back to <a href="../08-chance-and-laws/03-chance-and-explanation.html">chance and explanation</a>. A correlation does not explain, even when it predicts perfectly. The barometer's fall predicts the storm and explains nothing, because the explanatory relation runs through the atmospheric pressure.</p>
+<p>This supports a general moral about the relationship between the two folders. Probabilistic dependence is <em>evidence about</em> causal and explanatory structure but is not identical to it, and the same holds for chance: a chance is evidence about the mechanism without being a description of one. In both cases the probability is a symmetric relation and what it is evidence for is asymmetric, which is why the extra structure — intervention, mechanism, direction of explanation — has to be supplied from outside the calculus.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>This completes the causation folder. Its argument runs: <a href="01-probabilistic-causation.html">probability raising</a> fails as an analysis in both directions; <a href="02-screening-off-common-causes.html">screening off</a> is the principle that makes causal inference possible and is empirically false in the quantum case; <a href="03-simpsons-paradox.html">Simpson's paradox</a> shows the same statistics can require opposite analyses; <a href="04-causal-models.html">causal models</a> supply the missing structure through intervention; and the practical upshot is that statistical evidence establishes causal conclusions only in conjunction with causal assumptions — which can nonetheless be made explicit, tested, and sometimes eliminated.</p>
+<p>The remaining folders take up the standing puzzles where these tools are stress-tested, the scientific cases where the interpretation of probability has the most at stake, and the historical and methodological context.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/09-causation/04-causal-models.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/10-puzzles/01-bertrand-and-model-selection.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/09-causation/04-causal-models.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/10-puzzles/01-bertrand-and-model-selection.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

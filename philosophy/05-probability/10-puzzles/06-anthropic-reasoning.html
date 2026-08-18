@@ -1,0 +1,295 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Anthropic and Self-Locating Reasoning - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/10-puzzles/06-anthropic-reasoning.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="anthropic-and-self-locating-reasoning"><a class="header" href="#anthropic-and-self-locating-reasoning">Anthropic and Self-Locating Reasoning</a></h1>
+<p><strong>Anthropic reasoning</strong> draws conclusions about the world from the fact that we exist to observe it. It rests on an observation that is unarguable — our data are collected by observers, so they are necessarily compatible with the existence of observers — and builds on it arguments that are highly contested.</p>
+<p>The unarguable part is the <strong>observation-selection effect</strong>. If a survey can only reach people with telephones, the sample is not representative of the population, and correcting for that is ordinary methodology. Anthropic reasoning applies the same correction where the selection is on the existence of observers as such.</p>
+<p>The contested part is everything after. Turning a selection effect into a probability requires a reference class of observers and a rule for locating oneself within it — which is the <a href="05-sleeping-beauty.html">Sleeping Beauty</a> problem in a setting where the stakes are cosmological and the disagreement is unresolved.</p>
+<hr />
+<h2 id="the-anthropic-principles"><a class="header" href="#the-anthropic-principles">The anthropic principles</a></h2>
+<p>Carter's distinction, frequently muddled:</p>
+<p><strong>The Weak Anthropic Principle (WAP).</strong> We should expect to observe conditions compatible with our existence as observers. This is a statement about selection effects and is uncontroversial. It has real explanatory force: the question "why is the universe old enough for carbon to have formed?" is answered by noting that observers require carbon, so no observer could find otherwise.</p>
+<p><strong>The Strong Anthropic Principle (SAP).</strong> The universe must be such as to admit observers at some stage. This is a much stronger and more obscure claim, sometimes read teleologically. It is not needed for any of the arguments below, and these notes set it aside.</p>
+<p>The useful work is done by WAP plus a further <strong>self-location</strong> assumption, and it is the latter that carries the controversy.</p>
+<h2 id="the-two-assumptions"><a class="header" href="#the-two-assumptions">The two assumptions</a></h2>
+<p><strong>The Self-Sampling Assumption (SSA).</strong> Reason as if you were a random sample from the set of all observers in your reference class.</p>
+<p><strong>The Self-Indication Assumption (SIA).</strong> Reason as if you were a random sample from all <em>possible</em> observers, weighting hypotheses by how many observers they predict.</p>
+<p>The difference is whether a theory positing more observers is thereby more likely to be true given that you exist. SIA says yes — a world with more observers has more chances of including you. SSA says no.</p>
+<p>These correspond directly to the halfer and thirder positions in <a href="05-sleeping-beauty.html">Sleeping Beauty</a>: SSA is halfer-like, SIA thirder-like. Since that dispute is unresolved, every anthropic argument depending on the choice is conditional on an open question.</p>
+<h2 id="the-doomsday-argument"><a class="header" href="#the-doomsday-argument">The Doomsday argument</a></h2>
+<p>The most notorious application. Consider your birth rank among all humans who will ever live — roughly the 100 billionth. Compare two hypotheses:</p>
+<ul>
+<li><strong>Doom soon</strong>: 200 billion humans in total.</li>
+<li><strong>Doom late</strong>: 200 trillion humans in total.</li>
+</ul>
+<p>Under SSA, treat yourself as randomly sampled from all humans who will ever live. Your rank is unremarkable under Doom soon (you are around the midpoint) and extraordinary under Doom late (you are in the earliest 0.05%). By Bayes' theorem, your birth rank strongly confirms Doom soon — by a factor of a thousand — whatever your prior.</p>
+<p>The conclusion is alarming and the argument is short, which has generated a large critical literature.</p>
+<p><strong>SIA cancels it.</strong> Under SIA, Doom late is favoured <em>a priori</em> precisely because it contains more observers, and this boost exactly offsets the birth-rank update. The two effects cancel, leaving the prior unchanged. So the Doomsday argument goes through under SSA and not under SIA, and choosing between them is choosing whether to accept it.</p>
+<p><strong>The reference class problem.</strong> Who counts as "human"? Include hominids, or future post-humans, or any conscious being, and the numbers and the conclusion change. There is no principled specification, and this is the <a href="03-reference-classes.html">reference-class problem</a> in a setting where the class is not merely hard to choose but arguably indeterminate.</p>
+<p><strong>The old-evidence flavour.</strong> Your birth rank is not news to you, and the argument's force depends on treating it as evidence acquired from a prior standpoint that no one occupies.</p>
+<p><strong>Empirical priors should dominate.</strong> Actual evidence about extinction risks — asteroid frequencies, pandemic dynamics, nuclear arsenals — is direct and should swamp an inference from birth order. That the argument claims to establish a conclusion about the future of humanity from a numerical accident, without any empirical input, is itself grounds for suspicion.</p>
+<h2 id="the-presumptuous-philosopher"><a class="header" href="#the-presumptuous-philosopher">The presumptuous philosopher</a></h2>
+<p>Bostrom's reductio of SIA, and the reason neither assumption is comfortable.</p>
+<p>Physicists have narrowed the cosmological theories to two, equally supported by all evidence. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> predicts a universe with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">12</span></span></span></span></span></span></span></span></span></span></span></span> observers; <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> predicts <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">24</span></span></span></span></span></span></span></span></span></span></span></span>. A billion-dollar experiment is proposed to distinguish them.</p>
+<p>The presumptuous philosopher announces that the experiment is unnecessary: SIA already favours <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> by a factor of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">12</span></span></span></span></span></span></span></span></span></span></span></span>, so it is essentially certain.</p>
+<p>This is absurd — armchair reasoning cannot outweigh empirical investigation by twelve orders of magnitude — and it is a straightforward consequence of SIA. So SSA yields Doomsday and SIA yields the presumptuous philosopher, and both conclusions are unacceptable. This symmetry is the strongest reason to think something is wrong with the framework rather than with one of its options.</p>
+<h2 id="fine-tuning"><a class="header" href="#fine-tuning">Fine-tuning</a></h2>
+<p>The physical constants lie in narrow ranges compatible with complex structure. Three explanations compete: design, a multiverse with varying constants plus observation selection, and brute fact.</p>
+<p>The probabilistic issues are exactly this section's recurring ones, and they are worth separating from the theological question treated in the <a href="../../02-religion/06-arguments/03-teleological.html">teleological argument</a>.</p>
+<p><strong>The measure problem.</strong> "The life-permitting range is small" presupposes a measure over parameter space. If a constant may take any positive real value, there is no normalisable uniform measure, and "small" is undefined without a choice that no physics supplies. This is <a href="01-bertrand-and-model-selection.html">Bertrand's paradox</a> with cosmological constants, and it is the most serious technical objection to all sides of the debate.</p>
+<p><strong>Selection versus explanation.</strong> Given a multiverse, WAP explains why <em>we</em> observe life-permitting values without any further posit. The dispute is whether the multiverse itself is independently motivated or is an ad hoc device, which is a question about theory choice rather than about probability.</p>
+<p><strong>The inverse gambler's fallacy.</strong> Hacking's objection: inferring many universes from one improbable universe is like inferring that a casino's dice have been rolled many times from seeing one double-six. The reply is that the cases differ because of the observation-selection effect — we could only observe a life-permitting universe — and whether that reply succeeds turns again on SSA versus SIA.</p>
+<p><strong>Old evidence.</strong> The constants have been known for decades, which raises the <a href="../07-induction-confirmation/04-old-evidence-and-new-theories.html">old-evidence problem</a> in a setting where the counterfactual prior is especially hard to specify.</p>
+<h2 id="boltzmann-brains"><a class="header" href="#boltzmann-brains">Boltzmann brains</a></h2>
+<p>A constraint that any cosmological theory must satisfy, and the most respectable use of anthropic reasoning.</p>
+<p>In a universe that persists long enough, thermal fluctuations will occasionally produce a self-aware observer with false memories of an ordered past. If such observers vastly outnumber ordinary ones, then a randomly selected observer is almost certainly a fluctuation — and if you are probably a Boltzmann brain, your evidence about cosmology is probably fabricated, so the theory that told you this undermines its own evidential basis.</p>
+<p>This is a genuine <strong>self-undermining</strong> result and is used as a legitimate constraint: cosmological models predicting a preponderance of Boltzmann brains are rejected on those grounds. It is anthropic reasoning at its most defensible, because it does not require deriving a positive conclusion from self-location — only noting that a theory implying you are probably deluded cannot be rationally accepted on the basis of your observations.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>A defensible ordering of these arguments by reliability:</p>
+<ol>
+<li><strong>Observation-selection effects (WAP)</strong> — sound and useful; ordinary methodology.</li>
+<li><strong>Boltzmann-brain constraints</strong> — sound as a self-consistency requirement.</li>
+<li><strong>Fine-tuning</strong> — the phenomenon is real; the probabilistic argument requires a measure nobody can justify.</li>
+<li><strong>Doomsday</strong> — depends on an unresolved choice between SSA and SIA and on an indeterminate reference class.</li>
+<li><strong>Presumptuous-philosopher-style inferences</strong> — a reductio rather than a method.</li>
+</ol>
+<p>The general moral is the section's: these arguments require a <strong>measure over observers</strong>, and no principled one is available. Where the conclusion is robust across the plausible measures — as with Boltzmann brains — the reasoning is sound. Where it flips, as with Doomsday and fine-tuning, the argument is carrying the measure rather than the evidence.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Anthropic reasoning is where the <a href="05-sleeping-beauty.html">self-locating</a> problem, the <a href="03-reference-classes.html">reference-class problem</a>, and the <a href="01-bertrand-and-model-selection.html">measure problem</a> meet, and it inherits all three unresolved. That is why the literature has not converged, and it is a reason for caution about any dramatic conclusion derived from our own existence.</p>
+<p>This completes the puzzles folder. Each of its six cases has the same shape: a question that appears to have a determinate probabilistic answer turns out to depend on a modelling choice — a measure, a conditioning family, a reference class, a threshold, or a rule for distributing credence over centred possibilities — that the probability calculus does not make.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/10-puzzles/05-sleeping-beauty.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/11-science/01-quantum-chance.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/10-puzzles/05-sleeping-beauty.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/11-science/01-quantum-chance.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

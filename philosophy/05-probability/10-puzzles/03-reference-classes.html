@@ -1,0 +1,271 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Reference-Class Problem - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/10-puzzles/03-reference-classes.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-reference-class-problem"><a class="header" href="#the-reference-class-problem">The Reference-Class Problem</a></h1>
+<p>A fifty-five-year-old man is diagnosed with a cancer. What is the probability he survives five years? The literature offers a five-year survival rate of 40% for this cancer. But he is also a non-smoker, physically fit, diagnosed early, with a particular genetic profile, treated at a specialist centre. Each of these defines a class with a different survival rate.</p>
+<p>Which is <em>his</em> probability?</p>
+<p>This is the <strong>reference-class problem</strong>. It was introduced by Venn and named by Reichenbach, and it is the most practically consequential difficulty in the philosophy of probability — it arises whenever a statistic is applied to an individual, which is to say in medicine, law, insurance, forecasting, and machine learning.</p>
+<hr />
+<h2 id="the-problem"><a class="header" href="#the-problem">The problem</a></h2>
+<p>Every individual belongs to indefinitely many classes. Frequencies differ across them. A frequency is defined only relative to a class, so unless a class is singled out, no probability attaches to the individual at all.</p>
+<p>The natural fixes fail in instructive ways.</p>
+<p><strong>Take the narrowest class.</strong> More specific information is better, so use the smallest class containing the individual. But the narrowest class is the <strong>singleton</strong> — the class containing only him — whose survival frequency is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> or <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> depending on what actually happens. Taken seriously, this yields trivial probabilities for everything, which is the <a href="../05-interpretations/03-frequentism.html">single-case problem</a> in its sharpest form.</p>
+<p><strong>Take the narrowest class for which we have reliable statistics.</strong> Reichenbach's proposal, and what practitioners actually do. It makes the probability depend on <em>what data happen to have been collected</em>, so the patient's probability of survival changes when a new study is published, without anything about him changing. That is a strange consequence for a supposedly objective quantity. The proposal is best understood as a rule for estimating a probability rather than as an account of what the probability is.</p>
+<p><strong>Take the class of all and only causally relevant factors.</strong> Attractive, and it is roughly right — but it requires prior causal knowledge, so probability can no longer be used to <em>analyse</em> causation without circularity. It also does not terminate: the set of causally relevant factors, fully specified, again approaches the singleton.</p>
+<p><strong>Homogeneity.</strong> Salmon's proposal: use a class that is <em>objectively homogeneous</em>, admitting no statistically relevant partition. If no property divides the class into subclasses with different frequencies, it is the right class. This is the most principled answer, and its difficulty is that in a deterministic or near-deterministic world the only objectively homogeneous classes are trivial ones — every apparent homogeneity dissolves under finer description.</p>
+<h2 id="whose-problem-is-it"><a class="header" href="#whose-problem-is-it">Whose problem is it?</a></h2>
+<p>The problem's severity varies sharply with the <a href="../03-interpretations-overview.html">interpretation</a>, which is one reason it is a good diagnostic.</p>
+<p><strong><a href="../05-interpretations/03-frequentism.html">Frequentism</a></strong> — fatal. A frequency is <em>by definition</em> relative to a class, so without a selection rule the theory does not assign probabilities to individuals at all. Von Mises accepted this and declared single-case probability meaningless.</p>
+<p><strong><a href="../05-interpretations/04-propensity.html">Propensity</a></strong> — dissolved in principle, returning as epistemology. The chance belongs to the concrete setup with all its properties, so there is no class to choose. But we must still <em>estimate</em> the propensity from data about other cases, and choosing which other cases are relevantly similar is the reference-class problem in epistemic dress.</p>
+<p><strong><a href="../05-interpretations/05-subjective-bayesianism.html">Subjectivism</a></strong> — not a problem about probability but about evidence. The agent has a credence in <em>this man's</em> survival; the various statistics are all evidence bearing on it; the question is how to weigh them, which is ordinary Bayesian updating on a conjunction of facts about him. This is arguably subjectivism's single best argument, and it explains why the problem feels intractable to objectivists and merely difficult to Bayesians.</p>
+<p><strong><a href="../05-interpretations/07-humean-chance.html">Best-system chance</a></strong> — the system's own generalisations determine which properties are chance-relevant, so the reference class is fixed by the laws rather than by our description. This is a real advantage, though it means the correct reference class is known only when the best system is.</p>
+<p>Hájek has argued the problem is genuinely universal — that even subjectivists face it in choosing which evidence to conditionalize on, and that it therefore afflicts every interpretation. The response is that for subjectivists it is not a problem of <em>indeterminacy</em> but of <em>inference</em>: all the evidence is admissible, and the framework says to condition on all of it.</p>
+<h2 id="in-practice"><a class="header" href="#in-practice">In practice</a></h2>
+<p>The problem is not academic, and three domains show what is at stake.</p>
+<p><strong>Law.</strong> Statistical evidence about a defendant's group is admitted with great caution, and the reference-class problem is part of why. The <em>L'Heureux-Dubé</em> and blue-bus cases raise the question directly: if 80% of buses in town are blue, does that establish that the bus that hit the plaintiff was probably blue? Most jurisdictions say naked statistical evidence is insufficient for liability even at high probability, which suggests the legal standard demands evidence about the individual case rather than about a class containing it — a distinction the <a href="../07-induction-confirmation/03-likelihood-and-evidence.html">likelihood</a> framework partly captures.</p>
+<p><strong>Actuarial and algorithmic prediction.</strong> Insurance rating and risk scoring are exercises in reference-class selection, and the choice of variables is simultaneously a statistical and a normative decision. Excluding a predictive variable on fairness grounds is a choice of reference class made for non-epistemic reasons — and the resulting probabilities are genuinely different, not merely differently reported.</p>
+<p><strong>Medicine.</strong> Personalised medicine is the systematic narrowing of reference classes, and it runs into the statistical wall the problem predicts: the narrower the class, the more relevant it is and the less data there is. The trade-off between relevance and sample size is the practical form of the philosophical problem, and it has no clean solution.</p>
+<h2 id="what-the-problem-shows"><a class="header" href="#what-the-problem-shows">What the problem shows</a></h2>
+<p>Two conclusions are reasonably secure.</p>
+<p><strong>Probabilities attach to descriptions, not to bare individuals.</strong> "The probability that he survives" is elliptical; the complete claim is "the probability that a person so described survives". This is the same structure as the <a href="01-bertrand-and-model-selection.html">model-relativity</a> of every probability claim, arriving in a form where the suppressed clause is a class rather than a measure.</p>
+<p><strong>Relevance is a causal notion, not a statistical one.</strong> The properties that should determine the reference class are those that make a causal difference, and identifying them requires <a href="../09-causation/04-causal-models.html">causal knowledge</a>. A purely statistical criterion cannot distinguish a confounder from a coincidence, which is <a href="../09-causation/03-simpsons-paradox.html">Simpson's paradox</a> again: whether to partition a population is a causal question.</p>
+<p>That second point suggests the problem is not fully solvable within probability theory, and should not be expected to be. With a causal model in hand, the reference class is determined — condition on the causal parents, not on everything correlated — and without one, no statistical rule suffices.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>The reference-class problem is the practical face of the single-case problem, and it is the strongest argument against pure frequency accounts of probability. It also explains why the <a href="../02-chance-and-credence.html">chance/credence distinction</a> does real work: the question "what is his probability of survival?" is ambiguous between a request for an objective chance, which requires a determinate reference class or a propensity, and a request for a reasonable credence, which requires weighing all the available evidence.</p>
+<p>The next page turns from the application of probability to individuals to its relation to ordinary categorical belief: the <a href="04-lottery-and-preface.html">lottery and preface paradoxes</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/10-puzzles/02-conditioning-on-null-events.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/10-puzzles/04-lottery-and-preface.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/10-puzzles/02-conditioning-on-null-events.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/10-puzzles/04-lottery-and-preface.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

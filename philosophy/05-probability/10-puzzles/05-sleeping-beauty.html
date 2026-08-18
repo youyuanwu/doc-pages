@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Sleeping Beauty - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/10-puzzles/05-sleeping-beauty.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="sleeping-beauty"><a class="header" href="#sleeping-beauty">Sleeping Beauty</a></h1>
+<p>On Sunday, Beauty is put to sleep. A fair coin is tossed.</p>
+<ul>
+<li>If it lands <strong>heads</strong>, she is woken on Monday and the experiment ends.</li>
+<li>If it lands <strong>tails</strong>, she is woken on Monday, put back to sleep with her memory of that waking erased, and woken again on Tuesday.</li>
+</ul>
+<p>The wakings are subjectively indistinguishable. Beauty knows the entire setup in advance.</p>
+<p>She wakes. <strong>What should her credence be that the coin landed heads?</strong></p>
+<p>Two answers have been defended at length, and the disagreement has proved unusually stubborn — it is now over two decades old with no convergence. Its interest is that it isolates a genuine gap in the Bayesian framework: what to do with <strong>self-locating</strong> uncertainty, where an agent knows all the objective facts and is uncertain only about where in the world they are.</p>
+<hr />
+<h2 id="the-halfer-argument"><a class="header" href="#the-halfer-argument">The halfer argument</a></h2>
+<p>Beauty's credence should be <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span>.</p>
+<p>The coin is fair, and she knew on Sunday that its chance of heads was <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span>. On waking she learns <strong>nothing new</strong>: she knew in advance that she would wake, and she has. Conditionalization on a proposition already assigned probability <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> changes nothing, so her credence should remain <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span>.</p>
+<p>This is Lewis's position, and it has two strong supports. It respects the <a href="../08-chance-and-laws/01-principal-principle.html">Principal Principle</a>: the chance of heads is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span> and she has no inadmissible evidence, so her credence should match. And it respects <strong>conditionalization</strong>: with no new information, no update is licensed.</p>
+<p>The halfer's difficulty appears at the next step. Suppose Beauty is now told it is Monday. The halfer must say her credence in heads <em>rises</em> to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2/3</span></span></span></span>, since tails-Tuesday is eliminated. But that is peculiar: learning it is Monday seems to say nothing about a coin toss, and it means she assigns <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2/3</span></span></span></span> to heads on Monday having assigned <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span> before — an update on information that appears causally irrelevant to the coin.</p>
+<h2 id="the-thirder-argument"><a class="header" href="#the-thirder-argument">The thirder argument</a></h2>
+<p>Beauty's credence should be <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/3</span></span></span></span>.</p>
+<p>Consider the three possible waking situations: heads-Monday, tails-Monday, tails-Tuesday. From Beauty's perspective on waking these are indistinguishable. The two tails-wakings are equally likely, and — the crucial step — a tails-waking is <em>twice as frequent</em> as a heads-waking across repetitions. Assigning equal credence to the three centred possibilities gives <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/3</span></span></span></span> to heads.</p>
+<p>The <strong>frequency</strong> argument makes this vivid. Repeat the experiment a thousand times. There will be roughly 500 heads-wakings and 1000 tails-wakings. Of the 1500 wakings, a third are heads-wakings. If Beauty guesses "tails" on every waking she is right two-thirds of the time, and a betting rate of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span> on heads would lose money systematically.</p>
+<p>Elga's original argument runs through the conditional structure: conditional on it being Monday, heads and tails are equally likely, and conditional on tails, Monday and Tuesday are equally likely; these force <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/3</span></span></span></span>.</p>
+<p>The thirder must say that Beauty <em>does</em> learn something on waking — namely, that she is now in a waking episode, which is a self-locating fact that has different probabilities under the two hypotheses. This is what the halfer denies.</p>
+<h2 id="what-is-really-at-issue"><a class="header" href="#what-is-really-at-issue">What is really at issue</a></h2>
+<p>The disagreement is not about probability theory. Both parties compute correctly from their premises. It is about how to model <strong>centred</strong> propositions.</p>
+<p>An ordinary (uncentred) proposition is a set of possible worlds: "the coin landed heads". A <strong>centred</strong> proposition is a set of world–time–agent triples: "it is now Monday and I am awake". Beauty's uncertainty is of the second kind — she knows exactly which worlds are possible and is uncertain which centred position she occupies.</p>
+<p>Conditionalization was designed for uncentred propositions, and it does not straightforwardly extend. Two things go wrong:</p>
+<ul>
+<li><strong>Self-locating information can be lost as well as gained.</strong> Beauty's memory erasure means she does not simply accumulate evidence, so the martingale structure that underwrites <a href="../06-rational-credence/04-conditionalization.html">reflection</a> fails.</li>
+<li><strong>The "same" agent occupies multiple centred positions in one world.</strong> In the tails world there are two waking-Beauties, and it is unclear whether they are one agent to be assigned one credence or two situations each warranting its own.</li>
+</ul>
+<p>Both halfer and thirder positions can be made internally consistent. Each pays a price somewhere in the package of conditionalization, reflection, the Principal Principle, and the indifference principle over indistinguishable centred situations. Titelbaum's and others' systematic work has largely established that the disagreement is a choice about which principle to sacrifice rather than a mistake by one side.</p>
+<h2 id="the-betting-argument-and-its-limits"><a class="header" href="#the-betting-argument-and-its-limits">The betting argument and its limits</a></h2>
+<p>The most commonly cited consideration for thirding is that betting at <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span> loses money. This is weaker than it appears, and the reason is instructive.</p>
+<p>If Beauty is offered a bet on each waking, she is offered <em>twice as many</em> bets in the tails branch, so the expected payoff calculation reflects the number of bets and not merely her credence. A halfer can accept the thirder's <em>betting</em> behaviour while denying the thirder's <em>credence</em>, on the grounds that the correct decision rule must account for the multiplicity of choice-points. The betting argument therefore shows that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/3</span></span></span></span> is the right <strong>betting rate</strong>, and only shows it is the right credence given a bridge principle between credence and betting — which is exactly what the <a href="../06-rational-credence/02-dutch-books.html">depragmatised</a> reading of Dutch books calls into question.</p>
+<p>This matters for anthropic arguments, where betting-style reasoning is often used to establish claims about credence.</p>
+<h2 id="why-it-matters"><a class="header" href="#why-it-matters">Why it matters</a></h2>
+<p>Sleeping Beauty is not a curiosity. It is the simplest clean case of a structure that appears wherever agents reason about their own position.</p>
+<ul>
+<li><strong><a href="06-anthropic-reasoning.html">Anthropic reasoning</a>.</strong> The Doomsday argument and the fine-tuning debate both require credences about which observer one is. The halfer/thirder split corresponds closely to the Self-Sampling and Self-Indication assumptions.</li>
+<li><strong>Duplication and fission.</strong> Everettian branching, teleportation cases, and personal-identity puzzles all involve agents in multiple positions, and require a rule for distributing credence over them.</li>
+<li><strong>Simulation and Boltzmann-brain arguments</strong> turn entirely on the measure over observers.</li>
+<li><strong>Memory loss and unreliable recall</strong> are ordinary versions of the same structure, so the problem is not confined to exotic cases.</li>
+</ul>
+<p>The relation to <a href="../11-science/01-quantum-chance.html">Everettian quantum mechanics</a> is especially close: an agent about to undergo branching faces uncertainty not about the physics but about which branch they will find themselves in, which is self-locating uncertainty in exactly Beauty's sense.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Sleeping Beauty is the sharpest demonstration that the Bayesian framework is incomplete. Every norm in the <a href="../06-rational-credence/01-probabilism.html">rational credence</a> folder was formulated for uncertainty about <em>how the world is</em>, and self-locating uncertainty is uncertainty about <em>where in the world one is</em>. The framework has no agreed extension to the latter, and the two candidate extensions give different answers to an extremely simple question.</p>
+<p>These notes take no side. What is worth extracting is the diagnostic: when an argument requires credences about one's own position among observers — as the Doomsday and fine-tuning arguments both do — it inherits this unresolved dispute, and any conclusion drawn is conditional on an unsettled choice. That observation does much of the work on the <a href="06-anthropic-reasoning.html">next page</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/10-puzzles/04-lottery-and-preface.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/10-puzzles/06-anthropic-reasoning.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/10-puzzles/04-lottery-and-preface.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/10-puzzles/06-anthropic-reasoning.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

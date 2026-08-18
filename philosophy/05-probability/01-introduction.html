@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What Is the Philosophy of Probability? - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/01-introduction.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="what-is-the-philosophy-of-probability"><a class="header" href="#what-is-the-philosophy-of-probability">What Is the Philosophy of Probability?</a></h1>
+<p>The <strong>philosophy of probability</strong> asks what probability statements mean, what makes them true, and what rational agents should do with them. It is an unusual field in that its formal side is not in dispute. Since Kolmogorov's 1933 axiomatisation there has been near-universal agreement on the <em>calculus</em> — a probability is a normalised measure, and the <a href="../../math/11-probability/01-kolmogorov-axioms.html">rules for combining probabilities</a> follow from that — while there is no agreement at all on what the calculus is a calculus <em>of</em>. A mathematician can prove theorems about <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> indefinitely without ever saying what <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> measures. The philosophical question begins where the mathematics stops.</p>
+<p>That gap is not a defect in the axioms; it is a consequence of their generality. Exactly the same formal structure is used to say that a nucleus has a <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.5</span></span></span></span> chance of decaying within its half-life, that a witness is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">90%</span></span></span></span> likely to be telling the truth, that the relative frequency of heads in a long sequence of tosses is close to one half, and that a rational agent should be twice as confident of one hypothesis as another. These are claims about radically different things — a physical system, a person's reliability, a pattern in a sequence, and a norm of reasoning — and the fact that one formalism serves them all is either a deep discovery about the unity of the subject or a persistent source of equivocation. Both diagnoses have distinguished defenders.</p>
+<p>This page fixes the subject matter, separates the three kinds of question the field pursues, sets out the map of interpretations, and explains why the neutrality of the axioms is the central methodological fact about the field. The other spine pages take up the <a href="02-chance-and-credence.html">chance/credence distinction</a>, the <a href="03-interpretations-overview.html">interpretations</a> in comparative detail, and the question of how a formal measure comes to <a href="04-models-and-applications.html">represent a real situation</a>.</p>
+<hr />
+<h2 id="three-questions-not-one"><a class="header" href="#three-questions-not-one">Three questions, not one</a></h2>
+<p>"What is probability?" conceals three logically independent questions, and most confusion in the field — including several arguments that look compelling until the questions are separated — comes from sliding between them. They mirror the three-question structure used elsewhere in these notes; compare the metaphysical, epistemic, and semantic strands of the <a href="../01-freewill/01-introduction.html">free-will problem</a>, the <a href="../02-religion/01-introduction.html">philosophy of religion</a>, the <a href="../03-spacetime/01-introduction.html">philosophy of space and time</a>, and <a href="../04-ontology/01-introduction.html">ontology</a>.</p>
+<ul>
+<li><strong>The metaphysical question — is there objective chance, and what is it?</strong> Does the world itself contain probabilistic facts, or is every probability a reflection of somebody's ignorance? If a radium atom has a definite chance of decaying in the next hour, that chance is presumably not a fact about us. But what <em>kind</em> of fact is it? A summary of what actually happens to atoms of that type over the history of the universe? An irreducible physical disposition of the individual atom? A number appearing in the laws of the best theory of the world? And could such a fact exist in a world whose fundamental dynamics is deterministic?</li>
+<li><strong>The epistemic question — what are degrees of belief, and how should they behave?</strong> Belief seems to come in degrees: one can be confident, fairly confident, or barely persuaded. The claim that these degrees are <em>probabilities</em> — that rational confidence obeys the Kolmogorov axioms — is a substantive normative thesis, not a definition, and it requires an argument. So does the further claim that belief should change by conditioning on the evidence. Both are questions about rationality, not about the world.</li>
+<li><strong>The application question — what makes a probability model <em>correct</em> for a given situation?</strong> A probability space is a mathematical object; a coin, a clinical trial, and a particle detector are not. Something must connect them, and it is not the axioms. Choosing a sample space is already a substantive act of description, and rival descriptions of the same physical setup can yield different and equally coherent probabilities. This is where <a href="04-models-and-applications.html">Bertrand's paradox</a> lives, and it is the question most often ignored.</li>
+</ul>
+<p>The three interact constantly, and a position on one constrains the others. A subjectivist who answers the metaphysical question negatively — there is no objective chance — must explain why physics appears to state chances and why they are not merely optional. Someone who takes chance to be primitive owes an answer to the epistemic question about why knowledge of a chance should compel a particular degree of belief; that demand is what the <a href="08-chance-and-laws/01-principal-principle.html">Principal Principle</a> was designed to meet. And any interpretation that identifies probability with a feature of the actual world, such as a frequency, inherits the application question as a problem about reference classes rather than solving it.</p>
+<p>A complete position must address all three. The <em>order</em> matters too: beginning with the epistemic question tends to make objective chance look dispensable, while beginning with the metaphysical question tends to make credence look like a mere estimate of an underlying chance. Neither starting point is neutral.</p>
+<h2 id="why-the-axioms-settle-nothing"><a class="header" href="#why-the-axioms-settle-nothing">Why the axioms settle nothing</a></h2>
+<p>The Kolmogorov axioms require that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> assign non-negative values, that the certain event get value <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>, and that the measure be countably additive on disjoint events. Anything satisfying those constraints is a probability measure, and this is a remarkably weak requirement. Relative frequencies in a fixed finite population satisfy it. So do coherent betting quotients, ratios of favourable cases, and the diagonal of a density matrix. The axioms are therefore a <em>filter</em>, not a definition: they rule out incoherent assignments and are silent about the rest.</p>
+<p>Two consequences follow, and they shape the whole field.</p>
+<p><strong>First, an interpretation must be argued for, not read off.</strong> To show that some quantity satisfies the axioms is to show that it <em>can</em> be treated as a probability, not that it <em>is</em> what probability means. The most common fallacy in the subject has this form: a theorem is proved about probability measures, the theorem is philosophically suggestive, and the suggestion is taken to be part of the theorem. The <a href="../../math/11-probability/07-laws-of-large-numbers.html">law of large numbers</a> does not establish frequentism; it presupposes a measure <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> and tells us that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> assigns high probability to sample averages converging. <a href="../../math/11-probability/13-exchangeability-de-finetti.html">De Finetti's theorem</a> does not establish subjectivism, nor does it reveal a hidden objective chance; it is a representation result about symmetric measures on product spaces. Sorting these out is the job of the <a href="12-context/02-method.html">method</a> page, and it is a recurring theme throughout.</p>
+<p><strong>Second, an adequate interpretation must explain why the axioms hold at all.</strong> This is a real constraint and it disqualifies candidates. If probability is degree of rational belief, why should rational belief be additive? Dutch-book and accuracy arguments are attempts to answer that; whether they succeed is contested. If probability is limiting relative frequency, countable additivity is not automatic and in some formulations fails. An interpretation that merely gestures at the axioms without deriving or motivating them has left its central task undone.</p>
+<h2 id="the-map-of-positions"><a class="header" href="#the-map-of-positions">The map of positions</a></h2>
+<p>The principal interpretations, with the question each is best at answering and the one that gives it most trouble:</p>
+<div class="table-wrapper"><table><thead><tr><th>Interpretation</th><th>Probability is…</th><th>Strongest where</th><th>Hardest problem</th></tr></thead><tbody>
+<tr><td><strong><a href="05-interpretations/01-classical.html">Classical</a></strong></td><td>the ratio of favourable to equipossible cases</td><td>finite, symmetric setups — dice, cards, urns</td><td>equipossibility looks like equiprobability renamed; no purchase on asymmetric or continuous cases</td></tr>
+<tr><td><strong><a href="05-interpretations/02-logical-probability.html">Logical</a></strong></td><td>a degree of partial entailment between propositions</td><td>the ambition to make induction a branch of logic</td><td>language dependence; no principled unique measure</td></tr>
+<tr><td><strong><a href="05-interpretations/03-frequentism.html">Frequentist</a></strong></td><td>relative frequency in a sequence or population</td><td>mass phenomena, actuarial and statistical practice</td><td>the single case; which reference class?</td></tr>
+<tr><td><strong><a href="05-interpretations/04-propensity.html">Propensity</a></strong></td><td>a physical tendency of a chance setup</td><td>single-case chances in fundamental physics</td><td>what a propensity <em>is</em>; Humphreys' paradox</td></tr>
+<tr><td><strong><a href="05-interpretations/05-subjective-bayesianism.html">Subjective Bayesian</a></strong></td><td>an agent's coherent degree of belief</td><td>inference, decision, the role of evidence</td><td>the apparent objectivity of scientific probability</td></tr>
+<tr><td><strong><a href="05-interpretations/06-objective-bayesianism.html">Objective Bayesian</a></strong></td><td>the degree of belief evidence rationally warrants</td><td>ambition to constrain priors non-arbitrarily</td><td>specifying the constraints without arbitrariness</td></tr>
+<tr><td><strong><a href="05-interpretations/07-humean-chance.html">Humean best-system</a></strong></td><td>a chance in the best systematisation of world history</td><td>fitting chance into a broadly naturalistic metaphysics</td><td>undermining futures; the "Big Bad Bug"</td></tr>
+</tbody></table>
+</div>
+<p>Two structural points about this table matter more than any individual row.</p>
+<p><strong>The positions are not all answers to the same question.</strong> Frequentism, propensity, and best-system chance are theories of <em>objective probability</em>; subjective and objective Bayesianism are theories of <em>rational credence</em>. Ranging them along a single line, as introductory treatments often do, obscures the fact that one can consistently hold a propensity account of chance <em>and</em> a subjectivist account of belief. The genuine rivalries are within each column, and the interesting questions are about the relation <em>between</em> columns — which is the <a href="02-chance-and-credence.html">Principal Principle</a>.</p>
+<p><strong>Pluralism is a serious option.</strong> Nothing requires that a single interpretation cover every use of the word. Hájek and others have argued that the honest conclusion of a century of failed reductions is that "probability" is not univocal: physical chance, evidential support, and personal confidence may be three related but distinct notions, each with its own theory, sharing a calculus because the calculus is weak enough to fit all three. The cost is that a pluralist owes an account of <em>why</em> they share it, and of what makes them versions of one thing rather than homonyms.</p>
+<h2 id="why-this-is-not-merely-verbal"><a class="header" href="#why-this-is-not-merely-verbal">Why this is not merely verbal</a></h2>
+<p>It might be suspected that once the mathematics is agreed the remaining dispute is about what to call things. It is not, and three examples show the disagreement having consequences.</p>
+<ul>
+<li><strong>Single-case claims.</strong> "This patient has a <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">70%</span></span></span></span> chance of surviving five years" is either meaningful or it is not. On a strict frequency account it is, strictly speaking, not — the patient survives or does not, and the number belongs to a class, leaving the <a href="02-chance-and-credence.html">reference-class problem</a> to decide <em>which</em> class. On a propensity or credence account it is meaningful, but the two make it true in incompatible ways. Real decisions in medicine and law depend on which reading is right.</li>
+<li><strong>Probabilities of theories.</strong> Bayesian confirmation assigns probabilities to hypotheses, including universal laws. That is straightforward if probability is degree of belief and problematic if it is frequency, since there is no population of universes from which to sample. <a href="05-interpretations/02-logical-probability.html">Carnap's system</a> had the further embarrassment of assigning probability zero to any universal generalisation over an infinite domain — a result that would make confirmation of a law impossible in principle.</li>
+<li><strong>Deterministic chance.</strong> If the world is deterministic, are the probabilities of statistical mechanics false? A frequentist or best-system theorist can say they are true and useful; a strict propensity theorist who ties chance to fundamental indeterminism must say that they are at best a convenient fiction. The <a href="../03-spacetime/09-physics/01-thermodynamic-arrow.html">thermodynamic arrow</a> rests on precisely such probabilities, so the answer is not academic.</li>
+</ul>
+<h2 id="what-the-field-is-not"><a class="header" href="#what-the-field-is-not">What the field is <em>not</em></a></h2>
+<ul>
+<li><strong>Not probability theory.</strong> The mathematician asks what follows from the axioms; the philosopher asks what the axioms are about and whether a given system falls under them. The <a href="../../math/11-probability/00-README.html">measure-theoretic development</a> is a datum here, not a subject.</li>
+<li><strong>Not statistics.</strong> Whether to use a Bayesian or frequentist <em>method</em> is a methodological question that interacts with, but is not identical to, the question of what probability <em>is</em>. A statistician may use both formalisms without inconsistency; an interpretation of probability is not a recipe for data analysis.</li>
+<li><strong>Not the psychology of uncertainty.</strong> That people reason badly about probability — base-rate neglect, the conjunction fallacy, the gambler's fallacy — is well documented and philosophically relevant, but descriptive. The question here is what correct probabilistic reasoning consists in, and no survey of what people actually do answers it.</li>
+<li><strong>Not a history of the calculus.</strong> Pascal, Bernoulli, Laplace, and Kolmogorov appear as authors of positions still in play. The narrative is collected separately on the <a href="12-context/01-history.html">history</a> page.</li>
+</ul>
+<h2 id="where-this-leaves-us"><a class="header" href="#where-this-leaves-us">Where this leaves us</a></h2>
+<p>The philosophy of probability is best entered through a grid: three questions — is there objective chance, what are rational degrees of belief, and what makes a model correct? — crossed with the interpretations above, and disciplined throughout by the fact that the shared calculus settles none of it. Almost every dispute in the section sits somewhere on that grid, and the most common error is to treat a result about the formalism as though it answered a question about the interpretation.</p>
+<p>The next page takes up the distinction that organises everything else: the difference between <a href="02-chance-and-credence.html">chance and credence</a>, and the problem of saying how a fact about the world could obligate a state of mind.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/05-probability/00-README.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/05-probability/02-chance-and-credence.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/05-probability/00-README.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/05-probability/02-chance-and-credence.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

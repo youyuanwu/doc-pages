@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Probabilistic Causation - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/09-causation/01-probabilistic-causation.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="probabilistic-causation"><a class="header" href="#probabilistic-causation">Probabilistic Causation</a></h1>
+<p>Causes make their effects more likely. Smoking causes cancer, though most smokers do not get cancer and some non-smokers do; the causal claim survives because smokers get cancer at a higher rate. This suggests analysing causation in terms of probability raising:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7073em;vertical-align:-0.024em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord text"><span class="mord"> causes </span></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟺</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span></span></p>
+<p>The proposal has obvious attractions. It applies to indeterministic causation, where no deterministic analysis can work; it connects causal claims to the statistical evidence that actually supports them; and it makes causation empirically tractable. It is also, in this simple form, false — and the ways it fails are instructive about what causation involves beyond correlation.</p>
+<hr />
+<h2 id="why-probability-raising-is-not-sufficient"><a class="header" href="#why-probability-raising-is-not-sufficient">Why probability raising is not sufficient</a></h2>
+<p>The immediate objection is the one every statistics course begins with: <strong>correlation is not causation</strong>. The simple condition is satisfied by many non-causal pairs.</p>
+<ul>
+<li><strong>Common causes.</strong> Falling barometers raise the probability of storms; neither causes the other. Ice-cream sales raise the probability of drownings; summer causes both.</li>
+<li><strong>Effects raise the probability of their causes.</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord text"><span class="mord">fire</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">smoke</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord text"><span class="mord">fire</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord text"><span class="mord">smoke</span></span><span class="mclose">)</span></span></span></span>, so probability raising is satisfied in the wrong direction. This is the deepest structural problem: probabilistic dependence is <strong>symmetric</strong> while causation is <strong>asymmetric</strong>, so no purely probabilistic condition can distinguish cause from effect without additional resources.</li>
+</ul>
+<p>The standard repair is to require probability raising <strong>conditional on background conditions</strong>:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span></span></span></span></p>
+<p>for every specification <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> of the other causally relevant factors. Reichenbach's principle of the common cause, developed by Suppes, Cartwright, and Eells, says a genuine cause raises the probability of its effect in every <strong>causally homogeneous background context</strong> — every situation holding fixed the other causes. The barometer fails: conditional on the atmospheric pressure, the barometer reading is probabilistically irrelevant to the storm. This is <a href="02-screening-off-common-causes.html">screening off</a>, the subject of the next page.</p>
+<p>The repair works but is not a reduction. Specifying which factors must be held fixed requires knowing which factors are <em>causally</em> relevant, so causal notions appear in the analysans. <strong>Contextual unanimity</strong> — the requirement that the raising hold in all such contexts — presupposes exactly the causal structure it was meant to define. Most contemporary work accepts this and treats probabilistic theories as characterising causal structure rather than reducing it, which is the position the <a href="04-causal-models.html">causal models</a> framework makes explicit.</p>
+<p>The temporal repair — requiring causes to precede effects — handles the fire-and-smoke case but rules out backward causation by definition rather than by argument, and it leaves the symmetric cases untouched.</p>
+<h2 id="why-probability-raising-is-not-necessary"><a class="header" href="#why-probability-raising-is-not-necessary">Why probability raising is not necessary</a></h2>
+<p>The more interesting failures. Causes can <em>lower</em> the probability of their effects.</p>
+<p><strong>Preemption and redundant causation.</strong> Suzy and Billy both throw rocks at a bottle. Suzy's hits first and shatters it; Billy's would have if hers had not. Suzy's throw caused the shattering, but it did not raise its probability — the bottle was going to shatter either way. Probabilistic dependence is absent, and causation is present.</p>
+<p><strong>Probability-lowering causes.</strong> A golfer's slice sends the ball into a tree, whence it ricochets into the hole. The slice <em>caused</em> the hole-in-one and <em>lowered</em> its probability. Similarly, a treatment that reduces the risk of a disease may in a particular case cause a rare adverse reaction that produces it. Rosen's example is the standard one, and the moral is that a token causal process can run through a route that was antecedently unlikely.</p>
+<p><strong>Fragile effects and conjunctive forks.</strong> Where an effect could have occurred in many ways, a factor may lower the probability of the effect as coarsely described while causing the particular instance that occurred.</p>
+<p>These cases motivate the distinction that organises the whole area.</p>
+<h2 id="type-and-token-causation"><a class="header" href="#type-and-token-causation">Type and token causation</a></h2>
+<p><strong>Type causation</strong> is a relation between event <em>kinds</em>: smoking causes lung cancer. It is a population-level claim, and it is about a tendency — the claim survives exceptions.</p>
+<p><strong>Token (actual) causation</strong> is a relation between particular events: <em>this</em> person's smoking caused <em>their</em> cancer. It concerns what actually happened on this occasion.</p>
+<p>The two come apart in both directions. Smoking causes cancer at the type level while this smoker's cancer may have had another cause; the slice causes this hole-in-one at the token level while slicing does not cause holes-in-one at the type level.</p>
+<p>Probabilistic accounts are at their best for type causation, where probability raising in homogeneous contexts is a plausible analysis of what a population-level causal claim asserts. They are at their worst for token causation, where the counterexamples above bite, and where counterfactual accounts — what would have happened had the cause been absent — do better. Many now hold that these are simply different relations requiring different analyses, and that the failure of a single unified account is a discovery rather than a defect.</p>
+<h2 id="comparison-with-counterfactual-accounts"><a class="header" href="#comparison-with-counterfactual-accounts">Comparison with counterfactual accounts</a></h2>
+<p>The main rival, due to Lewis: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> causes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> if, had <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> not occurred, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> would not have occurred. In probabilistic form: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> causes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> if the chance of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> would have been lower without <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>.</p>
+<p>The comparison is instructive because the accounts' strengths are complementary.</p>
+<ul>
+<li>Counterfactual accounts handle <strong>token</strong> causation and preemption better, especially with refinements such as causal chains and structural-equation treatments of the counterfactual.</li>
+<li>Probabilistic accounts handle <strong>type</strong> causation and indeterministic cases better, and connect directly to statistical evidence.</li>
+<li>Counterfactual accounts get the <strong>asymmetry</strong> for free from the asymmetry of counterfactual dependence; probabilistic accounts must import it via time or causal background.</li>
+<li>Probabilistic accounts are <strong>epistemically tractable</strong> — one can estimate the quantities from data — while counterfactuals require assessing what would have happened, which is not directly observable.</li>
+</ul>
+<p>The interventionist framework of <a href="04-causal-models.html">causal models</a> is best seen as a synthesis: it retains probabilities but distinguishes observing from <em>intervening</em>, which supplies the asymmetry that pure probabilistic dependence lacks.</p>
+<h2 id="determinism-and-probabilistic-causation"><a class="header" href="#determinism-and-probabilistic-causation">Determinism and probabilistic causation</a></h2>
+<p>If the world is deterministic, every event has probability <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> or <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> given the complete prior state, and probability raising is trivial or undefined. Does that make probabilistic causation an artifact of ignorance?</p>
+<p>Not necessarily, and the answer parallels the treatment of <a href="../08-chance-and-laws/02-determinism-and-chance.html">deterministic chance</a>. The probabilities in causal claims are relative to a <em>coarse-grained</em> specification — smoking, not the complete microstate — and at that level of description the dependence is real and not merely epistemic. Smoking raises the probability of cancer relative to any realistic specification of background conditions, whatever the microphysics does. Causal claims in the special sciences are claims about macro-variables, and their probabilities are as objective as the macro-variables are.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>The simple probability-raising analysis fails in both directions, and the failures locate what probability leaves out. It lacks <strong>asymmetry</strong>, so it cannot distinguish cause from effect; it lacks a way to exclude <strong>common causes</strong> without presupposing causal knowledge; and it cannot handle <strong>token</strong> causation, where actual routes matter more than antecedent likelihoods.</p>
+<p>What survives is substantial. Probability raising in causally homogeneous backgrounds is a good analysis of <em>type-level</em> causal claims, it is what statistical evidence for causation actually consists in, and it is the foundation of the <a href="04-causal-models.html">causal-modelling</a> framework that supplies the missing asymmetry through intervention.</p>
+<p>The next page examines the principle that does most of the work in excluding spurious correlation, and the one place in physics where it appears to fail: <a href="02-screening-off-common-causes.html">screening off and common causes</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/07-induction-confirmation/06-testimony-and-disagreement.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/09-causation/02-screening-off-common-causes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/07-induction-confirmation/06-testimony-and-disagreement.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/09-causation/02-screening-off-common-causes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Objective Bayesianism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/05-interpretations/06-objective-bayesianism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="objective-bayesianism"><a class="header" href="#objective-bayesianism">Objective Bayesianism</a></h1>
+<p><strong>Objective Bayesianism</strong> keeps the Bayesian apparatus — credence, coherence, conditionalization — and adds what <a href="05-subjective-bayesianism.html">subjectivism</a> refuses: further constraints that narrow the range of rationally permissible credences, ideally to one. It is the heir of the <a href="02-logical-probability.html">logical interpretation</a> with the ambitions scaled back. Where Carnap wanted a complete inductive logic assigning a unique <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">e</span><span class="mclose">)</span></span></span></span> for every pair of propositions in a formal language, the objective Bayesian wants only that evidence should substantially constrain priors, and is content if the constraints leave some latitude.</p>
+<p>The motivation is the permissiveness objection. If coherence is the sole requirement, an agent may hold any prior at all, and the appearance that science delivers <em>the</em> probability of a hypothesis is an illusion. Objective Bayesians take that appearance seriously.</p>
+<p>This page sets out the constraints in the standard three-norm form, the maximum-entropy machinery that implements them, Cox's theorem, and the objections — including the question, pressed by critics, of whether the position is an interpretation of probability at all.</p>
+<hr />
+<h2 id="three-norms"><a class="header" href="#three-norms">Three norms</a></h2>
+<p>Jon Williamson's formulation is the clearest statement of the position's structure. Rational credence is governed by three requirements, in increasing order of controversy.</p>
+<ol>
+<li><strong>Probability.</strong> Credences must satisfy the <a href="../../../math/11-probability/01-kolmogorov-axioms.html">axioms</a>. Shared with subjectivism, and justified by the same Dutch-book and accuracy arguments.</li>
+<li><strong>Calibration.</strong> Credences must respect what is known about physical chances and observed frequencies. If the agent knows the chance of heads is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.7</span></span></span></span>, credence should be <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.7</span></span></span></span>. This is the <a href="../08-chance-and-laws/01-principal-principle.html">Principal Principle</a> appearing as a constraint on priors rather than as a separate bridge; more generally, credence should lie within the range of chance values compatible with the evidence.</li>
+<li><strong>Equivocation.</strong> Subject to 1 and 2, credences should be as <strong>non-committal</strong> as possible — spread as evenly as the constraints allow. This is the descendant of the Principle of Indifference, and it is where all the difficulty lies.</li>
+</ol>
+<p>The first two norms are widely accepted; a subjectivist who accepts the Principal Principle already has both. The third is the distinctive commitment, and it is what makes the position objective rather than merely chance-respecting.</p>
+<h2 id="maximum-entropy"><a class="header" href="#maximum-entropy">Maximum entropy</a></h2>
+<p>The technical implementation of equivocation is the <strong>maximum entropy principle</strong>, developed by Jaynes: among all distributions consistent with the constraints, choose the one maximising the Shannon entropy</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.3277em;vertical-align:-1.2777em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
+<p>The rationale is information-theoretic. Entropy measures uncertainty, so maximising it is choosing the distribution that assumes least beyond what is known. Any lower-entropy distribution encodes information the agent does not possess.</p>
+<p>The method has real successes. With no constraints it returns the uniform distribution, recovering indifference in the cases where indifference is right. Given a known mean it returns the exponential family; given a known mean and variance on the real line it returns the Gaussian — which is a satisfying result, since it explains the ubiquity of the normal distribution as reflecting minimal commitment beyond first and second moments rather than a fact about nature. And in statistical mechanics the maximum-entropy distribution subject to a known expected energy is the Boltzmann distribution, which lets Jaynes present the whole apparatus of equilibrium statistical mechanics as an exercise in inference rather than in dynamics.</p>
+<p><strong>Transformation groups</strong> extend the method to continuous cases, and this is the sharper tool. If a problem is invariant under a group of transformations, the prior should be invariant too, which often determines it uniquely. For a scale parameter — a quantity with no natural unit — invariance under <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.522em;vertical-align:-0.011em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↦</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span><span class="mord mathnormal">x</span></span></span></span> forces the Jeffreys prior <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∝</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/</span><span class="mord mathnormal">x</span></span></span></span>, not the uniform prior. This is a genuine advance over the classical Principle of Indifference, because it replaces "no reason to discriminate" with an explicit and checkable symmetry claim, and it is Jaynes's proposed resolution of <a href="../04-models-and-applications.html">Bertrand's paradox</a>.</p>
+<h2 id="coxs-theorem"><a class="header" href="#coxs-theorem">Cox's theorem</a></h2>
+<p>Objective Bayesians frequently appeal to <strong>Cox's theorem</strong> as showing that the probability calculus is not one option among many but the unique consistent extension of deductive logic to graded belief.</p>
+<p>The theorem assumes that a degree of plausibility <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span></span></span> is a real number, that it depends only on the propositions involved, and that it satisfies structural conditions: the plausibility of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">¬</span><span class="mord mathnormal">A</span></span></span></span> is a function of that of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>; the plausibility of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> is a function of that of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> and of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> given <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>; and equivalent derivation routes agree. From these, plus regularity conditions, the plausibility measure is shown to be isomorphic to a probability measure.</p>
+<p>If sound, this answers the "explains the calculus" criterion better than anything else on offer, since it derives the axioms from desiderata about <em>reasoning</em> rather than about betting. The caveats are that the regularity assumptions are doing real work — Halpern produced finite counterexamples showing the result fails without continuity or differentiability conditions — and that assuming plausibility is a <em>real number</em> already excludes the imprecise alternatives, which is close to assuming the conclusion.</p>
+<h2 id="objections"><a class="header" href="#objections">Objections</a></h2>
+<p><strong>Equivocation inherits the paradoxes.</strong> Maximum entropy is defined relative to a partition or a parameterisation, and different choices give different answers. In the continuous case the entropy functional is not invariant under reparameterisation at all; the repair — relative entropy with respect to an invariant reference measure — requires that measure to be specified, which is the original problem in new clothes. The transformation-group method works only where a genuine symmetry group is available and is silent otherwise, and the choice of which invariances to demand can itself be contested. The <a href="01-classical.html">cube factory and wine–water paradoxes</a> are not solved so much as pushed up a level.</p>
+<p><strong>Is objectivity even desirable?</strong> Subjectivists argue that equivocation is not a rational requirement but an arbitrary preference for the middle. If evidence genuinely underdetermines the credence, holding an extreme-but-coherent credence is not a <em>mistake</em>; it is merely unusual. The debate here is the <strong>uniqueness thesis</strong> versus <strong>permissivism</strong>, which is a general question in epistemology about whether evidence ever permits more than one rational response.</p>
+<p><strong>It may not be an interpretation of probability.</strong> The sharpest structural objection. Objective Bayesianism tells us how credences ought to be constrained — it is a normative epistemology. It does not obviously tell us what probability <em>is</em>. Its calibration norm presupposes a notion of physical chance supplied by some <em>other</em> interpretation (<a href="04-propensity.html">propensity</a>, <a href="07-humean-chance.html">best-system</a>, or frequency), so as a theory of what probability means it is either incomplete or parasitic. Defenders reply that the position is a theory of <em>epistemic</em> probability specifically, and that expecting one theory to cover both sides of the <a href="../02-chance-and-credence.html">chance/credence divide</a> is the mistake.</p>
+<p><strong>Maximum entropy can conflict with conditionalization.</strong> The two updating rules are not always consistent: updating by conditionalization and re-maximising entropy on new constraints can give different results, as the Judy Benjamin problem shows. Since both are supposed to be requirements of rationality, this is a genuine tension, and it forces a choice about which rule governs which kind of learning.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><strong>Admissibility</strong></td><td>passes</td></tr>
+<tr><td><strong>Ascertainability</strong></td><td>passes, given a determinate constraint set</td></tr>
+<tr><td><strong>Applicability</strong></td><td>strong — the working framework of much Bayesian statistics and machine learning</td></tr>
+<tr><td><strong>Single case</strong></td><td>passes</td></tr>
+<tr><td><strong>Explains the calculus</strong></td><td>passes, via Cox, subject to the caveats</td></tr>
+<tr><td><strong>Guidance</strong></td><td>passes by design</td></tr>
+</tbody></table>
+</div>
+<p>The honest summary is that objective Bayesianism scores well wherever the constraints are determinate and inherits the classical paradoxes wherever they are not. Its practical success — maximum-entropy methods work, Jeffreys priors are standard, and the framework underwrites a great deal of applied inference — is a point in its favour that no amount of philosophical difficulty about parameterisation quite erases.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Objective Bayesianism occupies the middle of the epistemic side: more constrained than <a href="05-subjective-bayesianism.html">subjectivism</a>, less ambitious than the <a href="02-logical-probability.html">logical interpretation</a>. It is best understood as the surviving fragment of Carnap's program — keeping the aim of evidence-driven, agent-independent credence while abandoning the claim that a unique confirmation function is derivable from logic alone.</p>
+<p>Whether it constitutes a distinct <em>interpretation</em> or a <em>normative supplement</em> to subjectivism is a fair question, and the answer affects how the table in the <a href="../03-interpretations-overview.html">overview</a> should be read. Its calibration norm points at the one remaining position: an account of the objective chances that credence is supposed to track, consistent with a broadly Humean metaphysics. That is <a href="07-humean-chance.html">best-system chance</a>, the last of the interpretations.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/05-interpretations/05-subjective-bayesianism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/05-interpretations/07-humean-chance.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/05-interpretations/05-subjective-bayesianism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/05-interpretations/07-humean-chance.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

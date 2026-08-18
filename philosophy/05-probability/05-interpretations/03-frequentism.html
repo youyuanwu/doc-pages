@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Frequentism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/05-interpretations/03-frequentism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="frequentism"><a class="header" href="#frequentism">Frequentism</a></h1>
+<p><strong>Frequentism</strong> identifies probability with relative frequency: the probability of heads is the proportion of heads among tosses. It is the interpretation with the strongest claim to empiricist respectability, since frequencies are observable and probabilities on this view are not mysterious extra facts but summaries of what actually happens. It dominated statistical practice through the twentieth century, and the vocabulary of "sampling", "populations", and "long runs" that pervades applied science is its residue.</p>
+<p>It is also the interpretation with the most thoroughly catalogued problems. This page distinguishes its two main forms, sets out the machinery von Mises added to make the second work, and then works through the objections — of which the <a href="../02-chance-and-credence.html">reference-class problem</a> and the single case are the ones that have never been answered.</p>
+<hr />
+<h2 id="finite-frequentism"><a class="header" href="#finite-frequentism">Finite frequentism</a></h2>
+<p>The simplest version: the probability of an attribute in a finite reference class is the actual relative frequency of that attribute in that class. The probability that a randomly chosen resident of a country is left-handed just <em>is</em> the proportion of left-handers.</p>
+<p>Its merits are real. Probabilities so defined are perfectly <strong>ascertainable</strong> — count — and they satisfy the axioms automatically, since relative frequencies in a finite set are a normalised measure. Nothing metaphysical is posited. For actuarial and demographic work this is very nearly what practitioners mean.</p>
+<p>The objections are equally clear.</p>
+<ul>
+<li><strong>The problem of the single case.</strong> A coin tossed exactly once and landing heads has, on this view, probability <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> of landing heads. A coin never tossed at all has no probability whatsoever, since the reference class is empty and the ratio undefined. Both verdicts are wrong.</li>
+<li><strong>Probabilities become artifacts of sample size.</strong> If a coin is tossed <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10</span></span></span></span> times and lands heads <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">7</span></span></span></span> times, its probability of heads <em>is</em> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.7</span></span></span></span>. Any deviation of frequency from chance is definitionally impossible, so the notion of a <strong>biased sample</strong> — indispensable in statistics — cannot be stated. This is the most damaging point: the theory makes it incoherent to say that a fair coin happened to land heads seven times, which is exactly the kind of thing statistics exists to say.</li>
+<li><strong>Only rational values are possible.</strong> In a class of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> members, every probability is a multiple of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/</span><span class="mord mathnormal">n</span></span></span></span>. But a physical half-life gives a decay probability that is irrational, and no finite class can realise it.</li>
+<li><strong>Reference class.</strong> Every individual belongs to many classes with different frequencies, and finite frequentism supplies no rule for choosing.</li>
+</ul>
+<h2 id="limiting-frequentism"><a class="header" href="#limiting-frequentism">Limiting frequentism</a></h2>
+<p>The natural repair is to move to infinite sequences. Let the probability be the <strong>limit</strong> of relative frequency as the sequence is extended:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.127em;vertical-align:-0.7em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-2.4em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mrel mtight">→</span><span class="mord mtight">∞</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">lim</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">#</span><span class="mopen">{</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal">A</span><span class="mord text"><span class="mord"> occurs on trial </span></span><span class="mord mathnormal">i</span><span class="mclose">}</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>This removes the sample-size artifact — a run of seven heads is now a fluctuation that washes out — and permits irrational values. Venn proposed it; <strong>von Mises</strong> gave it its rigorous form.</p>
+<p>Von Mises saw that a limit alone is insufficient, because a sequence can have the right limiting frequency while being patently non-random. The sequence HTHTHTHT… has a limiting frequency of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span> but is perfectly predictable, and no gambler would call it a chance process. He therefore required a <strong>collective</strong>: an infinite sequence satisfying two axioms.</p>
+<ol>
+<li><strong>Convergence</strong> — the limiting relative frequency exists.</li>
+<li><strong>Randomness (Principle of the Excluded Gambling System)</strong> — the limit is <em>invariant under admissible place selection</em>. Choosing a subsequence by a rule that does not look at the outcome being selected — every third trial, every trial following a head — must yield the same limit. No gambling system can improve one's expected return.</li>
+</ol>
+<p>The second axiom is what distinguishes probability from mere statistics, and formalising it caused decades of difficulty. If <em>every</em> subsequence must have the same limit, no sequence qualifies, since one can always select the subsequence of all heads. Restricting to <em>effectively computable</em> place selections is the successful repair, due to Church and Wald: this makes collectives exist, and the resulting theory turns out to be closely related to <a href="../../../math/11-probability/15-algorithmic-randomness.html">algorithmic randomness</a>, where Martin-Löf randomness supplies the modern and more satisfactory treatment of what it is for an individual sequence to be random.</p>
+<h2 id="the-objections"><a class="header" href="#the-objections">The objections</a></h2>
+<h3 id="the-single-case-again"><a class="header" href="#the-single-case-again">The single case, again</a></h3>
+<p>Limiting frequentism does not solve the single-case problem; it makes it structural. A probability is a property of a <strong>sequence</strong>, and a single trial is not a sequence. "The probability that <em>this</em> nucleus decays in the next hour" is, strictly, ill formed — one can only speak of the frequency in an infinite class of similar nuclei.</p>
+<p>Von Mises accepted this bullet explicitly, holding that single-case probability talk is simply meaningless and that the demand for it reflects a confusion. That is a coherent position, but it is in serious tension with physics, where the <a href="../../../physics/03-QM/02-postulates.html">Born rule</a> is naturally read as giving the chance of <em>this</em> measurement yielding a particular result, and with every practical use of probability in medicine, law, and decision-making.</p>
+<h3 id="the-reference-class-problem"><a class="header" href="#the-reference-class-problem">The reference-class problem</a></h3>
+<p>Even granting classes rather than individuals, which class? Every event falls under many descriptions, and frequencies differ across them. The theory offers no principled selection, and the natural fix — take the narrowest class for which we have statistics — collapses, because the narrowest class containing a given individual is the singleton, whose frequency is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> or <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>.</p>
+<p>Reichenbach proposed the "narrowest class for which reliable statistics exist", which is explicitly a compromise with epistemic practicality rather than a metaphysical answer, and makes probability depend on what data we happen to have. That is a strange consequence for a theory whose selling point was objectivity.</p>
+<h3 id="sequences-that-do-not-exist"><a class="header" href="#sequences-that-do-not-exist">Sequences that do not exist</a></h3>
+<p>The limit is taken over an infinite sequence, but actual sequences are finite. So the probability must be a claim about a <strong>hypothetical</strong> infinite extension: what the frequency <em>would</em> converge to if the coin were tossed forever.</p>
+<p>This is a substantial retreat. The counterfactual is not obviously well defined — coins wear out, and a coin tossed forever is not this coin — and if the answer is that the limit is whatever the coin's <em>disposition</em> would produce, then the theory has covertly become a <a href="04-propensity.html">propensity</a> theory with an extra step. Hypothetical frequentism also forfeits the empiricist advantage that motivated the position: hypothetical infinite frequencies are no more observable than propensities.</p>
+<h3 id="order-dependence"><a class="header" href="#order-dependence">Order dependence</a></h3>
+<p>Limits of relative frequency depend on the <strong>order</strong> of the sequence. Any sequence with limiting frequency <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span> can be rearranged to have limiting frequency <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/3</span></span></span></span>, or no limit at all, without changing which outcomes occur. If probability is a limit, then it is a property not of the collection of outcomes but of an arbitrary ordering imposed on them — which is hard to square with the claim that it is an objective feature of the world.</p>
+<h3 id="the-law-of-large-numbers-does-not-help"><a class="header" href="#the-law-of-large-numbers-does-not-help">The law of large numbers does not help</a></h3>
+<p>It is tempting to think the <a href="../../../math/11-probability/07-laws-of-large-numbers.html">strong law</a> vindicates frequentism by proving that frequencies converge to probabilities. It does not, and the reason is the central methodological point of this section.</p>
+<p>The theorem says: given a probability measure <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> under which the trials are i.i.d. with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>, the set of infinite sequences whose limiting frequency equals <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> has <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>-measure <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>. Every element of that statement presupposes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>. The theorem cannot define <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> as the limit, because it needs <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> to state what has measure one. It is also weaker than it looks in the relevant respect: the exceptional set is not empty, merely null, and it contains sequences with <em>every</em> other limiting frequency and sequences with no limit at all. So convergence is not guaranteed — it is merely assigned probability one, by the very measure whose meaning was at issue.</p>
+<p>What the theorem does establish is a <strong>consistency</strong> result: if probabilities are understood some other way, then frequencies are excellent evidence about them, and an interpretation on which they were not would be in trouble. That is a genuine constraint on rival interpretations, and it is why frequency data bear on chance under every account. It is not a definition.</p>
+<h2 id="what-frequentism-gets-right"><a class="header" href="#what-frequentism-gets-right">What frequentism gets right</a></h2>
+<p>The objections are severe enough that few philosophers now hold the view as a definition of probability. But two of its commitments are correct and are retained by its rivals.</p>
+<ul>
+<li><strong>Frequencies are the primary evidence for chances.</strong> However chance is understood, statistical data are how we find out about it. Any interpretation must make frequency evidential, and the <a href="../../../math/11-probability/07-laws-of-large-numbers.html">law of large numbers</a> explains why.</li>
+<li><strong>Chance constrains frequency.</strong> A theory on which chances and frequencies could come systematically apart — where a coin of chance <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span> regularly landed heads <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">90%</span></span></span></span> of the time in long runs — would not be a theory of chance at all. The connection is not identity, but it is not accidental either, and spelling it out is exactly what the <strong>fit</strong> condition does in the <a href="07-humean-chance.html">best-system account</a>.</li>
+</ul>
+<p>The modern descendant of frequentism is not a definitional thesis but a <em>methodological</em> one: <strong>error-statistical</strong> or classical statistics, which uses sampling distributions to control long-run error rates without claiming that probability <em>means</em> frequency. That is a defensible position and it is not touched by the arguments above.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><strong>Admissibility</strong></td><td>passes for finite; limiting frequencies need not be countably additive</td></tr>
+<tr><td><strong>Ascertainability</strong></td><td>best of any interpretation for finite classes; poor for hypothetical limits</td></tr>
+<tr><td><strong>Applicability</strong></td><td>strong for mass phenomena, weak elsewhere</td></tr>
+<tr><td><strong>Single case</strong></td><td><strong>fails</strong> — by design</td></tr>
+<tr><td><strong>Explains the calculus</strong></td><td>partly — additivity is automatic, countable additivity is not</td></tr>
+<tr><td><strong>Guidance</strong></td><td>weak — needs a further principle to connect a class frequency to <em>this</em> case</td></tr>
+</tbody></table>
+</div>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>Frequentism is the clearest case of an interpretation that answers the metaphysical question of the <a href="../01-introduction.html">introduction</a> by <em>deflating</em> it: there is no probabilistic fact beyond the pattern of actual outcomes. Its failures are all versions of one complaint — that a pattern in a collection cannot be a property of a member — and the two interpretations that follow are the two ways of responding.</p>
+<p><a href="04-propensity.html">Propensity</a> theories keep objectivity and locate the probability in the individual setup, paying for it with a primitive disposition. The <a href="07-humean-chance.html">best-system account</a> keeps the Humean insistence that chance supervenes on the pattern of actual events, but abandons the identification of chance with frequency in favour of chance as a term in the best summary of that pattern — which is designed to preserve frequentism's metaphysical economy while escaping its technical failures.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/05-interpretations/02-logical-probability.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/05-interpretations/04-propensity.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/05-interpretations/02-logical-probability.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/05-interpretations/04-propensity.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Logical Probability and Inductive Logic - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/05-interpretations/02-logical-probability.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="logical-probability-and-inductive-logic"><a class="header" href="#logical-probability-and-inductive-logic">Logical Probability and Inductive Logic</a></h1>
+<p>The <strong>logical interpretation</strong> holds that probability is an objective relation between propositions: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">e</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> says that the evidence <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">e</span></span></span></span> supports the hypothesis <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span></span></span></span> to degree <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span>, in the same impersonal way that a valid argument's premises support its conclusion. Deductive entailment is the limiting case <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>, contradiction the case <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>, and the interval between them is the province of a discipline the tradition called <strong>inductive logic</strong>.</p>
+<p>The ambition is worth stating at full strength, because it is what makes the program interesting and its failure instructive. If the view is right, then given a body of evidence there is exactly one rational degree of belief in any hypothesis, and it is fixed by logic alone. Disagreement between two people with the same evidence would be a <em>logical error</em>, as demonstrable as a mistake in arithmetic. Induction would have the same kind of objectivity as deduction, and the <a href="../01-introduction.html">problem of induction</a> would be, if not solved, at least relocated into a discipline with rules.</p>
+<p>This page sets out the thesis, its relation to logicism in the philosophy of mathematics, the tradition that developed it, the five results that broke it, and what survived.</p>
+<hr />
+<h2 id="the-thesis"><a class="header" href="#the-thesis">The thesis</a></h2>
+<p>Take the sentences of some language and consider the relation "<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">e</span></span></span></span> confirms <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span></span></span></span> to degree <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span>". The logical interpretation makes four claims about it:</p>
+<ol>
+<li>The relation is <strong>objective</strong> — it holds or fails independently of anyone's beliefs, like entailment.</li>
+<li>It is <strong>a priori</strong> — determinable by analysis of the propositions, without empirical investigation.</li>
+<li>It is <strong>unique</strong> — for a given <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">e</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span></span></span></span> there is one correct <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span>.</li>
+<li>It is <strong>normative for belief</strong> — an agent whose evidence is exactly <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">e</span></span></span></span> ought to have credence <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> in <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span></span></span></span>.</li>
+</ol>
+<p>Claims 1–3 are semantic and 4 is epistemic; a position can hold the first three and reject the fourth, but nobody in the tradition wanted to, since the point of the enterprise was to guide inference.</p>
+<p>The relation is not the material conditional and not entailment, and it behaves in ways deductive logic does not prepare one for. Most importantly it is <strong>non-monotonic</strong>: adding premises can lower the degree of support, whereas in deduction, if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">e</span></span></span></span> entails <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span></span></span></span> then <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5556em;"></span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span> entails <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span></span></span></span> for any <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>. That evidence can be defeated by further evidence is the characteristic feature of inductive support, and any formal treatment must accommodate it.</p>
+<h2 id="relation-to-logicism"><a class="header" href="#relation-to-logicism">Relation to logicism</a></h2>
+<p>The parallel with <strong>logicism</strong> in the philosophy of mathematics — Frege's and Russell's thesis that arithmetic reduces to logic — is real, historically connected, and easy to overstate. It is worth pinning down, since the analogy is the natural one to reach for and it misleads if taken too far.</p>
+<p><strong>What is shared.</strong> Both programs aim to show that a domain apparently requiring substantive extra-logical assumptions is really logic in disguise, and both were pursued with the formal machinery of <em>Principia Mathematica</em>. The connection is not merely thematic: Keynes wrote the <em>Treatise</em> in Cambridge in Russell's orbit, Russell reviewed it approvingly, and Carnap's program is continuous with the logical empiricists' broader attempt to show that everything legitimate in knowledge is either logic or observation. Both also found that the reduction required a principle whose logical credentials were doubtful — the Axiom of Reducibility in one case, the choice of a measure over state descriptions in the other.</p>
+<p><strong>What is different.</strong> Logicism is a thesis about the <em>ontology and epistemology of mathematics</em>: numbers are logical objects, arithmetic truths are analytic. Logical probability is a thesis about the <em>status of a relation between propositions</em>, and it is compatible with any view about what numbers are. One can be a logicist and a subjectivist about probability, or a platonist about mathematics and a logical probabilist, without strain. The two theses are neither entailing nor incompatible; they are parallel ambitions in different domains, and the <a href="../../04-ontology/08-abstracta/02-mathematical-objects.html">status of mathematical objects</a> is a separate question from the status of confirmation relations.</p>
+<p>The instructive similarity is in <strong>how they failed</strong>. Neither was refuted by a knock-down argument. Both were undermined by technical results showing that the reduction required choices the reducing discipline could not make on its own — and in both cases the surviving descendants (neo-Fregeanism, objective Bayesianism) keep the ambition while conceding that some substantive posit is ineliminable.</p>
+<h2 id="the-tradition"><a class="header" href="#the-tradition">The tradition</a></h2>
+<ul>
+<li><strong>W. E. Johnson</strong> (1920s) proved an early representation result. His <strong>sufficientness postulate</strong> — that the probability of the next observation falling in a category depends only on the number of previous observations in that category and the total — plus symmetry yields, for more than two categories, exactly Carnap's later continuum. It is the first demonstration that plausible qualitative constraints pin down a family of inductive methods, and it is also the first sign that they do not pin down a single one.</li>
+<li><strong>Keynes</strong>, <em>A Treatise on Probability</em> (1921), is the classic statement. Probability is a primitive logical relation, apprehended directly rather than defined, holding between a proposition and a body of evidence. Keynes is notably more cautious than his successors on two points that later proved to be the sticking ones: he held that many probabilities are merely <strong>ordinal</strong> or not comparable at all, so the relation need not always deliver a number; and he restricted the Principle of Indifference to cases where the alternatives are "indivisible", trying to head off the <a href="01-classical.html">paradoxes of indifference</a>.</li>
+<li><strong>Wittgenstein</strong>, <em>Tractatus</em> 5.15, gave a purely syntactic version: the probability of a proposition is the proportion of the truth-grounds of the evidence that are also truth-grounds of the hypothesis — the ratio of rows in a truth table. <strong>Waismann</strong> extended it. This is logical probability in its most literal form, and it inherits every problem about the choice of atomic propositions.</li>
+<li><strong>Jeffreys</strong>, <em>Theory of Probability</em> (1939), pursued the objective assignment of priors by requiring invariance under reparameterisation, producing the <strong>Jeffreys prior</strong>. He is the bridge to modern objective Bayesianism, and the one member of the tradition whose technical apparatus is still in routine use.</li>
+<li><strong>Carnap</strong>, <em>Logical Foundations of Probability</em> (1950) and <em>The Continuum of Inductive Methods</em> (1952), is the most systematic development. In a formal language with finitely many predicates, a <strong>state description</strong> specifies the properties of every individual; a <strong>structure description</strong> specifies how many individuals fall under each combination, ignoring which. Carnap's preferred measure <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6887em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6887em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span> distributes probability equally over structure descriptions and then equally within each — precisely so that learning from experience is possible. The resulting confirmation function <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6887em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6887em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span> makes observed regularities raise the probability of their continuing, which the naive uniform measure over state descriptions does not.</li>
+</ul>
+<p>Carnap later generalised to the <strong><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span></span></span></span>-continuum</strong>. For a language with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> predicates, after <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> observations of which <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> fall in category <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span>, the probability that the next falls in category <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span> is</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.1963em;vertical-align:-0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">λ</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">λ</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">λ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">∞</span><span class="mclose">]</span></span></span></span> measuring how strongly prior symmetry is weighted against observed frequency. At <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> one gets the straight rule — predict the observed frequency, learn fast, overfit. At <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord">∞</span></span></span></span> one gets <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> regardless of evidence — never learn at all. Carnap's <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6887em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6887em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span> is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>.</p>
+<h2 id="the-five-results-that-broke-it"><a class="header" href="#the-five-results-that-broke-it">The five results that broke it</a></h2>
+<p>The program was not refuted from outside. It was dismantled by results internal to it, and the details matter because each identifies a distinct failure mode.</p>
+<p><strong>1. Language dependence.</strong> The confirmation function depends on the predicates of the language. Carnap's measures treat the predicates as primitive and distribute probability by counting structure descriptions built from them — so a language with <em>grue</em> and <em>bleen</em> as primitives, in which "green" and "blue" are the defined terms, yields a confirmation function on which observed green emeralds confirm that future ones are grue. Goodman's <strong>new riddle of induction</strong> is thus not an objection from outside the formalism but a demonstration that the formalism has a free parameter it cannot fix. Logic does not privilege one vocabulary, so if confirmation is relative to vocabulary it is not a matter of logic alone.</p>
+<p><strong>2. No principled choice of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span></span></span></span>.</strong> Carnap could not select a member of his own continuum on logical grounds, and eventually did not claim to: the choice reflects how much inductive caution one wants, which is a decision rather than a theorem. But the whole point of the program was uniqueness — claim 3 above. A continuum of admissible inductive methods, with the choice left to the agent, is subjectivism with extra structure.</p>
+<p><strong>3. Universal generalisations get probability zero.</strong> On <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6887em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6887em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span> in an infinite domain, any universal generalisation has probability zero on any finite evidence, and stays there. No number of observed black ravens raises the probability that all ravens are black above zero. Since confirming laws is the central case of scientific inference, this is fatal for the program's stated purpose. Hintikka's systems recovered non-zero probabilities for universals, at the cost of further free parameters — which is to say, at the cost of problem 2 again.</p>
+<p><strong>4. Putnam's diagonal argument.</strong> Putnam showed that for any effectively computable inductive method there is a computable sequence on which it fails to converge to the truth, although a different method would succeed. There is therefore no algorithmic inductive logic that is universally reliable, and the aspiration to a mechanical logic of confirmation cannot be met in full generality.</p>
+<p><strong>5. The indifference paradoxes.</strong> Everything that afflicts the <a href="01-classical.html">classical interpretation</a> — wine–water, the cube factory, Bertrand — applies here, since the measure over state descriptions is chosen by symmetry considerations of exactly the kind those paradoxes undermine.</p>
+<h2 id="what-survived"><a class="header" href="#what-survived">What survived</a></h2>
+<p>The program failed as an attempt to make induction a branch of logic. Three of its components remain in good standing.</p>
+<ul>
+<li><strong>Cox's theorem</strong> (1946) supplies the <em>explanation of the calculus</em> that the tradition wanted. If a degree of plausibility is a real number, depends on the proposition and the evidence, and satisfies weak structural conditions — consistency of different derivation routes, and a functional relationship between the plausibility of a conjunction and those of its parts — then it is isomorphic to a probability measure. This is a genuine result and is the strongest available argument that <em>any</em> graded notion of support must obey the axioms. Its assumptions have been scrutinised: Halpern exhibited finite counterexamples showing that the continuity and differentiability conditions do real work and cannot simply be dropped.</li>
+<li><strong>Maximum entropy and invariance.</strong> Jaynes's proposal — choose the distribution maximising entropy subject to known constraints, and use transformation groups to fix the measure — is the logical program's ambition applied to priors rather than to a complete inductive logic. It addresses language dependence by demanding invariance under a specified group, which is a real advance over "no reason to discriminate", though it faces the objection that choosing the group reintroduces the arbitrariness one level up. This is the subject of <a href="06-objective-bayesianism.html">objective Bayesianism</a>.</li>
+<li><strong>Evidential probability.</strong> Kyburg's and later Jon Williamson's systems keep the idea that evidence objectively constrains belief without claiming a unique confirmation function for every pair of propositions. The contemporary <strong>uniqueness thesis</strong> — that a body of evidence permits exactly one rational credence — is claim 3 of the original program, now debated on its own rather than as part of a formal reduction.</li>
+</ul>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><strong>Admissibility</strong></td><td>passes — confirmation functions are probability measures by construction</td></tr>
+<tr><td><strong>Ascertainability</strong></td><td>passes in principle, by computation, once a language is fixed</td></tr>
+<tr><td><strong>Applicability</strong></td><td>fails — the zero-probability result for universal laws blocks the central scientific case</td></tr>
+<tr><td><strong>Single case</strong></td><td>passes — any proposition can stand in the relation</td></tr>
+<tr><td><strong>Explains the calculus</strong></td><td>passes, and better than any rival, via Cox</td></tr>
+<tr><td><strong>Guidance</strong></td><td>passes by design, if the relation exists</td></tr>
+</tbody></table>
+</div>
+<p>The pattern is that the logical interpretation scores well on every criterion <em>conditional on there being a unique confirmation function</em>, and the results above are jointly a demonstration that there is not. That is a clean failure, and a more informative one than a muddled success.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>The logical interpretation was the most serious attempt to answer the epistemic question of the <a href="../01-introduction.html">introduction</a> objectively — to have degrees of belief that are neither arbitrary nor merely personal. Its collapse is the main reason the field's centre of gravity moved to <a href="05-subjective-bayesianism.html">subjective Bayesianism</a>, which abandons uniqueness and keeps coherence, and to <a href="06-objective-bayesianism.html">objective Bayesianism</a>, which keeps as much of uniqueness as the constraints will bear.</p>
+<p>It also leaves a permanent lesson about method, applied throughout this section: a formal result about a confirmation function is a result <em>relative to a language and a measure</em>, and the choice of those is not itself a formal matter. That is the same moral as <a href="../04-models-and-applications.html">Bertrand's paradox</a>, arriving by a different route.</p>
+<p>The next page turns from the epistemic side to the objective one, and to the interpretation that dominated statistical practice for most of the twentieth century: <a href="03-frequentism.html">frequentism</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/05-interpretations/01-classical.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/05-interpretations/03-frequentism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/05-interpretations/01-classical.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/05-interpretations/03-frequentism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

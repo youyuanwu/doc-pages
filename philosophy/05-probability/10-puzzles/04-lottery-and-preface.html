@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Lottery and Preface Paradoxes - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/10-puzzles/04-lottery-and-preface.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-lottery-and-preface-paradoxes"><a class="header" href="#the-lottery-and-preface-paradoxes">The Lottery and Preface Paradoxes</a></h1>
+<p>Bayesian epistemology models belief as graded. Ordinary thought and talk treat it as categorical: one believes something, or does not. Both pictures are indispensable — we assign probabilities to forecasts, and we also simply <em>believe</em> that Paris is in France — and the relation between them is unresolved.</p>
+<p>The <strong>lottery</strong> and <strong>preface</strong> paradoxes are the two arguments showing that the obvious bridge between them fails. Both target the <strong>Lockean thesis</strong>: that one believes a proposition just in case one's credence in it exceeds some threshold <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> close to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>.</p>
+<hr />
+<h2 id="the-lottery-paradox"><a class="header" href="#the-lottery-paradox">The lottery paradox</a></h2>
+<p>Kyburg's example. A fair lottery has one million tickets, exactly one of which will win. Consider ticket 1. Your credence that it loses is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.999999</span></span></span></span>, comfortably above any plausible threshold, so by the Lockean thesis you believe it loses. The same holds for ticket 2, ticket 3, and each of the million.</p>
+<p>So you believe of each ticket that it loses. You also believe — indeed know — that some ticket wins.</p>
+<p>Your beliefs are now jointly <strong>inconsistent</strong>. And if belief is closed under conjunction, you believe that every ticket loses, which contradicts your belief that one wins.</p>
+<p>The paradox is generated by three principles, each independently attractive:</p>
+<ol>
+<li><strong>The Lockean thesis</strong> — high credence suffices for belief.</li>
+<li><strong>Conjunction closure</strong> — believing <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> and believing <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> licenses believing <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.75em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span>.</li>
+<li><strong>Consistency</strong> — rational belief sets are consistent.</li>
+</ol>
+<p>They cannot all hold. The structure is robust: it does not depend on lotteries specifically, and arises for any large set of independently probable propositions.</p>
+<h2 id="the-preface-paradox"><a class="header" href="#the-preface-paradox">The preface paradox</a></h2>
+<p>Makinson's variant, and the more troubling of the two because it is not artificial.</p>
+<p>An author writes a carefully researched book. Each claim in it is one she believes, on good evidence. In the preface she writes the customary acknowledgement: "Doubtless some errors remain, and they are mine alone."</p>
+<p>That acknowledgement is not false modesty — it is warranted, indeed epistemically required. Books of this kind almost always contain errors, and to believe her book uniquely error-free would be irrational overconfidence.</p>
+<p>So she believes each claim in the book, and believes that at least one of them is false. Her beliefs are inconsistent, and every one of them is rationally held.</p>
+<p>The preface case is harder than the lottery for two reasons. There is no ticket-like symmetry to exploit — the claims are heterogeneous and independently supported — and the inconsistent belief is not merely permitted but <em>mandatory</em>: an author who denied that her book contained errors would be less rational, not more.</p>
+<h2 id="responses"><a class="header" href="#responses">Responses</a></h2>
+<h3 id="deny-conjunction-closure"><a class="header" href="#deny-conjunction-closure">Deny conjunction closure</a></h3>
+<p>The most common Bayesian response. Belief is not closed under conjunction, because probability is not: if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">p</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.99</span></span></span></span>, then <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mclose">)</span></span></span></span> may be as low as <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.98</span></span></span></span>, and over many conjuncts the product falls arbitrarily low. Rational belief simply does not agglomerate.</p>
+<p>This dissolves both paradoxes at a stroke and fits the probabilistic framework naturally. Its cost is that conjunction closure is deeply embedded in how we reason. Deductive inference from multiple premises requires it: if I believe <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> and believe <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> but may not conjoin them, ordinary <em>modus ponens</em> becomes unavailable as a way of extending belief. Giving up closure means giving up the idea that one's beliefs can be reasoned from collectively, which is much of what beliefs are for.</p>
+<h3 id="deny-the-lockean-thesis"><a class="header" href="#deny-the-lockean-thesis">Deny the Lockean thesis</a></h3>
+<p>Perhaps high probability is simply not sufficient for belief. Something else is required — safety, sensitivity, or a kind of evidential basis that statistical evidence alone does not provide.</p>
+<p>This is supported by an independent intuition: knowing the odds, you would not <em>say</em> "ticket 137 will lose". You would say it is very unlikely to win. Statistical evidence about a class seems not to license outright belief about a member, which is the same asymmetry that appears in the <a href="03-reference-classes.html">reference-class problem</a> and in the law's treatment of naked statistical evidence.</p>
+<p>The difficulty is that no threshold-free account has commanded agreement, and it is hard to see what more could be required in the preface case, where each individual claim is supported by ordinary non-statistical evidence.</p>
+<h3 id="deny-consistency-as-a-requirement"><a class="header" href="#deny-consistency-as-a-requirement">Deny consistency as a requirement</a></h3>
+<p>Perhaps rational belief sets need not be consistent. The preface case suggests this is not merely a concession but the correct verdict: the author's total belief set is inconsistent and impeccably rational.</p>
+<p>The worry is that inconsistency is normally the paradigm of irrationality, and that without a principled boundary the concession spreads. Some fallibilist accounts embrace it, holding that consistency is a regulative ideal rather than a strict requirement.</p>
+<h3 id="contextualism-and-pragmatic-encroachment"><a class="header" href="#contextualism-and-pragmatic-encroachment">Contextualism and pragmatic encroachment</a></h3>
+<p>The threshold for belief may vary with context — with what is at stake and which alternatives are salient. In a context where the lottery is under discussion, the threshold rises and you do not believe the ticket loses; in ordinary contexts you do believe you will not be able to afford a house, which entails that your ticket loses.</p>
+<p>This explains the pattern of intuitions and is independently motivated by work on knowledge attributions. It complicates the theory considerably, and it does not obviously help with the preface, where no shift of context makes the author's beliefs consistent.</p>
+<h3 id="eliminate-categorical-belief"><a class="header" href="#eliminate-categorical-belief">Eliminate categorical belief</a></h3>
+<p>The most radical Bayesian response: there is no such thing as belief, only credence. Talk of belief is loose talk about high credence, useful for communication and irrelevant to epistemology, and the paradoxes are artifacts of taking it seriously.</p>
+<p>The cost is severe. Belief figures in assertion, in action, in reasoning, and in knowledge attributions, and a theory with no place for it is missing something that ordinary epistemology takes as its subject matter. It also does not obviously simplify the theory of action: what one is willing to <em>assert</em> and to <em>act on</em> still needs an account.</p>
+<h2 id="the-stability-alternative"><a class="header" href="#the-stability-alternative">The stability alternative</a></h2>
+<p>A more recent proposal (Leitgeb) deserves mention because it takes a different line entirely. Belief corresponds not to credence above a threshold but to credence that is <strong>stable</strong> — a proposition is believed if its probability remains high conditional on any proposition consistent with it that one might learn.</p>
+<p>Lottery propositions fail this test: "ticket 1 loses" has high probability, but conditional on the true information that the winner is among tickets 1 and 2, it drops to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span>. So it is not believed, and the lottery paradox does not arise. The account preserves conjunction closure within a belief set and locates the defect in the Lockean threshold.</p>
+<p>The preface remains harder, and the stability requirement is demanding enough that relatively little qualifies as believed.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>The paradoxes mark the boundary between the two models of belief this section has used throughout. <a href="../06-rational-credence/01-probabilism.html">Probabilism</a> presupposes that credence is the fundamental doxastic state; ordinary epistemology presupposes that belief is. Both are hard to abandon, and no bridge between them preserves the Lockean thesis, conjunction closure, and consistency together.</p>
+<p>The practical upshot recurs elsewhere in this folder: statistical evidence, however strong, seems not to license the same attitudes as ordinary evidence. That intuition drives the legal treatment of naked statistics, the discomfort with purely <a href="../09-causation/05-correlation-and-explanation.html">predictive models</a>, and the reference-class problem — and whether it is a genuine epistemic insight or a cognitive artifact is not settled.</p>
+<p>The next two pages take up cases where even the credence side becomes unclear, because the agent is uncertain not about the world but about their own <a href="05-sleeping-beauty.html">position in it</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/10-puzzles/03-reference-classes.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/10-puzzles/05-sleeping-beauty.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/10-puzzles/03-reference-classes.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/10-puzzles/05-sleeping-beauty.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

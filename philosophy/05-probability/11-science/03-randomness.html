@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Randomness: Processes and Individual Outcomes - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/11-science/03-randomness.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="randomness-processes-and-individual-outcomes"><a class="header" href="#randomness-processes-and-individual-outcomes">Randomness: Processes and Individual Outcomes</a></h1>
+<p>"Random" is used for two different things, and conflating them causes persistent confusion.</p>
+<p>A <strong>process</strong> is random when it is governed by a probability distribution — when its outcomes are not determined by prior conditions, or at least not predictable from them. This is a property of the generating mechanism.</p>
+<p>An <strong>outcome</strong> is random when it exhibits no pattern — when the particular sequence produced has no structure that would allow it to be compressed or predicted. This is a property of the object, not of its source.</p>
+<p>The two come apart in both directions, which is why they need separate treatment. A genuinely random process can produce the sequence of a million zeros; that sequence is not random by any reasonable standard, though its source was. A deterministic algorithm can produce the digits of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span></span></span></span>, which pass every practical statistical test for randomness while being generated by a short program.</p>
+<hr />
+<h2 id="process-randomness"><a class="header" href="#process-randomness">Process randomness</a></h2>
+<p>The classical notion, and the one <a href="../05-interpretations/03-frequentism.html">von Mises</a> tried to axiomatise. His <strong>collectives</strong> required that limiting frequencies be invariant under admissible place selections — no gambling system should improve one's expected return by selecting a subsequence.</p>
+<p>Formalising "admissible" proved difficult: allowing arbitrary subsequence selection makes collectives impossible, since one can always select the subsequence of all heads. The successful restriction, due to Church and Wald, is to <strong>effectively computable</strong> place selections, which is the point at which the theory of randomness becomes a branch of computability theory.</p>
+<p>Process randomness in physics means indeterminism: the prior state does not fix the outcome. As the <a href="../08-chance-and-laws/02-determinism-and-chance.html">determinism and chance</a> page sets out, this is distinct from unpredictability, and chaotic deterministic systems are unpredictable without being indeterministic.</p>
+<h2 id="individual-randomness"><a class="header" href="#individual-randomness">Individual randomness</a></h2>
+<p>The modern theory, developed by Kolmogorov, Chaitin, Solomonoff, Martin-Löf, Levin, and Schnorr, applies to individual objects. The <a href="../../../math/11-probability/15-algorithmic-randomness.html">mathematical treatment</a> has the details; the philosophically important content is that three quite different-looking definitions turn out to coincide.</p>
+<p><strong>Incompressibility.</strong> The <strong>Kolmogorov complexity</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> of a string is the length of the shortest program producing it. A string is random if it is incompressible — if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal">x</span><span class="mord">∣</span></span></span></span>, so that no description is shorter than the string itself. Most strings are incompressible by a simple counting argument: there are <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6644em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span> strings of length <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> and fewer than <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6644em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span> shorter programs.</p>
+<p><strong>Unpredictability.</strong> A sequence is random if no effective betting strategy — a computable martingale — can make unbounded gains betting on its successive digits.</p>
+<p><strong>Typicality.</strong> A sequence is <strong>Martin-Löf random</strong> if it passes every effectively presented statistical test, that is, if it lies outside every effectively null set.</p>
+<p>The <strong>Levin–Schnorr theorem</strong> establishes that these three notions coincide for infinite binary sequences. That is a striking convergence: incompressibility, unpredictability, and typicality are conceptually distinct desiderata, formalised with different machinery, and they pick out the same class. The convergence is the main reason to regard algorithmic randomness as capturing a natural notion rather than an arbitrary stipulation.</p>
+<h2 id="what-the-theory-delivers"><a class="header" href="#what-the-theory-delivers">What the theory delivers</a></h2>
+<p><strong>Randomness becomes a property of the object.</strong> This is what the classical framework could not provide. A <a href="../../../math/11-probability/01-kolmogorov-axioms.html">probability measure</a> assigns the same value to every specific sequence of a million coin flips — <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9869em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9869em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span><span class="mord mtight"><span class="mord mtight">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-2.931em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span> each — so the measure cannot distinguish the all-heads sequence from a patternless one. The intuition that one is anomalous and the other unremarkable is real, and algorithmic randomness is what vindicates it.</p>
+<p><strong>It clarifies what frequency accounts were reaching for.</strong> Von Mises's randomness axiom was an attempt to say that a collective has no exploitable structure. The martingale characterisation is exactly that claim, made precise.</p>
+<p><strong>Almost all sequences are random, and none can be proved to be.</strong> With respect to the uniform measure, the Martin-Löf random sequences have measure one. But by a Gödel-style argument, for any consistent formal system there is a bound <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span> such that the system cannot prove <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span> for any specific string. Randomness is generic and individually uncertifiable — a combination with no analogue in the classical theory.</p>
+<h2 id="limitations"><a class="header" href="#limitations">Limitations</a></h2>
+<p><strong>Machine-dependence.</strong> Kolmogorov complexity depends on the choice of universal machine, though only up to an additive constant. For infinite sequences this washes out and the class of random sequences is machine-independent; for finite strings the constant can exceed the differences one cares about, so "this string is random" is not a sharp claim about short strings.</p>
+<p><strong>Uncomputability.</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> is not computable. One cannot in general determine whether a given string is random, which limits the notion's practical application.</p>
+<p><strong>It is not physical randomness.</strong> A Martin-Löf random sequence can be produced by a deterministic process — indeed, being incompressible has nothing to do with how a sequence was generated. So algorithmic randomness characterises the <em>product</em>, not the <em>source</em>, and cannot settle whether the world is indeterministic.</p>
+<h2 id="pseudorandomness"><a class="header" href="#pseudorandomness">Pseudorandomness</a></h2>
+<p>The practical counterpart, and the place where the process/product distinction matters most.</p>
+<p>A pseudorandom generator is a deterministic algorithm producing sequences that pass statistical tests. The output is compressible — the generator and seed constitute a short description — so it is <em>not</em> algorithmically random. But it may be <strong>computationally indistinguishable</strong> from random: no efficient algorithm can tell it apart from a truly random sequence.</p>
+<p>This weaker notion is what applications actually need. Randomised algorithms in <a href="../../../math/10-complexity-theory.html">complexity theory</a> work with pseudorandom bits, and cryptographic security rests on computational indistinguishability rather than on genuine randomness. The relationship between <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord mathsf">BPP</span></span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathsf">P</span></span></span></span> — whether randomness genuinely helps computation — is a central open problem, and the prevailing conjecture is that it does not: that under plausible hardness assumptions <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord mathsf">BPP</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathsf">P</span></span></span></span>, so randomness is a convenience rather than a resource.</p>
+<p>That is a philosophically notable prospect. If it holds, then for computational purposes randomness adds nothing that sufficient complexity does not already provide, and the practical significance of the process/product distinction largely collapses.</p>
+<h2 id="randomness-and-probability"><a class="header" href="#randomness-and-probability">Randomness and probability</a></h2>
+<p>How does the theory bear on the <a href="../03-interpretations-overview.html">interpretations</a>?</p>
+<ul>
+<li><strong><a href="../05-interpretations/03-frequentism.html">Frequentism</a></strong> is the natural beneficiary: von Mises's programme is completed by the algorithmic theory, and his randomness axiom is given a precise and defensible form.</li>
+<li><strong><a href="../05-interpretations/04-propensity.html">Propensity</a></strong> concerns process randomness and is untouched by the algorithmic theory, which says nothing about generating mechanisms.</li>
+<li><strong><a href="../05-interpretations/05-subjective-bayesianism.html">Subjectivism</a></strong> can use algorithmic randomness for priors: the <strong>Solomonoff prior</strong> weights hypotheses by <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span></span></span></span></span></span></span></span></span></span></span></span>, providing a universal prior with good convergence properties, at the cost of uncomputability and machine-dependence. This is the formal core of the <a href="../07-induction-confirmation/05-underdetermination-and-simplicity.html">simplicity</a> discussion.</li>
+<li><strong><a href="../05-interpretations/07-humean-chance.html">Best-system chance</a></strong> has a natural affinity: a system's <em>fit</em> to the mosaic and the mosaic's compressibility are closely related notions, and a world whose history is algorithmically random is one no simple system summarises well.</li>
+</ul>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>The theory of randomness is a rare case where a philosophical notion received a fully satisfactory mathematical treatment, with three independent formalisations proved equivalent. What it settles is what it is for an <em>outcome</em> to be patternless. What it leaves open is whether any physical <em>process</em> is genuinely indeterministic — which is the question <a href="01-quantum-chance.html">quantum chance</a> addresses and which no amount of examining the output can decide, since deterministic sources can produce incompressible sequences.</p>
+<p>The last page of this folder turns to the application of chance where the stakes are personal rather than physical: whether indeterminism can underwrite <a href="04-free-will-and-chance.html">free will</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/11-science/02-statistical-mechanics.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/11-science/04-free-will-and-chance.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/11-science/02-statistical-mechanics.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/11-science/04-free-will-and-chance.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

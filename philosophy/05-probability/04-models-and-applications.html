@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Models, Measures, and Applications - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/04-models-and-applications.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="models-measures-and-applications"><a class="header" href="#models-measures-and-applications">Models, Measures, and Applications</a></h1>
+<p>Every interpretation of probability takes for granted that some particular probability model is the right one for the situation at hand. The frequentist counts outcomes in a class, the Bayesian assigns credences over a partition of hypotheses, the propensity theorist attributes a tendency to a setup — and each has already assumed a <strong>sample space</strong>, an <strong>event structure</strong>, and often a parameterisation. None of these is given by the world. They are chosen, and rival choices are formally impeccable and mutually inconsistent.</p>
+<p>This is the <strong>application question</strong> of the <a href="01-introduction.html">introduction</a>, and it is the most easily overlooked of the three because it looks like a technicality. It is not. It is where the Principle of Indifference fails, where "at random" turns out to be undefined, and where the gap between a mathematical structure and a physical situation has to be closed by something other than mathematics.</p>
+<hr />
+<h2 id="a-measure-is-not-found-it-is-built"><a class="header" href="#a-measure-is-not-found-it-is-built">A measure is not found, it is built</a></h2>
+<p>The <a href="../../math/11-probability/01-kolmogorov-axioms.html">Kolmogorov axioms</a> define a probability space as a triple <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">Ω</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathcal" style="margin-right:0.09931em;">F</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mclose">)</span></span></span></span>. Applying probability to anything real requires supplying all three, and each involves a decision that is not forced.</p>
+<ul>
+<li><strong>The sample space <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Ω</span></span></span></span></strong> — what are the possible outcomes? A coin toss has two outcomes if we care only about the face, three if we admit landing on edge, and continuum-many if we individuate by angle of rest. The choice is a decision about how finely to describe the world, and probabilities are relative to it.</li>
+<li><strong>The event algebra <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.09931em;">F</span></span></span></span></strong> — which sets of outcomes count as events? For finite <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Ω</span></span></span></span> this is usually the full power set and the choice is invisible. For continuous <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Ω</span></span></span></span> it cannot be, since <a href="../../math/04-analysis/17-non-measurable.html">no translation-invariant countably additive measure is defined on every subset of the reals</a>. Some questions are not merely unanswered but unaskable, and which ones depends on the algebra.</li>
+<li><strong>The measure <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span></strong> — which assignment? Even with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Ω</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.09931em;">F</span></span></span></span> fixed, infinitely many measures satisfy the axioms. Selecting one is the whole substance of applying probability, and the axioms are silent on it.</li>
+</ul>
+<p>The upshot is that a probability claim about the world is always <strong>model-relative</strong>, and disputes that appear to be about probabilities are often disputes about models. Recognising this dissolves some puzzles outright and sharpens others into genuine problems.</p>
+<h2 id="bertrands-paradox"><a class="header" href="#bertrands-paradox">Bertrand's paradox</a></h2>
+<p>The classic demonstration. Take an equilateral triangle inscribed in a circle and draw a chord "at random". What is the probability that the chord is longer than a side of the triangle?</p>
+<p>Three natural methods give three different answers, and each is a legitimate construction:</p>
+<div class="table-wrapper"><table><thead><tr><th>Method</th><th>Randomisation</th><th>Answer</th></tr></thead><tbody>
+<tr><td><strong>Random endpoints</strong></td><td>fix one endpoint, choose the other uniformly on the circumference</td><td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/3</span></span></span></span></td></tr>
+<tr><td><strong>Random radius</strong></td><td>choose a radius, then a point uniformly along it, and take the perpendicular chord</td><td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/2</span></span></span></span></td></tr>
+<tr><td><strong>Random midpoint</strong></td><td>choose the chord's midpoint uniformly over the disc</td><td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/4</span></span></span></span></td></tr>
+</tbody></table>
+</div>
+<p>Nothing is wrong with any calculation. What is wrong is the question: <strong>"at random" does not specify a measure</strong>, and the three methods impose different ones. The uniform distribution on endpoints is not the uniform distribution on midpoints, because the map between the two parameterisations is not measure-preserving. Once a physical procedure for producing chords is specified — spinning a pointer, rolling a straw onto a circle, sighting through a slit — the answer is determined, and different procedures genuinely give different answers.</p>
+<p>Two lessons, and they point in opposite directions.</p>
+<ul>
+<li><strong>Against the Principle of Indifference.</strong> "Assign equal probability to possibilities among which you have no reason to discriminate" is not a well-defined instruction, because possibilities can be redescribed. Indifference over one parameterisation is not indifference over another, and the principle by itself does not say which to use. This is why the classical and logical interpretations cannot be self-standing.</li>
+<li><strong>In defence of the axioms.</strong> Bertrand's paradox is not an inconsistency in probability theory. It is a demonstration that an under-described problem has no answer. The mathematics behaves impeccably: three different measures, three different values. The failure is in the passage from an English sentence to a model.</li>
+</ul>
+<p>Jaynes proposed a partial rescue: require the solution to be invariant under the transformations the problem statement does not fix — for a chord problem, scaling, rotation, and translation of the circle — and the radius method is uniquely selected. The maximum-entropy and transformation-group approaches generalise this. Whether it succeeds is contested; the invariance requirement is powerful where a genuine symmetry group is available and silent where it is not, and critics observe that the choice of <em>which</em> invariances to demand reintroduces the original arbitrariness one level up.</p>
+<h2 id="the-same-problem-less-obviously"><a class="header" href="#the-same-problem-less-obviously">The same problem, less obviously</a></h2>
+<p>Bertrand is a toy. The same structure appears wherever a probability is asserted, and the following are all instances of it.</p>
+<ul>
+<li><strong>Continuous parameters in science.</strong> A prior "uniform over the possible values" of a physical constant is not invariant under reparameterisation: uniform in a length is not uniform in its logarithm or its reciprocal. Every choice of an uninformative prior is a choice of parameterisation, which is why invariance arguments — Jeffreys priors, maximum entropy — occupy so much space in objective Bayesian work.</li>
+<li><strong>The Doomsday argument and self-location.</strong> Reasoning about one's position in a sequence of observers requires a measure over observers, and the argument's force depends entirely on which reference class and which sampling assumption are adopted. This is Bertrand with humans in place of chords.</li>
+<li><strong>Statistical mechanics.</strong> The standard measure on phase space is Liouville measure, and it is doing genuine work: the Past Hypothesis is a claim about a low-entropy macrostate, and "most" microstates within it behave thermodynamically only relative to that measure. Choosing it is justified by its dynamical invariance rather than by indifference, which is exactly the Jaynesian move made rigorous.</li>
+<li><strong>Fine-tuning.</strong> Claims that life-permitting constants occupy a "tiny fraction" of parameter space presuppose a measure over that space, often over an unbounded range where no normalisable uniform measure exists. The <a href="../02-religion/06-arguments/03-teleological.html">teleological argument</a> inherits this problem in full, and it is one of the standard replies to it.</li>
+</ul>
+<h2 id="conditioning-is-model-relative-too"><a class="header" href="#conditioning-is-model-relative-too">Conditioning is model-relative too</a></h2>
+<p>The application question has a second face, less often noticed, that concerns not the initial model but conditioning within it. In elementary settings <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span></span></span> is well defined whenever <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>, and no interpretive issue arises. When <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> the ratio is undefined, and yet such conditions are asserted constantly — "given that the point lies on this great circle", "given that the parameter equals exactly this value".</p>
+<p>The rigorous treatment defines conditional expectation with respect to a <strong><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span></span></span></span>-algebra</strong> rather than an event, as a <a href="../../math/11-probability/05-conditional-expectation.html">Radon–Nikodym derivative</a>, and the resulting object is unique only up to null sets. The philosophical consequence is the <strong>Borel–Kolmogorov paradox</strong>: conditioning on the <em>same</em> null event, approached through different families of conditions, yields different distributions. Conditioning on a great circle of a sphere gives a uniform distribution if the circle is regarded as a line of longitude and a non-uniform one if it is regarded as a limit of latitudes.</p>
+<p>So "the probability given that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>" is not well defined by the event <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mclose">}</span></span></span></span> alone. It requires a specification of <em>how</em> the conditioning event is embedded in a family — which is to say, a model of the measurement or limiting procedure. Once again the mathematics is exactly right and the English is underdetermined.</p>
+<h2 id="what-closes-the-gap"><a class="header" href="#what-closes-the-gap">What closes the gap?</a></h2>
+<p>If the axioms do not select a model, what does? Four kinds of consideration are actually used, and it is worth being explicit that all four are extra-mathematical.</p>
+<ol>
+<li><strong>Physical symmetry.</strong> If the setup is invariant under a group of transformations and the quantity of interest is too, the measure should be invariant as well. This is the most respectable ground and the one Jaynes exploited. It applies only when there is a genuine physical symmetry, not merely a descriptive one.</li>
+<li><strong>The generating procedure.</strong> Specifying how outcomes are actually produced — the mechanism, the sampling protocol, the experimental design — usually determines the model uniquely. This is why Bertrand's paradox evaporates for any concrete chord-drawing device, and why stopping rules matter in statistics.</li>
+<li><strong>Empirical adequacy.</strong> A model can be tested. If the chosen measure implies frequencies that do not obtain, it is the wrong model, and this is the main corrective in practice.</li>
+<li><strong>Robustness.</strong> Where no unique model is defensible, one can ask whether the conclusion survives across the plausible range. If it does, the underdetermination is harmless; if the conclusion flips, the argument was resting on the modelling choice rather than on the evidence. This is a discipline the anthropic and fine-tuning literature would benefit from more than it practises it.</li>
+</ol>
+<h2 id="idealisation-and-the-limits-of-the-formalism"><a class="header" href="#idealisation-and-the-limits-of-the-formalism">Idealisation and the limits of the formalism</a></h2>
+<p>A final constraint on any application. Probability models are idealisations, and the idealisation sometimes carries the argument.</p>
+<p>Infinite sequences of trials do not occur, but limiting frequentism requires them. Perfectly repeatable setups do not exist, but propensity talk assumes them. Agents with logically closed, real-valued credences over a complete algebra of propositions do not exist either, and this idealisation is the source of the <strong>problem of old evidence</strong> and of every difficulty about logical omniscience in Bayesian epistemology. In each case the formal object is well behaved and the physical or psychological system it represents is not.</p>
+<p>None of this is an objection to using models — the same could be said of frictionless planes — but it does bear on what conclusions the models can support. An argument that depends essentially on a feature present only in the idealisation, and absent in every real instance, has not established what it appears to. Whether the infinite limits in frequentism and the ideal agents in Bayesianism are harmless idealisations or load-bearing fictions is a question each of the following pages has to answer for itself.</p>
+<h2 id="where-this-leaves-us"><a class="header" href="#where-this-leaves-us">Where this leaves us</a></h2>
+<p>The formal calculus is neutral not only between interpretations but between models, and the second neutrality has to be resolved before the first even arises. Assertions of the form "the probability is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>" are elliptical for "on this model, the probability is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>", and a great many disputes — Bertrand, indifference, fine-tuning, self-location, conditioning on null events — turn out to be disputes about the suppressed clause.</p>
+<p>This completes the spine. The <a href="01-introduction.html">three questions</a> are in place, the <a href="02-chance-and-credence.html">chance/credence distinction</a> organises the field, the <a href="03-interpretations-overview.html">interpretations</a> are mapped, and the model-relativity of every probability claim is on the table. The interpretations folder takes the positions in turn, beginning with the <a href="05-interpretations/01-classical.html">classical account</a> and the Principle of Indifference whose failure this page has already prepared.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/05-probability/03-interpretations-overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/05-probability/05-interpretations/01-classical.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/05-probability/03-interpretations-overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/05-probability/05-interpretations/01-classical.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Free Will and Chance - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/11-science/04-free-will-and-chance.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="free-will-and-chance"><a class="header" href="#free-will-and-chance">Free Will and Chance</a></h1>
+<p>The free-will debate has a probabilistic core that is frequently handled badly. Incompatibilists argue that determinism is incompatible with free will, so free will requires indeterminism. Their opponents reply that indeterminism is no help, because an undetermined action is a <em>chance</em> event, and chance events are not under anyone's control.</p>
+<p>This page addresses the probability-theoretic component of that exchange. The full agency debate belongs to the <a href="../../01-freewill/01-introduction.html">free will</a> section, and in particular to <a href="../../01-freewill/04-libertarianism.html">libertarianism</a>, which these pages do not duplicate. What is offered here is narrower and, I think, decisive as far as it goes: an account of what an objective chance <em>is</em> that explains why the luck objection is not a rhetorical move but a consequence of the formalism.</p>
+<hr />
+<h2 id="the-dialectic"><a class="header" href="#the-dialectic">The dialectic</a></h2>
+<p><strong>The Consequence Argument.</strong> If determinism is true, actions are consequences of the past and the laws, neither of which is up to us; so our actions are not up to us. Free will therefore requires indeterminism.</p>
+<p><strong>The luck (or Mind) objection.</strong> If an action is undetermined, then given everything about the agent — their reasons, desires, character, deliberation, and the complete state of the world — it was not settled which action would occur. Whichever occurred, it might not have, with nothing about the agent accounting for the difference. That is luck, not control.</p>
+<p>The libertarian is thus caught: determinism appears to eliminate control, and indeterminism appears to replace it with chance.</p>
+<h2 id="what-chance-is-and-why-it-cannot-settle-anything"><a class="header" href="#what-chance-is-and-why-it-cannot-settle-anything">What chance is, and why it cannot settle anything</a></h2>
+<p>The probabilistic point is simple and, once stated precisely, hard to evade.</p>
+<p>An objective chance <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6835em;vertical-align:-0.0391em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> says that the state of the world at <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span>, together with the laws, <strong>does not determine</strong> whether <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> occurs. That is what a non-trivial chance <em>is</em> — a measure of the extent to which the prior state leaves the outcome open. As the <a href="../08-chance-and-laws/04-chance-over-time.html">chance over time</a> page sets out, chances become trivial precisely when outcomes are settled.</p>
+<p>It follows immediately that a chance cannot be what settles an outcome. To ask that objective chance supply the agent's control is to ask a measure of <em>unsettledness</em> to do the work of settling. This is not a contingent shortcoming of chance to be remedied by a better theory; it is what the quantity means.</p>
+<p>The point can be sharpened. Suppose an agent's decision has chance <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.7</span></span></span></span> of going one way. The complete specification of the agent — everything about their character, reasons, and deliberative history — is part of the state relative to which that chance is defined. So <em>by construction</em>, nothing about the agent accounts for which branch occurs. The difference between the branches is, in the strictest sense, not attributable to the agent, since attributable factors are exactly what the conditioning state contains.</p>
+<p>This is why the luck objection is not an intuition pump. It is a restatement of what a non-trivial chance is.</p>
+<h2 id="where-this-leaves-the-libertarian"><a class="header" href="#where-this-leaves-the-libertarian">Where this leaves the libertarian</a></h2>
+<p>Three positions remain available, and their structures are worth distinguishing.</p>
+<p><strong>Event-causal libertarianism</strong> (Kane, Ekstrom) relocates the indeterminism. The chance operates <em>upstream</em> of the decision — in which considerations occur to the agent, in the effort of will, in the generation of alternatives — while the decision itself is caused by the agent's reasons. Kane's "self-forming actions" involve competing efforts, either outcome of which the agent endorses and takes ownership of.</p>
+<p>The probabilistic assessment: this concedes the point above. It does not claim that chance provides control; it claims that chance provides <em>alternatives</em>, and that control comes from the reasons-responsive causal process operating on them. Whether that suffices for the sourcehood incompatibilists demand is the substantive question, and it is not a probabilistic one. Critics reply that at the moment of decision the same problem recurs — if the effort's success is chancy, its success is not the agent's doing.</p>
+<p><strong>Agent-causal libertarianism</strong> (Chisholm, O'Connor, Clarke) denies that the only causation is between events. The agent, as a substance, causes the decision, and is not itself caused to do so by prior events. This <em>directly</em> addresses the luck objection: the outcome is settled, but by the agent rather than by the prior state.</p>
+<p>Note what this costs in probabilistic terms. If agent causation settles the outcome, then relative to the complete prior state <em>including the agent's causal act</em> there is no chance at all; and relative to the state excluding it, there is a chance whose value the theory must explain. Agent causation is not the introduction of chance into the world but the introduction of a settling factor that is not an event — which is why its defenders regard it as compatible with the argument above rather than refuted by it, and why its critics regard it as unintelligible.</p>
+<p><strong>Compatibilism</strong> accepts the argument in full and concludes that free will never required indeterminism. If chance cannot supply control, and control is what free will consists in, then the search for control in indeterminism was misconceived from the start. Freedom is a matter of the <em>kind</em> of causal process — reasons-responsive, unconstrained, expressive of the agent's values — rather than of whether that process is deterministic.</p>
+<h2 id="two-errors-to-avoid"><a class="header" href="#two-errors-to-avoid">Two errors to avoid</a></h2>
+<p><strong>Quantum indeterminacy does not deliver free will.</strong> Even granting that quantum events are irreducibly chancy and that some amplify to the neural scale, this yields randomness in the brain, not agency. Random perturbation of a decision process makes it less reliably responsive to reasons, not more free. The inference from "quantum mechanics is indeterministic" to "free will is possible" skips the entire question of what chance could contribute — which is the argument above.</p>
+<p><strong>Unpredictability is not indeterminism.</strong> As <a href="../08-chance-and-laws/02-determinism-and-chance.html">determinism and chance</a> sets out, deterministic systems can be radically unpredictable, and the brain is certainly one. The fact that a decision cannot be predicted is no evidence that it is undetermined, and arguments from the complexity or unpredictability of human behaviour to libertarian freedom are invalid.</p>
+<h2 id="what-probability-contributes"><a class="header" href="#what-probability-contributes">What probability contributes</a></h2>
+<p>The contribution is limited and clarifying rather than settling.</p>
+<p>It shows that the luck objection follows from the nature of chance rather than from a contestable intuition, so a libertarian cannot answer it by describing indeterminism more attractively. It shows that quantum indeterminacy is irrelevant unless accompanied by an account of how chance becomes control. And it shows that the real dispute is about <strong>sourcehood</strong> — whether an agent can be the origin of an action in the required sense — and that this is a question about causation and agency, not about probability.</p>
+<p>Probability theory can say what chance is and what it cannot do. Whether agent causation is intelligible, whether reasons-responsiveness suffices for responsibility, and whether the Consequence Argument is sound are questions the <a href="../../01-freewill/01-introduction.html">free will</a> section takes up.</p>
+<h2 id="where-this-sits"><a class="header" href="#where-this-sits">Where this sits</a></h2>
+<p>This completes the scientific case studies. Across all four, the pattern has been the same: probability theory clarifies what is at stake, rules out some positions, and leaves the central question to be settled elsewhere. In <a href="01-quantum-chance.html">quantum chance</a> the formalism does not fix the interpretation; in <a href="02-statistical-mechanics.html">statistical mechanics</a> the probabilities are indispensable and their status contested; in <a href="03-randomness.html">randomness</a> the theory characterises products but not sources; and here it establishes what chance cannot do without establishing what agency requires.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/11-science/03-randomness.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/12-context/01-history.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/11-science/03-randomness.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/12-context/01-history.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Method: What Formal Results Can Establish - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/05-probability/12-context/02-method.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="method-what-formal-results-can-establish"><a class="header" href="#method-what-formal-results-can-establish">Method: What Formal Results Can Establish</a></h1>
+<p>The philosophy of probability is unusually rich in theorems, and unusually prone to a characteristic error: taking a mathematical result to settle a philosophical question it does not address. This page collects the section's methodological commitments — the kinds of result available, what each can support, and the specific invalid inferences that recur.</p>
+<p>The underlying point is simple. A theorem is a conditional: given these assumptions, this follows. Applying it to the world requires the assumptions to hold of the world, and <em>that</em> is never established by the theorem. Most of the errors below are failures to check the antecedent.</p>
+<hr />
+<h2 id="five-kinds-of-result"><a class="header" href="#five-kinds-of-result">Five kinds of result</a></h2>
+<p><strong>Mathematical theorems</strong> — the <a href="../../../math/11-probability/07-laws-of-large-numbers.html">law of large numbers</a>, <a href="../../../math/11-probability/13-exchangeability-de-finetti.html">de Finetti's theorem</a>, Gleason's theorem, the Levin–Schnorr theorem. These are true and settle nothing about interpretation on their own. They tell us what follows from the axioms <em>given</em> an interpretation, not which interpretation to adopt.</p>
+<p><strong>Representation theorems</strong> — Ramsey, Savage, Cox, de Finetti. These show that an agent (or a quantity) satisfying certain structural conditions can be <em>represented</em> in a particular form. The gap between "can be represented as having credences" and "has credences" is real, and it is where much overreach occurs. A representation theorem's force depends entirely on whether its structural axioms are genuine requirements of rationality — which is a philosophical claim requiring separate defence.</p>
+<p><strong>Coherence and dominance arguments</strong> — <a href="../06-rational-credence/02-dutch-books.html">Dutch books</a>, <a href="../06-rational-credence/03-accuracy-and-scoring.html">accuracy dominance</a>. These establish that violating a norm carries a specific cost. Whether the cost is <em>epistemic</em> is a further question: the pragmatic/epistemic gap is the standing objection to Dutch books, and the accuracy argument's force depends on the choice of scoring rule.</p>
+<p><strong>Impossibility results</strong> — Bell's theorem, the pooling impossibility theorems, Putnam's diagonal argument, the failure of Carnap's uniqueness claim. These are the most secure results in the field, because they establish that a set of desiderata cannot be jointly satisfied. They tell us what to give up without telling us which thing to give up.</p>
+<p><strong>Empirical discoveries</strong> — the violation of Bell inequalities, the observed frequencies confirming quantum predictions. These are rare and valuable: cases where a claim about probability was tested against the world.</p>
+<h2 id="the-recurring-invalid-inferences"><a class="header" href="#the-recurring-invalid-inferences">The recurring invalid inferences</a></h2>
+<p>Each of these appears in the literature, and each is refuted somewhere in this section.</p>
+<p><strong>"The law of large numbers, therefore frequentism."</strong> The <a href="../../../math/11-probability/07-laws-of-large-numbers.html">strong law</a> presupposes a measure <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> and shows that the set of sequences whose limiting frequency differs from <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> has <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>-measure zero. Every term in that statement is defined relative to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>, so the theorem cannot define <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> as a limiting frequency. It also does not guarantee convergence — the exceptional set is null but non-empty, containing sequences with every other limit. What the theorem establishes is a <em>consistency</em> constraint: any interpretation must make frequencies evidence about probabilities. See <a href="../05-interpretations/03-frequentism.html">frequentism</a>.</p>
+<p><strong>"De Finetti's theorem, therefore subjectivism."</strong> The <a href="../../../math/11-probability/13-exchangeability-de-finetti.html">representation theorem</a> shows that an agent with <em>exchangeable</em> credences behaves as if there were an unknown chance with a prior over it. It applies only to agents whose credences are exchangeable, which is a substantive and often false assumption; it does not show objective chances do not exist; and it does not explain why we should defer to chances discovered by physics. See <a href="../05-interpretations/05-subjective-bayesianism.html">subjective Bayesianism</a>.</p>
+<p><strong>"Dutch books, therefore probabilism is an epistemic requirement."</strong> The theorem establishes vulnerability to sure loss, which is a practical defect. Bridging to an epistemic conclusion requires either accepting that practical exploitability indicates epistemic failure, or the depragmatised reading on which the real defect is inconsistency of evaluation. See <a href="../06-rational-credence/02-dutch-books.html">Dutch books</a>.</p>
+<p><strong>"Gleason's theorem, therefore quantum probabilities are objective chances."</strong> Gleason fixes the <em>form</em> of any probability measure on the projection lattice. It is silent on whether the measure represents chance, frequency, or credence — a QBist accepts Gleason entirely. See <a href="../11-science/01-quantum-chance.html">quantum chance</a>.</p>
+<p><strong>"Cox's theorem, therefore uniquely rational credences."</strong> Cox derives the probability axioms from structural desiderata, subject to regularity conditions that do real work (Halpern's counterexamples). Even granted, it establishes only that plausibility must be probabilistic — not which probability function is correct. See <a href="../05-interpretations/06-objective-bayesianism.html">objective Bayesianism</a>.</p>
+<p><strong>"Merging of opinions, therefore priors do not matter."</strong> Convergence requires mutual absolute continuity, is purely asymptotic, and concerns agreement rather than truth. See <a href="../06-rational-credence/05-priors-and-indifference.html">priors and indifference</a>.</p>
+<p><strong>"Probability raising, therefore causation."</strong> Refuted in both directions, and the whole <a href="../09-causation/01-probabilistic-causation.html">causation folder</a> is the argument.</p>
+<p><strong>"Typicality, therefore this case is probably typical."</strong> The inference requires an assumption that the actual case is not exceptional, which is precisely a probabilistic assumption about sampling that the typicality framework was meant to avoid. See <a href="../08-chance-and-laws/05-typicality.html">typicality</a>.</p>
+<h2 id="idealisation"><a class="header" href="#idealisation">Idealisation</a></h2>
+<p>A distinct source of error. Formal models of agents assume <strong>logical omniscience</strong>, a <strong>fixed algebra</strong> of propositions, and <strong>precise real-valued</strong> credences. No actual or possible agent satisfies these.</p>
+<p>Idealisation is legitimate — frictionless planes are useful — but an argument depending <em>essentially</em> on a feature present only in the idealisation does not transfer. The <a href="../07-induction-confirmation/04-old-evidence-and-new-theories.html">old-evidence problem</a> and the new-hypothesis problem are both consequences of these idealisations rather than discoveries about evidence, and the <a href="../06-rational-credence/06-imprecise-probability.html">imprecise probability</a> literature is a sustained attempt to relax the third.</p>
+<p>The test to apply: does the conclusion survive when the idealisation is weakened? If yes, the idealisation was harmless. If the conclusion depends on it, the argument has established something about the model and not about the world.</p>
+<h2 id="the-suppressed-clause"><a class="header" href="#the-suppressed-clause">The suppressed clause</a></h2>
+<p>The single most useful discipline in this subject. Every probability claim is elliptical:</p>
+<blockquote>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> <strong>relative to this model</strong>.</p>
+</blockquote>
+<p>Making the clause explicit resolves or reframes a remarkable number of disputes. <a href="../10-puzzles/01-bertrand-and-model-selection.html">Bertrand's paradox</a> is three models, not one contradiction. The <a href="../10-puzzles/02-conditioning-on-null-events.html">Borel–Kolmogorov paradox</a> is two conditioning families. The <a href="../10-puzzles/03-reference-classes.html">reference-class problem</a> is a choice of class. <a href="../10-puzzles/06-anthropic-reasoning.html">Fine-tuning</a> and Doomsday depend on measures over spaces where no canonical measure exists. <a href="../09-causation/03-simpsons-paradox.html">Simpson's paradox</a> is two questions with different answers.</p>
+<p>Where the model is fixed by a specified generating procedure or a genuine physical symmetry, the claim is determinate. Where it is not, the honest response is a <strong>robustness check</strong>: does the conclusion hold across the plausible models? If it does, the underdetermination is harmless. If it flips, the argument is carrying the modelling choice rather than the evidence.</p>
+<h2 id="where-the-section-stands"><a class="header" href="#where-the-section-stands">Where the section stands</a></h2>
+<p>These notes take no position on which interpretation of probability is correct, and the <a href="../03-interpretations-overview.html">overview</a> explains why: each scores well on some adequacy criteria and badly on others, and none dominates. Pluralism — that "probability" covers several related notions sharing a calculus weak enough to fit them all — is a serious position rather than an evasion.</p>
+<p>Where the section does take a stand, it is on the narrow and largely negative claims collected above: that the inferences listed are invalid, that the idealisations are load-bearing more often than acknowledged, and that the suppressed model-relativity clause is where a surprising number of disputes actually live.</p>
+<p>That is a modest yield from a large literature. It is also, I think, the durable part: the negative results have survived, while every positive programme — classical, logical, frequentist, propensity — has been found wanting on its own terms.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/05-probability/12-context/01-history.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/05-probability/12-context/03-figures.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/05-probability/12-context/01-history.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/05-probability/12-context/03-figures.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>
