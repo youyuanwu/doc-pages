@@ -1,0 +1,322 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What Is It Like to Be a Bat? - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/misc/llm-introspection/02-what-is-it-like-to-be-a-bat.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="what-is-it-like-to-be-a-bat"><a class="header" href="#what-is-it-like-to-be-a-bat">What Is It Like to Be a Bat?</a></h1>
+<p>Thomas Nagel's "What Is It Like to Be a Bat?" (<em>The Philosophical Review</em> 83:4, 1974) is the paper that put <strong>consciousness</strong> back at the centre of analytic philosophy of mind after two decades in which behaviourism and early functionalism had treated it as an embarrassment to be explained away. It is short, non-technical, and almost entirely negative: Nagel offers no theory of consciousness, and explicitly declines to argue for dualism. What he argues is that <em>every existing reductionist programme has failed to state what it would even have to explain</em>, and that the reason for this failure is structural rather than accidental.</p>
+<hr />
+<h2 id="why-there-is-a-problem-at-all"><a class="header" href="#why-there-is-a-problem-at-all">Why there is a problem at all</a></h2>
+<p>It helps to be clear about what the problem is <em>not</em>, since the obvious readings make it look either trivial or mystical.</p>
+<p><strong>It is not ignorance of mechanism.</strong> Suppose neuroscience finished tomorrow — every neuron mapped, every correlate identified, every report predicted in advance from the physical state. The question <em>"but why is any of that accompanied by experience; why is it not all going on in the dark?"</em> would still form. That it still forms <strong>after the explanation is complete</strong> is the phenomenon.</p>
+<p>Compare a problem that genuinely dissolved. Vitalism held that living matter required an <em>élan vital</em>, some further ingredient over and above chemistry. Once metabolism, replication and development were worked out mechanistically, the question "yes, but why is that arrangement <em>alive</em>?" stopped having any content — there was nothing left to want. Nobody feels a residue now. That is what a dissolved problem looks like, and it is also the standard optimistic forecast for consciousness: Dennett and others expect it to go the same way, with the apparent remainder exposed as an artefact of how the question was framed. The difficulty is that consciousness has so far refused the treatment, and Nagel's contribution is to say why the refusal is structural rather than stubborn.</p>
+<p>The complaint is also very old, and it was first made about a <strong>machine</strong>. Leibniz, <em>Monadology</em> §17 (1714):</p>
+<blockquote>
+<p>Supposing there were a machine whose structure produced thought, sensation, and perception, we could conceive of it as increased in size with the same proportions until one was able to enter into its interior, as he would into a mill. Now, on going into it he would find only pieces working upon one another, but never would he find anything to explain perception.</p>
+</blockquote>
+<p>And Huxley, on the neural version, in 1866:</p>
+<blockquote>
+<p>How it is that anything so remarkable as a state of consciousness comes about as a result of irritating nervous tissue, is just as unaccountable as the appearance of the Djin when Aladdin rubbed his lamp.</p>
+</blockquote>
+<p>Both make the same observation: you may have the entire mechanism in front of you, at any magnification you like, and nothing in it looks like the <em>beginning</em> of an account of experience. Neither is an argument — they are statements of a difficulty. Nagel's paper is the attempt to say precisely what the difficulty consists in, and why it is not merely a failure of imagination that better science will retire.</p>
+<h2 id="the-criterion-what-it-is-like"><a class="header" href="#the-criterion-what-it-is-like">The criterion: "what it is like"</a></h2>
+<p>Nagel's opening move is to fix the subject matter with a phrase that has been standard ever since:</p>
+<blockquote>
+<p>An organism has conscious mental states if and only if there is something it is like to <em>be</em> that organism — something it is like <em>for</em> the organism.</p>
+</blockquote>
+<p>Two things are worth stressing about this formula, because both are routinely misread.</p>
+<ul>
+<li>"What it is like" does <strong>not</strong> mean "what it resembles". It is not a request for a comparison. It means the character an experience has <em>for its subject</em> — the felt, first-personal quality of undergoing it. This is what later writers call the <strong>phenomenal character</strong> or <strong>qualia</strong> of an experience.</li>
+<li>The "for the organism" clause is the load-bearing one. A state is conscious when there is a <em>point of view</em> it is had from. Consciousness on this account is essentially <strong>subjective</strong>: it exists only as it appears to some subject, from some particular perspective.</li>
+</ul>
+<p>This is why Nagel says the problem of consciousness is not the same as the problem of intelligence, or of behavioural sophistication, or of information processing. A system might do everything a conscious creature does and still, for all the functional description tells us, have nothing it is like to be.</p>
+<h2 id="why-bats"><a class="header" href="#why-bats">Why bats</a></h2>
+<p>The bat is not chosen for whimsy. It is chosen to satisfy two conditions at once, and the argument needs both.</p>
+<ol>
+<li><strong>Bats are uncontroversially conscious.</strong> They are mammals, with nervous systems relevantly similar to ours; almost nobody is tempted to say their experience is simply absent. Nagel needs a case where scepticism about whether there <em>is</em> a subject would be a distraction.</li>
+<li><strong>Their principal sensory modality is alien to us.</strong> Bats navigate and hunt by <strong>echolocation</strong> — emitting high-frequency shrieks and building a detailed real-time representation of the world from the reflected echoes. This is a form of perception with no human counterpart. It is not "like" seeing, and it is not "like" hearing in the sense in which we hear.</li>
+</ol>
+<p>So we have a creature whose experience is undoubtedly <em>there</em> and undoubtedly <em>not ours</em>. That combination is what generates the problem.</p>
+<h2 id="the-argument"><a class="header" href="#the-argument">The argument</a></h2>
+<p>The core reasoning runs roughly as follows.</p>
+<ol>
+<li>There is something it is like to be a bat — the bat has experiences with a subjective character.</li>
+<li>That character is determined by the bat's own sensory apparatus and form of life; echolocatory experience is what it is <em>for a bat</em>.</li>
+<li>Our only resources for imagining another creature's experience are (a) extrapolation from our own experiences and (b) the objective, third-personal description of the creature's physiology and behaviour.</li>
+<li>Route (a) fails: imagining that <em>I</em> have webbed arms, poor eyesight, and a sonar system tells me what it would be like <em>for me</em> to behave as a bat behaves. It does not tell me what it is like <em>for a bat</em> to be a bat. My imagination is bounded by my own perspective, which is precisely what would have to be replaced.</li>
+<li>Route (b) fails too, and this is the crucial claim: a complete physical account of the bat — every neuron, every signal, every mechanism of echo processing — is a description available from <em>any</em> point of view, or none. But the fact to be captured is available only from <em>one</em> point of view. An objective description therefore cannot, in principle, entail the subjective fact.</li>
+<li>Hence there are facts — facts about what experience is like — that human beings can know <em>exist</em> while being permanently unable to <em>conceive</em>, let alone express in the vocabulary of physical science.</li>
+</ol>
+<p>Nagel underlines the point by observing that the difficulty is not special to species boundaries. It applies to a person blind and deaf from birth trying to grasp colour or sound; it applies, in a milder way, between any two human beings. Intelligent Martians studying human brains would be in exactly our position with respect to the bat. Bats are simply the vivid case.</p>
+<h2 id="what-nagel-is-and-is-not-claiming"><a class="header" href="#what-nagel-is-and-is-not-claiming">What Nagel is and is not claiming</a></h2>
+<p>The paper is very widely over-read, so it is worth separating the theses carefully.</p>
+<p><strong>He is claiming:</strong></p>
+<ul>
+<li><strong>Subjectivity is a real feature of the world</strong>, and any account of the mind that leaves it out has changed the subject rather than explained it.</li>
+<li><strong>Reduction has the wrong shape here.</strong> Successful scientific reductions — heat to molecular motion, light to electromagnetic radiation, water to H₂O — work precisely by <em>stripping away</em> the appearance and keeping the objective phenomenon underneath. Heat can be reduced because its seeming-warm is discarded as merely how it appears to us. But with experience, the appearance <em>is</em> the phenomenon. There is no analogous move: to abstract away from how it seems is to abstract away from the thing itself.</li>
+<li><strong>We do not currently understand what a physicalist claim about consciousness even asserts.</strong> This is the paper's most careful conclusion. "Mental states are physical states" may well be true, but we lack any conception of <em>how</em> it could be true — no account of how something objective could be identical to something inherently perspectival. Physicalism, Nagel says, is a position we are not yet in a position to <em>understand</em>, and therefore not yet in a position to properly assess.</li>
+<li><strong>The gap may be one of concepts, not of substance.</strong> He suggests that what is missing is an "objective phenomenology" — a way of describing experiential structure that does not depend on sharing the experience — and that this might eventually be developed, at least partially.</li>
+</ul>
+<p><strong>He is not claiming:</strong></p>
+<ul>
+<li><strong>That dualism is true.</strong> Nagel says explicitly that he wants to leave open the possibility that physicalism is correct; his objection is that we have no idea what it would mean, not that it is false.</li>
+<li><strong>That consciousness is a permanent mystery.</strong> He resists mysterianism (later associated with Colin McGinn, who took Nagel much further in that direction). His claim is about the <em>present</em> state of our concepts.</li>
+<li><strong>That bat experience is unimaginable because bats are strange.</strong> The point is structural — the impossibility follows from the logic of perspective, not from a contingent shortfall of imaginative effort.</li>
+<li><strong>That science cannot study consciousness.</strong> It is the <em>reductive identification</em> of the subjective with the objective that he finds unintelligible as currently formulated, not empirical work on the neural correlates of experience.</li>
+</ul>
+<h2 id="the-point-of-the-exercise"><a class="header" href="#the-point-of-the-exercise">The point of the exercise</a></h2>
+<p>Underneath the bat is a general thesis about <strong>objectivity</strong>. Nagel's picture is that intellectual progress consists in moving <em>away</em> from any particular point of view: we understand the world better as we describe it in terms less and less dependent on our own sensory constitution — from colour as we see it, to wavelength; from felt warmth, to mean kinetic energy. Objectivity is achieved by subtracting perspective.</p>
+<p>But consciousness is the one phenomenon whose <em>essence</em> is a perspective. So the standard engine of scientific understanding, applied here, runs in exactly the wrong direction: each step toward objectivity moves <em>further from</em>, not closer to, the thing we were trying to explain. That is the tension the paper exists to make vivid, and it is why the "explanatory gap" (Levine, 1983) and the "hard problem of consciousness" (Chalmers, 1995) are both direct descendants of it.</p>
+<h2 id="influence-and-lines-of-reply"><a class="header" href="#influence-and-lines-of-reply">Influence and lines of reply</a></h2>
+<p>The paper's formulation of consciousness in terms of "something it is like" became the standard one, and it seeded much of the subsequent literature:</p>
+<ul>
+<li><strong>Frank Jackson's knowledge argument</strong> (Mary the colour scientist, 1982) makes the epistemic point sharper and turns it, unlike Nagel, into an explicit anti-physicalist argument.</li>
+<li><strong>Joseph Levine's explanatory gap</strong> (1983) recasts Nagel's worry as a gap in <em>explanation</em> rather than in <em>ontology</em> — psychophysical identities, even if true, feel brute in a way that other scientific identities do not.</li>
+<li><strong>David Chalmers' hard problem</strong> (1995) separates the "easy" problems (discrimination, integration, reportability — all functional) from the hard one (why any of it is accompanied by experience), which is Nagel's distinction sharpened into a research programme.</li>
+</ul>
+<p>The main replies concede less than they might appear to:</p>
+<ul>
+<li><strong>The phenomenal concepts strategy</strong> (Loar, Papineau, and others) grants everything about our inability to conceive bat experience but denies it shows anything metaphysical. We have two <em>kinds of concept</em> — phenomenal and physical — that refer to the same states by different routes; the gap is between the concepts, not the properties. Nagel's argument, on this reading, establishes a limit on human imagination, not on what exists.</li>
+<li><strong>Dennett</strong> (notably in <em>Consciousness Explained</em>, and later "What It Is Like to Be a Bat?" commentary) rejects the framing outright, arguing that "what it is like" trades on an illusion of an inner theatre, and that a sufficiently complete heterophenomenological account of a bat's discriminative capacities leaves nothing unexplained but the intuition itself.</li>
+<li><strong>Ability-hypothesis replies</strong> (Lewis, Nemirow) hold that knowing what an experience is like is not propositional knowledge at all but a bundle of abilities — to imagine, remember, recognise. If so, our failure with bats is a missing skill, not a missing fact, and no facts elude physical description.</li>
+</ul>
+<h2 id="why-it-matters-here"><a class="header" href="#why-it-matters-here">Why it matters here</a></h2>
+<p>Nagel's criterion is the reason the question "is there anything it is like to be a language model?" is even well-posed — and also the reason it is so hard to make progress on. His argument implies that the question cannot be settled by any amount of behavioural or architectural evidence, since all such evidence is objective and the fact in question is not. Two consequences bear directly on the <a href="00-README.html">rest of these notes</a>:</p>
+<ul>
+<li><strong>A system's self-reports are, on Nagel's view, not privileged evidence about phenomenal character to anyone but the subject.</strong> Even a sincere, accurate report is a third-personal datum for us. Nothing about the fluency or introspective vocabulary of a model's output tells us there is a point of view generating it.</li>
+<li><strong>The bat case cuts both ways.</strong> Nagel's structural point is that we cannot conclude <em>absence</em> of experience from unimaginability. A system whose architecture bears no resemblance to a nervous system is, on this argument, exactly the case about which our imaginative faculties are least reliable — in either direction. That is uncomfortable, and it is meant to be.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../misc/llm-introspection/01-background.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../misc/llm-introspection/03-claude-opus-5.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../misc/llm-introspection/01-background.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../misc/llm-introspection/03-claude-opus-5.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

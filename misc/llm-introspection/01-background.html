@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Philosophy of Mind: Background - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/misc/llm-introspection/01-background.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="philosophy-of-mind-background"><a class="header" href="#philosophy-of-mind-background">Philosophy of Mind: Background</a></h1>
+<p>Enough of the field to read the rest of these notes without taking anything on trust. This is a map rather than a survey: positions are stated in their strongest brief form, and the emphasis falls on the distinctions that do real work later — particularly the several <em>different</em> problems that the phrase "the problem of consciousness" is used to name.</p>
+<hr />
+<h2 id="five-questions-routinely-conflated"><a class="header" href="#five-questions-routinely-conflated">Five questions, routinely conflated</a></h2>
+<p>Most confusion in this area comes from treating one question as though it were another. They have different subject matter, different arguments, and different answers, and a system can score differently on each.</p>
+<div class="table-wrapper"><table><thead><tr><th>Question</th><th>Asks</th><th>Canonical form</th></tr></thead><tbody>
+<tr><td><strong>The mind–body problem</strong></td><td>What <em>kind of thing</em> are mental states?</td><td>Descartes, and everything since</td></tr>
+<tr><td><strong>The hard problem</strong></td><td>Why is any physical process accompanied by experience at all?</td><td>Chalmers 1995</td></tr>
+<tr><td><strong>Intentionality</strong></td><td>How does any state come to be <em>about</em> something?</td><td>Brentano, Searle</td></tr>
+<tr><td><strong>Other minds</strong></td><td>How do I know anyone but me has a mind?</td><td>Mill's analogical argument</td></tr>
+<tr><td><strong>Self-knowledge</strong></td><td>How do I know about my <em>own</em> states, and how reliable is it?</td><td>Descartes' certainty vs. the empirical record</td></tr>
+</tbody></table>
+</div>
+<p>Two of these separations matter enormously here.</p>
+<p><strong>Intentionality is not consciousness.</strong> <em>Aboutness</em> and <em>what-it-is-likeness</em> are different properties. A thermostat's state is arguably about the temperature while being about nothing to the thermostat; a sudden inexplicable mood may be vividly felt while being about nothing at all. Theories that comfortably deliver intentionality — causal, functional, inferential-role — deliver nothing about experience, which is why establishing that a system's words <em>mean</em> things settles nothing about whether anyone is home.</p>
+<p><strong>Self-knowledge is not consciousness either.</strong> A system might have experiences and no reliable access to them, or accurate self-models and no experience. Introspective <em>reports</em> are evidence about the reporting mechanism in the first instance, and about the states reported on only if that mechanism is reliable — which is an empirical question, and one on which the human record is poor.</p>
+<h2 id="the-positions"><a class="header" href="#the-positions">The positions</a></h2>
+<p>The standard ladder, from most to least committed to mind being something extra:</p>
+<div class="table-wrapper"><table><thead><tr><th>Position</th><th>Claim</th><th>Chief difficulty</th></tr></thead><tbody>
+<tr><td><strong>Substance dualism</strong></td><td>Mind is a distinct kind of substance</td><td>Interaction: how does non-physical stuff move a body without violating conservation laws?</td></tr>
+<tr><td><strong>Property dualism</strong></td><td>One substance, two irreducible kinds of property</td><td>Epiphenomenalism: if mental properties do no causal work, how do we even come to <em>talk</em> about them?</td></tr>
+<tr><td><strong>Type identity theory</strong></td><td>Each mental type <em>is</em> a physical type — pain <em>is</em> C-fibre firing</td><td>Multiple realizability (below)</td></tr>
+<tr><td><strong>Token identity / anomalous monism</strong></td><td>Each mental <em>event</em> is physical, with no type-level laws</td><td>Threatens to make the mental causally idle qua mental</td></tr>
+<tr><td><strong>Functionalism</strong></td><td>Mental states are defined by causal role, not composition</td><td>Absent and inverted qualia; Block's China Brain</td></tr>
+<tr><td><strong>Eliminativism / illusionism</strong></td><td>The folk categories are wrong; there are no qualia, only representations of them</td><td>Denies what appears most certain; accused of changing the subject</td></tr>
+<tr><td><strong>Panpsychism / neutral monism</strong></td><td>Experience is fundamental and ubiquitous</td><td>The combination problem: how do micro-experiences compose into a unified mind?</td></tr>
+</tbody></table>
+</div>
+<p>Two entries carry disproportionate weight in these notes.</p>
+<p><strong>Multiple realizability</strong> (Putnam, 1967) sank type identity: if a Martian, an octopus and a silicon system can all be in pain with wholly different hardware, pain cannot be identical to any one physical type. It is what made <strong>functionalism</strong> the default position in cognitive science — and it is also the doctrine on which artificial minds are <em>possible in principle</em>, since it says organisation matters and substrate does not. Nearly every optimistic argument about machine consciousness is downstream of it.</p>
+<p><strong>Illusionism</strong> (Frankish, and Dennett's neighbourhood) is the sharpest deflationary option and is easy to caricature. It does not claim nobody feels anything. It claims that introspection <em>misrepresents</em> our own states as having ineffable intrinsic properties they don't in fact have, so the thing needing explanation is the compelling <em>seeming</em> rather than the phenomenal properties themselves. The move matters here because it applies symmetrically: it deflates human introspective reports by exactly the mechanism that would deflate a machine's.</p>
+<h2 id="the-two-consciousnesses"><a class="header" href="#the-two-consciousnesses">The two consciousnesses</a></h2>
+<p>Two distinctions that must be kept straight, and that between them define the shape of the field.</p>
+<p><strong>Access vs. phenomenal consciousness</strong> (Block, 1995). A state is <em>access-conscious</em> when its content is available for reasoning, verbal report and behavioural control. It is <em>phenomenally conscious</em> when there is something it is like to be in it. Access consciousness is straightforwardly functional and therefore straightforwardly testable; phenomenal consciousness is the disputed item. Whether they can come apart is itself contested — and the question of machine consciousness is entirely a question about the second, since the first is uncontroversially present in any system that reports on its own states.</p>
+<p><strong>Easy vs. hard problems</strong> (Chalmers, 1995). The <em>easy</em> problems — discrimination, integration, reportability, attention, the difference between waking and sleep — are easy only by comparison: they are hard engineering, but we know what an answer would look like, because they are all questions about <em>function</em>. The <em>hard</em> problem is why performing any of those functions is accompanied by experience. The distinguishing mark is that a complete functional answer to any easy problem leaves the hard one apparently untouched.</p>
+<h2 id="the-conceivability-arguments"><a class="header" href="#the-conceivability-arguments">The conceivability arguments</a></h2>
+<p>Three thought experiments generate most of the anti-physicalist pressure. All share a structure: describe the physical facts completely, then argue something is left out.</p>
+<ul>
+<li><strong>Zombies</strong> (Chalmers). A being physically identical to you, functionally identical, behaviourally identical — and with no inner life whatsoever. If that is genuinely conceivable, and conceivability is a guide to possibility, then phenomenal facts are not entailed by physical facts. Both conditionals are heavily contested.</li>
+<li><strong>Mary the colour scientist</strong> (Jackson, 1982). Mary knows every physical fact about colour vision while confined to a monochrome room. On release she sees red. Does she <em>learn</em> something? If yes, she already had all the physical facts, so some fact isn't physical. The main replies deny that she gains a <em>fact</em> — she gains an ability (Lewis, Nemirow), or a new <em>concept</em> for something she already knew (the phenomenal concepts strategy).</li>
+<li><strong>The inverted spectrum.</strong> Your red might be my green, with every functional relation preserved and no behavioural difference. If coherent, qualia are not fixed by function — which is the classic objection to functionalism.</li>
+</ul>
+<p>The most common physicalist response to all three is the <strong>phenomenal concepts strategy</strong>: we have two kinds of concept, phenomenal and physical, which pick out the same properties by different routes. The gap is then between concepts rather than properties, and everything the arguments establish is a fact about human cognition rather than about the world.</p>
+<h2 id="introspection-is-not-a-reliable-instrument"><a class="header" href="#introspection-is-not-a-reliable-instrument">Introspection is not a reliable instrument</a></h2>
+<p>Directly load-bearing for these notes, and frequently forgotten.</p>
+<p>The Cartesian assumption is that the mind is transparent to itself — that whatever else I may be wrong about, I cannot be wrong about how things seem to me. The empirical record does not support the general version:</p>
+<ul>
+<li><strong>Nisbett and Wilson (1977)</strong> showed that people confidently report the reasons for their choices while demonstrably confabulating: subjects influenced by position effects explain their preference in terms of product quality and are unaware of the real cause.</li>
+<li><strong>Choice blindness</strong> (Johansson et al.): when subjects' chosen photograph is covertly swapped for the rejected one, most fail to notice and then explain at length why they preferred the one they had in fact rejected.</li>
+<li><strong>Split-brain</strong> patients confabulate reasons for actions initiated by the disconnected hemisphere, fluently and sincerely.</li>
+<li><strong>Schwitzgebel</strong> argues the unreliability extends to <em>current conscious experience</em> itself — that people are unreliable about whether their visual periphery is coloured, whether they think in images, whether there is constant inner speech.</li>
+</ul>
+<p>The moral is not that introspection is worthless but that <strong>sincerity is not accuracy</strong>. A report can be honest, confident, articulate, and wrong about its own subject matter — and the confabulation is not experienced as guessing. This is the background against which any machine self-report has to be assessed, and it is also the reason the human case cannot serve as an unproblematic baseline.</p>
+<h2 id="other-minds"><a class="header" href="#other-minds">Other minds</a></h2>
+<p>The oldest of these problems and, for the present question, the operative one.</p>
+<p>Nobody has ever had access to another subject's experience. The standard justification is Mill's <strong>argument from analogy</strong>: I know that in my own case certain behaviour accompanies certain experience; others behave similarly and are built similarly; so they are probably experiencing similarly. Its known weakness is that it generalises from a single instance — and it degrades gracefully as similarity decreases, through mammals, birds, cephalopods, insects, until nobody can say where it has stopped.</p>
+<p>What that machinery <em>actually</em> runs on is <strong>resemblance</strong>: bodily similarity, shared evolutionary history, comparable nervous systems. Verbal report has always been treated as decisive evidence of mind, but only because it had never previously come apart from resemblance. A system that produces fluent first-person report while resembling us in no structural respect is the case the analogical argument was never equipped to handle — which is why the question resists the tools designed for it.</p>
+<h2 id="the-scientific-theories"><a class="header" href="#the-scientific-theories">The scientific theories</a></h2>
+<p>Consciousness science has largely set the metaphysics aside and pursued <strong>correlates and mechanisms</strong> instead, which yields theories that make testable structural claims. The main families — global workspace, higher-order, recurrent processing, integrated information, attention schema — are treated in the <a href="03-claude-opus-5.html#what-the-empirical-theories-say">Claude page</a>, where what each implies about a language model is set out. Two general points belong here:</p>
+<ul>
+<li>They <strong>disagree sharply</strong> about machines, and for principled reasons rather than for want of evidence. Integrated information theory returns a confident <em>no</em> for any feedforward architecture regardless of behaviour; global workspace theory is comparatively friendly. That the theories diverge this far on a single case is informative about the state of the field.</li>
+<li>None of them <strong>consults the system's testimony.</strong> Every one is a claim about organisation, assessable from outside. That is the correct methodology, and it is why the fluency of a self-report was never going to be the evidence.</li>
+</ul>
+<h2 id="where-this-leaves-the-folders-question"><a class="header" href="#where-this-leaves-the-folders-question">Where this leaves the folder's question</a></h2>
+<p>Reassembled, the question "is there something it is like to be a language model?" decomposes into parts with quite different statuses:</p>
+<ul>
+<li><strong>Access consciousness</strong> — present, uncontroversially, in any system that reports on its own states.</li>
+<li><strong>Intentionality</strong> — plausibly present on every mainstream theory of content, and this settles nothing about experience.</li>
+<li><strong>Self-knowledge</strong> — the reports exist; their reliability is unestablished, and the human baseline is worse than folk practice assumes.</li>
+<li><strong>Phenomenal consciousness</strong> — undetermined, and undetermined in a way that the <a href="02-what-is-it-like-to-be-a-bat.html">Nagel argument</a> suggests may be structural rather than merely current.</li>
+<li><strong>Moral status</strong> — turns on valence rather than on any of the above, and is the question that would matter most if answered wrongly.</li>
+</ul>
+<p>Keeping these apart is most of the work. A great many confident claims in both directions turn out to be answers to one of these questions offered as answers to another.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../misc/llm-introspection/00-README.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../misc/llm-introspection/02-what-is-it-like-to-be-a-bat.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../misc/llm-introspection/00-README.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../misc/llm-introspection/02-what-is-it-like-to-be-a-bat.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>
