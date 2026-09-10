@@ -1,0 +1,459 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Property Dualism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/05-mind-body/02-property-dualism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="property-dualism"><a class="header" href="#property-dualism">Property Dualism</a></h1>
+<p><strong>Property dualism</strong> holds that there is one kind of concrete substance - ordinarily
+the physical organism - but at least two irreducible kinds of property. Brains possess
+physical properties such as mass, structure, and electrical activity; minded organisms
+also possess phenomenal or other mental properties that are neither identical with nor
+reducible to physical properties. Unlike <a href="01-substance-dualism.html">substance dualism</a>,
+the view does not add a separable bearer. The person who feels pain is the embodied
+organism, not an immaterial object attached to it.</p>
+<p>The position is attractive because it appears to respect both sides of the
+<a href="../02-mind-body-problem.html">mind-body problem</a>. Detailed brain dependence is expected,
+since mental properties are instantiated by physical systems under psychophysical laws.
+Phenomenal character remains irreducible, since no inventory of structural and causal
+facts seems to entail what an experience is like. The cost concentrates in causation:
+if irreducible mental properties do causal work, physical causal completeness is
+threatened; if they do not, our reports and knowledge of experience become puzzling.</p>
+<hr />
+<h2 id="the-core-thesis"><a class="header" href="#the-core-thesis">The core thesis</a></h2>
+<p>Property dualism combines three claims:</p>
+<ol>
+<li><strong>Substance monism:</strong> every concrete individual is physical; there are no immaterial
+minds in addition to organisms.</li>
+<li><strong>Property irreducibility:</strong> at least some mental properties are not identical with,
+reducible to, or fully explicable in physical and functional terms.</li>
+<li><strong>Lawful dependence:</strong> mental properties systematically depend on physical
+organisation, ordinarily through fundamental or emergent psychophysical laws.</li>
+</ol>
+<p>The first claim distinguishes the view from substance dualism. The second distinguishes
+it from reductive physicalism. The third distinguishes it from a merely accidental
+parallelism between two sets of properties.</p>
+<p>Most contemporary property dualism focuses on <strong>phenomenal properties</strong>: the felt
+character of seeing red, tasting coffee, or being in pain. A broader version also treats
+intentional or rational properties as irreducible, but content and rationality may have
+functional or externalist analyses unavailable for qualia. An argument that establishes
+irreducible experience should not quietly be extended to every mental kind.</p>
+<h2 id="why-properties-rather-than-substances"><a class="header" href="#why-properties-rather-than-substances">Why properties rather than substances?</a></h2>
+<p>If brain injury removes a capacity, stimulation produces a sensation, and anaesthesia
+abolishes experience, a theory should make minds depend intimately on brains. Property
+dualism does so without identifying the dependent property with its basis. A fragile
+vase depends on its physical structure while fragility is described dispositionally;
+an economic recession depends on individual activity while remaining a macro-level
+property. The property dualist argues that consciousness is another dependent but real
+feature, with the crucial addition that it cannot be reduced even in principle.</p>
+<p>This avoids the <strong>pairing problem</strong> for separate minds. One organism instantiates both
+physical and mental properties; no further fact pairs an unextended subject with a
+body. It also avoids asking how a disembodied substance stores memories or character.
+The organism supplies persistence and cognitive organisation.</p>
+<p>The gain is limited. Saying that one bearer has both properties locates the
+correlation, but it does not explain why these physical properties yield these
+experiences. The psychophysical relation remains fundamental unless some account of
+grounding or emergence is added.</p>
+<h2 id="the-conceivability-route"><a class="header" href="#the-conceivability-route">The conceivability route</a></h2>
+<p>The most influential argument begins from <strong>phenomenal zombies</strong>: beings physically
+and functionally identical to us but with no experience. If such beings are
+metaphysically possible, phenomenal facts are not necessitated by physical facts, and
+physicalism is false.</p>
+<p>The argument has the form:</p>
+<ol>
+<li>A physical duplicate without phenomenal consciousness is ideally conceivable.</li>
+<li>Ideal conceivability is evidence of metaphysical possibility.</li>
+<li>If physical facts do not necessitate phenomenal facts, phenomenal properties are
+not physical properties.</li>
+<li>Therefore phenomenal properties are non-physical.</li>
+</ol>
+<p>Property dualism then keeps the physical duplicate as a complete physical substance
+while adding a property absent in the zombie world. The controversial step is the move
+from conceivability to possibility. A physicalist may argue that phenomenal and
+physical concepts present one property in radically different ways, as pre-scientific
+and chemical concepts once presented water. The property dualist replies that a
+complete physical description specifies only structure and function, leaving out the
+subjective datum rather than merely redescribing it.</p>
+<p>This exchange establishes at least an <strong>epistemic gap</strong>. Whether that gap is conceptual
+only or reflects distinct properties is the point at issue. The later consciousness
+pages will examine the modal argument directly; here its importance is that it supports
+property, not automatically substance, dualism.</p>
+<h2 id="the-knowledge-route"><a class="header" href="#the-knowledge-route">The knowledge route</a></h2>
+<p>Frank Jackson's Mary knows every physical fact about colour vision while confined to a
+black-and-white environment. On first seeing red, she appears to learn what red looks
+like. The argument concludes that physical knowledge was incomplete because a
+phenomenal fact remained.</p>
+<p>Property dualism reads the case straightforwardly: Mary acquires knowledge of an
+irreducible property. Physicalists offer several alternatives. She may acquire an
+ability to recognise and imagine red, acquaintance with an old fact, or a new
+phenomenal concept of a property already known physically. The dispute turns on whether
+new knowledge requires a new fact or merely a new epistemic relation to one fact.</p>
+<p>The argument has an important limit. Even if Mary learns a non-physical fact, it does
+not show that phenomenal properties cause anything. It establishes an alleged
+ontological addition while leaving its integration with physical explanation open.</p>
+<h2 id="naturalistic-and-emergent-dualism"><a class="header" href="#naturalistic-and-emergent-dualism">Naturalistic and emergent dualism</a></h2>
+<p>Property dualism need not invoke supernatural substances. <strong>Naturalistic dualism</strong>
+treats phenomenal properties and psychophysical laws as fundamental features of nature,
+comparable in status to basic physical properties and laws. A completed science would
+therefore contain both physical dynamics and laws connecting physical organisation to
+experience.</p>
+<p><strong>Emergent dualism</strong> holds that sufficiently organised matter instantiates genuinely
+novel properties, perhaps with novel causal powers. The dependence is asymmetric: no
+brain, no human consciousness, but consciousness is not reducible to the brain's
+microphysical properties. This is <strong>strong emergence</strong>, not merely the weak emergence
+of a pattern difficult to predict or simulate.</p>
+<p>Both positions face a question of modal strength. If the same physical organisation
+could have different phenomenal properties under different laws, the connection is
+nomological rather than metaphysically necessary. If physical organisation necessarily
+grounds the phenomenal, the view approaches non-reductive physicalism. The labels
+matter less than the claimed dependence relation.</p>
+<h2 id="psychophysical-laws"><a class="header" href="#psychophysical-laws">Psychophysical laws</a></h2>
+<p>A fundamental law might map a physical state <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> to a phenomenal property <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Q</span></span></span></span>:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel">⇒</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">L</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Q</span><span class="mord">.</span></span></span></span></span></p>
+<p>The arrow expresses lawful necessitation, not logical derivation or identity. Such laws
+could explain why brain duplicates share experiences in the actual world even if
+zombies remain metaphysically possible.</p>
+<p>Three questions follow.</p>
+<ul>
+<li><strong>Why this mapping?</strong> Why does one neural organisation yield red rather than green,
+or experience rather than none? A fundamental law may have no deeper explanation,
+but the unexplained mapping is exactly what motivated the view.</li>
+<li><strong>How fine-grained is it?</strong> A useful law must connect physical organisation to
+specific phenomenal character, not merely state that complex brains are conscious.</li>
+<li><strong>How is it tested?</strong> Experience is measured through report and behaviour, which are
+physical outputs. If phenomenal properties do not affect those outputs, evidence for
+the mapping becomes indirect in a particularly severe way.</li>
+</ul>
+<p>Treating the laws as fundamental is not incoherent. Fundamental physics also contains
+brute constants and relations. The comparative question is whether psychophysical laws
+earn their cost through prediction and unification rather than restating every observed
+correlation separately.</p>
+<h2 id="the-causal-exclusion-problem"><a class="header" href="#the-causal-exclusion-problem">The causal exclusion problem</a></h2>
+<p>Suppose pain property <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> is instantiated because of physical base <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, and a bodily
+movement <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> follows. If <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is already sufficient for <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, what causal work does
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> perform?</p>
+<pre class="mermaid">graph LR
+  P1[Physical base P1] --&gt; P2[Movement P2]
+  P1 --&gt; M[Phenomenal pain M]
+  M -. disputed .-&gt; P2
+</pre>
+<p>Four responses are available:</p>
+<ol>
+<li><strong>Deny completeness:</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> supplies causal influence not contained in <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</li>
+<li><strong>Accept overdetermination:</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> are both sufficient causes.</li>
+<li><strong>Accept epiphenomenalism:</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> is caused but does not cause physical events.</li>
+<li><strong>Reject competition:</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> is a higher-level cause realised by <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, so the arrows
+describe one causal process at different levels.</li>
+</ol>
+<p>The fourth response is natural for non-reductive physicalism but unstable for robust
+property dualism. If <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> is a distinct property with independent causal power, the
+competition returns; if its efficacy is nothing over the realiser's efficacy, its
+ontological distinctness appears causally idle. The dispute is not whether explanations
+can occur at several levels, but whether irreducible properties contribute distinct
+powers.</p>
+<h2 id="epiphenomenalism"><a class="header" href="#epiphenomenalism">Epiphenomenalism</a></h2>
+<p>An <strong><a href="../09-causation-and-action/02-epiphenomenalism.html">epiphenomenalist</a></strong> accepts
+physical-to-mental causation and denies mental-to-physical causation. Neural activity
+produces pain; pain itself produces no movement. The view preserves physical
+completeness and phenomenal irreducibility cleanly.</p>
+<p>Its consequences are difficult:</p>
+<ul>
+<li>Reports of pain are physically caused without the pain helping to cause them.</li>
+<li>Memories and beliefs about experience are formed without phenomenal properties
+affecting memory or belief.</li>
+<li>Natural selection cannot favour phenomenal properties through their effects, since
+they have none.</li>
+<li>Our apparent knowledge of qualia cannot rely on ordinary causal contact with them.</li>
+</ul>
+<p>The epiphenomenalist can answer that physical and phenomenal properties are linked by
+laws, so the physical process that causes a report also reliably gives rise to the
+reported experience. Correlation need not be accidental. But the semantic fit between
+report and experience remains striking: why does the physically produced sentence
+"this hurts" track the causally inert hurt rather than some unrelated property?</p>
+<h2 id="the-causal-argument-for-physicalism"><a class="header" href="#the-causal-argument-for-physicalism">The causal argument for physicalism</a></h2>
+<p>The exclusion problem can be turned into a compact argument:</p>
+<ol>
+<li>Mental events cause physical events.</li>
+<li>Every caused physical event has a sufficient physical cause.</li>
+<li>The effects are not systematically overdetermined by independent causes.</li>
+<li>Therefore mental causes are physical causes, or their efficacy is wholly realised by
+physical causes.</li>
+</ol>
+<p>A property dualist must reject or reinterpret at least one premise. Interactionists
+reject the second; epiphenomenalists reject the first for irreducible phenomenal
+properties; overdetermination views reject the third; non-competing-cause views deny
+that the conclusion yields reduction.</p>
+<p>The argument's force depends on the type of mental property. A content property may be
+causally explanatory at a proportional higher level even when physically realised.
+An irreducible phenomenal property whose nature makes no difference to physical
+dynamics is harder to place. Property dualism is therefore most secure about
+irreducibility precisely where it is least secure about causation.</p>
+<h2 id="does-the-view-explain-consciousness"><a class="header" href="#does-the-view-explain-consciousness">Does the view explain consciousness?</a></h2>
+<p>Property dualism is often motivated by the failure of physical explanation. It does
+not automatically supply a positive explanation. Declaring phenomenal properties
+fundamental explains why reduction fails, much as declaring charge fundamental explains
+why it is not reduced to another physical property. Yet charge is embedded in laws that
+predict and unify observable interactions. A phenomenal primitive needs comparable
+work if the view is to be more than a stopping point.</p>
+<p>The property dualist may respond that not every true explanation reduces its target.
+Fundamental laws are legitimate explanations, and demanding a non-phenomenal account of
+phenomenality may be a demand to derive one basic kind from another. This response is
+strongest if independent reasons support the laws or if rival theories demonstrably
+leave the phenomenon out rather than merely leave it unexplained for now.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><strong>Phenomenal character</strong></td><td><strong>Preserved</strong> - irreducibility is the view's central motivation.</td></tr>
+<tr><td><strong>Brain dependence</strong></td><td><strong>Strong fit</strong> - one physical bearer instantiates mental properties under laws.</td></tr>
+<tr><td><strong>Mental causation</strong></td><td><strong>Weak point</strong> - interaction threatens completeness; epiphenomenalism threatens report and knowledge.</td></tr>
+<tr><td><strong>Explanatory gain</strong></td><td><strong>Contested</strong> - fundamental laws may explain or merely codify correlations.</td></tr>
+<tr><td><strong>Parsimony</strong></td><td><strong>Better than substance dualism</strong> - no second bearer, but additional properties and laws remain.</td></tr>
+<tr><td><strong>Empirical discrimination</strong></td><td><strong>Difficult</strong> - physical duplicates behave alike whether or not phenomenal properties add causal work.</td></tr>
+</tbody></table>
+</div>
+<p>Property dualism isolates the strongest anti-reductive intuition while accepting the
+organism studied by science as the subject. Its central dilemma is correspondingly
+sharp: make phenomenal properties causally potent and explain their place in physical
+dynamics, or make them causally inert and explain how thought, report, and knowledge
+track them.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Chalmers, David J. <em>The Conscious Mind</em> (1996).</li>
+<li>Jackson, Frank. "Epiphenomenal Qualia" (1982).</li>
+<li>Kim, Jaegwon. <em>Mind in a Physical World</em> (1998).</li>
+<li>Kripke, Saul. <em>Naming and Necessity</em> (1980), lecture III.</li>
+<li>Robinson, Howard. <em>From the Knowledge Argument to Mental Substance</em> (2016).</li>
+<li>Stoljar, Daniel. <em>Physicalism</em> (2010).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/05-mind-body/01-substance-dualism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/05-mind-body/03-behaviourism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/05-mind-body/01-substance-dualism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/05-mind-body/03-behaviourism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Problem of Mental Causation - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/09-causation-and-action/01-mental-causation.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-problem-of-mental-causation"><a class="header" href="#the-problem-of-mental-causation">The Problem of Mental Causation</a></h1>
+<p>Mental states appear to make things happen. Pain causes withdrawal, belief guides
+search, and intention produces movement. If these explanations are literal, mental
+properties are causally relevant to physical events. Yet physical science appears able
+to explain bodily motion through physical antecedents alone. The <strong>problem of mental
+causation</strong> is to reconcile mental efficacy with physical causal completeness without
+systematic overdetermination.</p>
+<p>The problem is not one problem for every theory. Substance dualism must explain
+cross-domain interaction. Property dualism must explain what distinct mental properties
+add. Non-reductive physicalism must show that realised higher-level causes are not
+excluded by their physical bases. Content theories face a further issue: behaviour
+depends on what beliefs mean, while physical causation appears sensitive only to local
+physical structure.</p>
+<hr />
+<h2 id="why-mental-causation-matters"><a class="header" href="#why-mental-causation-matters">Why mental causation matters</a></h2>
+<p>Without mental causation, ordinary explanations lose their apparent force:</p>
+<ul>
+<li>she opened the window because she believed the room was hot;</li>
+<li>he withdrew because the surface hurt;</li>
+<li>they revised the proof because they noticed a contradiction;</li>
+<li>the child reached because she wanted the toy.</li>
+</ul>
+<p>These explanations do more than predict movement. They identify reasons, contents, and
+experiences under which action becomes intelligible. If the same bodily history would
+have occurred regardless of those mental properties, the explanations seem at best
+decorative.</p>
+<p>Mental causation also supports knowledge. Reports about consciousness are evidence only
+if experiences or reliable representations help cause them. Reasoning is rational only
+if conclusions arise partly because of evidential and inferential relations, not merely
+because one neural event happens to follow another.</p>
+<h2 id="physical-causal-completeness"><a class="header" href="#physical-causal-completeness">Physical causal completeness</a></h2>
+<p>The <strong>causal completeness of the physical</strong> is commonly stated:</p>
+<blockquote>
+<p>Every physical event that has a cause at time <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> has a sufficient physical cause at
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span>.</p>
+</blockquote>
+<p>This is not the claim that every physical event is deterministic, that every cause is
+known, or that causal explanation must mention only microphysics. Probabilistic physical
+causes and higher-level physical causes can satisfy completeness. The thesis excludes a
+physical effect whose causal history requires an independent non-physical contribution.</p>
+<p>Its support is methodological and historical. Physical inquiry has repeatedly replaced
+vital and mental interventions with continuous physical mechanisms, and conservation
+and dynamical laws do not display gaps awaiting non-physical causes. The principle is
+not an a priori truth, but denying it incurs an empirical burden.</p>
+<h2 id="the-exclusion-argument"><a class="header" href="#the-exclusion-argument">The exclusion argument</a></h2>
+<p>Let mental property <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> be realised by physical property <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, and let a later physical
+effect be <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>:</p>
+<pre class="mermaid">graph LR
+  P1[Physical realiser P1] --&gt; P2[Physical effect P2]
+  P1 -. realises .-&gt; M[Mental property M]
+  M -. causes? .-&gt; P2
+</pre>
+<p>The exclusion argument says:</p>
+<ol>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> causes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is sufficient for <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> is distinct from <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is not systematically overdetermined by two independent sufficient causes.</li>
+<li>Therefore <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> cannot be an additional cause of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</li>
+</ol>
+<p>Every major response rejects or qualifies a premise. Identity theory denies 3.
+Interactionist dualism denies 2. Epiphenomenalism denies 1. Overdetermination views deny
+4. Higher-level accounts deny that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> are independent competitors.</p>
+<h2 id="overdetermination"><a class="header" href="#overdetermination">Overdetermination</a></h2>
+<p>An effect is <strong>overdetermined</strong> when two causes are each sufficient, as when two bullets
+strike a target simultaneously and either would have produced the result. Mental and
+physical causes could similarly overdetermine every action.</p>
+<p>Systematic overdetermination is unattractive for three reasons. It would be an enormous
+coincidence that independent mental and physical causes always converge. It undermines
+ordinary counterfactual tests, since removing either cause leaves the effect. And it
+makes one causal route explanatorily dispensable.</p>
+<p>The comparison may be unfair if mental and physical properties are not independent.
+Realisation binds them necessarily or lawfully; one cannot remove the mental cause while
+holding its physical realiser fixed. The event may have one causal history described at
+two levels rather than two bullet-like causes. Whether that dissolves exclusion depends
+on the theory of properties and causation.</p>
+<h2 id="events-and-properties"><a class="header" href="#events-and-properties">Events and properties</a></h2>
+<p>A particular action can be one event under mental and physical descriptions. Davidson's
+token identity exploits this: the event described as a decision is identical with an
+event described neurally. There are not two events to compete.</p>
+<p>The <strong>property exclusion</strong> problem remains. Did the event cause the movement in virtue
+of its mental property or only its physical property? If only physical properties enter
+laws and mechanisms, token identity may secure causal participation for the event while
+leaving mentality irrelevant.</p>
+<p>This distinction separates two demands:</p>
+<ul>
+<li><strong>causal efficacy of mental events:</strong> mental events are causes;</li>
+<li><strong>causal relevance of mental properties:</strong> events cause outcomes because of their
+mental features.</li>
+</ul>
+<p>A satisfactory account of reasons explanation usually needs the second. The fact that a
+belief means the route is blocked, not merely that some neural token occurs, explains
+why the subject turns.</p>
+<h2 id="the-problem-of-content"><a class="header" href="#the-problem-of-content">The problem of content</a></h2>
+<p><a href="../07-intentionality/02-internalism-and-externalism.html">Content externalism</a> allows
+intrinsic duplicates to have thoughts with different wide contents. If their local
+physical effects are identical, wide content appears causally irrelevant to immediate
+behaviour.</p>
+<p>One reply separates explanatory tasks. Narrow functional role causes and predicts local
+movement; wide content explains success, error, reference, and interaction over a
+broader environment. Another treats relational properties as causally relevant: a key
+opens a lock partly because it fits that lock, although fit is relational.</p>
+<p>The issue is not unique to mind. Being poisonous, being currency, and being an allele
+are relational or higher-level properties that support causal explanation. The mental
+case is difficult because reasons appear to work through their semantic content, and a
+physical mechanism may be described without that content.</p>
+<h2 id="causal-relevance-and-difference-making"><a class="header" href="#causal-relevance-and-difference-making">Causal relevance and difference-making</a></h2>
+<p>A difference-making account asks whether varying mental variable <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> under suitable
+conditions changes outcome <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mspace" style="margin-right:-0.1667em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mrel">⊥</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="mspace" style="margin-right:-0.1667em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mrel">⊥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord">.</span></span></span></span></span></p>
+<p>The notation says <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> are not independent given background <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>. If changing a
+belief across its possible physical realisers systematically changes action, belief is
+a causal variable.</p>
+<p>This supports multiple levels. Temperature causes pressure changes although each
+temperature is realised by molecular motion. Mental variables can similarly capture
+stable dependencies across heterogeneous neural states.</p>
+<p>The challenge is intervention. One cannot change a realised belief while holding every
+physical fact fixed. Interventions must operate through a realiser, and critics argue
+that the physical change does all the work. Difference-makers answer that causes are
+variables in models, not occult additions to microphysical forces.</p>
+<h2 id="mechanisms"><a class="header" href="#mechanisms">Mechanisms</a></h2>
+<p>A <strong>mechanistic</strong> account explains an effect through organised components and activities.
+Mental causation is legitimate when a mental state identifies an organisation that is
+implemented by, and helps locate, the mechanism producing action.</p>
+<p>For example, believing that a target is left may be realised across a neural population
+whose output guides orienting. The belief-level description explains what information
+the mechanism uses; the neural account explains how it transforms signals. Neither
+alone answers every contrastive question.</p>
+<p>Mechanistic integration is stronger than mere predictiveness. An attribution that
+compresses behaviour but maps onto no controllable organisation may be instrumentally
+useful without identifying a cause. Mental variables earn causal status through robust
+intervention, decomposition, and cross-context generalisation.</p>
+<h2 id="powers-and-realization"><a class="header" href="#powers-and-realization">Powers and realization</a></h2>
+<p>On a <strong>powers</strong> account, causes produce effects through dispositions. A realised mental
+property may possess the same causal powers as a subset or organised profile of its
+realiser's powers. It adds no independent force and is not inert.</p>
+<p>The subset proposal avoids overdetermination:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">ers</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊆</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">ers</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>Mental properties remain distinct through their selected causal profile. Critics argue
+that this is reduction in all but name: if nothing belongs to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> beyond physical powers,
+its autonomy is classificatory. Defenders reply that real higher-level properties need
+not add fundamental powers to support causation.</p>
+<h2 id="downward-causation"><a class="header" href="#downward-causation">Downward causation</a></h2>
+<p><strong>Downward causation</strong> is sometimes described as a higher-level mental state altering
+its physical components. If interpreted as an additional force, it conflicts with
+completeness. If interpreted as constraint, organisation, or control, it can be
+ordinary: system-level structure changes which component interactions occur without
+violating local laws.</p>
+<p>A goal state may constrain motor processing; an organism's organisation channels
+molecular events. The causal work is realised through components, not imposed from
+outside physics. This modest downward causation fits non-reductive physicalism.</p>
+<p>Strong emergence claims novel downward powers not exhausted by realisers. It faces the
+full exclusion problem and needs empirical laws specifying the additional influence.</p>
+<h2 id="the-theories-compared"><a class="header" href="#the-theories-compared">The theories compared</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>View</th><th>Mental efficacy</th><th>Treatment of physical sufficiency</th><th>Principal cost</th></tr></thead><tbody>
+<tr><td><strong>Identity theory</strong></td><td>mental and physical cause are one</td><td>accepts it</td><td>type reduction and content problems</td></tr>
+<tr><td><strong>Interactionist dualism</strong></td><td>independent mental cause</td><td>denies or qualifies it</td><td>empirical integration and pairing</td></tr>
+<tr><td><strong>Epiphenomenalism</strong></td><td>no mental-to-physical efficacy</td><td>accepts it</td><td>report, knowledge, and evolution</td></tr>
+<tr><td><strong>Non-reductive physicalism</strong></td><td>realised higher-level cause</td><td>rejects competition across levels</td><td>exclusion and threat of covert reduction</td></tr>
+<tr><td><strong>Interventionism</strong></td><td>stable difference-making variable</td><td>compatible</td><td>interventions require physical implementation</td></tr>
+<tr><td><strong>Strong emergence</strong></td><td>novel higher-level powers</td><td>qualifies it</td><td>unexplained laws and possible overdetermination</td></tr>
+</tbody></table>
+</div>
+<h2 id="relation-to-free-will"><a class="header" href="#relation-to-free-will">Relation to free will</a></h2>
+<p>Mental causation is necessary for most accounts of agency but not sufficient for free
+will. A determined belief-desire process may genuinely cause an action while failing a
+libertarian condition; an indeterministic event may be free of determination while not
+controlled by reasons.</p>
+<p>This folder asks how reasons and intentions produce action. The separate
+<a href="../../01-freewill/00-README.html">Free Will</a> section asks whether that production provides
+alternative possibilities, sourcehood, and moral responsibility. Keeping the questions
+apart prevents causal efficacy from being mistaken for freedom.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>The exclusion problem is most forceful against properties claimed to be both distinct
+from the physical and independently efficacious. It is less forceful when mental and
+physical descriptions identify one realised process and answer different contrastive
+questions. The remaining issue is whether higher-level explanation tracks genuine
+difference-making or merely redescribes causes whose relevance is fixed entirely below.</p>
+<p>The next page examines the cleanest way to preserve irreducible experience and physical
+completeness: deny that phenomenal properties cause physical events at all.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Crane, Tim. "Mental Causation" (1995).</li>
+<li>Heil, John and Alfred Mele, eds. <em>Mental Causation</em> (1993).</li>
+<li>Kim, Jaegwon. <em>Mind in a Physical World</em> (1998).</li>
+<li>List, Christian and Peter Menzies. "Nonreductive Physicalism and the Limits of the Exclusion Principle" (2009).</li>
+<li>Yablo, Stephen. "Mental Causation" (1992).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/08-perception/05-embodied-and-enactive-perception.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/09-causation-and-action/02-epiphenomenalism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/08-perception/05-embodied-and-enactive-perception.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/09-causation-and-action/02-epiphenomenalism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

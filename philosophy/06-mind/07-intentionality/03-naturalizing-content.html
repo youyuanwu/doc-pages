@@ -1,0 +1,415 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Naturalizing Mental Content - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/07-intentionality/03-naturalizing-content.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="naturalizing-mental-content"><a class="header" href="#naturalizing-mental-content">Naturalizing Mental Content</a></h1>
+<p>To <strong>naturalize content</strong> is to explain representation using relations acceptable within
+a naturalistic account of organisms and physical systems: causation, information,
+biological function, learning, and use. The aim is not merely to correlate a neural
+state with what subjects say it means. It is to explain why the state represents one
+condition rather than another, can occur when that condition is absent, and is correct
+or incorrect.</p>
+<p>The central obstacle is misrepresentation. Causal covariance readily explains why a
+state carries information in normal conditions; it tends to redefine abnormal tokens as
+information about their actual causes rather than errors. Teleological theories add a
+function that fixes what the system is supposed to indicate. They gain error at the
+cost of disputed functions, indeterminacy, and difficult cases outside evolution.</p>
+<hr />
+<h2 id="causal-covariance"><a class="header" href="#causal-covariance">Causal covariance</a></h2>
+<p>The simplest proposal is that state <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> represents condition <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> when instances of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>
+reliably cause instances of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span>:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6943em;vertical-align:-0.011em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟶</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord">.</span></span></span></span></span></p>
+<p>A retinal or neural state covaries with light of a wavelength; a frog's detector fires
+for small moving dark objects; a thermometer's state varies with temperature. Causal
+connection makes representation world-involving rather than assigned by an external
+interpreter.</p>
+<p>Covariance is too abundant. Tree rings covary with age, smoke with fire, and shadows
+with objects. Not every correlation is a mental representation. The theory needs to
+distinguish a representation from a natural sign and identify which among many correlated
+conditions is its content.</p>
+<h2 id="information"><a class="header" href="#information">Information</a></h2>
+<p>In an information-theoretic sense, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> carries information about <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> when occurrence of
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> reduces uncertainty about <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>. Under ideal deterministic conditions, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> may carry
+the information that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> occurred. This notion is objective and applies far beyond
+minds.</p>
+<p>Fred Dretske proposed that information can ground content when a system learns or is
+recruited to use an indicator in controlling behaviour. Raw information becomes
+representation through a functional role.</p>
+<p>The <strong>disjunction problem</strong> appears when a frog snaps at a pellet. If its detector is
+caused by flies in normal cases and pellets in abnormal cases, does it mean <em>fly</em>,
+<em>small dark moving object</em>, <em>fly-or-pellet</em>, or <em>food-like target</em>? Pure covariance
+favours the disjunction containing every cause and thereby removes error.</p>
+<p>Information is also factive in some formulations: a signal cannot carry the information
+that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> when <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> is false. Representation must be capable of false content, so
+informational content cannot simply be identical with semantic content.</p>
+<h2 id="asymmetric-dependence"><a class="header" href="#asymmetric-dependence">Asymmetric dependence</a></h2>
+<p>Fodor's <strong>asymmetric dependence theory</strong> attempts to solve disjunction. A token caused
+by a pellet counts as a false <em>fly</em> representation because the pellet-to-state
+connection depends on the normal fly-to-state connection, while the fly connection does
+not depend on the pellet connection. If the system did not respond to flies, it would
+not mistake pellets for them.</p>
+<p>Formally, the law</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.01968em;">ll</span><span class="mord mathnormal">e</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span></span></p>
+<p>depends on</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">Fl</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mpunct">,</span></span></span></span></span></p>
+<p>but not conversely. The asymmetry fixes <em>fly</em> rather than <em>fly-or-pellet</em> as content.</p>
+<p>Counterexamples arise when causal dependencies are symmetric, historically contingent,
+or unclear. A detector may have been trained on artificial stimuli and only later
+encounter the natural kind; novel errors may not depend counterfactually on a normal
+connection. The theory also handles primitive concepts more readily than structured
+thoughts and abstract contents.</p>
+<h2 id="teleosemantics"><a class="header" href="#teleosemantics">Teleosemantics</a></h2>
+<p><strong>Teleosemantics</strong> grounds content in biological function. A state represents what it
+was selected to indicate for the sake of a consumer mechanism. The frog's state means
+prey, on one version, because ancestral instances were recruited to guide feeding and
+contributed to fitness when prey was present.</p>
+<p>Function separates actual cause from proper content. A pellet can trigger the state,
+but the state malfunctions because it fails to indicate the condition its system was
+selected to exploit. Error becomes possible through a gap between current tokening and
+proper function.</p>
+<p>The account needs both <strong>producer</strong> and <strong>consumer</strong>. What matters may not be what
+normally causes the signal but what downstream systems use it for. A bee dance can
+represent food location because other bees consume the signal to navigate; causal
+covariance alone underdetermines which correlated feature matters.</p>
+<h2 id="etiological-and-systemic-function"><a class="header" href="#etiological-and-systemic-function">Etiological and systemic function</a></h2>
+<p>An <strong>etiological function</strong> is fixed by selection history: a trait's function is the
+effect for which ancestors of the trait were selected. This grounds normativity in
+success and failure relative to history.</p>
+<p>A <strong>systemic function</strong> is the contribution a component makes to a current organised
+capacity. It can apply to learned, engineered, or novel systems without an evolutionary
+history, but risks making function observer-relative: a component contributes to many
+capacities depending on which system and goal are selected.</p>
+<p>The contrast matters for artificial and socially learned representations. A newly built
+system has design and training history but no direct biological selection. One can
+extend teleology to learning, reinforcement, and design; doing so may make content
+derived from creators or users rather than original to the system.</p>
+<h2 id="consumer-based-content"><a class="header" href="#consumer-based-content">Consumer-based content</a></h2>
+<p>Ruth Millikan emphasises how a representation is used. A producer state has content
+because consumer mechanisms perform their proper functions successfully when the world
+matches a mapping from representation to condition.</p>
+<p>This handles indeterminacy better than source-only theories. A signal may covary with
+both flies and retinal patterns, but the motor consumer needs prey location rather than
+retinal activation to succeed. Content follows the condition relevant to consumer
+function.</p>
+<p>Consumers can themselves be described at several levels. A motor routine succeeds in
+capturing food, receiving reinforcement, or preserving fitness. Different success
+conditions generate different contents. Teleosemantics therefore narrows but may not
+eliminate indeterminacy.</p>
+<h2 id="misrepresentation"><a class="header" href="#misrepresentation">Misrepresentation</a></h2>
+<p>A naturalistic theory should distinguish at least three failures:</p>
+<ul>
+<li><strong>false token:</strong> the system represents <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> when not-<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>;</li>
+<li><strong>malfunction:</strong> the producer or consumer fails to perform its proper function;</li>
+<li><strong>misleading but normal signal:</strong> the representational mechanism works as designed in
+an unusual world and produces a false content.</li>
+</ul>
+<p>Error cannot require malfunction in every case. A perfectly functioning perceptual
+system can be fooled by an unusual but valid stimulus. Teleosemantics can say the system
+performs its representational function while the represented condition fails, provided
+content and success condition are independently fixed.</p>
+<p>The account must also permit lucky truth: a malfunctioning process may accidentally
+produce a correct representation. Correctness and proper operation are related but not
+identical.</p>
+<h2 id="indeterminacy"><a class="header" href="#indeterminacy">Indeterminacy</a></h2>
+<p>Natural relations usually fix content only approximately. Does a frog state represent
+flies, edible moving objects, nutrition, or a region of motion-feature space? Evolution
+may not discriminate among coextensive conditions in the ancestral environment.</p>
+<p>One response accepts <strong>content indeterminacy</strong>. Mental content can be as determinate as
+behaviour and selection require without always selecting one proposition. Another
+appeals to richer inferential and consumer roles. A third treats public language as
+sharpening contents that underlying cognition leaves coarse.</p>
+<p>Indeterminacy is not automatically fatal. Scientific quantities and biological kinds
+can have vague boundaries. It becomes problematic when a theory needs precise content
+to explain systematic inference or rational error.</p>
+<h2 id="abstract-and-novel-content"><a class="header" href="#abstract-and-novel-content">Abstract and novel content</a></h2>
+<p>Causal and teleological accounts fit perception of ecologically important conditions
+better than thought about prime numbers, distant futures, or newly invented entities.
+No ancestral selection history targeted quarks or constitutional law.</p>
+<p>Compositionality offers one route: primitive contents are naturally grounded, and
+structural rules combine them into novel thoughts. Abstract concepts may be fixed by
+inferential role within a public practice rather than direct causal tracking. This
+suggests a hybrid theory rather than one relation covering every content.</p>
+<p>Novel concepts also arise through stipulation, measurement, and theory construction.
+Their content depends on how they connect to older concepts, instruments, and communal
+norms. Naturalisation must include social and cognitive history, not only direct
+environmental covariance.</p>
+<h2 id="normativity"><a class="header" href="#normativity">Normativity</a></h2>
+<p>Content supports norms: beliefs can be true, inferences valid, concepts misapplied, and
+reasons good or bad. Can causal and evolutionary facts generate this <strong>semantic
+normativity</strong>, or do they merely explain why a system behaves as it does?</p>
+<p>Teleosemantics derives a thin ought from proper function: the state is supposed to
+indicate what enabled the selected system to succeed. Critics argue that evolutionary
+success is not truth and that a trait can perform its selected function while producing
+irrational beliefs. Defenders distinguish basic representational correctness from the
+richer epistemic norms of reflective agents.</p>
+<p>Inferential and social practices may supply the richer norms, but then naturalisation
+extends beyond individual biology. A complete theory may layer natural signs,
+biological representation, learned concepts, and public reasons rather than derive all
+normativity at once.</p>
+<h2 id="representation-without-consciousness"><a class="header" href="#representation-without-consciousness">Representation without consciousness</a></h2>
+<p>Naturalistic accounts deliberately make representation independent of phenomenal
+consciousness. Retinal circuits, motor controllers, and unconscious predictions can
+carry content through their causal and functional roles. This explains why intentionality
+and consciousness come apart.</p>
+<p>The advantage becomes a limitation if <strong>original</strong> intentionality is thought to require
+conscious understanding. A theory can explain correctness conditions from outside while
+leaving open whether anything means the content <em>for the system</em>. The later page on
+consciousness and content compares this phenomenal-intentionality challenge with the
+separatist view.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Theory</th><th>Main resource</th><th>Strength</th><th>Pressure point</th></tr></thead><tbody>
+<tr><td><strong>Covariance</strong></td><td>reliable causal correlation</td><td>objective world-linking</td><td>overabundance and error</td></tr>
+<tr><td><strong>Information</strong></td><td>uncertainty reduction plus use</td><td>signal structure</td><td>factivity and disjunction</td></tr>
+<tr><td><strong>Asymmetric dependence</strong></td><td>counterfactual priority among causes</td><td>abnormal causes as error</td><td>unclear dependencies and complex content</td></tr>
+<tr><td><strong>Teleosemantics</strong></td><td>selected proper function</td><td>norm and misrepresentation</td><td>indeterminacy, Swampman, novel systems</td></tr>
+<tr><td><strong>Consumer semantics</strong></td><td>success conditions of downstream use</td><td>selects among correlated causes</td><td>level and function selection</td></tr>
+</tbody></table>
+</div>
+<p>Naturalisation succeeds most clearly for basic biological representation. Its harder
+task is scaling from tracking and control to fine-grained, compositional, socially
+shared, and normatively assessable thought. The likely alternatives are a layered
+account or a stronger claim that inferential or phenomenal role supplies what causal
+history leaves open.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Dretske, Fred. <em>Knowledge and the Flow of Information</em> (1981).</li>
+<li>Fodor, Jerry A. <em>A Theory of Content and Other Essays</em> (1990).</li>
+<li>Millikan, Ruth Garrett. <em>Language, Thought, and Other Biological Categories</em> (1984).</li>
+<li>Neander, Karen. <em>A Mark of the Mental</em> (2017).</li>
+<li>Papineau, David. <em>Reality and Representation</em> (1987).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/07-intentionality/02-internalism-and-externalism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/07-intentionality/04-functional-and-inferential-role.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/07-intentionality/02-internalism-and-externalism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/07-intentionality/04-functional-and-inferential-role.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

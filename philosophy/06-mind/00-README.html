@@ -1,0 +1,621 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Philosophy of Mind - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/00-README.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="philosophy-of-mind"><a class="header" href="#philosophy-of-mind">Philosophy of Mind</a></h1>
+<p>Reference notes on minds and their place in nature. A person sees a red surface,
+remembers a name, feels pain, calculates a sum, decides to speak, and reaches for a
+glass. These episodes are familiar from the inside and increasingly tractable from the
+outside, yet neither familiarity nor scientific detail settles what kind of phenomena
+they are. Are mental states identical with physical states, realised by them, emergent
+from them, or partly independent of them? How can a state of one thing be <em>about</em>
+another? Why is some information processing accompanied by experience? How can a
+thought cause an arm to move in a world whose physical causes already appear sufficient?</p>
+<p>These pages treat philosophy of mind broadly. <strong>Consciousness</strong> is central, but it is
+not the whole subject: intentionality, perception, cognition, action, self-knowledge,
+emotion, and non-conscious mentality raise problems that cannot be reduced to the
+question of what experience feels like. The section also keeps intelligence,
+consciousness, agency, and personhood apart. A system may possess one without obviously
+possessing the others, and much of the contemporary debate about animals and machines
+turns on failing to say which capacity is at issue.</p>
+<p>The treatment is philosophical rather than a course in psychology or neuroscience.
+Empirical findings constrain theories and sometimes overturn the examples on which
+they were built, but observations do not arrive labelled with their metaphysical
+meaning. Neural correlation is not identity, behavioural success is not by itself
+understanding, and a first-person report is neither incorrigible revelation nor mere
+noise. The <a href="04-method-and-evidence.html">method page</a> develops the evidential roles of
+each without granting any one of them a monopoly.</p>
+<blockquote>
+<p><strong>Status.</strong> Complete as planned: the four-page spine and all thematic folders are
+written, published, and cross-linked.</p>
+</blockquote>
+<h2 id="boundaries"><a class="header" href="#boundaries">Boundaries</a></h2>
+<p>Several neighbouring sections already own parts of the terrain:</p>
+<ul>
+<li>The ontological question of which category persons and minds occupy begins in
+<a href="../04-ontology/12-contested/02-persons.html">Persons and Minds in the Inventory</a>,
+while the general machinery of <a href="../04-ontology/13-fundamentality/01-grounding.html">grounding</a>
+and <a href="../04-ontology/13-fundamentality/03-fundamentality.html">levels</a> remains in Ontology.
+This section develops what is distinctive about mental phenomena.</li>
+<li>Numerical identity through time remains with
+<a href="../03-spacetime/06-time/06-persistence.html">Persistence</a>. The future treatment of
+the self will concern subjectivity, unity, embodiment, and no-self views rather than
+duplicate the persistence debate.</li>
+<li>Alternative possibilities, sourcehood, and moral responsibility remain in
+<a href="../01-freewill/00-README.html">Free Will</a>. Mental causation and the explanation of
+action belong here because they arise before the distinct question whether an action
+is free.</li>
+<li>The use of consciousness in natural theology remains in
+<a href="../02-religion/06-arguments/06-consciousness-and-reason.html">Arguments from Consciousness and Reason</a>.
+These pages examine the underlying philosophy of mind without treating theism or
+naturalism as the default conclusion.</li>
+<li>Public linguistic meaning remains in
+<a href="../A-remarks/01-semantics-and-meaning.html">Semantics and the Theory of Meaning</a>.
+Mental content belongs here where the question is how thoughts represent at all.</li>
+<li>The <a href="../../misc/llm-introspection/00-README.html">LLM Introspection</a> series remains a
+worked case about machine self-report. This section supplies the general theories
+and evidential standards that case puts under pressure.</li>
+</ul>
+<h2 id="contents"><a class="header" href="#contents">Contents</a></h2>
+<h3 id="the-spine"><a class="header" href="#the-spine">The spine</a></h3>
+<ul>
+<li><a href="01-introduction.html">What Is Philosophy of Mind?</a> - four master questions, six notions
+that must not be conflated, the recurring test cases, and the relation between
+philosophical argument and the sciences of mind.</li>
+<li><a href="02-mind-body-problem.html">The Mind-Body Problem</a> - the inconsistent-looking package
+of mental reality, causal efficacy, physical completeness, and mental distinctness;
+interaction, reduction, supervenience, realisation, grounding, and emergence.</li>
+<li><a href="03-positions-overview.html">Positions on Mind and Body</a> - a comparative map of dualism,
+identity theory, functionalism, non-reductive physicalism, eliminativism,
+panpsychism, and neutral monism, with the costs that distinguish them.</li>
+<li><a href="04-method-and-evidence.html">Method and Evidence in Philosophy of Mind</a> - how
+first-person reports, behaviour, cognitive performance, neural intervention,
+dissociation, evolution, and thought experiments bear on theories without deciding
+them by themselves.</li>
+</ul>
+<h3 id="mind-and-body"><a class="header" href="#mind-and-body">Mind and body</a></h3>
+<ul>
+<li><a href="05-mind-body/01-substance-dualism.html">Substance Dualism</a> - Descartes' modal and
+divisibility arguments; interaction, physical completeness, pairing, embodiment,
+hylomorphism, and the application to survival.</li>
+<li><a href="05-mind-body/02-property-dualism.html">Property Dualism</a> - irreducible phenomenal
+properties in physical organisms; conceivability, knowledge, psychophysical laws,
+causal exclusion, and epiphenomenalism.</li>
+<li><a href="05-mind-body/03-behaviourism.html">Behaviourism</a> - methodological, psychological, and
+logical versions; public criteria, multi-track dispositions, circularity, phenomenal
+experience, and the transition to functionalism.</li>
+<li><a href="05-mind-body/04-identity-theory.html">The Mind-Brain Identity Theory</a> - type and token
+identity, contingent scientific identities, bridge laws, multiple realisation,
+explanatory levels, and the causal advantage of identity.</li>
+<li><a href="05-mind-body/05-functionalism.html">Functionalism</a> - machine-table, causal-role,
+Ramsey-Lewis, and psychofunctional versions; roles and realisers, liberalism,
+chauvinism, absent qualia, and inverted spectra.</li>
+<li><a href="05-mind-body/06-nonreductive-physicalism.html">Non-Reductive Physicalism and Emergence</a>
+<ul>
+<li>supervenience, realisation, constitution, grounding, causal exclusion,
+intervention, proportionality, and weak versus strong emergence.</li>
+</ul>
+</li>
+<li><a href="05-mind-body/07-eliminativism.html">Eliminative Materialism</a> - folk psychology as a
+theory, reduction versus elimination, self-refutation, predictive success,
+replacement vocabularies, and illusionism as a distinct revisionary target.</li>
+</ul>
+<h3 id="consciousness"><a class="header" href="#consciousness">Consciousness</a></h3>
+<ul>
+<li><a href="06-consciousness/01-kinds-of-consciousness.html">Kinds and Concepts of Consciousness</a> -
+creature and state consciousness, access and phenomenality, monitoring,
+self-consciousness, responsiveness, report, and operational definitions.</li>
+<li><a href="06-consciousness/02-qualia-and-subjectivity.html">Qualia, Subjectivity, and What-It-Is-Like</a>
+<ul>
+<li>the minimal phenomenal target, the traditional qualia package, Nagel's perspectival
+fact, inversion, fading and dancing qualia, pain, and objective phenomenology.</li>
+</ul>
+</li>
+<li><a href="06-consciousness/03-hard-problem.html">The Hard Problem and the Explanatory Gap</a> - easy
+and hard problems, epistemic/conceptual/ontological gaps, type-A and type-B
+physicalism, phenomenal concepts, dissolution, and the meta-problem.</li>
+<li><a href="06-consciousness/04-knowledge-arguments.html">Knowledge Arguments</a> - Mary and the
+replies from ability, acquaintance, new modes of presentation, phenomenal concepts,
+and indexical knowledge.</li>
+<li><a href="06-consciousness/05-conceivability-and-zombies.html">Conceivability, Zombies, and Modal Arguments</a>
+<ul>
+<li>grades of conceivability, the possibility bridge, two-dimensional semantics,
+physicalist replies, and the causal cost of zombie worlds.</li>
+</ul>
+</li>
+<li><a href="06-consciousness/06-representationalism.html">Representational Theories of Consciousness</a>
+<ul>
+<li>strong and weak versions, transparency, content, Inverted Earth, blur, pain, mood,
+and the problem of unconscious representation.</li>
+</ul>
+</li>
+<li><a href="06-consciousness/07-theories-of-consciousness.html">Empirical Theories of Consciousness</a>
+<ul>
+<li>higher-order, global-workspace, recurrent-processing, integrated-information,
+predictive, and attention-schema theories compared by target and mechanism.</li>
+</ul>
+</li>
+<li><a href="06-consciousness/08-illusionism-and-mysterianism.html">Illusionism and Mysterianism</a> -
+heterophenomenology, the meta-problem strategy, ethical caution, cognitive closure,
+and three importantly different kinds of mystery.</li>
+<li><a href="06-consciousness/09-panpsychism-and-neutral-monism.html">Panpsychism, Russellian Monism, and Neutral Monism</a>
+<ul>
+<li>experiential, proto-experiential, categorical, and neutral bases; combination,
+cosmopsychism, causal compatibility, and empirical content.</li>
+</ul>
+</li>
+</ul>
+<h3 id="intentionality-and-mental-content"><a class="header" href="#intentionality-and-mental-content">Intentionality and mental content</a></h3>
+<ul>
+<li><a href="07-intentionality/01-aboutness.html">Intentionality and Aboutness</a> - Brentano's mark
+of the mental, intentional inexistence, content and object, opacity,
+misrepresentation, direction of fit, and thought about nonexistents.</li>
+<li><a href="07-intentionality/02-internalism-and-externalism.html">Internalism and Externalism about Mental Content</a>
+<ul>
+<li>Twin Earth, social externalism, narrow and wide content, self-knowledge, causal
+relevance, slow switching, and the relation to public meaning.</li>
+</ul>
+</li>
+<li><a href="07-intentionality/03-naturalizing-content.html">Naturalizing Mental Content</a> - causal
+covariance, information, asymmetric dependence, teleosemantics, consumer roles,
+error, indeterminacy, abstract content, and semantic normativity.</li>
+<li><a href="07-intentionality/04-functional-and-inferential-role.html">Functional and Inferential-Role Semantics</a>
+<ul>
+<li>causal and conceptual role, inferential norms, holism, compositionality, the
+analytic-synthetic pressure, and hybrid accounts of role and reference.</li>
+</ul>
+</li>
+<li><a href="07-intentionality/05-consciousness-and-content.html">Consciousness and Content</a> -
+phenomenal intentionality, cognitive phenomenology, unconscious content, objectless
+experience, externalism, separatism, and the LLM test case.</li>
+<li><a href="07-intentionality/06-original-and-derived-content.html">Original and Derived Intentionality</a>
+<ul>
+<li>interpretation regress, biological intentionality, the systems reply, symbol
+grounding, the intentional stance, levels of semantic attribution, and artificial
+systems.</li>
+</ul>
+</li>
+</ul>
+<h3 id="perception"><a class="header" href="#perception">Perception</a></h3>
+<ul>
+<li><a href="08-perception/01-problem-of-perception.html">The Problem of Perception</a> - veridical
+perception, illusion, hallucination, the common-kind assumption, direct and indirect
+realism, and the decision between common-factor and disjunctive accounts.</li>
+<li><a href="08-perception/02-sense-data-and-adverbialism.html">Sense-Data and Adverbialism</a> - the
+phenomenal principle, private objects and the veil of perception, adverbial sensing,
+the many-property problem, particularity, and contemporary descendants.</li>
+<li><a href="08-perception/03-intentionalism.html">Intentionalism about Perception</a> - accuracy
+conditions, conceptual and non-conceptual content, transparency, object-dependence,
+perceptual constancy, causal matching, presence, and perceptual justification.</li>
+<li><a href="08-perception/04-disjunctivism.html">Disjunctivism and Naive Realism</a> - perception as
+a constitutive relation to ordinary objects, positive and negative accounts of
+hallucination, causally matching cases, illusion, and factive perceptual reasons.</li>
+<li><a href="08-perception/05-embodied-and-enactive-perception.html">Embodied, Enactive, and Predictive Perception</a>
+<ul>
+<li>ecological information, affordances, sensorimotor contingencies, the lived body,
+predictive processing, active inference, hallucination, and extended perceptual systems.</li>
+</ul>
+</li>
+</ul>
+<h3 id="mental-causation-and-action"><a class="header" href="#mental-causation-and-action">Mental causation and action</a></h3>
+<ul>
+<li><a href="09-causation-and-action/01-mental-causation.html">The Problem of Mental Causation</a> -
+physical causal completeness, exclusion, overdetermination, events and properties,
+causal content, difference-making, mechanisms, powers, and downward causation.</li>
+<li><a href="09-causation-and-action/02-epiphenomenalism.html">Epiphenomenalism</a> - one-way
+psychophysical causation, reports and knowledge of qualia, evolutionary fit, memory,
+overdetermination, interactionism, and the causal cost of zombie arguments.</li>
+<li><a href="09-causation-and-action/03-anomalous-monism.html">Anomalous Monism</a> - Davidson's three
+principles, token identity, events under descriptions, rational holism, reasons as
+causes, and the problem of causal relevance qua mental.</li>
+<li><a href="09-causation-and-action/04-higher-level-causation.html">Higher-Level Causation</a> -
+difference-making, intervention, proportionality, mechanisms, realisation, exclusion,
+and comparisons with software, genes, and temperature.</li>
+<li><a href="09-causation-and-action/05-reasons-intentions-action.html">Reasons, Intentions, and Action</a>
+<ul>
+<li>motivating and normative reasons, Davidsonian causalism, deviant chains, guidance,
+planning, basic action, trying, practical knowledge, and the boundary with free will.</li>
+</ul>
+</li>
+</ul>
+<h3 id="self-self-knowledge-and-other-minds"><a class="header" href="#self-self-knowledge-and-other-minds">Self, self-knowledge, and other minds</a></h3>
+<ul>
+<li><a href="10-self-and-other-minds/01-the-self.html">What Is the Self?</a> - metaphysical, minimal,
+psychological, and narrative selves; Cartesian, animalist, brain, bundle, no-self,
+and self-model views, with persistence kept distinct.</li>
+<li><a href="10-self-and-other-minds/02-unity-of-consciousness.html">The Unity of Consciousness</a> -
+subject, phenomenal, representational, access, and agency unity; subsumptive,
+relational, simple-subject, neural-integration, and graded accounts.</li>
+<li><a href="10-self-and-other-minds/03-self-knowledge.html">Self-Knowledge and Introspection</a> -
+first-person authority without infallibility, inner sense, transparency, rationalism,
+expressivism, interpretation, confabulation, theory-ladenness, and machine self-report.</li>
+<li><a href="10-self-and-other-minds/04-problem-of-other-minds.html">The Problem of Other Minds</a> -
+analogy, inference to the best explanation, criteria, theory theory, simulation,
+direct social perception, testimony, and evidence for animal and artificial minds.</li>
+<li><a href="10-self-and-other-minds/05-split-brains-and-multiple-selves.html">Split Brains and Counting Subjects</a>
+<ul>
+<li>lateralised access and control, one- and two-subject views, partial unity, switching,
+counting criteria, fission, dissociation, and distributed systems.</li>
+</ul>
+</li>
+<li><a href="10-self-and-other-minds/06-personhood-and-moral-status.html">Personhood and Moral Status</a>
+<ul>
+<li>humanity, subjecthood, agency, rationality, sentience, self-consciousness,
+narratives, relationships, marginal cases, thresholds, and precaution.</li>
+</ul>
+</li>
+</ul>
+<h3 id="cognition-and-its-boundaries"><a class="header" href="#cognition-and-its-boundaries">Cognition and its boundaries</a></h3>
+<ul>
+<li><a href="11-cognition/01-computational-theory.html">The Computational Theory of Mind</a> -
+computation, representational vehicles, the language of thought, classical
+architecture, implementation, triviality, frame and relevance problems, and levels.</li>
+<li><a href="11-cognition/02-connectionism.html">Connectionism and Distributed Representation</a> -
+learned networks, local and distributed coding, graceful degradation, systematicity,
+compositionality, opacity, biological comparison, and hybrid architectures.</li>
+<li><a href="11-cognition/03-embodied-and-enactive-cognition.html">Embodied and Enactive Cognition</a> -
+grades of embodiment, body schemas, skill, autopoiesis, radical enactivism,
+representation-hungry and offline cognition, dynamics, and social embodiment.</li>
+<li><a href="11-cognition/04-extended-and-distributed-mind.html">The Extended and Distributed Mind</a> -
+Otto's notebook, parity, complementarity, glue and trust, coupling versus constitution,
+cognitive bloat, distributed systems, ownership, technology, and ethics.</li>
+<li><a href="11-cognition/05-concepts-and-rationality.html">Concepts, Thought, and Rationality</a> -
+definitions, prototypes, exemplars, theory theories, abilities, structured and
+non-conceptual content, rational norms, conceptual change, and language.</li>
+<li><a href="11-cognition/06-unconscious-mental-states.html">Unconscious Mental States</a> - standing,
+cognitive, and dynamic unconscious states; masking, blindsight, implicit memory and
+bias, personal and subpersonal levels, access, belief, and unconscious reasons.</li>
+</ul>
+<h3 id="affect-and-offline-experience"><a class="header" href="#affect-and-offline-experience">Affect and offline experience</a></h3>
+<ul>
+<li><a href="12-affect-and-experience/01-emotion.html">Emotion</a> - feeling, bodily, appraisal,
+perceptual, motivational, constructionist, and basic-emotion theories; intentional
+objects, recalcitrance, fittingness, reason, and social emotion.</li>
+<li><a href="12-affect-and-experience/02-pain.html">Pain</a> - nociception, sensation, bodily
+perception, representational, affective, evaluative, imperative, and homeostatic
+accounts; asymbolia, phantom and chronic pain, attention, and value.</li>
+<li><a href="12-affect-and-experience/03-pleasure-and-desire.html">Pleasure and Desire</a> - hedonic
+tone, attitudinal pleasure, desire and direction of fit, reward, wanting versus liking,
+value, higher-order desire, and consciousness.</li>
+<li><a href="12-affect-and-experience/04-imagination-memory-dreaming.html">Imagination, Memory, and Dreaming</a>
+<ul>
+<li>kinds of imagination, imagery, constructive and causal memory, dreaming, dream
+belief, reality monitoring, predictive processing, and representational decoupling.</li>
+</ul>
+</li>
+</ul>
+<h3 id="animal-and-artificial-minds"><a class="header" href="#animal-and-artificial-minds">Animal and artificial minds</a></h3>
+<ul>
+<li><a href="13-nonhuman-minds/01-animal-minds.html">Animal Minds</a> - capacity-specific evidence
+from evolution, pain, perception, concepts, memory, planning, metacognition,
+communication, social cognition, self-recognition, and ecologically appropriate tests.</li>
+<li><a href="13-nonhuman-minds/02-machine-minds.html">Machine Minds</a> - logical possibility versus
+engineering actuality; intelligence, language, representation, agency, computation,
+embodiment, learning history, substrate, self-report, and persistence.</li>
+<li><a href="13-nonhuman-minds/03-chinese-room-and-symbol-grounding.html">The Chinese Room and Symbol Grounding</a>
+<ul>
+<li>syntax and semantics, systems, robot, brain-simulator, virtual-mind, and other-minds
+replies; perceptual and social grounding; ability and conscious understanding.</li>
+</ul>
+</li>
+<li><a href="13-nonhuman-minds/04-artificial-consciousness.html">Artificial Consciousness</a> -
+theory-relative functional, workspace, higher-order, recurrent, integrated-information,
+embodied, behavioural, and report indicators; artifacts, errors, and precaution.</li>
+<li><a href="13-nonhuman-minds/05-mind-uploading.html">Mind Uploading and Whole-Brain Emulation</a> -
+grain, computational sufficiency, dynamics, embodiment, gradual replacement,
+scan-and-copy, psychological continuity, consciousness, branching, and moral status.</li>
+</ul>
+<h3 id="mind-and-the-sciences"><a class="header" href="#mind-and-the-sciences">Mind and the sciences</a></h3>
+<ul>
+<li><a href="14-science/01-levels-of-explanation.html">Levels of Explanation</a> - Marr's levels,
+personal and subpersonal explanation, mechanisms, multiple realisation, reduction,
+autonomy, complementary and competing explanations, decoding, and cross-system comparison.</li>
+<li><a href="14-science/02-consciousness-science.html">The Science of Consciousness</a> - correlates,
+prerequisites, consequences, contrastive paradigms, masking, rivalry, anaesthesia,
+report confounds, no-report methods, covert consciousness, and theory adjudication.</li>
+<li><a href="14-science/03-disorders-and-dissociations.html">Disorders and Dissociations</a> - blindsight,
+agnosia, neglect, anosognosia, locked-in syndrome, disorders of consciousness,
+hallucination, lesion inference, and the limits of metaphysical conclusions.</li>
+<li><a href="14-science/04-predictive-processing.html">Predictive Processing and Active Inference</a> -
+generative models, hierarchical prediction error, precision, active inference,
+representation, Bayesian idealisation, consciousness, psychopathology, and falsifiability.</li>
+<li><a href="14-science/05-evolution-of-mind.html">The Evolution of Mind</a> - adaptation, by-product,
+exaptation, mosaic evolution, consciousness, valence, representation, emotion, social
+cognition, culture, debunking, and safeguards against just-so stories.</li>
+</ul>
+<h3 id="history-phenomenology-and-traditions"><a class="header" href="#history-phenomenology-and-traditions">History, phenomenology, and traditions</a></h3>
+<ul>
+<li><a href="15-context/01-history.html">A History of Philosophy of Mind</a> - changing formulations
+from soul as the principle of life through Cartesian substance, empiricism,
+phenomenology, behaviourism, identity theory, the cognitive revolution, and the
+contemporary return of consciousness, embodiment, and extension.</li>
+<li><a href="15-context/02-phenomenology.html">Phenomenology and the Lived Mind</a> - the reduction,
+intentionality, noesis and noema, time-consciousness, being-in-the-world, lived body,
+pre-reflective selfhood, world-disclosure, enactivism, and first-person method.</li>
+<li><a href="15-context/03-comparative-traditions.html">Comparative Traditions on Mind and Self</a> -
+Nyaya self and perception, Samkhya witness-consciousness, Advaita non-duality,
+Buddhist aggregates, no-self and reflexive awareness, Yogacara, Madhyamaka, and
+Chinese heart-mind and cultivation.</li>
+<li><a href="15-context/04-key-figures.html">Key Figures in Philosophy of Mind</a> - a chronological
+reference to the contributors and arguments used throughout the section.</li>
+</ul>
+<h2 id="how-the-spine-fits-together"><a class="header" href="#how-the-spine-fits-together">How the spine fits together</a></h2>
+<pre class="mermaid">graph TD
+  I[1 Questions and distinctions]
+  MB[2 Mind-body problem]
+  P[3 Positions]
+  M[4 Method and evidence]
+  I --&gt; MB
+  MB --&gt; P
+  I --&gt; M
+  M -. constrains .-&gt; P
+  P -. interprets .-&gt; M
+  P --&gt; C[consciousness and content]
+  P --&gt; A[causation and action]
+  M --&gt; N[animal and artificial minds]
+</pre>
+<p>Read the spine in order. The <a href="02-mind-body-problem.html">mind-body problem</a> states the
+constraints before the <a href="03-positions-overview.html">positions</a> relax or reinterpret
+them; otherwise the positions can look like a catalogue of labels. The
+<a href="04-method-and-evidence.html">method page</a> then prevents a second mistake: treating
+evidence as theory-free, or treating philosophical underdetermination as permission to
+ignore evidence.</p>
+<h2 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h2>
+<p>The completed implementation plan, scope decisions, dependency order, and possible
+future refinements are recorded in <code>work/philosophy-of-mind-roadmap.md</code>.</p>
+<h2 id="scope"><a class="header" href="#scope">Scope</a></h2>
+<ul>
+<li><strong>No definition of mind by consciousness alone.</strong> Belief, perception, intention, and
+unconscious cognition may be mental without being phenomenally conscious.</li>
+<li><strong>No definition of consciousness by report alone.</strong> Report is evidence generated by
+a mechanism; explaining that mechanism is not automatically explaining experience.</li>
+<li><strong>No inference from mechanism straight to metaphysics.</strong> A computational or neural
+model can explain a capacity while leaving open whether the realised state is
+identical with, grounded in, or merely correlated with its physical basis.</li>
+<li><strong>No automatic human exceptionalism.</strong> Human language gives unusually rich evidence,
+not a stipulated boundary around mentality.</li>
+<li><strong>No preferred theory by editorial fiat.</strong> Each view is presented through the
+phenomenon it explains best and the objection it finds hardest.</li>
+</ul>
+<h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
+<p>No formal prerequisites are required. Readers unfamiliar with metaphysical dependence
+may first read <a href="../04-ontology/13-fundamentality/01-grounding.html">Grounding</a> and
+<a href="../04-ontology/13-fundamentality/03-fundamentality.html">Fundamentality, Levels, and Priority</a>.
+The <a href="../../misc/llm-introspection/01-background.html">philosophy-of-mind background</a> in
+the LLM series is a shorter, application-oriented map; this section supersedes it as
+the general introduction while retaining it as a useful compact preview.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/05-probability/12-context/03-figures.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/06-mind/01-introduction.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/05-probability/12-context/03-figures.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/06-mind/01-introduction.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

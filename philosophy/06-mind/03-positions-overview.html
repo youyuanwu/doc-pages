@@ -1,0 +1,461 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Positions on Mind and Body - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/03-positions-overview.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="positions-on-mind-and-body"><a class="header" href="#positions-on-mind-and-body">Positions on Mind and Body</a></h1>
+<p>The major positions in philosophy of mind are often presented as a ladder from
+substance dualism to eliminative materialism, with each rung accepting more of a
+physical worldview. That picture is convenient and misleading. The views answer
+different questions: what substances exist, whether mental properties reduce, what
+fixes mental kinds, whether consciousness is fundamental, and how mental causes work.
+A functionalist may be a physicalist or a property dualist; a panpsychist may be a
+physicalist in a liberal sense or reject physicalism as usually defined; a token
+identity theorist may deny type reduction. The labels are coordinates, not mutually
+exclusive boxes.</p>
+<p>This page maps the positions against the <a href="02-mind-body-problem.html">constraint set</a>:
+mental reality, mental-physical distinctness, mental causation, and physical causal
+completeness. Its aim is not to choose a winner but to identify where each view spends
+its explanatory cost.</p>
+<hr />
+<h2 id="comparative-map"><a class="header" href="#comparative-map">Comparative map</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Position</th><th>Basic claim</th><th>What it explains best</th><th>Characteristic cost</th></tr></thead><tbody>
+<tr><td><strong><a href="05-mind-body/01-substance-dualism.html">Substance dualism</a></strong></td><td>Minds are substances distinct from physical bodies.</td><td>Unity and apparent separability of the subject; irreducibility is built in.</td><td>Interaction, pairing, brain dependence, and fit with physical causal completeness.</td></tr>
+<tr><td><strong><a href="05-mind-body/02-property-dualism.html">Property dualism</a></strong></td><td>Physical substances instantiate irreducible mental properties.</td><td>Phenomenal distinctness without a second bearer.</td><td>Exclusion and epiphenomenalism; unexplained psychophysical laws.</td></tr>
+<tr><td><strong><a href="05-mind-body/03-behaviourism.html">Behaviourism</a></strong></td><td>Mental attribution is analysed through behaviour or dispositions to behave.</td><td>Public criteria and methodological discipline.</td><td>Pretence, suppression, circular dispositions, and phenomenal experience.</td></tr>
+<tr><td><strong><a href="05-mind-body/04-identity-theory.html">Type identity theory</a></strong></td><td>Each mental property is identical with a physical property.</td><td>Dependence and causation without competition.</td><td>Multiple realisation and the apparent explanatory gap.</td></tr>
+<tr><td><strong>Token identity theory</strong></td><td>Every particular mental event is physical, although mental types need not reduce.</td><td>Physical completeness with flexible higher-level kinds.</td><td>What unifies the tokens as genuinely mental and causally relevant.</td></tr>
+<tr><td><strong><a href="05-mind-body/05-functionalism.html">Functionalism</a></strong></td><td>Mental states are individuated by causal or computational role.</td><td>Multiple realisation, cognition, and systematic explanation.</td><td>Absent and inverted qualia; overly liberal or chauvinistic role specifications.</td></tr>
+<tr><td><strong><a href="05-mind-body/06-nonreductive-physicalism.html">Non-reductive physicalism</a></strong></td><td>Mental properties are physically realised or grounded but explanatorily autonomous.</td><td>Scientific integration without eliminating personal-level explanation.</td><td>Exclusion: what causal work remains for the higher-level property?</td></tr>
+<tr><td><strong><a href="05-mind-body/06-nonreductive-physicalism.html#weak-emergence">Emergentism</a></strong></td><td>Organised physical systems instantiate novel mental properties or powers.</td><td>Novelty and dependence together.</td><td>Weak emergence may be merely epistemic; strong emergence threatens completeness.</td></tr>
+<tr><td><strong><a href="05-mind-body/07-eliminativism.html">Eliminativism</a></strong></td><td>Some or all ordinary mental categories fail to correspond to real kinds.</td><td>Possibility of radical scientific revision.</td><td>Self-application, loss of successful explanation, and the apparent undeniability of experience.</td></tr>
+<tr><td><strong>Panpsychism</strong></td><td>Fundamental physical entities possess experiential or proto-experiential features.</td><td>Avoids deriving experience from wholly non-experiential reality.</td><td>The combination and subject-summing problems.</td></tr>
+<tr><td><strong>Russellian or neutral monism</strong></td><td>Physics describes structure and relations while an underlying nature grounds both mental and physical aspects.</td><td>A common base without Cartesian interaction.</td><td>Thin positive characterisation and difficulty deriving subjects from the base.</td></tr>
+</tbody></table>
+</div>
+<p>The same evidence can favour different rows under different criteria. Tight brain
+dependence supports every view on which physical organisation fixes or lawfully
+controls mentality, including property dualism. Multiple realisation weighs against a
+simple type identity but supports both functionalism and some non-reductive views.
+Phenomenal conceivability arguments challenge reductive physicalism but do not by
+themselves choose among property dualism, panpsychism, and Russellian monism.</p>
+<h2 id="substance-dualism"><a class="header" href="#substance-dualism">Substance dualism</a></h2>
+<p><strong>Substance dualism</strong> holds that the subject of experience is not identical with the
+organism or any physical part of it. Descartes' version treats mind as essentially
+thinking and body as essentially extended. Contemporary versions need not accept every
+Cartesian doctrine; they may appeal instead to the unity of consciousness, modal
+arguments, or the apparent possibility of disembodied survival.</p>
+<p>Its advantage is directness. Phenomenal and rational properties are irreducible because
+their bearer is not physical. Mental causation is genuine if minds interact with
+bodies. The same commitments generate the objections. If two qualitatively identical
+bodies are present, what pairs one mind with one body rather than the other? How does a
+non-physical cause enter a physical history without detectable incompleteness? Why do
+specific neural alterations modify or destroy specific capacities? An interactionist
+can posit psychophysical laws, but laws state the regularity whose basis the objection
+asks to understand.</p>
+<p>Substance dualism must also distinguish a subject from a bare point of view. Memory,
+character, cognition, sensory perspective, and agency depend on bodily organisation.
+Removing all of them may preserve numerical identity only by leaving too little to
+count as the person whose survival was at issue. This connects, without settling, the
+<a href="../02-religion/11-metaphysics/02-afterlife.html">afterlife</a> and
+<a href="../03-spacetime/06-time/06-persistence.html">persistence</a> debates.</p>
+<h2 id="property-dualism"><a class="header" href="#property-dualism">Property dualism</a></h2>
+<p><strong>Property dualism</strong> accepts one kind of concrete bearer - ordinarily the organism or
+brain - while holding that it has mental properties not reducible to physical ones.
+The view is attractive when the main resistance to physicalism concerns qualia rather
+than a separable soul. It fits brain dependence: neural states may nomologically
+necessitate phenomenal states without being identical with them.</p>
+<p>The causal dilemma is severe. If the irreducible property causes behaviour, physical
+causal completeness appears false or effects are systematically overdetermined. If it
+does not, phenomenal properties are <strong>epiphenomenal</strong>: caused by physical processes but
+causally inert. Then reports about experience are produced physically without the
+experience influencing the report. The resulting match between report and experience
+looks accidental, and the evolutionary value of consciousness becomes obscure.</p>
+<p>Some property dualists accept fundamental psychophysical laws; others treat phenomenal
+properties as strongly emergent. Both preserve the datum by adding structure at the
+point where the physicalist seeks derivation. The issue is whether this is an honest
+recognition of fundamentality or a label for the missing explanation.</p>
+<h2 id="behaviourism"><a class="header" href="#behaviourism">Behaviourism</a></h2>
+<p><strong>Methodological behaviourism</strong> restricts scientific psychology to publicly observable
+relations among stimulus, behaviour, and environment. <strong>Logical behaviourism</strong> makes a
+stronger philosophical claim: statements about mental states can be analysed as
+statements about behaviour or dispositions to behave. To believe that it will rain is,
+schematically, to be disposed to carry an umbrella, answer rain-related questions, and
+act in indefinitely many appropriate ways.</p>
+<p>The position opposes the picture of a private inner object known only by introspection,
+and it makes evidence for mentality public. Its difficulty is that dispositions are
+both defeasible and mentally entangled. A person in pain may suppress every sign; an
+actor may display them without pain. What behaviour manifests a belief depends on
+desires and other beliefs, so analysing each state requires the network it was meant to
+reduce. Behaviour remains indispensable evidence after logical behaviourism fails, but
+evidence for a state need not constitute the state.</p>
+<h2 id="identity-theories"><a class="header" href="#identity-theories">Identity theories</a></h2>
+<p>The <strong>type identity theory</strong> identifies mental kinds with neural kinds, as temperature
+is identified with mean molecular kinetic energy in an ideal gas. It offers a clean
+answer to causation: a mental cause and its physical cause are one event under different
+descriptions. Scientific identities may be discovered a posteriori, so the fact that
+pain and neural activity seem conceptually different does not refute identity.</p>
+<p>The classic objection is <strong>multiple realisation</strong>. If pain can occur in humans,
+cephalopods, extraterrestrials, and artificial systems with physically diverse
+structures, no single neural type is pain. A type theorist may restrict identities to
+species or construct a disjunction of realisers, but the resulting physical kind seems
+to borrow its unity from the mental role.</p>
+<p><strong>Token identity</strong> requires only that each particular mental event be some physical
+event. It accommodates diverse realisers and physical completeness. It leaves open why
+events grouped by belief, pain, or intention form explanatory kinds, and whether those
+mental properties themselves make a causal difference. Token identity is therefore
+compatible with positions as different as anomalous monism and some forms of
+functionalism.</p>
+<h2 id="functionalism"><a class="header" href="#functionalism">Functionalism</a></h2>
+<p><strong>Functionalism</strong> individuates mental states by what they do: their typical causes,
+relations to other states, and effects on behaviour. Pain is not defined by a material
+but by a place in a causal organisation involving damage, attention, aversion,
+learning, and withdrawal. The role can be realised differently, which explains why
+mentality may cross biological and artificial substrates.</p>
+<p>This is functionalism's central achievement and the basis of much cognitive science.
+It also creates two opposite risks. A role described too abstractly may count a nation,
+lookup table, or accidental system as a mind: <strong>liberalism</strong>. A role tied too closely to
+human organisation may exclude plausible animal or alien minds: <strong>chauvinism</strong>.</p>
+<p>Phenomenal objections ask whether role fixes experience. An <strong>inverted spectrum</strong> holds
+functional relations constant while swapping colour character; an <strong>absent-qualia</strong>
+case holds them constant while removing experience. If such cases are possible,
+functional organisation is insufficient for phenomenal consciousness even if it
+captures cognition. A functionalist may deny their possibility, add a
+representational or biological constraint, or restrict the theory to some mental kinds.</p>
+<p>Functionalism is not automatically materialism. A physical functionalist identifies
+realisers with physical systems; a dualist could hold that a non-physical state occupies
+the role. Nor does substrate independence mean that every implementation is equivalent:
+causal topology, temporal dynamics, embodiment, and counterfactual dispositions may be
+parts of the role.</p>
+<h2 id="non-reductive-physicalism"><a class="header" href="#non-reductive-physicalism">Non-reductive physicalism</a></h2>
+<p><strong>Non-reductive physicalism</strong> aims to preserve three claims: every concrete particular
+is physical, mental properties are real and not reducible to physical types, and mental
+explanations are causally and scientifically legitimate. Mental properties are realised
+by or grounded in physical organisation, much as biological or computational
+properties are.</p>
+<p>The view fits ordinary explanatory practice. A program's error can explain an output
+although every transition is electronic; a recession can cause policy although every
+participant is physical. Explanations at one level need not compete with mechanisms at
+another. The <a href="../04-ontology/13-fundamentality/03-fundamentality.html">ontology of levels</a>
+supports this anti-competition model.</p>
+<p>Kim's exclusion argument asks whether the analogy preserves distinct mental
+properties. If the physical realiser is sufficient for the effect, either the mental
+property is identical with or reducible to the causally relevant physical property, or
+it contributes nothing. Appeals to realisation, intervention, and proportionality try
+to show that higher-level causes are not rival events but apt variables in a causal
+model. The remaining dispute is whether that secures causal efficacy or only explanatory
+usefulness.</p>
+<h2 id="eliminativism"><a class="header" href="#eliminativism">Eliminativism</a></h2>
+<p><strong>Eliminative materialism</strong> treats at least some familiar mental categories as parts of
+a false theory rather than as permanent features of mature science. "Belief" and
+"desire" might go the way of phlogiston: useful in an earlier explanatory scheme but
+absent from the improved ontology. More modest revisionism expects categories to be
+transformed rather than wholly removed.</p>
+<p>The historical possibility of elimination is real; not every successful everyday
+category marks a scientific kind. Yet folk-psychological explanation predicts and
+rationalises behaviour with unusual flexibility, and an eliminativist appears to state
+a belief that there are no beliefs. The self-refutation charge can be resisted by
+treating assertion in non-doxastic terms, but the replacement theory must then explain
+communication, inference, and error at least as well as the rejected vocabulary.</p>
+<p>Consciousness creates a distinct limit. A theory may eliminate the idea that experience
+has intrinsic, ineffable qualia while explaining why subjects judge that it does. It is
+harder simply to deny that anything appears any way, because the seeming to seem is
+itself the target phenomenon. <strong>Illusionism</strong> is therefore better understood as a
+specific revisionary theory of phenomenal properties than as the claim that nobody is
+conscious in any sense.</p>
+<h2 id="panpsychism-and-monist-alternatives"><a class="header" href="#panpsychism-and-monist-alternatives">Panpsychism and monist alternatives</a></h2>
+<p><strong>Panpsychism</strong> holds that experiential or proto-experiential features are fundamental
+and widespread. It changes the explanatory task: consciousness need not emerge from a
+wholly non-experiential base, so no absolute jump occurs. The price is the
+<strong>combination problem</strong>. Even if microphysical entities have rudimentary experience,
+why and how do many such subjects compose one unified subject rather than merely a
+collection?</p>
+<p><strong>Russellian monism</strong> begins from a different observation: physics characterises
+entities structurally and relationally - through dispositions, equations, and causal
+roles - while saying little about their intrinsic categorical nature. That hidden
+nature might ground consciousness. <strong>Neutral monism</strong> likewise proposes a base that is
+in itself neither mental nor physical, with both domains arising as organisations or
+aspects of it.</p>
+<p>These views avoid interaction between independent substances because mind and matter
+share a basis. Their weakness is positive specification. If the neutral or categorical
+base is described only as whatever makes both sides possible, it inherits the
+explanatory gap under a new name. If it is described as already experiential, the
+combination problem returns.</p>
+<h2 id="cross-cutting-choices"><a class="header" href="#cross-cutting-choices">Cross-cutting choices</a></h2>
+<p>A complete theory needs answers on several axes, not just one row of the table:</p>
+<div class="table-wrapper"><table><thead><tr><th>Axis</th><th>Options</th></tr></thead><tbody>
+<tr><td><strong>Bearer</strong></td><td>separate mind; organism; brain; process; distributed system</td></tr>
+<tr><td><strong>Mental kinds</strong></td><td>physical type; physical token; causal role; representational role; irreducible property</td></tr>
+<tr><td><strong>Phenomenal status</strong></td><td>reducible; conceptually but not ontologically distinct; emergent; fundamental; illusory as ordinarily conceived</td></tr>
+<tr><td><strong>Causal model</strong></td><td>identity; downward interaction; realisation-sensitive higher-level cause; epiphenomenalism</td></tr>
+<tr><td><strong>Modal reach</strong></td><td>biologically constrained; multiply realisable; substrate-independent; ubiquitous</td></tr>
+</tbody></table>
+</div>
+<p>This explains why apparent hybrids are often coherent. One may combine token identity,
+functionalism about belief, representationalism about perception, and Russellian monism
+about phenomenal consciousness. Eclecticism is not automatically a vice: different
+mental phenomena may form different natural kinds. But each additional account creates
+interface questions, such as how functionally individuated beliefs interact with
+irreducible experiences.</p>
+<h2 id="what-would-discriminate-among-the-views"><a class="header" href="#what-would-discriminate-among-the-views">What would discriminate among the views?</a></h2>
+<p>No single observation announces that functionalism or dualism is true. Evidence can
+nevertheless discriminate when paired with independent predictions.</p>
+<ul>
+<li>If a proposed mental kind generalises across radically different realisers while
+preserving causal organisation, simple type identity loses support.</li>
+<li>If phenomenal reports can be exhaustively explained by mechanisms that make no
+reference to the properties reports seem to describe, illusionism gains a resource;
+whether the phenomenal target has been explained remains disputed.</li>
+<li>If a theory of consciousness assigns sharply different states to systems that can be
+experimentally compared, intervention and dissociation can favour one mechanism.</li>
+<li>If purported non-physical causation produces no difference from a physically complete
+account, interactionism loses explanatory necessity, although absence of a measured
+discrepancy is not a logical proof of closure.</li>
+</ul>
+<p>The crucial phrase is "paired with independent predictions." Re-labelling every
+possible result after the fact protects a view from evidence by depriving it of content.
+The next page develops the <a href="04-method-and-evidence.html">methodological standards</a> needed
+to avoid both crude scientism and insulation from science.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Block, Ned. "Troubles with Functionalism" (1978).</li>
+<li>Churchland, Paul M. <em>Matter and Consciousness</em> (1984).</li>
+<li>Kim, Jaegwon. <em>Physicalism, or Something Near Enough</em> (2005).</li>
+<li>Place, U. T. "Is Consciousness a Brain Process?" (1956).</li>
+<li>Putnam, Hilary. "The Nature of Mental States" (1967).</li>
+<li>Russell, Bertrand. <em>The Analysis of Matter</em> (1927).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/06-mind/02-mind-body-problem.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/06-mind/04-method-and-evidence.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/06-mind/02-mind-body-problem.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/06-mind/04-method-and-evidence.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

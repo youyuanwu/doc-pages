@@ -1,0 +1,391 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Pleasure and Desire - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/12-affect-and-experience/03-pleasure-and-desire.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="pleasure-and-desire"><a class="header" href="#pleasure-and-desire">Pleasure and Desire</a></h1>
+<p>Pleasure and desire connect consciousness with value and action. Pleasure seems to make
+an experience good for its subject; desire presents an outcome as to-be-achieved and
+motivates pursuit. They often coincide and can separate. A person can want what brings
+no pleasure, enjoy what they do not want to continue, or pursue a long-term goal through
+unpleasant means.</p>
+<p>Theories of pleasure ask whether diverse pleasant experiences share a sensation, a
+felt dimension, or an attitude of liking. Theories of desire treat it as a disposition
+to act, a representation with world-to-mind direction of fit, a reward signal, or a
+seeming that there is reason to pursue something. Dissociations between <strong>wanting</strong> and
+<strong>liking</strong> show why neither can simply define the other.</p>
+<hr />
+<h2 id="the-heterogeneity-of-pleasure"><a class="header" href="#the-heterogeneity-of-pleasure">The heterogeneity of pleasure</a></h2>
+<p>The pleasures of taste, achievement, music, relief, exercise, and understanding have
+different sensory qualities. If pleasure is one feeling added to each, what common
+phenomenal element do they share?</p>
+<p>Three options dominate:</p>
+<ul>
+<li><strong>distinctive-feeling theory:</strong> pleasure contributes a common positive sensation;</li>
+<li><strong>hedonic-tone theory:</strong> experiences vary along a positive-negative dimension without
+sharing one sensory quality;</li>
+<li><strong>attitudinal theory:</strong> pleasure consists in liking, favouring, or wanting an
+experience as it occurs.</li>
+</ul>
+<p>The first struggles with introspective diversity. The second treats valence as a common
+dimension rather than a qualitative ingredient. The third explains diversity through a
+shared attitude but must say what liking is without circular appeal to pleasure.</p>
+<h2 id="hedonic-tone"><a class="header" href="#hedonic-tone">Hedonic tone</a></h2>
+<p>On a dimensional view, experiences possess <strong>hedonic tone</strong> in degrees. Sweetness and
+warmth differ qualitatively while each can be positively valenced. Pleasure is not a
+separate object but the way an experience matters to the subject.</p>
+<p>Valence can vary while sensory content remains stable. Adaptation, satiety, context, and
+learning can turn pleasant stimulation neutral or unpleasant. This supports a distinct
+affective dimension.</p>
+<p>Dimensional models often add arousal and motivational direction. These spaces organise
+affect empirically but do not by themselves explain why positive valence feels good or
+grounds reasons.</p>
+<h2 id="attitudinal-theories-of-pleasure"><a class="header" href="#attitudinal-theories-of-pleasure">Attitudinal theories of pleasure</a></h2>
+<p>An attitudinal theory says a subject takes pleasure in an experience when they desire,
+like, or favour it as it occurs. The object of pleasure can vary; the positive attitude
+supplies unity.</p>
+<p>This handles cases where one person enjoys a sensation another dislikes. It also allows
+pleasure in complex activities without positing one common sensory quale.</p>
+<p>Counterexamples involve unwanted pleasure and pleasure without reflective endorsement.
+A subject may enjoy a distraction they wish not to enjoy, or experience sensory pleasure
+before forming an attitude. The theory can use a lower-level liking rather than a
+deliberate desire, but then liking risks becoming another name for positive valence.</p>
+<h2 id="pleasure-and-the-good"><a class="header" href="#pleasure-and-the-good">Pleasure and the good</a></h2>
+<p>Hedonism holds that pleasure is the only intrinsic good and pain the only intrinsic bad.
+Even without hedonism, pleasure normally provides a reason and contributes to welfare.</p>
+<p>Experience-machine cases suggest people value achievement, relationship, knowledge,
+and reality beyond pleasurable experience. A hedonist may argue these are sources or
+contents of pleasure; critics say their value survives when pleasure is held fixed.</p>
+<p>The philosophy of mind supplies the nature of pleasure; ethics asks how much value that
+nature carries. One should not infer hedonism merely from pleasure's positive valence.</p>
+<h2 id="desire-and-direction-of-fit"><a class="header" href="#desire-and-direction-of-fit">Desire and direction of fit</a></h2>
+<p>Beliefs aim to fit the world; desires aim for the world to fit them. This <strong>world-to-mind
+direction of fit</strong> distinguishes wanting the door open from believing it open.</p>
+<p>Desires have satisfaction conditions and can motivate action. A desire for water is
+satisfied when the relevant water-related condition obtains. It can persist without
+conscious feeling and compete with other desires.</p>
+<p>Direction of fit identifies a normative role, not a mechanism. An intention also has
+world-to-mind fit but adds commitment and planning. A command has similar direction
+without being a desire of its hearer.</p>
+<h2 id="dispositional-theories-of-desire"><a class="header" href="#dispositional-theories-of-desire">Dispositional theories of desire</a></h2>
+<p>Desire can be analysed as a disposition to act so as to bring about its object, given
+appropriate beliefs. To desire <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> is, roughly, to be disposed to choose means believed
+to promote <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>.</p>
+<p>This connects desire with behaviour and decision. It faces familiar masking and
+circularity. Competing desires, weakness, uncertainty, and bodily limits can prevent
+action. Which behaviour a desire supports depends on beliefs and other desires.</p>
+<p>A functional network can define attitudes together, but phenomenal wanting and
+normative reasons may not be exhausted by choice dispositions.</p>
+<h2 id="reward-and-reinforcement"><a class="header" href="#reward-and-reinforcement">Reward and reinforcement</a></h2>
+<p>Reward-learning systems update action values from prediction error. A <strong>reward</strong> in
+this technical sense is a signal or objective shaping learning; it need not be consciously
+pleasurable. Likewise, a system can pursue a high-valued outcome without feeling desire.</p>
+<p>Conflating reward, pleasure, and desire produces false conclusions about animals and
+machines. A reward function assigned during training is not automatically something the
+system wants, and neural reward prediction error is not identical with felt pleasure.</p>
+<p>The concepts interact: reward learning can produce wanting, successful outcomes can
+produce pleasure, and pleasure can reinforce action. Their distinction is empirically
+demonstrated by dissociation.</p>
+<h2 id="wanting-and-liking"><a class="header" href="#wanting-and-liking">Wanting and liking</a></h2>
+<p>Incentive-salience theories distinguish <strong>wanting</strong> - motivational pull and cue-triggered
+pursuit - from <strong>liking</strong> - hedonic impact. Addiction can increase wanting while pleasure
+declines. Conversely, a pleasant taste may be liked without motivating continued
+consumption after satiety.</p>
+<p>This dissociation undermines theories that reduce desire to expected pleasure. It also
+explains compulsive pursuit that conflicts with reflective values.</p>
+<p>Wanting itself has several levels: cue-driven incentive, occurrent felt urge, standing
+goal, and endorsed preference. A person can repudiate one while acting from it, as the
+free-will discussion of hierarchical desire illustrates.</p>
+<h2 id="desire-as-a-seeming-of-the-good"><a class="header" href="#desire-as-a-seeming-of-the-good">Desire as a seeming of the good</a></h2>
+<p>Evaluative theories say desire presents its object as good or as providing a reason.
+This explains motivation through apparent value and connects desire with rational
+assessment.</p>
+<p>The <strong>guise of the good</strong> thesis is too strong if agents knowingly desire what they
+regard as bad. A weaker view says desire creates a local attraction or reason-seeming
+without all-things-considered endorsement.</p>
+<p>Desire can then be recalcitrant like emotion: the outcome continues to seem attractive
+despite judgment against it. This supports a perceptual analogy while preserving
+conflict among motivational systems.</p>
+<h2 id="desire-and-reasons"><a class="header" href="#desire-and-reasons">Desire and reasons</a></h2>
+<p>Do desires create reasons or respond to independent value? <strong>Humean</strong> theories ground an
+agent's reasons in desires; anti-Humeans allow recognition of value to motivate without
+a prior desire.</p>
+<p>The causal question is separate from the normative one. A desire can explain action
+without making it justified. The <a href="../09-causation-and-action/05-reasons-intentions-action.html">action chapter</a>
+distinguishes motivating, explanatory, and normative reasons.</p>
+<p>Preference formation also matters. Manipulated, adaptive, or compulsive desires may
+fail to express the agent's values even while strongly motivating.</p>
+<h2 id="higher-order-desire"><a class="header" href="#higher-order-desire">Higher-order desire</a></h2>
+<p>Agents can desire not to be moved by a first-order desire. Frankfurt's willing and
+unwilling addicts illustrate this hierarchy. A second-order volition endorses which
+desire should become effective.</p>
+<p>Hierarchy explains identification and self-governance but can regress: why identify with
+the higher desire rather than question it too? Wholeheartedness, history, and reasons-
+responsiveness are proposed stopping points.</p>
+<p>The normative implications belong in <a href="../../01-freewill/02-compatibilism.html">Compatibilism</a>.
+Here the hierarchy shows that "what the agent wants" can refer to conflicting levels
+rather than one scalar preference.</p>
+<h2 id="pleasure-desire-and-consciousness"><a class="header" href="#pleasure-desire-and-consciousness">Pleasure, desire, and consciousness</a></h2>
+<p>Pleasure is ordinarily phenomenal; desire can be standing and unconscious. A system can
+represent goals and optimise rewards without any felt wanting or enjoyment. Conversely,
+a passive pleasure may occur without a plan to pursue it.</p>
+<p>This distinction matters for moral status. Behavioural pursuit is evidence of preference
+and possible welfare, but not proof of valenced experience. Reports of enjoyment are
+evidence whose reliability depends on the reporting system.</p>
+<p>Sentience concerns the capacity for positive and negative experience; agency concerns
+goal-directed control. They should not be inferred from one another.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Phenomenon</th><th>Best initial account</th><th>Pressure point</th></tr></thead><tbody>
+<tr><td><strong>Pleasure</strong></td><td>positive hedonic tone or liking</td><td>diversity and circularity</td></tr>
+<tr><td><strong>Desire</strong></td><td>world-to-mind representation and motivational role</td><td>masking and conflict</td></tr>
+<tr><td><strong>Reward</strong></td><td>learning or control signal</td><td>not necessarily felt or wanted</td></tr>
+<tr><td><strong>Wanting</strong></td><td>incentive salience or pursuit disposition</td><td>may conflict with endorsement</td></tr>
+<tr><td><strong>Liking</strong></td><td>hedonic response</td><td>may not motivate action</td></tr>
+<tr><td><strong>Valuing</strong></td><td>stable evaluative commitment</td><td>can diverge from desire and pleasure</td></tr>
+</tbody></table>
+</div>
+<p>Pleasure and desire are related but distinct dimensions of mind. Valence explains how a
+state is good or bad for the subject; desire explains motivational orientation; reward
+explains learning and control. Their dissociation is indispensable for theories of
+agency, addiction, welfare, and artificial systems.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Berridge, Kent C. and Terry E. Robinson. "What Is the Role of Dopamine in Reward?" (1998).</li>
+<li>Bramble, Ben. "The Distinctive Feeling Theory of Pleasure" (2013).</li>
+<li>Heathwood, Chris. "The Reduction of Sensory Pleasure to Desire" (2007).</li>
+<li>Schroeder, Timothy. <em>Three Faces of Desire</em> (2004).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/12-affect-and-experience/02-pain.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/12-affect-and-experience/04-imagination-memory-dreaming.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/12-affect-and-experience/02-pain.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/12-affect-and-experience/04-imagination-memory-dreaming.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

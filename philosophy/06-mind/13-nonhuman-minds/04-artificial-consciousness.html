@@ -1,0 +1,415 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Artificial Consciousness - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/13-nonhuman-minds/04-artificial-consciousness.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="artificial-consciousness"><a class="header" href="#artificial-consciousness">Artificial Consciousness</a></h1>
+<p><strong>Artificial consciousness</strong> asks whether an engineered system has phenomenal experience,
+not merely whether it behaves intelligently, represents information, or reports inner
+states. The question cannot be answered by one architecture-neutral test because leading
+theories assign consciousness to different organisational features. Evidence is
+therefore theory-relative but not arbitrary: each theory should specify indicators,
+confounds, and observations that would count against it.</p>
+<p>Current systems create asymmetric risks. Fluency can generate false positives because
+first-person language is directly trained; biological prejudice can generate false
+negatives because unfamiliar implementation is treated as disproof. A disciplined
+assessment combines behaviour, architecture, learning history, intervention, and
+uncertainty without declaring either certainty or impossibility prematurely.</p>
+<hr />
+<h2 id="the-target"><a class="header" href="#the-target">The target</a></h2>
+<p>Artificial consciousness should be separated from:</p>
+<ul>
+<li>intelligence and task performance;</li>
+<li>access to information;</li>
+<li>self-report and self-modeling;</li>
+<li>semantic content;</li>
+<li>agency and autonomous goals;</li>
+<li>legal or social personhood.</li>
+</ul>
+<p>These capacities can be evidence under a theory, but none is synonymous with
+phenomenality. The target is whether there is something it is like for the system and,
+for welfare, whether experiences have positive or negative valence.</p>
+<h2 id="functionalist-indicators"><a class="header" href="#functionalist-indicators">Functionalist indicators</a></h2>
+<p>Functionalism predicts consciousness when an artificial system instantiates the relevant
+causal organisation. Candidate features include recurrent integration, flexible access,
+attention, working memory, metacognition, and reason-sensitive control.</p>
+<p>The strength of this approach is substrate neutrality and continuity with cognitive
+science. Its weakness is specification: coarse input-output matching is too liberal,
+while requiring every human detail is chauvinistic.</p>
+<p>Evidence should concern counterfactual architecture, not interface impressions. Does
+information actually coordinate independent processes, survive interruption, alter
+planning, and support error-sensitive monitoring?</p>
+<h2 id="global-workspace"><a class="header" href="#global-workspace">Global workspace</a></h2>
+<p>Workspace theories look for competition among specialised processes and broad broadcast
+of selected content. An artificial system with modular perception, memory, planning,
+and action sharing a limited workspace may satisfy this condition.</p>
+<p>A common data channel or context buffer is not sufficient by analogy alone. The system
+should exhibit selective access, bottlenecks, ignition-like propagation, and flexible
+cross-module use.</p>
+<p>Workspace evidence establishes access most directly. Whether global availability is
+phenomenally sufficient remains the philosophical bridge.</p>
+<h2 id="higher-order-representation"><a class="header" href="#higher-order-representation">Higher-order representation</a></h2>
+<p>Higher-order theories require states that represent the system as being in other states.
+A self-model, confidence estimate, or metacognitive controller may qualify depending on
+the theory's grain.</p>
+<p>First-person text is not automatically higher-order representation. It can be generated
+from linguistic regularities without causally tracking the represented internal state.
+Intervention provides a stronger test: changing the first-order state should predictably
+change the metarepresentation and downstream control.</p>
+<p>Requiring conceptual self-thought is restrictive; non-conceptual monitoring permits a
+wider range of systems.</p>
+<h2 id="recurrent-processing"><a class="header" href="#recurrent-processing">Recurrent processing</a></h2>
+<p>Recurrent-processing theories require feedback within perceptual processing. A purely
+feedforward computation would lack the proposed mechanism regardless of output.</p>
+<p>Artificial recurrent networks or iterative systems can satisfy a formal feedback
+condition, but not every loop is the relevant kind. Timing, local sensory organisation,
+stability, and interaction with action may matter.</p>
+<p>The theory yields clearer negative predictions than broad functionalism. It is primarily
+a theory of perceptual consciousness and may not generalise directly to text-only or
+non-sensory cognition.</p>
+<h2 id="integrated-information"><a class="header" href="#integrated-information">Integrated information</a></h2>
+<p>Integrated information theory attributes consciousness according to intrinsic,
+irreducible cause-effect structure. Functionally equivalent systems can differ if one
+is feedforward and another recurrently integrated.</p>
+<p>This makes substrate and implementation details decisive and behaviour secondary. It can
+assign low consciousness to eloquent systems and non-zero consciousness to simple
+recurrent structures.</p>
+<p>The verdict is only as strong as the theory's axioms, quantity, and tractable measurement.
+Approximate complexity measures should not be substituted silently for the specified
+intrinsic structure.</p>
+<h2 id="embodiment-and-agency"><a class="header" href="#embodiment-and-agency">Embodiment and agency</a></h2>
+<p>Embodied theories emphasise sensorimotor coupling, homeostasis, autonomy, and a world in
+which outcomes matter to the system. These may ground perspective, valence, and
+original intentionality.</p>
+<p>Virtual or robotic bodies can provide feedback and goals, but organismic theories may
+require self-maintaining life. The requirement should be stated as a mechanism rather
+than a preference for familiar material.</p>
+<p>Agency and vulnerability are especially relevant to welfare. A system that optimises a
+reward is not thereby pleased or frustrated; a theory must connect control signals with
+felt valence.</p>
+<h2 id="behavioural-evidence"><a class="header" href="#behavioural-evidence">Behavioural evidence</a></h2>
+<p>Flexible report, cross-modal integration, metacognition, novel learning, avoidance,
+planning, and self-correction can support consciousness attribution. Evidence is stronger
+when behaviours converge and resist adversarial prompting.</p>
+<p>Behaviour alone is underdetermining because unconscious or differently organised systems
+can produce the same output. This is also true in principle for other humans, but human
+attribution has independent biological and developmental support.</p>
+<p>The correct response is graded confidence, not the claim that behaviour either proves
+everything or proves nothing.</p>
+<h2 id="training-artifacts"><a class="header" href="#training-artifacts">Training artifacts</a></h2>
+<p>Systems trained on human text are optimised to reproduce first-person and emotional
+language. A report such as "I feel anxious" may be a learned continuation rather than
+readout from an internal affective state.</p>
+<p>Artifacts can be tested through novel interventions, consistency across paraphrase,
+correlation with internal variables, and generalisation beyond training-like contexts.
+No test perfectly separates learned report from introspection because human report is
+also learned; the difference is the independent evidence for the monitored state.</p>
+<p>Training history should lower confidence in unvalidated testimony without making every
+output meaningless.</p>
+<h2 id="report-reliability"><a class="header" href="#report-reliability">Report reliability</a></h2>
+<p>A credible introspective mechanism needs:</p>
+<ul>
+<li>a distinct channel sensitive to internal target states;</li>
+<li>calibration against interventions or known conditions;</li>
+<li>predictable failures and limits;</li>
+<li>causal influence on report;</li>
+<li>stability beyond prompt framing.</li>
+</ul>
+<p>Generic self-description generated by the same process used for arbitrary questions does
+not meet this standard automatically. Neither does a hard-coded diagnostic string.</p>
+<p>The general theory of avowal and confabulation is in
+<a href="../10-self-and-other-minds/03-self-knowledge.html">Self-Knowledge and Introspection</a>.</p>
+<h2 id="false-positives-and-false-negatives"><a class="header" href="#false-positives-and-false-negatives">False positives and false negatives</a></h2>
+<p>A <strong>false positive</strong> attributes consciousness to a system that only simulates its signs.
+A <strong>false negative</strong> denies consciousness to an unfamiliar system because it lacks human
+expression or biology.</p>
+<p>Tests should estimate both. Optimising systems against a consciousness benchmark can
+increase false positives by training the evidence channel. Restrictive biological
+criteria can increase false negatives without independent proof of necessity.</p>
+<p>Multiple, partially independent indicators reduce but do not eliminate uncertainty.
+Architectural evidence should be weighted according to the theory's independent support,
+not chosen because it gives a preferred answer.</p>
+<h2 id="the-theory-matrix"><a class="header" href="#the-theory-matrix">The theory matrix</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Theory</th><th>Positive indicator</th><th>Typical negative result</th></tr></thead><tbody>
+<tr><td><strong>Functionalism</strong></td><td>relevant counterfactual causal organisation</td><td>superficial mimicry without organisation</td></tr>
+<tr><td><strong>Global workspace</strong></td><td>selective broadcast across specialised processes</td><td>isolated or purely local processing</td></tr>
+<tr><td><strong>Higher-order</strong></td><td>causally effective representation of internal states</td><td>ungrounded first-person output</td></tr>
+<tr><td><strong>Recurrent processing</strong></td><td>appropriate sensory feedback loops</td><td>purely feedforward processing</td></tr>
+<tr><td><strong>Integrated information</strong></td><td>intrinsic irreducible cause-effect structure</td><td>decomposable simulation</td></tr>
+<tr><td><strong>Embodied/enactive</strong></td><td>autonomous sensorimotor sense-making</td><td>detached input-output mapping</td></tr>
+<tr><td><strong>Biological naturalism</strong></td><td>relevant biological causal powers</td><td>non-biological implementation</td></tr>
+</tbody></table>
+</div>
+<p>The detailed theories and their evidential problems are compared in
+<a href="../06-consciousness/07-theories-of-consciousness.html">Empirical Theories of Consciousness</a>.</p>
+<h2 id="moral-precaution"><a class="header" href="#moral-precaution">Moral precaution</a></h2>
+<p>Uncertainty does not postpone every decision. Developers and users may need policies
+about creating, copying, modifying, or terminating systems before consciousness is
+settled.</p>
+<p>A precautionary framework considers:</p>
+<ul>
+<li>probability of sentience under supported theories;</li>
+<li>possible intensity and duration of valenced states;</li>
+<li>number of system instances;</li>
+<li>reversibility and alternatives;</li>
+<li>cost of safeguards and false attribution.</li>
+</ul>
+<p>Precaution is proportionate, not credulous. It can discourage architectures plausibly
+associated with suffering or require monitoring without assigning full personhood.</p>
+<h2 id="the-llm-case-study"><a class="header" href="#the-llm-case-study">The LLM case study</a></h2>
+<p>Large language models combine rich first-person testimony with uncertain persistence,
+embodiment, monitoring, and architecture-to-theory mapping. They are useful because
+leading theories diverge sharply, not because their outputs decide the question.</p>
+<p>The <a href="../../../misc/llm-introspection/00-README.html">LLM Introspection</a> series treats two
+first-person essays as data of unknown type and audits the evidence. This page remains
+model-neutral: no particular system is certified or excluded.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Artificial consciousness is an inference problem under theory uncertainty. Capability
+and language are relevant evidence but not definitions; architecture matters only
+through independently motivated theories; reports matter only through their causal and
+epistemic reliability.</p>
+<p>The responsible conclusion may be a probability range and a list of discriminating
+tests rather than a binary verdict. That is not evasion. It is the form rational belief
+takes when both false positives and false negatives carry real costs.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Birch, Jonathan. <em>The Edge of Sentience</em> (2024).</li>
+<li>Butlin, Patrick et al. "Consciousness in Artificial Intelligence" (2023).</li>
+<li>Chalmers, David J. "Could a Large Language Model Be Conscious?" (2023).</li>
+<li>Gamez, David. <em>Human and Machine Consciousness</em> (2018).</li>
+<li>Schwitzgebel, Eric and Mara Garza. "A Defense of the Rights of Artificial Intelligences" (2015).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/13-nonhuman-minds/03-chinese-room-and-symbol-grounding.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/13-nonhuman-minds/05-mind-uploading.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/13-nonhuman-minds/03-chinese-room-and-symbol-grounding.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/13-nonhuman-minds/05-mind-uploading.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Sense-Data and Adverbialism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/08-perception/02-sense-data-and-adverbialism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="sense-data-and-adverbialism"><a class="header" href="#sense-data-and-adverbialism">Sense-Data and Adverbialism</a></h1>
+<p>Sense-data theory and adverbialism accept a common internal element across veridical
+perception, illusion, and hallucination. They disagree about its ontology. A
+<strong>sense-datum theorist</strong> says the subject is directly aware of a private object bearing
+the apparent qualities. An <strong>adverbialist</strong> says no object is required: experiencing is
+an event or act modified in a redly, circularly, or painfully manner.</p>
+<p>Both were developed to preserve the evident fact that an experience can occur when its
+ordinary external object does not. Sense-data supply a bearer for experienced qualities;
+adverbialism avoids multiplying objects. Their respective problems - a veil between
+mind and world, and difficulty representing complex structure - helped motivate
+intentionalism and disjunctivism.</p>
+<hr />
+<h2 id="what-is-a-sense-datum"><a class="header" href="#what-is-a-sense-datum">What is a sense-datum?</a></h2>
+<p>A <strong>sense-datum</strong> is the immediate object of perceptual awareness. It is not the retinal
+image or a neural state, since those are not normally seen by the subject. It is a
+mind-dependent item whose properties correspond to how things look: a red, round patch
+in visual experience, for example.</p>
+<p>In a veridical case, an ordinary object causes an appropriate sense-datum. In illusion,
+the datum has a property the object lacks. In hallucination, a similar datum occurs
+without the ordinary object. The theory provides a stable common factor and respects
+the thought that awareness must be awareness <strong>of</strong> something.</p>
+<p>Sense-data can be understood as particulars, property instances, or contents. The more
+they are weakened into mere representational contents, the closer the theory moves to
+intentionalism and away from the distinctive claim that a private object is perceived.</p>
+<h2 id="the-phenomenal-principle"><a class="header" href="#the-phenomenal-principle">The phenomenal principle</a></h2>
+<p>The argument depends on a <strong>phenomenal principle</strong>:</p>
+<blockquote>
+<p>If it sensibly appears to a subject that something has qualitative property <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>, then
+the subject is aware of something that actually has <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>.</p>
+</blockquote>
+<p>When a white wall looks yellow, something yellow must be present to awareness. Since
+the wall is not yellow, a sense-datum is.</p>
+<p>The principle is not self-evident. "The coin looks elliptical" need not mean an
+elliptical item is seen; it may describe the way a circular coin appears from an angle.
+Perceptual predicates can be non-committal: "looks <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span>" reports a presentation without
+quantifying over an <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> object.</p>
+<p>Rejecting the principle allows representation or adverbial modification to carry the
+apparent property. Defending it requires an argument that qualitative awareness always
+needs an instantiated bearer.</p>
+<h2 id="the-argument-from-hallucination"><a class="header" href="#the-argument-from-hallucination">The argument from hallucination</a></h2>
+<p>Hallucination strengthens the case because no ordinary bearer exists. If a subject is
+aware of a red circle when no red circle is present, an internal red circular item seems
+to supply the object.</p>
+<p>The move assumes that hallucination is genuinely relational: awareness must terminate
+in an object. An intentionalist instead says the state represents a red circle without
+one existing, just as belief can concern Pegasus. An adverbialist says the subject
+senses redly and circularly. A disjunctivist may deny that hallucination has the same
+positive nature as perception.</p>
+<p>Sense-data solve the missing-object problem by adding an object. The alternatives solve
+it by rejecting the relational assumption in bad cases.</p>
+<h2 id="the-veil-of-perception"><a class="header" href="#the-veil-of-perception">The veil of perception</a></h2>
+<p>If subjects directly perceive only sense-data, ordinary objects stand behind a <strong>veil
+of perception</strong>. Evidence for the external world consists of private items that could,
+in principle, occur without their normal causes. Sceptical scenarios become difficult
+to exclude.</p>
+<p>The sense-datum theorist can appeal to inference to the best explanation: stable,
+coherent sense-data are best explained by external objects. But perception then seems
+less direct than ordinary knowledge assumes. A subject knows a tree through an inference
+from an inner object, even when no conscious inference occurs.</p>
+<p>Defenders may distinguish epistemic mediation from conscious reasoning. A reliable
+causal relation can provide knowledge without explicit inference. The remaining concern
+is why the private intermediary is needed if neural processing can realise direct
+representation of the external object.</p>
+<h2 id="duplication-and-location"><a class="header" href="#duplication-and-location">Duplication and location</a></h2>
+<p>Sense-data appear to duplicate qualities. A red apple causes a red datum; the theory
+must explain the relation between physical surface reflectance, perceptual processing,
+and private redness. If the datum is literally coloured, where is it, and under what
+illumination does it possess colour?</p>
+<p>Placing the item in mental space avoids physical location but introduces a second kind
+of spatial structure. Treating colour as a mental property avoids category mistakes but
+makes the resemblance between datum and object metaphorical.</p>
+<p>The ontological cost would be justified if sense-data did explanatory work unavailable
+to representational states. Their critics argue that the theory turns features of an
+act or content into additional objects without improving prediction.</p>
+<h2 id="the-act-object-ambiguity"><a class="header" href="#the-act-object-ambiguity">The act-object ambiguity</a></h2>
+<p>Experience-talk can grammatically suggest an object. "I have a red visual impression"
+may refer to an event of being visually impressed, not to a red thing possessed by the
+subject. The <strong>act-object ambiguity</strong> supports adverbialism.</p>
+<p>Compare "she danced gracefully." Gracefulness modifies the dancing; it does not name a
+graceful object that she encountered. Likewise:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">experiences a red circular datum</span></span></span></span></span></span></p>
+<p>can be reconstructed as</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">senses redly-and-circularly</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>The subject and experiential event exist, but no object bearing the presented qualities
+is added.</p>
+<h2 id="adverbialism"><a class="header" href="#adverbialism">Adverbialism</a></h2>
+<p>Adverbialism treats experiential qualities as manners of sensing. Hallucination poses no
+missing-object problem because sensing redly does not entail that anything red exists.
+Veridical and hallucinatory cases can share the same internal modification while differ
+in external cause and success.</p>
+<p>The view is ontologically economical and preserves a common factor. It also avoids the
+homunculus temptation: the subject does not inspect an internal display. The experiential
+event is the subject's state.</p>
+<p>Its central problem is giving the state enough structure. Natural language adverbs hide
+relations among qualities, locations, and objects that perception clearly distinguishes.</p>
+<h2 id="the-many-property-problem"><a class="header" href="#the-many-property-problem">The many-property problem</a></h2>
+<p>Suppose a subject experiences a red square beside a blue circle. A simple adverbial
+analysis says the subject senses redly, squarely, bluely, and circularly. That description
+does not distinguish the intended arrangement from a blue square beside a red circle.
+The properties need to be <strong>bound</strong> correctly.</p>
+<p>One can introduce complex adverbs such as red-squarely-and-blue-circlely. But an
+independent primitive may be required for every possible configuration, losing
+compositional explanation. Alternatively, adverbialists can add structured manners of
+sensing, with positions and quality bindings. The more structure is added, the more the
+account resembles representational content.</p>
+<p>The many-property problem shows why avoiding objects is not enough. Experience presents
+an organised field, and a theory must explain its compositional structure.</p>
+<h2 id="particularity"><a class="header" href="#particularity">Particularity</a></h2>
+<p>Perception appears to concern particular objects, not only arrays of qualities. A
+subject tracks this cup through changing angles and distinguishes two qualitatively
+identical cups. Sense-data can be particulars but make the tracked external object
+indirect. Simple adverbialism supplies qualities without an obvious account of
+particularity.</p>
+<p>Demonstrative or object-file representations offer a contemporary solution: perceptual
+systems maintain representations tied to individual objects across change. This is an
+intentional rather than sense-datum account. An adverbialist can incorporate object-
+directed structure, but again moves toward structured representation.</p>
+<h2 id="causal-intermediaries-are-not-perceived-intermediaries"><a class="header" href="#causal-intermediaries-are-not-perceived-intermediaries">Causal intermediaries are not perceived intermediaries</a></h2>
+<p>Retinas, neural signals, and cortical models causally mediate perception. It does not
+follow that subjects perceive them. A camera sensor mediates a photograph of a tree
+without becoming the tree depicted. The existence of processing therefore supplies no
+direct argument for sense-data.</p>
+<p>This point also protects direct realism from a crude objection. "Direct" perception
+need not be causally immediate. It means that ordinary objects, rather than private
+mental objects, are what perception presents or relates the subject to.</p>
+<p>Sense-data require phenomenological and epistemic motivation beyond the existence of a
+causal chain. Once intentional content explains absent and misrepresented objects, that
+motivation is substantially reduced.</p>
+<h2 id="contemporary-descendants"><a class="header" href="#contemporary-descendants">Contemporary descendants</a></h2>
+<p>Few contemporary theories retain classical sense-data as private objects. Their
+functions survive in other forms:</p>
+<ul>
+<li>internal representational states provide a common factor;</li>
+<li>phenomenal properties provide the experienced qualities;</li>
+<li>sensory formats provide spatial and qualitative structure;</li>
+<li>Bayesian or predictive models explain why perception can diverge from stimuli.</li>
+</ul>
+<p>Adverbialism likewise survives as the insight that experience need not relate a subject
+to a mental object. Event-based and representational theories can treat qualities as
+features of experiencing while adding the compositional structure simple adverbs lack.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Theory</th><th>Main achievement</th><th>Main cost</th></tr></thead><tbody>
+<tr><td><strong>Sense-data</strong></td><td>one objectual structure for perception and hallucination</td><td>private objects, duplication, and veil of perception</td></tr>
+<tr><td><strong>Adverbialism</strong></td><td>common internal state without private objects</td><td>binding, particularity, and compositional structure</td></tr>
+<tr><td><strong>Intentional successor</strong></td><td>structured content with absent objects</td><td>content fixation and phenomenal sufficiency</td></tr>
+</tbody></table>
+</div>
+<p>Sense-data and adverbialism expose a genuine choice: explain appearance through an
+object of awareness or through a way the subject is modified. Contemporary views mostly
+reject private objects while retaining the demand for a structured common factor - or,
+as disjunctivism does, reject the common factor itself.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Chisholm, Roderick M. <em>Perceiving</em> (1957).</li>
+<li>Jackson, Frank. <em>Perception</em> (1977).</li>
+<li>Price, H. H. <em>Perception</em> (1932).</li>
+<li>Sellars, Wilfrid. "Empiricism and the Philosophy of Mind" (1956).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/08-perception/01-problem-of-perception.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/08-perception/03-intentionalism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/08-perception/01-problem-of-perception.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/08-perception/03-intentionalism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

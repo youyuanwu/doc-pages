@@ -1,0 +1,369 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Anomalous Monism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/09-causation-and-action/03-anomalous-monism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="anomalous-monism"><a class="header" href="#anomalous-monism">Anomalous Monism</a></h1>
+<p><strong>Anomalous monism</strong>, developed by Donald Davidson, combines three claims: mental events
+causally interact with physical events; events related as cause and effect fall under
+strict laws; and there are no strict psychophysical laws connecting mental and physical
+types. Davidson concludes that each causally interacting mental event is identical with
+some physical event, although mental kinds do not reduce to physical kinds.</p>
+<p>The view is <strong>monist</strong> about events and <strong>anomalous</strong> about mental description. It avoids
+interaction between separate substances and preserves the autonomy of reasons
+explanation. Its central objection is that event identity may leave mental properties
+causally irrelevant: the event enters a strict law only under a physical description,
+so in what sense does it cause action because of what the subject believed?</p>
+<hr />
+<h2 id="the-three-principles"><a class="header" href="#the-three-principles">The three principles</a></h2>
+<p>Davidson begins with principles that appear jointly inconsistent:</p>
+<ol>
+<li><strong>Causal interaction:</strong> at least some mental events cause physical events and vice
+versa.</li>
+<li><strong>Nomological character of causality:</strong> causally related events instantiate a strict
+law under some description.</li>
+<li><strong>Anomalism of the mental:</strong> there are no strict deterministic laws connecting mental
+types with physical types.</li>
+</ol>
+<p>If a mental event <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span></span></span></span> causes physical event <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>, principle 2 says they instantiate a
+law. Principle 3 says the law cannot be psychophysical under their mental descriptions.
+Therefore <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span></span></span></span> must have a physical description under which it enters a physical law.
+The mental event is a physical event:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span></span></span></span></span></p>
+<p>without the mental predicate being identical with a physical predicate.</p>
+<p>This is <strong>token identity</strong> without type identity.</p>
+<h2 id="events-under-descriptions"><a class="header" href="#events-under-descriptions">Events under descriptions</a></h2>
+<p>One event can be described as "the pressing of the switch," "the movement of a finger,"
+and "a neural-muscular process." Causation relates events, not descriptions. Laws,
+however, relate events <strong>as described</strong> under predicates suitable for generalisation.</p>
+<p>A person's deciding to leave may be identical with a neural event. It causes bodily
+motion as one event, even though only its physical description belongs to a strict law.
+This blocks event-level exclusion: there are not two causes.</p>
+<p>The distinction also preserves reasons explanation. Calling the event a decision places
+it in a rational pattern of beliefs, desires, and actions even if no law pairs all
+decisions of that content with one neural type.</p>
+<h2 id="why-the-mental-is-anomalous"><a class="header" href="#why-the-mental-is-anomalous">Why the mental is anomalous</a></h2>
+<p>Davidson does not mean mental events are random or inexplicable. <strong>Anomalous</strong> means not
+captured by strict, exceptionless laws of the kind sought in fundamental physics.</p>
+<p>Mental attribution is governed by constitutive principles of rationality. To interpret
+a person as believing and desiring, one must locate their attitudes in a largely
+coherent pattern responsive to evidence and action. Attribution is holistic: the
+content of one belief depends on many others and on the interpreter's assumptions about
+the subject's reasons.</p>
+<p>Physical predicates are not constitutively governed by rationality in this way. There
+is no finite bridge law connecting each holistic mental type with a physical type.
+Psychological generalisations can be useful and exception-tolerant without becoming
+strict laws.</p>
+<h2 id="supervenience"><a class="header" href="#supervenience">Supervenience</a></h2>
+<p>Davidson also holds that mental properties supervene on physical properties: no two
+events can be alike in all physical respects while differing mentally. This secures
+dependence without reduction.</p>
+<p>Supervenience alone does not explain why the mental pattern follows from the physical,
+as <a href="../02-mind-body-problem.html#why-supervenience-is-not-enough">The Mind-Body Problem</a>
+emphasises. In anomalous monism, token identity and interpretive principles do additional
+work. Still, the relation between physical constitution and rational interpretation
+remains less explicit than in functional realisation theories.</p>
+<h2 id="reasons-as-causes"><a class="header" href="#reasons-as-causes">Reasons as causes</a></h2>
+<p>Davidson argues that a <strong>primary reason</strong> - roughly, a pro-attitude toward actions of a
+kind plus a belief that this action is of that kind - rationalises an action by causing
+it. If someone turns on the light because they want illumination and believe flipping
+the switch will provide it, the reason both makes the action intelligible and belongs to
+its causal history.</p>
+<p>This rejects non-causal accounts on which reasons merely justify or render action
+intelligible. Causal connection distinguishes acting for a reason from merely having a
+reason that happens to fit the action.</p>
+<p>Davidson also denied that reason explanations require strict laws. Singular causal
+relations can hold even when the explanatory vocabulary is not nomological. This is
+essential to anomalous monism.</p>
+<h2 id="the-qua-problem"><a class="header" href="#the-qua-problem">The qua problem</a></h2>
+<p>Suppose an event is both a belief and a neural firing pattern. It causes movement under
+a physical law. Did it cause the movement <strong>qua belief</strong>, in virtue of its mental
+properties, or only qua physical?</p>
+<p>Critics argue anomalous monism guarantees only that mental events are causes, not that
+mental properties are causally relevant. If content could vary while the causally
+efficacious physical properties stayed fixed, the explanation citing content would not
+track the cause.</p>
+<p>Davidsonian replies resist "causing under a description." Events cause regardless of
+which true description an explanation uses. Mental descriptions can identify the cause
+that answers a contrastive question, even though physical descriptions connect it to a
+strict law.</p>
+<p>The reply is strongest if causal relevance belongs primarily to events. Property-based
+theories demand more: a reason should explain the effect because of its content. That
+demand motivates interventionist and proportionality accounts.</p>
+<h2 id="strict-laws-and-contemporary-science"><a class="header" href="#strict-laws-and-contemporary-science">Strict laws and contemporary science</a></h2>
+<p>The premise that causation requires strict laws is contested. Special sciences use
+ceteris paribus generalisations, mechanisms, probabilistic models, and interventions.
+If causes need not instantiate exceptionless laws, the route from mental causation to
+token physical identity loses force.</p>
+<p>Conversely, fundamental physical laws may not determine unique outcomes. Davidson's
+argument can be reformulated using physically complete probabilistic laws, but its
+original nomological framework is not mandatory for causal realism.</p>
+<p>Anomalous monism remains influential less as a deduction than as a model of levels: one
+event can sustain physical causal explanation and rational interpretation without a
+type-by-type reduction.</p>
+<h2 id="holism-and-interpretation"><a class="header" href="#holism-and-interpretation">Holism and interpretation</a></h2>
+<p>The anomalism thesis protects the normative character of thought. Beliefs are not
+identified independently and then connected by laws; they are attributed within a
+network constrained by coherence, truth, and rational action.</p>
+<p>This can seem overly idealising. Humans reason badly, compartmentalise, and hold
+contradictory beliefs. Davidson needs only enough rationality to make interpretation
+possible, not perfect rationality. The threshold and its implications for animals or
+artificial systems remain contested.</p>
+<p>The view also risks making content depend on an interpreter. Davidson treats interpretive
+indeterminacy as compatible with objective patterns, but theorists seeking determinate
+internal representations may find the account too external and holistic.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><strong>Event causation</strong></td><td><strong>Strong</strong> - mental events are physical events and enter causal history.</td></tr>
+<tr><td><strong>Type reduction</strong></td><td><strong>Rejected</strong> - rational holism blocks strict psychophysical laws.</td></tr>
+<tr><td><strong>Explanatory autonomy</strong></td><td><strong>Strong</strong> - reason descriptions answer distinct questions.</td></tr>
+<tr><td><strong>Property efficacy</strong></td><td><strong>Pressure point</strong> - physical descriptions appear to do nomological work.</td></tr>
+<tr><td><strong>Physical completeness</strong></td><td><strong>Compatible</strong> - token identity avoids an additional causal route.</td></tr>
+<tr><td><strong>Empirical psychology</strong></td><td><strong>Mixed</strong> - strict-law framework may understate mechanisms and probabilistic laws.</td></tr>
+</tbody></table>
+</div>
+<p>Anomalous monism's durable insight is that causal monism need not entail explanatory
+monism. Its unresolved question is whether true and useful mental descriptions are
+enough for mental causation, or whether content must be independently shown to make a
+difference.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Davidson, Donald. "Actions, Reasons, and Causes" (1963).</li>
+<li>Davidson, Donald. "Mental Events" (1970).</li>
+<li>Davidson, Donald. <em>Essays on Actions and Events</em> (1980).</li>
+<li>Kim, Jaegwon. "Can Supervenience and 'Non-Strict Laws' Save Anomalous Monism?" (1993).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/09-causation-and-action/02-epiphenomenalism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/09-causation-and-action/04-higher-level-causation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/09-causation-and-action/02-epiphenomenalism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/09-causation-and-action/04-higher-level-causation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

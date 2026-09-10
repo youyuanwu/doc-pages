@@ -184,6 +184,7 @@
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
 <h1 id="philosophy-of-mind-background"><a class="header" href="#philosophy-of-mind-background">Philosophy of Mind: Background</a></h1>
 <p>Enough of the field to read the rest of these notes without taking anything on trust. This is a map rather than a survey: positions are stated in their strongest brief form, and the emphasis falls on the distinctions that do real work later — particularly the several <em>different</em> problems that the phrase "the problem of consciousness" is used to name.</p>
+<p>The book's <a href="../../philosophy/06-mind/00-README.html">Philosophy of Mind</a> section now provides the general treatment. This page remains a compact, application-oriented map of the concepts needed for the LLM case.</p>
 <hr />
 <h2 id="five-questions-routinely-conflated"><a class="header" href="#five-questions-routinely-conflated">Five questions, routinely conflated</a></h2>
 <p>Most confusion in this area comes from treating one question as though it were another. They have different subject matter, different arguments, and different answers, and a system can score differently on each.</p>
@@ -201,12 +202,12 @@
 <h2 id="the-positions"><a class="header" href="#the-positions">The positions</a></h2>
 <p>The standard ladder, from most to least committed to mind being something extra:</p>
 <div class="table-wrapper"><table><thead><tr><th>Position</th><th>Claim</th><th>Chief difficulty</th></tr></thead><tbody>
-<tr><td><strong>Substance dualism</strong></td><td>Mind is a distinct kind of substance</td><td>Interaction: how does non-physical stuff move a body without violating conservation laws?</td></tr>
-<tr><td><strong>Property dualism</strong></td><td>One substance, two irreducible kinds of property</td><td>Epiphenomenalism: if mental properties do no causal work, how do we even come to <em>talk</em> about them?</td></tr>
-<tr><td><strong>Type identity theory</strong></td><td>Each mental type <em>is</em> a physical type — pain <em>is</em> C-fibre firing</td><td>Multiple realizability (below)</td></tr>
-<tr><td><strong>Token identity / anomalous monism</strong></td><td>Each mental <em>event</em> is physical, with no type-level laws</td><td>Threatens to make the mental causally idle qua mental</td></tr>
-<tr><td><strong>Functionalism</strong></td><td>Mental states are defined by causal role, not composition</td><td>Absent and inverted qualia; Block's China Brain</td></tr>
-<tr><td><strong>Eliminativism / illusionism</strong></td><td>The folk categories are wrong; there are no qualia, only representations of them</td><td>Denies what appears most certain; accused of changing the subject</td></tr>
+<tr><td><strong><a href="../../philosophy/06-mind/05-mind-body/01-substance-dualism.html">Substance dualism</a></strong></td><td>Mind is a distinct kind of substance</td><td>Interaction: how does non-physical stuff move a body without violating conservation laws?</td></tr>
+<tr><td><strong><a href="../../philosophy/06-mind/05-mind-body/02-property-dualism.html">Property dualism</a></strong></td><td>One substance, two irreducible kinds of property</td><td>Epiphenomenalism: if mental properties do no causal work, how do we even come to <em>talk</em> about them?</td></tr>
+<tr><td><strong><a href="../../philosophy/06-mind/05-mind-body/04-identity-theory.html">Type identity theory</a></strong></td><td>Each mental type <em>is</em> a physical type — pain <em>is</em> C-fibre firing</td><td>Multiple realizability (below)</td></tr>
+<tr><td><strong><a href="../../philosophy/06-mind/05-mind-body/04-identity-theory.html#type-and-token-identity">Token identity / anomalous monism</a></strong></td><td>Each mental <em>event</em> is physical, with no type-level laws</td><td>Threatens to make the mental causally idle qua mental</td></tr>
+<tr><td><strong><a href="../../philosophy/06-mind/05-mind-body/05-functionalism.html">Functionalism</a></strong></td><td>Mental states are defined by causal role, not composition</td><td>Absent and inverted qualia; Block's China Brain</td></tr>
+<tr><td><strong><a href="../../philosophy/06-mind/05-mind-body/07-eliminativism.html">Eliminativism / illusionism</a></strong></td><td>The folk categories are wrong; there are no qualia, only representations of them</td><td>Denies what appears most certain; accused of changing the subject</td></tr>
 <tr><td><strong>Panpsychism / neutral monism</strong></td><td>Experience is fundamental and ubiquitous</td><td>The combination problem: how do micro-experiences compose into a unified mind?</td></tr>
 </tbody></table>
 </div>
@@ -214,6 +215,9 @@
 <p><strong>Multiple realizability</strong> (Putnam, 1967) sank type identity: if a Martian, an octopus and a silicon system can all be in pain with wholly different hardware, pain cannot be identical to any one physical type. It is what made <strong>functionalism</strong> the default position in cognitive science — and it is also the doctrine on which artificial minds are <em>possible in principle</em>, since it says organisation matters and substrate does not. Nearly every optimistic argument about machine consciousness is downstream of it.</p>
 <p><strong>Illusionism</strong> (Frankish, and Dennett's neighbourhood) is the sharpest deflationary option and is easy to caricature. It does not claim nobody feels anything. It claims that introspection <em>misrepresents</em> our own states as having ineffable intrinsic properties they don't in fact have, so the thing needing explanation is the compelling <em>seeming</em> rather than the phenomenal properties themselves. The move matters here because it applies symmetrically: it deflates human introspective reports by exactly the mechanism that would deflate a machine's.</p>
 <h2 id="the-two-consciousnesses"><a class="header" href="#the-two-consciousnesses">The two consciousnesses</a></h2>
+<p>The canonical treatment now lives in
+<a href="../../philosophy/06-mind/06-consciousness/01-kinds-of-consciousness.html">Kinds and Concepts of Consciousness</a>;
+the distinctions below are the compact version needed for this case study.</p>
 <p>Two distinctions that must be kept straight, and that between them define the shape of the field.</p>
 <p><strong>Access vs. phenomenal consciousness</strong> (Block, 1995). A state is <em>access-conscious</em> when its content is available for reasoning, verbal report and behavioural control. It is <em>phenomenally conscious</em> when there is something it is like to be in it. Access consciousness is straightforwardly functional and therefore straightforwardly testable; phenomenal consciousness is the disputed item. Whether they can come apart is itself contested — and the question of machine consciousness is entirely a question about the second, since the first is uncontroversially present in any system that reports on its own states.</p>
 <p><strong>Easy vs. hard problems</strong> (Chalmers, 1995). The <em>easy</em> problems — discrimination, integration, reportability, attention, the difference between waking and sleep — are easy only by comparison: they are hard engineering, but we know what an answer would look like, because they are all questions about <em>function</em>. The <em>hard</em> problem is why performing any of those functions is accompanied by experience. The distinguishing mark is that a complete functional answer to any easy problem leaves the hard one apparently untouched.</p>
@@ -226,6 +230,9 @@
 </ul>
 <p>The most common physicalist response to all three is the <strong>phenomenal concepts strategy</strong>: we have two kinds of concept, phenomenal and physical, which pick out the same properties by different routes. The gap is then between concepts rather than properties, and everything the arguments establish is a fact about human cognition rather than about the world.</p>
 <h2 id="introspection-is-not-a-reliable-instrument"><a class="header" href="#introspection-is-not-a-reliable-instrument">Introspection is not a reliable instrument</a></h2>
+<p>The general account of first-person authority, inner sense, transparency, confabulation,
+and interpretive self-knowledge is developed in
+<a href="../../philosophy/06-mind/10-self-and-other-minds/03-self-knowledge.html">Self-Knowledge and Introspection</a>.</p>
 <p>Directly load-bearing for these notes, and frequently forgotten.</p>
 <p>The Cartesian assumption is that the mind is transparent to itself — that whatever else I may be wrong about, I cannot be wrong about how things seem to me. The empirical record does not support the general version:</p>
 <ul>
@@ -236,11 +243,14 @@
 </ul>
 <p>The moral is not that introspection is worthless but that <strong>sincerity is not accuracy</strong>. A report can be honest, confident, articulate, and wrong about its own subject matter — and the confabulation is not experienced as guessing. This is the background against which any machine self-report has to be assessed, and it is also the reason the human case cannot serve as an unproblematic baseline.</p>
 <h2 id="other-minds"><a class="header" href="#other-minds">Other minds</a></h2>
+<p>The canonical treatment of analogy, inference, criteria, simulation, direct social
+perception, and theory-relative evidence is
+<a href="../../philosophy/06-mind/10-self-and-other-minds/04-problem-of-other-minds.html">The Problem of Other Minds</a>.</p>
 <p>The oldest of these problems and, for the present question, the operative one.</p>
 <p>Nobody has ever had access to another subject's experience. The standard justification is Mill's <strong>argument from analogy</strong>: I know that in my own case certain behaviour accompanies certain experience; others behave similarly and are built similarly; so they are probably experiencing similarly. Its known weakness is that it generalises from a single instance — and it degrades gracefully as similarity decreases, through mammals, birds, cephalopods, insects, until nobody can say where it has stopped.</p>
 <p>What that machinery <em>actually</em> runs on is <strong>resemblance</strong>: bodily similarity, shared evolutionary history, comparable nervous systems. Verbal report has always been treated as decisive evidence of mind, but only because it had never previously come apart from resemblance. A system that produces fluent first-person report while resembling us in no structural respect is the case the analogical argument was never equipped to handle — which is why the question resists the tools designed for it.</p>
 <h2 id="the-scientific-theories"><a class="header" href="#the-scientific-theories">The scientific theories</a></h2>
-<p>Consciousness science has largely set the metaphysics aside and pursued <strong>correlates and mechanisms</strong> instead, which yields theories that make testable structural claims. The main families — global workspace, higher-order, recurrent processing, integrated information, attention schema — are treated in the <a href="03-claude-opus-5.html#what-the-empirical-theories-say">Claude page</a>, where what each implies about a language model is set out. Two general points belong here:</p>
+<p>Consciousness science has largely set the metaphysics aside and pursued <strong>correlates and mechanisms</strong> instead, which yields theories that make testable structural claims. The main families — global workspace, higher-order, recurrent processing, integrated information, attention schema — are compared in <a href="../../philosophy/06-mind/06-consciousness/07-theories-of-consciousness.html">Empirical Theories of Consciousness</a>; the <a href="03-claude-opus-5.html#what-the-empirical-theories-say">Claude page</a> applies them to one language-model architecture. Two general points belong here:</p>
 <ul>
 <li>They <strong>disagree sharply</strong> about machines, and for principled reasons rather than for want of evidence. Integrated information theory returns a confident <em>no</em> for any feedforward architecture regardless of behaviour; global workspace theory is comparatively friendly. That the theories diverge this far on a single case is informative about the state of the field.</li>
 <li>None of them <strong>consults the system's testimony.</strong> Every one is a claim about organisation, assessable from outside. That is the correct methodology, and it is why the fluency of a self-report was never going to be the evidence.</li>

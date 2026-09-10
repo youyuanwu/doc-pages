@@ -1,0 +1,381 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Evolution of Mind - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/14-science/05-evolution-of-mind.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-evolution-of-mind"><a class="header" href="#the-evolution-of-mind">The Evolution of Mind</a></h1>
+<p>Minds are products of evolutionary history, but this fact does not identify which mental
+traits are adaptations or what they are. Natural selection can explain why a capacity
+improved survival or reproduction; it does not automatically explain phenomenal
+character, semantic normativity, or rational warrant. Evolutionary explanation must
+distinguish adaptation, by-product, exaptation, drift, and developmental constraint.</p>
+<p>The strongest evolutionary arguments combine phylogeny, comparative evidence,
+mechanism, costs, and independent predictions. A plausible story about why a trait would
+have been useful is not enough.</p>
+<hr />
+<h2 id="adaptation-by-product-and-exaptation"><a class="header" href="#adaptation-by-product-and-exaptation">Adaptation, by-product, and exaptation</a></h2>
+<p>An <strong>adaptation</strong> is a trait shaped by selection because of an effect it produced. A
+<strong>by-product</strong> arises alongside selected traits without itself being selected. An
+<strong>exaptation</strong> is a trait or structure recruited for a function different from the one
+that originally shaped it.</p>
+<p>Current usefulness does not prove adaptation. Language may exploit capacities selected
+for other functions; a conscious feature may accompany an adaptive control architecture.</p>
+<p>Historical claims require evidence about ancestral variation, heritability, comparative
+distribution, and design trade-offs. Present function and evolutionary origin should be
+kept distinct.</p>
+<h2 id="continuity-and-mosaic-evolution"><a class="header" href="#continuity-and-mosaic-evolution">Continuity and mosaic evolution</a></h2>
+<p>Evolution predicts continuity, but traits evolve in mosaics. Perception, affect, memory,
+social cognition, and metacognition need not appear together or change at one rate.</p>
+<p>This supports capacity-specific comparison across species. Homologous mechanisms provide
+strong evidence of shared function; convergent structures show multiple realisation.</p>
+<p>There may be no point at which "mind" arrived wholesale. Gradual transitions challenge
+binary taxonomies while allowing thresholds for particular mechanisms.</p>
+<h2 id="the-evolution-of-consciousness"><a class="header" href="#the-evolution-of-consciousness">The evolution of consciousness</a></h2>
+<p>Proposed functions of consciousness include global integration, flexible learning,
+novel planning, social communication, error monitoring, and action selection. These are
+often functions of access consciousness.</p>
+<p>The hard question is whether <strong>phenomenal character itself</strong> was selected. If all
+fitness-relevant behaviour is produced by physical and functional organisation, a
+zombie duplicate has the same fitness. Selection cannot distinguish experience.</p>
+<p>Physicalists answer that consciousness is identical with or necessarily realised by the
+selected organisation. Epiphenomenalists treat experience as a lawfully linked by-
+product. Interactionists allow phenomenal properties to affect fitness but face causal
+closure. Evolution sharpens the metaphysical options rather than choosing among them.</p>
+<h2 id="pain-and-valence"><a class="header" href="#pain-and-valence">Pain and valence</a></h2>
+<p>Pain-related systems support damage avoidance, learning, attention, and protection.
+Their adaptive value is clear. Why these systems are unpleasant is less clear if
+unpleasantness has no causal role.</p>
+<p>Valence may be identical with action-prioritising organisation, a representational
+evaluation of bodily condition, or an efficacious phenomenal property. Each theory
+connects selection to experience differently.</p>
+<p>The normal alignment of harm, aversion, and negative feeling is evidence requiring
+explanation. Selection explains it directly only if phenomenal valence enters the causal
+chain or is necessarily tied to selected function.</p>
+<h2 id="representation"><a class="header" href="#representation">Representation</a></h2>
+<p>Teleosemantics explains representation through selected function. A state represents
+what its producer-consumer system was selected to indicate for successful action.</p>
+<p>This yields error: a mechanism can token normally while the represented condition is
+absent. It also grounds content in organism-environment history.</p>
+<p>Evolutionary function underdetermines fine-grained content and fits novel abstract
+concepts poorly. Learning, cultural history, and inferential role extend beyond genetic
+selection. The full account is in
+<a href="../07-intentionality/03-naturalizing-content.html#teleosemantics">Naturalizing Mental Content</a>.</p>
+<h2 id="emotion"><a class="header" href="#emotion">Emotion</a></h2>
+<p>Emotional systems coordinate physiology, attention, learning, expression, and action in
+recurrent adaptive situations. Fear, disgust, attachment, and anger may reflect evolved
+solutions while being shaped by development and culture.</p>
+<p>A strong basic-emotion account predicts conserved mechanisms and expressions. A
+constructionist account predicts flexible assembly from core affect and concepts.
+Evidence can support inherited components without one universal package for each folk
+emotion.</p>
+<p>Current emotions can misfire in novel environments. Evolutionary explanation predicts
+trade-offs and mismatch, not perfect rationality.</p>
+<h2 id="social-cognition"><a class="header" href="#social-cognition">Social cognition</a></h2>
+<p>Cooperation, competition, teaching, communication, and care create selection pressures
+for tracking others' goals and attention. Group living can favour perspective-taking and
+reputation management.</p>
+<p>"Machiavellian intelligence" and cooperative accounts emphasise different social
+problems. Comparative predictions should distinguish them rather than treating social
+complexity as a universal explanation.</p>
+<p>Cultural evolution adds feedback. Social practices alter developmental environments
+and select learned strategies much faster than genetic change.</p>
+<h2 id="language-and-cumulative-culture"><a class="header" href="#language-and-cumulative-culture">Language and cumulative culture</a></h2>
+<p>Language enables high-fidelity transmission, coordination, and external representation.
+It may be an adaptation, an exaptation from broader cognitive capacities, or a mosaic of
+both.</p>
+<p>Cumulative culture changes the unit of explanation. Individual brains inherit tools,
+symbols, and institutions that transform learning. Gene-culture coevolution can shape
+biological and social capacities reciprocally.</p>
+<p>The existence of cultural scaffolding undermines both genetic determinism and the idea
+that cognition is built anew by isolated individuals.</p>
+<h2 id="evolutionary-debunking"><a class="header" href="#evolutionary-debunking">Evolutionary debunking</a></h2>
+<p>An <strong>evolutionary debunking argument</strong> claims a belief-producing disposition was shaped
+for fitness rather than truth, undermining its epistemic warrant. Applied indiscriminately,
+the argument defeats itself because reasoning about evolution also depends on evolved
+faculties.</p>
+<p>Selection often rewards approximately accurate perception and prediction, though not
+truth in every domain. Social and moral beliefs may be influenced by functions only
+loosely connected to truth.</p>
+<p>A successful debunking argument must show that the causal process is insensitive to the
+truth of the particular belief and that no independent justification repairs the link.</p>
+<h2 id="spandrels-and-just-so-stories"><a class="header" href="#spandrels-and-just-so-stories">Spandrels and just-so stories</a></h2>
+<p>Gould and Lewontin warn against treating every trait as an adaptation. Architectural
+constraints, correlated development, drift, and by-products can produce features that
+later appear useful.</p>
+<p>A <strong>just-so story</strong> moves from a current trait to an imaginable ancestral advantage
+without discriminating evidence. Because many opposing traits can be given plausible
+stories, narrative fit is weak.</p>
+<p>Stronger explanations predict comparative distribution, developmental timing, design
+trade-offs, and consequences of environmental variation.</p>
+<h2 id="levels-of-selection-and-extended-systems"><a class="header" href="#levels-of-selection-and-extended-systems">Levels of selection and extended systems</a></h2>
+<p>Selection operates through genes, organisms, kin, and in some models groups or cultural
+variants. Claims about "what evolution wants" obscure these levels and introduce agency
+where none exists.</p>
+<p>Extended phenotypes and socially distributed cognition show that adaptive systems can
+include environmental structures. This does not make every artifact part of a mind; it
+shows that evolutionary function can cross organism boundaries.</p>
+<p>The unit of selection, unit of cognition, and subject of experience need not coincide.</p>
+<h2 id="evolution-and-artificial-minds"><a class="header" href="#evolution-and-artificial-minds">Evolution and artificial minds</a></h2>
+<p>Artificial systems have design, training, and selection histories even without genetic
+evolution. Optimisation can create functions and representations under teleological
+accounts, but designer objectives and system-level goals may diverge.</p>
+<p>Evolutionary algorithms demonstrate that complex solutions can arise without explicit
+design. They do not reproduce organismic development, homeostasis, or social evolution
+unless those pressures are present.</p>
+<p>Artificial comparison helps identify which explanatory role belongs to selection in
+general and which to biological life specifically.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Target</th><th>Evolution can explain directly</th><th>Remaining philosophical question</th></tr></thead><tbody>
+<tr><td><strong>Cognitive capacity</strong></td><td>adaptive function and comparative distribution</td><td>representational and computational nature</td></tr>
+<tr><td><strong>Access consciousness</strong></td><td>flexible integration and control advantages</td><td>whether access exhausts consciousness</td></tr>
+<tr><td><strong>Phenomenality</strong></td><td>selection of its base if necessarily linked</td><td>why there is something it is like</td></tr>
+<tr><td><strong>Representation</strong></td><td>proper function and error</td><td>fine-grained and abstract content</td></tr>
+<tr><td><strong>Emotion</strong></td><td>coordination in recurrent situations</td><td>phenomenal valence and cultural construction</td></tr>
+<tr><td><strong>Reason</strong></td><td>reliable action in relevant domains</td><td>normative warrant and abstract truth</td></tr>
+</tbody></table>
+</div>
+<p>Evolution constrains theories of mind by demanding plausible histories, continuity, and
+functional trade-offs. It does not convert every mental feature into an adaptation or
+settle the metaphysics of consciousness. Its explanatory power is greatest when
+historical claims generate evidence beyond a story of usefulness.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Godfrey-Smith, Peter. <em>Other Minds</em> (2016).</li>
+<li>Gould, Stephen Jay and Richard Lewontin. "The Spandrels of San Marco" (1979).</li>
+<li>Millikan, Ruth Garrett. <em>Language, Thought, and Other Biological Categories</em> (1984).</li>
+<li>Sterelny, Kim. <em>Thought in a Hostile World</em> (2003).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/14-science/04-predictive-processing.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/15-context/01-history.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/14-science/04-predictive-processing.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/15-context/01-history.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

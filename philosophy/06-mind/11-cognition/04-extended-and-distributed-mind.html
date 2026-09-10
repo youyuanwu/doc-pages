@@ -1,0 +1,397 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Extended and Distributed Mind - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/11-cognition/04-extended-and-distributed-mind.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-extended-and-distributed-mind"><a class="header" href="#the-extended-and-distributed-mind">The Extended and Distributed Mind</a></h1>
+<p>Tools and other people do not merely supply inputs to cognition. Notebooks store
+memory, diagrams support inference, navigation systems guide action, and institutions
+coordinate information no individual contains. The <strong>extended-mind thesis</strong> says that,
+under suitable conditions, such external resources are constituents of a cognitive
+process rather than merely causes or aids. <strong>Distributed cognition</strong> studies systems
+whose cognitive work is organised across people and artifacts.</p>
+<p>The thesis is stronger than the uncontroversial claim that environments influence
+thought. Its central question is where cognitive systems end. Reliable coupling,
+automatic access, trust, and functional integration support extension; the coupling-
+constitution objection warns that causal dependence alone does not make an external
+item part of the mind.</p>
+<hr />
+<h2 id="otto-and-the-notebook"><a class="header" href="#otto-and-the-notebook">Otto and the notebook</a></h2>
+<p>Clark and Chalmers compare Inga, who remembers the location of a museum biologically,
+with Otto, who has memory impairment and reliably records information in a notebook.
+When each decides to visit, Inga retrieves the address from biological memory and Otto
+consults the notebook.</p>
+<p>If Otto's notebook is constantly available, automatically trusted, and routinely used,
+it appears to play the same functional role as Inga's memory. The <strong>parity principle</strong>
+says:</p>
+<blockquote>
+<p>If an external process performs a role that would count as cognitive if performed in
+the head, its external location alone should not disqualify it.</p>
+</blockquote>
+<p>The conclusion is not that every note is a belief. Otto's standing dispositional belief
+depends on a stable, integrated practice involving this notebook.</p>
+<h2 id="parity-and-complementarity"><a class="header" href="#parity-and-complementarity">Parity and complementarity</a></h2>
+<p>Parity challenges intracranial prejudice, but external resources rarely resemble
+biological memory exactly. Notebooks are slower, perceptually accessed, durable, and
+publicly inspectable. Biological memory is reconstructive, associative, and less
+explicit.</p>
+<p>The <strong>complementarity principle</strong> offers a stronger argument: components belong to one
+cognitive system because their different capacities coordinate, not because one copies
+another. Paper preserves exact marks; brains recognise relevance and reorganise plans.</p>
+<p>Complementarity avoids treating the head as the standard every external resource must
+imitate. It raises a harder systems question: which heterogeneous couplings form one
+cognitive process rather than a person using a useful object?</p>
+<h2 id="the-glue-and-trust-conditions"><a class="header" href="#the-glue-and-trust-conditions">The glue and trust conditions</a></h2>
+<p>Candidate conditions for extension include:</p>
+<ul>
+<li>the resource is reliably available;</li>
+<li>access is easy and routinely invoked;</li>
+<li>information is normally accepted without fresh scrutiny;</li>
+<li>the resource was consciously endorsed or integrated into practice;</li>
+<li>reciprocal interaction changes both agent and artifact use;</li>
+<li>removing it predictably disrupts the capacity.</li>
+</ul>
+<p>These <strong>glue and trust</strong> conditions distinguish Otto's notebook from a library book or
+web page consulted once. No condition is necessary in every case. Biological memory is
+not always reliable or consciously endorsed, and people sometimes critically inspect
+their own recollections.</p>
+<p>The criteria should identify stable functional organisation without idealising internal
+processes merely because they are inside.</p>
+<h2 id="coupling-versus-constitution"><a class="header" href="#coupling-versus-constitution">Coupling versus constitution</a></h2>
+<p>Adams and Aizawa object that causal coupling does not imply constitution. A hammer is
+causally indispensable to hammering but not part of the carpenter; the telescope is not
+part of the astronomer's visual system merely because it affects observation.</p>
+<p>Extended theorists reply that some tools are not occasional causes but integrated
+components whose operations jointly realise the cognitive capacity. The heart's parts
+are causally coupled and constitutive; coupling can become constitution under the right
+organisation.</p>
+<p>The dispute needs a criterion for system boundaries. Reciprocal dependence, continuous
+feedback, control, historical integration, and explanatory indispensability are
+candidates. None makes all frequently used tools mental.</p>
+<h2 id="cognitive-bloat"><a class="header" href="#cognitive-bloat">Cognitive bloat</a></h2>
+<p>If external information used when needed counts as belief, a smartphone or the internet
+could give a person millions of beliefs they have never considered. This is <strong>cognitive
+bloat</strong>.</p>
+<p>Restriction to reliable, automatic, personally integrated resources helps. Searchable
+availability alone is not enough; the agent must know how to locate and use the item
+within a stable practice.</p>
+<p>The objection also exposes uncertainty about standing biological belief. A person may
+be said to know a fact retrievable only with a cue. Externalism does not create the
+dispositional boundary problem, though it enlarges the candidate store.</p>
+<h2 id="content-and-ownership"><a class="header" href="#content-and-ownership">Content and ownership</a></h2>
+<p>An external inscription has public or derived content independently of one user. What
+makes it <strong>the user's</strong> memory or belief? Ownership may depend on endorsement, control,
+integration with goals, and a history of use.</p>
+<p>Malicious alteration illustrates the issue. If someone changes Otto's notebook, he may
+acquire a false belief when consulting it, much as memory can be corrupted. If every
+unread alteration immediately changes his beliefs, extension seems too permissive. A
+view can distinguish standing acceptance from content not yet integrated.</p>
+<p>Shared artifacts complicate ownership further. A team can jointly maintain a record
+without each member individually believing every entry. Cognitive content can belong to
+a distributed system or institution rather than to all its participants.</p>
+<h2 id="distributed-cognition"><a class="header" href="#distributed-cognition">Distributed cognition</a></h2>
+<p>Distributed-cognition research examines how tasks are completed by coordinated people,
+tools, representations, and environments. A ship's navigation may be accomplished by a
+system of charts, instruments, officers, and procedures, with no individual performing
+the whole computation.</p>
+<p>The claim can be methodological: the larger system is the best unit for explaining
+information flow. A stronger ontological claim says the group or system itself cognises.
+The former does not entail the latter.</p>
+<p>System-level cognition gains credibility when the whole stores information, corrects
+errors, pursues goals, and responds flexibly in ways not attributable to one member.
+Questions of consciousness and moral agency remain separate.</p>
+<h2 id="socially-distributed-minds"><a class="header" href="#socially-distributed-minds">Socially distributed minds</a></h2>
+<p>Language, norms, expertise, and testimony make human cognition socially dependent. A
+scientist knows through instruments and communities; a legal institution remembers
+through records; partners develop transactive memory by specialising and relying on one
+another.</p>
+<p>Social distribution can be complementary rather than redundant. One partner remembers
+appointments, another routes; the dyad performs better than either alone. Disrupting the
+relationship can impair cognition, not merely remove convenience.</p>
+<p>Calling the dyad one mind may be unnecessary. Distributed cognition can be real at the
+process level while subjects remain distinct. The <a href="../10-self-and-other-minds/02-unity-of-consciousness.html">unity</a>
+and other-minds criteria should not be inferred from task distribution alone.</p>
+<h2 id="technology-and-plasticity"><a class="header" href="#technology-and-plasticity">Technology and plasticity</a></h2>
+<p>Repeated tool use changes internal cognition. Writing alters memory strategy; search
+changes retrieval; calculators alter mathematical practice. The boundary can be dynamic:
+external scaffolds train capacities and become embedded in routines.</p>
+<p>This creates a false choice between internal and extended explanations. An external
+tool can both constitute one episode and causally reshape later internal processing.
+Longitudinal evidence is therefore more informative than a snapshot of one use.</p>
+<p>Technological change also reveals historical contingency. Literate cognition is not the
+baseline human mind plus an optional aid; cultural artifacts partly create the cognitive
+skills by which they are later used.</p>
+<h2 id="ethics-of-cognitive-scaffolding"><a class="header" href="#ethics-of-cognitive-scaffolding">Ethics of cognitive scaffolding</a></h2>
+<p>If an artifact is part of a person's cognitive system, interfering with it can resemble
+interfering with memory or agency rather than ordinary property damage. Accessibility,
+privacy, maintenance, and control acquire cognitive significance.</p>
+<p>Dependence also creates vulnerability. Platforms can manipulate attention, alter
+records, withdraw access, or exploit data. An extended resource controlled by another
+party may be functionally integrated but politically insecure.</p>
+<p>The ethical conclusion does not require literal extension. Essential aids deserve
+protection because removing them predictably harms autonomy and participation. The
+metaphysical thesis strengthens one explanation of that harm.</p>
+<h2 id="extended-cognition-and-consciousness"><a class="header" href="#extended-cognition-and-consciousness">Extended cognition and consciousness</a></h2>
+<p>Cognition may extend without phenomenal consciousness extending. A notebook can be part
+of a memory process while the marks are not part of the current phenomenal field.</p>
+<p>Some sensory tools alter experienced bodily or perceptual space more directly, as a cane
+becomes transparent in use. Even then, the external object's physical state need not
+itself be conscious. It participates in a process whose phenomenal realisation may be
+elsewhere or system-wide.</p>
+<p>The distinction prevents an inference from extended computation to an extended subject.
+Functional boundary, phenomenal boundary, and moral boundary may differ.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Proposal</th><th>Strongest support</th><th>Main pressure point</th></tr></thead><tbody>
+<tr><td><strong>Parity</strong></td><td>location alone is not cognitively relevant</td><td>external and internal processes often differ</td></tr>
+<tr><td><strong>Complementarity</strong></td><td>heterogeneous parts form one capable system</td><td>system boundary can become permissive</td></tr>
+<tr><td><strong>Glue and trust</strong></td><td>stable integration distinguishes tools from resources</td><td>idealises biological memory and varies by context</td></tr>
+<tr><td><strong>Distributed cognition</strong></td><td>information flow and task achievement cross agents</td><td>explanatory unit need not be a minded subject</td></tr>
+<tr><td><strong>Extended belief</strong></td><td>external store plays dispositional memory role</td><td>bloat, ownership, and alteration</td></tr>
+</tbody></table>
+</div>
+<p>The strongest extended-mind cases involve reliable, reciprocal, historically integrated
+coupling that explains a capacity better than an organism-only model. The thesis should
+be evaluated capacity by capacity. It does not follow that every causal aid is cognitive
+or that every extended cognitive process is one conscious mind.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Adams, Fred and Kenneth Aizawa. <em>The Bounds of Cognition</em> (2008).</li>
+<li>Clark, Andy. <em>Supersizing the Mind</em> (2008).</li>
+<li>Clark, Andy and David J. Chalmers. "The Extended Mind" (1998).</li>
+<li>Hutchins, Edwin. <em>Cognition in the Wild</em> (1995).</li>
+<li>Sutton, John. "Exograms and Interdisciplinarity" (2010).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/11-cognition/03-embodied-and-enactive-cognition.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/11-cognition/05-concepts-and-rationality.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/11-cognition/03-embodied-and-enactive-cognition.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/11-cognition/05-concepts-and-rationality.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

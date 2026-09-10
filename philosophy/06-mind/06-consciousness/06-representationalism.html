@@ -1,0 +1,384 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Representational Theories of Consciousness - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/06-consciousness/06-representationalism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="representational-theories-of-consciousness"><a class="header" href="#representational-theories-of-consciousness">Representational Theories of Consciousness</a></h1>
+<p><strong>Representationalism</strong> holds that the phenomenal character of an experience is
+constituted or determined by what and how the experience represents. Seeing red feels
+the way it does because the visual state represents a surface as having a certain
+colour; pain feels the way it does because a state represents bodily disturbance in an
+aversive manner. The theory tries to explain consciousness through the better-developed
+resources of intentional content.</p>
+<p>Its strongest motivation is <strong>transparency</strong>: when attending to visual experience, one
+seems to attend through it to properties of the world rather than to an inner mental
+object. Its hardest cases are experiences whose phenomenal differences appear to
+outstrip representational content: inversion, blurry vision, afterimages, moods, and
+the affective dimension of pain.</p>
+<hr />
+<h2 id="strong-and-weak-representationalism"><a class="header" href="#strong-and-weak-representationalism">Strong and weak representationalism</a></h2>
+<p><strong>Strong representationalism</strong> says that phenomenal character is nothing over and above
+representational content of an appropriate kind. If two experiences match in content,
+they match phenomenally.</p>
+<p><strong>Weak representationalism</strong> says phenomenal character supervenes on or is partly
+explained by content but may also depend on mode, vehicle, attention, or other features.
+It preserves the insight that experience presents a world without promising that
+content alone exhausts what experience is like.</p>
+<p>The difference matters dialectically. A counterexample in which content stays fixed
+while character changes refutes the strong claim, not every representational role for
+experience.</p>
+<h2 id="transparency"><a class="header" href="#transparency">Transparency</a></h2>
+<p>Look at a red apple and try to attend to the intrinsic properties of the visual
+experience itself. Attention appears to land on the apple's redness, shape, and gloss.
+The experience is <strong>transparent</strong> or diaphanous: its character is revealed through the
+properties it presents.</p>
+<p>Representationalists infer that phenomenal character is determined by represented
+properties. Sense-datum theories instead posit an inner coloured item; transparency
+makes such an intermediary phenomenologically absent.</p>
+<p>The inference is not compulsory. Experience may be transparent because attention is
+world-directed while still possessing a subjective mode not reducible to content.
+Blur, effort, familiarity, and visual versus imagined presentation can become salient
+without appearing as properties of the object.</p>
+<h2 id="what-kind-of-content"><a class="header" href="#what-kind-of-content">What kind of content?</a></h2>
+<p>A representational theory must specify the content that fixes character.</p>
+<ul>
+<li><strong>Conceptual content</strong> requires the subject to possess concepts deployed in experience.
+Infants and animals pressure this restriction.</li>
+<li><strong>Non-conceptual content</strong> can represent fine-grained properties beyond the subject's
+classificatory concepts.</li>
+<li><strong>Wide content</strong> depends partly on the environment and causal history.</li>
+<li><strong>Narrow content</strong> is fixed by the subject's internal organisation.</li>
+<li><strong>Accurate content</strong> describes the world correctly; hallucination shows that
+phenomenal character does not require accuracy.</li>
+</ul>
+<p>Most views use non-conceptual, possibly wide content with accuracy conditions. A
+hallucination and matching perception can then share content while differing in whether
+the world satisfies it.</p>
+<h2 id="naturalising-phenomenal-character"><a class="header" href="#naturalising-phenomenal-character">Naturalising phenomenal character</a></h2>
+<p>If representation can be naturalised through causal covariance, biological function,
+or information-processing role, representationalism promises a route from physical
+systems to experience:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">physical state</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">representational content</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">phenomenal character</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>Each arrow carries a problem. Naturalistic theories must explain misrepresentation and
+content determinacy. Representationalism must then explain why some representations are
+conscious while retinal, computational, and unconscious neural representations are not.</p>
+<p>Higher-order, global-access, or attention conditions may mark the conscious subset.
+But if those conditions do the decisive work, content alone is insufficient and the
+theory becomes a hybrid.</p>
+<h2 id="inverted-earth"><a class="header" href="#inverted-earth">Inverted Earth</a></h2>
+<p>In Block's <strong>Inverted Earth</strong>, colours and colour vocabulary are systematically swapped.
+An observer receives an inverting device and is moved unknowingly to the inverted
+environment. Over time, externalist causal relations may change what their internal
+states represent while local phenomenology remains stable.</p>
+<p>If wide content changes without phenomenal change, phenomenal character is not identical
+with wide content. Conversely, an internal inversion could change character while
+environmental content remains fixed.</p>
+<p>Representationalists respond by appealing to narrow content, different temporal stages,
+or contents that include modes of presentation. The case shows that "content" cannot
+remain unspecified. A version protected by adding every phenomenal difference to its
+content risks explaining character by redescribing it.</p>
+<h2 id="blurry-vision-and-modes"><a class="header" href="#blurry-vision-and-modes">Blurry vision and modes</a></h2>
+<p>Seeing a tree clearly and seeing the same tree blurrily may represent the same object
+and broad properties while differing phenomenally. One response adds higher-order
+content: blurry vision represents its own uncertainty or reduced precision. Another
+says the content itself is less determinate. A third introduces a <strong>representational
+mode</strong>, analogous to the difference between seeing and imagining one content.</p>
+<p>Modes make the view plausible but weaken strong representationalism. If modes possess
+phenomenal character not fixed by what is represented, representation is one component
+rather than the complete analysis.</p>
+<h2 id="pain-moods-and-affect"><a class="header" href="#pain-moods-and-affect">Pain, moods, and affect</a></h2>
+<p>Pain can represent actual or potential bodily damage, location, and intensity. This
+explains phantom pain and mislocalisation: representation can be inaccurate. It does not
+obviously explain <strong>unpleasantness</strong>. Pain asymbolia suggests sensory representation
+can persist while aversive significance changes.</p>
+<p>A representationalist may include imperative or evaluative content: pain represents
+damage as bad and commands protection. The account must avoid circularly defining the
+content through the unpleasant phenomenal feature it was meant to explain.</p>
+<p>Moods are harder because anxiety or elation may lack a specific object. They may
+represent the environment globally as threatening or inviting, or modify the manner in
+which all contents are presented. Either answer expands representation beyond simple
+object-property accuracy conditions.</p>
+<h2 id="unconscious-representation"><a class="header" href="#unconscious-representation">Unconscious representation</a></h2>
+<p>Visual processing, motor control, and memory contain states that plausibly represent
+without being conscious. Representation is therefore not sufficient unless the theory
+specifies a further condition.</p>
+<p>Candidate conditions include:</p>
+<ul>
+<li>availability to a global workspace;</li>
+<li>being represented by a higher-order state;</li>
+<li>recurrent sensory processing;</li>
+<li>sufficient integration;</li>
+<li>availability to attention and working memory.</li>
+</ul>
+<p>These conditions belong to the empirical theories compared in the next tranche. Their
+addition yields a <strong>representational theory of conscious access</strong> more readily than an
+explanation of why the selected representation has phenomenal character.</p>
+<h2 id="relation-to-physicalism"><a class="header" href="#relation-to-physicalism">Relation to physicalism</a></h2>
+<p>Representationalism is compatible with physicalism if content and conscious availability
+are physically realised. It can answer the <a href="04-knowledge-arguments.html">knowledge argument</a>
+by saying Mary gains a new representational capacity, and answer inversion by denying
+content can remain fixed under complete functional identity.</p>
+<p>It does not entail physicalism. A property dualist could hold that irreducible
+phenomenal properties represent, and a relationalist could make experience partly
+constituted by worldly objects. The theory concerns the structure of phenomenal
+character, not by itself its ultimate ontology.</p>
+<p>The corresponding theory of perception - including accuracy conditions, causal
+matching, object-dependent content, and perceptual justification - is developed in
+<a href="../08-perception/03-intentionalism.html">Intentionalism about Perception</a>. The rival view
+that ordinary objects partly constitute veridical experience is developed in
+<a href="../08-perception/04-disjunctivism.html">Disjunctivism and Naive Realism</a>.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><strong>World-directed phenomenology</strong></td><td><strong>Strong</strong> - transparency and accuracy conditions fit perception.</td></tr>
+<tr><td><strong>Hallucination</strong></td><td><strong>Strong</strong> - inaccurate content can preserve apparent character.</td></tr>
+<tr><td><strong>Naturalisation</strong></td><td><strong>Promising but incomplete</strong> - representation itself and conscious selection need accounts.</td></tr>
+<tr><td><strong>Inversion and blur</strong></td><td><strong>Pressure point</strong> - content may stay fixed while character or mode varies.</td></tr>
+<tr><td><strong>Pain and mood</strong></td><td><strong>Mixed</strong> - bodily content helps, but affect and objectless states resist simple analysis.</td></tr>
+<tr><td><strong>Hard problem</strong></td><td><strong>Disputed</strong> - character is relocated into content unless representation explains why it is felt.</td></tr>
+</tbody></table>
+</div>
+<p>Representationalism supplies a powerful theory of what experience presents and why it
+can be accurate or illusory. Its strongest version succeeds only if every phenomenal
+difference can be represented without building the difference into content by fiat.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Block, Ned. "Inverted Earth" (1990).</li>
+<li>Dretske, Fred. <em>Naturalizing the Mind</em> (1995).</li>
+<li>Harman, Gilbert. "The Intrinsic Quality of Experience" (1990).</li>
+<li>Lycan, William G. <em>Consciousness and Experience</em> (1996).</li>
+<li>Tye, Michael. <em>Ten Problems of Consciousness</em> (1995).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/06-consciousness/05-conceivability-and-zombies.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/06-consciousness/07-theories-of-consciousness.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/06-consciousness/05-conceivability-and-zombies.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/06-consciousness/07-theories-of-consciousness.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

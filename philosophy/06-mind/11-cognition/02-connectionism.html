@@ -1,0 +1,415 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Connectionism and Distributed Representation - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/11-cognition/02-connectionism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="connectionism-and-distributed-representation"><a class="header" href="#connectionism-and-distributed-representation">Connectionism and Distributed Representation</a></h1>
+<p><strong>Connectionism</strong> explains cognition through networks of simple units whose weighted
+interactions produce learned, distributed patterns. Knowledge need not be stored as an
+explicit sentence or rule. It can be embodied in the geometry of activation space and
+the strengths among units. Processing is parallel, graded, and sensitive to statistical
+similarity.</p>
+<p>Connectionism challenges the classical picture of explicit symbols transformed by
+rules, but the opposition is not absolute. Networks can implement structured operations,
+and symbolic systems can use learned components. The important questions are whether
+distributed representations explain systematic thought, what their opacity means for
+understanding, and which architectural claims follow from current engineering success.</p>
+<hr />
+<h2 id="the-basic-model"><a class="header" href="#the-basic-model">The basic model</a></h2>
+<p>A connectionist network contains units with activation values and weighted connections.
+An input pattern is transformed through layers or recurrent dynamics into another
+pattern. Learning adjusts weights to improve performance under an objective or signal.</p>
+<p>In schematic form:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span><span class="mpunct">,</span></span></span></span></span></p>
+<p>where input <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> is transformed by weights <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span>, bias <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span>, and nonlinear function <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span>.
+This formula is not a theory of thought. It illustrates how complex mappings can arise
+from many simple interactions without one explicit rule for each case.</p>
+<p>Neural inspiration is historically important but limited. Artificial units, learning
+rules, connectivity, timing, and objectives differ greatly from biological neurons.
+Calling both systems "neural networks" does not establish mechanistic equivalence.</p>
+<h2 id="local-and-distributed-representation"><a class="header" href="#local-and-distributed-representation">Local and distributed representation</a></h2>
+<p>A <strong>local representation</strong> assigns one unit or explicit structure to one content. A
+<strong>distributed representation</strong> encodes content in a pattern across many units, each of
+which participates in many contents.</p>
+<p>Distributed coding supports:</p>
+<ul>
+<li>similarity through distance or direction in representation space;</li>
+<li>graceful degradation when some components fail;</li>
+<li>generalisation from overlapping patterns;</li>
+<li>efficient representation of many combinations;</li>
+<li>context-sensitive content.</li>
+</ul>
+<p>It complicates interpretation. No one component means <em>dog</em>, and a direction found by
+analysis may not correspond to a stable concept used across contexts. Content may be
+distributed across activations, weights, architecture, and training history.</p>
+<h2 id="learning-rather-than-programming"><a class="header" href="#learning-rather-than-programming">Learning rather than programming</a></h2>
+<p>Classical systems are often described through rules supplied by designers. Connectionist
+systems acquire dispositions from examples, feedback, self-supervision, or interaction.
+Their internal organisation can solve tasks in ways no designer explicitly specified.</p>
+<p>Learning explains sensitivity to statistical regularities and graded categories. It
+also makes provenance central. Training distribution, objective, data order, and
+inductive bias shape what is learned. A network's success does not show that it acquired
+the intended concept rather than a shortcut correlated with the labels.</p>
+<p>Out-of-distribution tests, interventions, and counterfactual examples help distinguish
+robust representation from surface correlation.</p>
+<h2 id="graceful-degradation"><a class="header" href="#graceful-degradation">Graceful degradation</a></h2>
+<p>Human cognition often degrades gradually under noise or damage rather than failing when
+one symbol is lost. Distributed systems reproduce this: partial damage can reduce
+accuracy while preserving approximate performance.</p>
+<p>This contrasts with a simplistic classical architecture in which deleting one explicit
+rule destroys a capacity. Actual symbolic systems can include redundancy, and biological
+brains can exhibit sharp dissociations. Graceful degradation supports distributed
+implementation without proving that every cognitive representation is distributed.</p>
+<p>The pattern is evidence when the model predicts the particular errors and recovery,
+not merely when both system and brain sometimes fail gradually.</p>
+<h2 id="systematicity"><a class="header" href="#systematicity">Systematicity</a></h2>
+<p>Classical compositional structures explain why understanding <em>Alice loves Bob</em> connects
+with understanding <em>Bob loves Alice</em>. Fodor and Pylyshyn argue that connectionist
+networks lacking constituent structure cannot explain this <strong>systematicity</strong> except by
+implementing a classical architecture.</p>
+<p>Connectionists respond that structured capacities can emerge through tensor products,
+vector-symbolic binding, learned attention, recurrent dynamics, and training across
+combinations. Empirical systems display substantial but imperfect compositional
+generalisation.</p>
+<p>The disagreement has two levels:</p>
+<ol>
+<li>Can a network produce systematic behaviour?</li>
+<li>Does doing so require internal structures functionally equivalent to symbols and
+rules?</li>
+</ol>
+<p>A positive answer to both supports implementation pluralism rather than eliminating
+classical structure.</p>
+<h2 id="compositionality"><a class="header" href="#compositionality">Compositionality</a></h2>
+<p>The meaning of a complex thought depends on its parts and arrangement. Distributed
+representations can encode combinations without obvious detachable tokens, but they
+must preserve role and binding across novel contexts.</p>
+<p>Variable binding is difficult when the same feature appears in different positions.
+Architectures can use temporal synchrony, attention, slots, vector binding, or learned
+relational representations. Each introduces structure whose generality can be tested.</p>
+<p>Perfect compositionality may not describe human cognition, which is affected by
+familiarity and content. The relevant standard is not ideal symbolic competence alone
+but robust novel recombination under cognitively realistic limits.</p>
+<h2 id="prototype-and-similarity-structure"><a class="header" href="#prototype-and-similarity-structure">Prototype and similarity structure</a></h2>
+<p>Connectionism naturally represents categories through clusters and dimensions. A new
+item is classified through similarity to learned regions rather than satisfaction of a
+definition. This fits prototype effects, typicality, and graded membership.</p>
+<p>Similarity cannot explain every concept. <em>Not dangerous</em>, <em>grandmother</em>, and mathematical
+concepts involve negation, relations, rules, or theory. Similarity itself depends on
+weighted dimensions selected by task and context.</p>
+<p>A plural account may use distributed similarity for recognition and structured
+representations for reasoning. Hybridisation is a substantive architectural hypothesis,
+not an admission that connectionism failed wholesale.</p>
+<h2 id="opacity"><a class="header" href="#opacity">Opacity</a></h2>
+<p>Large learned networks can be difficult to interpret. Their output depends on many
+interacting parameters, and post-hoc explanations may not reflect the actual causal
+route. <strong>Opacity</strong> affects scientific understanding, trust, and claims about mental
+content.</p>
+<p>Interpretability methods probe activations, causal interventions, representations, and
+circuits. Correlation with a feature is not enough; manipulating the candidate mechanism
+should change behaviour as predicted.</p>
+<p>Human brains are also opaque, so opacity does not show absence of cognition. It limits
+evidence for specific explanatory claims and complicates self-report by a system whose
+verbal output may not access its underlying computation.</p>
+<h2 id="rules-in-networks"><a class="header" href="#rules-in-networks">Rules in networks</a></h2>
+<p>A network can behave rule-like without storing an explicit rule. It may approximate a
+regularity over training cases, implement an algorithm in distributed form, or rely on
+memorised patterns. These possibilities diverge under novel inputs.</p>
+<p>The philosophical choice is not always rules versus associations. Rules can be emergent
+descriptions of network dynamics, and networks can contain modular structures. What
+matters is whether the model supports the counterfactual generalisations associated with
+the rule.</p>
+<p>This mirrors <a href="../09-causation-and-action/04-higher-level-causation.html">higher-level causation</a>:
+a rule-level description can be real and explanatory when robustly implemented across
+lower-level variation.</p>
+<h2 id="connectionism-and-content"><a class="header" href="#connectionism-and-content">Connectionism and content</a></h2>
+<p>Distributed state spaces acquire content through training, causal use, consumer systems,
+and inferential relations. A geometric feature alone does not determine what it means;
+many interpretations can fit one pattern.</p>
+<p>External grounding matters. A system trained only on text can inherit public linguistic
+relations and world information through the corpus, while embodied feedback supplies
+new causal correction. Whether the resulting content is original, derived, narrow, or
+wide is treated in the <a href="../07-intentionality/01-aboutness.html">intentionality folder</a>.</p>
+<p>Connectionism explains vehicles and transformations. It does not settle semantics by
+architecture alone.</p>
+<h2 id="current-neural-networks-and-brains"><a class="header" href="#current-neural-networks-and-brains">Current neural networks and brains</a></h2>
+<p>Both biological brains and artificial neural networks use many interacting units and
+distributed adaptation. The similarity is too coarse to support direct inference about
+consciousness, cognition, or biological plausibility.</p>
+<p>Differences can include:</p>
+<ul>
+<li>learning signals and data efficiency;</li>
+<li>recurrence and continuous dynamics;</li>
+<li>embodiment and homeostasis;</li>
+<li>local versus global plasticity;</li>
+<li>developmental history;</li>
+<li>energy, timing, and connectivity;</li>
+<li>persistence and autonomous goals.</li>
+</ul>
+<p>Artificial networks remain useful models of particular computations even when they are
+poor whole-brain models. Engineering success demonstrates one way to realise capacities,
+not identity with the mechanism humans use.</p>
+<h2 id="hybrid-architectures"><a class="header" href="#hybrid-architectures">Hybrid architectures</a></h2>
+<p>Hybrid systems combine learned distributed representations with explicit search,
+symbolic constraints, tools, memory, or planning. Human cognition may itself be hybrid
+across cortical learning, language, working memory, and culturally external symbols.</p>
+<p>Hybrids can exploit connectionist learning and symbolic systematicity. They also risk
+moving the explanatory problem into the interface: how are continuous learned states
+converted into stable compositional symbols and back?</p>
+<p>The existence of successful hybrids suggests the architecture debate should be modular.
+Different cognitive tasks may demand different representations rather than one universal
+format.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Feature</th><th>Connectionist advantage</th><th>Pressure point</th></tr></thead><tbody>
+<tr><td><strong>Learning</strong></td><td>acquires complex mappings from data</td><td>shortcuts, provenance, and data hunger</td></tr>
+<tr><td><strong>Similarity/generalisation</strong></td><td>natural geometry and graded categories</td><td>task-dependent dimensions</td></tr>
+<tr><td><strong>Robustness</strong></td><td>distributed graceful degradation</td><td>some human dissociations are sharp</td></tr>
+<tr><td><strong>Systematicity</strong></td><td>can be learned or structurally engineered</td><td>may require symbol-like binding</td></tr>
+<tr><td><strong>Interpretability</strong></td><td>causal probing is possible</td><td>high-dimensional opacity</td></tr>
+<tr><td><strong>Biological relevance</strong></td><td>distributed inspiration</td><td>coarse analogy with brains</td></tr>
+</tbody></table>
+</div>
+<p>Connectionism replaced the assumption that cognition requires hand-coded explicit
+rules. It did not show that structure, representation, or algorithms disappear. The
+live question is which cognitive regularities emerge from distributed learning and
+which require architecture that preserves compositional roles explicitly.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Elman, Jeffrey L. et al. <em>Rethinking Innateness</em> (1996).</li>
+<li>Fodor, Jerry A. and Zenon W. Pylyshyn. "Connectionism and Cognitive Architecture" (1988).</li>
+<li>McClelland, James L., David E. Rumelhart, and the PDP Research Group. <em>Parallel Distributed Processing</em> (1986).</li>
+<li>Smolensky, Paul. "On the Proper Treatment of Connectionism" (1988).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/11-cognition/01-computational-theory.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/11-cognition/03-embodied-and-enactive-cognition.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/11-cognition/01-computational-theory.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/11-cognition/03-embodied-and-enactive-cognition.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

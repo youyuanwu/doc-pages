@@ -1,0 +1,424 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What Is Philosophy of Mind? - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/01-introduction.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="what-is-philosophy-of-mind"><a class="header" href="#what-is-philosophy-of-mind">What Is Philosophy of Mind?</a></h1>
+<p><strong>Philosophy of mind</strong> asks what minds are, what makes a state mental, and how mental
+phenomena fit into the rest of nature. The subject begins from an awkward conjunction.
+Mental life is the part of reality each subject appears to know most directly: pain,
+colour, thought, memory, and intention are not theoretical posits encountered first in
+a laboratory. Yet minds are also studied as biological and computational systems from
+the outside, and those investigations explain increasingly much without using the
+first-person vocabulary in which mental life is lived. The philosophical problem is
+not to choose one description and discard the other. It is to say how they can both be
+true of one world.</p>
+<p>That problem is broader than consciousness. A belief can guide action while remaining
+unconscious; a perception can represent an object incorrectly; an intention can fail
+to produce the movement it rationalises; and a sophisticated system can solve problems
+without settling whether anything is experienced. These cases concern <strong>aboutness</strong>,
+<strong>causation</strong>, <strong>cognition</strong>, and <strong>evidence</strong> as well as phenomenal character. A theory
+that explains only why experience feels a certain way is not yet a theory of mind, and
+a theory that explains every behavioural capacity may still face the question whether
+it explains experience.</p>
+<p>This page separates the field's four master questions, distinguishes notions that
+ordinary speech runs together, and fixes the test cases used throughout the section.
+The next pages state the <a href="02-mind-body-problem.html">mind-body problem</a>, compare the
+principal <a href="03-positions-overview.html">positions</a>, and examine the available
+<a href="04-method-and-evidence.html">methods and evidence</a>.</p>
+<hr />
+<h2 id="four-questions-not-one"><a class="header" href="#four-questions-not-one">Four questions, not one</a></h2>
+<p>"What is a mind?" conceals at least four questions. Answers interact, but none simply
+entails the others.</p>
+<ul>
+<li><strong>The metaphysical question - what kind of thing is a mind or mental state?</strong> A
+substance distinct from the body? A brain state? A functional organisation that
+could be realised in neurons, silicon, or something else? A higher-level pattern?
+The <a href="02-mind-body-problem.html">mind-body problem</a> asks which relation between mental
+and physical facts can preserve both their apparent dependence and their apparent
+difference.</li>
+<li><strong>The explanatory question - why and how do mental phenomena occur?</strong> Explaining
+visual discrimination, verbal report, or flexible planning is not obviously the same
+as explaining why those processes are accompanied by experience. Nor is identifying
+a neural correlate yet an account of why that correlate has the mental role it does.
+Different explanatory targets demand different standards of success.</li>
+<li><strong>The semantic question - how can a state be about anything?</strong> A belief may concern
+Paris, tomorrow, a prime number, or a person who never existed. It can also be false.
+A merely causal relation to an object appears unable to explain thought about absent
+objects or systematic misrepresentation. This is the problem of <strong>intentionality</strong> or
+mental content.</li>
+<li><strong>The epistemic question - how are minds known?</strong> A subject seems to know their own
+pain differently from the way an observer knows it. Other minds are encountered
+through bodies, behaviour, testimony, and shared activity. The asymmetry creates both
+the problem of self-knowledge and the problem of other minds, including animal and
+artificial minds.</li>
+</ul>
+<p>The order matters. Starting from consciousness can make mind seem essentially private;
+starting from behaviour can make privacy disappear by definition. Starting from
+representation can make thought central and leave moods or undirected pain looking
+peripheral. Starting from rational agency can exclude infants and animals before the
+argument begins. The section therefore treats the four questions as constraints on a
+complete theory rather than allowing one to define the others away.</p>
+<h2 id="six-notions-that-must-be-kept-apart"><a class="header" href="#six-notions-that-must-be-kept-apart">Six notions that must be kept apart</a></h2>
+<p>Several familiar words are used as though they marked one scale of increasingly
+impressive mentality. They do not.</p>
+<div class="table-wrapper"><table><thead><tr><th>Notion</th><th>Core question</th><th>Why it comes apart from the others</th></tr></thead><tbody>
+<tr><td><strong>Mind</strong></td><td>Does the system have mental states at all?</td><td>The umbrella category is exactly what the competing theories analyse differently.</td></tr>
+<tr><td><strong>Consciousness</strong></td><td>Is there something it is like for the subject, or is information globally available to it?</td><td>Phenomenal and access consciousness may themselves come apart.</td></tr>
+<tr><td><strong>Intentionality</strong></td><td>Are states about or directed at objects, properties, or possibilities?</td><td>Representation can occur without experience; an undirected mood may be experienced without representing an object.</td></tr>
+<tr><td><strong>Cognition</strong></td><td>Does the system perceive, learn, remember, infer, or solve problems?</td><td>Cognitive processing can be unconscious, automatic, and subpersonal.</td></tr>
+<tr><td><strong>Intelligence</strong></td><td>How effectively can the system achieve goals across tasks and environments?</td><td>Performance does not by itself determine whether the process is conscious or whether its symbols have original content.</td></tr>
+<tr><td><strong>Personhood</strong></td><td>Does the being have the capacities or relations relevant to a particular moral and social status?</td><td>Personhood is normative and may require more, less, or simply different features than consciousness.</td></tr>
+</tbody></table>
+</div>
+<p>These distinctions have practical force. Anaesthesia research may operationalise
+consciousness as responsiveness, although paralysis can remove responsiveness while
+leaving awareness intact. A language model may display broad competence, although
+competence does not settle phenomenal consciousness. An animal may lack propositional
+language while possessing perception, pain, memory, and flexible agency. A patient may
+temporarily lack access to information without ceasing to be the subject of experience.
+Every inference must name the target property.</p>
+<h2 id="the-marks-of-the-mental"><a class="header" href="#the-marks-of-the-mental">The marks of the mental</a></h2>
+<p>One way to define the subject is to ask what distinguishes mental states from all
+others. Each proposed <strong>mark of the mental</strong> captures something important and then
+faces counterexamples.</p>
+<p><strong>Consciousness.</strong> Pains and colour experiences are paradigmatically mental because
+they have a phenomenal character. But standing beliefs and long-term intentions appear
+to remain mental while no experience of them is occurring. Making consciousness the
+sole mark either excludes them or redescribes them as dispositions to become conscious.</p>
+<p><strong>Intentionality.</strong> Brentano proposed directedness at an object as characteristic of
+the mental. Beliefs and perceptions fit naturally. Raw pains, moods, and undirected
+anxiety are less clear, while maps, words, and computer states appear to represent
+without obviously having minds. One may answer that artifacts possess only <strong>derived</strong>
+intentionality, but then the difference between original and derived content needs an
+account.</p>
+<p><strong>Privileged access.</strong> A subject ordinarily does not infer that they are in pain from
+their behaviour, while an observer must. Yet people misidentify emotions, confabulate
+motives, and remain ignorant of much cognitive processing. First-person authority is a
+feature to explain, not a guarantee of infallibility.</p>
+<p><strong>Rational integration.</strong> Beliefs and desires stand in inferential and practical
+relations: believing that it is raining and wanting to stay dry makes taking an
+umbrella intelligible. But not all mental states are rational, and insisting on a rich
+normative network threatens to exclude simpler animals and early development.</p>
+<p>The likely lesson is pluralist: mentality may form a family of related capacities
+rather than share one necessary and sufficient mark. That conclusion is not cost-free.
+Without a unifying account, disputes about marginal cases risk becoming stipulations
+about vocabulary rather than disagreements about a natural kind.</p>
+<h2 id="recurring-test-cases"><a class="header" href="#recurring-test-cases">Recurring test cases</a></h2>
+<p>The field advances less by accumulating exotic examples than by asking each theory to
+handle a stable set of cases.</p>
+<ul>
+<li><strong>Pain</strong> combines phenomenal unpleasantness, bodily location, representation of
+damage, motivation, and flexible behaviour. Clinical dissociations can separate
+these features, testing theories that identify pain with any one of them.</li>
+<li><strong>Colour experience</strong> makes the apparent gap between physical description and
+phenomenal character vivid. Spectrum inversion, colour science, and variation among
+perceivers test whether character is fixed by function, representation, or physics.</li>
+<li><strong>Belief</strong> is intentional, inferentially integrated, causally efficacious, and often
+unconscious. It tests accounts of content and of reasons as causes.</li>
+<li><strong>Hallucination</strong> may be subjectively indistinguishable from seeing while lacking the
+ordinary object of perception. It tests whether veridical perception and
+hallucination share one fundamental kind.</li>
+<li><strong>Split-brain and dissociation cases</strong> test whether unity, agency, report, and subject
+count travel together. The data underdetermine metaphysical conclusions unless the
+criteria for counting subjects are stated independently.</li>
+<li><strong>Animals and machines</strong> prevent parochial definitions. They vary embodiment,
+language, evolutionary history, architecture, and behaviour, revealing which of
+those features a theory treats as constitutive and which as merely evidential.</li>
+</ul>
+<p>Thought experiments such as Mary, zombies, the Chinese room, and the
+<a href="11-cognition/04-extended-and-distributed-mind.html">extended mind</a> are
+not substitutes for these cases. They isolate premises and test conceptual commitments;
+their force depends on whether the described scenario is coherent and genuinely
+possible. The <a href="04-method-and-evidence.html">method page</a> treats that dependence directly.</p>
+<h2 id="philosophy-and-the-sciences-of-mind"><a class="header" href="#philosophy-and-the-sciences-of-mind">Philosophy and the sciences of mind</a></h2>
+<p>Philosophy of mind cannot dictate empirical results from the armchair. It also cannot
+be replaced by a list of results, because moving from a result to a theory requires
+claims about what would count as identity, explanation, representation, or evidence.</p>
+<p>Suppose activity in neural system <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> covaries perfectly with conscious state <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>.
+Several hypotheses remain open:</p>
+<ol>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> is identical with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>.</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> is functionally realised by <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>.</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> is a higher-level property grounded in <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>.</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> causes a distinct <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>.</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> are two descriptions of a neutral underlying process.</li>
+</ol>
+<p>The correlation is evidence relevant to all five and proof of none. Interventions,
+dissociations, generalisation across species and substrates, and explanatory success
+can narrow the field. They still do so against background criteria supplied partly by
+philosophical analysis.</p>
+<p>The traffic runs both ways. Multiple realisation moved identity theory toward
+functionalism; blindsight complicated the equation of perception with report; neural
+plasticity pressures simple mappings between mental and physical types; predictive
+processing has renewed disputes over representation and embodiment. A defensible
+philosophy of mind is empirically answerable without pretending that metaphysical
+relations are read directly from an image or task score.</p>
+<h2 id="relation-to-neighbouring-questions"><a class="header" href="#relation-to-neighbouring-questions">Relation to neighbouring questions</a></h2>
+<p>The <a href="../04-ontology/12-contested/02-persons.html">ontology of persons</a> asks whether minds
+or persons add anything to the inventory. The present section asks what features make
+the addition seem necessary and whether reduction, realisation, or grounding can
+preserve them. <a href="../01-freewill/00-README.html">Free will</a> asks whether an action is free;
+this section first asks what an intention is and how reasons explain movement. The
+<a href="../03-spacetime/06-time/04-passage-and-experience.html">experience of temporal passage</a>
+is evidence about temporal consciousness, not by itself evidence that time passes.
+The <a href="../02-religion/06-arguments/06-consciousness-and-reason.html">argument from consciousness</a>
+uses a disputed explanatory gap as a premise; the gap is assessed here before any
+theological conclusion is drawn.</p>
+<p>This division is not bureaucratic. It prevents a local argument from smuggling in a
+general theory of mind. If libertarian agency requires irreducible mental causation,
+that is a cost to be assessed here. If an afterlife requires a separable subject, the
+<a href="../02-religion/11-metaphysics/02-afterlife.html">afterlife</a> page must inherit the
+interaction and identity problems rather than assume them away.</p>
+<h2 id="where-this-leaves-us"><a class="header" href="#where-this-leaves-us">Where this leaves us</a></h2>
+<p>Philosophy of mind is organised by four questions - metaphysical, explanatory,
+semantic, and epistemic - and disciplined by distinctions among consciousness,
+intentionality, cognition, intelligence, agency, and personhood. A complete position
+must say what mental states are, explain the features that make them mental, account for
+their content and causal role, and make sense of the asymmetry between first-person and
+third-person knowledge.</p>
+<p>The next page states the constraint set around which the metaphysical answers are
+organised: the <a href="02-mind-body-problem.html">mind-body problem</a>.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Brentano, Franz. <em>Psychology from an Empirical Standpoint</em> (1874).</li>
+<li>Chalmers, David J. <em>The Conscious Mind</em> (1996).</li>
+<li>Kim, Jaegwon. <em>Philosophy of Mind</em>, 3rd ed. (2011).</li>
+<li>Nagel, Thomas. "What Is It Like to Be a Bat?" (1974).</li>
+<li>Ryle, Gilbert. <em>The Concept of Mind</em> (1949).</li>
+<li>Searle, John R. <em>The Rediscovery of the Mind</em> (1992).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/06-mind/00-README.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/06-mind/02-mind-body-problem.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/06-mind/00-README.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/06-mind/02-mind-body-problem.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

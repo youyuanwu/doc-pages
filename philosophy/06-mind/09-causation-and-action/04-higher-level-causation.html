@@ -1,0 +1,398 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Higher-Level Causation - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/09-causation-and-action/04-higher-level-causation.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="higher-level-causation"><a class="header" href="#higher-level-causation">Higher-Level Causation</a></h1>
+<p>Mental explanations describe organisms at a higher level than cellular and molecular
+physics. The fact that a route is believed unsafe explains why a traveller turns back;
+the exact microphysical state varies across people and occasions. <strong>Higher-level
+causation</strong> asks whether such variables are genuine causes or merely useful summaries of
+lower-level causal processes.</p>
+<p>The issue is general. Temperature, genes, software states, ecosystems, and economic
+variables are physically realised yet figure in causal explanation. These analogies
+show that derivation does not entail causal irrelevance. They do not automatically
+vindicate mental causes, especially irreducible phenomenal properties. A successful
+account must state what makes a higher-level variable difference-making, mechanistically
+grounded, and appropriately proportional to its effect.</p>
+<hr />
+<h2 id="levels-without-layers-of-stuff"><a class="header" href="#levels-without-layers-of-stuff">Levels without layers of stuff</a></h2>
+<p>Explanatory levels need not be ontological floors made of different substances. They
+can be different ways of grouping states according to stable patterns and interventions.
+A gas's temperature is realised by molecular motion; a program state by electronic
+activity; a belief by neural and bodily organisation.</p>
+<p>The relation is many-one:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↦</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mpunct">,</span></span></span></span></span></p>
+<p>where different physical states realise one higher-level kind <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span>. The higher level
+abstracts from differences irrelevant to the regularity under study.</p>
+<p>This abstraction can increase explanatory power. Knowing every molecular coordinate is
+less useful for predicting pressure than knowing temperature. The question is whether
+that usefulness corresponds to causation or only to limited human computation.</p>
+<h2 id="difference-making"><a class="header" href="#difference-making">Difference-making</a></h2>
+<p>Counterfactual accounts say <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> causes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> when, under suitable conditions, had <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> not
+occurred, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> would not have occurred. Higher-level mental variables can satisfy this:
+had the subject not believed the bridge unsafe, they would not have turned around.</p>
+<p>Simple counterfactual dependence fails under preemption and redundancy, and the
+counterfactual "same physical state but different belief" may be impossible if belief
+supervenes on the physical. The relevant comparison changes the realiser as needed to
+change the belief while holding other causally relevant factors fixed.</p>
+<p>This is not cheating. Interventions on temperature also alter molecular states. A
+variable can be causally useful even when intervention must proceed through its base.</p>
+<h2 id="interventionism"><a class="header" href="#interventionism">Interventionism</a></h2>
+<p>On an interventionist account, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> causes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> when ideal changes to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> change <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> while
+blocking alternative routes and confounders. A mental intervention might supply new
+evidence, alter a goal, or induce a perceptual state through different physical means.</p>
+<p>Multiple realisation helps. If changing belief content across varied neural realisers
+produces a stable change in action, the belief variable captures a robust causal pattern
+not tied to one implementation.</p>
+<p>Interventions must be coherent. Wide content cannot always be changed surgically while
+holding the subject and environment fixed. Rational relations also link beliefs: changing
+one attitude may require wider adjustment. Interventionism therefore works best with
+carefully specified contrast classes rather than arbitrary mental switches.</p>
+<h2 id="proportionality"><a class="header" href="#proportionality">Proportionality</a></h2>
+<p>Yablo argues causes should be <strong>proportional</strong> to effects: specific enough to explain the
+effect, but not burdened with irrelevant detail. A pigeon's peck is caused by the
+stimulus being red rather than its exact scarlet shade if any red shade would have
+produced the response.</p>
+<p>Likewise, the exact neural microstate may be too specific. The belief that food is in
+the left box predicts search across many realisers. The mental cause matches the range
+of conditions under which the effect occurs.</p>
+<p>Proportionality answers causal exclusion by denying that the lowest-level sufficient
+condition is always the best cause. It is a criterion of explanatory relevance, though
+critics question whether it establishes a distinct metaphysical causal power.</p>
+<h2 id="mechanistic-realization"><a class="header" href="#mechanistic-realization">Mechanistic realization</a></h2>
+<p>A higher-level cause should be connected to a mechanism. A software bug causes failure
+because it is implemented in instructions that control execution; a belief causes action
+through perceptual, memory, valuation, and motor processes.</p>
+<p>Mechanistic explanation links levels through decomposition:</p>
+<pre class="mermaid">graph TD
+  M[Belief-level variable] --&gt; A[Action-level outcome]
+  M -. realised by .-&gt; N1[Neural population state]
+  N1 --&gt; N2[Decision and motor processes]
+  N2 -. realises .-&gt; A
+</pre>
+<p>The upper arrow summarises a stable dependency implemented by the lower path. It is not
+an extra force. The model also permits failure: if no mechanism links the attributed
+content to action, the attribution may be predictive shorthand rather than a cause.</p>
+<h2 id="causal-realization"><a class="header" href="#causal-realization">Causal realization</a></h2>
+<p>Some theories identify a higher-level property's powers with a subset of its realiser's
+powers. The belief is causally efficacious because the realising neural state possesses
+the organised powers definitive of that belief. No power is duplicated.</p>
+<p>This position blurs non-reduction. If mental kinds are nothing beyond functional causal
+profiles, the account resembles reductive functionalism. Defenders distinguish identity
+with one physical type from realization by variable physical types. Reduction across
+levels need not be type identity.</p>
+<p>The debate is partly over what autonomy requires. Distinct fundamental powers are not
+needed for explanatory and causal reality; they may be required for robust property
+dualism.</p>
+<h2 id="exclusion-revisited"><a class="header" href="#exclusion-revisited">Exclusion revisited</a></h2>
+<p>The exclusion argument assumes causes at different levels compete for one causal slot.
+Higher-level theories offer three denials:</p>
+<ol>
+<li><strong>same-instance:</strong> mental and physical causes are one process under different
+descriptions;</li>
+<li><strong>realization:</strong> the higher-level causal relation is constituted by lower-level
+relations rather than added to them;</li>
+<li><strong>contrast relativity:</strong> mental and physical explanations answer different questions
+and select different relevant alternatives.</li>
+</ol>
+<p>These responses work poorly for a mental property claimed to possess a novel power
+beyond its realiser. They work well for functional, representational, and organisational
+properties. The causal prospects of "the mental" therefore vary by mental kind.</p>
+<h2 id="software"><a class="header" href="#software">Software</a></h2>
+<p>Software is a common analogy. A program causes a machine to print an error even though
+every transition is electronic. The software description supports debugging,
+counterfactuals, and interventions across different hardware.</p>
+<p>The analogy helps with cognition and content where implementation structure is explicit.
+It is less decisive for phenomenal consciousness. Software properties are defined by
+functional organisation; whether qualia are so defined is exactly what absent-qualia
+arguments dispute.</p>
+<p>There is also a danger of deriving metaphysics from explanatory convenience. A bug can
+be real as a pattern without being an additional force. That model supports
+non-reductive explanation, not irreducible mental powers.</p>
+<h2 id="genes-and-biological-functions"><a class="header" href="#genes-and-biological-functions">Genes and biological functions</a></h2>
+<p>Genes cause phenotypic effects in environments through molecular mechanisms. "Gene for
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>" abstracts from complex pathways and can be causally useful when the contrast is
+specified. Biological function likewise depends on selection history and organisation.</p>
+<p>Mental contents may resemble these relational properties. Their causal relevance can
+depend on environment, history, and consumer systems rather than one intrinsic molecule.
+This counters the objection that wide or normative properties cannot be causes.</p>
+<p>The analogy also warns against unrestricted attribution. Gene-level claims become
+misleading when context and interaction are ignored. Mental causal claims require the
+same discipline about background conditions and level.</p>
+<h2 id="temperature-and-multiple-realization"><a class="header" href="#temperature-and-multiple-realization">Temperature and multiple realization</a></h2>
+<p>Temperature is multiply realised by different molecular microstates and supports robust
+causal laws. It demonstrates that higher-level variables can be objective, measurable,
+and reducible without matching one microstate.</p>
+<p>Mental states differ because their individuation may involve rational norms and
+phenomenal character. Still, the example blocks a simple inference from many realisers
+to non-physicality or causal impotence.</p>
+<p>The right question is whether a mental variable participates in similarly stable laws,
+mechanisms, and interventions. Some perceptual and computational states may; broad folk
+categories may fragment; phenomenal qualities may require another account.</p>
+<h2 id="explanatory-pluralism"><a class="header" href="#explanatory-pluralism">Explanatory pluralism</a></h2>
+<p>Different levels answer different why-questions:</p>
+<ul>
+<li>the neural explanation says how a movement was implemented;</li>
+<li>the computational explanation says which information transformation occurred;</li>
+<li>the reason explanation says why the action made sense to the agent;</li>
+<li>the social explanation says which norms and institutions shaped the choice.</li>
+</ul>
+<p>These explanations can be compatible without all being equally causal in every context.
+Pluralism should not become indiscriminate. Explanatory variables need invariance,
+counterfactual support, and integration with mechanisms.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Account</th><th>Criterion for higher-level cause</th><th>Main concern</th></tr></thead><tbody>
+<tr><td><strong>Counterfactual</strong></td><td>effect depends on higher-level variable</td><td>supervenience and redundancy cases</td></tr>
+<tr><td><strong>Interventionist</strong></td><td>interventions on variable change outcome</td><td>feasibility and realization of intervention</td></tr>
+<tr><td><strong>Proportionality</strong></td><td>variable matches the relevant contrast</td><td>explanatory relevance versus metaphysical power</td></tr>
+<tr><td><strong>Mechanistic</strong></td><td>variable maps onto organised lower-level process</td><td>possible reduction to mechanism</td></tr>
+<tr><td><strong>Subset powers</strong></td><td>realised property selects physical causal powers</td><td>autonomy may become classificatory</td></tr>
+</tbody></table>
+</div>
+<p>Higher-level causation gives mental explanation a defensible place without adding a
+second causal stream. It succeeds most clearly where mental kinds are functional and
+mechanistically tractable. It does not settle whether irreducible phenomenal properties
+possess powers, and it does not show that every useful psychological category marks a
+cause.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Craver, Carl F. <em>Explaining the Brain</em> (2007).</li>
+<li>List, Christian and Peter Menzies. "Nonreductive Physicalism and the Limits of the Exclusion Principle" (2009).</li>
+<li>Woodward, James. <em>Making Things Happen</em> (2003).</li>
+<li>Yablo, Stephen. "Mental Causation" (1992).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/09-causation-and-action/03-anomalous-monism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/09-causation-and-action/05-reasons-intentions-action.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/09-causation-and-action/03-anomalous-monism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/09-causation-and-action/05-reasons-intentions-action.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

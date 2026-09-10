@@ -1,0 +1,400 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Mind-Brain Identity Theory - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/05-mind-body/04-identity-theory.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-mind-brain-identity-theory"><a class="header" href="#the-mind-brain-identity-theory">The Mind-Brain Identity Theory</a></h1>
+<p>The <strong>identity theory</strong> holds that mental states are physical states, ordinarily states
+of the brain or nervous system. Pain does not accompany a neural process as a distinct
+effect and is not merely correlated with it: the pain and the process are one state,
+described through different concepts. If true, identity removes the need for a causal
+bridge between mind and body. A pain's causing withdrawal is a physical process causing
+movement, not two causes competing for one effect.</p>
+<p>The theory rose with mid-twentieth-century neuroscience as an alternative both to
+<a href="01-substance-dualism.html">substance dualism</a> and to <a href="03-behaviourism.html">behaviourism</a>.
+It accepts inner episodes that behaviourism tried to analyse dispositionally, while
+denying that they belong to a separate substance or irreducible property. Its strongest
+form identifies mental <strong>types</strong> with physical types. The difficulty is explaining how
+one physical type could unite the diversity of creatures and systems capable of the
+same mental state.</p>
+<hr />
+<h2 id="identity-not-correlation"><a class="header" href="#identity-not-correlation">Identity, not correlation</a></h2>
+<p>U. T. Place, J. J. C. Smart, and Herbert Feigl proposed that consciousness and sensation
+are brain processes in the same broad sense that lightning is an electrical discharge
+and temperature is mean molecular kinetic energy. Scientific inquiry can discover that
+two descriptions concern one phenomenon even when the descriptions are not synonymous.</p>
+<p>This is stronger than correlation:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mpunct">,</span></span></span></span></span></p>
+<p>not merely</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↔</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord">.</span></span></span></span></span></p>
+<p>If pain is identical with physical state <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>, there is no possible instance of this
+pain without <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> and no instance of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> without the pain. By contrast, correlated
+events remain numerically two and could in principle come apart.</p>
+<p>The distinction matters for explanation. Correlation invites the question why the
+states travel together. Identity blocks that question in one form: nothing explains
+why lightning accompanies electrical discharge because there are not two occurrences.
+It leaves another question: what justifies the identity, and why does the state known
+physically also present a phenomenal character?</p>
+<h2 id="type-and-token-identity"><a class="header" href="#type-and-token-identity">Type and token identity</a></h2>
+<p><strong>Type identity</strong> associates each repeatable mental kind with a repeatable physical
+kind:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8623em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">pain</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">physical type </span></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord">.</span></span></span></span></span></p>
+<p>This supports a strong reduction of psychology. Laws stated in mental vocabulary can
+in principle be connected to neurological laws through type identities, much as
+thermodynamic properties connect with statistical mechanics.</p>
+<p><strong>Token identity</strong> makes only a claim about particulars:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">h</span><span class="mord mathnormal">ys</span><span class="mord mathnormal">i</span><span class="mord mathnormal">c</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mopen">(</span><span class="mord mathnormal">e</span><span class="mclose">))</span><span class="mord">.</span></span></span></span></span></p>
+<p>Every particular pain, belief, or decision is a physical event, but different tokens
+of one mental kind may be physically heterogeneous. Token identity secures an
+all-physical inventory and avoids causal competition at the event level. It does not
+by itself reduce mental properties or explain what makes heterogeneous physical events
+tokens of one mental type.</p>
+<p>The distinction prevents an invalid inference. Evidence that every observed mental
+episode has a neural realisation supports token physicalism. It does not show that pain,
+belief, or perception corresponds to one physical type across organisms.</p>
+<h2 id="contingent-scientific-identity"><a class="header" href="#contingent-scientific-identity">Contingent scientific identity</a></h2>
+<p>Smart denied that mental and physical expressions have the same meaning. "I am in
+pain" and a neurological description differ in how speakers identify the state, just
+as "lightning" and "electrical discharge" once differed. The identity can therefore be
+an empirical discovery rather than a conceptual truth.</p>
+<p>This answers a simple objection from meaning: a person can know they are in pain
+without knowing neuroscience because co-referring expressions need not be cognitively
+equivalent. It raises a modal issue. If true identities are necessary, then pain could
+not have existed without its physical identity, even though that separation appears
+conceivable. Kripke argued that the lightning analogy breaks down. We can explain the
+appearance of lightning without electrical discharge by imagining a different cause of
+the same visual appearance; pain, however, is the appearance itself. Imagining the
+feeling while removing the neural state appears to preserve pain rather than only its
+surface sign.</p>
+<p>The identity theorist can reject the claimed possibility, distinguish phenomenal from
+physical concepts, or identify only tokens. Each response preserves identity at a cost:
+modal intuition is declared misleading, a theory of concepts is added, or type-level
+reduction is abandoned.</p>
+<h2 id="bridge-laws-and-reduction"><a class="header" href="#bridge-laws-and-reduction">Bridge laws and reduction</a></h2>
+<p>Classical intertheoretic reduction derives laws of a higher-level theory from a lower
+level plus <strong>bridge laws</strong> connecting their vocabularies. If the bridge says
+"pain occurs if and only if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> occurs," it may state a correlation. If it says
+"pain is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>," it states identity.</p>
+<p>Identity theorists prefer identities because correlations leave two domains and an
+unexplained connection. Yet the evidence often establishes only functional dependency,
+intervention, and covariance. An identity claim earns its explanatory role when it
+supports unification, prediction, and integration better than rival relations such as
+realisation or grounding.</p>
+<p>Reduction also comes apart at several levels. <strong>Ontological reduction</strong> says no mental
+entities exist in addition to physical entities. <strong>Property reduction</strong> identifies
+mental kinds with physical kinds. <strong>Explanatory reduction</strong> shows how higher-level
+regularities follow from lower-level mechanisms. Token identity may deliver the first
+without the second or third.</p>
+<h2 id="multiple-realisation"><a class="header" href="#multiple-realisation">Multiple realisation</a></h2>
+<p>Putnam's decisive challenge asks why pain should be tied to one human neural type.
+Mammals, cephalopods, possible extraterrestrials, and artificial systems may share the
+causal profile of pain while differing physically. If so, the mental kind is
+<strong>multiply realisable</strong>.</p>
+<p>Three identity-theory replies are available.</p>
+<ol>
+<li><strong>Species-relative identity:</strong> human pain is neural type <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.08125em;">H</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, octopus pain is
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">O</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, and so on. This preserves local identities but fragments the generalisation
+that both are pain.</li>
+<li><strong>Disjunctive physical type:</strong> pain is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.08125em;">H</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">O</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.313em;"></span><span class="minner">⋯</span></span></span></span>. The
+disjunction appears to be a physical kind only because its members share the mental
+role, so the reduction explains unity circularly.</li>
+<li><strong>Empirical restriction:</strong> perhaps genuinely shared mental kinds are less widespread
+than intuition suggests. This avoids premature liberalism but risks <strong>chauvinism</strong>,
+excluding minds because their implementation differs from ours.</li>
+</ol>
+<p>Multiple realisation does not refute token identity, and empirical neuroscience may
+find more conserved organisation than early functionalists expected. Its force is
+against the claim that each useful mental kind is one microphysical kind. It motivates
+<a href="05-functionalism.html">functionalism</a>, which locates unity in causal role instead.</p>
+<h2 id="grain-and-physical-kinds"><a class="header" href="#grain-and-physical-kinds">Grain and physical kinds</a></h2>
+<p>The objection depends on the level at which physical types are specified. At a very
+fine grain, even two human pains differ in their exact neural microstate, making type
+identity implausible. At a coarser grain, organisms may share dynamical or network
+properties despite cellular differences.</p>
+<p>An identity theory formulated at the right organisational level can therefore absorb
+some multiple realisation. But if the relevant physical type is defined as "whatever
+plays pain's causal role," the view has become functionalist in substance. A non-circular
+identity theory must identify the physical kind independently and show that it tracks
+the mental kind across relevant cases.</p>
+<h2 id="phenomenal-and-semantic-objections"><a class="header" href="#phenomenal-and-semantic-objections">Phenomenal and semantic objections</a></h2>
+<p>Identity with a physical type must cover more than causal role.</p>
+<p><strong>Phenomenal character.</strong> A complete description of neural structure and function
+appears to leave open what the state feels like. The identity theorist may treat this as
+an epistemic gap between concepts rather than an ontological gap between properties.
+The challenge is to explain why the concepts are so unlike if they concern one property.</p>
+<p><strong>Intentional content.</strong> Beliefs are individuated partly by what they are about, and
+content may depend on the subject's environment or linguistic community. Physically
+identical internal states could have different wide contents. A simple internal neural
+identity therefore cannot capture every content property, though it may identify the
+vehicle that carries content.</p>
+<p>These objections suggest pluralism about mental kinds. Sensations, computational
+states, and externally individuated beliefs may require different physical relations.
+That is compatible with token physicalism but weakens one uniform type-identity theory.</p>
+<h2 id="causation-and-explanatory-levels"><a class="header" href="#causation-and-explanatory-levels">Causation and explanatory levels</a></h2>
+<p>Identity gives the cleanest response to causal exclusion. If mental event <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> is
+physical event <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>, citing <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> does not add two sufficient causes. The mental
+description may still explain why an action occurred: "she left because she believed
+the building unsafe" captures a rational pattern omitted by a neural description.</p>
+<p>The difficult question is whether the mental property is causally relevant <strong>as
+mental</strong>. If the effect follows from the event's physical properties while its content
+plays no role, reasons explanations may be true descriptions without tracking causal
+structure. Type identity answers by identifying the relevant properties; token identity
+alone cannot. This is one reason token identity often develops into
+<a href="06-nonreductive-physicalism.html">non-reductive physicalism</a> rather than standing alone.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><strong>Physical dependence</strong></td><td><strong>Strong</strong> - identity predicts systematic dependence directly.</td></tr>
+<tr><td><strong>Mental causation</strong></td><td><strong>Strong at type level</strong> - one cause under two descriptions; weaker for token identity alone.</td></tr>
+<tr><td><strong>Multiple realisation</strong></td><td><strong>Central difficulty</strong> - species-relative and coarse-grained replies remain available.</td></tr>
+<tr><td><strong>Phenomenal character</strong></td><td><strong>Contested</strong> - the theory identifies but may not explain the first-person character.</td></tr>
+<tr><td><strong>Intentional content</strong></td><td><strong>Incomplete</strong> - environmentally individuated content resists internal neural identity.</td></tr>
+<tr><td><strong>Parsimony</strong></td><td><strong>Strong</strong> - no additional substances, properties, or psychophysical laws.</td></tr>
+</tbody></table>
+</div>
+<p>The identity theory establishes a benchmark: if mental and physical properties can be
+identified, dependence and causation cease to be separate mysteries. Its strongest
+version is threatened by physical diversity; its weaker token version preserves the
+inventory while leaving the unity and causal relevance of mental kinds to another
+theory.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Feigl, Herbert. "The 'Mental' and the 'Physical'" (1958).</li>
+<li>Kripke, Saul. <em>Naming and Necessity</em> (1980), lecture III.</li>
+<li>Place, U. T. "Is Consciousness a Brain Process?" (1956).</li>
+<li>Putnam, Hilary. "The Nature of Mental States" (1967).</li>
+<li>Smart, J. J. C. "Sensations and Brain Processes" (1959).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/05-mind-body/03-behaviourism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/05-mind-body/05-functionalism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/05-mind-body/03-behaviourism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/05-mind-body/05-functionalism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

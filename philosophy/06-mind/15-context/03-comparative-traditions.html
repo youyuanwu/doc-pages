@@ -1,0 +1,412 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Comparative Traditions on Mind and Self - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/15-context/03-comparative-traditions.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="comparative-traditions-on-mind-and-self"><a class="header" href="#comparative-traditions-on-mind-and-self">Comparative Traditions on Mind and Self</a></h1>
+<p>Indian, Buddhist, and Chinese traditions developed sustained arguments about
+consciousness, self, perception, and cognition outside the substance-dualism framework
+that organises much modern European philosophy. They should not be translated too
+quickly into "physicalism" and "dualism." Their categories answer different questions:
+what bears consciousness, whether awareness reveals itself, how persons persist, what
+causes suffering, and whether heart and mind form one faculty.</p>
+<p>This page compares arguments rather than presenting traditions as homogeneous. Nyaya,
+Samkhya, Advaita, Buddhist schools, and Chinese accounts disagree internally and with
+one another. The aim is to widen the decision space of the section, not assign each a
+Western label.</p>
+<hr />
+<h2 id="nyaya-a-substantial-self"><a class="header" href="#nyaya-a-substantial-self">Nyaya: a substantial self</a></h2>
+<p>Nyaya defends an enduring <strong>atman</strong> distinct from body and momentary mental qualities.
+Cognition, desire, pleasure, pain, and effort are properties of this self.</p>
+<p>One argument begins from memory and recognition: "I who saw this now remember it."
+Memory connects past and present cognition through one subject. A mere sequence of
+momentary states appears unable to own both experiences and recognise their identity.</p>
+<p>Nyaya also appeals to coordinated desire and action across sensory modalities. The one
+who sees an object can later reach for it and remember its taste. A unified bearer
+explains cross-modal integration.</p>
+<p>Buddhist opponents answer with causal continuity. A later state can inherit information
+from an earlier one without one permanent substance, as one flame causes another. Nyaya
+argues that causal connection alone cannot yield first-person ownership or genuine
+memory rather than a memory-like representation.</p>
+<p>The dispute closely resembles the choice between a simple subject and an organised
+bundle in <a href="../10-self-and-other-minds/01-the-self.html">What Is the Self?</a>, but Nyaya's
+epistemology and metaphysics should not be collapsed into Cartesian substance dualism.</p>
+<h2 id="nyaya-perception-and-cognition"><a class="header" href="#nyaya-perception-and-cognition">Nyaya perception and cognition</a></h2>
+<p>Nyaya develops a realist epistemology of <strong>pramanas</strong>, reliable means of knowledge,
+including perception, inference, comparison, and testimony. Perception arises through
+appropriate contact among self, mind, sense faculty, and object.</p>
+<p>This layered account distinguishes the enduring subject from the internal organ
+(<em>manas</em>) coordinating episodic cognition. The self is not continuously manifest in
+consciousness; cognition is an adventitious property.</p>
+<p>The view makes knowledge world-involving and fallible while retaining a substantial
+knower. Its complexity reflects a problem shared with contemporary theory: one must
+connect object, sensory mechanism, attention, cognition, and subject without treating
+them as one event.</p>
+<h2 id="samkhya-consciousness-and-nature"><a class="header" href="#samkhya-consciousness-and-nature">Samkhya: consciousness and nature</a></h2>
+<p>Samkhya distinguishes <strong>purusha</strong>, pure consciousness, from <strong>prakriti</strong>, nature. Mind,
+intellect, ego, sensation, and material processes belong to prakriti; purusha is the
+witness for whom these processes appear.</p>
+<p>The view is dualist, but not Cartesian in the ordinary sense. The mental machinery of
+thought and personality is on the natural side; pure consciousness is inactive and
+plural across subjects. Bondage arises when consciousness identifies with processes of
+nature, and liberation through discriminating their difference.</p>
+<p>The causal relation is difficult. If purusha is inactive, how does its presence matter,
+and how are individual witnesses paired with streams of prakriti? The problem resembles
+epiphenomenal and pairing objections while arising from different soteriological aims.</p>
+<h2 id="advaita-vedanta-consciousness-as-non-dual"><a class="header" href="#advaita-vedanta-consciousness-as-non-dual">Advaita Vedanta: consciousness as non-dual</a></h2>
+<p>Advaita identifies the deepest self, <strong>Atman</strong>, with <strong>Brahman</strong>, non-dual reality.
+Ordinary individuality, subject-object distinction, and plurality belong to ignorance
+or conventional appearance rather than ultimate truth.</p>
+<p>Consciousness is not a property possessed by one object among others. It is the
+self-revealing condition under which objects and mental states appear. Attempts to know
+it as an object miss its status as the witness.</p>
+<p>Advaita therefore differs from both substance dualism and panpsychism. It does not add
+many private conscious substances to a physical world; it challenges the ultimate
+reality of the division among subjects and objects.</p>
+<p>The central objections concern individuation and illusion. If one consciousness is
+ultimate, what explains apparently separate perspectives and ignorance? Describing the
+world as <em>maya</em> must do more than relabel the appearance needing explanation.</p>
+<h2 id="buddhist-aggregates-and-no-self"><a class="header" href="#buddhist-aggregates-and-no-self">Buddhist aggregates and no-self</a></h2>
+<p>Early Buddhist analysis divides the person into five <strong>aggregates</strong>: form, feeling,
+perception, formations, and consciousness. None is permanent, fully controllable, or a
+self; no independent owner is found beyond them.</p>
+<p>The no-self argument is not simple eliminativism. Conventional persons exist as
+dependently originated causal processes. Actions have consequences, suffering occurs,
+and cultivation changes future states without an unchanging soul.</p>
+<p>The challenge is continuity and ownership. How can memory, responsibility, and rebirth
+connect stages without identity? Buddhist accounts appeal to conditioned causal series,
+while opponents argue this cannot support the first-person unity presupposed by memory.</p>
+<p>The modern comparison with bundle theory is helpful but incomplete. No-self is also a
+practical diagnosis: attachment to a permanent ego produces suffering.</p>
+<h2 id="momentariness"><a class="header" href="#momentariness">Momentariness</a></h2>
+<p>Some Buddhist schools hold that conditioned phenomena exist only momentarily. Apparent
+endurance is rapid causal succession rather than one thing persisting.</p>
+<p>Momentariness intensifies the no-self problem. A cognition at one moment cannot literally
+be the same state at the next; memory and agency must be transmitted causally.</p>
+<p>The view anticipates stage and process ontologies but is tied to doctrines of dependent
+origination and impermanence. Its arguments concern causal efficacy and change, not only
+the geometry of time.</p>
+<h2 id="reflexive-awareness"><a class="header" href="#reflexive-awareness">Reflexive awareness</a></h2>
+<p>Indian and Tibetan Buddhist debates ask whether cognition is intrinsically aware of
+itself. <strong>Reflexive awareness</strong> (<em>svasamvedana</em>) is invoked to explain how experiences
+are known without a second cognition and regress.</p>
+<p>Defenders argue that a cognition illuminates itself and its object as a lamp illuminates
+objects and itself. Opponents, especially Madhyamaka critics, deny an intrinsically
+self-revealing mental essence and explain self-knowledge through later or relational
+processes.</p>
+<p>The dispute parallels contemporary higher-order versus first-order theories. Is
+self-awareness built into experience, supplied by another representation, or constructed
+through interpretation? The conceptual frameworks differ, but the regress problem is
+genuinely shared.</p>
+<h2 id="yogacara"><a class="header" href="#yogacara">Yogacara</a></h2>
+<p>Yogacara analyses experience through consciousness, representation, and karmic
+conditioning. It is often labelled "mind-only," but interpretations range from
+metaphysical idealism to a methodological critique of subject-object reification.</p>
+<p>The <strong>storehouse consciousness</strong> (<em>alayavijnana</em>) is proposed in some texts to explain
+continuity, latent dispositions, and karmic seeds without a permanent self. It functions
+as a causal stream, not an immutable owner.</p>
+<p>Yogacara's analysis of constructed subject-object duality bears on representationalism
+and self-model theories. Translating it directly into modern idealism can obscure its
+epistemic and practical purpose: overcoming mistaken reification.</p>
+<h2 id="madhyamaka-and-emptiness"><a class="header" href="#madhyamaka-and-emptiness">Madhyamaka and emptiness</a></h2>
+<p>Madhyamaka argues that persons and mental states are <strong>empty</strong> of independent intrinsic
+nature because they arise dependently. Emptiness is not another substance and is itself
+empty.</p>
+<p>This challenges both a permanent self and any final mental atom from which the self is
+constructed. Conventional explanations remain valid without an ultimate bearer.</p>
+<p>The view is not equivalent to physicalism or eliminativism. It rejects the demand that
+either mind or matter possess self-grounding essence. The two-truths framework separates
+conventional person-talk from ultimate analysis.</p>
+<h2 id="chinese-heart-mind"><a class="header" href="#chinese-heart-mind">Chinese heart-mind</a></h2>
+<p>Classical Chinese <strong>xin</strong> is often translated as heart-mind. The term resists a sharp
+division between cognition and emotion. Thinking, feeling, desire, and moral orientation
+belong to one cultivated capacity.</p>
+<p>This challenges a taxonomy in which reason and emotion are independent faculties and
+morality is imposed on desire from outside. Attention and affect shape how situations
+are perceived as calling for action.</p>
+<p>Translation matters. Rendering <em>xin</em> simply as "mind" can import a private inner realm;
+rendering it as "heart" can suggest mere feeling. Heart-mind marks their practical unity.</p>
+<h2 id="confucian-cultivation"><a class="header" href="#confucian-cultivation">Confucian cultivation</a></h2>
+<p>Confucian traditions understand persons relationally through family, ritual, role, and
+moral cultivation. The self is not an isolated substance with social properties added
+later; practical identity develops within patterned relationships.</p>
+<p>Mencius emphasises affective <strong>sprouts</strong> of virtue, such as compassion, that can be
+cultivated. Xunzi stresses transformation through ritual, learning, and deliberate
+practice. Both connect emotion, attention, and agency with social formation while
+disagreeing about native tendencies.</p>
+<p>The framework supports relational and narrative accounts of self without denying bodily
+or psychological individuality. It also warns against treating autonomy as independence
+from every social source.</p>
+<h2 id="daoist-transformation"><a class="header" href="#daoist-transformation">Daoist transformation</a></h2>
+<p>Daoist texts challenge rigid distinctions, fixed perspectives, and over-controlled
+action. <strong>Wu wei</strong> names effortless or non-forcing action responsive to situations,
+not literal inactivity.</p>
+<p>Zhuangzi's transformation stories and skill examples question a fixed ego and celebrate
+fluid perspective. Skilled action can exceed explicit rule-following, anticipating
+themes in embodied cognition.</p>
+<p>These similarities should not erase Daoist ethical and cosmological aims. The point is
+not a computational hypothesis but a challenge to reflective control as the sole model
+of intelligence and agency.</p>
+<h2 id="comparative-fault-lines"><a class="header" href="#comparative-fault-lines">Comparative fault lines</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Question</th><th>Representative alternatives</th></tr></thead><tbody>
+<tr><td><strong>What is the subject?</strong></td><td>Nyaya enduring self; Samkhya witness; Advaita non-dual consciousness; Buddhist process/no-self; Confucian relational person</td></tr>
+<tr><td><strong>How is unity explained?</strong></td><td>one bearer; witness-consciousness; causal aggregates; embodied/social organisation</td></tr>
+<tr><td><strong>Is awareness self-revealing?</strong></td><td>reflexive awareness; higher-order or later cognition; pre-reflective subjectivity</td></tr>
+<tr><td><strong>What is mind's boundary?</strong></td><td>individual self; organismic process; dependent series; relational heart-mind</td></tr>
+<tr><td><strong>What is liberation or flourishing?</strong></td><td>true knowledge of self; discrimination; non-dual realisation; release from self-grasping; cultivated harmony</td></tr>
+</tbody></table>
+</div>
+<p>The rows cross rather than align into one Western spectrum. A view can affirm fundamental
+consciousness while denying individual substantial selves, or affirm an enduring self
+while treating cognition as episodic properties.</p>
+<h2 id="methodological-lessons"><a class="header" href="#methodological-lessons">Methodological lessons</a></h2>
+<p>Comparative philosophy should preserve arguments and conceptual roles rather than match
+words by surface resemblance. <em>Atman</em>, <em>purusha</em>, <em>vijnana</em>, and <em>xin</em> are not variants
+of one item called mind.</p>
+<p>At the same time, refusing comparison entirely prevents mutual criticism. Questions
+about memory, ownership, regress, unity, causal continuity, embodiment, and self-
+awareness create real points of contact.</p>
+<p>The productive method states the local problem, reconstructs the argument in its own
+framework, and only then compares explanatory costs.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Ganeri, Jonardon. <em>The Self: Naturalism, Consciousness, and the First-Person Stance</em> (2012).</li>
+<li>Garfield, Jay L. <em>Engaging Buddhism</em> (2015).</li>
+<li>Siderits, Mark. <em>Buddhism as Philosophy</em> (2007).</li>
+<li>Thompson, Evan. <em>Waking, Dreaming, Being</em> (2015).</li>
+<li>Van Norden, Bryan W. <em>Introduction to Classical Chinese Philosophy</em> (2011).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/15-context/02-phenomenology.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/15-context/04-key-figures.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/15-context/02-phenomenology.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/15-context/04-key-figures.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

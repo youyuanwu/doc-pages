@@ -1,0 +1,490 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Substance Dualism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/05-mind-body/01-substance-dualism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="substance-dualism"><a class="header" href="#substance-dualism">Substance Dualism</a></h1>
+<p><strong>Substance dualism</strong> holds that a minded subject is not identical with a body, brain,
+or organised physical process. Mind and body are distinct substances: each can, at
+least in principle, exist without the other. The view is stronger than the claim that
+mental properties cannot be reduced to physical properties. A property dualist keeps
+one bearer and gives it two kinds of property; a substance dualist adds a distinct
+bearer of thought and experience.</p>
+<p>Descartes supplied the canonical modern version, but the position is not exhausted by
+the picture of an immaterial object piloting a machine. Contemporary interactionists
+appeal to modal arguments and the unity of consciousness, while hylomorphic dualists
+reject the idea that soul and body are two independently complete objects. What unites
+the family is the denial that the subject can be identified with the physical organism
+as described by the natural sciences.</p>
+<p>The position answers one part of the <a href="../02-mind-body-problem.html">mind-body problem</a>
+decisively: consciousness and thought resist physical reduction because their subject
+is not physical. It pays for that answer with four connected demands. It must establish
+the distinction without assuming it, explain how one mind is paired with one body,
+account for causal interaction without unexplained gaps in physical processes, and
+make sense of the detailed dependence of mental life on the brain.</p>
+<hr />
+<h2 id="what-is-a-substance"><a class="header" href="#what-is-a-substance">What is a substance?</a></h2>
+<p>The word <strong>substance</strong> does not mean a kind of material. In the relevant metaphysical
+sense, a substance is a bearer of properties capable of existing independently in a
+way that a property or mode is not. A particular thought depends on a thinker; the
+dualist claims that the thinker need not in turn depend for its existence on a body.</p>
+<p>Descartes distinguishes substances through their <strong>principal attributes</strong>:</p>
+<ul>
+<li><strong>Mind</strong> is essentially thinking: doubting, understanding, affirming, denying,
+willing, imagining, and sensing.</li>
+<li><strong>Body</strong> is essentially extended: it has spatial dimensions, shape, position, and
+motion, and is divisible into spatial parts.</li>
+</ul>
+<p>Neither description says that minds are made from a rare non-physical material. A mind
+is not an invisible body. It lacks spatial extension altogether, which is why asking
+where its left edge lies is supposed to be a category mistake rather than a difficult
+measurement.</p>
+<p>This yields two grades of dualism that should be separated. <strong>Predicate dualism</strong> says
+mental vocabulary cannot be reduced to physical vocabulary. <strong>Property dualism</strong> says
+mental properties themselves are irreducible. <strong>Substance dualism</strong> adds that the thing
+having those properties is numerically distinct from every physical thing. Arguments
+for either weaker thesis do not automatically establish the stronger one.</p>
+<h2 id="the-argument-from-doubt"><a class="header" href="#the-argument-from-doubt">The argument from doubt</a></h2>
+<p>In the <em>Meditations</em>, Descartes observes an epistemic asymmetry:</p>
+<ol>
+<li>I can doubt that any body exists, including my own.</li>
+<li>I cannot doubt that I exist while I am thinking the doubt.</li>
+<li>Therefore I am not identical with my body.</li>
+</ol>
+<p>The first two premises capture the force of the <em>cogito</em>. The conclusion does not
+follow without a bridge. From the fact that I can doubt whether the masked visitor is
+the mayor, while I cannot doubt that the mayor is the mayor, it does not follow that
+the visitor is not the mayor. What can be doubted under one description may be certain
+under another even when both descriptions pick out one thing.</p>
+<p>Descartes' mature argument therefore appeals not merely to doubt but to <strong>clear and
+distinct conceivability</strong>: if mind can be clearly conceived without body and body
+without mind, God could create either independently, so they are really distinct. This
+moves the dispute from ordinary uncertainty to modal knowledge. The key premise is now
+that a sufficiently clear conception of separation guarantees metaphysical
+possibility.</p>
+<p>The familiar physicalist reply compares scientific identities. It was once possible
+to conceive of water without conceiving of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span>, but if water is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span>, no possible
+world contains water without it. The conception isolated a watery appearance while
+misidentifying its nature. Likewise, conceiving thought without neural activity may
+show that our mental concept does not reveal its physical realiser, not that the
+realiser can be absent.</p>
+<p>The dualist can answer that the analogy fails because thought is known directly rather
+than through a superficial appearance. When one attends to pain, there is no hidden
+essence behind the way it feels: the phenomenal character appears constitutive of the
+state. The reply strengthens the case for irreducible phenomenal properties, but a
+further step is still needed to show that their bearer is a distinct substance.</p>
+<h2 id="the-divisibility-argument"><a class="header" href="#the-divisibility-argument">The divisibility argument</a></h2>
+<p>Descartes' Sixth Meditation gives a different argument:</p>
+<ol>
+<li>Every body is spatially divisible.</li>
+<li>The mind is not divisible into spatial parts.</li>
+<li>Therefore the mind is not a body.</li>
+</ol>
+<p>The argument draws on an apparent <strong>unity of consciousness</strong>. A body has independently
+specifiable regions, while a subject's current field of awareness appears presented to
+one point of view. Splitting a brain divides tissue; it does not seem possible to split
+one experience into a left half and right half each owned by half a subject.</p>
+<p>Several objections weaken the contrast. First, the mind has functional differentiation:
+perception, memory, language, and motor control can be selectively impaired. Second,
+split-brain cases appear to divide access, report, and control in ways that make the
+number of subjects empirically and conceptually difficult. Third, even if consciousness
+is unified, it does not follow that the bearer is a simple substance. A physical or
+functional system may integrate distributed information into a unified state.</p>
+<p>The argument therefore identifies a genuine explanandum - subject unity - without yet
+establishing a non-physical subject. Any rival theory must explain the unity rather than
+point to the anatomical divisibility of its mechanism.</p>
+<h2 id="the-modal-argument"><a class="header" href="#the-modal-argument">The modal argument</a></h2>
+<p>Contemporary substance dualists often state the case without Descartes' theology:</p>
+<ol>
+<li>It is conceivable that I exist without this body, or without any body.</li>
+<li>Ideal conceivability is evidence of metaphysical possibility.</li>
+<li>If it is possible for <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> to exist without <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span>, then <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> is not identical with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span>.</li>
+<li>Therefore I am not identical with my body.</li>
+</ol>
+<p>The third premise follows from the necessity of identity: if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span>, they cannot come
+apart in any possible world. The dispute lies in the first two premises and in what
+"I" designates. A scenario containing a stream of experiences and memories may be
+conceivable, but whether its subject is numerically the same person is the very issue.
+Description from the inside does not settle identity across possibilities.</p>
+<p>The argument also risks moving between <strong>epistemic possibility</strong> - what is not ruled
+out by what one knows - and <strong>metaphysical possibility</strong> - what could genuinely exist.
+The <a href="../04-method-and-evidence.html">method page</a> explains why thought experiments reveal
+modal commitments but do not certify them. Still, the modal argument puts a real burden
+on physicalism: it needs an explanation of why separation seems coherent if mind and
+body are necessarily identical or necessarily related by realisation.</p>
+<h2 id="interaction"><a class="header" href="#interaction">Interaction</a></h2>
+<p>If mind and body are distinct and mental events cause actions, they must interact.
+Princess Elisabeth of Bohemia pressed Descartes on the mechanism: bodily motion was
+then understood through impact, shape, and contact, none of which an unextended mind
+possesses. Modern physics no longer requires contact for every interaction, so the
+objection cannot be that only billiard-ball causation is intelligible. The deeper
+question is what law relates non-physical states to physical changes and how the law is
+independently evidenced.</p>
+<p>An interactionist can postulate <strong>psychophysical laws</strong>:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟶</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8917em;vertical-align:-0.2083em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mpunct">,</span></span></span></span></span></p>
+<p>where a mental state <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> contributes to the later physical state. A law need not
+reduce its relata to be a law. Gravity was predictive before its mechanism was
+understood, and fundamental interactions are not disqualified because they are
+fundamental.</p>
+<p>The analogy has limits. A proposed interaction gains scientific standing through
+quantitative effects, systematic intervention, and integration with other laws.
+Dualist interaction is usually inferred from the reality of agency or consciousness,
+the very phenomena whose interpretation is disputed. If the physical trajectory is
+already fully explained by neural and bodily causes, the mental term appears idle; if
+it changes the trajectory, a physically detectable difference should in principle
+remain.</p>
+<h2 id="conservation-and-causal-completeness"><a class="header" href="#conservation-and-causal-completeness">Conservation and causal completeness</a></h2>
+<p>The common claim that dualism straightforwardly violates conservation of energy is too
+quick. Conservation laws derive from symmetries and apply to systems under specified
+conditions. A non-physical cause need not transfer a familiar physical quantity, and
+some interactions could alter direction without altering total energy. Quantum theory
+also makes the classical image of a mind nudging a particle misleading.</p>
+<p>The stronger objection is <strong>physical causal completeness</strong>. Neuroscience and physiology
+successfully explain bodily changes by reference to prior physical conditions. A
+dualist cause would either duplicate a sufficient physical cause or make the physical
+account incomplete. This is an inference from the historical success and practice of
+physical explanation rather than an a priori truth. It remains defeasible, but the
+dualist owes more than the logical observation that incompleteness is possible.</p>
+<p>Appealing to indeterminacy does not solve the problem. An undetermined physical outcome
+is not thereby controlled by a mind; substituting one possible outcome for another
+requires a law connecting intention to outcome. Randomness supplies causal room only in
+the sense that a locked door supplies room after its lock is removed: an account is
+still needed of what enters and how it guides the result.</p>
+<h2 id="the-pairing-problem"><a class="header" href="#the-pairing-problem">The pairing problem</a></h2>
+<p>Suppose two qualitatively identical minds and two qualitatively identical bodies exist.
+One mind's intention moves one body, while the other mind moves the other. What fact
+<strong>pairs</strong> each non-spatial mind with its body?</p>
+<p>Spatial relations ordinarily answer pairing questions: this object affects the object
+next to it rather than an indiscernible object elsewhere. An unextended mind has no
+location to play that role. Qualitative mental and physical properties cannot determine
+the pairing in the symmetric case, because swapping the minds preserves all those
+properties. The dualist appears to need a primitive relation - <em>being the mind of</em> - or
+a law indexed to particular substances.</p>
+<p>Primitive pairing is coherent, but it adds structure beyond the two kinds of substance
+and their intrinsic properties. Locating the mind at the body helps only if a clear
+notion of non-spatial presence can explain why location belongs to an entity defined as
+unextended. Hylomorphic accounts respond more radically by denying that soul and body
+begin as two independently complete items requiring later pairing.</p>
+<h2 id="embodiment-and-brain-dependence"><a class="header" href="#embodiment-and-brain-dependence">Embodiment and brain dependence</a></h2>
+<p>Mental life varies systematically with the physical organism. Injury can remove face
+recognition while preserving sight, anaesthesia can remove responsiveness and
+experience, stimulation can evoke movement or sensation, and neurodegeneration can
+transform memory and character. Development and social interaction shape the very
+concepts through which subjects think.</p>
+<p>An interactionist can accommodate every correlation through psychophysical laws. The
+problem is comparative explanation. If the brain selects, structures, stores, and
+integrates mental capacities in detail, what explanatory work remains for a distinct
+substance? The closer the laws track physical organisation, the more the mind resembles
+an effect or duplicate of that organisation; the more autonomous the mind is, the more
+surprising the dependencies become.</p>
+<p>Embodiment raises a second issue. Perception and action are not streams of input and
+output attached to an otherwise complete thinker. Bodily orientation, affect,
+sensorimotor skill, and environmental coupling may partly constitute cognition. A
+separable mind could possess analogues of these structures, but the dualist then owes
+an account of why bodily form is so deeply reflected in apparently non-bodily thought.</p>
+<h2 id="interactionism-parallelism-and-epiphenomenalism"><a class="header" href="#interactionism-parallelism-and-epiphenomenalism">Interactionism, parallelism, and epiphenomenalism</a></h2>
+<p>Substance dualism does not force two-way interaction.</p>
+<ul>
+<li><strong>Interactionism</strong> allows mind-to-body and body-to-mind causation. It preserves
+agency and perception but faces causal completeness directly.</li>
+<li><strong>Parallelism</strong> denies cross-domain causation and explains coordination through
+pre-established harmony or common divine ordering. It avoids interaction by making
+the match between experience and world externally arranged.</li>
+<li><strong>Occasionalism</strong> treats apparent finite causes as occasions for divine action. It is
+a general theory of causation rather than a local repair and inherits its theological
+commitments.</li>
+<li><strong>Epiphenomenal dualism</strong> allows physical-to-mental causation but denies the reverse.
+It fits brain dependence and physical completeness at the cost of making experience
+unable to influence reports, memory, deliberation, or survival.</li>
+</ul>
+<p>Only interactionism preserves the ordinary thought that pain itself helps cause
+withdrawal and that reasons themselves guide action. The alternatives show that
+correlation is logically compatible with dual substances, but compatibility is weaker
+than explanation.</p>
+<h2 id="hylomorphic-dualism"><a class="header" href="#hylomorphic-dualism">Hylomorphic dualism</a></h2>
+<p>Aristotelian and Thomistic <strong>hylomorphism</strong> analyses a living thing as matter organised
+by form. The soul is the form of a living body: the principle by which its matter
+constitutes one organism with characteristic capacities. It is not normally a second
+complete object located beside the organism, so the Cartesian interaction and pairing
+pictures do not apply straightforwardly.</p>
+<p>Hylomorphic views differ over whether the rational soul can subsist without the body.
+If it can, the view retains a dualist route to survival; if it cannot, it is closer to a
+non-reductive account of an embodied organism. Either way, "form" must do more than
+rename organisation. The view needs to explain how formal causation relates to the
+efficient causal mechanisms studied by biology and how intellectual or phenomenal
+capacities follow from the organism's form.</p>
+<p>Its main contribution is corrective: not every alternative to physicalism begins with
+two independently existing objects and then searches for a causal cable between them.
+The cost is that the position inherits contested Aristotelian machinery and does not
+automatically answer the contemporary explanatory-gap arguments that motivate many
+dualists.</p>
+<h2 id="survival-and-personal-identity"><a class="header" href="#survival-and-personal-identity">Survival and personal identity</a></h2>
+<p>Substance dualism makes disembodied survival conceptually direct: if the person is or
+is essentially associated with an immaterial mind, destruction of the body need not
+destroy the person. That is an application, not an independent proof. The
+<a href="../../02-religion/11-metaphysics/02-afterlife.html">afterlife discussion</a> examines the
+religious use of the view.</p>
+<p>Even granted survival of a mind, identity remains difficult. If memory and character
+depend on the brain, what individuates the surviving subject and makes it this person
+rather than a qualitatively similar bare consciousness? Declaring the soul numerically
+the same secures identity by stipulation unless criteria distinguish one simple soul
+from another. The general problem of identity through time remains with
+<a href="../../03-spacetime/06-time/06-persistence.html">Persistence</a>.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><strong>Phenomenal irreducibility</strong></td><td><strong>Strong</strong> - built into the ontology rather than derived.</td></tr>
+<tr><td><strong>Mental causation</strong></td><td><strong>Possible but unexplained</strong> - interaction requires psychophysical laws and pressure on physical completeness.</td></tr>
+<tr><td><strong>Brain dependence</strong></td><td><strong>Compatible but costly</strong> - detailed correlations can be laws, but the second substance adds diminishing explanatory work.</td></tr>
+<tr><td><strong>Unity of the subject</strong></td><td><strong>Initially attractive</strong> - a simple thinker supplies unity, though functional dissociation complicates simplicity.</td></tr>
+<tr><td><strong>Multiple realisation</strong></td><td><strong>Permissive</strong> - minds are not tied to one physical type, but embodiment becomes harder to explain.</td></tr>
+<tr><td><strong>Parsimony</strong></td><td><strong>Weak</strong> - adds substances, pairing facts, and laws unless these earn independent explanatory roles.</td></tr>
+</tbody></table>
+</div>
+<p>Substance dualism remains a live position because it treats the first-person subject
+and phenomenal character as data rather than promises of future reduction. Its hardest
+problem is not bare logical consistency. It is explanatory integration: the theory
+must make the separate mind indispensable to the causal and cognitive life whose every
+known variation tracks embodied organisation.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Aquinas, Thomas. <em>Summa Theologiae</em>, Part I, questions 75-76.</li>
+<li>Descartes, Rene. <em>Meditations on First Philosophy</em> (1641), especially Meditations II and VI.</li>
+<li>Elisabeth of Bohemia. Correspondence with Descartes (1643).</li>
+<li>Foster, John. <em>The Immaterial Self</em> (1991).</li>
+<li>Hart, W. D. <em>The Engines of the Soul</em> (1988).</li>
+<li>Kim, Jaegwon. <em>Philosophy of Mind</em>, 3rd ed. (2011), chapters 2-3.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/04-method-and-evidence.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/05-mind-body/02-property-dualism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/04-method-and-evidence.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/05-mind-body/02-property-dualism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

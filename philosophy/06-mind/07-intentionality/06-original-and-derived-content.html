@@ -1,0 +1,422 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Original and Derived Intentionality - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/07-intentionality/06-original-and-derived-content.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="original-and-derived-intentionality"><a class="header" href="#original-and-derived-intentionality">Original and Derived Intentionality</a></h1>
+<p>Words, maps, diagrams, computer states, and traffic signs can all be about things. Their
+aboutness appears <strong>derived</strong> from conventions, designers, users, or interpreters. Human
+thought is often said to possess <strong>original</strong> or intrinsic intentionality: beliefs mean
+what they do in their own right, not because another mind assigns an interpretation.</p>
+<p>The distinction promises to stop a regress. If every representation means only because
+someone interprets it, the interpreter's thought must already mean something. But
+declaring biological minds original is not yet an explanation. Naturalistic and
+interpretivist theories challenge whether there is a sharp boundary at all: human
+content also depends on evolution, learning, language, and social attribution.</p>
+<hr />
+<h2 id="paradigm-cases-of-derivation"><a class="header" href="#paradigm-cases-of-derivation">Paradigm cases of derivation</a></h2>
+<p>An ink mark means <em>danger</em> because a community uses it as a warning. A map line denotes
+a border because cartographic conventions and intentions connect the line with a region.
+A data structure represents a customer balance because a software system and its users
+assign fields that role.</p>
+<p>Derived content has several features:</p>
+<ul>
+<li>another content-bearing practice explains it;</li>
+<li>the same vehicle could receive a different interpretation;</li>
+<li>misuse and correctness depend partly on conventions or purposes;</li>
+<li>absent interpreters or practices, the physical mark appears semantically inert.</li>
+</ul>
+<p>The dependence need not be on a current reader. An unread book retains meaning because
+it was produced within a linguistic practice. Derivation can be historical and social
+rather than an occurrent act of interpretation.</p>
+<h2 id="the-regress"><a class="header" href="#the-regress">The regress</a></h2>
+<p>Suppose an internal brain symbol means <em>dog</em> because a homunculus reads it as <em>dog</em>.
+The homunculus must possess a state that means <em>dog</em>, so the explanation repeats the
+problem at a smaller scale. A theory of mind cannot explain original content through an
+inner interpreter unless that interpreter's content is independently grounded.</p>
+<p>The same regress threatens simple computational theories. Formal symbol manipulation
+is sensitive to shape or syntax. Semantics cannot be added merely by saying the machine
+"reads" a bit pattern as an instruction, since reading is the intentional capacity to
+be explained.</p>
+<p>Naturalistic theories stop the regress with causal tracking, biological function, or
+autonomous consumer roles. Phenomenal-intentionality theories stop it with conscious
+presentation. Interpretivists deny that it must stop at an intrinsic fact inside one
+system.</p>
+<h2 id="searles-biological-intentionality"><a class="header" href="#searles-biological-intentionality">Searle's biological intentionality</a></h2>
+<p>Searle distinguishes the intrinsic intentionality of conscious biological minds from
+the observer-relative intentionality of artifacts. A program has syntax assigned by
+designers and users; running the program does not by itself create semantics.</p>
+<p>The position underlies the Chinese room argument. A person follows rules for manipulating
+Chinese symbols and produces appropriate answers without understanding Chinese. If the
+person and rulebook lack understanding, Searle argues, formal computation alone is not
+sufficient for original content.</p>
+<p>The appeal to biology can be read in two ways. It may be an empirical hypothesis that
+specific biological causal powers generate consciousness and intentionality, or a
+stipulation that only biological systems have intrinsic content. Only the former is
+explanatory, and it requires identifying the relevant powers rather than citing carbon
+or neurons generically.</p>
+<h2 id="the-systems-reply"><a class="header" href="#the-systems-reply">The systems reply</a></h2>
+<p>The standard response says the room's person does not understand Chinese, but the whole
+system - person, rulebook, memory, and operations - may. Components need not possess the
+property of the organised whole. A neuron does not understand English either.</p>
+<p>Searle imagines the person internalising the whole system and still lacking understanding.
+Critics reply that first-person intuition from the component's perspective does not
+settle the system-level property. The debate turns on which causal and representational
+organisation constitutes understanding, not whether one rule-following component feels
+that it understands.</p>
+<p>The systems reply is strongest when the organisation is connected to perception,
+action, learning, and correction rather than a static lookup. This motivates robot and
+embodied replies while leaving open whether such grounding yields consciousness.</p>
+<h2 id="the-symbol-grounding-problem"><a class="header" href="#the-symbol-grounding-problem">The symbol-grounding problem</a></h2>
+<p>Harnad's <strong>symbol-grounding problem</strong> asks how symbols acquire content without every
+symbol being defined only through other symbols. A dictionary is a network of marks; a
+reader connects some of them to perception and action.</p>
+<p>Grounding proposals tie basic symbols to sensorimotor categories learned through
+interaction, then build complex contents compositionally. This supplies causal contact
+and error correction. It does not automatically supply determinate reference or
+phenomenal understanding. Sensors can be interpreted as detecting many correlated
+conditions, and their categories depend on training and goals.</p>
+<p>Grounding is therefore necessary on many naturalistic views but not sufficient by
+itself. Teleological history, consumer use, social practice, and inferential structure
+may all contribute.</p>
+<h2 id="dennetts-intentional-stance"><a class="header" href="#dennetts-intentional-stance">Dennett's intentional stance</a></h2>
+<p>Dennett proposes an interpretive strategy. Treat a system as a rational agent with
+beliefs and desires when doing so yields reliable prediction. Belief is not an inner
+inscription carrying intrinsic semantic paint; it is a real pattern discernible from
+the <strong>intentional stance</strong>.</p>
+<p>This dissolves the demand for an inner source of original content. A system has the
+beliefs that an ideal interpretation of its behaviour, environment, capacities, and
+history attributes to it. Content can be objective enough when the pattern supports
+compression and prediction, even if multiple interpretations remain possible.</p>
+<p>Critics worry that interpretation makes mentality observer-dependent and assigns beliefs
+too liberally. Dennett answers that patterns are not invented at will: some attributions
+predict robustly and others fail. The residual question is whether predictive reality
+captures what a state means <strong>for the subject</strong> or only a useful observer-level pattern.</p>
+<h2 id="radical-interpretation"><a class="header" href="#radical-interpretation">Radical interpretation</a></h2>
+<p>Davidson's <strong>radical interpretation</strong> derives a speaker's beliefs and meanings together
+from observable utterances and circumstances, constrained by truth and rationality. No
+prior semantic facts are read off one sentence in isolation. The interpreter maximises
+overall coherence and agreement while allowing local error.</p>
+<p>Content is thus essentially embedded in a holistic pattern of worldly interaction and
+rational interpretation. The approach explains why meaning and belief cannot be
+assigned independently. It also creates indeterminacy: multiple interpretation schemes
+may fit all evidence.</p>
+<p>Davidson treats this indeterminacy as compatible with all the objectivity content needs.
+Critics seeking intrinsic intentionality regard it as evidence that interpretation has
+not reached the underlying mental fact.</p>
+<h2 id="degrees-and-chains-of-derivation"><a class="header" href="#degrees-and-chains-of-derivation">Degrees and chains of derivation</a></h2>
+<p>The original/derived distinction may be less binary than its examples suggest.</p>
+<ul>
+<li>A natural sign carries information without convention.</li>
+<li>An evolved signal has biological function.</li>
+<li>A trained neural state has learned consumer roles.</li>
+<li>A private mnemonic inherits content from a subject's intention.</li>
+<li>A public word inherits norms from a community and causal history.</li>
+<li>A generated token inherits linguistic structure while also entering new feedback and
+correction loops.</li>
+</ul>
+<p>Each case depends on prior structures differently. Human thought itself is shaped by
+language, teachers, evolution, and environment. If dependence implies derivation, very
+little content is wholly original. A graded view asks how autonomous, world-sensitive,
+and internally norm-governed a representational system is rather than where meaning
+first appears from nothing.</p>
+<h2 id="misreading-and-semantic-constraint"><a class="header" href="#misreading-and-semantic-constraint">Misreading and semantic constraint</a></h2>
+<p>Pure reader-conferral cannot explain <strong>misinterpretation</strong>. If a reader alone supplies
+content, there is no independent fact they can get wrong. Texts and system outputs
+constrain interpretation through syntax, causal history, inferential consequences, and
+public conventions.</p>
+<p>This does not prove that the producing system has speaker meaning. Sentence meaning can
+be fixed by language while communicative intention is absent. A smoke alarm's signal
+can have a stable function and correctness condition without the alarm intending to warn.</p>
+<p>The distinctions are:</p>
+<div class="table-wrapper"><table><thead><tr><th>Level</th><th>Question</th></tr></thead><tbody>
+<tr><td><strong>Signal information</strong></td><td>What condition does the state reliably indicate?</td></tr>
+<tr><td><strong>Functional content</strong></td><td>What condition should it indicate for its consumer role?</td></tr>
+<tr><td><strong>Sentence meaning</strong></td><td>What does the expression mean in the public language?</td></tr>
+<tr><td><strong>Speaker meaning</strong></td><td>What does this agent communicatively intend by producing it?</td></tr>
+<tr><td><strong>Conscious understanding</strong></td><td>Is the content present to a subject phenomenally?</td></tr>
+</tbody></table>
+</div>
+<p>Success at one level does not settle the next.</p>
+<h2 id="artificial-systems"><a class="header" href="#artificial-systems">Artificial systems</a></h2>
+<p>Artificial systems sharpen the distinction because design and autonomous operation
+coexist. A model's outputs inherit conventions and training data, yet internal states
+can be causally responsive to new input, support systematic inference, guide tools, and
+receive correction from the world.</p>
+<p>Three positions remain:</p>
+<ol>
+<li><strong>Strong derivation:</strong> all content belongs to designers and users; the system is an
+instrument like a book or map.</li>
+<li><strong>Functional originality:</strong> autonomous tracking, inference, and correction give the
+system content in its own right, regardless of consciousness.</li>
+<li><strong>Phenomenal originality:</strong> only conscious understanding supplies intrinsic content;
+functional success remains derived.</li>
+</ol>
+<p>The <a href="../../../misc/llm-introspection/03-claude-opus-5.html#but-perhaps-the-meaning-is-all-yours">LLM case study</a>
+examines arguments from externalism, use, tool feedback, misreading, and reader
+conferral. Its central result is conditional: theories that readily grant content are
+precisely those that make content independent of consciousness.</p>
+<h2 id="does-original-intentionality-exist"><a class="header" href="#does-original-intentionality-exist">Does original intentionality exist?</a></h2>
+<p>The case for original intentionality is that interpretation must ultimately answer to a
+state whose content is not borrowed. Conscious thought appears to provide such a state.
+The case against a sharp boundary is that conscious thought's content itself depends on
+causal history, public concepts, inferential role, and interpretation.</p>
+<p>A layered naturalism can stop the regress without an intrinsic semantic atom. Basic
+tracking becomes representation through biological or learned function; networks gain
+conceptual role; social practices stabilise norms; consciousness supplies a distinctive
+mode of access. No layer creates meaning alone, and none requires a homunculus.</p>
+<p>The alternative phenomenal view insists that the layers explain only conditions under
+which observers attribute content, not genuine presentation to a subject. The dispute
+therefore returns to <a href="05-consciousness-and-content.html">consciousness and content</a>:
+whether what-it-is-like is one contribution to meaning or its ultimate source.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Original versus derived intentionality is not settled by pointing to obvious artifacts.
+The hard cases are systems with autonomous learning, world-sensitive correction, public
+language use, and uncertain consciousness. A useful account should distinguish signal,
+functional, sentence, speaker, and phenomenal levels rather than force one verdict for
+all of them.</p>
+<p>The regress objection requires some non-interpretive ground for content. It does not
+decide whether that ground is consciousness, biological function, causal organisation,
+social practice, or a real pattern across them.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Davidson, Donald. <em>Inquiries into Truth and Interpretation</em> (1984).</li>
+<li>Dennett, Daniel C. <em>The Intentional Stance</em> (1987).</li>
+<li>Harnad, Stevan. "The Symbol Grounding Problem" (1990).</li>
+<li>Searle, John R. "Minds, Brains, and Programs" (1980).</li>
+<li>Searle, John R. <em>Intentionality</em> (1983).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/07-intentionality/05-consciousness-and-content.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/08-perception/01-problem-of-perception.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/07-intentionality/05-consciousness-and-content.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/08-perception/01-problem-of-perception.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

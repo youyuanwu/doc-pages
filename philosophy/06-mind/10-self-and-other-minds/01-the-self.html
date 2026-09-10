@@ -1,0 +1,412 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What Is the Self? - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/10-self-and-other-minds/01-the-self.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="what-is-the-self"><a class="header" href="#what-is-the-self">What Is the Self?</a></h1>
+<p>Experience appears organised around a subject. Perceptions are presented from here;
+memories seem to belong to someone; intentions coordinate one body; thoughts are
+available as <em>mine</em>. Yet introspection reveals experiences, bodily feelings, and acts of
+thought more readily than a further entity that owns them. The <strong>problem of the self</strong>
+asks what, if anything, unifies these phenomena into a subject.</p>
+<p>This is not primarily the question of what makes someone at one time numerically
+identical with someone later. That problem belongs to
+<a href="../../03-spacetime/06-time/06-persistence.html">Persistence</a>. The present question is
+synchronic and structural: what is the subject now, and what makes perceptions,
+thoughts, and actions one subject's rather than an ownerless collection?</p>
+<hr />
+<h2 id="four-questions-hidden-in-self"><a class="header" href="#four-questions-hidden-in-self">Four questions hidden in "self"</a></h2>
+<p>The word names several targets:</p>
+<ul>
+<li><strong>metaphysical subject:</strong> the bearer of experiences and actions;</li>
+<li><strong>minimal self:</strong> first-personal organisation, bodily ownership, and agency within a
+current experience;</li>
+<li><strong>psychological self:</strong> the relatively stable pattern of memory, character, goals,
+and self-representation;</li>
+<li><strong>social or narrative self:</strong> the person understood through an unfolding story,
+relationships, commitments, and recognition by others.</li>
+</ul>
+<p>A theory can accept some and reject others. Buddhist no-self views deny a permanent
+independent substance while allowing conventional persons and first-personal processes.
+Narrative theories can explain identity and agency at the personal level without claiming
+that a story is the metaphysical bearer of every sensation.</p>
+<h2 id="the-cartesian-ego"><a class="header" href="#the-cartesian-ego">The Cartesian ego</a></h2>
+<p>The Cartesian view treats the self as a simple thinking substance. Thoughts change, but
+one subject has them. This supplies a bearer and explains unity directly: experiences
+belong together because they modify one indivisible mind.</p>
+<p>The cogito appears to reveal at least that thinking occurs. The move from
+"there is thinking" to "there is a simple persisting thinker" is less secure. Grammar
+may supply a subject where experience supplies only a process. Even if a current subject
+is undeniable, simplicity and separability from the body require further arguments.</p>
+<p>The view also inherits the problems of
+<a href="../05-mind-body/01-substance-dualism.html">Substance Dualism</a>: interaction, pairing, and
+detailed brain dependence. A simple ego explains unity by placing it in a primitive;
+it does not explain why damage can divide access, memory, language, and control.</p>
+<h2 id="animalism-and-the-embodied-self"><a class="header" href="#animalism-and-the-embodied-self">Animalism and the embodied self</a></h2>
+<p><strong>Animalism</strong> says the human person is the living human organism. The subject seeing and
+thinking is the animal whose brain and body perform those activities. This avoids a
+second thinker located where the organism is: if the animal thinks, why posit another
+person receiving the same thoughts?</p>
+<p>Embodiment supports the view. Perception is organised around bodily location; affect
+tracks homeostatic condition; action uses a body schema; development and social contact
+shape cognition. The self does not merely possess a body as an instrument.</p>
+<p>Animalism is a claim about what the person is, not a complete account of subjectivity.
+Biological unity does not by itself explain phenomenal unity, self-representation, or
+why some organism-level processes are experienced as mine. It also makes psychological
+transfer intuitions difficult, though their implications concern persistence rather
+than the present subject.</p>
+<p>The ontology section compares the animal with other candidates in
+<a href="../../04-ontology/12-contested/02-persons.html">Persons and Minds in the Inventory</a>.</p>
+<h2 id="the-brain-and-its-parts"><a class="header" href="#the-brain-and-its-parts">The brain and its parts</a></h2>
+<p>Perhaps the subject is the brain, cerebrum, or a functionally organised subsystem rather
+than the whole animal. Mental capacities depend especially on neural organisation, and
+the organism can lose limbs or organs without losing its subject.</p>
+<p>The proposal faces a boundary problem. Which neural tissue belongs to the thinker, and
+why exclude bodily feedback, endocrine regulation, sensory surfaces, and environmental
+scaffolds that partly constitute cognition? Selecting the smallest sufficient neural
+system may vary by capacity rather than yield one bearer.</p>
+<p>Calling the brain the self can also confuse implementation with level. A football team
+is realised by players without being one player; a minded organism may be realised by
+neural processes without being identical with a tissue mass under every description.</p>
+<h2 id="humes-bundle"><a class="header" href="#humes-bundle">Hume's bundle</a></h2>
+<p>Hume reports that introspection encounters particular perceptions but never a self apart
+from them. The self is therefore a <strong>bundle</strong> or sequence of perceptions connected by
+resemblance, causation, and memory.</p>
+<p>The view avoids a bare owner whose nature adds nothing to the experiences. It fits the
+possibility that self-representation is constructed and changes with the stream. What
+matters is organisation among mental events, not an additional substance.</p>
+<p>The <strong>unity objection</strong> asks what makes these perceptions one bundle. Temporal and
+causal relations connect many events across people; memory already seems to presuppose
+someone whose memory it is. If a bundling relation is primitive, the theory may replace
+the primitive subject with a primitive unity fact.</p>
+<p>The objection is weaker for a synchronic functional bundle. Integration, shared access,
+common control of one body, and reciprocal availability can delimit a current subject.
+The result may be graded and vulnerable to split-brain cases rather than one all-or-
+nothing metaphysical owner.</p>
+<h2 id="the-minimal-self"><a class="header" href="#the-minimal-self">The minimal self</a></h2>
+<p>The <strong>minimal self</strong> is not a biography or substance but the immediate first-personal
+structure of experience: perspectival location, bodily ownership, agency, and the
+implicit "for-me-ness" of experience. One need not explicitly think "this is mine" for
+a pain to be presented as occurring in one's body.</p>
+<p>Components can dissociate. A movement may be experienced without agency; a limb may be
+seen while lacking ownership; depersonalisation can alter self-presence while perception
+continues. These cases suggest that minimal selfhood is structured rather than one
+indivisible quale.</p>
+<p>Some theorists regard for-me-ness as intrinsic to consciousness. Others explain it
+through self-models and sensorimotor organisation. The first risks treating subjectivity
+as primitive; the second must avoid replacing the self with a representation requiring
+another observer.</p>
+<h2 id="narrative-self"><a class="header" href="#narrative-self">Narrative self</a></h2>
+<p><strong>Narrative theories</strong> understand a person through an evolving interpretation that
+organises memory, character, commitments, and anticipated action. Narratives connect
+episodes into intelligible projects and are partly sustained through social recognition.</p>
+<p>The theory captures identity as lived and ethically significant. People revise their
+stories, misremember, inherit cultural plots, and negotiate who they are with others.
+No static inner essence captures this development.</p>
+<p>Narrative is not obviously required for every subject. Infants, animals, and adults in
+states without autobiographical reflection may still experience. Narratives can also be
+false or oppressive. A theory should distinguish the subject capable of having a story
+from the socially articulated person the story helps constitute.</p>
+<h2 id="no-self"><a class="header" href="#no-self">No-self</a></h2>
+<p>Buddhist <strong>anatta</strong> or no-self arguments deny a permanent, independent self beneath the
+changing aggregates of body, feeling, perception, formations, and consciousness. What
+is called a person is a dependently originated process, not an enduring substance.</p>
+<p>No-self is not the claim that nothing exists or that action has no consequences.
+Conventional persons deliberate, suffer, and stand in causal continuity. The target is
+an unchanging owner or controller imagined as independent of the processes.</p>
+<p>One argument resembles Hume's: analysis finds only aggregates, never a self apart.
+Another argues that what is impermanent, conditioned, and not fully controllable cannot
+be the self in the demanded sense. The practical dimension matters: attachment to an
+independent ego contributes to suffering.</p>
+<p>Western bundle theory and Buddhist analysis overlap without being identical. Buddhist
+traditions contain detailed disputes about reflexive awareness, continuity, and
+conventional truth, and should not be reduced to one modern metaphysical slogan.</p>
+<p>Nyaya, Samkhya, Advaita, Buddhist, and Chinese alternatives are compared on their own
+terms in <a href="../15-context/03-comparative-traditions.html">Comparative Traditions on Mind and Self</a>.</p>
+<h2 id="self-model-theories"><a class="header" href="#self-model-theories">Self-model theories</a></h2>
+<p>A <strong>self-model</strong> integrates bodily, cognitive, and social information into a control-
+oriented representation. The system treats the model transparently: it experiences the
+world from the model's perspective without representing the model-building process.</p>
+<p>This explains why the self seems immediate and unified despite distributed processing.
+Ownership and agency can be experimentally altered because they depend on multisensory
+inference and control. The self is a useful model rather than a separate object.</p>
+<p>The objection is that a model must be a model <strong>for</strong> a system. If the subject is
+identified with another interpreting level, regress threatens. Functional accounts
+answer that no inner reader is needed: the model's availability to planning, prediction,
+and action constitutes its role.</p>
+<h2 id="indexicality"><a class="header" href="#indexicality">Indexicality</a></h2>
+<p>First-person thought uses <strong>I</strong> without identifying the subject by description. A person
+can know that the person in a photograph is making a mess without realising "I am making
+a mess." The new self-locating knowledge changes action despite no new impersonal fact.</p>
+<p>This suggests the self is partly a position within a representation: the origin of an
+egocentric model from which here, now, and mine are organised. It does not decide what
+occupies the position. An animal, brain, minimal subject, or narrative person may be the
+referent.</p>
+<p>Indexical structure explains a distinctive cognitive role without turning "I" into the
+name of an introspected object.</p>
+<h2 id="synchronic-self-and-persistence"><a class="header" href="#synchronic-self-and-persistence">Synchronic self and persistence</a></h2>
+<p>A system can possess current unity without persistence, and persist biologically without
+retaining psychological unity. These questions should not be inferred from one another.</p>
+<p>This page asks:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">What makes these states one subject now?</span></span></span></span></span></span></p>
+<p>The persistence page asks:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">What makes the subject at </span></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord"> identical with one at </span></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">?</span></span></span></span></span></p>
+<p>Memory, narrative, and bodily continuity bear on both, but play different roles. The
+first concerns integration and ownership; the second numerical identity across change.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>View</th><th>What supplies selfhood</th><th>Main pressure point</th></tr></thead><tbody>
+<tr><td><strong>Cartesian ego</strong></td><td>one simple thinking substance</td><td>interaction, evidence, and functional division</td></tr>
+<tr><td><strong>Animalism</strong></td><td>biological organism</td><td>subjectivity and psychological transfer intuitions</td></tr>
+<tr><td><strong>Brain view</strong></td><td>neural bearer</td><td>boundaries and embodied dependence</td></tr>
+<tr><td><strong>Bundle/process</strong></td><td>organised experiences</td><td>bundling and ownership</td></tr>
+<tr><td><strong>Minimal self</strong></td><td>perspectival, bodily, agentive structure</td><td>whether primitive or modelled</td></tr>
+<tr><td><strong>Narrative self</strong></td><td>temporally and socially organised interpretation</td><td>pre-narrative subjects and false narratives</td></tr>
+<tr><td><strong>No-self</strong></td><td>no independent owner; dependent process</td><td>continuity, convention, and practical agency</td></tr>
+</tbody></table>
+</div>
+<p>The likely conclusion is plural rather than merely indecisive. Biological bearer,
+minimal perspective, psychological organisation, and social narrative answer different
+questions. Trouble begins when one level is promoted into the only legitimate sense of
+self or when the absence of a Cartesian ego is taken to eliminate subjects altogether.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Albahari, Miri. <em>Analytical Buddhism</em> (2006).</li>
+<li>Gallagher, Shaun. <em>How the Body Shapes the Mind</em> (2005).</li>
+<li>Hume, David. <em>A Treatise of Human Nature</em> (1739-40), book I, part IV.</li>
+<li>Metzinger, Thomas. <em>Being No One</em> (2003).</li>
+<li>Zahavi, Dan. <em>Subjectivity and Selfhood</em> (2005).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/09-causation-and-action/05-reasons-intentions-action.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/10-self-and-other-minds/02-unity-of-consciousness.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/09-causation-and-action/05-reasons-intentions-action.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/10-self-and-other-minds/02-unity-of-consciousness.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

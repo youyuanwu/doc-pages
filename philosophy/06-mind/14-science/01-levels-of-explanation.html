@@ -1,0 +1,404 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Levels of Explanation - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/14-science/01-levels-of-explanation.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="levels-of-explanation"><a class="header" href="#levels-of-explanation">Levels of Explanation</a></h1>
+<p>Mind and brain can be described at many scales: molecules, cells, circuits, algorithms,
+representations, beliefs, actions, and social practices. <strong>Levels of explanation</strong> are
+ways of organising these descriptions according to the questions, variables, and
+mechanisms they address. A neural account does not automatically compete with a
+psychological one, and a useful higher-level explanation is not automatically
+irreducible.</p>
+<p>The central methodological problem is integration. Which higher-level kinds map onto
+mechanisms? When does lower-level detail explain a capacity rather than merely correlate
+with it? When are two explanations complementary, and when do they make incompatible
+claims about the same dependence?</p>
+<hr />
+<h2 id="marrs-three-levels"><a class="header" href="#marrs-three-levels">Marr's three levels</a></h2>
+<p>David Marr distinguished:</p>
+<ol>
+<li><strong>Computational level:</strong> what problem does the system solve, and why is that problem
+appropriate?</li>
+<li><strong>Algorithmic/representational level:</strong> which representations and procedures solve it?</li>
+<li><strong>Implementational level:</strong> how are those procedures physically realised?</li>
+</ol>
+<p>For vision, one may ask why depth must be recovered, which representations and
+algorithms estimate it, and which neural circuits implement them. Answering only one
+leaves the others open.</p>
+<p>The levels constrain each other. Hardware limits feasible algorithms; algorithmic
+structure predicts lesions and timing; ecological tasks determine which output counts as
+success. Marr's framework is not a licence to study each level in isolation.</p>
+<h2 id="personal-and-subpersonal-explanation"><a class="header" href="#personal-and-subpersonal-explanation">Personal and subpersonal explanation</a></h2>
+<p><strong>Personal-level</strong> explanations attribute perceptions, beliefs, intentions, and reasons
+to an agent. <strong>Subpersonal</strong> explanations describe processes by which the agent's
+capacities are implemented: feature extraction, prediction errors, memory consolidation,
+and motor control.</p>
+<p>Confusing levels produces category mistakes. A neural population does not literally
+believe a proposition merely because its activity carries information; a person does
+not calculate every equation used in a model of their visual system.</p>
+<p>Subpersonal explanations can correct personal-level assumptions, and personal-level
+tasks help individuate mechanisms. The distinction concerns explanatory role, not two
+worlds or a ban on cross-level relations.</p>
+<h2 id="mechanisms-and-decomposition"><a class="header" href="#mechanisms-and-decomposition">Mechanisms and decomposition</a></h2>
+<p>A mechanism explains a capacity through organised entities and activities. Researchers
+decompose memory, attention, or control into components and localise operations through
+intervention and dissociation.</p>
+<p>Successful decomposition is neither pure reduction nor mere correlation. It shows how a
+higher-level capacity is produced while preserving the capacity as the phenomenon being
+explained.</p>
+<p>Mechanisms can be nested. A circuit operation is realised by cells, which are realised
+through molecular processes. The useful stopping point depends on the contrast: a drug's
+effect may require molecular detail, while a planning error may be explained at an
+algorithmic level.</p>
+<h2 id="multiple-realisation"><a class="header" href="#multiple-realisation">Multiple realisation</a></h2>
+<p>A higher-level state is <strong>multiply realised</strong> when different lower-level structures can
+perform the same role. This supports autonomy because generalisations can range over
+different species, individuals, or machines.</p>
+<p>Multiple realisation is empirical and grain-relative. Two systems may differ molecularly
+while share network dynamics, or differ in dynamics while match coarse input-output
+function. The right level must be specified rather than assumed.</p>
+<p>The phenomenon blocks simple one-type/one-neural-type reductions. It does not block
+mechanistic explanation or token physicalism. The relation is developed metaphysically
+in <a href="../05-mind-body/06-nonreductive-physicalism.html">Non-Reductive Physicalism</a>.</p>
+<h2 id="reduction"><a class="header" href="#reduction">Reduction</a></h2>
+<p>Reduction can mean:</p>
+<ul>
+<li><strong>ontological:</strong> no additional entities are required;</li>
+<li><strong>type:</strong> higher-level kinds are identical with lower-level kinds;</li>
+<li><strong>theoretical:</strong> higher-level laws are derived through bridge principles;</li>
+<li><strong>explanatory:</strong> lower-level mechanisms make the higher phenomenon intelligible;</li>
+<li><strong>methodological:</strong> inquiry should prioritise lower levels.</li>
+</ul>
+<p>These claims do not travel together. A capacity can be ontologically physical,
+mechanistically explained, and still require higher-level models for prediction. Failure
+of type reduction does not establish non-physical properties.</p>
+<p>Likewise, successful neural prediction is not explanatory reduction unless it identifies
+why the relevant organisation produces the capacity.</p>
+<h2 id="autonomy"><a class="header" href="#autonomy">Autonomy</a></h2>
+<p>A level is explanatorily autonomous when its generalisations remain stable across
+lower-level variation and support interventions. Software, population biology, and
+economics provide familiar examples.</p>
+<p>Psychological kinds can be autonomous because they group states by content and role. A
+belief that danger is near predicts action across diverse neural implementations.</p>
+<p>Autonomy is not insulation. Higher-level explanations should integrate with known
+mechanisms and respect physical constraints. A level that cannot connect with any
+intervention or lower-level process risks becoming merely interpretive.</p>
+<h2 id="when-explanations-complement"><a class="header" href="#when-explanations-complement">When explanations complement</a></h2>
+<p>Two explanations complement when they answer different contrasts. "Why did she leave?"
+may be answered by her belief about danger, by a decision mechanism, or by motor
+execution. Each can be true.</p>
+<p>The reason explanation identifies rational content; the mechanism explains production;
+the neural implementation explains physical realisation. No duplication occurs if the
+levels describe one process.</p>
+<p>Complementarity requires consistency. A psychological explanation claiming flexible
+representation conflicts with a mechanism showing a fixed reflex, because both address
+the organisation responsible for variation.</p>
+<h2 id="when-explanations-compete"><a class="header" href="#when-explanations-compete">When explanations compete</a></h2>
+<p>Explanations compete when they assign incompatible dependencies or deny the relevance of
+variables used by the other. A memory theory based on stored traces conflicts with one
+claiming current reconstruction alone if an intervention can distinguish their
+predictions.</p>
+<p>Cross-level claims also compete over constitution. If a theory says global broadcast is
+consciousness and another says it only causes report, they disagree despite sharing a
+correlation.</p>
+<p>The test is not vocabulary overlap but counterfactual structure: would the explanations
+predict different outcomes under a controlled change?</p>
+<h2 id="top-down-and-bottom-up-constraints"><a class="header" href="#top-down-and-bottom-up-constraints">Top-down and bottom-up constraints</a></h2>
+<p><strong>Bottom-up constraints</strong> arise from implementation. A proposed algorithm must fit
+timing, capacity, connectivity, and lesion evidence.</p>
+<p><strong>Top-down constraints</strong> arise from the task and organised system. Knowing what a circuit
+must compute guides search for mechanisms; organism-level goals constrain which component
+effects count as functional.</p>
+<p>Top-down explanation need not mean a new force pushing components. Organisational
+boundary conditions and control can be realised through lower-level interactions. The
+causal question is treated in <a href="../09-causation-and-action/04-higher-level-causation.html">Higher-Level Causation</a>.</p>
+<h2 id="neural-decoding"><a class="header" href="#neural-decoding">Neural decoding</a></h2>
+<p>A decoder can predict a stimulus or report from neural activity. This establishes
+information availability to the analyst. It does not show the brain uses the same code,
+that the decoded variable causes behaviour, or that the subject consciously represents it.</p>
+<p>Encoding asks how a variable affects activity; decoding asks what can be recovered.
+Both can succeed for correlated but causally irrelevant features.</p>
+<p>Mechanistic interpretation needs intervention, generalisation, and a consumer process
+that uses the information. Otherwise "representation" may describe the experimenter's
+model rather than the system's cognition.</p>
+<h2 id="network-and-region-explanations"><a class="header" href="#network-and-region-explanations">Network and region explanations</a></h2>
+<p>Mental capacities rarely reside in one region. A local lesion can be necessary because
+it disrupts a distributed network; activation in one region can reflect input, output,
+or control rather than the target process.</p>
+<p>Network explanations map interactions, dynamics, and connectivity. They should not
+replace one simplistic localisation with the claim that "the whole brain" does
+everything. Components can have differentiated causal roles within distributed systems.</p>
+<p>The appropriate unit is determined by intervention and mechanism, not the visual scale
+of an image.</p>
+<h2 id="cross-species-and-artificial-comparison"><a class="header" href="#cross-species-and-artificial-comparison">Cross-species and artificial comparison</a></h2>
+<p>Comparative explanation requires functional homology at an identified level. Similar
+behaviour may arise through different algorithms; similar circuits may serve different
+ecological tasks.</p>
+<p>Artificial systems can realise algorithmic structures without biological implementation.
+This supports comparison for capacities defined computationally and weakens it for
+theories requiring metabolism or specific intrinsic dynamics.</p>
+<p>Claims should name the preserved level: task equivalence, algorithmic similarity,
+dynamical similarity, or material homology. "Brain-like" and "human-level" are too vague.</p>
+<h2 id="a-working-integration-protocol"><a class="header" href="#a-working-integration-protocol">A working integration protocol</a></h2>
+<p>For a cognitive explanation:</p>
+<ol>
+<li>State the phenomenon at the personal or behavioural level.</li>
+<li>Specify the computation or functional organisation proposed.</li>
+<li>Identify an implementational mechanism.</li>
+<li>Derive predictions from relations among levels.</li>
+<li>Intervene at one level and test effects at others.</li>
+<li>Check whether alternative organisations predict the same result.</li>
+</ol>
+<p>This protocol makes levels mutually constraining. It avoids both premature reduction and
+a protected higher-level vocabulary answerable to no mechanism.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Levels are explanatory abstractions grounded in real organisation, not a fixed cosmic
+staircase. Different tasks and timescales support different decompositions. Reduction,
+realisation, mechanism, and autonomy should be judged separately.</p>
+<p>Mind science progresses when it links personal capacities to algorithms and mechanisms
+without confusing those links with identity or elimination. The same discipline governs
+the science of consciousness, where correlations are plentiful and constitutive claims
+remain disputed.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Bechtel, William. <em>Mental Mechanisms</em> (2008).</li>
+<li>Craver, Carl F. <em>Explaining the Brain</em> (2007).</li>
+<li>Fodor, Jerry A. "Special Sciences" (1974).</li>
+<li>Marr, David. <em>Vision</em> (1982).</li>
+<li>Woodward, James. <em>Making Things Happen</em> (2003).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/13-nonhuman-minds/05-mind-uploading.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/14-science/02-consciousness-science.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/13-nonhuman-minds/05-mind-uploading.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/14-science/02-consciousness-science.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

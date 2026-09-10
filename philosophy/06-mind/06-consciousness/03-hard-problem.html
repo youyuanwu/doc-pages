@@ -1,0 +1,417 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Hard Problem and the Explanatory Gap - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/06-consciousness/03-hard-problem.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-hard-problem-and-the-explanatory-gap"><a class="header" href="#the-hard-problem-and-the-explanatory-gap">The Hard Problem and the Explanatory Gap</a></h1>
+<p>The <strong>hard problem of consciousness</strong> asks why physical or functional processing is
+accompanied by experience at all. A mechanism may discriminate wavelengths, integrate
+information, guide action, and produce reports. Why is there something it is like to
+run that mechanism rather than all the processing occurring without a point of view?</p>
+<p>The problem is "hard" comparatively, not because ordinary cognitive science is easy.
+For discrimination or report, we know the form a mechanistic answer should take. For
+phenomenal consciousness, a complete account of function appears to leave the target
+open. Joseph Levine calls this residual intelligibility problem the <strong>explanatory gap</strong>.
+David Chalmers argues that it points toward an ontological gap; physicalists argue that
+it may instead reflect our concepts, cognitive architecture, or present ignorance.</p>
+<hr />
+<h2 id="easy-problems-and-the-hard-problem"><a class="header" href="#easy-problems-and-the-hard-problem">Easy problems and the hard problem</a></h2>
+<p>The so-called <strong>easy problems</strong> ask how systems:</p>
+<ul>
+<li>distinguish and categorise stimuli;</li>
+<li>integrate information across modalities;</li>
+<li>focus attention;</li>
+<li>make information available to reasoning and action;</li>
+<li>monitor internal states;</li>
+<li>produce verbal and non-verbal reports;</li>
+<li>differ across waking, sleep, anaesthesia, and injury.</li>
+</ul>
+<p>These are formidable empirical problems. They are "easy" only in the sense that a
+causal mechanism performing the function would answer the question posed.</p>
+<p>The hard problem asks why performing those functions gives rise to
+<a href="02-qualia-and-subjectivity.html">phenomenal character</a>. One can apparently understand
+every transition in an information-processing system while still asking why the
+transition feels any way from within. The persistence of that question after the
+functional story is complete is the phenomenon to explain.</p>
+<h2 id="the-explanatory-gap"><a class="header" href="#the-explanatory-gap">The explanatory gap</a></h2>
+<p>Scientific identities normally become intelligible through explanatory connections.
+Mean molecular motion explains temperature because it explains expansion, pressure,
+heat transfer, and the observations through which temperature is identified. Even when
+the concepts differ, the lower-level account makes the higher-level behaviour expected.</p>
+<p>"Pain is neural state <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>" appears different. The neural account may explain withdrawal,
+learning, report, and attention while not making the hurting character seem expected.
+The identity can be asserted, but the connection feels <strong>brute</strong>. Levine's explanatory
+gap is this failure of intelligibility.</p>
+<p>The gap does not immediately prove dualism. An explanation can fail because the alleged
+identity is false, because current science is incomplete, because human concepts hide
+an identity, or because identity claims need no further explanation once supported.
+The philosophical task is to determine which diagnosis fits.</p>
+<h2 id="three-gaps"><a class="header" href="#three-gaps">Three gaps</a></h2>
+<p>Arguments often move too quickly among three claims:</p>
+<ol>
+<li><strong>Epistemic gap:</strong> complete physical knowledge does not give a subject knowledge of
+what an unfamiliar experience is like.</li>
+<li><strong>Conceptual gap:</strong> phenomenal truths are not derivable a priori from physical
+descriptions using our present concepts.</li>
+<li><strong>Ontological gap:</strong> phenomenal properties are not physical properties and are not
+necessitated by physical facts.</li>
+</ol>
+<p>An ontological gap would explain the first two, but the inference is not automatic.
+Water and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span> were conceptually distinct before their identity was discovered. A
+physicalist may argue that phenomenal concepts refer directly through experience while
+physical concepts refer through structure and causal role; different epistemic routes
+then generate a conceptual gap around one property.</p>
+<p>Anti-physicalists reply that ordinary a posteriori identities leave the underlying
+phenomenon structurally explicable, while consciousness remains outside the structure.
+The disagreement concerns whether phenomenal concepts merely conceal an identity or
+track a genuinely additional feature.</p>
+<h2 id="chalmers-argument"><a class="header" href="#chalmers-argument">Chalmers' argument</a></h2>
+<p>Chalmers combines the hard problem with a modal argument:</p>
+<ol>
+<li>Physical and functional explanations answer only structural and dynamical questions.</li>
+<li>Phenomenal consciousness is not exhausted by structure and dynamics.</li>
+<li>A physical and functional duplicate without consciousness is conceivable.</li>
+<li>Ideal conceivability supports metaphysical possibility.</li>
+<li>Therefore physical facts do not metaphysically necessitate phenomenal facts.</li>
+</ol>
+<p>The conclusion supports <a href="../05-mind-body/02-property-dualism.html">property dualism</a> or
+another view on which psychophysical principles are fundamental. The vulnerable points
+are the characterisation of physical explanation, the claim that structure cannot fix
+phenomenality, and the conceivability-to-possibility bridge.</p>
+<p>The argument is stronger than pointing at mystery. It states why more mechanism of the
+same structural kind may seem unable to close the gap. A physicalist response must
+either deny the gap's modal significance or broaden the resources of physical
+explanation.</p>
+<h2 id="type-a-and-type-b-physicalism"><a class="header" href="#type-a-and-type-b-physicalism">Type-A and type-B physicalism</a></h2>
+<p><strong>Type-A physicalists</strong> deny a genuine epistemic or conceptual gap. Once all cognitive
+functions, discriminations, and reports are explained, nothing further remains. The
+intuition of a residue is itself a cognitive phenomenon to explain. Behaviourism,
+analytic functionalism, and illusionism occupy this neighbourhood.</p>
+<p><strong>Type-B physicalists</strong> accept an a priori or conceptual gap while denying an
+ontological gap. Phenomenal and physical concepts pick out the same properties through
+different modes of presentation. The identity is necessary if true but knowable only
+a posteriori.</p>
+<p>Type A faces the charge of changing the subject: explaining judgments about experience
+does not obviously explain experience. Type B faces the charge that its analogy with
+other scientific identities fails to explain why the phenomenal-physical link alone
+remains brute. Both retain physicalism by locating the difficulty in cognition rather
+than the world's inventory.</p>
+<h2 id="the-phenomenal-concepts-strategy"><a class="header" href="#the-phenomenal-concepts-strategy">The phenomenal-concepts strategy</a></h2>
+<p>A <strong>phenomenal concept</strong> is acquired or deployed through undergoing, imagining, or
+recognising an experience. A physical concept identifies the same state through neural
+or causal description. Because the concepts have different cognitive roles, no a
+priori inference connects them even if they co-refer.</p>
+<p>This strategy gives a unified reply to Mary, zombies, and the explanatory gap. Mary
+acquires a new phenomenal concept rather than a new fact; zombies seem conceivable
+because physical concepts do not activate phenomenal ones; identities feel brute
+because one concept presents its referent directly and the other descriptively.</p>
+<p>The objection is explanatory circularity. If phenomenal concepts are special because
+their use involves the phenomenal properties whose reduction is contested, the strategy
+presupposes what it must explain. If their role is specified wholly functionally, the
+anti-physicalist asks why that role generates the distinctive epistemic appearance.</p>
+<h2 id="dissolution-and-illusionism"><a class="header" href="#dissolution-and-illusionism">Dissolution and illusionism</a></h2>
+<p>A dissolutive approach predicts that the hard problem will resemble vitalism after the
+relevant functions are understood. There is no further vital property beyond metabolism,
+reproduction, regulation, and development; perhaps there is no further phenomenal
+property beyond discrimination, access, affect, and self-representation.</p>
+<p>The analogy is contested. Life was identified through publicly observable capacities,
+so explaining those capacities exhausted the target. Consciousness is identified by
+how processing appears to the subject. Abstracting from appearance seems to remove the
+datum rather than explain it.</p>
+<p>Illusionists sharpen dissolution by explaining why introspection represents experience
+as having irreducible qualitative properties. Success would solve the <strong>meta-problem</strong>:
+why people judge that there is a hard problem. Whether solving the meta-problem also
+solves the hard problem depends on whether the judgment and its functional causes
+exhaust the original phenomenon.</p>
+<h2 id="the-meta-problem"><a class="header" href="#the-meta-problem">The meta-problem</a></h2>
+<p>Humans make stable judgments such as "consciousness is private," "a zombie is
+conceivable," and "physical descriptions leave something out." These judgments have
+physical causes and can be studied. A complete theory should explain them regardless of
+whether they are correct.</p>
+<p>The meta-problem asks:</p>
+<blockquote>
+<p>What mechanisms produce our problem intuitions and phenomenal reports?</p>
+</blockquote>
+<p>Possible sources include introspective models that omit their own construction,
+attention that highlights content while hiding processing, direct phenomenal concepts,
+and culturally learned theories. A successful account could weaken the evidential force
+of hard-problem intuitions by showing them to arise independently of an ontological gap.</p>
+<p>The limitation is symmetry. A mechanism can explain why a true judgment is made as
+well as why a false one is made. Explaining the causal origin of belief in consciousness
+does not by itself debunk it; a debunking argument must show that the mechanism is
+insensitive to truth.</p>
+<h2 id="explanatory-standards"><a class="header" href="#explanatory-standards">Explanatory standards</a></h2>
+<p>Different sides demand different stopping points.</p>
+<ul>
+<li>A reductive physicalist seeks identity, derivation, or realisation sufficient to make
+phenomenal facts expected from physical facts.</li>
+<li>A non-reductive physicalist accepts grounding or necessary realisation without
+conceptual derivation.</li>
+<li>A property dualist posits fundamental psychophysical laws.</li>
+<li>A panpsychist moves experience into the base and must explain combination.</li>
+<li>A mysterian argues that an answer may exist outside human cognitive capacities.</li>
+</ul>
+<p>Every view stops somewhere. The relevant comparison is not whether a primitive remains
+but which primitives produce unification, prediction, and understanding. Declaring
+consciousness fundamental avoids reduction but should constrain which systems are
+conscious and how experiences vary.</p>
+<h2 id="is-the-problem-scientifically-tractable"><a class="header" href="#is-the-problem-scientifically-tractable">Is the problem scientifically tractable?</a></h2>
+<p>Consciousness science can discover correlates, mechanisms of access, causal prerequisites,
+and dimensions of report and experience. These findings can disconfirm theories that
+make incompatible predictions. They need not settle whether a successful mechanism is
+identical with phenomenal consciousness.</p>
+<p>This does not make the science irrelevant. A hard problem built on false assumptions
+about unity, richness, or introspective precision may shrink. Discovering which
+features dissociate can transform the explanandum. The remaining metaphysical question
+should be posed after, not instead of, this decomposition.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>The hard problem names a real explanatory demand so long as phenomenal consciousness is
+not defined functionally. It does not by itself show that the demand has a non-physical
+answer. The central dispute is whether the explanatory residue tracks an ontological
+feature or a feature of the concepts and self-models through which subjects encounter
+their own states.</p>
+<p>The next arguments sharpen that dispute by asking what complete physical knowledge
+leaves out and what physical duplication can vary. They are treated separately because
+an epistemic argument and a modal argument need different bridge premises.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Chalmers, David J. "Facing Up to the Problem of Consciousness" (1995).</li>
+<li>Chalmers, David J. "The Meta-Problem of Consciousness" (2018).</li>
+<li>Levine, Joseph. "Materialism and Qualia: The Explanatory Gap" (1983).</li>
+<li>Loar, Brian. "Phenomenal States" (1990/1997).</li>
+<li>Papineau, David. <em>Thinking about Consciousness</em> (2002).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/06-consciousness/02-qualia-and-subjectivity.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/06-consciousness/04-knowledge-arguments.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/06-consciousness/02-qualia-and-subjectivity.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/06-consciousness/04-knowledge-arguments.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

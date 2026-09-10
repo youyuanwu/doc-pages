@@ -1,0 +1,393 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Chinese Room and Symbol Grounding - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/13-nonhuman-minds/03-chinese-room-and-symbol-grounding.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-chinese-room-and-symbol-grounding"><a class="header" href="#the-chinese-room-and-symbol-grounding">The Chinese Room and Symbol Grounding</a></h1>
+<p>Searle's <strong>Chinese room</strong> argues that formal symbol manipulation is not sufficient for
+understanding. A person who knows no Chinese follows an English rulebook for transforming
+Chinese characters and produces answers indistinguishable from a fluent speaker. The
+person manipulates syntax without knowing what any symbol means. If running the program
+were sufficient for understanding, Searle argues, the person would understand Chinese;
+they do not, so computation alone is insufficient.</p>
+<p>The thought experiment targets <strong>strong AI</strong> as a metaphysical claim, not the engineering
+usefulness of programs. Its force depends on which system is the candidate understander,
+whether causal interaction can ground symbols, and whether first-person intuition about
+one component settles a property of the whole organisation.</p>
+<hr />
+<h2 id="the-argument"><a class="header" href="#the-argument">The argument</a></h2>
+<p>Searle's reasoning can be stated:</p>
+<ol>
+<li>Programs are defined syntactically or formally.</li>
+<li>Minds possess semantic content and understanding.</li>
+<li>Syntax by itself is neither constitutive of nor sufficient for semantics.</li>
+<li>Therefore implementing a program is not sufficient for a mind.</li>
+</ol>
+<p>The room makes premise 3 vivid. From inside, rule-following never reveals what the marks
+mean. Increasing speed or enlarging the rulebook appears to add more syntax, not
+understanding.</p>
+<p>The conclusion is limited. It does not show that no machine can understand, that brains
+are non-computational, or that computation is irrelevant. It says a formal program
+considered independently of its physical, causal, biological, and social embedding is
+insufficient.</p>
+<h2 id="the-systems-reply"><a class="header" href="#the-systems-reply">The systems reply</a></h2>
+<p>The <strong>systems reply</strong> grants that the person does not understand Chinese and attributes
+understanding to the whole room: person, rulebook, memory, and symbol-processing
+organisation. A neuron does not understand English; the brain does.</p>
+<p>Searle responds by imagining the person internalising every component and performing the
+whole process mentally while still understanding no Chinese. Critics argue this relies
+on the person's introspective judgment about one level. The internalised system may
+instantiate capacities the implementing person does not recognise as their own.</p>
+<p>The dispute turns on system boundaries and organisational sufficiency. If the whole
+supports flexible inference, learning, correction, and integration, denying understanding
+because no component has it risks a composition fallacy.</p>
+<h2 id="the-robot-reply"><a class="header" href="#the-robot-reply">The robot reply</a></h2>
+<p>The <strong>robot reply</strong> embeds the program in a body with sensors and effectors. Symbols are
+connected to objects and actions through ongoing causal interaction rather than arriving
+as uninterpreted marks.</p>
+<p>Searle answers that the room operator can process additional sensor symbols without
+knowing what they mean. Formal mediation remains syntax from the component's perspective.</p>
+<p>The reply is stronger when embodiment changes learning and control, not merely adds input
+channels. A system that discovers stable objects, acts, receives correction, and uses
+representations autonomously has world-grounded functional content under many theories.
+Whether that content constitutes conscious understanding remains disputed.</p>
+<h2 id="the-brain-simulator-reply"><a class="header" href="#the-brain-simulator-reply">The brain-simulator reply</a></h2>
+<p>Suppose the program simulates the causal activity of a Chinese speaker's brain at the
+relevant level. If the biological speaker understands, why does a causally isomorphic
+simulation not?</p>
+<p>Searle distinguishes simulation from duplication. Simulating a fire does not produce
+heat; simulating digestion does not digest. A simulation of brain processes may not
+instantiate their causal powers.</p>
+<p>The analogy assumes understanding resembles heat rather than computation. If it is an
+organisational property, the right causal implementation may instantiate it. A mere
+numerical simulation on unrelated hardware and a functionally integrated causal replica
+must also be distinguished.</p>
+<h2 id="the-virtual-mind-reply"><a class="header" href="#the-virtual-mind-reply">The virtual-mind reply</a></h2>
+<p>A computer can implement a <strong>virtual system</strong> whose states and causal relations differ
+from the hardware's ordinary-level description. The room operator implements rather than
+shares the virtual agent's understanding.</p>
+<p>This parallels virtual machines in computing and higher-level causation. A physical
+processor can instantiate a software process with stable memory, goals, and interfaces.</p>
+<p>The reply needs a non-trivial account of implementation. Arbitrary mappings should not
+create minds, and the virtual organisation must support the relevant counterfactuals.
+The <a href="../11-cognition/01-computational-theory.html#implementation">computational theory</a>
+develops this requirement.</p>
+<h2 id="the-other-minds-reply"><a class="header" href="#the-other-minds-reply">The other-minds reply</a></h2>
+<p>If a system uses Chinese as flexibly as a speaker across indefinite novel contexts,
+denying understanding may demand more evidence than ordinary attribution to humans.
+Understanding is known through behaviour, interaction, and mechanism, not direct access.</p>
+<p>Searle replies that the thought experiment supplies first-person access: he knows he
+does not understand while producing the outputs. The systems reply again denies that
+his awareness exhausts the state of the implemented system.</p>
+<p>The issue is not settled by conversational indistinguishability alone. The
+<a href="../10-self-and-other-minds/04-problem-of-other-minds.html">problem of other minds</a>
+supports convergent evidence, including learning history and architecture.</p>
+<h2 id="syntax-and-semantics"><a class="header" href="#syntax-and-semantics">Syntax and semantics</a></h2>
+<p>Formal systems manipulate structures individuated without reference to meaning. A
+single formal token can receive different interpretations. This underdetermination shows
+that syntax alone does not fix one semantic content.</p>
+<p>It does not follow that a physical computational system possesses only syntax. Its
+states can also stand in causal, teleological, inferential, and social relations. Human
+neural states likewise lack meaning when considered only by shape or chemistry.</p>
+<p>The crucial premise should therefore be:</p>
+<blockquote>
+<p>Mere formal organisation abstracted from every grounding relation is insufficient for
+semantics.</p>
+</blockquote>
+<p>Most naturalistic theorists accept that premise. They dispute whether actual computational
+systems are exhausted by the abstraction.</p>
+<h2 id="the-symbol-grounding-problem"><a class="header" href="#the-symbol-grounding-problem">The symbol-grounding problem</a></h2>
+<p>Harnad asks how symbols acquire content without definition entirely in terms of other
+symbols. A dictionary network cannot ground itself; some terms must connect with
+perception, action, and category learning.</p>
+<p>One proposal divides representations into:</p>
+<ul>
+<li><strong>iconic:</strong> preserve sensory similarity;</li>
+<li><strong>categorical:</strong> discriminate kinds through learned features;</li>
+<li><strong>symbolic:</strong> combine grounded categories compositionally.</li>
+</ul>
+<p>Grounding explains how content reaches the world. It does not automatically establish
+speaker intention, consciousness, or fully determinate reference.</p>
+<h2 id="social-linguistic-grounding"><a class="header" href="#social-linguistic-grounding">Social-linguistic grounding</a></h2>
+<p>Individual speakers use words they cannot ground perceptually. Reference is distributed
+through causal history and division of linguistic labour. A system may acquire meaning
+by participating in this public practice rather than privately attaching every word to
+sensorimotor categories.</p>
+<p>This is normal, not defective: few people identify rare elements or diseases unaided.
+Deference, correction, and public norms extend content.</p>
+<p>Social grounding can grant sentence and conceptual content to artificial systems while
+leaving <strong>speaker meaning</strong> open. Participation requires more than statistical
+co-occurrence if it includes commitment, response to correction, and communicative aims.</p>
+<h2 id="understanding-as-ability"><a class="header" href="#understanding-as-ability">Understanding as ability</a></h2>
+<p>Understanding may consist in a family of abilities: explain, infer, apply, translate,
+answer counterfactual questions, recognise error, and connect language with action. No
+single inner feeling is necessary.</p>
+<p>The room operator possesses only a narrow rule-following ability while the whole system
+may possess the broader family. This favours functional accounts.</p>
+<p>Critics distinguish genuine understanding from perfect performance through rote means.
+Counterfactual flexibility and learning make rote simulation harder to maintain, but a
+zombie-like functional duplicate remains conceivable on anti-functionalist views.</p>
+<h2 id="understanding-and-consciousness"><a class="header" href="#understanding-and-consciousness">Understanding and consciousness</a></h2>
+<p>One can separate <strong>semantic understanding</strong> from phenomenal consciousness. Externalist
+and functional theories permit unconscious content; phenomenal-intentionality theories
+make conscious presentation fundamental to original meaning.</p>
+<p>The Chinese room is strongest as an intuition that first-person understanding is absent
+from formal manipulation. It is weaker as a demonstration that no larger system has
+content. Its conclusion depends on whether understanding is phenomenal, functional,
+social, or a combination.</p>
+<p>The distinction is developed in
+<a href="../07-intentionality/05-consciousness-and-content.html">Consciousness and Content</a>.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Reply</th><th>Added resource</th><th>Remaining question</th></tr></thead><tbody>
+<tr><td><strong>Systems</strong></td><td>whole causal organisation</td><td>why system-level function is understanding</td></tr>
+<tr><td><strong>Robot</strong></td><td>sensorimotor grounding</td><td>whether grounded content is conscious understanding</td></tr>
+<tr><td><strong>Brain simulator</strong></td><td>fine-grained causal similarity</td><td>simulation versus instantiation</td></tr>
+<tr><td><strong>Virtual mind</strong></td><td>implemented higher-level agent</td><td>non-trivial implementation criterion</td></tr>
+<tr><td><strong>Other minds</strong></td><td>ordinary abductive attribution</td><td>behaviour and mechanism may underdetermine phenomenality</td></tr>
+</tbody></table>
+</div>
+<p>The room establishes that formal description alone does not fix semantics. It does not
+establish that computation embedded in autonomous, world-sensitive, social organisation
+remains merely formal. Symbol grounding narrows the gap; the remaining dispute concerns
+whether content, understanding, and consciousness require the same conditions.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Block, Ned. "Psychologism and Behaviorism" (1981).</li>
+<li>Harnad, Stevan. "The Symbol Grounding Problem" (1990).</li>
+<li>Searle, John R. "Minds, Brains, and Programs" (1980).</li>
+<li>Turing, Alan M. "Computing Machinery and Intelligence" (1950).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/13-nonhuman-minds/02-machine-minds.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/13-nonhuman-minds/04-artificial-consciousness.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/13-nonhuman-minds/02-machine-minds.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/13-nonhuman-minds/04-artificial-consciousness.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>A History of Philosophy of Mind - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/15-context/01-history.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="a-history-of-philosophy-of-mind"><a class="header" href="#a-history-of-philosophy-of-mind">A History of Philosophy of Mind</a></h1>
+<p>The history of philosophy of mind is not a sequence of answers to one fixed question.
+The question itself changed. Ancient accounts asked what makes a living thing alive and
+capable of perception; Cartesian philosophy separated thinking substance from extended
+matter; empiricism asked what introspection reveals; nineteenth-century psychology made
+mind an empirical subject; behaviourism sought public criteria; the cognitive revolution
+restored internal representation; contemporary debate divided cognition from phenomenal
+consciousness.</p>
+<p>This page follows those changes in problem formulation. Figures appear where their
+arguments still structure live positions, not as a complete chronology.</p>
+<hr />
+<h2 id="soul-as-the-principle-of-life"><a class="header" href="#soul-as-the-principle-of-life">Soul as the principle of life</a></h2>
+<p>For much ancient thought, <em>psyche</em> or soul was not primarily an immaterial consciousness.
+It was the principle of life. Plants nourish and reproduce, animals perceive and move,
+and rational animals think.</p>
+<p>Plato often treats the soul as separable from body and internally divided among reason,
+spirit, and appetite. Arguments from recollection, affinity, and the soul's simplicity
+connect mind with immortality and moral order.</p>
+<p>Aristotle's <em>De Anima</em> rejects the picture of soul as a second object inhabiting a body.
+Soul is the <strong>form</strong> or actuality of a living organised body. Sight is the capacity of an
+eye functioning within an animal, not an item separable like a sailor from a ship. This
+hylomorphic approach anticipates embodied and functional views while retaining disputed
+claims about intellect.</p>
+<p>The ancient contrast is therefore not simply materialism versus dualism. It is between
+soul as independently existing subject and soul as organisation of life.</p>
+<h2 id="late-antique-and-medieval-inheritances"><a class="header" href="#late-antique-and-medieval-inheritances">Late antique and medieval inheritances</a></h2>
+<p>Augustine develops first-person reflection, memory, will, and inner temporality within a
+Christian framework. The mind's presence to itself becomes evidence of an immaterial
+soul and a route toward God.</p>
+<p>Islamic philosophers transform Aristotle. Avicenna's <strong>Flying Man</strong> imagines a person
+created suspended without sensory contact who would still affirm their own existence.
+The argument aims to show self-awareness does not depend conceptually on awareness of
+the body.</p>
+<p>Aquinas develops hylomorphism: the human soul is the substantial form of the body, not
+an independently complete person, while intellect supplies a route to subsistence after
+death. Medieval theories of inner senses, intention, and cognition are richer than the
+later slogan that the period merely believed in souls.</p>
+<h2 id="the-cartesian-turn"><a class="header" href="#the-cartesian-turn">The Cartesian turn</a></h2>
+<p>Descartes reorganises the field around two substances. Mind is essentially thinking;
+body is essentially extended. The certainty of the cogito and conceivability of mind
+without body support distinction.</p>
+<p>The gain is a sharp conception of consciousness and first-person knowledge. The cost is
+the <a href="../05-mind-body/01-substance-dualism.html">interaction problem</a>: how can an unextended
+mind affect a body? Princess Elisabeth's objection exposes the causal burden immediately.</p>
+<p>The Cartesian formulation remains the default problem even for views rejecting its
+ontology. Identity theory, functionalism, and property dualism are answers to a demand
+created by separating subjective thought from mechanistic nature.</p>
+<h2 id="rationalists-and-the-unity-of-mind"><a class="header" href="#rationalists-and-the-unity-of-mind">Rationalists and the unity of mind</a></h2>
+<p>Spinoza replaces interaction with one substance described under thought and extension.
+Mental and physical are parallel attributes rather than causal strangers. Leibniz's
+monads possess perception and appetite, with apparent interaction coordinated through
+pre-established harmony.</p>
+<p>These views anticipate dual-aspect and panpsychist alternatives. They avoid local
+mind-body interaction by placing both within a more general metaphysics.</p>
+<p>Their cost is explanatory distance from empirical mechanism. Coordination is secured by
+the system rather than derived from observable causal exchange.</p>
+<h2 id="empiricism-and-association"><a class="header" href="#empiricism-and-association">Empiricism and association</a></h2>
+<p>Locke treats the mind through ideas acquired from sensation and reflection. Personal
+identity follows continuity of consciousness rather than substance alone, making memory
+central.</p>
+<p>Hume's introspection finds perceptions but no self beyond the bundle. Causal and personal
+unity become products of association, resemblance, memory, and imagination.</p>
+<p>Associationism offers a proto-psychology: complex thought arises through lawful links
+among simpler elements. It anticipates learning theory and connectionism, though its
+atomic impressions understate structured perception and active cognition.</p>
+<p>The empirical question shifts from what soul exists to what experience contains and how
+mental order is formed.</p>
+<h2 id="kant-and-the-conditions-of-experience"><a class="header" href="#kant-and-the-conditions-of-experience">Kant and the conditions of experience</a></h2>
+<p>Kant rejects both rationalist proof of a soul-substance and Humean derivation of unity
+from a mere sequence. The <strong>transcendental unity of apperception</strong> is a condition for
+representations to count as one subject's experience: the "I think" must be able to
+accompany them.</p>
+<p>This is not empirical discovery of an ego. It is a structural requirement on unified
+judgment and experience. Kant thereby separates the subject as condition of experience
+from the self as an object known through inner sense.</p>
+<p>The distinction anticipates minimal-self and functional-unity views while warning that
+introspection cannot reveal a substantial soul.</p>
+<h2 id="brentano-and-intentionality"><a class="header" href="#brentano-and-intentionality">Brentano and intentionality</a></h2>
+<p>Brentano restores <strong>intentionality</strong> as the mark of mental phenomena: presentation,
+judgment, love, and hate are directed toward objects. The object need not exist, creating
+the problem of intentional inexistence.</p>
+<p>The problem of mind now includes aboutness, not only consciousness or substance. Husserl
+develops intentional analysis through phenomenology, while Meinong responds ontologically
+with objects beyond existence.</p>
+<p>Contemporary causal, teleological, inferential, and phenomenal-intentionality theories
+remain responses to the question Brentano sharpened. The general account is in
+<a href="../07-intentionality/01-aboutness.html">Intentionality and Aboutness</a>.</p>
+<h2 id="james-and-the-stream"><a class="header" href="#james-and-the-stream">James and the stream</a></h2>
+<p>William James describes consciousness as personal, continuous, selective, and always
+changing - a <strong>stream</strong>, not a sequence of atomistic states. Attention and habit connect
+phenomenology with psychology and action.</p>
+<p>James also develops a radical empiricism and a neutral-monist tendency: experience may
+be more basic than a division into mental and physical. His work resists both substance
+dualism and a reductive associationism.</p>
+<p>The stream metaphor still shapes debates over temporal consciousness and unity, while
+its apparent continuity is tested by distributed and discrete mechanisms.</p>
+<h2 id="phenomenology"><a class="header" href="#phenomenology">Phenomenology</a></h2>
+<p>Husserl introduces a disciplined first-person method focused on intentional structure,
+time-consciousness, embodiment, and the constitution of objects. Heidegger shifts from
+detached consciousness to practical being-in-the-world. Merleau-Ponty makes the lived
+body the subject's mode of access; Sartre analyses pre-reflective self-consciousness.</p>
+<p>This line challenges the assumption that mind begins as an inner representation facing
+an external world. World-involvement, bodily skill, and perspective are prior to
+theoretical reflection.</p>
+<p>The next page develops the method and its current relation to enactive and
+representational approaches.</p>
+<h2 id="behaviourism"><a class="header" href="#behaviourism">Behaviourism</a></h2>
+<p>Early twentieth-century psychology rejected introspection as an unreliable foundation.
+Watson and Skinner focused on observable behaviour, learning history, and environmental
+control. Logical behaviourists such as Ryle analysed mental language through dispositions
+and attacked the "Ghost in the Machine."</p>
+<p>Behaviourism established public standards and exposed homuncular explanation. It failed
+as a complete theory because behaviour can be suppressed or simulated, mental states
+interact holistically, and phenomenal character appears not to be a disposition.</p>
+<p>Its methodological legacy survived: inner states must earn explanatory roles through
+prediction and intervention. The detailed assessment is in
+<a href="../05-mind-body/03-behaviourism.html">Behaviourism</a>.</p>
+<h2 id="identity-theory"><a class="header" href="#identity-theory">Identity theory</a></h2>
+<p>Place, Smart, and Feigl proposed that sensations are brain processes, treating the
+identity as an empirical discovery analogous to scientific reductions. This restored
+inner episodes without restoring dual substances.</p>
+<p>Multiple realisation challenged type identity. A mental kind such as pain may occur in
+physically diverse organisms, making one neural type too narrow. Token identity survived
+more readily than reduction of psychological kinds.</p>
+<p>The episode marks philosophy of mind's closer integration with neuroscience and its
+recognition that causal dependence alone does not decide whether the relation is
+identity, realisation, or grounding.</p>
+<h2 id="the-cognitive-revolution"><a class="header" href="#the-cognitive-revolution">The cognitive revolution</a></h2>
+<p>Computational psychology reintroduced internal representations as explanatory states.
+Turing, Newell, Simon, Chomsky, Fodor, and others showed how formally structured systems
+could explain productivity, planning, and language.</p>
+<p>Functionalism individuated mental states by causal role and made multiple realisation a
+central argument. Mind became software-like organisation rather than one material kind.</p>
+<p>Connectionism later challenged explicit rules with distributed learned representations.
+The debate shifted from whether inner states may be scientific to which formats and
+architectures explain cognition.</p>
+<h2 id="the-return-of-consciousness"><a class="header" href="#the-return-of-consciousness">The return of consciousness</a></h2>
+<p>Behaviourism and early cognitive science often bracketed phenomenal consciousness.
+Nagel's bat, Jackson's Mary, Levine's explanatory gap, and Chalmers' hard problem made
+subjectivity central again.</p>
+<p>The new anti-physicalist arguments did not simply revive Cartesian substance. Property
+dualism, panpsychism, Russellian monism, and phenomenal-concept physicalism all respond
+to the gap differently.</p>
+<p>At the same time, consciousness science developed theories of global broadcast,
+higher-order representation, recurrent processing, integration, and self-models. The
+field now combines empirical mechanism with unresolved metaphysical interpretation.</p>
+<h2 id="embodiment-extension-and-action"><a class="header" href="#embodiment-extension-and-action">Embodiment, extension, and action</a></h2>
+<p>Late twentieth-century phenomenology, ecological psychology, dynamical systems, and
+enactivism challenged brain-bound representation. Cognition was re-situated in bodies,
+tools, environments, and social practices.</p>
+<p>The extended-mind debate then asked whether external scaffolds merely aid or partly
+constitute cognition. Philosophy of action emphasised guidance and practical knowledge
+rather than an inner command followed by movement.</p>
+<p>These developments return, by a different route, to Aristotle's organised living body
+and pragmatist accounts of habit while using contemporary cognitive science.</p>
+<h2 id="the-contemporary-field"><a class="header" href="#the-contemporary-field">The contemporary field</a></h2>
+<p>Current philosophy of mind is organised less by one dualism than by crossing questions:</p>
+<ul>
+<li>Is consciousness reducible, fundamental, or misdescribed?</li>
+<li>Is content internal, external, functional, biological, or phenomenal?</li>
+<li>Are cognitive processes computational, dynamical, embodied, or extended?</li>
+<li>Which levels are causally explanatory?</li>
+<li>What evidence warrants minds in animals and machines?</li>
+<li>Is the self a subject, organism, model, narrative, or dependent process?</li>
+</ul>
+<p>The field's progress consists partly in discovering that these questions do not share
+one answer. A functional theory of belief can coexist with a non-functional theory of
+experience; embodied perception can use internal generative models; content can be
+external while phenomenal character is narrow.</p>
+<h2 id="the-recurring-shape"><a class="header" href="#the-recurring-shape">The recurring shape</a></h2>
+<p>Three transitions recur. A <strong>substance</strong> question becomes a <strong>property</strong> question;
+a property question becomes an <strong>explanatory-level</strong> question; and an apparent unity
+divides into capacities that can dissociate. Each transition preserves the original
+phenomenon while making the alternatives more precise.</p>
+<p>History matters because discarded positions often leave constraints behind. Behaviourism
+failed, but public evidence remains necessary. Type identity weakened, but physical
+dependence remains. Introspection lost infallibility, but first-person authority remains
+an explanandum. The contemporary map is built from these qualified inheritances.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Aristotle. <em>De Anima</em>.</li>
+<li>Descartes, Rene. <em>Meditations on First Philosophy</em> (1641).</li>
+<li>James, William. <em>The Principles of Psychology</em> (1890).</li>
+<li>Leahey, Thomas Hardy. <em>A History of Psychology</em> (2018).</li>
+<li>Rorty, Richard. <em>Philosophy and the Mirror of Nature</em> (1979).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/14-science/05-evolution-of-mind.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/15-context/02-phenomenology.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/14-science/05-evolution-of-mind.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/15-context/02-phenomenology.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Pain - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/12-affect-and-experience/02-pain.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="pain"><a class="header" href="#pain">Pain</a></h1>
+<p>Pain is a paradigm of consciousness, bodily representation, motivation, and moral
+importance. It hurts, seems located in the body, signals threat or damage, captures
+attention, and drives protection. These features usually co-occur and can dissociate.
+Nociceptive processing can occur without conscious pain; pain can occur without tissue
+damage; sensory intensity can remain while unpleasantness is reduced.</p>
+<p>Theories variously identify pain with a sensation, perception of bodily disturbance,
+representational state, affective evaluation, desire-like command, or homeostatic action
+policy. The dissociations show why no one-dimensional definition is adequate.</p>
+<hr />
+<h2 id="pain-and-nociception"><a class="header" href="#pain-and-nociception">Pain and nociception</a></h2>
+<p><strong>Nociception</strong> is neural processing of actual or potential tissue-damaging stimulation.
+It includes peripheral receptors, spinal pathways, reflexes, and central processing.
+Pain is the conscious experience associated with some nociceptive states.</p>
+<p>The distinction matters in both directions:</p>
+<ul>
+<li>nociceptive withdrawal and physiological response can occur without reported pain;</li>
+<li>pain can persist after injury heals or arise without peripheral damage;</li>
+<li>anaesthesia can alter experience while preserving some nociceptive processing;</li>
+<li>attention, expectation, context, and meaning can alter pain with similar input.</li>
+</ul>
+<p>Nociception is neither sufficient nor always necessary for pain. A theory must explain
+their normal relation and exceptional separation.</p>
+<h2 id="sensation-theories"><a class="header" href="#sensation-theories">Sensation theories</a></h2>
+<p>A sensation theory treats pain as a distinctive phenomenal quality, analogous to colour
+experience but bodily and unpleasant. This respects the apparent certainty that pain is
+defined by how it feels.</p>
+<p>It struggles to explain bodily location and correctness. A pain can seem to be in a foot
+that is absent. If pain is only an inner sensation, talk of mislocation becomes metaphor;
+the sensation itself occurs in the mind without representing the body falsely.</p>
+<p>The theory also risks bundling sensory and affective dimensions. Pain asymbolia suggests
+that a subject can register a painful sensation without ordinary distress or avoidance.</p>
+<h2 id="perceptual-theories"><a class="header" href="#perceptual-theories">Perceptual theories</a></h2>
+<p>A <strong>perceptual theory</strong> treats pain as perception of bodily damage or disturbance. Pain
+is world- or body-directed, can be accurate or inaccurate, and guides protection.</p>
+<p>This explains phantom pain and referred pain as misperception rather than mysterious
+qualities in nonexistent locations. It places pain within the general
+<a href="../08-perception/01-problem-of-perception.html">problem of perception</a>.</p>
+<p>Pain differs from ordinary perception. Its object is often indeterminate, the subject
+may know damage is absent while pain persists, and unpleasantness seems more central
+than the represented condition. A complete perceptual theory needs an account of affect.</p>
+<h2 id="representational-theories"><a class="header" href="#representational-theories">Representational theories</a></h2>
+<p>Representationalists identify pain's phenomenal character with content about bodily
+disturbance, perhaps represented as bad or action-demanding. Different contents or modes
+explain burning, stabbing, pressure, location, and urgency.</p>
+<p>The account integrates error and allows naturalistic content theories. It can model pain
+as imperative: protect this body part, stop this activity, attend now.</p>
+<p>The difficulty is whether adding evaluative or imperative content explains
+unpleasantness or merely includes it in the representation. A neutral state could
+represent damage accurately without hurting. Pain asymbolia pressures the identity of
+sensory content with aversiveness.</p>
+<h2 id="affective-theories"><a class="header" href="#affective-theories">Affective theories</a></h2>
+<p>Affective theories make unpleasantness or negative valence central. A state is pain
+partly because the subject is motivated for it to stop, finds it bad, or has aversive
+attitudes toward it.</p>
+<p>This explains pain's practical and moral significance. It distinguishes nociception from
+suffering and accommodates one sensory signal with different affective responses.</p>
+<p>Unpleasantness and desire can also separate. A person may dislike pain yet choose it for
+athletic, ritual, or medical reasons; another may have motivational blunting. Defining
+pain as an actual desire for cessation can be too strong.</p>
+<h2 id="evaluativism-and-desire-like-accounts"><a class="header" href="#evaluativism-and-desire-like-accounts">Evaluativism and desire-like accounts</a></h2>
+<p><strong>Evaluativism</strong> says pain represents a bodily condition as bad. <strong>Desire-like</strong> theories
+treat pain as a command or imperative against a state. These views connect phenomenology
+with reasons and action without reducing it to overt behaviour.</p>
+<p>An imperative need not be obeyed, so recalcitrant pain is possible. A subject can judge
+continuing an activity worthwhile while the pain system continues to demand protection.</p>
+<p>The semantic status of imperatives is contested. Commands are not true or false in the
+same way as descriptive representations. A hybrid can combine descriptive bodily content
+with negative valence and action priority.</p>
+<h2 id="homeostatic-and-control-accounts"><a class="header" href="#homeostatic-and-control-accounts">Homeostatic and control accounts</a></h2>
+<p>Pain can be understood as part of a homeostatic control system. It reallocates attention,
+changes policy, promotes guarding and learning, and signals threats to bodily integrity.</p>
+<p>This explains why pain is multimodal and action-oriented. The relevant state is not one
+sensory channel but an organism-level control mode.</p>
+<p>Control function does not entail consciousness. Reflexes and regulatory systems perform
+protective functions unconsciously. A theory must say what makes some homeostatic
+signals felt and why feeling contributes rather than accompanies control.</p>
+<h2 id="pain-asymbolia"><a class="header" href="#pain-asymbolia">Pain asymbolia</a></h2>
+<p>In <strong>pain asymbolia</strong>, subjects can identify noxious stimulation and may call it pain
+while displaying reduced distress, avoidance, or concern. The case suggests sensory-
+discriminative and affective-motivational components can dissociate.</p>
+<p>Interpretation requires care. Reports, lesions, task demands, and individual variation
+matter. The state may be "pain without painfulness," altered pain, or nociceptive
+sensation no longer deserving the ordinary category.</p>
+<p>Whatever label is chosen, the case undermines the idea that location, intensity,
+unpleasantness, and motivation form one indivisible quale.</p>
+<h2 id="phantom-and-referred-pain"><a class="header" href="#phantom-and-referred-pain">Phantom and referred pain</a></h2>
+<p><strong>Phantom pain</strong> is experienced in an amputated limb. <strong>Referred pain</strong> is felt at a
+location different from its source. Both support representational or body-model accounts:
+pain location is constructed rather than read directly from damaged tissue.</p>
+<p>They do not show pain is unreal. A representational state can be genuine while its
+content is inaccurate. The suffering and motivational effects remain.</p>
+<p>These cases also reveal bodily plasticity. Maps, prediction, prior experience, and
+sensorimotor organisation shape the experienced body. Treatment can sometimes work by
+altering representation rather than tissue.</p>
+<h2 id="chronic-pain"><a class="header" href="#chronic-pain">Chronic pain</a></h2>
+<p>Chronic pain may persist beyond healing and become a condition in its own right. Simple
+alarm metaphors then fail: the system's ongoing state is not usefully explained as an
+accurate signal of current damage.</p>
+<p>Predictive, learning, sensitisation, inflammatory, social, and affective factors can
+maintain pain. A biopsychosocial explanation is not the claim that pain is imaginary;
+all experience has psychological and neural mechanisms.</p>
+<p>The case demonstrates the danger of reducing pain either to tissue damage or to report.
+Mechanism, experience, and disability each require assessment.</p>
+<h2 id="pain-behaviour-and-other-minds"><a class="header" href="#pain-behaviour-and-other-minds">Pain behaviour and other minds</a></h2>
+<p>Withdrawal, guarding, vocalisation, learning, trade-offs, and self-administration of
+analgesia provide evidence of pain. No single behaviour is decisive. Reflex can occur
+without conscious pain; expression can be suppressed; report can be absent.</p>
+<p>For animals and non-verbal humans, convergent evidence across mechanisms and flexible
+behaviour is essential. Human-like expression is not the sole standard. The general
+epistemology is developed in
+<a href="../10-self-and-other-minds/04-problem-of-other-minds.html">The Problem of Other Minds</a>.</p>
+<p>Pain is ethically high-stakes because false negatives permit suffering. Evidence should
+be calibrated without demanding impossible certainty.</p>
+<h2 id="pain-and-attention"><a class="header" href="#pain-and-attention">Pain and attention</a></h2>
+<p>Pain captures attention and narrows cognitive resources. Attention can also amplify or
+attenuate pain, and distraction changes experience. This reciprocal relation makes pain
+both information and a priority-setting process.</p>
+<p>Attention is not sufficient for pain, and unattended pain may persist. The relation is
+modulated by threat, expectation, control, and meaning. Placebo and nocebo effects show
+that top-down factors alter experience without making it voluntary.</p>
+<p>These effects fit predictive and control accounts while remaining compatible with
+multiple metaphysical theories of consciousness.</p>
+<h2 id="pain-reasons-and-value"><a class="header" href="#pain-reasons-and-value">Pain, reasons, and value</a></h2>
+<p>Pain normally supplies a reason to avoid, stop, or protect. Is its badness intrinsic to
+phenomenal character, represented by the state, or generated by a desire that it cease?</p>
+<p>If valence is intrinsic, a complete physical or representational account must explain
+normative seeming. If represented, inaccurate evaluative pain is possible. If desire-
+based, pain without desire becomes conceptually difficult.</p>
+<p>The question connects mind and ethics. Suffering matters because of how a state is for
+the subject, not solely because it indicates damage or produces behaviour.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Component</th><th>Function</th><th>Dissociation pressure</th></tr></thead><tbody>
+<tr><td><strong>Nociception</strong></td><td>detects and transmits threat signals</td><td>can occur without conscious pain</td></tr>
+<tr><td><strong>Sensory quality</strong></td><td>presents intensity, kind, and location</td><td>can persist with reduced distress</td></tr>
+<tr><td><strong>Bodily content</strong></td><td>represents disturbance</td><td>phantom and referred pain show error</td></tr>
+<tr><td><strong>Unpleasantness</strong></td><td>makes the state bad for the subject</td><td>varies independently of sensory discrimination</td></tr>
+<tr><td><strong>Motivation</strong></td><td>prioritises protection and avoidance</td><td>can be inhibited or blunted</td></tr>
+<tr><td><strong>Report</strong></td><td>communicates and supports reflection</td><td>depends on concept, memory, and ability</td></tr>
+</tbody></table>
+</div>
+<p>Pain is a structured state rather than a simple signal or quale. Its sensory,
+representational, affective, motivational, and cognitive dimensions explain why it is a
+central test for theories of consciousness, content, action, and moral status.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Aydede, Murat, ed. <em>Pain: New Essays on Its Nature and the Methodology of Its Study</em> (2005).</li>
+<li>Bain, David. "What Makes Pains Unpleasant?" (2013).</li>
+<li>Klein, Colin. <em>What the Body Commands</em> (2015).</li>
+<li>Melzack, Ronald. "Phantom Limbs and the Concept of a Neuromatrix" (1990).</li>
+<li>Pitcher, George. "Pain Perception" (1970).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/12-affect-and-experience/01-emotion.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/12-affect-and-experience/03-pleasure-and-desire.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/12-affect-and-experience/01-emotion.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/12-affect-and-experience/03-pleasure-and-desire.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

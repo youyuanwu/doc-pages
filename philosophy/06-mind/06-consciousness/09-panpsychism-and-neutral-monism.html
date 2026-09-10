@@ -1,0 +1,405 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Panpsychism, Russellian Monism, and Neutral Monism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/06-consciousness/09-panpsychism-and-neutral-monism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="panpsychism-russellian-monism-and-neutral-monism"><a class="header" href="#panpsychism-russellian-monism-and-neutral-monism">Panpsychism, Russellian Monism, and Neutral Monism</a></h1>
+<p>Panpsychism and neutral monism reject the attempt to derive consciousness from a base
+described as wholly non-experiential. <strong>Panpsychism</strong> assigns experiential or proto-
+experiential features to fundamental physical entities. <strong>Russellian monism</strong> argues
+that physics describes causal structure while leaving the intrinsic nature of its
+bearers open, and proposes that this nature grounds consciousness. <strong>Neutral monism</strong>
+treats mental and physical facts as organisations or aspects of a basis that is itself
+neither.</p>
+<p>These views promise continuity rather than emergence from nothing. Their central cost
+is the <strong>combination problem</strong>: explaining how micro-level features yield one unified
+subject with a structured experience.</p>
+<hr />
+<h2 id="the-constitutive-argument"><a class="header" href="#the-constitutive-argument">The constitutive argument</a></h2>
+<p>A common motivation is:</p>
+<ol>
+<li>Consciousness is real.</li>
+<li>Consciousness cannot be reductively explained through structure and function alone.</li>
+<li>Radical emergence of consciousness from wholly non-experiential matter is
+unintelligible or requires brute laws.</li>
+<li>Therefore the fundamental base must already contain experiential, proto-experiential,
+or neutral features capable of constituting consciousness.</li>
+</ol>
+<p>The argument does not infer that electrons think or possess human-like points of view.
+The fundamental feature may be extremely simple and lack cognition, agency, memory, or
+sensory content. The proposal concerns the ingredients of phenomenality, not miniature
+persons.</p>
+<p>The third premise carries the weight. A critic may accept brute psychophysical laws,
+functional reduction, or strong emergence rather than populate the base with unfamiliar
+properties. Panpsychism exchanges the emergence problem for combination.</p>
+<h2 id="constitutive-panpsychism"><a class="header" href="#constitutive-panpsychism">Constitutive panpsychism</a></h2>
+<p><strong>Constitutive panpsychism</strong> holds that the consciousness of a complex subject is
+constituted by experiential properties of its fundamental parts. It is attractive to
+those who accept causal closure and reject epiphenomenal properties: if experiential
+features are intrinsic aspects of physical entities, mental causation is physical
+causation under its intrinsic description.</p>
+<p>The view is not equivalent to animism. It need not attribute life, purpose, intelligence,
+or agency to ordinary objects. A rock contains fundamental entities with the relevant
+features but may fail to organise them into a unified macro-subject.</p>
+<p>That qualification leads immediately to the question of why brains compose subjects
+while rocks do not. Functional or integrative organisation may be required, but then
+the theory must explain how organisation transforms many subjects or features into one.</p>
+<h2 id="panprotopsychism"><a class="header" href="#panprotopsychism">Panprotopsychism</a></h2>
+<p><strong>Panprotopsychism</strong> assigns fundamental entities properties that are not themselves
+phenomenal but can constitute phenomenality in combination. This avoids ubiquitous
+micro-experience while retaining a special basis for consciousness.</p>
+<p>The difficulty is specifying the proto-property. If it is defined only as whatever
+produces consciousness, the account renames the unknown ground. If it is structurally
+or dispositionally described, the original <a href="03-hard-problem.html">hard problem</a> returns:
+why does that structure yield experience?</p>
+<p>The view gains content when proto-properties have independently motivated roles or laws.
+Without them it occupies an unstable midpoint between physicalist emergence and
+panpsychism.</p>
+<h2 id="russellian-monism"><a class="header" href="#russellian-monism">Russellian monism</a></h2>
+<p>Russell and Eddington observed that physics characterises matter through mathematical
+structure, causal relations, and dispositions. It tells us how entities behave and
+relate, not necessarily what bears those relations intrinsically. <strong>Russellian monism</strong>
+places phenomenal or proto-phenomenal nature in this alleged categorical gap.</p>
+<p>The proposal has three attractions:</p>
+<ul>
+<li>it preserves the structural truths of physics;</li>
+<li>it gives consciousness a place in the physical base rather than adding an interacting
+realm;</li>
+<li>it explains why objective structural knowledge does not reveal phenomenal character:
+structure omits intrinsic nature by design.</li>
+</ul>
+<p>The first objection disputes the gap. Physical properties may be exhausted by their
+causal-dispositional roles, leaving no hidden categorical nature. The second asks why
+the categorical base has the particular phenomenal structure humans experience. The
+third is epistemic: if intrinsic natures are known only through one's own consciousness,
+claims about their distribution elsewhere become difficult to test.</p>
+<h2 id="neutral-monism"><a class="header" href="#neutral-monism">Neutral monism</a></h2>
+<p><strong>Neutral monism</strong> holds that reality's basic elements are neither mental nor physical
+as ordinarily understood. Mental and physical domains arise from different relations,
+organisations, or perspectives on the neutral base. William James's "pure experience"
+and Russell's event-like constructions are historically important versions.</p>
+<p>Unlike panpsychism, neutral monism need not call the basic elements experiential. Unlike
+physicalism, it denies that the physical description is metaphysically complete. The
+mind-body relation becomes a relation between two organisations of one basis rather
+than interaction between independent kinds.</p>
+<p>The word "neutral" can conceal rather than solve the problem. A useful account must say
+what the base is, how mental and physical structures are constructed, and why only some
+organisations support unified consciousness. If the base is characterised only by its
+ability to become either, neutrality is promissory.</p>
+<h2 id="the-combination-problem"><a class="header" href="#the-combination-problem">The combination problem</a></h2>
+<p>Suppose fundamental entities have experiences. Why should their arrangement produce
+one further subject rather than a collection? Summing colours, intensities, or
+information does not obviously sum <strong>points of view</strong>.</p>
+<p>The problem has several forms:</p>
+<ul>
+<li><strong>Subject-summing:</strong> how do many subjects constitute one numerically distinct subject?</li>
+<li><strong>Quality combination:</strong> how do simple qualities constitute the qualities of complex
+experience?</li>
+<li><strong>Structural mismatch:</strong> micro-experiences lack the spatial, temporal, and intentional
+structure of human consciousness.</li>
+<li><strong>Boundary:</strong> why does one brain compose one subject while larger or overlapping
+systems do not?</li>
+</ul>
+<p>Merely invoking integration states a condition without explaining constitution. If the
+combining relation is itself fundamental, panpsychism adds a psychophysical primitive
+comparable to the emergence law it sought to avoid.</p>
+<h2 id="responses-to-combination"><a class="header" href="#responses-to-combination">Responses to combination</a></h2>
+<p><strong>Phenomenal bonding</strong> posits a relation capable of unifying micro-subjects. It directly
+answers the demand but must explain the bond and its distribution.</p>
+<p><strong>Cosmopsychism</strong> reverses direction: the cosmos is the fundamental subject, and local
+subjects derive through decomposition or restriction. This avoids subject-summing and
+inherits a <strong>decombination problem</strong>: how one cosmic perspective yields many private,
+bounded perspectives.</p>
+<p><strong>Priority views</strong> treat consciousness at one level as fundamental rather than deriving
+it from smaller subjects. They align with priority monism in
+<a href="../../04-ontology/13-fundamentality/03-fundamentality.html">Fundamentality, Levels, and Priority</a>
+but risk losing panpsychism's promised bottom-up continuity.</p>
+<p><strong>Non-subject panpsychism</strong> assigns phenomenal qualities without subjects at the base.
+It softens summing but must explain how subjectivity emerges from subjectless qualities.</p>
+<h2 id="causation-and-empirical-content"><a class="header" href="#causation-and-empirical-content">Causation and empirical content</a></h2>
+<p>If intrinsic phenomenal nature realises the causal roles physics describes, it need not
+add forces or violate completeness. This is an advantage over interactionist dualism.
+But causal compatibility can make the theory empirically indistinguishable from
+physicalism: every observable effect follows the same structural laws whatever the
+intrinsic nature.</p>
+<p>The theory may still be supported abductively if it explains consciousness with fewer
+brute connections. The comparison must count all primitives. Ubiquitous intrinsic
+properties plus a combination relation may not be simpler than physically grounded
+consciousness or fundamental psychophysical laws.</p>
+<p>Claims about which systems form subjects can generate empirical consequences when tied
+to integration or organisation. Those consequences derive from the added principle,
+not from panpsychism alone.</p>
+<h2 id="panpsychism-and-physicalism"><a class="header" href="#panpsychism-and-physicalism">Panpsychism and physicalism</a></h2>
+<p>Whether panpsychism counts as physicalism depends on definition. If the intrinsic
+features are the categorical nature of physical properties, the view may call itself
+physicalist. If physicalism means that structural-dynamical physical truths necessitate
+all truths, panpsychism rejects it.</p>
+<p>The terminological issue should not hide the substantive claims:</p>
+<ol>
+<li>phenomenal or proto-phenomenal nature is fundamental;</li>
+<li>physics as ordinarily formulated does not fully describe that nature;</li>
+<li>macro-consciousness depends on a constitutive relation not supplied by standard
+physical structure alone.</li>
+</ol>
+<p>These claims distinguish the view regardless of label.</p>
+<h2 id="comparison"><a class="header" href="#comparison">Comparison</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>View</th><th>Fundamental base</th><th>Avoids</th><th>Inherits</th></tr></thead><tbody>
+<tr><td><strong>Constitutive panpsychism</strong></td><td>micro-experiential entities</td><td>emergence from the wholly non-experiential</td><td>subject combination</td></tr>
+<tr><td><strong>Panprotopsychism</strong></td><td>special non-phenomenal precursors</td><td>ubiquitous micro-subjects</td><td>specification and emergence of phenomenality</td></tr>
+<tr><td><strong>Russellian monism</strong></td><td>categorical nature behind physical structure</td><td>interaction and structural explanatory gap</td><td>inscrutability and combination</td></tr>
+<tr><td><strong>Neutral monism</strong></td><td>neither mental nor physical base</td><td>dual domains as fundamentals</td><td>positive account of the base and derivation</td></tr>
+<tr><td><strong>Cosmopsychism</strong></td><td>one cosmic subject</td><td>bottom-up subject-summing</td><td>decomposition into local subjects</td></tr>
+</tbody></table>
+</div>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>These positions take the <a href="03-hard-problem.html">explanatory gap</a> seriously without adding
+a Cartesian substance. They offer a principled reason objective physics might omit
+phenomenal nature while remaining empirically successful. Their promise is continuity;
+their liability is that moving consciousness into the base does not yet explain the
+structured, bounded subjects actually encountered.</p>
+<p>The decisive comparison is between two brutenesses: emergence of experience from a
+non-experiential base and combination or decomposition within an experiential or neutral
+base. Neither is removed by changing the level at which consciousness is declared
+fundamental.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Chalmers, David J. "Panpsychism and Panprotopsychism" (2015).</li>
+<li>Goff, Philip. <em>Consciousness and Fundamental Reality</em> (2017).</li>
+<li>James, William. <em>Essays in Radical Empiricism</em> (1912).</li>
+<li>Russell, Bertrand. <em>The Analysis of Matter</em> (1927).</li>
+<li>Strawson, Galen. "Realistic Monism" (2006).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/06-consciousness/08-illusionism-and-mysterianism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/07-intentionality/01-aboutness.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/06-consciousness/08-illusionism-and-mysterianism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/07-intentionality/01-aboutness.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

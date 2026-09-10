@@ -1,0 +1,412 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Problem of Perception - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/08-perception/01-problem-of-perception.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-problem-of-perception"><a class="header" href="#the-problem-of-perception">The Problem of Perception</a></h1>
+<p>Perception appears to place subjects in direct contact with a mind-independent world.
+In seeing a tree, one seems aware of the tree and its colours, shape, and distance, not
+of an inner image from which the tree is inferred. Illusion and hallucination disturb
+this simple picture. An experience can present an object as having a property it lacks,
+and a subject can undergo an experience subjectively indistinguishable from perception
+when no corresponding object is present.</p>
+<p>The <strong>problem of perception</strong> asks how veridical perception, illusion, and hallucination
+are related. Do they share one fundamental mental state whose accuracy varies, or does
+genuine perception have a world-involving nature absent from hallucination? The answer
+divides sense-data theories, adverbialism, intentionalism, and disjunctivist or naive
+realist views.</p>
+<hr />
+<h2 id="three-cases"><a class="header" href="#three-cases">Three cases</a></h2>
+<p><strong>Veridical perception.</strong> A subject sees a red apple, and an apple with the presented
+properties is before them. The experience is accurate and appropriately caused.</p>
+<p><strong>Illusion.</strong> A real object is perceived but appears to have a property it lacks: a
+straight stick looks bent in water, a white wall looks yellow under illumination, or an
+object appears smaller at a distance.</p>
+<p><strong>Hallucination.</strong> An experience occurs without the ordinary perceived object. It may
+be indistinguishable to the subject from a veridical perception.</p>
+<p>These categories concern success, not merely phenomenology. An illusion can be
+phenomenally ordinary once lighting and context are understood; a hallucination can be
+subjectively vivid. A theory must explain both how the cases differ in world-involvement
+and why they can resemble one another from within.</p>
+<h2 id="the-argument-from-illusion"><a class="header" href="#the-argument-from-illusion">The argument from illusion</a></h2>
+<p>A traditional argument begins with variable appearance:</p>
+<ol>
+<li>In illusion, an object appears to have a property it does not have.</li>
+<li>The subject is directly aware of something possessing the apparent property.</li>
+<li>That item cannot be the ordinary object, since the object lacks the property.</li>
+<li>The same kind of immediate object is present in veridical perception.</li>
+<li>Therefore subjects directly perceive sense-data or appearances, and perceive
+ordinary objects only indirectly.</li>
+</ol>
+<p>The second premise is controversial. From "the stick looks bent" it does not follow
+that the subject is aware of a bent item. Looking bent may be a way the straight stick
+is presented under refraction. A representational state can be inaccurate without an
+object instantiating its represented property.</p>
+<p>The move from illusion to all perception is also substantial. Even if illusion involves
+an intermediary, why must veridical perception have the same structure? The answer
+usually appeals to a <strong>common factor</strong> shared by subjectively indistinguishable cases.</p>
+<h2 id="the-argument-from-hallucination"><a class="header" href="#the-argument-from-hallucination">The argument from hallucination</a></h2>
+<p>Hallucination sharpens the problem because no ordinary object need be present:</p>
+<ol>
+<li>A hallucination can be introspectively indistinguishable from a veridical perception.</li>
+<li>Indistinguishable experiences have the same immediate mental nature.</li>
+<li>In hallucination, the subject is not directly related to an ordinary external object.</li>
+<li>Therefore the veridical experience is not fundamentally a direct relation to such an
+object either.</li>
+</ol>
+<p>Premise 2 is the <strong>common-kind assumption</strong>. It is natural if phenomenal character is
+wholly internal and shared by duplicates. It is denied by disjunctivism: two experiences
+can be indiscriminable without sharing a positive fundamental nature, just as two
+objects can be visually indiscriminable without sharing composition.</p>
+<p>Rejecting common kind preserves direct perception but creates an explanatory demand.
+Why are the cases indiscriminable, and how can psychology generalise across them?</p>
+<h2 id="the-causal-argument"><a class="header" href="#the-causal-argument">The causal argument</a></h2>
+<p>Perception involves a causal chain: light reflects from an object, stimulates receptors,
+and produces neural processing. The same proximal neural state could, in principle, be
+produced without the distal object through stimulation or abnormal activity. If mental
+state is fixed by the proximal cause, veridical perception and hallucination share an
+internal state.</p>
+<p>This <strong>causal argument</strong> supports a common factor more strongly than mere imaginative
+indistinguishability. Yet it assumes that the neural state wholly fixes the perceptual
+state. A relationalist can say the same neural condition constitutes different mental
+events depending on whether an object stands in the right relation, much as internally
+similar movements can be a successful action or an attempt.</p>
+<p>The causal chain therefore establishes physical dependence, not by itself the metaphysics
+of perception.</p>
+<h2 id="direct-and-indirect-realism"><a class="header" href="#direct-and-indirect-realism">Direct and indirect realism</a></h2>
+<p><strong>Direct realism</strong> says ordinary objects and their properties are the immediate objects
+of perception. Perceptual contact is not mediated by an item that is itself perceived.</p>
+<p><strong>Indirect realism</strong> says subjects directly encounter sense-data, impressions, or inner
+representations and perceive the external world through them. The view explains a
+common phenomenal factor easily: the same intermediary can occur with or without its
+normal cause.</p>
+<p>"Direct" can be misleading. A direct realist accepts retinal and neural mediation in
+the causal process; the claim is not that perception occurs without mechanisms. The
+issue is whether those mechanisms produce an inner object that is what awareness
+immediately concerns, or realise a relation or representation directed at the world.</p>
+<p>Likewise, a representationalist may count as direct if the subject perceives the apple
+by being in a state that represents it, without first perceiving the representation.
+The contrast is metaphysical and epistemic, not a count of causal stages.</p>
+<h2 id="sense-data"><a class="header" href="#sense-data">Sense-data</a></h2>
+<p>A <strong>sense-datum</strong> is a mind-dependent object bearing the properties an experience
+immediately presents. In veridical perception it is caused by and resembles the ordinary
+object; in hallucination a similar datum occurs without that object.</p>
+<p>This gives all three cases one structure and guarantees an object for awareness. Its
+cost is a <strong>veil of perception</strong>. If subjects are directly aware only of sense-data,
+their evidence for external objects is mediated, and scepticism threatens. The theory
+also duplicates the visible world with private objects whose identity and causal role
+are obscure.</p>
+<p>The next page treats sense-data and their classical non-objectual rival, adverbialism,
+in detail.</p>
+<h2 id="intentionalism"><a class="header" href="#intentionalism">Intentionalism</a></h2>
+<p><strong>Intentionalism</strong> treats perception as a representational state with accuracy
+conditions. A veridical perception accurately represents an object; illusion attributes
+the wrong property; hallucination represents an object or scene that is absent. No
+inner coloured item is required.</p>
+<p>This supplies a common mental factor while preserving world-directed content. It fits
+the <a href="../06-consciousness/06-representationalism.html">representational theory of consciousness</a>,
+though one can hold that perception represents without reducing phenomenal character to
+content.</p>
+<p>Its central tasks are explaining how content is fixed, why some representations are
+conscious, and whether content exhausts phenomenal differences. If a hallucination and
+perception share content, their different relation to reality is not part of their
+narrow mental nature.</p>
+<h2 id="adverbialism"><a class="header" href="#adverbialism">Adverbialism</a></h2>
+<p><strong>Adverbialism</strong> denies that experience involves either an external object in every case
+or an inner object. To experience a red circle is to sense <strong>redly and circularly</strong>: the
+subject's act is modified in a certain way.</p>
+<p>This avoids sense-data while preserving a common internal state across perception and
+hallucination. It struggles with complexity. Sensing redly and circularly could describe
+a red circle, a red square beside a blue circle, or two differently organised fields.
+Without object-like structure, the theory needs resources to bind qualities into the
+right experienced arrangement.</p>
+<h2 id="disjunctivism-and-naive-realism"><a class="header" href="#disjunctivism-and-naive-realism">Disjunctivism and naive realism</a></h2>
+<p><strong>Naive realism</strong> or relationalism says veridical perception is fundamentally a relation
+in which ordinary objects and properties partly constitute the experience. Remove the
+object and that very experience cannot occur.</p>
+<p><strong>Disjunctivism</strong> says an apparently unified category such as "an experience as of a red
+apple" contains fundamentally different disjuncts:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">either seeing a red apple</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">merely seeming to see one</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>The view rejects the inference from indistinguishability to a common positive mental
+nature. In the good case, the world itself explains phenomenal and epistemic contact.</p>
+<p>Its challenge is the bad case. Describing hallucination merely as indiscriminable from
+seeing can seem negative and incomplete. Causally matching hallucinations also appear
+to support common psychological explanations. Disjunctivists differ over whether they
+allow common representational or neural properties while denying a common fundamental
+experiential kind.</p>
+<h2 id="perception-and-knowledge"><a class="header" href="#perception-and-knowledge">Perception and knowledge</a></h2>
+<p>The metaphysics affects epistemology. If veridical perception and hallucination share
+the same evidence from the subject's point of view, how can perception provide knowledge
+rather than only a justified guess? Indirect and common-factor theories often answer
+through reliability: the same type of state usually has an appropriate external cause.</p>
+<p>Epistemological disjunctivists say a subject who sees that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> can possess factive
+evidence - the fact that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> itself - unavailable in hallucination. The experiences may
+be indiscriminable to the subject without supplying the same epistemic position.</p>
+<p>The benefit is a strong answer to scepticism; the cost is explaining why reflective
+access cannot reveal the difference in evidence. Metaphysical disjunctivism about
+experience and epistemological disjunctivism about reasons are related but not identical.</p>
+<h2 id="perceptual-constancy"><a class="header" href="#perceptual-constancy">Perceptual constancy</a></h2>
+<p>Objects project changing sensory patterns as distance, angle, and illumination vary,
+yet are experienced as relatively constant in size, shape, and colour. This <strong>perceptual
+constancy</strong> shows that perception is not a passive copy of proximal stimulation.</p>
+<p>Intentionalists treat constancy as representation of stable distal properties through
+variable sensory information. Naive realists treat it as skilled access to objects
+across conditions. Predictive and enactive accounts emphasise expectations and
+sensorimotor dependencies. Sense-data theories must explain why changing private items
+present one stable object.</p>
+<p>Constancy does not decide the metaphysics, but it imposes a constraint: perception is an
+achievement of a system embedded in an environment, not a sequence of inner snapshots.</p>
+<h2 id="the-decision-structure"><a class="header" href="#the-decision-structure">The decision structure</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Question</th><th>Common-factor answer</th><th>Disjunctive answer</th></tr></thead><tbody>
+<tr><td>What do matching cases share?</td><td>one internal experiential or representational state</td><td>indiscriminability plus neural/functional similarities</td></tr>
+<tr><td>What constitutes good-case perception?</td><td>accurate representation or caused sense-datum</td><td>relation to the ordinary object</td></tr>
+<tr><td>What explains hallucination?</td><td>same state without satisfaction</td><td>a distinct bad-case kind</td></tr>
+<tr><td>Main advantage</td><td>unified psychology and causal explanation</td><td>direct contact and factive epistemic support</td></tr>
+<tr><td>Main cost</td><td>possible veil between subject and world</td><td>difficult positive account of hallucination</td></tr>
+</tbody></table>
+</div>
+<p>The problem of perception is not solved by saying that perception is constructed or
+brain-dependent. Every view accepts causal processing. The dispute is what the resulting
+mental episode fundamentally is and whether the external object enters its nature.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Ayer, A. J. <em>The Foundations of Empirical Knowledge</em> (1940).</li>
+<li>Austin, J. L. <em>Sense and Sensibilia</em> (1962).</li>
+<li>Fish, William. <em>Philosophy of Perception</em> (2010).</li>
+<li>Martin, M. G. F. "The Limits of Self-Awareness" (2004).</li>
+<li>Snowdon, Paul. "Perception, Vision and Causation" (1980-81).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/07-intentionality/06-original-and-derived-content.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/08-perception/02-sense-data-and-adverbialism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/07-intentionality/06-original-and-derived-content.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/08-perception/02-sense-data-and-adverbialism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

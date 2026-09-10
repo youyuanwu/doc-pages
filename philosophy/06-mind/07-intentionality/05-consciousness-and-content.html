@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Consciousness and Content - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/07-intentionality/05-consciousness-and-content.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="consciousness-and-content"><a class="header" href="#consciousness-and-content">Consciousness and Content</a></h1>
+<p>Intentionality and consciousness are conceptually distinct: a state can represent
+without being conscious, and an experience can seem objectless. The deeper question is
+whether they are explanatorily independent. <strong>Phenomenal intentionality</strong> theories hold
+that the original or fundamental aboutness of mental states is grounded in phenomenal
+character. <strong>Separatist</strong> theories explain content through causal, biological,
+functional, and social relations that do not require experience.</p>
+<p>The dispute matters because naturalistic theories readily assign content to unconscious
+and artificial systems. If consciousness is the source of original content, those
+assignments may capture only derived or observer-relative representation. If content is
+independent, demonstrating meaning says little about whether there is anything it is
+like to be the system.</p>
+<hr />
+<h2 id="the-independence-case"><a class="header" href="#the-independence-case">The independence case</a></h2>
+<p>Several cases motivate separation.</p>
+<ul>
+<li>Early visual and motor systems represent features outside awareness.</li>
+<li>Blindsight supports discrimination and action without ordinary visual experience.</li>
+<li>Standing beliefs retain content while not occurrently conscious.</li>
+<li>Public inscriptions and computational states can have correctness conditions without
+plausible phenomenal character.</li>
+<li>A diffuse mood may be phenomenally vivid while lacking a determinate object.</li>
+</ul>
+<p>These suggest two axes rather than one:</p>
+<div class="table-wrapper"><table><thead><tr><th></th><th><strong>Intentional</strong></th><th><strong>Non-intentional</strong></th></tr></thead><tbody>
+<tr><td><strong>Conscious</strong></td><td>seeing a red apple; occurrent thought</td><td>diffuse mood; perhaps raw pain</td></tr>
+<tr><td><strong>Unconscious</strong></td><td>implicit perception; standing belief</td><td>subrepresentational processing</td></tr>
+</tbody></table>
+</div>
+<p>Each cell is contested, but the taxonomy prevents an argument for one property from
+being presented as an argument for the other.</p>
+<h2 id="phenomenal-intentionality"><a class="header" href="#phenomenal-intentionality">Phenomenal intentionality</a></h2>
+<p>Phenomenal-intentionality theorists argue that some experiences possess content in
+virtue of what they are like. A visual experience presents red and round because its
+phenomenal character has that directed structure; an occurrent thought's cognitive
+phenomenology presents a proposition as understood rather than as an uninterpreted
+string.</p>
+<p>The thesis can be modest or strong:</p>
+<ul>
+<li><strong>Modest:</strong> some conscious contents are partly fixed by phenomenal character.</li>
+<li><strong>Grounding:</strong> all original mental content is grounded in phenomenal intentionality,
+while unconscious states have content through relations to conscious ones.</li>
+<li><strong>Identity:</strong> phenomenal character itself is a kind of intentional content.</li>
+</ul>
+<p>The modest thesis is compatible with many naturalistic accounts. The grounding thesis
+challenges them by making consciousness explanatorily prior.</p>
+<h2 id="why-invoke-phenomenality"><a class="header" href="#why-invoke-phenomenality">Why invoke phenomenality?</a></h2>
+<p>Causal and functional theories face indeterminacy. One neural state covaries with many
+conditions and participates in many roles. The way an experience presents its object
+appears more determinate from the subject's perspective.</p>
+<p>Phenomenality also promises <strong>original</strong> meaning. A picture or word means something
+because users interpret it. Conscious thought seems to present its content without a
+further interpreter, stopping the regress. The subject does not inspect an internal
+symbol and assign meaning; the thought is already experienced as about Paris or as the
+thought that snow is white.</p>
+<p>Critics question both appearances. Introspection may not reveal content with the
+determinacy assumed, and conscious thought may inherit meaning from learning, external
+history, and inferential role. Feeling understood is not by itself what makes a thought
+true or false of the world.</p>
+<h2 id="cognitive-phenomenology"><a class="header" href="#cognitive-phenomenology">Cognitive phenomenology</a></h2>
+<p>Does thinking have a phenomenal character beyond imagery, inner speech, and emotion?
+Consider hearing a sentence in a language one understands and then in one one does not.
+The acoustic experience may be similar while the understood sentence seems different.
+Supporters call this <strong>cognitive phenomenology</strong>: a distinctive what-it-is-like of
+grasping meaning.</p>
+<p>Other proposed examples include suddenly understanding a proof, entertaining versus
+judging a proposition, and the tip-of-the-tongue state. Opponents explain the differences
+through associated imagery, affect, attention, action-readiness, and dispositional
+access rather than proprietary cognitive qualia.</p>
+<p>Even if cognitive phenomenology exists, it may reveal the subject's mode of access
+rather than fix wide content. Earth and Twin Earth subjects could feel phenomenally
+alike while thinking about different substances. Phenomenal character may determine a
+narrow presentation while environment fixes reference.</p>
+<h2 id="unconscious-content"><a class="header" href="#unconscious-content">Unconscious content</a></h2>
+<p>The grounding view must explain unconscious representation. One proposal gives an
+unconscious state content through its disposition to become conscious. Another grounds
+it in causal relations to conscious states within the same system. A standing belief
+means what it does because it can generate conscious judgments, imagery, and action.</p>
+<p>This is strained for permanently unconscious subpersonal representations, early vision,
+and simple animals whose conscious conceptual capacities are uncertain. If those states
+guide behaviour with stable correctness conditions, making their content depend on a
+possible conscious interpretation may be unnecessary.</p>
+<p>Phenomenal-intentionality theorists can distinguish <strong>basic</strong> content from derivative
+subpersonal content. The cost is a hierarchical theory that must specify the derivation
+without treating unconscious mechanisms as meaningless until noticed.</p>
+<h2 id="objectless-experience"><a class="header" href="#objectless-experience">Objectless experience</a></h2>
+<p>Moods, bodily feelings, and some meditative states are candidates for phenomenal states
+without intentional objects. A separatist takes them as evidence that phenomenality is
+not essentially representational.</p>
+<p>Intentionalists respond that moods represent the world globally as threatening,
+welcoming, empty, or significant; bodily feelings represent internal condition; even
+apparently contentless states present a temporal and bodily field. The content need not
+be propositionally articulated.</p>
+<p>The debate risks triviality if any phenomenal difference is redescribed as representing
+that very difference. An intentional analysis should provide independent accuracy
+conditions and explanatory consequences.</p>
+<h2 id="same-content-different-character"><a class="header" href="#same-content-different-character">Same content, different character</a></h2>
+<p>Seeing, imagining, remembering, and desiring can concern the same object while feeling
+different. This suggests that content does not fix phenomenality. Representationalists
+appeal to different <strong>modes</strong> of representing; phenomenal-intentionality theorists may
+say mode itself has intentional structure.</p>
+<p><a href="../06-consciousness/02-qualia-and-subjectivity.html#inverted-spectra">Inverted-spectrum</a>
+cases push further by holding functional and representational content fixed while
+varying quality. If possible, phenomenality and content are independent. If complete
+content includes mode and every discriminatory relation, the inversion may be
+underspecified.</p>
+<p>The right conclusion may be asymmetric: content does not exhaust phenomenality, while
+phenomenality partly fixes a narrow kind of content.</p>
+<h2 id="externalism-and-phenomenal-content"><a class="header" href="#externalism-and-phenomenal-content">Externalism and phenomenal content</a></h2>
+<p><a href="02-internalism-and-externalism.html">Externalism</a> allows internal and phenomenal
+duplicates to differ in wide content. This conflicts with a strong claim that phenomenal
+character fixes all content. Several responses are available:</p>
+<ol>
+<li>reject externalism and make content internally phenomenal;</li>
+<li>distinguish narrow phenomenal content from wide referential content;</li>
+<li>hold that environment partly constitutes phenomenal character;</li>
+<li>accept that phenomenality grounds only some original content.</li>
+</ol>
+<p>The second is the most common compromise. It preserves the first-person presentation
+while allowing reference to depend on the world and community. It also concedes that
+phenomenality alone does not determine everything thought.</p>
+<h2 id="the-separatist-program"><a class="header" href="#the-separatist-program">The separatist program</a></h2>
+<p>Separatists use <a href="03-naturalizing-content.html">naturalistic content</a>, functional role,
+and external relations to explain representation independently. Consciousness then
+affects access, salience, mode, or subjective character rather than basic correctness
+conditions.</p>
+<p>This program explains unconscious content and makes machine representation possible in
+principle. Its pressure point is <strong>meaning for the system</strong>. A state can be interpreted
+by designers or observers as carrying information, but what makes the content intrinsic
+to the system rather than assigned from outside?</p>
+<p>Teleological consumer roles and autonomous error correction answer by locating standards
+within the system's history and control organisation. Phenomenalists reply that these
+are still external descriptions of function and never produce understanding.</p>
+<h2 id="the-llm-test-case"><a class="header" href="#the-llm-test-case">The LLM test case</a></h2>
+<p>Language models make the separation vivid. Their outputs can have public sentence
+meaning, participate in inference, and be corrected by tools and users. Those facts
+support content on externalist, use, and functional accounts. They do not establish
+phenomenal consciousness, because the very theories granting content were designed to
+make it independent of private experience.</p>
+<p>The <a href="../../../misc/llm-introspection/03-claude-opus-5.html#what-do-my-words-mean">LLM introspection case study</a>
+develops this point in detail. The philosophical lesson generalises: semantic competence
+can narrow the problem of machine mind without resolving whether a subject experiences
+the competence.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>View</th><th>Explains best</th><th>Main pressure point</th></tr></thead><tbody>
+<tr><td><strong>Phenomenal grounding</strong></td><td>original, first-personally determinate aboutness</td><td>unconscious content and external reference</td></tr>
+<tr><td><strong>Representational identity</strong></td><td>transparency and conscious world-presentation</td><td>objectless states and same-content/different-character cases</td></tr>
+<tr><td><strong>Separatism</strong></td><td>unconscious, animal, and artificial representation</td><td>intrinsic meaning and conscious understanding</td></tr>
+<tr><td><strong>Two-factor view</strong></td><td>narrow cognitive significance plus wide reference</td><td>relation between factors and unity of content</td></tr>
+</tbody></table>
+</div>
+<p>No simple entailment runs from consciousness to content or content to consciousness.
+The live issue is explanatory priority: whether phenomenal presentation supplies the
+basic norm of aboutness, or whether biological and functional representation explains
+content before consciousness enters. The next distinction - original versus derived
+intentionality - states that conflict in its sharpest form.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Horgan, Terence and John Tienson. "The Intentionality of Phenomenology and the Phenomenology of Intentionality" (2002).</li>
+<li>Kriegel, Uriah. <em>The Sources of Intentionality</em> (2011).</li>
+<li>Mendelovici, Angela. <em>The Phenomenal Basis of Intentionality</em> (2018).</li>
+<li>Siewert, Charles. <em>The Significance of Consciousness</em> (1998).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/07-intentionality/04-functional-and-inferential-role.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/07-intentionality/06-original-and-derived-content.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/07-intentionality/04-functional-and-inferential-role.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/07-intentionality/06-original-and-derived-content.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

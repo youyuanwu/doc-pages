@@ -1,0 +1,391 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Qualia, Subjectivity, and What-It-Is-Like - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/06-consciousness/02-qualia-and-subjectivity.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="qualia-subjectivity-and-what-it-is-like"><a class="header" href="#qualia-subjectivity-and-what-it-is-like">Qualia, Subjectivity, and What-It-Is-Like</a></h1>
+<p>The <strong>phenomenal character</strong> of an experience is what undergoing it is like for its
+subject: the redness of red, the bitterness of coffee, the ache of fatigue, or the
+unpleasantness of pain. Individual qualitative features are often called <strong>qualia</strong>.
+The term is useful only if its commitments are stated. Some philosophers use it for any
+phenomenal feature; others build in privacy, ineffability, intrinsicness, or
+incorrigible access and then dispute whether qualia exist.</p>
+<p>Thomas Nagel's formulation supplies the minimal target: an organism is phenomenally
+conscious if there is something it is like <em>for that organism</em>. This page develops the
+general issue without repeating the repository's detailed analysis of
+<a href="../../../misc/llm-introspection/02-what-is-it-like-to-be-a-bat.html">What Is It Like to Be a Bat?</a>.</p>
+<hr />
+<h2 id="the-minimal-notion"><a class="header" href="#the-minimal-notion">The minimal notion</a></h2>
+<p>One can accept phenomenal character without accepting a private mental object or an
+inner picture. The minimal claim is that experiences have a character for their subject.
+It leaves open whether that character is representational, functional, neural,
+irreducible, relational, or misdescribed by introspection.</p>
+<p>This minimalism prevents a common dialectical shortcut. If "qualia" are defined as
+non-physical, then physicalism loses by definition; if they are defined as neural
+discriminations, the hard problem disappears by definition. A substantive theory must
+start from the phenomenon and argue for its analysis.</p>
+<h2 id="the-traditional-package"><a class="header" href="#the-traditional-package">The traditional package</a></h2>
+<p>Qualia have often been characterised as:</p>
+<ul>
+<li><strong>intrinsic:</strong> fixed independently of relations to objects, behaviour, or other states;</li>
+<li><strong>ineffable:</strong> not fully communicable or captured in public concepts;</li>
+<li><strong>private:</strong> directly available only to the subject;</li>
+<li><strong>directly apprehensible:</strong> known without inference and perhaps without possibility
+of error.</li>
+</ul>
+<p>These properties can come apart. A state may be private in access while relational in
+nature. A subject may know that pain occurs while misjudging its cause, location, or
+quality. Experiences may resist complete verbal description because discriminatory
+abilities exceed vocabulary, not because their properties are intrinsically ineffable.</p>
+<p>Dennett's critique targets the package more strongly than the minimal phenomenon. If
+introspection is partial, revisable, and shaped by attention and memory, qualia are not
+the infallibly known atomic items the package suggests. That leaves open whether there
+is phenomenal character under a less ambitious description.</p>
+<h2 id="subjectivity-and-perspective"><a class="header" href="#subjectivity-and-perspective">Subjectivity and perspective</a></h2>
+<p>Nagel's central point is not merely that another creature's experience is hard to
+imagine. An experience exists from a <strong>point of view</strong>. A complete objective description
+aims to abstract from any particular perspective, while phenomenal character appears
+essentially perspectival.</p>
+<p>The bat case isolates the problem. Human imagination can model behaving like a bat or
+receiving echolocation data. It cannot thereby adopt the bat's sensory form and know
+what echolocation is like for the bat. Objective neuroscience may explain every
+discrimination and signal while the subjective fact appears omitted.</p>
+<p>Nagel does not infer substance dualism. He leaves open an objective phenomenology or a
+future conceptual scheme that connects perspectives. The argument imposes an
+explanatory demand: a reduction must preserve rather than abstract away the appearance,
+because here the appearance is the target.</p>
+<h2 id="privacy-without-incorrigibility"><a class="header" href="#privacy-without-incorrigibility">Privacy without incorrigibility</a></h2>
+<p>Experiences are <strong>epistemically asymmetric</strong>. A subject ordinarily knows pain without
+observing their body, while others rely on behaviour, testimony, and physiology. This
+supports first-person authority but not infallibility.</p>
+<p>Subjects misremember, confabulate, overlook changes, and disagree about the structure
+of their own imagery or peripheral vision. They may be authoritative that something
+hurts while mistaken about whether it is sharp, constant, located in damaged tissue,
+or caused by anxiety. The <a href="../04-method-and-evidence.html">method page</a> therefore treats
+reports as distinctive but mediated evidence.</p>
+<p>Privacy may also be practical rather than metaphysical. If neural decoding eventually
+predicts a reported quality, observers gain better indirect access; they do not undergo
+the state. Whether sharing the same type of experience would constitute direct access
+is a further question about subject identity, not measurement alone.</p>
+<h2 id="inverted-spectra"><a class="header" href="#inverted-spectra">Inverted spectra</a></h2>
+<p>Imagine two people whose colour experiences are systematically inverted while all
+discriminations, associations, memories, and verbal reports remain functionally alike.
+Where one experiences red, the other experiences green, but each learned the public
+word appropriate to their own experience.</p>
+<p>If this <strong>inverted spectrum</strong> is possible, functional organisation does not fix qualia.
+It also challenges simple representationalism if both experiences represent the same
+surface colour. The argument depends on three claims: the inversion is coherently
+specified, complete functional identity can be held fixed, and phenomenal qualities
+have identities independent of their roles.</p>
+<p>Functionalists deny one or more. Colour qualities occupy a dense similarity space and
+connect with salience, memory, emotion, and discrimination. A complete inversion may
+require preserving so much relational structure that nothing determines which quality
+has changed. The critic replies that structural relations still do not exhaust the
+intrinsic occupant of each place.</p>
+<p>The case is valuable because it identifies the exact dispute: whether qualitative
+identity is relationally fixed or includes an intrinsic remainder.</p>
+<h2 id="fading-and-dancing-qualia"><a class="header" href="#fading-and-dancing-qualia">Fading and dancing qualia</a></h2>
+<p>Chalmers asks us to replace neurons gradually with functionally identical silicon
+components. If biological composition is required for experience, qualia might
+<strong>fade</strong> while behaviour and internal functional organisation remain constant. The
+subject would sincerely insist that experience is unchanged even as it disappears.</p>
+<p>In <strong>dancing qualia</strong>, a switch alternates between physical systems that realise the
+same functional organisation but allegedly support different experiences. Because the
+functional state is unchanged, the subject cannot notice the change or form a judgment
+about it.</p>
+<p>Chalmers takes these consequences as implausible and infers <strong>organisational invariance</strong>:
+systems with the same fine-grained causal organisation have the same experience. The
+argument supports functional sufficiency by showing that undetectable phenomenal change
+disconnects experience from every cognitive response.</p>
+<p>Critics may accept the strange consequence, deny that noticing must alter organisation,
+or argue that the stipulated replacement fails to preserve all relevant dynamics. The
+case does not prove functionalism, but it makes anti-functional qualia pay an epistemic
+and causal price.</p>
+<h2 id="pain-as-a-difficult-case"><a class="header" href="#pain-as-a-difficult-case">Pain as a difficult case</a></h2>
+<p>The full treatment of pain as sensation, bodily representation, affect, motivation, and
+homeostatic control is in <a href="../12-affect-and-experience/02-pain.html">Pain</a>; the present
+discussion isolates what its dissociations show about qualia.</p>
+<p>Pain appears to combine at least four features: felt quality, bodily representation,
+aversiveness, and motivation. These dissociate. Pain asymbolia can preserve reports of
+pain sensation while reducing distress; phantom pain occurs without damage at the
+represented location; nociceptive processing may occur without conscious pain.</p>
+<p>The dissociations undermine a simple indivisible quale. They do not show that no
+phenomenal feature remains. Instead they suggest a structured experience whose sensory,
+affective, representational, and action-oriented dimensions are partly independent.</p>
+<p>Pain also challenges purely visual models of qualia. Its unpleasantness seems to carry
+practical significance intrinsically, not merely represent bodily damage. A complete
+theory must explain why the state matters to its subject as well as what it represents.</p>
+<h2 id="are-qualia-intrinsic"><a class="header" href="#are-qualia-intrinsic">Are qualia intrinsic?</a></h2>
+<p><strong>Representationalists</strong> identify phenomenal character with a kind of representational
+content. <strong>Relationalists</strong> make veridical experience partly constituted by the perceived
+object. <strong>Functionalists</strong> identify character through causal role. All deny that qualia
+are wholly intrinsic properties separable from every relation.</p>
+<p>Arguments for intrinsicness appeal to inversion and to the transparency-resistant cases
+of pain, mood, and afterimages. Arguments against it note that attention, expectation,
+categorisation, bodily state, and environmental relations alter experience. Even colour
+character depends on contrast and context.</p>
+<p>The choice need not be binary. An experience may have relationally constituted content
+and an intrinsic manner or mode of presentation. The theoretical burden is to state
+what this remainder contributes and how it is known.</p>
+<h2 id="objective-phenomenology"><a class="header" href="#objective-phenomenology">Objective phenomenology</a></h2>
+<p>Nagel suggests that progress may require descriptions of experiential structure that
+do not depend on possessing the experience. Similarity relations, temporal organisation,
+figure-ground structure, intensity, valence, and discriminatory dimensions may be
+partly captured objectively.</p>
+<p>Such an <strong>objective phenomenology</strong> would not reproduce another subject's experience in
+the investigator. It could specify its structure and relate it to neural and functional
+organisation more precisely than ordinary vocabulary. Colour spaces and psychophysics
+already offer partial examples.</p>
+<p>The remaining question is whether complete structural knowledge would capture
+phenomenal character or leave an intrinsic occupant unspecified. Structuralists say the
+relations exhaust what can be scientifically and metaphysically individuated; their
+opponents say structure is exactly what a zombie could share.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Qualia should not be treated as a package deal. Subjectivity and phenomenal character
+are the minimal explananda. Privacy, ineffability, intrinsicness, and incorrigibility
+are further theses with separate arguments. Empirical dissociation can refine the
+phenomenal structure without settling whether that structure is physical or functional.</p>
+<p>The pressure created by the minimal phenomenon is developed next as the
+<a href="03-hard-problem.html">hard problem and explanatory gap</a>.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Block, Ned. "Inverted Earth" (1990).</li>
+<li>Chalmers, David J. "Absent Qualia, Fading Qualia, Dancing Qualia" (1995).</li>
+<li>Dennett, Daniel C. "Quining Qualia" (1988).</li>
+<li>Nagel, Thomas. "What Is It Like to Be a Bat?" (1974).</li>
+<li>Shoemaker, Sydney. "The Inverted Spectrum" (1982).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/06-consciousness/01-kinds-of-consciousness.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/06-consciousness/03-hard-problem.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/06-consciousness/01-kinds-of-consciousness.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/06-consciousness/03-hard-problem.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

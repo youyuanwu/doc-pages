@@ -1,0 +1,404 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Unconscious Mental States - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/11-cognition/06-unconscious-mental-states.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="unconscious-mental-states"><a class="header" href="#unconscious-mental-states">Unconscious Mental States</a></h1>
+<p>Mental life extends beyond what is currently experienced or reportable. Standing
+beliefs persist while unattended; perception influences action without awareness;
+skills, memories, and biases shape behaviour without deliberate access. The category
+<strong>unconscious</strong> covers importantly different conditions, from dormant dispositions to
+active subpersonal processing and dynamically excluded motives.</p>
+<p>The philosophical problem is not whether the brain processes information unconsciously.
+It plainly does. The question is when such processing constitutes a mental state of the
+person - a belief, perception, desire, or intention - rather than only a mechanism that
+supports one.</p>
+<hr />
+<h2 id="three-senses-of-unconscious"><a class="header" href="#three-senses-of-unconscious">Three senses of unconscious</a></h2>
+<p><strong>Dispositional unconscious.</strong> A standing belief that Paris is in France is not
+phenomenally present most of the day. It remains available for inference and report.</p>
+<p><strong>Cognitive unconscious.</strong> Active processes extract features, prime responses, guide
+movement, and update predictions without awareness.</p>
+<p><strong>Dynamic unconscious.</strong> In psychoanalytic traditions, motives and representations are
+kept from consciousness through conflict or defence while influencing thought and action.</p>
+<p>These categories differ in evidence and mechanism. A dormant standing belief is not an
+active hidden sentence; unconscious perceptual processing is not automatically repressed;
+failure to report can reflect access limits rather than motivational exclusion.</p>
+<h2 id="standing-attitudes"><a class="header" href="#standing-attitudes">Standing attitudes</a></h2>
+<p>Most beliefs and desires are standing rather than occurrent. A person believes their
+birth date while sleeping and desires a long-term goal while attending elsewhere.</p>
+<p>Dispositional accounts identify these attitudes through tendencies to judge, infer,
+feel, and act under relevant conditions. The dispositions are structured by other
+attitudes and can be masked by distraction or conflicting goals.</p>
+<p>Not every stored trace is a belief. A memory representation may influence performance
+without being available as something the person endorses. Standing belief requires an
+appropriate relation to reasoning, assertion, and revision, though the threshold is
+contested.</p>
+<h2 id="subliminal-and-masked-perception"><a class="header" href="#subliminal-and-masked-perception">Subliminal and masked perception</a></h2>
+<p>Stimuli presented briefly or masked can influence choices and reaction times despite
+denied awareness. Such effects show unconscious <strong>processing</strong> of stimulus information.
+They do not automatically establish unconscious perception with rich content.</p>
+<p>Methodological concerns include partial awareness, response bias, trial selection, and
+whether the awareness measure was sensitive to the feature driving behaviour. Objective
+discrimination and subjective report can diverge without either being a perfect measure
+of phenomenality.</p>
+<p>Claims should match the evidence: feature sensitivity, semantic priming, or action
+guidance may be established at different depths. "The unconscious saw the word" can
+overstate a narrow effect.</p>
+<h2 id="blindsight"><a class="header" href="#blindsight">Blindsight</a></h2>
+<p>Some people with damage to primary visual cortex deny seeing stimuli in part of the
+visual field while performing above chance when forced to guess. Blindsight separates
+visual information from ordinary visual experience and confident report.</p>
+<p>The case is compared with neglect, agnosia, anosognosia, locked-in syndrome, and
+clinical disorders of consciousness in
+<a href="../14-science/03-disorders-and-dissociations.html">Disorders and Dissociations</a>.</p>
+<p>Interpretations differ:</p>
+<ul>
+<li>genuine unconscious perception guides responses;</li>
+<li>degraded conscious experience is present but falls below report criteria;</li>
+<li>subpersonal visual processing supports guessing without personal-level perception.</li>
+</ul>
+<p>The case does not decide among them without sensitive confidence, phenomenological, and
+mechanistic measures. It does establish that discrimination, access, and phenomenal
+experience should not be treated as one capacity.</p>
+<h2 id="implicit-memory-and-learning"><a class="header" href="#implicit-memory-and-learning">Implicit memory and learning</a></h2>
+<p>Past experience can improve performance without conscious recollection. Priming,
+procedural learning, conditioning, and some amnesic capacities reveal memory systems
+that do not support episodic report.</p>
+<p>Calling these <strong>implicit memory</strong> is appropriate when past experience causally changes a
+retained capacity. It does not imply an unconscious autobiographical memory with the
+same content as conscious recall.</p>
+<p>The distinction between memory systems also pressures the idea of one mental store. A
+person's cognitive history is distributed across skills, dispositions, associations,
+semantic knowledge, and reconstructive episodes.</p>
+<h2 id="implicit-attitudes-and-bias"><a class="header" href="#implicit-attitudes-and-bias">Implicit attitudes and bias</a></h2>
+<p>Indirect measures can reveal patterns in speed, association, attention, or behaviour
+that diverge from explicit avowals. These are often called <strong>implicit attitudes</strong>.</p>
+<p>The label can imply more than the measure establishes. A task effect may reflect learned
+associations, familiarity, cultural knowledge, motor response, or context rather than a
+stable unconscious belief. Reliability and predictive reach vary.</p>
+<p>The morally relevant point need not await a verdict about belief. Systematic biased
+behaviour and institutional effects matter even if the underlying state is a habit or
+association. Responsibility questions require evidence about control, awareness, and
+opportunities for correction, not one metaphysical label.</p>
+<h2 id="psychoanalytic-unconscious"><a class="header" href="#psychoanalytic-unconscious">Psychoanalytic unconscious</a></h2>
+<p>Freudian theory attributes thoughts, wishes, and conflicts that are actively excluded
+from consciousness yet expressed through symptoms, dreams, slips, and behaviour.
+Unlike merely subpersonal processing, these states are person-level and often possess
+complex intentional content.</p>
+<p>The explanatory style can be difficult to falsify when every denial counts as resistance
+and every outcome admits symbolic interpretation. Contemporary psychodynamic theories
+can be assessed through specific predictions about defence, attachment, affect regulation,
+and memory rather than broad retrospective narratives.</p>
+<p>The philosophical contribution is the possibility that self-interpretation and agency
+are divided by motivated processes. The empirical status must be judged claim by claim.</p>
+<h2 id="personal-and-subpersonal-levels"><a class="header" href="#personal-and-subpersonal-levels">Personal and subpersonal levels</a></h2>
+<p>A <strong>personal-level</strong> state belongs to the agent's network of reasons, perceptions, and
+actions. A <strong>subpersonal</strong> state belongs to mechanisms explaining how those capacities
+are implemented.</p>
+<p>The distinction is explanatory, not a line between real and unreal. Edge detectors and
+prediction errors are real neural or computational states, but attributing a belief to
+them may be a category mistake. They do not individually endorse, infer, or act.</p>
+<p>A subpersonal representation can have functional content without being a belief of the
+person. Personal attribution becomes warranted when the content is integrated with
+reasoning, flexible control, memory, and correction at the agent level.</p>
+<h2 id="access-and-availability"><a class="header" href="#access-and-availability">Access and availability</a></h2>
+<p>Unconscious states vary in possible access:</p>
+<ul>
+<li>permanently inaccessible processes;</li>
+<li>states accessible with cues or attention;</li>
+<li>information available to action but not report;</li>
+<li>states available to one subsystem but not another;</li>
+<li>contents that become conscious after processing.</li>
+</ul>
+<p>This graded structure resists a binary conscious/unconscious inventory. It also connects
+with global-workspace theories, which define consciousness through broad availability.</p>
+<p>Availability is not phenomenality by definition. A state may influence many systems
+without experience, and an experience may exceed what later report can access.</p>
+<h2 id="are-unconscious-beliefs-possible"><a class="header" href="#are-unconscious-beliefs-possible">Are unconscious beliefs possible?</a></h2>
+<p>A person may behave as if they believe something they sincerely deny. Does this show an
+unconscious belief, a conflicting association, or a disposition without commitment?</p>
+<p>Reasons to attribute belief include explanatory integration, stability, inferential
+effects, action guidance, and responsiveness to evidence. Reasons against include lack
+of endorsement, narrow context, and absence from reasoning.</p>
+<p>Belief may be fragmented. A person can possess different dispositions in different
+contexts without one coherent hidden proposition. Treating belief as graded or
+context-sensitive may fit better than choosing between full belief and none.</p>
+<h2 id="the-mark-of-the-mental"><a class="header" href="#the-mark-of-the-mental">The mark of the mental</a></h2>
+<p>If unconscious states are mental, <a href="../06-consciousness/01-kinds-of-consciousness.html">consciousness</a>
+cannot be the sole mark of mind. Intentionality, functional role, rational integration,
+and availability become alternative criteria.</p>
+<p>Expanding mentality to every information-processing state creates the opposite problem.
+Immune systems, thermostats, and cells carry information and regulate action. A theory
+needs a principled level at which representation belongs to an agent rather than an
+observer's useful description.</p>
+<p>The likely answer is plural and graded: basic subpersonal representation, personal
+attitudes, and conscious experience are related achievements, not interchangeable names.</p>
+<h2 id="unconscious-reasons"><a class="header" href="#unconscious-reasons">Unconscious reasons</a></h2>
+<p>Can an agent act for a reason they do not consciously know? A belief and desire may
+guide action without occurrent awareness, provided the action is sensitive to their
+content and integrated with control. Conscious deliberation is not required for every
+reason-guided skill.</p>
+<p>An unknown cause is not automatically a motivating reason. A priming effect can alter
+behaviour without being a consideration for which the person acted. Reasons explanations
+require content and an appropriate guiding role, as
+<a href="../09-causation-and-action/05-reasons-intentions-action.html">Reasons, Intentions, and Action</a>
+argues.</p>
+<p>This distinction prevents psychological causes from being redescribed as reasons merely
+because they influenced an action.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>State</th><th>Evidence</th><th>Mental-status question</th></tr></thead><tbody>
+<tr><td><strong>Standing belief</strong></td><td>flexible availability and inference</td><td>disposition or stored representation?</td></tr>
+<tr><td><strong>Masked processing</strong></td><td>priming and performance change</td><td>perception or subpersonal sensitivity?</td></tr>
+<tr><td><strong>Blindsight</strong></td><td>discrimination without ordinary report</td><td>unconscious or degraded conscious vision?</td></tr>
+<tr><td><strong>Implicit memory</strong></td><td>retained performance effect</td><td>memory content or changed capacity?</td></tr>
+<tr><td><strong>Implicit attitude</strong></td><td>indirect behavioural pattern</td><td>belief, association, habit, or context effect?</td></tr>
+<tr><td><strong>Repressed state</strong></td><td>motivated pattern and symptom</td><td>testable person-level content or interpretive posit?</td></tr>
+</tbody></table>
+</div>
+<p>Unconscious cognition is not one hidden mind beneath consciousness. It is a collection
+of standing dispositions, active mechanisms, inaccessible representations, and sometimes
+person-level conflicts. Precise attribution requires matching the mental category to the
+evidence rather than treating every effect as an unconscious belief.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Dehaene, Stanislas. <em>Consciousness and the Brain</em> (2014).</li>
+<li>Freud, Sigmund. "The Unconscious" (1915).</li>
+<li>Kihlstrom, John F. "The Cognitive Unconscious" (1987).</li>
+<li>Phillips, Ian. <em>The Shifting Border between Perception and Unconsciousness</em> (2022).</li>
+<li>Schwitzgebel, Eric. "A Phenomenal, Dispositional Account of Belief" (2002).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/11-cognition/05-concepts-and-rationality.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/12-affect-and-experience/01-emotion.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/11-cognition/05-concepts-and-rationality.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/12-affect-and-experience/01-emotion.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

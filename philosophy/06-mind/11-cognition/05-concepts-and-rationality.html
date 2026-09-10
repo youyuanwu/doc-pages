@@ -1,0 +1,411 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Concepts, Thought, and Rationality - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/11-cognition/05-concepts-and-rationality.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="concepts-thought-and-rationality"><a class="header" href="#concepts-thought-and-rationality">Concepts, Thought, and Rationality</a></h1>
+<p><strong>Concepts</strong> are the reusable constituents through which subjects classify, infer,
+imagine, and think. The concept <em>bird</em> contributes to thoughts about birds across
+different contexts; the concept <em>cause</em> structures explanations; logical concepts
+support indefinitely many inferences. Theories disagree whether concepts are
+definitions, prototypes, exemplars, theories, abilities, or structured symbols.</p>
+<p>No one account fits every concept equally well. Definitions explain exact logical and
+mathematical cases but struggle with ordinary categories; prototypes explain typicality
+but not compositionality; abilities fit embodied use but can leave truth conditions
+unclear. The relation between psychological processing and rational norms adds a second
+problem: how can finite, biased mechanisms instantiate standards of correct reasoning?</p>
+<hr />
+<h2 id="what-concepts-do"><a class="header" href="#what-concepts-do">What concepts do</a></h2>
+<p>Concepts support:</p>
+<ul>
+<li>categorising new instances;</li>
+<li>drawing inferences;</li>
+<li>forming complex thoughts;</li>
+<li>recognising the same subject matter across presentations;</li>
+<li>planning and counterfactual reasoning;</li>
+<li>communicating through public expressions.</li>
+</ul>
+<p>A theory can prioritise one role and explain the others. Prototype theories begin with
+classification, inferential theories with reasoning, and language-of-thought theories
+with compositional structure. The adequacy of the reduction depends on whether the
+remaining roles follow.</p>
+<h2 id="the-classical-definitional-view"><a class="header" href="#the-classical-definitional-view">The classical definitional view</a></h2>
+<p>On the classical view, a concept is specified by necessary and sufficient conditions.
+A bachelor is an unmarried adult man; a triangle is a three-sided polygon. Categorisation
+checks whether an item satisfies the definition.</p>
+<p>The view explains sharp boundaries, logical relations, and compositionality. It struggles
+to find definitions for ordinary concepts such as game, chair, knowledge, or species.
+People also judge some members more typical than others even when all satisfy the same
+conditions.</p>
+<p>Definitions remain plausible for stipulated and formal concepts. Their limited range
+suggests conceptual pluralism rather than the disappearance of definitional structure.</p>
+<h2 id="prototypes"><a class="header" href="#prototypes">Prototypes</a></h2>
+<p>A <strong>prototype</strong> represents a category through a central or average cluster of features.
+Items are classified by similarity, explaining why robins seem better examples of birds
+than penguins and why categorisation is graded.</p>
+<p>Prototype models fit learning and speed. Their problems concern boundaries and
+composition. A pet fish is not well represented by combining the typical pet with the
+typical fish; constituent prototypes do not determine the prototype of the complex.</p>
+<p>Similarity also depends on which dimensions receive weight. Without a task, theory, or
+goal, any two items resemble each other in indefinitely many respects.</p>
+<h2 id="exemplars"><a class="header" href="#exemplars">Exemplars</a></h2>
+<p><strong>Exemplar theories</strong> store particular encountered instances and classify new items by
+similarity to them. They preserve variability hidden by an average prototype and explain
+effects of frequency and recency.</p>
+<p>The distinction between prototype and exemplar can be difficult to test because both
+produce graded judgments. Human cognition may use summaries and instances at different
+times.</p>
+<p>Exemplars explain recognition better than abstract thought. A concept also supports
+counterfactuals and inferences about cases unlike those encountered, requiring theory or
+structure beyond stored similarity.</p>
+<h2 id="theory-theories"><a class="header" href="#theory-theories">Theory theories</a></h2>
+<p>On a <strong>theory theory</strong>, concepts are nodes in bodies of causal and explanatory knowledge.
+The concept <em>disease</em> depends on views about causes, symptoms, transmission, and
+treatment rather than one feature list.</p>
+<p>This explains why conceptual categorisation changes with background knowledge and why
+surface similarity can be overridden. It also creates holism: if theories differ,
+speakers may not share concepts, and radical conceptual change becomes hard to describe
+as change concerning one subject.</p>
+<p>External reference can preserve continuity through theory change. Scientists before and
+after a discovery may refer to the same kind under different conceptions.</p>
+<h2 id="concepts-as-abilities"><a class="header" href="#concepts-as-abilities">Concepts as abilities</a></h2>
+<p>An <strong>ability view</strong> identifies concept possession with capacities to discriminate,
+infer, imagine, act, and use expressions appropriately. Concepts are not inner objects
+but patterns of competence.</p>
+<p>This fits embodied and pragmatic cognition and avoids asking where a concept token is
+stored. It can include non-linguistic agents whose practical abilities outstrip explicit
+definitions.</p>
+<p>The view needs structure sufficient for novel composition. Possessing separate abilities
+for red and square should explain the capacity to think <em>red square</em>. Merely listing
+dispositions can reproduce the circularity problem faced by behaviourism.</p>
+<h2 id="structured-representations"><a class="header" href="#structured-representations">Structured representations</a></h2>
+<p>Language-of-thought theories identify concepts with constituents of internal symbols.
+Their recombinability explains productivity and systematicity. The same <em>red</em> constituent
+appears in thoughts about red circles and red squares.</p>
+<p>Atomic symbols need content. Causal, teleological, and inferential relations must connect
+the vehicle to redness. Primitive symbols may be too numerous if every lexical concept
+is innate, while learning new primitive concepts is difficult to explain without already
+possessing their constituents.</p>
+<p>Distributed representations offer another format, as
+<a href="02-connectionism.html">Connectionism</a> explains. The key issue is whether constituent
+structure is explicit, emergent, or unnecessary for the target capacity.</p>
+<h2 id="conceptual-pluralism"><a class="header" href="#conceptual-pluralism">Conceptual pluralism</a></h2>
+<p>Different tasks may recruit different representational structures. Categorisation can
+use prototypes and exemplars; explanation can use theory-like knowledge; formal
+reasoning can use structured symbols; skilled action can use embodied abilities.</p>
+<p>Pluralism predicts context effects and uneven deficits. It risks replacing one theory
+with an unprincipled list. A mature account should specify how formats interact and why
+one is selected for a task.</p>
+<p>Hybrid concepts may contain a lexical or referential anchor plus several bodies of
+information, none individually defining the concept.</p>
+<h2 id="conceptual-and-non-conceptual-content"><a class="header" href="#conceptual-and-non-conceptual-content">Conceptual and non-conceptual content</a></h2>
+<p>Perception can discriminate more shades and shapes than a subject can classify. Infants
+and animals navigate spatial relations without the concepts expressed in adult language.
+These motivate <strong>non-conceptual content</strong>.</p>
+<p>Conceptualists argue that perceptual experience can justify belief only if it already
+occupies the space of reasons. Non-conceptualists distinguish causal or representational
+content from the conceptual capacities needed to endorse a judgment.</p>
+<p>The dispute partly concerns the standard for concept possession. If any systematic
+discrimination counts, non-conceptual content shrinks; if concepts require inferential
+and recombinable use, it expands.</p>
+<h2 id="rational-norms-and-psychological-laws"><a class="header" href="#rational-norms-and-psychological-laws">Rational norms and psychological laws</a></h2>
+<p>Logic and epistemology specify how one <strong>ought</strong> to reason. Psychology describes how
+people actually reason, including heuristics, biases, and resource limits. A causal law
+cannot by itself establish a normative inference.</p>
+<p>Yet rational norms must be usable by finite agents. A standard no possible reasoner
+could follow may fail as a cognitive ideal. Bounded rationality studies strategies that
+perform well under constraints rather than approximating unlimited deduction.</p>
+<p>The relation can be layered:</p>
+<ul>
+<li>formal norms specify correctness;</li>
+<li>computational models specify procedures;</li>
+<li>mechanisms implement procedures;</li>
+<li>environments determine which procedures are ecologically effective.</li>
+</ul>
+<p>No level reduces the others automatically.</p>
+<h2 id="rational-interpretation"><a class="header" href="#rational-interpretation">Rational interpretation</a></h2>
+<p>Davidsonian interpretation attributes beliefs by finding a largely coherent pattern of
+truth and reason. A system wholly insensitive to implication or evidence may not count
+as holding propositional attitudes at all.</p>
+<p>This makes rationality partly constitutive of content rather than a standard externally
+applied after attribution. It threatens to idealise real agents and to misclassify
+systematic irrationality as different meaning.</p>
+<p>A modest version requires enough inferential integration for interpretation while
+allowing local error, conflict, and bias. Rationality is a background constraint, not
+perfect performance.</p>
+<h2 id="conceptual-change"><a class="header" href="#conceptual-change">Conceptual change</a></h2>
+<p>Concepts change through discovery, social struggle, and practical innovation. <em>Planet</em>,
+<em>gene</em>, and <em>marriage</em> have altered in extension and associated theory. Change raises a
+continuity problem: if content is constituted by inferential role, how can one concept
+change rather than be replaced?</p>
+<p>Causal reference, historical chains, and overlap in use can preserve topic. Sometimes
+replacement is the right verdict. The distinction is not purely linguistic; it affects
+whether past claims disagree with present ones or express different frameworks.</p>
+<p>Conceptual engineering makes change deliberate, asking which concepts serve epistemic
+and social goals. Psychological tractability and normative improvement can pull in
+different directions.</p>
+<h2 id="language-and-thought"><a class="header" href="#language-and-thought">Language and thought</a></h2>
+<p>Public language supports complex thought by supplying stable symbols, shared distinctions,
+and external memory. It may transform rather than merely express pre-linguistic cognition.</p>
+<p>Thought is not universally linguistic. Spatial navigation, imagery, affect, motor
+planning, and animal cognition can proceed in other formats. Inner speech is one process
+among several and varies across people.</p>
+<p>The question is therefore not whether language or thought comes first globally. It is
+which cognitive capacities require linguistic scaffolding and which contents can be
+represented independently.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Theory</th><th>Best explains</th><th>Main pressure point</th></tr></thead><tbody>
+<tr><td><strong>Definition</strong></td><td>sharp formal concepts</td><td>ordinary categories and typicality</td></tr>
+<tr><td><strong>Prototype</strong></td><td>graded classification</td><td>composition and dimension selection</td></tr>
+<tr><td><strong>Exemplar</strong></td><td>variability and experience effects</td><td>abstraction and novel inference</td></tr>
+<tr><td><strong>Theory theory</strong></td><td>explanation and conceptual change</td><td>holism and shared content</td></tr>
+<tr><td><strong>Ability</strong></td><td>embodied competent use</td><td>truth conditions and compositional structure</td></tr>
+<tr><td><strong>Structured symbol</strong></td><td>productivity and systematicity</td><td>grounding and concept learning</td></tr>
+</tbody></table>
+</div>
+<p>Concepts are likely heterogeneous cognitive tools rather than one representational kind.
+Rationality constrains their use without being reducible to actual dispositions. A good
+theory must connect normative structure with learnable, finite mechanisms rather than
+choose one side of that relation.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Carey, Susan. <em>The Origin of Concepts</em> (2009).</li>
+<li>Fodor, Jerry A. <em>Concepts</em> (1998).</li>
+<li>Machery, Edouard. <em>Doing without Concepts</em> (2009).</li>
+<li>Murphy, Gregory L. <em>The Big Book of Concepts</em> (2002).</li>
+<li>Peacocke, Christopher. <em>A Study of Concepts</em> (1992).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/11-cognition/04-extended-and-distributed-mind.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/11-cognition/06-unconscious-mental-states.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/11-cognition/04-extended-and-distributed-mind.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/11-cognition/06-unconscious-mental-states.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

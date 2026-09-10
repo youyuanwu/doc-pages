@@ -1,0 +1,376 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Kinds and Concepts of Consciousness - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/06-consciousness/01-kinds-of-consciousness.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="kinds-and-concepts-of-consciousness"><a class="header" href="#kinds-and-concepts-of-consciousness">Kinds and Concepts of Consciousness</a></h1>
+<p><strong>Consciousness</strong> names several phenomena that normally travel together and can come
+apart. A person may be awake but unaware of an object, discriminate a stimulus without
+being able to report it, or experience something without reflecting on themselves as
+the subject. Experimental results and philosophical arguments become equivocal when
+they establish one of these conditions and conclude another.</p>
+<p>This page supplies the taxonomy used throughout the folder. Its central distinction is
+between <strong>access consciousness</strong>, defined by availability to cognition and control, and
+<strong>phenomenal consciousness</strong>, defined by what an experience is like for its subject.
+Neither should be treated as the meaning of the word without qualification.</p>
+<hr />
+<h2 id="creature-and-state-consciousness"><a class="header" href="#creature-and-state-consciousness">Creature and state consciousness</a></h2>
+<p>A <strong>creature</strong> is conscious when it is awake or sentient rather than dreamlessly asleep,
+anaesthetised, comatose, or dead. This is a condition of the organism. A <strong>mental state</strong>
+is conscious when the subject is conscious of or through that state. An awake creature
+has many unconscious states; a sleeping creature may undergo a conscious dream.</p>
+<p>Clinical measures of level of consciousness usually concern the creature: arousal,
+responsiveness, and organised wakefulness. Philosophical discussions of experience
+usually concern states. Moving between them creates bad inferences. Restoring wakeful
+behaviour may not restore every conscious content, and proving that one stimulus was
+unconsciously processed does not show that the creature was unconscious.</p>
+<h2 id="transitive-and-intransitive-consciousness"><a class="header" href="#transitive-and-intransitive-consciousness">Transitive and intransitive consciousness</a></h2>
+<p><strong>Intransitive consciousness</strong> is being conscious, full stop. <strong>Transitive
+consciousness</strong> is consciousness <em>of</em> something: the cup, a pain, one's breathing, or
+the thought that time is short. A state can make one conscious of an object without
+the object itself being mental.</p>
+<p>Transitive consciousness raises intentional questions. Hallucination is consciously
+<em>as of</em> an object even when no such object is present. A bodily pain seems both to have
+a felt character and to present a location or disturbance. The distinction therefore
+connects consciousness to representation without identifying the two.</p>
+<h2 id="access-and-phenomenal-consciousness"><a class="header" href="#access-and-phenomenal-consciousness">Access and phenomenal consciousness</a></h2>
+<p>Ned Block distinguishes two notions:</p>
+<ul>
+<li>A content is <strong>access-conscious</strong> when it is poised for reasoning, deliberate action,
+verbal report, and flexible control.</li>
+<li>A state is <strong>phenomenally conscious</strong> when there is something it is like for the
+subject to be in it.</li>
+</ul>
+<p>Access is functional: it is defined by what information can do within a system.
+Phenomenality is first-personal: it concerns the character of undergoing the state.
+The <a href="../01-introduction.html">introduction</a> uses this distinction to keep consciousness
+apart from intelligence and cognition.</p>
+<p>Whether access and phenomenality can dissociate is disputed. <strong>Overflow</strong> arguments
+claim that perceptual experience contains more detail than working memory and report
+can access. Opponents argue that apparent richness reflects accessible gist, partial
+awareness, and rapid reconstruction rather than inaccessible phenomenal detail.
+Blindsight supplies the reverse-looking case: above-chance visual discrimination with
+little or no reported visual experience. Its force depends on whether residual degraded
+experience and response criteria have been excluded.</p>
+<p>The distinction remains useful even if perfect dissociation is impossible. A theory
+must say whether it explains availability, phenomenal character, or a relation that
+makes them necessarily co-occur.</p>
+<h2 id="monitoring-and-self-consciousness"><a class="header" href="#monitoring-and-self-consciousness">Monitoring and self-consciousness</a></h2>
+<p>A state may be conscious without the subject explicitly thinking about it. <strong>Higher-order
+awareness</strong> is awareness of one's own mental state; <strong>self-consciousness</strong> can mean
+awareness of oneself as the subject, sensitivity to how one appears socially, or the
+capacity to represent oneself across time. These are not one capacity.</p>
+<p>An animal may feel pain without applying a concept of pain or representing itself as
+the owner. Conversely, a system may maintain an accurate self-model and report its
+internal states without those represented states being phenomenally conscious. This is
+why metacognitive accuracy is evidence relevant to consciousness, not a definition that
+settles it.</p>
+<h2 id="wakefulness-and-responsiveness"><a class="header" href="#wakefulness-and-responsiveness">Wakefulness and responsiveness</a></h2>
+<p>Wakefulness is neither sufficient nor necessary for every target notion. Absence
+seizures and automatisms can preserve open eyes while disrupting access. Dreams can be
+phenomenally conscious without responsiveness to the environment. Locked-in syndrome
+can preserve wakeful awareness while blocking nearly every ordinary response.</p>
+<p>Responsiveness is therefore a measure with bridge assumptions:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">response</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">intact motor and report channels</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">available information</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>Failure to respond may reflect absence of experience, failure of comprehension,
+attention, memory, motivation, or motor output. Covert-command paradigms and convergent
+physiological measures reduce uncertainty but do not turn responsiveness into the
+essence of consciousness.</p>
+<h2 id="contents-qualities-and-modes"><a class="header" href="#contents-qualities-and-modes">Contents, qualities, and modes</a></h2>
+<p>Conscious states vary along at least three axes.</p>
+<ul>
+<li><strong>Content:</strong> what the experience represents, such as a red apple or a pain in the foot.</li>
+<li><strong>Character:</strong> what undergoing it feels like, including colour, intensity, affect,
+and bodily orientation.</li>
+<li><strong>Mode:</strong> whether the content is perceived, imagined, remembered, desired, or thought.</li>
+</ul>
+<p>Two states may share content while differ in mode: seeing a red apple differs from
+imagining one. Two experiences may share representational accuracy while differ in
+character: blurry and sharp vision can represent the same scene. A theory that reduces
+character to content must explain these apparent differences rather than assume the
+axes coincide.</p>
+<h2 id="state-consciousness-and-report"><a class="header" href="#state-consciousness-and-report">State consciousness and report</a></h2>
+<p>Report is powerful evidence because subjects can normally use conscious information in
+speech and action. It is not constitutive by default. Reports depend on attention,
+memory, confidence, concepts, language, and motor control. Explaining those mechanisms
+may explain access while leaving phenomenal consciousness disputed.</p>
+<p>No-report paradigms seek neural contrasts that avoid explicit response, using eye
+movements, pupil changes, or involuntary physiological signatures. They remove some
+report confounds while adding assumptions about what the indirect marker tracks. The
+<a href="../04-method-and-evidence.html">method page</a> gives the general rule: preserve the
+observation, state the bridge, and test rival mechanisms.</p>
+<h2 id="operational-definitions"><a class="header" href="#operational-definitions">Operational definitions</a></h2>
+<p>An operational definition specifies how a variable is measured. It does not necessarily
+give a metaphysical analysis. Defining consciousness for one experiment as accurate
+report above a confidence threshold can be excellent methodology if the target is
+access. It would beg the question if used to prove that unreportable experience is
+impossible.</p>
+<p>Different operations may target different constructs:</p>
+<div class="table-wrapper"><table><thead><tr><th>Operation</th><th>Immediate target</th><th>What remains open</th></tr></thead><tbody>
+<tr><td>Verbal report</td><td>reportable access</td><td>unreported phenomenality, sincerity, memory</td></tr>
+<tr><td>Forced-choice discrimination</td><td>encoded task information</td><td>awareness of that information</td></tr>
+<tr><td>Confidence or wagering</td><td>metacognitive access</td><td>phenomenal character</td></tr>
+<tr><td>Neural complexity index</td><td>dynamical capacity under a theory</td><td>which experiences occur</td></tr>
+<tr><td>Wake/sleep classification</td><td>creature-level state</td><td>conscious dreaming and contents</td></tr>
+</tbody></table>
+</div>
+<p>Disagreement among measures can reveal that the original category was composite rather
+than that one instrument simply failed.</p>
+<h2 id="minimal-and-richer-notions"><a class="header" href="#minimal-and-richer-notions">Minimal and richer notions</a></h2>
+<p><strong>Sentience</strong> is often used for the capacity for valenced experience, especially pain
+and pleasure. <strong>Phenomenal consciousness</strong> is broader and includes neutral experience.
+<strong>Sapience</strong> concerns reasoning or wisdom; <strong>self-consciousness</strong> requires some form of
+self-representation. <strong>Personhood</strong> adds normative criteria. None should be inferred
+from another without argument.</p>
+<p>This matters for animals, infants, patients, and machines. Moral caution may be driven
+by sentience even where reflective self-consciousness is absent. Sophisticated reasoning
+may occur without evidence of valence. A broad word such as "conscious" should not hide
+which threshold carries the practical consequence.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>The taxonomy is not a neutral dictionary. Higher-order theories make monitoring
+constitutive; workspace theories emphasise access; phenomenal-first views treat
+what-it-is-like as explanatorily prior. The point of separating the concepts is to show
+where theories disagree rather than settle the disagreement by definition.</p>
+<p>The next page examines the property at the centre of the dispute:
+<a href="02-qualia-and-subjectivity.html">phenomenal character and qualia</a>.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Bayne, Tim. <em>The Unity of Consciousness</em> (2010).</li>
+<li>Block, Ned. "On a Confusion about a Function of Consciousness" (1995).</li>
+<li>Chalmers, David J. "The Conscious Mind" (1996).</li>
+<li>Rosenthal, David M. <em>Consciousness and Mind</em> (2005).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/05-mind-body/07-eliminativism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/06-consciousness/02-qualia-and-subjectivity.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/05-mind-body/07-eliminativism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/06-consciousness/02-qualia-and-subjectivity.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Key Figures in Philosophy of Mind - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/15-context/04-key-figures.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="key-figures-in-philosophy-of-mind"><a class="header" href="#key-figures-in-philosophy-of-mind">Key Figures in Philosophy of Mind</a></h1>
+<p>A compact reference to figures whose arguments are used in this section. The entries
+identify a contribution rather than summarise a career. The changing problem structure
+is developed in the <a href="01-history.html">history</a> page.</p>
+<hr />
+<h2 id="ancient-medieval-and-comparative-traditions"><a class="header" href="#ancient-medieval-and-comparative-traditions">Ancient, medieval, and comparative traditions</a></h2>
+<ul>
+<li><strong>Plato</strong> (c. 428-348 BCE) - the separable soul, tripartite psychology, recollection,
+and arguments connecting mind with immortality.</li>
+<li><strong>Aristotle</strong> (384-322 BCE) - soul as the form and actuality of a living body; graded
+capacities of nutrition, perception, movement, and intellect; a precursor to
+<a href="../11-cognition/03-embodied-and-enactive-cognition.html">embodied and functional</a> views.</li>
+<li><strong>Avicenna / Ibn Sina</strong> (c. 980-1037) - the Flying Man argument for self-awareness
+independent of bodily awareness.</li>
+<li><strong>Aquinas</strong> (1225-1274) - hylomorphic soul-body unity with a disputed route to the
+intellect's subsistence; see <a href="../05-mind-body/01-substance-dualism.html#hylomorphic-dualism">substance dualism</a>.</li>
+<li><strong>Gangesa</strong> (c. 13th-14th c.) and the <strong>Nyaya</strong> tradition - enduring self, cognition
+as its property, and realist theories of knowledge; see
+<a href="03-comparative-traditions.html#nyaya-a-substantial-self">comparative traditions</a>.</li>
+<li><strong>Kapila / the Samkhya tradition</strong> - purusha as inactive witness-consciousness distinct
+from natural mental processes.</li>
+<li><strong>Shankara</strong> (traditionally 8th c.) - Advaita non-dualism and the identity of Atman
+and Brahman.</li>
+<li><strong>Vasubandhu</strong> (c. 4th-5th c.) - Buddhist analyses of aggregates, cognition, and
+Yogacara representation.</li>
+<li><strong>Nagarjuna</strong> (c. 2nd-3rd c.) - dependent origination and emptiness as critique of
+self-grounding persons and mental states.</li>
+<li><strong>Confucius</strong> (551-479 BCE), <strong>Mencius</strong> (c. 372-289 BCE), and <strong>Xunzi</strong>
+(c. 310-235 BCE) - heart-mind, affective cultivation, ritual, and relational personhood.</li>
+<li><strong>Zhuangzi</strong> (c. 4th c. BCE) - changing perspectives, self-transformation, and skilled
+action beyond explicit rule-following.</li>
+</ul>
+<h2 id="early-modern-and-enlightenment"><a class="header" href="#early-modern-and-enlightenment">Early modern and Enlightenment</a></h2>
+<ul>
+<li><strong>Descartes</strong> (1596-1650) - the cogito, mind as thinking substance, real distinction,
+and the <a href="../05-mind-body/01-substance-dualism.html">interaction problem</a>.</li>
+<li><strong>Elisabeth of Bohemia</strong> (1618-1680) - the decisive challenge to how an unextended mind
+can move an extended body.</li>
+<li><strong>Spinoza</strong> (1632-1677) - one substance under mental and physical attributes, avoiding
+interaction through parallel expression.</li>
+<li><strong>Leibniz</strong> (1646-1716) - perception in monads, pre-established harmony, and the mill
+argument against finding perception among mechanical parts.</li>
+<li><strong>Locke</strong> (1632-1704) - consciousness and memory in personal identity; experience and
+reflection as sources of ideas.</li>
+<li><strong>Hume</strong> (1711-1776) - association and the bundle theory of the
+<a href="../10-self-and-other-minds/01-the-self.html#humes-bundle">self</a>.</li>
+<li><strong>Kant</strong> (1724-1804) - transcendental unity of apperception and the subject as a
+condition of unified experience rather than an introspected substance.</li>
+</ul>
+<h2 id="psychology-and-phenomenology"><a class="header" href="#psychology-and-phenomenology">Psychology and phenomenology</a></h2>
+<ul>
+<li><strong>Brentano</strong> (1838-1917) - intentionality as the mark of the mental; see
+<a href="../07-intentionality/01-aboutness.html#brentanos-mark-of-the-mental">aboutness</a>.</li>
+<li><strong>William James</strong> (1842-1910) - the stream of consciousness, attention, habit, and
+radical empiricism.</li>
+<li><strong>Husserl</strong> (1859-1938) - phenomenological reduction, intentional structure, noesis
+and noema, and time-consciousness; see <a href="02-phenomenology.html">Phenomenology</a>.</li>
+<li><strong>Freud</strong> (1856-1939) - dynamically unconscious wishes and conflict; see
+<a href="../11-cognition/06-unconscious-mental-states.html#psychoanalytic-unconscious">Unconscious Mental States</a>.</li>
+<li><strong>Heidegger</strong> (1889-1976) - being-in-the-world, practical significance, and the
+ready-to-hand.</li>
+<li><strong>Merleau-Ponty</strong> (1908-1961) - the lived body, body schema, motor intentionality, and
+perceptual world-involvement.</li>
+<li><strong>Sartre</strong> (1905-1980) - pre-reflective self-consciousness and consciousness as
+world-directed rather than an inner object.</li>
+</ul>
+<h2 id="behaviour-identity-and-function"><a class="header" href="#behaviour-identity-and-function">Behaviour, identity, and function</a></h2>
+<ul>
+<li><strong>Watson</strong> (1878-1958) - methodological behaviourism and psychology as public study.</li>
+<li><strong>Ryle</strong> (1900-1976) - category mistakes, multi-track dispositions, and the critique
+of the Ghost in the Machine; see <a href="../05-mind-body/03-behaviourism.html">Behaviourism</a>.</li>
+<li><strong>Skinner</strong> (1904-1990) - radical behaviourism, reinforcement, and environmental
+explanation.</li>
+<li><strong>Place</strong> (1924-2000), <strong>Smart</strong> (1920-2012), and <strong>Feigl</strong> (1902-1988) - the modern
+<a href="../05-mind-body/04-identity-theory.html">mind-brain identity theory</a>.</li>
+<li><strong>Putnam</strong> (1926-2016) - machine functionalism, multiple realisation, and
+<a href="../07-intentionality/02-internalism-and-externalism.html#twin-earth">Twin Earth externalism</a>.</li>
+<li><strong>Lewis</strong> (1941-2001) - Ramsey-Lewis functional definition and the ability response to
+<a href="../06-consciousness/04-knowledge-arguments.html#the-ability-hypothesis">Mary</a>.</li>
+<li><strong>Block</strong> (b. 1942) - absent qualia, the China brain, access versus phenomenal
+consciousness, overflow, and Inverted Earth.</li>
+<li><strong>Fodor</strong> (1935-2017) - language of thought, modularity, asymmetric dependence, and the
+challenge from systematicity to connectionism.</li>
+</ul>
+<h2 id="action-content-and-mind"><a class="header" href="#action-content-and-mind">Action, content, and mind</a></h2>
+<ul>
+<li><strong>Davidson</strong> (1917-2003) - reasons as causes, <a href="../09-causation-and-action/03-anomalous-monism.html">anomalous monism</a>,
+radical interpretation, and mental anomalism.</li>
+<li><strong>Anscombe</strong> (1919-2001) - intention, practical knowledge, and action under a
+description; see <a href="../09-causation-and-action/05-reasons-intentions-action.html">Reasons, Intentions, and Action</a>.</li>
+<li><strong>Bratman</strong> (b. 1945) - intentions as partial plans coordinating bounded agents.</li>
+<li><strong>Dretske</strong> (1932-2013) - informational semantics and naturalised representation.</li>
+<li><strong>Millikan</strong> (b. 1933) - teleosemantics, proper function, and producer-consumer
+structure; see <a href="../07-intentionality/03-naturalizing-content.html#teleosemantics">Naturalizing Content</a>.</li>
+<li><strong>Searle</strong> (b. 1932) - biological naturalism, original intentionality, and the
+<a href="../13-nonhuman-minds/03-chinese-room-and-symbol-grounding.html">Chinese room</a>.</li>
+<li><strong>Dennett</strong> (1942-2024) - intentional stance, heterophenomenology, real patterns,
+multiple drafts, and the deflationary approach to qualia.</li>
+</ul>
+<h2 id="consciousness-and-the-physical"><a class="header" href="#consciousness-and-the-physical">Consciousness and the physical</a></h2>
+<ul>
+<li><strong>Nagel</strong> (b. 1937) - subjectivity and the what-it-is-like criterion; see the detailed
+<a href="../../../misc/llm-introspection/02-what-is-it-like-to-be-a-bat.html">bat essay</a>.</li>
+<li><strong>Jackson</strong> (b. 1942) - Mary's knowledge argument and epiphenomenal qualia, followed by
+a later return to physicalism.</li>
+<li><strong>Levine</strong> (b. 1952) - the <a href="../06-consciousness/03-hard-problem.html#the-explanatory-gap">explanatory gap</a>.</li>
+<li><strong>Chalmers</strong> (b. 1966) - zombies, the hard problem, two-dimensional argument,
+organisational invariance, and panpsychist alternatives.</li>
+<li><strong>McGinn</strong> (b. 1950) - cognitive closure and
+<a href="../06-consciousness/08-illusionism-and-mysterianism.html#mysterianism">mysterianism</a>.</li>
+<li><strong>Frankish</strong> (b. 1962) - illusionism as a positive theory of why introspection
+attributes qualia.</li>
+<li><strong>Kim</strong> (1934-2019) - supervenience, realisation, and the
+<a href="../09-causation-and-action/01-mental-causation.html#the-exclusion-argument">causal exclusion</a>
+challenge to non-reductive physicalism.</li>
+<li><strong>Goff</strong> (b. 1977) and <strong>Strawson</strong> (b. 1952) - contemporary panpsychism and
+<a href="../06-consciousness/09-panpsychism-and-neutral-monism.html">realistic monism</a>.</li>
+</ul>
+<h2 id="cognitive-science-and-situated-mind"><a class="header" href="#cognitive-science-and-situated-mind">Cognitive science and situated mind</a></h2>
+<ul>
+<li><strong>Turing</strong> (1912-1954) - machine intelligence framed through behavioural conversation
+rather than an essence of thinking.</li>
+<li><strong>Newell</strong> (1927-1992) and <strong>Simon</strong> (1916-2001) - physical symbol systems and
+computational cognitive architecture.</li>
+<li><strong>Marr</strong> (1945-1980) - computational, algorithmic, and implementational
+<a href="../14-science/01-levels-of-explanation.html#marrs-three-levels">levels of explanation</a>.</li>
+<li><strong>Rumelhart</strong> (1942-2011) and <strong>McClelland</strong> (b. 1948) - parallel distributed
+processing and learned representation.</li>
+<li><strong>Gibson</strong> (1904-1979) - ecological information and affordances.</li>
+<li><strong>Varela</strong> (1946-2001), <strong>Thompson</strong> (b. 1962), and <strong>Rosch</strong> (b. 1938) - embodied
+mind, enactivism, and dialogue with Buddhist philosophy.</li>
+<li><strong>Clark</strong> (b. 1957) - predictive processing, embodiment, and the
+<a href="../11-cognition/04-extended-and-distributed-mind.html">extended mind</a>.</li>
+<li><strong>Chalmers and Clark</strong> - the parity argument and Otto's notebook.</li>
+<li><strong>Dehaene</strong> (b. 1965) - global neuronal workspace and experimental study of access.</li>
+<li><strong>Lamme</strong> (b. 1959) - recurrent processing and phenomenal overflow.</li>
+<li><strong>Tononi</strong> (b. 1960) - integrated information theory.</li>
+<li><strong>Graziano</strong> (b. 1967) - attention-schema theory and the meta-problem of awareness.</li>
+</ul>
+<h2 id="self-persons-and-non-human-minds"><a class="header" href="#self-persons-and-non-human-minds">Self, persons, and non-human minds</a></h2>
+<ul>
+<li><strong>Parfit</strong> (1942-2017) - fission, reductionism about persons, and identity not being
+what matters.</li>
+<li><strong>Frankfurt</strong> (1929-2023) - hierarchical desire, identification, and guidance.</li>
+<li><strong>Gazzaniga</strong> (b. 1939) - split-brain research and the interpreter hypothesis.</li>
+<li><strong>Schechter</strong> - philosophical analysis of self-consciousness and split brains.</li>
+<li><strong>Clark and Chalmers</strong> - external cognitive scaffolds as possible constituents rather
+than mere aids.</li>
+<li><strong>de Waal</strong> (1948-2024) and <strong>Godfrey-Smith</strong> (b. 1965) - comparative cognition and
+alternatives to human-centred evidence for <a href="../13-nonhuman-minds/01-animal-minds.html">animal minds</a>.</li>
+</ul>
+<h2 id="how-to-use-this-page"><a class="header" href="#how-to-use-this-page">How to use this page</a></h2>
+<p>Names do not settle arguments. A label such as "functionalism" or "phenomenology" covers
+several claims, and many figures revised their positions. Follow the linked issue page
+for premises, objections, and current alternatives; use this page to locate the source
+and the claim for which it matters.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/15-context/03-comparative-traditions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/A-remarks/00-README.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/15-context/03-comparative-traditions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/A-remarks/00-README.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Disorders and Dissociations - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/14-science/03-disorders-and-dissociations.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="disorders-and-dissociations"><a class="header" href="#disorders-and-dissociations">Disorders and Dissociations</a></h1>
+<p>Neurological and psychiatric cases separate capacities that ordinary experience bundles
+together. A person may discriminate without reporting sight, see without recognising,
+deny an evident impairment, or remain conscious while unable to move. These
+<strong>dissociations</strong> constrain theories of perception, consciousness, self-knowledge, and
+agency by showing that no single measure tracks them all.</p>
+<p>Cases do not interpret themselves. Lesions are rarely perfectly local, tasks differ in
+difficulty, compensatory strategies develop, and absence of report can reflect many
+failures. The philosophical value lies in careful decomposition, not dramatic labels.</p>
+<hr />
+<h2 id="single-and-double-dissociation"><a class="header" href="#single-and-double-dissociation">Single and double dissociation</a></h2>
+<p>A <strong>single dissociation</strong> occurs when capacity <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> is impaired while <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> is preserved.
+A <strong>double dissociation</strong> adds another case in which <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> is impaired while <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> is
+preserved. Double dissociation supports partially independent mechanisms.</p>
+<p>It does not prove encapsulated modules. Nonlinear damage, resource differences, and task
+sensitivity can generate crossing deficits within one distributed system. Evidence is
+stronger when anatomy, time course, intervention, and computational models converge.</p>
+<h2 id="blindsight"><a class="header" href="#blindsight">Blindsight</a></h2>
+<p>In blindsight, damage to primary visual cortex is associated with denied or degraded
+visual awareness in part of the field, while forced-choice discrimination remains above
+chance. Some subjects can locate, orient to, or guess properties of stimuli they say
+they do not see.</p>
+<p>The case separates discrimination from ordinary report and perhaps from phenomenal
+vision. Three interpretations remain:</p>
+<ul>
+<li>genuinely unconscious visual representation;</li>
+<li>weak or degraded conscious experience under a conservative report criterion;</li>
+<li>subpersonal information guiding response without personal-level perception.</li>
+</ul>
+<p>Confidence measures and sensitive phenomenological questioning narrow the alternatives
+without making introspective criteria infallible. The case pressures any theory that
+defines perception or consciousness by successful discrimination alone.</p>
+<h2 id="visual-agnosia"><a class="header" href="#visual-agnosia">Visual agnosia</a></h2>
+<p><strong>Visual agnosia</strong> impairs recognition despite relatively preserved basic vision. A
+subject may describe lines, colours, or shapes without identifying an object, or may
+recognise objects through touch but not sight.</p>
+<p>Subtypes distinguish perceptual organisation from access to stored semantic knowledge.
+The cases show that seeing features, forming object structure, and recognising a kind
+are different achievements.</p>
+<p>They also caution against treating a verbal label as the measure of perception. Failure
+to name can arise from disrupted recognition or language, while visually guided action
+may remain.</p>
+<h2 id="neglect"><a class="header" href="#neglect">Neglect</a></h2>
+<p>In hemispatial <strong>neglect</strong>, subjects fail to attend or respond to one side of space even
+without primary sensory loss. They may eat from one side of a plate, omit one side of a
+drawing, or deny left-sided events.</p>
+<p>Neglect can be spatial, object-centred, or representational. It reveals that sensory
+registration, attention, awareness, and action are separable. Extinction under bilateral
+stimulation shows competition rather than absolute loss.</p>
+<p>Whether neglected information is phenomenally present but inaccessible is difficult to
+determine. Priming and physiological effects establish processing, not necessarily
+experience.</p>
+<h2 id="anosognosia"><a class="header" href="#anosognosia">Anosognosia</a></h2>
+<p><strong>Anosognosia</strong> is impaired awareness of illness or deficit. A person with paralysis may
+deny inability, confabulate movement, or revise only under specific demonstrations.</p>
+<p>The condition undermines a general doctrine that subjects cannot be wrong about their
+current capacities or bodily states. It also shows that self-models integrate prediction,
+sensory feedback, and social correction.</p>
+<p>Denial is not simply dishonesty. Different forms may involve disrupted monitoring,
+belief revision, emotion, or attention. One label should not imply one mechanism.</p>
+<h2 id="locked-in-syndrome"><a class="header" href="#locked-in-syndrome">Locked-in syndrome</a></h2>
+<p>In <strong>locked-in syndrome</strong>, consciousness and cognition can remain largely intact while
+voluntary motor output is severely restricted. Ordinary responsiveness then produces a
+dangerous false negative.</p>
+<p>Reliable eye movement, brain-computer interfaces, and neurophysiological tasks can open
+communication. The case demonstrates that report capacity depends on motor channels
+separable from experience.</p>
+<p>It also provides an epistemic warning for disorders of consciousness: absence of command
+following may reflect failure to understand, remember, attend, or act rather than absence
+of awareness.</p>
+<h2 id="disorders-of-consciousness"><a class="header" href="#disorders-of-consciousness">Disorders of consciousness</a></h2>
+<p>Clinical categories distinguish coma, unresponsive wakefulness syndrome, minimally
+conscious state, and related conditions. Diagnosis uses arousal, reproducible behaviour,
+and physiological evidence.</p>
+<p>Behavioural misdiagnosis can occur because responses are subtle or inconsistent.
+Functional imaging and electrophysiology sometimes reveal covert command-following or
+complex processing. Positive intentional modulation strongly supports awareness;
+negative tests remain inconclusive.</p>
+<p>State consciousness, content, capacity for pain, and prognosis are separate clinical
+questions. Ethical decisions should reflect uncertainty and the asymmetric cost of
+missing preserved experience.</p>
+<h2 id="hallucination"><a class="header" href="#hallucination">Hallucination</a></h2>
+<p>Hallucination shows that perceptual phenomenology can occur without its ordinary external
+object. Causes include sensory loss, drugs, sleep transitions, neurological conditions,
+and psychiatric illness.</p>
+<p>Hallucinations are heterogeneous. They can be recognised as unreal or accepted, simple
+or complex, single-modal or multimodal. Treating all as one mechanism obscures distinct
+relations among generative models, sensory evidence, insight, and attention.</p>
+<p>Their relevance to the <a href="../08-perception/01-problem-of-perception.html">problem of perception</a>
+is structural: a matching bad case pressures direct realism and supports representational
+accounts. Clinical heterogeneity cautions against assuming perfect matching from one
+reported similarity.</p>
+<h2 id="dissociation-and-consciousness"><a class="header" href="#dissociation-and-consciousness">Dissociation and consciousness</a></h2>
+<p>The main variables include:</p>
+<div class="table-wrapper"><table><thead><tr><th>Variable</th><th>Possible separation</th></tr></thead><tbody>
+<tr><td>sensory registration</td><td>without recognition or report</td></tr>
+<tr><td>discrimination</td><td>without ordinary awareness</td></tr>
+<tr><td>phenomenal experience</td><td>possibly without access or memory</td></tr>
+<tr><td>access</td><td>without accurate metacognition</td></tr>
+<tr><td>report</td><td>absent despite preserved consciousness</td></tr>
+<tr><td>self-knowledge</td><td>inaccurate despite intact first-order capacity</td></tr>
+<tr><td>action control</td><td>disrupted despite intention and awareness</td></tr>
+</tbody></table>
+</div>
+<p>No case establishes every row independently. Together they make a one-dimensional
+consciousness scale untenable.</p>
+<h2 id="lesion-inference"><a class="header" href="#lesion-inference">Lesion inference</a></h2>
+<p>If damage to region <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> impairs capacity <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> is causally relevant under the lesion's
+conditions. It may be a component, pathway, enabling condition, or source of widespread
+network disruption.</p>
+<p>Lesion location does not identify where a capacity "is." Diaschisis and plasticity mean
+effects occur beyond damaged tissue, and chronic cases reorganise.</p>
+<p>Converging lesion, stimulation, recording, and computational evidence provides stronger
+mechanistic inference than localisation alone.</p>
+<h2 id="case-interpretation"><a class="header" href="#case-interpretation">Case interpretation</a></h2>
+<p>Good philosophical use of a case asks:</p>
+<ol>
+<li>What was directly measured?</li>
+<li>Which capacities were controlled?</li>
+<li>What alternative mechanism fits the behaviour?</li>
+<li>How heterogeneous are patients and lesions?</li>
+<li>Does the conclusion concern access, phenomenality, representation, or report?</li>
+<li>Which theory predicted the dissociation before it was observed?</li>
+</ol>
+<p>The protocol prevents one striking anecdote from carrying a metaphysical conclusion
+that depends on untested bridge assumptions.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Disorders and dissociations are strongest as constraints on functional architecture.
+They reveal separable processes and refute simple equivalences. They are weaker as direct
+evidence for subject count, phenomenal absence, or property identity.</p>
+<p>Their broader lesson is methodological: preserve capacities at the level measured, then
+infer consciousness or mentality through an explicit theory. Clinical caution and
+philosophical precision point in the same direction.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Bayne, Tim, Anil K. Seth, and Marcello Massimini. "Are There Islands of Awareness?" (2020).</li>
+<li>Kentridge, Robert W. "Attention without Awareness" (2011).</li>
+<li>Owen, Adrian M. <em>Into the Gray Zone</em> (2017).</li>
+<li>Weiskrantz, Lawrence. <em>Blindsight</em> (1986).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/14-science/02-consciousness-science.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/14-science/04-predictive-processing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/14-science/02-consciousness-science.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/14-science/04-predictive-processing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

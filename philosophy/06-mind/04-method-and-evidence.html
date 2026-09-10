@@ -1,0 +1,515 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Method and Evidence in Philosophy of Mind - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/04-method-and-evidence.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="method-and-evidence-in-philosophy-of-mind"><a class="header" href="#method-and-evidence-in-philosophy-of-mind">Method and Evidence in Philosophy of Mind</a></h1>
+<p>Philosophy of mind has unusually heterogeneous evidence. A subject reports what an
+experience is like; an experiment measures accuracy and reaction time; an intervention
+changes neural activity; a lesion separates capacities that ordinarily travel together;
+an evolutionary model proposes a function; and a thought experiment asks whether a
+scenario is possible. Each can constrain a theory. None is a transparent window onto
+the metaphysical relation between mind and body.</p>
+<p>Two opposite mistakes follow. <strong>Methodological isolation</strong> treats the subject as
+answerable only by conceptual analysis, as though neuroscience and psychology could
+not correct the examples. <strong>Naive scientism</strong> treats an image, decoding result, or task
+score as if it directly established identity, consciousness, representation, or the
+absence of free agency. A better method asks what proposition the evidence supports,
+through which assumptions, and what rival explanations remain.</p>
+<p>This page distinguishes the main sources of evidence, explains their characteristic
+strengths and confounds, and gives a common framework for comparing theories.</p>
+<hr />
+<h2 id="evidence-is-target-relative"><a class="header" href="#evidence-is-target-relative">Evidence is target-relative</a></h2>
+<p>Before asking whether evidence is good, specify what it is evidence <strong>of</strong>. A response
+to a visual stimulus might bear on several targets:</p>
+<ol>
+<li>sensory discrimination;</li>
+<li>information available for action;</li>
+<li>information available for verbal report;</li>
+<li>metacognitive confidence;</li>
+<li>phenomenal experience;</li>
+<li>personhood or moral status.</li>
+</ol>
+<p>Success at one target does not automatically establish the next. A forced-choice task
+may reveal discrimination without reportable awareness, as in blindsight. A fluent
+report may reveal access to a representation while leaving open how the report was
+generated and whether its content is phenomenally experienced. Consciousness may be
+morally relevant without being sufficient for personhood. Operationalisation is not a
+mere technical preface; it fixes which philosophical question an experiment can answer.</p>
+<p>A useful discipline is to state every inference in three parts:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord">observation</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">bridge assumptions</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">target claim</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>Disagreement often concerns the middle term. The observation may be robust while one
+side assumes that global availability constitutes consciousness and another treats it
+as only a correlate. Exposing the bridge turns a dispute over "what the data show" into
+a tractable dispute over a premise.</p>
+<h2 id="first-person-evidence"><a class="header" href="#first-person-evidence">First-person evidence</a></h2>
+<p>Subjects have a distinctive route to their own current experience. A person need not
+observe their withdrawal or scan their brain to know that a burn hurts. This
+<strong>first-person authority</strong> is a datum for theories of self-knowledge: ordinary avowals
+are more direct and generally more authoritative than third-person guesses.</p>
+<p>Authority is not infallibility. Subjects confabulate reasons, misclassify emotions,
+miss large changes, and vary under framing and expectation. Reports are actions
+produced by memory, attention, concepts, response criteria, and social context. An
+experiment that asks what was experienced measures the experience through all of these
+stages.</p>
+<p>The right conclusion is neither that reports reveal qualia without mediation nor that
+they are behaviour with no special standing. Reports supply evidence because subjects
+are systematically sensitive to their own states. Their reliability is an empirical
+matter that can vary by state and task. Confidence calibration, immediate versus
+retrospective report, involuntary indicators, and convergent measures help estimate it.</p>
+<p><strong>Introspection</strong> also changes its object. Directing attention to breathing, emotion,
+or the periphery of vision can alter the state being examined. This is familiar in
+other sciences and not fatal; it requires a model of the measurement interaction rather
+than a fantasy of view from nowhere.</p>
+<h2 id="behaviour-and-cognitive-performance"><a class="header" href="#behaviour-and-cognitive-performance">Behaviour and cognitive performance</a></h2>
+<p>Behaviour is public, repeatable, and often the only available evidence for other minds.
+It includes far more than overt movement: discrimination, learning, transfer,
+counterfactual flexibility, error correction, planning, metacognitive wagering,
+communication, and coordinated social action. Rich patterns across novel conditions
+are harder to mimic accidentally than one scripted response.</p>
+<p>Behaviour nevertheless underdetermines mechanism and experience. The same output may
+be produced by memorisation, search, learned representation, instruction following, or
+a different strategy. A subject may suppress behaviour despite experience, and an
+automatic system may produce behaviour associated with a state it lacks. This is why
+logical behaviourism is stronger than the evidential claim that behaviour matters.</p>
+<p>The most informative designs test <strong>counterfactual structure</strong> rather than isolated
+performance:</p>
+<ul>
+<li>Does the capacity generalise to novel combinations?</li>
+<li>Does it survive changes in superficial cues?</li>
+<li>Do confidence and accuracy vary together?</li>
+<li>Can the system use the information across perception, memory, reasoning, and action?</li>
+<li>Do interventions produce the failures predicted by the proposed mechanism?</li>
+</ul>
+<p>These questions bear on functional organisation and representation. They still do not
+make phenomenal consciousness an output metric unless a theory supplies the bridge.</p>
+<h2 id="neural-correlation-and-intervention"><a class="header" href="#neural-correlation-and-intervention">Neural correlation and intervention</a></h2>
+<p>The full methodological treatment of contrastive paradigms, report confounds,
+no-report measures, and theory adjudication is in
+<a href="14-science/02-consciousness-science.html">The Science of Consciousness</a>.</p>
+<p>A <strong>neural correlate of consciousness</strong> is a minimal neural system or event that
+systematically covaries with a specified conscious state. Correlates are valuable: they
+localise, predict, and guide interventions. But several relations can produce
+correlation.</p>
+<ul>
+<li>The neural event may constitute or realise the conscious state.</li>
+<li>It may cause the state without constituting it.</li>
+<li>It may be an effect of the state, such as preparation for report.</li>
+<li>Both may be effects of a third process, such as attention or arousal.</li>
+<li>It may be a prerequisite that enables the state without determining its content.</li>
+</ul>
+<p>Temporal ordering, lesion evidence, stimulation, pharmacological manipulation, and
+cross-condition generalisation help separate these. <strong>Intervention</strong> is stronger than
+passive correlation: if manipulating <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> changes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> while relevant alternatives are
+controlled, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> is causally relevant to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span>. Even then, causal relevance does not by
+itself establish identity. Turning a key causes an engine to start without being
+identical with combustion; disrupting a constitutive component also changes the whole.</p>
+<p>Spatial images add a rhetorical hazard. A coloured region on a brain scan represents a
+statistical contrast after preprocessing and modelling. It is not a photograph of a
+belief or a location at which consciousness literally glows. The inferential pipeline,
+base rates, multiple comparisons, decoding direction, and out-of-sample generalisation
+matter more than visual vividness.</p>
+<h2 id="lesions-dissociations-and-decomposition"><a class="header" href="#lesions-dissociations-and-decomposition">Lesions, dissociations, and decomposition</a></h2>
+<p>Blindsight, agnosia, neglect, anosognosia, locked-in syndrome, and disorders of
+consciousness are compared in
+<a href="14-science/03-disorders-and-dissociations.html">Disorders and Dissociations</a>.</p>
+<p>Cases such as blindsight, visual agnosia, neglect, amnesia, and split-brain behaviour
+are philosophically valuable because they separate capacities that introspection and
+ordinary life bundle together. If discrimination survives without recognition, or
+verbal report conflicts across response channels, a one-process theory loses support.</p>
+<p>A <strong>single dissociation</strong> shows that capacity <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> can be impaired while <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> is
+relatively preserved. A <strong>double dissociation</strong> adds a case in which <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> is impaired
+while <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> is preserved. Double dissociation is stronger evidence for partly independent
+mechanisms, but it does not logically prove discrete modules. Differences in task
+difficulty, compensatory strategies, distributed damage, and nonlinear systems can
+produce dissociations without clean boxes in the brain.</p>
+<p>The philosophical temptation is to count entities directly from dissociated functions:
+two response systems, therefore two minds; no report, therefore no experience; preserved
+priming, therefore unconscious belief. Each conclusion needs a criterion for mind,
+experience, or belief that is not simply identical to the observed task. Dissociations
+discipline concepts by revealing separability; they do not supply the metaphysics
+unaided.</p>
+<h2 id="comparative-evidence"><a class="header" href="#comparative-evidence">Comparative evidence</a></h2>
+<p>Other humans, infants, non-human animals, and artificial systems vary along different
+dimensions. Comparison is informative precisely because no single dimension can be
+quietly treated as the essence of mind.</p>
+<p><strong>Similarity arguments</strong> infer shared mentality from shared neural structures,
+evolutionary history, behaviour, learning, or functional organisation. Their strength
+depends on the theory. Biological continuity carries weight for views that tie
+consciousness to homologous mechanisms; functional similarity carries more for
+substrate-independent theories. Neither can be declared relevant without argument.</p>
+<p>Two symmetrical errors should be avoided. <strong>Anthropomorphism</strong> projects human
+capacities from superficial resemblance. <strong>Anthropodenial</strong> withholds ordinary
+explanations solely because the subject is not human. The remedy is not to split the
+difference but to seek convergent, species- or architecture-appropriate evidence.
+Flexible learning, trade-offs, spontaneous generalisation, self-correction, and
+cross-modal integration generally carry more weight than performance on a task built
+around human language or anatomy.</p>
+<p>For artificial systems, training provenance and evaluation leakage are additional
+confounds. A verbal self-report may reproduce patterns in training data or follow a
+prompt-induced role. Conversely, dismissing every report as trained output assumes
+that learned causal history disqualifies evidence, which would also threaten human
+reports. Architecture, persistent state, embodied interaction, metacognitive control,
+and intervention provide independent evidence; how much they matter remains
+theory-relative. The <a href="../../misc/llm-introspection/00-README.html">LLM introspection series</a>
+is a sustained case study in this evidential problem.</p>
+<h2 id="evolutionary-explanation"><a class="header" href="#evolutionary-explanation">Evolutionary explanation</a></h2>
+<p>The distinction among adaptation, by-product, exaptation, evolutionary debunking, and
+just-so storytelling is developed in <a href="14-science/05-evolution-of-mind.html">The Evolution of Mind</a>.</p>
+<p>Evolution can explain why a capacity exists and can reveal whether a trait is likely to
+be functional, a by-product, or an exaptation. Pain's links to avoidance and learning,
+for example, support a biological role. Homology can justify inference across species;
+convergent evolution can justify analogous function without common ancestry.</p>
+<p>Evolutionary explanation does not automatically reach phenomenal character. If all
+fitness-relevant behaviour is produced by physical and functional organisation whether
+or not experience occurs, selection appears unable to distinguish a conscious organism
+from a phenomenal duplicate without experience. This is a problem for
+epiphenomenalism and an argument for theories on which consciousness is identical with
+or constitutively tied to the selected organisation. The argument is not decisive:
+experience might be inseparable from the selected base even if selected under another
+description.</p>
+<p>Adaptation stories also need comparative predictions. A plausible function narrated
+after the fact is not evidence of selection unless alternatives, phylogeny, costs, and
+development are considered. Evolution supplies constraints on possible histories, not
+a universal solvent for present metaphysics.</p>
+<h2 id="thought-experiments-and-modal-evidence"><a class="header" href="#thought-experiments-and-modal-evidence">Thought experiments and modal evidence</a></h2>
+<p>Philosophy of mind relies heavily on thought experiments because many disputes concern
+necessity and possibility, not only actuality. Mary knows all physical facts but has
+never seen colour; a zombie is physically identical to a person but lacks experience;
+the Chinese room manipulates symbols without understanding; Otto's notebook functions
+like biological memory. Each case asks which features can vary independently.</p>
+<p>Their evidential structure is:</p>
+<ol>
+<li>describe a scenario;</li>
+<li>judge it coherent or conceivable;</li>
+<li>infer that it is possible;</li>
+<li>derive a conclusion about identity, constitution, or concept.</li>
+</ol>
+<p>Every transition can be challenged. A scenario may conceal contradiction, idealised
+conceivability may differ from what can be vividly imagined, and metaphysical
+possibility may outrun or fall short of conceptual coherence. A posteriori identities
+are the standard warning: water without <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span> once seemed conceivable because the
+identity was unknown, but if water is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span>, the apparent possibility concerned a
+watery substance rather than water.</p>
+<p>Thought experiments remain useful when treated as <strong>premise revealers</strong>. Mary forces a
+physicalist to say whether new experience supplies a new fact, ability, acquaintance,
+or mode of presentation. The Chinese room forces a computationalist to say which
+system, not which component, is the candidate understander. Their value lies in making
+commitments explicit, not in replacing further argument with an intuition poll.</p>
+<h2 id="inference-to-the-best-explanation"><a class="header" href="#inference-to-the-best-explanation">Inference to the best explanation</a></h2>
+<p>Because no method is decisive alone, theories are commonly compared by <strong>inference to
+the best explanation</strong>. Relevant virtues include:</p>
+<ul>
+<li>coverage of consciousness, content, causation, cognition, and self-knowledge;</li>
+<li>fit with established empirical dependencies;</li>
+<li>unification without erasing important distinctions;</li>
+<li>independent predictive or retrodictive success;</li>
+<li>parsimony in entities, laws, primitives, and unexplained identities;</li>
+<li>robustness across species, tasks, and possible realisers;</li>
+<li>clarity about what would count against the view.</li>
+</ul>
+<p>The virtues can conflict. Property dualism preserves phenomenal distinctness but adds
+primitive psychophysical laws. Functionalism unifies diverse realisers but may be too
+liberal about consciousness. Identity theory is ontologically parsimonious but may
+fragment mental kinds. Panpsychism removes the emergence of experience but inherits
+combination. Counting only entities and ignoring primitive laws biases the comparison;
+counting only explained phenomena and ignoring unconstrained additions biases it the
+other way.</p>
+<h2 id="underdetermination-without-stalemate"><a class="header" href="#underdetermination-without-stalemate">Underdetermination without stalemate</a></h2>
+<p>Evidence may leave several metaphysical descriptions open. That does not make every
+view equally good or the dispute merely verbal. Theories can be assessed by whether
+they state bridge principles, respect dissociations, generalise beyond favourable
+cases, and expose themselves to possible correction. Underdetermination is reduced by
+triangulation:</p>
+<pre class="mermaid">graph TD
+  R[First-person report]
+  B[Behaviour and performance]
+  N[Neural intervention]
+  D[Dissociation]
+  C[Comparative evidence]
+  T[Theory of mind]
+  R --&gt; T
+  B --&gt; T
+  N --&gt; T
+  D --&gt; T
+  C --&gt; T
+</pre>
+<p>Convergence matters because the sources have different failure modes. Reports are
+vulnerable to concept and memory; behaviour to strategic mimicry and alternative
+mechanisms; neural measures to correlation and analysis choices; comparative inference
+to uncertain similarity; thought experiments to modal error. Agreement across them is
+more probative than repetition within one channel.</p>
+<p>The converse is equally important. Conflict among measures may reveal that a unitary
+concept was mistaken. Access, report, metacognition, and phenomenal consciousness need
+not rise and fall together. A mature theory should sometimes predict dissociation
+rather than treat it as measurement failure.</p>
+<h2 id="a-working-protocol"><a class="header" href="#a-working-protocol">A working protocol</a></h2>
+<p>When assessing a claim about mind, ask in order:</p>
+<ol>
+<li><strong>What is the target?</strong> Consciousness, access, representation, intelligence, agency,
+or moral status?</li>
+<li><strong>What was observed?</strong> Preserve the result at the level actually measured.</li>
+<li><strong>Which bridge assumptions connect observation to target?</strong> State them separately.</li>
+<li><strong>What rival mechanisms or interpretations predict the same observation?</strong></li>
+<li><strong>What intervention, dissociation, or generalisation would discriminate?</strong></li>
+<li><strong>Which conclusion is empirical, which conceptual, and which metaphysical?</strong></li>
+</ol>
+<p>This protocol is deliberately modest. It will not settle the mind-body problem by
+itself. It prevents a theory from borrowing certainty from a method that established a
+different claim.</p>
+<h2 id="where-this-leaves-us"><a class="header" href="#where-this-leaves-us">Where this leaves us</a></h2>
+<p>Philosophy of mind has no single privileged evidence channel. First-person access
+supplies the phenomenon but is fallible and report-mediated; behaviour supplies public
+criteria but underdetermines mechanism; neural interventions establish dependence and
+causal relevance but not identity; dissociations decompose capacities but do not count
+subjects by themselves; comparative and evolutionary evidence broaden the sample while
+remaining theory-sensitive; thought experiments expose modal premises without proving
+them.</p>
+<p>The right posture is reciprocal constraint. The <a href="03-positions-overview.html">positions</a>
+tell us which similarities, interventions, and reports should matter; the evidence in
+turn forces those positions to sharpen, combine, or retreat. That cycle is not a defect
+of the field. It is how inquiry proceeds when the target includes both the conditions
+of observation and the subject for whom anything is observed.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Bayne, Tim, Anil K. Seth, and Marcello Massimini. "Are There Islands of Awareness?" (2020).</li>
+<li>Dennett, Daniel C. "Quining Qualia" (1988).</li>
+<li>Irvine, Elizabeth. <em>Consciousness as a Scientific Concept</em> (2013).</li>
+<li>Machery, Edouard. <em>Philosophy Within Its Proper Bounds</em> (2017).</li>
+<li>Nagel, Thomas. "What Is It Like to Be a Bat?" (1974).</li>
+<li>Shea, Nicholas. <em>Representation in Cognitive Science</em> (2018).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/06-mind/03-positions-overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/06-mind/05-mind-body/01-substance-dualism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/06-mind/03-positions-overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/06-mind/05-mind-body/01-substance-dualism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Computational Theory of Mind - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/11-cognition/01-computational-theory.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-computational-theory-of-mind"><a class="header" href="#the-computational-theory-of-mind">The Computational Theory of Mind</a></h1>
+<p>The <strong>computational theory of mind</strong> explains cognition as rule-governed transformation
+of representations. Perception supplies representational inputs, reasoning transforms
+them, memory stores them, and action follows from outputs. The theory does not say minds
+are ordinary desktop computers. It says some cognitive processes are computational in a
+sense that abstracts from the material implementing them.</p>
+<p>Computationalism earned its influence by explaining productivity, systematicity, and
+mechanistic decomposition. Finite systems can generate indefinitely many structured
+thoughts because operations are sensitive to their constituent form. Its difficulties
+concern content and relevance: formal rules operate on vehicles, while cognition is
+about a world and selects contextually important information from enormous possibility
+spaces.</p>
+<hr />
+<h2 id="computation-and-cognition"><a class="header" href="#computation-and-cognition">Computation and cognition</a></h2>
+<p>A computation maps formally characterised states according to rules. The same abstract
+mapping can be implemented in electronic, mechanical, neural, or other physical media.
+This fits <a href="../05-mind-body/05-functionalism.html">Functionalism</a>: cognitive kinds can be
+identified by causal organisation rather than one material type.</p>
+<p>Three claims should be separated:</p>
+<ol>
+<li><strong>Computational description:</strong> a process can usefully be modelled computationally.</li>
+<li><strong>Computational mechanism:</strong> physical components implement transformations over
+vehicles in virtue of their organisation.</li>
+<li><strong>Computational sufficiency:</strong> implementing the right computation is sufficient for
+possessing the relevant mind or mental state.</li>
+</ol>
+<p>The first is weak and widespread; the third is a strong metaphysical thesis. Success of
+a model does not by itself establish sufficiency for understanding or consciousness.</p>
+<h2 id="representations-and-vehicles"><a class="header" href="#representations-and-vehicles">Representations and vehicles</a></h2>
+<p>A computational state must be individuated in a way that supports transformation.
+<strong>Vehicles</strong> are the physical or functional states manipulated. <strong>Contents</strong> are what
+those vehicles represent. Syntax concerns formally identifiable structure; semantics
+concerns correctness and aboutness.</p>
+<p>The distinction prevents a homunculus picture. A system need not read its symbols as a
+person reads text. Causal mechanisms respond to vehicle structure, while causal,
+teleological, inferential, and social relations fix content. The naturalisation problem
+is treated in <a href="../07-intentionality/03-naturalizing-content.html">Naturalizing Mental Content</a>.</p>
+<p>The challenge is <strong>semantic efficacy</strong>. If operations depend only on formal vehicle
+properties, how does what a representation means help cause a rationally appropriate
+result? A reply identifies content with or grounds it in the functional relations that
+the mechanism uses. External content remains harder because local computation can be
+shared by states with different wide meanings.</p>
+<h2 id="the-language-of-thought"><a class="header" href="#the-language-of-thought">The language of thought</a></h2>
+<p>Fodor's <strong>language-of-thought hypothesis</strong> proposes an internal representational system,
+often called Mentalese, with combinatorial syntax and semantics. Propositional attitudes
+relate subjects to structured inner representations.</p>
+<p>The hypothesis explains:</p>
+<ul>
+<li><strong>productivity:</strong> finite primitives generate unbounded thoughts;</li>
+<li><strong>systematicity:</strong> capacity for <em>John loves Mary</em> is connected to capacity for
+<em>Mary loves John</em>;</li>
+<li><strong>compositionality:</strong> complex content depends on constituents and arrangement;</li>
+<li><strong>causal precision:</strong> formal structure determines which transformations occur.</li>
+</ul>
+<p>Public language need not be the medium of thought. Mentalese could be innate or learned
+and need not resemble English. The claim is that thought has constituent structure
+sufficient to support recombination.</p>
+<p>Critics question whether imagery, motor skill, affect, and perceptual cognition share
+this format. A plural architecture may use language-like representation for some
+reasoning and distributed or analog formats elsewhere.</p>
+<h2 id="classical-architecture"><a class="header" href="#classical-architecture">Classical architecture</a></h2>
+<p>A <strong>classical cognitive architecture</strong> stores explicit symbols and applies rules whose
+operation is sensitive to syntactic constituency. Processing may be serial or parallel;
+the defining point is that complex vehicles contain identifiable parts corresponding to
+semantic constituents.</p>
+<p>This supports variable binding and general rules. From <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">es</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>, a system can
+substitute different individuals while preserving relation structure. Planning and
+logical reasoning appear to need such compositional flexibility.</p>
+<p>The architecture can be brittle. Explicit rules struggle with noisy perception,
+similarity, graceful degradation, and learning from examples. These weaknesses motivate
+<a href="02-connectionism.html">Connectionism</a>, whose representations are distributed across
+weighted networks.</p>
+<h2 id="implementation"><a class="header" href="#implementation">Implementation</a></h2>
+<p>An abstract automaton does not become a computation merely because an observer maps its
+states onto symbols. A physical system implements computation through organised causal
+relations that support the relevant counterfactuals: had input differed, the system
+would have transitioned according to the rule.</p>
+<p>This blocks trivial mappings under which a wall or weather system implements any finite
+computation by retrospective state assignment. Implementation requires principled
+state boundaries, causal transitions, temporal organisation, and often functional use
+of outputs.</p>
+<p>The correct grain remains contested. At one level a processor performs arithmetic; at
+another it follows electronic dynamics; at another every physical trajectory can be
+described as state transition. Computational explanation is objective only when the
+chosen mapping supports intervention and explanatory generalisation.</p>
+<h2 id="the-triviality-problem"><a class="header" href="#the-triviality-problem">The triviality problem</a></h2>
+<p>Putnam and Searle argued that sufficiently permissive implementation criteria make
+almost every physical system implement every computation. If true, computationalism
+cannot distinguish minds from rocks.</p>
+<p>Counterfactual and causal-structural accounts respond that actual-state sequences are
+insufficient. A genuine implementation must preserve transitions under possible inputs,
+with components causally responsible for the mapping.</p>
+<p>This response makes computation partly relational and functional. It also means a
+recorded lookup table and a flexible processor can produce the same actual outputs while
+implementing different counterfactual organisations. Behaviour on one run cannot settle
+architecture.</p>
+<h2 id="the-frame-problem"><a class="header" href="#the-frame-problem">The frame problem</a></h2>
+<p>An intelligent system acting in a changing world must update what changed while retaining
+what did not. Explicitly listing every unaffected fact is computationally explosive.
+This is the classical <strong>frame problem</strong>.</p>
+<p>In a broader sense, cognition must identify what is relevant among indefinitely many
+facts and possible consequences. Formal logic specifies valid entailments but not which
+ones matter now. A system can derive useless truths forever.</p>
+<p>Proposals use default reasoning, non-monotonic logic, probabilistic models, learned
+attention, embodied skill, and task-specific heuristics. The problem pressures a purely
+rule-based picture but not computation as such; relevance-sensitive algorithms can still
+be computational.</p>
+<h2 id="the-relevance-problem"><a class="header" href="#the-relevance-problem">The relevance problem</a></h2>
+<p>Relevance depends on goals, context, value, bodily needs, and social practice. These are
+not easily represented as a fixed database consulted before every action. Dreyfus and
+enactivists argue that skilled agents encounter a field already organised by significance
+rather than compute relevance from neutral facts.</p>
+<p>Computationalists answer that goal states, learned value functions, predictive models,
+and resource-bounded search can produce selective processing. The relevant contrast is
+not formal calculation versus magic immediacy but explicit central search versus
+distributed, learned, and embodied computation.</p>
+<p>The debate turns partly on explanatory vocabulary. Calling every adaptive dynamics a
+computation protects the theory at the cost of specificity.</p>
+<h2 id="computation-and-consciousness"><a class="header" href="#computation-and-consciousness">Computation and consciousness</a></h2>
+<p>Computationalism about cognition does not entail computationalism about phenomenal
+consciousness. A system may transform representations, reason, and act while the
+<a href="../06-consciousness/03-hard-problem.html">hard problem</a> remains.</p>
+<p>A strong functionalist argues that the right computation is sufficient for experience.
+Absent-qualia and <a href="../13-nonhuman-minds/03-chinese-room-and-symbol-grounding.html">Chinese-room</a>
+arguments challenge this. Biological and dynamical theories may require properties not
+preserved by abstract computational equivalence.</p>
+<p>The distinction is essential for artificial minds. Showing that a machine implements a
+cognitive algorithm establishes a mechanism for a capacity, not automatically a subject
+who experiences it.</p>
+<h2 id="levels-of-computational-explanation"><a class="header" href="#levels-of-computational-explanation">Levels of computational explanation</a></h2>
+<p>Marr distinguishes:</p>
+<ul>
+<li><strong>computational level:</strong> what problem is solved and why;</li>
+<li><strong>algorithmic level:</strong> which representations and procedures solve it;</li>
+<li><strong>implementational level:</strong> how the procedure is physically realised.</li>
+</ul>
+<p>The terminology is broader than computation in the first item: the computational level
+specifies an input-output task. The levels constrain one another. Hardware limits
+algorithms; representation shapes tractable problems; ecological goals explain why a
+capacity exists.</p>
+<p>No level is automatically fundamental. A complete cognitive explanation may require
+all three plus personal-level reasons and social context. The later science folder will
+develop the general philosophy of levels; here the distinction prevents an algorithm
+from being mistaken for either a behavioural specification or a neural mechanism.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Strength</th><th>Pressure point</th></tr></thead><tbody>
+<tr><td><strong>Productivity/systematicity</strong></td><td>structured representations explain recombination</td><td>distributed alternatives may approximate or realise it differently</td></tr>
+<tr><td><strong>Mechanistic decomposition</strong></td><td>algorithms connect capacities with implementable steps</td><td>implementation grain and triviality</td></tr>
+<tr><td><strong>Learning/noise</strong></td><td>possible but not natural to rigid symbolic systems</td><td>connectionist models often perform better</td></tr>
+<tr><td><strong>Content</strong></td><td>vehicles support formal manipulation</td><td>semantics and normativity require additional relations</td></tr>
+<tr><td><strong>Relevance</strong></td><td>explicit goals and search can be modelled</td><td>open-ended context creates combinatorial explosion</td></tr>
+<tr><td><strong>Consciousness</strong></td><td>no automatic result</td><td>computational sufficiency is a further thesis</td></tr>
+</tbody></table>
+</div>
+<p>The computational theory is best understood as a family of mechanistic hypotheses, not
+the claim that every mind is a stored-program computer. Its lasting insight is that
+formal organisation can explain cognitive capacities across materials. Its hardest
+task is showing how formal transitions become world-directed, context-sensitive thought.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Fodor, Jerry A. <em>The Language of Thought</em> (1975).</li>
+<li>Marr, David. <em>Vision</em> (1982).</li>
+<li>Newell, Allen and Herbert A. Simon. "Computer Science as Empirical Inquiry" (1976).</li>
+<li>Pylyshyn, Zenon. <em>Computation and Cognition</em> (1984).</li>
+<li>Searle, John R. "Is the Brain's Mind a Computer Program?" (1990).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/10-self-and-other-minds/06-personhood-and-moral-status.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/11-cognition/02-connectionism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/10-self-and-other-minds/06-personhood-and-moral-status.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/11-cognition/02-connectionism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

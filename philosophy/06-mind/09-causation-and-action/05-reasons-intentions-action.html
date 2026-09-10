@@ -1,0 +1,436 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Reasons, Intentions, and Action - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/09-causation-and-action/05-reasons-intentions-action.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="reasons-intentions-and-action"><a class="header" href="#reasons-intentions-and-action">Reasons, Intentions, and Action</a></h1>
+<p>An <strong>action</strong> is not merely a bodily movement. Raising an arm can be voting, signalling,
+stretching, or an involuntary spasm depending on how it is produced and understood.
+Philosophy of action asks what distinguishes action from happening, how reasons explain
+what agents do, what intentions contribute, and how bodily movements remain guided
+through time.</p>
+<p>The dominant causal theory says actions are events appropriately caused by the agent's
+reasons and intentions. It explains why an action is attributable to a person rather
+than merely occurring in their body. Deviant causal chains show that causation is not
+enough: reasons must cause behaviour in the right way. Non-causal and agent-causal
+theories reject or supplement the event-causal picture.</p>
+<p>This page concerns action as a mental-causal achievement. Whether such action is free,
+whether alternatives were possible, and whether the agent is morally responsible remain
+in the <a href="../../01-freewill/00-README.html">Free Will</a> section.</p>
+<hr />
+<h2 id="action-versus-mere-behaviour"><a class="header" href="#action-versus-mere-behaviour">Action versus mere behaviour</a></h2>
+<p>Some bodily events are clearly not actions: a reflex, seizure, or externally moved arm.
+Other cases are intermediate: habitual movement, automatic skilled response, or action
+under coercion. A theory needs conditions beyond the movement's physical shape.</p>
+<p>Candidates include:</p>
+<ul>
+<li>the movement is caused by an appropriate desire and belief;</li>
+<li>it is guided by an intention or plan;</li>
+<li>it is under the agent's control and responsive to reasons;</li>
+<li>the agent knows what they are doing without observation;</li>
+<li>the movement expresses or is attributable to the agent.</li>
+</ul>
+<p>No one condition is obviously sufficient. Reasons can cause accidentally, intentions
+can fail, control comes in degrees, and subjects can act intentionally under descriptions
+they do not know.</p>
+<h2 id="reasons-explanations"><a class="header" href="#reasons-explanations">Reasons explanations</a></h2>
+<p>A <strong>normative reason</strong> counts in favour of an action. A <strong>motivating reason</strong> is the
+consideration for which the agent acts. An <strong>explanatory reason</strong> helps explain why the
+action occurred. These roles can diverge: a bad reason may motivate and explain without
+normatively favouring the action; a good reason may exist without motivating.</p>
+<p>Reasons explanations have a rational form. Wanting to stay dry and believing the
+umbrella will help make taking it intelligible. Yet rational intelligibility alone does
+not show that these attitudes caused the action. A person may have the reason but act
+from habit, fear, or another consideration.</p>
+<p>This creates a connection requirement: acting <strong>for</strong> a reason requires that the reason
+figure appropriately in the production or guidance of action.</p>
+<h2 id="davidsons-causal-theory"><a class="header" href="#davidsons-causal-theory">Davidson's causal theory</a></h2>
+<p>Davidson's <strong>primary reason</strong> combines a pro-attitude toward actions with a belief that
+the action has the relevant feature. The reason rationalises the action and causes it.</p>
+<p>The theory explains the difference between:</p>
+<ul>
+<li>having a reason for doing <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>;</li>
+<li>doing <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> while possessing that reason;</li>
+<li>doing <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> <strong>because of</strong> that reason.</li>
+</ul>
+<p>Only the third requires the causal link. The account also integrates action into the
+causal world without reducing rational explanation to a law. As
+<a href="03-anomalous-monism.html">Anomalous Monism</a> argues, singular reasons can cause even when
+mental types enter no strict psychophysical laws.</p>
+<p>The simple analysis is:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal">e</span><span class="mord mathnormal">a</span><span class="mord mathnormal">so</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.2781em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">i</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord text"><span class="mord">-</span></span><span class="mord mathnormal">Des</span><span class="mord mathnormal">i</span><span class="mord mathnormal">re</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">ai</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel x-arrow"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0837em;"><span style="top:-3.322em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight x-arrow-pad"><span class="mord mtight"><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">pp</span><span class="mord mathnormal mtight">ro</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">ia</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">e</span><span class="mspace mtight"><span class="mtight"> </span></span><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">n</span></span></span></span><span class="svg-align" style="top:-2.689em;"><span class="pstrut" style="height:2.7em;"></span><span class="hide-tail" style="height:0.522em;min-width:1.469em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='0.522em' viewBox='0 0 400000 522' preserveAspectRatio='xMaxYMin slice'><path d='M0 241v40h399891c-47.3 35.3-84 78-110 128 -16.7 32-27.7 63.7-33 95 0 1.3-.2 2.7-.5 4-.3 1.3-.5 2.3-.5 3 0 7.3 6.7 11 20  11 8 0 13.2-.8 15.5-2.5 2.3-1.7 4.2-5.5 5.5-11.5 2-13.3 5.7-27 11-41 14.7-44.7  39-84.5 73-119.5s73.7-60.2 119-75.5c6-2 9-5.7 9-11s-3-9-9-11c-45.3-15.3-85 -40.5-119-75.5s-58.3-74.8-73-119.5c-4.7-14-8.3-27.3-11-40-1.3-6.7-3.2-10.8-5.5 -12.5-2.3-1.7-7.5-2.5-15.5-2.5-14 0-21 3.7-21 11 0 2 2 10.3 6 25 20.7 83.3 67  151.7 139 205zm0 0v40h399900v-40z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.011em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal">c</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mord">.</span></span></span></span></span></p>
+<p>The word "appropriate" carries the remaining problem.</p>
+<h2 id="deviant-causal-chains"><a class="header" href="#deviant-causal-chains">Deviant causal chains</a></h2>
+<p>A reason can cause the intended outcome in the wrong way. A climber intends to release
+a companion's rope; nervousness caused by that intention makes the climber's hand shake,
+accidentally releasing it. The intention causes the movement, but the release is not
+performed intentionally in the relevant way.</p>
+<p>In another case, an assassin's intention causes agitation, which startles the victim
+into a fatal accident. The intended death occurs because of the intention, but not
+through the planned action.</p>
+<p>These <strong>deviant causal chains</strong> show that action is not simply behaviour caused by a
+reason. The causal route must involve guidance, skill, and sensitivity to success. A
+theory that defines the right route as "non-deviant" merely labels the problem.</p>
+<h2 id="guidance-and-control"><a class="header" href="#guidance-and-control">Guidance and control</a></h2>
+<p>Actions unfold through feedback. An agent monitors progress, corrects error, and adjusts
+movement as conditions change. <strong>Guidance control</strong> is not a single initiating event but
+an organised process responsive to intention and sensory information.</p>
+<p>This helps distinguish action from accidental causation. The climber's trembling does
+not implement a control policy aimed at release; a deliberate hand movement does. The
+intention sets success conditions under which ongoing processes are corrected.</p>
+<p>Guidance can be subpersonal and automatic. A skilled pianist need not consciously
+intend every finger movement. High-level intention structures lower-level motor control
+without representing each detail. This is a clear case of realised higher-level
+causation.</p>
+<h2 id="intention"><a class="header" href="#intention">Intention</a></h2>
+<p>Intentions have several roles:</p>
+<ul>
+<li><strong>prospective:</strong> they commit an agent to future action;</li>
+<li><strong>planning:</strong> they coordinate means, timing, and other intentions;</li>
+<li><strong>settling:</strong> they end deliberation provisionally and stabilise behaviour;</li>
+<li><strong>guidance:</strong> intentions-in-action organise execution;</li>
+<li><strong>social:</strong> expressed intentions support reliance and coordination.</li>
+</ul>
+<p>An intention is not simply a strong desire. One can desire incompatible outcomes while
+intending one, and intention creates pressure for consistency and means-end coherence.
+Nor is it merely a prediction about one's future behaviour; intending includes practical
+commitment.</p>
+<p>Bratman's planning theory emphasises partial plans that constrain later deliberation
+without specifying every step. This fits bounded agents whose actions extend over time.</p>
+<h2 id="prior-intention-and-intention-in-action"><a class="header" href="#prior-intention-and-intention-in-action">Prior intention and intention-in-action</a></h2>
+<p>A <strong>prior intention</strong> exists before action: intending tonight to run tomorrow. An
+<strong>intention-in-action</strong> is the guiding structure present during intentional performance.
+Spontaneous basic actions may have the latter without a prior plan.</p>
+<p>The distinction avoids an infinite regress. If every action required a prior act of
+intending, that act would require another intention. Intention-in-action can be a feature
+of the action's organisation rather than a separate initiating action.</p>
+<p>It also explains imperfect execution. An action can be intentional under a broad
+description - writing a name - while particular pen movements are not separately
+intended.</p>
+<h2 id="basic-action"><a class="header" href="#basic-action">Basic action</a></h2>
+<p>A <strong>basic action</strong> is something an agent does not do by doing something else. One turns
+on a light by flipping a switch and flips the switch by moving a finger. Is moving the
+finger basic, or does the agent act by contracting muscles or firing neurons?</p>
+<p>Agents ordinarily know and control movements at a practical level without selecting
+neural details. The basic level is therefore not necessarily the lowest physical event.
+It may be relative to skill and description: a pianist plays a chord directly where a
+novice performs laborious component movements.</p>
+<p>Basic action blocks a regress of means. It also supports the thought that agency is
+embodied know-how rather than command from an inner executive.</p>
+<h2 id="trying"><a class="header" href="#trying">Trying</a></h2>
+<p>Trying appears common to successful and failed action. A paralysed subject may try to
+raise an arm without movement; an agent may try and fail because of external resistance.
+This suggests the action cannot simply be identical with the bodily outcome.</p>
+<p>One view treats <strong>trying</strong> as the most basic mental action that normally causes movement.
+Another treats failed attempts and successful actions as different events sharing an
+intention and control organisation. A third analyses trying through commitment and
+effort rather than an inner act.</p>
+<p>Making trying a separate mental cause risks recreating the interaction problem. A
+physicalist can identify trying with motor preparation and control states while allowing
+its practical description to explain the attempted action.</p>
+<h2 id="knowledge-in-action"><a class="header" href="#knowledge-in-action">Knowledge in action</a></h2>
+<p>Agents often know what they are intentionally doing <strong>without observation</strong>. One need
+not watch one's hand to know one is writing, although observation can reveal that the pen
+has run dry. Anscombe treats this practical knowledge as distinctive: action is known
+under the description that guides it.</p>
+<p>Non-observational knowledge is fallible. A subject can intend to draw a straight line
+while unknowingly drawing a curve. They know what they are doing intentionally in one
+sense and may be wrong about success.</p>
+<p>The phenomenon constrains causal theories. An intention is not merely a hidden cause;
+it structures the action and the agent's knowledge of it. Guidance and practical
+knowledge may be two aspects of one control process.</p>
+<h2 id="causalism-and-non-causalism"><a class="header" href="#causalism-and-non-causalism">Causalism and non-causalism</a></h2>
+<p><strong>Causalists</strong> hold that appropriate reason causation is necessary for action. Their
+advantages are integration with natural science and a clear distinction between acting
+for a reason and coincidental fit.</p>
+<p><strong>Non-causalists</strong> argue that reason explanation is normative or teleological rather
+than causal. An agent acts in order to achieve an end; forcing this relation into
+efficient causation invites deviant chains and turns agency into something that happens
+to the person.</p>
+<p>Non-causalism must explain how reasons connect to bodily events and why actions occur
+when they do. Causalism must explain appropriateness without circular appeal to action.
+Guidance-based theories offer a middle path: causal processes constitute action when
+organised by reason-responsive control.</p>
+<h2 id="agent-causation"><a class="header" href="#agent-causation">Agent causation</a></h2>
+<p><strong>Agent-causal</strong> theories hold that the agent as a substance causes an action, not merely
+one event causing another. This is intended to secure authorship and avoid reducing the
+person to a causal chain.</p>
+<p>Agent causation requires an account of substance causation, its relation to event
+causation, and how reasons make one exercise intelligible rather than arbitrary. Its
+main contemporary role is in libertarian theories, developed in
+<a href="../../01-freewill/04-libertarianism.html">Libertarianism</a>. The present issue is narrower:
+ordinary intentional action does not by itself show that irreducible agent causation
+occurs.</p>
+<h2 id="rationalising-and-mechanistic-explanation"><a class="header" href="#rationalising-and-mechanistic-explanation">Rationalising and mechanistic explanation</a></h2>
+<p>A complete action explanation can contain several levels:</p>
+<ol>
+<li><strong>rationalising:</strong> the agent believed <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>, wanted <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span>, and saw the action as a means;</li>
+<li><strong>computational:</strong> information was integrated into a policy or decision;</li>
+<li><strong>mechanistic:</strong> neural and bodily control produced movement;</li>
+<li><strong>social:</strong> norms and roles made certain reasons salient.</li>
+</ol>
+<p>The levels need not compete. Rational explanation identifies content and practical
+structure; mechanism explains implementation. Conflict arises if reasons are claimed to
+possess independent powers beyond the mechanism or if mechanism is taken to eliminate
+the rational pattern.</p>
+<p>The <a href="04-higher-level-causation.html">higher-level causation</a> framework treats a reason as
+causal when it is a robust, proportional variable implemented through the mechanism.</p>
+<h2 id="relation-to-freedom-and-responsibility"><a class="header" href="#relation-to-freedom-and-responsibility">Relation to freedom and responsibility</a></h2>
+<p>An action can be caused by the agent's reasons and still be determined. It can be
+reason-responsive and still result from manipulation or compulsion. Conversely,
+indeterminism can disrupt guidance rather than enhance it.</p>
+<p>Philosophy of action therefore supplies the event that free-will theories assess but
+does not settle the assessment. The <a href="../../01-freewill/01-introduction.html">Free Will Problem</a>
+adds alternative possibilities and sourcehood; <a href="../../01-freewill/02-compatibilism.html">Compatibilism</a>
+develops reason-responsiveness; <a href="../../01-freewill/04-libertarianism.html">Libertarianism</a>
+considers agent-causal and non-causal alternatives.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Reasons explain action only when connected to production and guidance. Simple event
+causation is too weak because causal chains can deviate; purely normative fit is too
+weak because an agent can act for another reason. Intentions contribute commitment,
+planning, and online control, while basic action prevents regress.</p>
+<p>The most promising causal accounts identify action with a reason-responsive control
+process rather than a movement preceded by a mental trigger. They leave open the further
+metaphysical and moral questions that define free will.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Anscombe, G. E. M. <em>Intention</em> (1957).</li>
+<li>Bratman, Michael E. <em>Intention, Plans, and Practical Reason</em> (1987).</li>
+<li>Davidson, Donald. "Actions, Reasons, and Causes" (1963).</li>
+<li>Frankfurt, Harry G. "The Problem of Action" (1978).</li>
+<li>Mele, Alfred R. <em>Springs of Action</em> (1992).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/09-causation-and-action/04-higher-level-causation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/10-self-and-other-minds/01-the-self.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/09-causation-and-action/04-higher-level-causation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/10-self-and-other-minds/01-the-self.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

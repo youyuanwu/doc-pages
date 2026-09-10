@@ -1,0 +1,403 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Functional and Inferential-Role Semantics - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/07-intentionality/04-functional-and-inferential-role.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="functional-and-inferential-role-semantics"><a class="header" href="#functional-and-inferential-role-semantics">Functional and Inferential-Role Semantics</a></h1>
+<p><strong>Functional-role semantics</strong> individuates mental content through a state's causal
+relations to perception, action, and other mental states. <strong>Inferential-role semantics</strong>
+gives special weight to the inferences a thought licenses and the conditions under which
+it is accepted. On these views, what makes a state the belief that rain is coming is not
+one causal link to rain but its place in a network: it follows from seeing dark clouds,
+combines with a desire to stay dry, supports taking an umbrella, and conflicts with the
+belief that the sky is clear.</p>
+<p>Role theories explain cognitive significance and rational organisation better than a
+simple tracking relation. Their main difficulty is connecting the internal network to a
+particular world. A perfectly coherent system could be systematically mistaken, and
+different contents can occupy structurally similar roles. Pure role risks holism,
+instability, and isolation from reference; hybrid theories combine role with the
+causal, social, and teleological relations described on the preceding pages.</p>
+<hr />
+<h2 id="from-causal-role-to-content"><a class="header" href="#from-causal-role-to-content">From causal role to content</a></h2>
+<p><a href="../05-mind-body/05-functionalism.html">Functionalism</a> defines mental kinds through
+relations among inputs, internal states, and outputs. A role theory of content adds that
+the representational identity of a state is fixed by its place in that organisation.</p>
+<p>For a state <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span>:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal">n</span><span class="mord mathnormal">p</span><span class="mord mathnormal">u</span><span class="mord mathnormal">t</span><span class="mord mathnormal">s</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">ere</span><span class="mord mathnormal">n</span><span class="mord mathnormal">ces</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal">c</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mord mathnormal">s</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mord mathnormal">s</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">))</span><span class="mord">.</span></span></span></span></span></p>
+<p>The formula is schematic. Its point is that content depends on a pattern, not an
+intrinsic mark carried by the state. The same physical vehicle can mean different things
+in different systems, while physically different vehicles can share content by playing
+the same role.</p>
+<p>This fits multiple realisation and explains why content matters causally. A belief
+causes action through the very relations that partly constitute it. The challenge is
+that causal role includes non-rational transitions, associations, and implementation
+details. Which relations fix meaning rather than merely accompany it?</p>
+<h2 id="inferential-role"><a class="header" href="#inferential-role">Inferential role</a></h2>
+<p>Inferentialists answer by privileging rational relations. To possess the concept
+<em>and</em>, for example, is to be disposed to infer <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> and infer <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> from <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.75em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span>, and to
+infer <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.75em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> from the two conjuncts. Introduction and elimination rules articulate
+the concept's role.</p>
+<p>For empirical concepts, the role includes:</p>
+<ul>
+<li><strong>entry transitions:</strong> circumstances under which the subject is entitled to apply the
+concept;</li>
+<li><strong>intra-language transitions:</strong> consequences and incompatibilities;</li>
+<li><strong>exit transitions:</strong> actions the thought rationalises or directs.</li>
+</ul>
+<p>This connects meaning with giving and asking for reasons. A state counts as a belief
+not merely because it covaries with the world but because it participates in commitment,
+inference, revision, and justification.</p>
+<p>The approach is especially strong for logical vocabulary and theoretical concepts whose
+content seems constituted by inferential use. It is less straightforward for perceptual
+qualities and proper names, where world-linking appears indispensable.</p>
+<h2 id="conceptual-role-semantics"><a class="header" href="#conceptual-role-semantics">Conceptual-role semantics</a></h2>
+<p><strong>Conceptual-role semantics</strong> broadens inference to the total cognitive role of a
+representation. Associations, prototypes, imagery, decision, and perception can all
+contribute. The content of <em>dog</em> may involve inferential links to animal and mammal,
+perceptual recognitional capacities, expectations about behaviour, and actions toward
+dogs.</p>
+<p>The broader role better matches actual cognition and allows content in agents that do
+not reason in explicit propositions. It weakens normativity: if every causal association
+is constitutive, prejudice and confusion become part of meaning rather than mistaken
+beliefs involving a shared concept.</p>
+<p>A common response distinguishes <strong>meaning-constitutive</strong> from merely collateral roles.
+That recreates an analytic/synthetic boundary: which inferences define a concept, and
+which express revisable beliefs about it? Quinean confirmation holism makes a sharp
+boundary difficult to defend.</p>
+<h2 id="the-analytic-synthetic-pressure"><a class="header" href="#the-analytic-synthetic-pressure">The analytic-synthetic pressure</a></h2>
+<p>Suppose "all bachelors are unmarried" is constitutive of <em>bachelor</em>, while "bachelors
+often live alone" is empirical. Inferential semantics needs some distinction of this
+kind to prevent any change of belief from changing the subject.</p>
+<p>But conceptual change is gradual. Speakers can misunderstand, revise central beliefs,
+or disagree while still discussing the same thing. If every inferential difference
+changes content, communication becomes rare; if only a protected core matters, the
+theory needs non-circular criteria for the core.</p>
+<p>Two strategies soften the problem:</p>
+<ul>
+<li><strong>molecularism:</strong> content depends on a limited cluster of central inferences rather
+than the whole belief system;</li>
+<li><strong>external anchoring:</strong> causal or social reference preserves topic across changing
+inferential roles.</li>
+</ul>
+<p>Both are hybrids. Molecularism needs principled boundaries; external anchoring concedes
+that role alone does not fix content.</p>
+<h2 id="holism"><a class="header" href="#holism">Holism</a></h2>
+<p>If a state's content depends on its relations to every other belief, two people rarely
+share exactly the same content. This is <strong>meaning holism</strong>. It explains why concepts
+shift within theories but threatens disagreement, translation, psychological laws, and
+learning.</p>
+<p>When two scientists disagree about electrons, their inferential networks differ. If
+that means they express different contents, the apparent disagreement disappears.
+Similarly, a learner could not acquire one concept at a time because each requires the
+whole network.</p>
+<p>Holists can appeal to similarity rather than identity of content, interpretation that
+maximises rational agreement, or stable substructures shared across networks. These
+responses make content graded or context-relative, which may fit practice but complicates
+truth conditions and compositional semantics.</p>
+<h2 id="compositionality-and-systematicity"><a class="header" href="#compositionality-and-systematicity">Compositionality and systematicity</a></h2>
+<p>Finite agents understand indefinitely many novel thoughts. The content of "red square"
+depends systematically on the contents of <em>red</em> and <em>square</em> and their combination.
+Role theories must preserve this <strong>compositionality</strong> rather than assign a separate
+holistic role to every complete thought.</p>
+<p>Inferential relations themselves can be compositionally generated. The role of a
+complex expression follows partly from rules governing its components. This is clearest
+for logical connectives and less clear for concepts shaped by prototypes or embodied
+skills.</p>
+<p>Connectionist systems sharpen the issue. <a href="../11-cognition/02-connectionism.html">Distributed representations</a>
+can support systematic behaviour without storing sentence-like tokens, but whether
+their learned roles explain unlimited recombination remains contested. A theory of
+content should not assume one computational architecture in advance.</p>
+<h2 id="normative-versus-descriptive-role"><a class="header" href="#normative-versus-descriptive-role">Normative versus descriptive role</a></h2>
+<p>A subject can make invalid inferences. If actual dispositions fix content, someone who
+infers <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> from <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.75em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> may thereby mean a non-standard connective rather than reason
+badly. Error disappears into idiolect.</p>
+<p>Normative inferentialism uses the inferences a subject <strong>ought</strong> to make or is committed
+to, not every actual transition. This preserves error but raises the source of the norm.
+Logical consequence, communal practice, rational interpretation, and biological
+function are candidates.</p>
+<p>Public scorekeeping accounts treat content as constituted through social practices of
+attributing commitments and entitlements. These fit linguistic concepts and explain
+normativity, but non-linguistic animals and solitary cognition require a more basic
+layer of representational role.</p>
+<h2 id="narrow-role-and-wide-reference"><a class="header" href="#narrow-role-and-wide-reference">Narrow role and wide reference</a></h2>
+<p>A hybrid theory can combine internally fixed inferential role with the externally fixed
+reference described in
+<a href="02-internalism-and-externalism.html">Internalism and Externalism</a>. Oscar and Twin Oscar
+share narrow role but think about different liquids because their environments anchor
+the role differently.</p>
+<p>This division explains both duplicate psychology and distinct truth conditions. It also
+mirrors Frege's separation of cognitive significance from reference. The challenge is
+whether narrow role is itself truth-evaluable content or only a formal pattern awaiting
+interpretation.</p>
+<p>One option treats narrow role as a function from contexts to wide contents. Another
+uses centred-world contents. Both add semantic machinery beyond ordinary inferential
+dispositions.</p>
+<h2 id="mental-content-and-public-meaning"><a class="header" href="#mental-content-and-public-meaning">Mental content and public meaning</a></h2>
+<p>Mental inferential role and public linguistic use overlap without being identical. A
+speaker may associate an idiosyncratic theory with a word while deferring to communal
+usage. Public meaning enables disagreement and correction; internal role explains why
+the claim had the cognitive significance it did for the speaker.</p>
+<p>The general theories of truth-conditional, use, and public inferential meaning remain
+in <a href="../../A-remarks/01-semantics-and-meaning.html">Semantics and the Theory of Meaning</a>.
+The present account asks how a subject's representational states participate in those
+practices and guide thought.</p>
+<p>This distinction is useful for artificial systems. A generated sentence can possess
+public sentence meaning through English conventions even if the system's internal
+states do not instantiate the inferential commitments of a speaker. Demonstrating
+systematic internal role would strengthen a claim about mental content while remaining
+neutral about consciousness.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Role theory's strength</th><th>Pressure point</th></tr></thead><tbody>
+<tr><td><strong>Cognitive significance</strong></td><td>distinguishes co-referential ways of thinking</td><td>fine-grained roles can prevent shared content</td></tr>
+<tr><td><strong>Normativity</strong></td><td>inference and commitment make correctness internal to practice</td><td>actual role and correct role can diverge</td></tr>
+<tr><td><strong>Causal relevance</strong></td><td>content is tied to transitions that produce action</td><td>semantic and merely causal relations need separation</td></tr>
+<tr><td><strong>Compositionality</strong></td><td>rules can generate complex roles</td><td>holistic or prototype content resists decomposition</td></tr>
+<tr><td><strong>World-linking</strong></td><td>entry and exit transitions connect cognition to environment</td><td>coherent false systems and reference remain possible</td></tr>
+</tbody></table>
+</div>
+<p>Functional and inferential roles explain why content matters within cognition. They do
+not by themselves determine which world the network represents. The most plausible
+versions therefore combine role with causal history, social practice, or phenomenal
+character rather than asking one relation to do every job.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Block, Ned. "Advertisement for a Semantics for Psychology" (1986).</li>
+<li>Brandom, Robert B. <em>Making It Explicit</em> (1994).</li>
+<li>Harman, Gilbert. <em>Thought</em> (1973).</li>
+<li>Peacocke, Christopher. <em>A Study of Concepts</em> (1992).</li>
+<li>Sellars, Wilfrid. "Meaning as Functional Classification" (1974).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/07-intentionality/03-naturalizing-content.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/07-intentionality/05-consciousness-and-content.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/07-intentionality/03-naturalizing-content.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/07-intentionality/05-consciousness-and-content.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

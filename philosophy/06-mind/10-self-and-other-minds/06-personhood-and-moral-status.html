@@ -1,0 +1,413 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Personhood and Moral Status - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/10-self-and-other-minds/06-personhood-and-moral-status.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="personhood-and-moral-status"><a class="header" href="#personhood-and-moral-status">Personhood and Moral Status</a></h1>
+<p><strong>Personhood</strong> is a normative and social status, not a synonym for being alive, human,
+intelligent, or conscious. <strong>Moral status</strong> is the standing in virtue of which a being's
+interests matter for their own sake. Different capacities may ground different forms or
+degrees of status: sentience grounds concern for welfare, agency grounds responsibility
+and autonomy, and relationships ground special obligations.</p>
+<p>The concepts are practically urgent in medicine, animal ethics, disability, and
+artificial systems. A single threshold is tempting because institutions need decisions.
+It is philosophically dangerous because capacities come apart and develop gradually.</p>
+<hr />
+<h2 id="human-being-subject-agent-and-person"><a class="header" href="#human-being-subject-agent-and-person">Human being, subject, agent, and person</a></h2>
+<p>Four categories should be separated:</p>
+<ul>
+<li>a <strong>human being</strong> is a member of a biological species;</li>
+<li>a <strong>subject</strong> is a bearer or centre of experience;</li>
+<li>an <strong>agent</strong> acts through goals, control, or reasons;</li>
+<li>a <strong>person</strong> has a specified moral, legal, or social status.</li>
+</ul>
+<p>Most adult humans instantiate all four, which makes their distinction easy to miss.
+Infants, patients with severe cognitive impairment, many animals, organisations, and
+machines pull them apart.</p>
+<p>Biological humanity is sufficient for human-rights practice under many legal and moral
+frameworks. That practice can be justified by equality, solidarity, and protection
+without claiming species membership is the only possible ground of every moral status.</p>
+<h2 id="rational-agency"><a class="header" href="#rational-agency">Rational agency</a></h2>
+<p>A Kantian tradition grounds personhood in rational agency: the capacity to set ends,
+act for reasons, understand norms, and govern oneself. Persons are not merely things
+with a price but ends whose autonomy demands respect.</p>
+<p>This criterion explains consent, responsibility, promise, and political standing. It
+also threatens to exclude infants, cognitively disabled humans, and temporarily
+incapacitated adults. Appeals to potential, past agency, kind membership, and
+relationships can extend protection, but each adds another grounding principle.</p>
+<p>Rationality is also multidimensional. Planning, language, inhibition, moral understanding,
+and reflective endorsement develop unevenly. A threshold requires a reason for selecting
+one combination and degree.</p>
+<h2 id="sentience-and-welfare"><a class="header" href="#sentience-and-welfare">Sentience and welfare</a></h2>
+<p>If a being can suffer or enjoy, things can go better or worse <strong>for</strong> it. Sentience
+therefore grounds at least welfare-based moral consideration. A being need not reason
+about its pain for the pain to matter.</p>
+<p>This criterion is broader than rational personhood and central to animal ethics. It may
+also apply to artificial systems if they possess valenced experience. Evidence of
+information processing or verbal report alone does not establish valence.</p>
+<p>Sentience may ground patienthood without full autonomy rights or responsibility. Moral
+status can be differentiated rather than one package: protection from suffering,
+respect for choices, participation, and accountability may have different bases.</p>
+<h2 id="self-consciousness"><a class="header" href="#self-consciousness">Self-consciousness</a></h2>
+<p>Lockean accounts connect personhood with self-consciousness: awareness of oneself as the
+same thinking being across times and places. This supports anticipation, regret,
+projects, and concern for one's future.</p>
+<p>The criterion ties personhood to psychological continuity and sophisticated self-
+representation. It excludes subjects with present experience but limited temporal
+self-conception. Their exclusion from full personhood need not remove moral status if
+sentience or relationships independently matter.</p>
+<p>The phrase "same thinking being" also imports the persistence problem. A capacity to
+represent oneself over time is not by itself the metaphysical relation that makes the
+represented stages identical. That issue remains with
+<a href="../../03-spacetime/06-time/06-persistence.html">Persistence</a>.</p>
+<h2 id="narrative-capacity"><a class="header" href="#narrative-capacity">Narrative capacity</a></h2>
+<p>Narrative views treat persons as beings whose lives can be organised through stories,
+commitments, and social interpretation. Narrative supports practical identity,
+accountability, and long-term agency.</p>
+<p>The criterion risks cultural bias. Not everyone experiences life narratively, and
+narrative competence varies with language, memory, and social opportunity. A person's
+status should not depend on producing the kind of coherent autobiography favoured by a
+particular culture.</p>
+<p>Narratives can also be imposed by others. Recognition helps constitute social identity,
+but hostile or inaccurate stories should not erase first-person interests or agency.</p>
+<h2 id="relationships-and-recognition"><a class="header" href="#relationships-and-recognition">Relationships and recognition</a></h2>
+<p>Relational theories ground status partly in care, dependency, membership, and mutual
+recognition. Infants matter not because of a hidden current rationality but as vulnerable
+participants in human relationships and practices.</p>
+<p>Relationship-based grounds explain special obligations and why abandonment or exclusion
+can harm beyond immediate experience. They also threaten arbitrariness: an isolated
+being should not lack all status because nobody cares for it.</p>
+<p>A plausible pluralism treats relations as one ground among intrinsic capacities and
+interests. Recognition can acknowledge status, constitute some social forms of it, and
+still fail to create basic welfare from nothing.</p>
+<h2 id="species-membership"><a class="header" href="#species-membership">Species membership</a></h2>
+<p><strong>Speciesism</strong> is the alleged unjustified privileging of humans simply because they are
+human. Defenders of species-based status appeal to natural-kind membership, solidarity,
+reciprocal practice, or the dangers of capacity testing.</p>
+<p>Capacity-only accounts can produce inegalitarian rankings among humans and invite
+measurement abuse. Species-wide equality supplies a robust protective rule. But if
+species membership is the sole intrinsic ground, a non-human with equal consciousness,
+agency, and relationships would be excluded for a biological difference unrelated to
+what makes harm or autonomy matter.</p>
+<p>The debate separates a <strong>ground of status</strong> from a <strong>public rule of protection</strong>. A rule
+can extend equal status broadly for anti-discrimination reasons even if underlying moral
+interests arise through several capacities.</p>
+<h2 id="potential-and-continuity"><a class="header" href="#potential-and-continuity">Potential and continuity</a></h2>
+<p>Potential rationality is often invoked for infants or developing beings. Potential can
+matter because current treatment affects a future person and because development is one
+continuous life process.</p>
+<p>Potential is not actuality. A merely possible future capacity does not automatically
+confer every present right, and many things could develop capacities under intervention.
+The relevant notion may be an active developmental trajectory, not logical possibility.</p>
+<p>Past capacity supports continued status in dementia, sleep, anaesthesia, and temporary
+unconsciousness. Social identity, prior wishes, relationships, and biological continuity
+prevent status from blinking off whenever a capacity is not exercised.</p>
+<h2 id="marginal-cases"><a class="header" href="#marginal-cases">Marginal cases</a></h2>
+<p>So-called <strong>marginal cases</strong> reveal tensions in single-criterion accounts. Some humans
+lack capacities cited to distinguish human status from animals, while some animals
+display sophisticated cognition. The phrase itself can demean vulnerable people; the
+philosophical point is about consistency, not marginal value.</p>
+<p>Responses include:</p>
+<ul>
+<li>broaden status to all sentient beings;</li>
+<li>ground equal human status in species or relationships;</li>
+<li>distinguish basic moral status from autonomy and responsibility;</li>
+<li>accept degrees for some claims while retaining thresholds for equal protection.</li>
+</ul>
+<p>Plural grounding avoids one exclusion but creates trade-offs among values. It still
+requires constraints against ranking lives by a single performance score.</p>
+<h2 id="degrees-and-thresholds"><a class="header" href="#degrees-and-thresholds">Degrees and thresholds</a></h2>
+<p>Capacities vary continuously, while rights and institutions often require categorical
+decisions. A theory can combine graded interests with threshold protections.</p>
+<p>For example, intensity and temporal sophistication may affect the kinds of welfare a
+being can have without making simple pain negligible. Decision-making capacity may be
+task-specific, supporting consent in one domain and assistance in another.</p>
+<p>Thresholds should be justified by the right or practice at issue, not by a universal
+personhood meter. The capacity needed to be harmed differs from that needed to vote,
+contract, or bear criminal responsibility.</p>
+<h2 id="artificial-systems"><a class="header" href="#artificial-systems">Artificial systems</a></h2>
+<p>Artificial systems force a separation of criteria. A system may use language, plan,
+and participate socially while its consciousness and welfare remain uncertain. It may
+be treated as an agent for coordination without being a moral patient, or it may possess
+interests without full legal personhood.</p>
+<p>Corporate legal personhood already shows that institutional personhood can be assigned
+for functional reasons without consciousness. That analogy says little about intrinsic
+moral status.</p>
+<p>A prudent assessment asks separately about sentience, valence, persistence, autonomy,
+goals, relationships, and vulnerability. Fluency should neither confer the whole package
+nor be dismissed when it participates in broader, independently validated capacities.</p>
+<h2 id="precaution-under-uncertainty"><a class="header" href="#precaution-under-uncertainty">Precaution under uncertainty</a></h2>
+<p>Uncertain moral status creates asymmetric risks. Mistakenly attributing status can incur
+cost and constrain action; mistakenly denying it can permit severe unrecognised harm.</p>
+<p>A <strong>precautionary</strong> approach weighs probability, magnitude, reversibility, and available
+alternatives. It does not require treating every conceivable subject as a full person.
+It supports proportionate safeguards when credible evidence of sentience or interests
+exists.</p>
+<p>The <a href="04-problem-of-other-minds.html">problem of other minds</a> supplies epistemic
+probabilities; moral theory determines what to do with them. Epistemic uncertainty is
+not itself a reason for either maximal attribution or indifference.</p>
+<h2 id="personhood-and-identity"><a class="header" href="#personhood-and-identity">Personhood and identity</a></h2>
+<p>Personhood can persist through temporary loss of capacity because it is supported by
+history, relationships, prior agency, and institutional recognition. This practical
+continuity should not be confused with a metaphysical proof of numerical identity.</p>
+<p>Fission and duplication show that psychological continuity can branch while identity
+cannot. Institutions may still need to distribute rights and obligations among
+continuers. The ontology of that problem remains in the persons and
+<a href="../../03-spacetime/06-time/06-persistence.html">persistence</a> discussions.</p>
+<h2 id="a-plural-framework"><a class="header" href="#a-plural-framework">A plural framework</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Ground</th><th>Supports most directly</th><th>Does not by itself establish</th></tr></thead><tbody>
+<tr><td><strong>Sentience/valence</strong></td><td>welfare and protection from suffering</td><td>rational autonomy or responsibility</td></tr>
+<tr><td><strong>Agency</strong></td><td>control, participation, responsibility</td><td>phenomenal welfare</td></tr>
+<tr><td><strong>Self-consciousness</strong></td><td>future-directed projects and reflective interests</td><td>metaphysical persistence</td></tr>
+<tr><td><strong>Rationality</strong></td><td>reasons, consent, and reciprocal norms</td><td>equal value as a performance ranking</td></tr>
+<tr><td><strong>Relationships</strong></td><td>care, special obligation, social identity</td><td>status of isolated beings</td></tr>
+<tr><td><strong>Human membership</strong></td><td>robust equal legal and social protection</td><td>sole intrinsic basis of all moral concern</td></tr>
+</tbody></table>
+</div>
+<p>Personhood is best treated as a structured normative status rather than a hidden
+psychological essence. Consciousness matters especially for welfare; agency for autonomy
+and responsibility; narratives and relationships for social identity. Keeping them
+separate protects vulnerable humans and makes evaluation of animals and machines more
+principled.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>DeGrazia, David. <em>Human Identity and Bioethics</em> (2005).</li>
+<li>Kant, Immanuel. <em>Groundwork of the Metaphysics of Morals</em> (1785).</li>
+<li>Locke, John. <em>An Essay Concerning Human Understanding</em> (1694), II.xxvii.</li>
+<li>Singer, Peter. <em>Animal Liberation</em> (1975).</li>
+<li>Warren, Mary Anne. <em>Moral Status</em> (1997).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/10-self-and-other-minds/05-split-brains-and-multiple-selves.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/11-cognition/01-computational-theory.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/10-self-and-other-minds/05-split-brains-and-multiple-selves.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/11-cognition/01-computational-theory.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

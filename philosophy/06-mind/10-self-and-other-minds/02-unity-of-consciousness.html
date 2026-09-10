@@ -1,0 +1,382 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Unity of Consciousness - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/10-self-and-other-minds/02-unity-of-consciousness.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-unity-of-consciousness"><a class="header" href="#the-unity-of-consciousness">The Unity of Consciousness</a></h1>
+<p>At a moment, sights, sounds, bodily feelings, thoughts, and intentions seem present to
+one subject within one field. This <strong>unity of consciousness</strong> is not one simple property.
+Experiences may belong to one subject without being mutually accessible, represent
+features in one scene without sharing a modality, or be phenomenally co-present without
+supporting one action. Distinguishing these unities is necessary before asking whether
+the brain constructs them or a simple self supplies them.</p>
+<p>Unity matters because theories of the self often use it as evidence. Substance dualism
+appeals to an indivisible subject; bundle and functional theories seek relations that
+bind distributed states. Split-brain and dissociation cases test those relations, but no
+behavioural result counts subjects until a criterion of unity is chosen.</p>
+<hr />
+<h2 id="subject-unity"><a class="header" href="#subject-unity">Subject unity</a></h2>
+<p>Experiences exhibit <strong>subject unity</strong> when they are all experiences of one subject.
+Your visual experience and pain are both yours even if they concern unrelated objects.
+This is a metaphysical ownership claim.</p>
+<p>A simple-substance theory makes subject unity primitive: one bearer has many states. A
+functional theory identifies a subject through integrated access, memory, and control.
+A no-self view may treat ownership as conventional shorthand for causally connected
+processes.</p>
+<p>Subject unity cannot be inferred simply from spatial location. Two subjects might share
+one body, and one distributed subject might extend beyond a conventional boundary. Nor
+does qualitative similarity unite states; matching experiences can belong to different
+people.</p>
+<h2 id="phenomenal-unity"><a class="header" href="#phenomenal-unity">Phenomenal unity</a></h2>
+<p>Experiences are <strong>phenomenally unified</strong> or <strong>co-conscious</strong> when they are experienced
+together as parts of one total phenomenal field. Seeing the screen and hearing music are
+not merely simultaneous; there is something it is like to undergo them jointly.</p>
+<p>The <strong>unity thesis</strong> says that, at any time, all a subject's conscious experiences are
+co-conscious. Possible counterexamples include peripheral or unattended experience,
+dissociation, and divided attention. Whether these are failures of phenomenality,
+access, or report is contested.</p>
+<p>Phenomenal unity appears stronger than common ownership. One subject might have two
+streams inaccessible to one another, as some interpretations of split-brain cases
+suggest. If so, subject unity does not guarantee field unity.</p>
+<h2 id="representational-unity"><a class="header" href="#representational-unity">Representational unity</a></h2>
+<p>Perception presents objects and properties within organised scenes. Colour is bound to
+one shape rather than another; sounds and lip movements are assigned to one event;
+locations are integrated across modalities. This is <strong>representational unity</strong>.</p>
+<p>The binding problem asks how distributed processing yields correct combinations. Mere
+synchrony or co-location may be insufficient; attention, recurrent processing, object
+files, and common causal sources are candidate mechanisms.</p>
+<p>Representational unity can occur without phenomenal unity if unconscious systems bind
+features. Conversely, a confused or fragmented scene may still be experienced within
+one field. The two are empirically related but conceptually distinct.</p>
+<h2 id="access-unity"><a class="header" href="#access-unity">Access unity</a></h2>
+<p>States possess <strong>access unity</strong> when their contents are jointly available to reasoning,
+working memory, report, and action. A global-workspace theory makes this broadcast
+central to consciousness.</p>
+<p>Access can bind information across modalities and coordinate one response. It may be
+narrower than phenomenal consciousness if experience overflows report, or broader if
+unconscious information affects decisions.</p>
+<p>One subject's control system can also contain partially isolated modules. Unity is then
+graded by bandwidth, recurrence, and which consumers share the information rather than
+an all-or-nothing switch.</p>
+<h2 id="agency-unity"><a class="header" href="#agency-unity">Agency unity</a></h2>
+<p>An agent ordinarily forms plans, resolves conflicts, and controls one body as a
+coordinated whole. <strong>Agency unity</strong> concerns integration among intentions, evaluations,
+and actions.</p>
+<p>It can fail while consciousness remains unified. Akrasia, dissociated control, alien-
+hand phenomena, and compulsive action reveal conflict among systems. Conversely,
+coordinated behaviour can emerge from multiple processes without one phenomenal field.</p>
+<p>Agency unity is especially relevant to personhood and responsibility. It should not be
+used as a direct measure of how many phenomenal subjects exist.</p>
+<h2 id="the-subsumptive-view"><a class="header" href="#the-subsumptive-view">The subsumptive view</a></h2>
+<p>One account says unified experiences are all parts or aspects of a single total
+experience. At each moment, local experiences are <strong>subsumed</strong> by a maximal phenomenal
+state.</p>
+<p>This captures the apparent field structure and explains pairwise co-consciousness
+through common inclusion. It raises questions about boundaries and overlap. Could two
+total experiences share a component? What fixes the temporal grain of a total state?
+Does subsumption explain unity or restate it mereologically?</p>
+<p>The view is compatible with physical realisation if a neural integration process
+corresponds to the total state. It does not identify which process is sufficient.</p>
+<h2 id="the-relation-first-view"><a class="header" href="#the-relation-first-view">The relation-first view</a></h2>
+<p>Another account treats co-consciousness as a primitive or analysable relation among
+experiences. A set of states belongs to one field when connected by the right reciprocal
+access, integration, or phenomenal relation.</p>
+<p>This fits bundle theories: a subject may be constituted by a maximally unified set
+rather than unity resulting from a prior owner. The relation must avoid transitivity
+problems. If <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> is co-conscious with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>, must <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> be co-conscious
+with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>? Partial and overlapping unity may violate simple equivalence-class models.</p>
+<p>Empirical cases can motivate graded graphs rather than discrete bundles, but metaphysical
+subject count then becomes correspondingly indeterminate.</p>
+<h2 id="the-simple-subject-view"><a class="header" href="#the-simple-subject-view">The simple-subject view</a></h2>
+<p>A simple self supplies unity because every experience modifies one indivisible subject.
+This reverses the explanatory order: co-consciousness follows from ownership rather than
+ownership from integration.</p>
+<p>The view handles unity cleanly but makes division difficult. If access and control split,
+does the simple subject remain one? Evidence cannot directly reveal simplicity, and a
+primitive bearer may add no prediction beyond the integrated processes it owns.</p>
+<p>The <a href="../05-mind-body/01-substance-dualism.html#the-divisibility-argument">substance-dualism chapter</a>
+develops the associated divisibility argument and its limits.</p>
+<h2 id="neural-integration"><a class="header" href="#neural-integration">Neural integration</a></h2>
+<p>Candidate mechanisms include recurrent interaction, thalamocortical coordination,
+global broadcast, temporal synchrony, and integrated causal structure. Each captures a
+different unity: information sharing, access, feature binding, or irreducibility.</p>
+<p>A correlation between integration and unified report does not prove that integration
+constitutes phenomenal unity. Yet mechanistic dissociations can rule out simple
+proposals. If one kind of binding survives while phenomenal or access unity fails, the
+mechanisms should be separated.</p>
+<p>The <a href="../06-consciousness/07-theories-of-consciousness.html">empirical theories of consciousness</a>
+compare these proposals as theories of consciousness. Here they are assessed only for
+the unities they explain.</p>
+<h2 id="is-unity-necessary"><a class="header" href="#is-unity-necessary">Is unity necessary?</a></h2>
+<p>Some theories treat consciousness as necessarily unified: a conscious state must be
+present to a subject within a field. Others permit isolated phenomenal fragments or
+multiple overlapping streams.</p>
+<p>Necessity may arise from concept rather than evidence. If a subject is defined as the
+bearer of a maximal unified field, then unowned fragments are excluded by terminology.
+The substantive question is whether phenomenal occurrences require integration beyond
+their local character.</p>
+<p>Fragmented cases are hard to report precisely because report requires access unity.
+Absence of reports about fragmentation is therefore weak evidence that fragmentation
+never occurs.</p>
+<h2 id="unity-and-time"><a class="header" href="#unity-and-time">Unity and time</a></h2>
+<p>Consciousness also appears unified across a short temporal window. Melody, motion, and
+speech are experienced as temporally extended patterns, not isolated instants. This
+<strong>diachronic unity</strong> may depend on retention, anticipation, memory, and integration over
+hundreds of milliseconds or longer.</p>
+<p>Diachronic experiential integration is not personal identity through years. It explains
+how one present episode includes just-past phases. The metaphysics of persistence remains
+in <a href="../../03-spacetime/06-time/06-persistence.html">Persistence</a>, while temporal experience
+is treated in <a href="../../03-spacetime/06-time/04-passage-and-experience.html">Temporal Passage and Experience</a>.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Unity</th><th>Central relation</th><th>Can come apart from</th></tr></thead><tbody>
+<tr><td><strong>Subject</strong></td><td>ownership by one subject</td><td>phenomenal co-presence and access</td></tr>
+<tr><td><strong>Phenomenal</strong></td><td>co-consciousness in one field</td><td>accurate binding and agency</td></tr>
+<tr><td><strong>Representational</strong></td><td>features organised into one scene</td><td>consciousness</td></tr>
+<tr><td><strong>Access</strong></td><td>joint availability to cognition and report</td><td>phenomenality</td></tr>
+<tr><td><strong>Agency</strong></td><td>coordinated intention and control</td><td>subject and field unity</td></tr>
+</tbody></table>
+</div>
+<p>No one empirical measure tracks every unity. The philosophical work is to specify which
+unity a theory treats as basic and how the others arise. Split-brain cases are valuable
+because they pull the relations apart; they do not carry a ready-made count of subjects.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Bayne, Tim. <em>The Unity of Consciousness</em> (2010).</li>
+<li>Brook, Andrew and Paul Raymont. <em>The Unity of Consciousness</em> (2014).</li>
+<li>Dainton, Barry. <em>Stream of Consciousness</em> (2000).</li>
+<li>Hurley, Susan. <em>Consciousness in Action</em> (1998).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/10-self-and-other-minds/01-the-self.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/10-self-and-other-minds/03-self-knowledge.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/10-self-and-other-minds/01-the-self.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/10-self-and-other-minds/03-self-knowledge.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

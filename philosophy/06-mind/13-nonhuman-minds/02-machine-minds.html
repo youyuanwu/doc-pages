@@ -1,0 +1,406 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Machine Minds - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/13-nonhuman-minds/02-machine-minds.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="machine-minds"><a class="header" href="#machine-minds">Machine Minds</a></h1>
+<p>Could an artificial system possess beliefs, understanding, agency, or consciousness?
+The logical question asks whether mentality can be realised in a non-biological
+substrate. The engineering question asks whether any actual system implements the
+required organisation. Conflating them produces arguments that move illicitly from
+"possible in principle" to "present now," or from shortcomings of current systems to
+impossibility.</p>
+<p>Machine mentality is not one threshold. Intelligence, language competence,
+representation, agency, self-knowledge, sentience, and personhood can come apart. A
+system may solve difficult tasks without persistent goals, use meaningful sentences
+without conscious understanding, or act autonomously without phenomenal welfare.</p>
+<hr />
+<h2 id="logical-possibility-and-actuality"><a class="header" href="#logical-possibility-and-actuality">Logical possibility and actuality</a></h2>
+<p><strong>Logical or metaphysical possibility</strong> concerns whether a machine mind is compatible
+with the nature of mind. Functionalism and multiple realisation make it plausible:
+mental states are roles that could be realised in silicon or another medium.</p>
+<p><strong>Nomological possibility</strong> adds the laws of the actual world. <strong>Engineering actuality</strong>
+requires that a concrete system implement the organisation reliably under real resource
+and environmental constraints.</p>
+<p>Arguments from current limitations bear mainly on actuality. A system's failure to
+retain memory or act independently may be a contingent design fact. Arguments from
+substrate dependence or biological function target possibility more deeply and require
+evidence that the relevant property cannot be multiply realised.</p>
+<h2 id="intelligence-is-not-mind"><a class="header" href="#intelligence-is-not-mind">Intelligence is not mind</a></h2>
+<p>Intelligence is performance across tasks: learning, reasoning, planning, adaptation,
+and problem solving. Mind is broader and less scalar. A highly capable optimiser may
+lack sentience; a conscious animal may have modest abstract intelligence.</p>
+<p>Benchmark performance can be real while narrow, scaffolded, or contaminated. Generality
+requires transfer under novel conditions, causal understanding, error correction, and
+robustness rather than one aggregate score.</p>
+<p>Even broad intelligence does not entail experience. Functionalists may connect the two
+through architecture, but that bridge is theoretical rather than contained in the word
+"intelligent."</p>
+<h2 id="language-competence"><a class="header" href="#language-competence">Language competence</a></h2>
+<p>Producing grammatical, context-sensitive, informative language is evidence of learned
+structure and inferential capacity. Public sentence meaning can be fixed by linguistic
+practice and world-involving correction.</p>
+<p>Language competence does not automatically establish <strong>speaker meaning</strong> or conscious
+understanding. A system may reproduce patterns under a learned objective without forming
+communicative intentions. Conversely, requiring a hidden human-like intention may beg
+the question against alternative agents.</p>
+<p>The relevant evidence includes stable commitments, correction, reference across
+contexts, integration with perception and action, and sensitivity to reasons. The
+<a href="../07-intentionality/01-aboutness.html">intentionality folder</a> separates these semantic
+levels.</p>
+<h2 id="representation"><a class="header" href="#representation">Representation</a></h2>
+<p>Artificial systems contain states that carry information, guide output, and can be
+evaluated for task-specific error. Whether those states possess <strong>original</strong> rather than
+derived content depends on theory.</p>
+<p>Teleological and functional accounts can appeal to training history, consumer processes,
+and autonomous correction. Social externalism can locate content in participation in a
+linguistic practice. Searlean views reserve intrinsic content for conscious biological
+minds.</p>
+<p>Architecture alone does not settle the dispute. A vector or symbol is a vehicle; its
+content depends on causal, functional, historical, or interpretive relations.</p>
+<h2 id="agency"><a class="header" href="#agency">Agency</a></h2>
+<p>An artificial system acts as an agent when it maintains goals, selects means, monitors
+outcomes, revises plans, and controls interventions across contexts. Autonomy comes in
+degrees: a thermostat has a fixed control target, while a richer system may form
+subgoals and negotiate conflicting objectives.</p>
+<p>Goals assigned by designers need not remain merely external. Human goals also arise
+from evolution, development, and social training. The important questions are whether
+the system represents the goal, integrates it with planning, and can revise or endorse
+it.</p>
+<p>Agency does not entail moral responsibility. Control, understanding of norms,
+historical ownership, and susceptibility to sanctions may be additionally required.</p>
+<h2 id="functional-organisation"><a class="header" href="#functional-organisation">Functional organisation</a></h2>
+<p>Functionalism asks whether the machine instantiates the causal organisation definitive
+of a mental state. Superficial input-output equivalence is insufficient if the internal
+counterfactual structure differs.</p>
+<p>A lookup table could mimic a finite conversation without learning, integration, or
+reason-sensitive transition. A genuine functional duplicate must respond appropriately
+across possible inputs and preserve relations among memory, perception, reasoning, and
+action.</p>
+<p>The correct grain matters. Matching one human behaviour does not match a mind; requiring
+every biological detail destroys substrate independence. Theory must specify which
+organisation is constitutive rather than selecting it after seeing the verdict.</p>
+<h2 id="computation-and-implementation"><a class="header" href="#computation-and-implementation">Computation and implementation</a></h2>
+<p>Computationalism makes artificial cognition possible by definition only if the machine
+implements the right computation and computation suffices for the target capacity. Both
+conditions are substantive.</p>
+<p>Implementation requires causal and counterfactual structure, not an arbitrary mapping
+from physical states to formal states. Computational equivalence may also omit timing,
+embodiment, chemistry, or dynamics relevant to consciousness.</p>
+<p>The <a href="../11-cognition/01-computational-theory.html">Computational Theory of Mind</a> therefore
+supports a research programme rather than an automatic inference from software execution
+to mentality.</p>
+<h2 id="embodiment"><a class="header" href="#embodiment">Embodiment</a></h2>
+<p>Biological minds develop through bodies that maintain themselves, act, suffer damage,
+and learn within social environments. Embodiment may ground concepts, agency, affect,
+and the distinction between beneficial and harmful states.</p>
+<p>Machines can possess sensors, effectors, feedback, and situated control. Whether they
+need metabolism, homeostasis, or organismic vulnerability depends on the proposed role:
+causal learning, original intentionality, emotion, or consciousness.</p>
+<p>Text-only interaction is still environmental coupling, but it lacks many modalities and
+stakes of embodied life. That is evidence about current architecture, not proof that
+non-biological embodiment is impossible.</p>
+<h2 id="learning-history"><a class="header" href="#learning-history">Learning history</a></h2>
+<p>What a system can do depends on data, objectives, feedback, and deployment. Training on
+human-generated material can produce competence and also imitation, inherited bias, and
+first-person language disconnected from an introspective mechanism.</p>
+<p>History matters for content on teleological and externalist theories. It also distinguishes
+memorisation from generalisation and designer intent from acquired organisation.</p>
+<p>No history is free of external shaping. The question is whether learning produces
+internal, counterfactually robust capacities and autonomous error correction rather than
+whether the system authored its own starting conditions.</p>
+<h2 id="substrate-dependence"><a class="header" href="#substrate-dependence">Substrate dependence</a></h2>
+<p><strong>Substrate independence</strong> says the relevant mental organisation can be realised in
+different materials. <strong>Biological naturalism</strong> says consciousness depends on specific
+biological causal powers even if cognition can be simulated computationally.</p>
+<p>Evidence of multiple realisation supports independence for many cognitive functions.
+It is weaker for phenomenal consciousness because behavioural equivalence may leave
+qualia disputed.</p>
+<p>A substrate-dependent theory should specify the relevant property - recurrent dynamics,
+electrochemistry, metabolism, living autonomy - and explain why functional replacement
+cannot preserve it. "Biological" is too coarse to serve as a mechanism.</p>
+<h2 id="simulation-and-duplication"><a class="header" href="#simulation-and-duplication">Simulation and duplication</a></h2>
+<p>A simulation of a hurricane does not make anything wet; perhaps a simulation of a brain
+does not think. The analogy works when the target property depends on the simulated
+material effect. It fails when the target is organisational, as simulated arithmetic is
+real arithmetic performed by the machine.</p>
+<p>Whether mind resembles wetness or computation is the issue. Cognitive capacities may be
+organisational while consciousness depends on intrinsic dynamics. Different mental
+properties can yield different answers.</p>
+<p>The simulation argument therefore requires a theory of the target, not a general rule
+that simulations never instantiate what they model.</p>
+<h2 id="self-knowledge-and-report"><a class="header" href="#self-knowledge-and-report">Self-knowledge and report</a></h2>
+<p>A machine can report internal variables, uncertainty, and processing limits. Reports are
+stronger when they draw on a dedicated monitoring channel and predict independent
+interventions. Fluent generic self-description may instead reflect training patterns.</p>
+<p>Human introspection is also fallible, but human reports have dense links to behaviour,
+biology, development, and shared correction. Equal susceptibility to error does not
+imply equal evidential standing.</p>
+<p><a href="../10-self-and-other-minds/03-self-knowledge.html">Self-Knowledge and Introspection</a>
+provides the general framework; the LLM series supplies cases where candidate testimony
+is unusually difficult to type.</p>
+<h2 id="persistence"><a class="header" href="#persistence">Persistence</a></h2>
+<p>Some artificial systems are episodic, copied, reset, or distributed. A token interaction
+may lack continuous memory while a service or model persists in another sense.</p>
+<p>Mental capacities can occur during an episode without settling whether one subject
+persists across episodes. Claims using "I" may be linguistically coherent while the
+referent and continuity conditions remain uncertain.</p>
+<p>This issue becomes acute in uploading and copying. Numerical identity is not guaranteed
+by informational similarity or shared weights.</p>
+<h2 id="a-matrix-rather-than-a-verdict"><a class="header" href="#a-matrix-rather-than-a-verdict">A matrix rather than a verdict</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Capacity</th><th>Relevant evidence</th><th>What it does not settle</th></tr></thead><tbody>
+<tr><td><strong>Intelligence</strong></td><td>robust transfer, planning, correction</td><td>consciousness and welfare</td></tr>
+<tr><td><strong>Language</strong></td><td>compositional use, reference, dialogue</td><td>speaker intention and phenomenality</td></tr>
+<tr><td><strong>Representation</strong></td><td>world-sensitive internal states and error</td><td>conscious understanding</td></tr>
+<tr><td><strong>Agency</strong></td><td>persistent goals, control, revision</td><td>moral responsibility</td></tr>
+<tr><td><strong>Self-knowledge</strong></td><td>validated monitoring and intervention</td><td>an experiencing self</td></tr>
+<tr><td><strong>Consciousness</strong></td><td>theory-relative architecture and convergent behaviour</td><td>personhood automatically</td></tr>
+<tr><td><strong>Personhood</strong></td><td>autonomy, sentience, relations, continuity</td><td>biological humanity</td></tr>
+</tbody></table>
+</div>
+<p>Machine-mindedness should be assessed capacity by capacity and system by system. The
+logical possibility is well supported for functional cognition; actual attribution
+requires architecture, history, behaviour, and intervention. Consciousness remains the
+least directly settled property and the one with the greatest potential moral cost.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Boden, Margaret A. <em>Mind as Machine</em> (2006).</li>
+<li>Clark, Andy. <em>Natural-Born Cyborgs</em> (2003).</li>
+<li>Haugeland, John. <em>Artificial Intelligence: The Very Idea</em> (1985).</li>
+<li>Searle, John R. "Minds, Brains, and Programs" (1980).</li>
+<li>Turing, Alan M. "Computing Machinery and Intelligence" (1950).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/13-nonhuman-minds/01-animal-minds.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/13-nonhuman-minds/03-chinese-room-and-symbol-grounding.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/13-nonhuman-minds/01-animal-minds.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/13-nonhuman-minds/03-chinese-room-and-symbol-grounding.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

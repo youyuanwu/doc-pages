@@ -1,0 +1,401 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Emotion - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/12-affect-and-experience/01-emotion.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="emotion"><a class="header" href="#emotion">Emotion</a></h1>
+<p>Emotions are at once felt, bodily, intentional, motivational, evaluative, and socially
+shaped. Fear may involve arousal, represent a situation as dangerous, focus attention,
+prepare escape, and feel a distinctive way. No one feature appears in every emotion or
+suffices by itself. The philosophy of emotion asks which features constitute an emotion,
+how emotions can be rationally assessed, and how biological regularities interact with
+cultural concepts and practices.</p>
+<p>The main theories treat emotions as feelings, perceptions of bodily change, judgments
+or appraisals, action tendencies, perceptions of value, or constructed categories. They
+often describe different components rather than exclusive essences. The challenge is to
+explain their coordination and their possible dissociation.</p>
+<hr />
+<h2 id="what-must-a-theory-explain"><a class="header" href="#what-must-a-theory-explain">What must a theory explain?</a></h2>
+<p>Emotions characteristically involve several dimensions:</p>
+<ul>
+<li><strong>phenomenology:</strong> what fear, grief, anger, or joy feels like;</li>
+<li><strong>intentionality:</strong> what the emotion is about;</li>
+<li><strong>appraisal:</strong> how the object is evaluated as dangerous, offensive, lost, or welcome;</li>
+<li><strong>bodily change:</strong> arousal, posture, expression, and visceral regulation;</li>
+<li><strong>motivation:</strong> tendencies to flee, confront, withdraw, repair, or approach;</li>
+<li><strong>attention:</strong> selective salience and memory;</li>
+<li><strong>social norm:</strong> when an emotion is fitting, excessive, shameful, or expected.</li>
+</ul>
+<p>The dimensions can separate. One can judge danger without fear, feel anxious without a
+clear object, or remain afraid while believing the threat harmless. Such <strong>recalcitrance</strong>
+is a central test for purely judgmental theories.</p>
+<h2 id="feeling-theories"><a class="header" href="#feeling-theories">Feeling theories</a></h2>
+<p>Feeling theories identify emotion primarily with its phenomenal character. Fear is a
+kind of felt disturbance, grief a felt absence, and joy a felt expansion or lightness.</p>
+<p>The view respects the first-person importance of emotion. A purely behavioural or
+cognitive account appears to leave out what makes anxiety burdensome or delight valuable.</p>
+<p>It has difficulty individuating emotions. Bodily arousal can feel similar across fear,
+anger, excitement, and exercise. Emotions also possess objects and correctness conditions:
+fear can be unfounded, anger misdirected, and grief appropriate. A bare feeling does not
+explain these intentional and normative features.</p>
+<h2 id="james-lange-bodily-theories"><a class="header" href="#james-lange-bodily-theories">James-Lange bodily theories</a></h2>
+<p>William James and Carl Lange proposed that emotion is the perception of bodily changes.
+We do not tremble because we are afraid; fear is, in an important sense, the felt bodily
+pattern of trembling, heart rate, breathing, and readiness.</p>
+<p>The theory explains embodiment and why emotions alter experience globally. It predicts
+that changing bodily feedback can change emotion and that impaired interoception should
+affect emotional differentiation.</p>
+<p>Objections include similar bodily profiles across emotions, emotion without strong
+arousal, and the role of context in interpreting one bodily state differently. Modern
+embodied theories respond that bodily patterns are dynamic, action-oriented, and
+integrated with appraisal rather than fixed signatures.</p>
+<h2 id="cognitive-and-judgment-theories"><a class="header" href="#cognitive-and-judgment-theories">Cognitive and judgment theories</a></h2>
+<p>Cognitive theories treat emotions as or as dependent on evaluations. Fear appraises
+something as dangerous; anger appraises an offence; guilt appraises one's action as a
+wrong for which one is responsible.</p>
+<p>This explains intentionality, rational assessment, and differentiation. Two people with
+similar arousal can experience different emotions because they construe the situation
+differently.</p>
+<p>If emotions are judgments, recalcitrance is puzzling. A person can fear a harmless
+spider while judging it harmless. Infants and animals also display emotions without the
+propositional concepts a strong judgment theory may require.</p>
+<p>Appraisal theories weaken the intellectualism. An appraisal can be fast, non-conceptual,
+and embodied: the environment is registered as significant for needs and goals without
+an explicit proposition.</p>
+<h2 id="perceptual-theories"><a class="header" href="#perceptual-theories">Perceptual theories</a></h2>
+<p>Perceptual theories compare emotion with perception of value. Fear presents danger,
+anger presents offence, and admiration presents excellence. Emotion makes evaluative
+features salient and motivates action.</p>
+<p>The analogy explains recalcitrance. A visual illusion can persist despite contrary
+judgment; fear can continue to present danger despite knowledge of safety. Emotions can
+therefore supply defeasible reasons without being judgments.</p>
+<p>The challenge is whether values are literally perceived or projected through appraisal.
+Different cultures and histories produce different emotional salience. Perceptual
+theorists can accept learning and conceptual influence, as ordinary perception is also
+plastic, but need standards for accurate value perception.</p>
+<h2 id="motivational-and-action-tendency-theories"><a class="header" href="#motivational-and-action-tendency-theories">Motivational and action-tendency theories</a></h2>
+<p>Emotions prepare action. Fear tends toward escape or vigilance, anger toward confrontation,
+shame toward concealment, and guilt toward repair. The tendency need not produce overt
+behaviour; social norms and competing goals can inhibit it.</p>
+<p>Action-oriented accounts explain why emotions restructure attention and decision rather
+than merely add a feeling. They fit embodied and enactive cognition: emotion discloses
+affordances as threatening, inviting, or blocked.</p>
+<p>One emotion can support different actions, and one action tendency can arise from
+different emotions. Grief has no simple goal-directed response. Motivation is therefore
+a dimension rather than a complete definition.</p>
+<h2 id="constructionism"><a class="header" href="#constructionism">Constructionism</a></h2>
+<p>Psychological constructionist theories build emotions from more basic ingredients such
+as core affect, arousal, valence, conceptual categorisation, and situational knowledge.
+An episode counts as anger rather than fear because a bodily-affective state is
+interpreted through a learned emotion concept.</p>
+<p>Constructionism explains cultural variation, fuzzy boundaries, and the absence of one
+biological signature for each folk category. It treats emotion words as organising
+heterogeneous episodes.</p>
+<p>The view can overstate conceptual dependence. Infants and animals show patterned affect
+and action before possessing adult concepts. Cross-cultural variation coexists with
+biological regularities. A layered theory can combine evolved affective systems with
+culturally learned categorisation.</p>
+<h2 id="basic-emotion-theories"><a class="header" href="#basic-emotion-theories">Basic-emotion theories</a></h2>
+<p>Basic-emotion approaches posit a small set of evolved affect programmes, often including
+fear, anger, disgust, sadness, happiness, and surprise. Characteristic expressions,
+physiology, action tendencies, and developmental patterns support the proposal.</p>
+<p>Critics challenge universality, one-to-one signatures, and forced-choice methods that
+may inflate agreement. Emotional episodes are context-sensitive and often blend.</p>
+<p>"Basic" can mean evolutionarily ancient, neurally distinct, developmentally early, or
+psychologically primitive. Evidence for one sense does not establish the others.</p>
+<h2 id="intentional-objects"><a class="header" href="#intentional-objects">Intentional objects</a></h2>
+<p>Emotions can be directed at particular objects, events, people, or prospects. Fear of a
+dog differs from free-floating anxiety; grief concerns a loss; shame may concern how one
+appears to others.</p>
+<p>Some emotions have <strong>formal objects</strong>: danger for fear, offence for anger, loss for grief.
+The formal object states the evaluative property under which diverse particulars elicit
+the emotion.</p>
+<p>Objectless moods may represent the world globally as threatening or inviting, or may be
+affective orientations without determinate accuracy conditions. Their existence prevents
+one simple object-relation theory from covering all affect.</p>
+<h2 id="fittingness-and-rationality"><a class="header" href="#fittingness-and-rationality">Fittingness and rationality</a></h2>
+<p>An emotion is <strong>fitting</strong> when its object has the evaluative property it presents. Fear
+is fitting if danger is present; anger if a genuine offence occurred. Fittingness differs
+from prudence and morality. Fitting anger may be harmful to express; unfitting hope may
+be beneficial.</p>
+<p>Emotions can be assessed for evidence, proportionality, object, and response. Rationality
+is not absence of feeling but sensitivity to reasons and revision.</p>
+<p>Recalcitrant emotion shows that rational appraisal does not control affect directly.
+Emotional learning and exposure can alter automatic responses where argument alone does
+not.</p>
+<h2 id="emotion-and-reason"><a class="header" href="#emotion-and-reason">Emotion and reason</a></h2>
+<p>The traditional opposition between emotion and reason is misleading. Emotions focus
+attention, encode significance, motivate inquiry, and reveal stakes. A reasoner without
+affect may struggle to choose because nothing is salient or valuable.</p>
+<p>Emotions can also bias evidence, narrow alternatives, and sustain motivated reasoning.
+Their epistemic role is therefore defeasible. They are neither irrational intrusions nor
+automatic perceptions of value.</p>
+<p>The <a href="../09-causation-and-action/05-reasons-intentions-action.html">action chapter</a> explains
+how desires and evaluations guide behaviour; emotions add embodied salience and action
+readiness to that structure.</p>
+<h2 id="social-emotions"><a class="header" href="#social-emotions">Social emotions</a></h2>
+<p>Shame, guilt, pride, resentment, gratitude, and embarrassment depend on social norms,
+relationships, and perspectives. Their objects cannot be specified through physiology
+alone.</p>
+<p>The reactive attitudes in moral responsibility register perceived quality of will and
+structure interpersonal accountability. They are treated normatively in
+<a href="../../01-freewill/08-concepts/01-moral-responsibility.html">Moral Responsibility</a>.</p>
+<p>Social construction does not make these emotions unreal. Institutions and norms are
+real causal structures; the question is how they combine with evolved affect and
+individual appraisal.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Theory</th><th>Best explains</th><th>Main pressure point</th></tr></thead><tbody>
+<tr><td><strong>Feeling</strong></td><td>phenomenal significance</td><td>object and rational assessment</td></tr>
+<tr><td><strong>Bodily</strong></td><td>arousal and embodiment</td><td>differentiation and cognitive context</td></tr>
+<tr><td><strong>Judgment/appraisal</strong></td><td>intentionality and reasons</td><td>recalcitrance and non-conceptual emotion</td></tr>
+<tr><td><strong>Perceptual</strong></td><td>value presentation and recalcitrance</td><td>accuracy and cultural variation</td></tr>
+<tr><td><strong>Action tendency</strong></td><td>motivation and salience</td><td>passive and complex emotions</td></tr>
+<tr><td><strong>Constructionist</strong></td><td>variation and category learning</td><td>early and cross-species affect</td></tr>
+<tr><td><strong>Basic emotion</strong></td><td>evolved regularities</td><td>heterogeneity and methodological dependence</td></tr>
+</tbody></table>
+</div>
+<p>Emotion is best treated as coordinated affective appraisal rather than one hidden
+ingredient. Phenomenology, body, content, motivation, and social interpretation can
+dissociate, but a full episode often recruits all of them.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Barrett, Lisa Feldman. <em>How Emotions Are Made</em> (2017).</li>
+<li>Deonna, Julien A. and Fabrice Teroni. <em>The Emotions</em> (2012).</li>
+<li>James, William. "What Is an Emotion?" (1884).</li>
+<li>Nussbaum, Martha C. <em>Upheavals of Thought</em> (2001).</li>
+<li>Prinz, Jesse J. <em>Gut Reactions</em> (2004).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/11-cognition/06-unconscious-mental-states.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/12-affect-and-experience/02-pain.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/11-cognition/06-unconscious-mental-states.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/12-affect-and-experience/02-pain.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

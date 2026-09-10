@@ -1,0 +1,432 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Functionalism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/05-mind-body/05-functionalism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="functionalism"><a class="header" href="#functionalism">Functionalism</a></h1>
+<p><strong>Functionalism</strong> holds that a mental state is individuated by its place in a causal or
+computational organisation rather than by the material from which its bearer is made.
+Pain is the state typically caused by injury, interacting with attention, memory, and
+belief, and tending toward aversion, learning, and withdrawal. In a human that role is
+realised neurally; another creature or machine could realise it differently.</p>
+<p>The view preserves <a href="03-behaviourism.html">behaviourism's</a> relational insight while adding
+real internal states, and it answers the multiple-realisation objection to
+<a href="04-identity-theory.html">type identity theory</a>. It became the default framework for much
+of cognitive science because algorithms and representational roles can be specified
+independently of hardware. Its central question is whether causal role captures all of
+mind or only cognition. Absent qualia, inverted spectra, and unusual implementations
+test whether functional sameness guarantees phenomenal sameness.</p>
+<hr />
+<h2 id="roles-and-realisers"><a class="header" href="#roles-and-realisers">Roles and realisers</a></h2>
+<p>A functional property is a property of having something that performs a specified
+role. A mousetrap may be wooden or metal; what makes it a mousetrap is its organisation
+and disposition to trap mice. Likewise, a functionalist distinguishes:</p>
+<ul>
+<li>the <strong>role property</strong>: being in a state with specified causal relations; and</li>
+<li>the <strong>realiser property</strong>: the concrete physical state that occupies the role here.</li>
+</ul>
+<p>Schematically:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8623em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">inputs</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.6494em;vertical-align:-0.6261em;"></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0233em;"><span style="top:-3.6494em;"><span class="pstrut" style="height:3.6494em;"></span><span class="boxpad"><span class="mord"><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↔</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.0233em;"><span class="pstrut" style="height:3.6494em;"></span><span class="stretchy fbox" style="height:1.6494em;border-style:solid;border-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.6261em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8095em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">outputs</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>The box contains a network, not one isolated input-output disposition. Hunger changes
+how beliefs and perceptions lead to action; memory changes how later inputs are
+processed. This internal organisation lets functionalism explain behaviour rather than
+translate mental statements into descriptions of behaviour.</p>
+<p>Functionalism is compatible with several ontologies. A physicalist holds that every
+realiser is physical. A property dualist could claim a non-physical property occupies a
+functional role. The theory of mental kinds therefore does not by itself establish what
+the realisers are made of.</p>
+<h2 id="machine-table-functionalism"><a class="header" href="#machine-table-functionalism">Machine-table functionalism</a></h2>
+<p>Early functionalism drew on finite automata. A <strong>machine table</strong> specifies, for each
+input and current state, an output and successor state. Mental states are the states
+defined by this pattern of transitions.</p>
+<div class="table-wrapper"><table><thead><tr><th>Current state</th><th>Input</th><th>Output</th><th>Next state</th></tr></thead><tbody>
+<tr><td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td><td>tissue damage</td><td>withdrawal</td><td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td></tr>
+<tr><td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td><td>safety signal</td><td>report pain</td><td><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td></tr>
+</tbody></table>
+</div>
+<p>The toy table is not a psychology. Its importance is formal: states can be identified
+relationally, without mentioning the material implementing them. Two systems share an
+organisation when an isomorphism preserves the relevant transitions.</p>
+<p>Actual minds are probabilistic, continuous, plastic, embodied, and environmentally
+coupled, so a finite deterministic table is too simple. Functionalism need not retain
+that formalism. Dynamical, probabilistic, connectionist, and embodied organisations can
+all define roles. The substantive thesis is implementation independence at some level,
+not commitment to serial symbolic software.</p>
+<h2 id="causal-role-and-ramsey-lewis-functionalism"><a class="header" href="#causal-role-and-ramsey-lewis-functionalism">Causal-role and Ramsey-Lewis functionalism</a></h2>
+<p><strong>Causal-role functionalism</strong> defines a state through its typical causes and effects.
+The challenge is circularity: pain is linked to the desire that pain stop, while desire
+is already mental. Ramsey-Lewis functionalism addresses this by defining the whole
+network simultaneously.</p>
+<p>Take a folk-psychological theory <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.109em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> relating mental terms to inputs,
+outputs, and one another. Replace each mental term with a variable and existentially
+quantify:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∃</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>Pain is then the occupant of the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> role in the best system satisfying the theory.
+The definition does not presuppose another independently understood mental term.</p>
+<p>This gains rigor at the cost of choosing the theory. Folk psychology may contain false
+generalisations, different populations may instantiate different networks, and multiple
+states may approximately occupy one role. A functionalist needs criteria for which
+causal relations are constitutive and which are accidental.</p>
+<h2 id="psychofunctionalism"><a class="header" href="#psychofunctionalism">Psychofunctionalism</a></h2>
+<p><strong>Analytical functionalism</strong> begins with ordinary mental concepts and their platitudes.
+<strong>Psychofunctionalism</strong> instead lets empirical cognitive science specify the roles. A
+memory state is whatever occupies a role in the best psychological theory, even if
+ordinary speakers would not recognise the analysis.</p>
+<p>Psychofunctionalism is more open to scientific revision and less dependent on intuition.
+It also narrows multiple realisation: fine-grained empirical roles may depend on
+specific temporal, architectural, and biological features. That is not necessarily a
+defect. Substrate independence means independence from irrelevant material differences,
+not that any causal approximation is sufficient.</p>
+<p>The distinction also separates conceptual and empirical objections. A folk concept may
+allow a silicon pain while the mechanism required by the best theory turns out to be
+biologically restricted. The metaphysical possibility of machine minds and the actual
+engineering conditions for them are different questions.</p>
+<h2 id="multiple-realisation"><a class="header" href="#multiple-realisation">Multiple realisation</a></h2>
+<p>Functionalism's central argument is:</p>
+<ol>
+<li>Creatures with different physical constitutions can share mental states.</li>
+<li>A theory of mental kinds should explain what these cases share.</li>
+<li>They share causal organisation rather than one physical type.</li>
+<li>Therefore mental kinds are functional kinds.</li>
+</ol>
+<p>The conclusion explains both cross-species mentality and the autonomy of psychology.
+A generalisation connecting pain, attention, learning, and avoidance can hold across
+different neural implementations, just as a sorting algorithm can be realised in
+different hardware.</p>
+<p>Critics challenge both the extent and implication of the premise. Neuroscience may
+discover conserved dynamical structures beneath material variation. And even if a
+state is multiply realised, it does not follow that the functional role is the whole
+state; role might identify a cognitive capacity while leaving phenomenal or biological
+features outside it.</p>
+<h2 id="liberalism-and-chauvinism"><a class="header" href="#liberalism-and-chauvinism">Liberalism and chauvinism</a></h2>
+<p>A role can be specified at different grains. Too coarse a role yields <strong>liberalism</strong>:
+systems intuitively lacking minds count as minded because they match an abstract
+transition pattern. A giant lookup table, a sufficiently organised population, or even
+an accidental physical process might implement the table under some mapping.</p>
+<p>Too fine or human-centred a role yields <strong>chauvinism</strong>: plausible animals, aliens, or
+machines are excluded because they solve the same problem through different internal
+relations. Adding every detail of human neurobiology defeats the purpose of functional
+abstraction.</p>
+<p>The implementation problem makes liberalism precise. Almost any sufficiently complex
+physical system can be mapped onto a simple automaton if only actual state transitions
+matter. A non-trivial account requires <strong>counterfactual support</strong>: had inputs differed,
+the system would have undergone the transitions specified by the machine. Causal
+boundaries, temporal organisation, and stable components must also constrain the mapping.</p>
+<p>There may be no theory-neutral correct grain. Cognitive kinds are selected partly by
+the explanations and interventions they support. This makes functionalism scientifically
+productive while weakening the hope for a simple necessary-and-sufficient definition.</p>
+<h2 id="absent-qualia"><a class="header" href="#absent-qualia">Absent qualia</a></h2>
+<p>An <strong>absent-qualia</strong> case duplicates a person's functional organisation while stipulating
+that nothing is experienced. Block's China-brain case imagines the population of a
+country communicating so as to implement the causal organisation of one brain. The
+system receives inputs and produces outputs through the right transitions. Does the
+nation thereby feel pain?</p>
+<p>If the scenario is possible, functional role is insufficient for phenomenal
+consciousness. The functionalist has three main replies:</p>
+<ul>
+<li>deny that a genuine, counterfactually robust implementation could lack experience;</li>
+<li>accept that the unusual system is conscious despite intuition;</li>
+<li>restrict functionalism to beliefs, desires, and access while giving phenomenal
+consciousness another account.</li>
+</ul>
+<p>The first treats the thought experiment as an intuition driven by unfamiliar scale.
+The second accepts liberal consequences. The third yields pluralism about mental kinds.
+None is costless, but the case does not undermine functional explanation of cognition
+merely by challenging phenomenal sufficiency.</p>
+<h2 id="inverted-qualia"><a class="header" href="#inverted-qualia">Inverted qualia</a></h2>
+<p>An <strong>inverted spectrum</strong> preserves every functional relation while swapping phenomenal
+character: what one person experiences when seeing red has the character another has
+when seeing green, with discriminations, memories, and reports adjusted so no
+behavioural difference appears. If coherent, the same role can host different qualia.</p>
+<p>A functionalist can argue that complete functional identity includes relations to
+memory, similarity judgments, learning, attention, and every counterfactual use, making
+undetectable inversion impossible. The critic replies that these are still relations;
+the intrinsic character could vary while all relations remain.</p>
+<p>The disagreement exposes functionalism's deepest commitment. The theory is not refuted
+by the mere fact that we can utter the description. It must explain why role exhausts
+the identity of experience, while the critic must justify the modal step from apparent
+conceivability to possibility.</p>
+<h2 id="computation-content-and-environment"><a class="header" href="#computation-content-and-environment">Computation, content, and environment</a></h2>
+<p>Computational functionalism treats cognition as operations over representations. A
+syntactic state can be individuated by formal role, but mental content also depends on
+what the representation means. If content is externally individuated, physically and
+functionally identical internal systems in different environments may think about
+different substances.</p>
+<p>The functionalist may widen the role to include environmental and social relations.
+This produces <strong>wide functionalism</strong>, on which mind is not bounded by the skull. It
+connects naturally to embodied and extended cognition but complicates the machine-table
+picture: the relevant system may include body, tools, and environment.</p>
+<p>The distinction between <strong>vehicle</strong> and <strong>content</strong> helps. Internal functional role may
+identify the vehicle that carries a thought while causal history, environment, or
+social practice fixes what it represents. Functionalism about vehicles can coexist
+with externalism about content.</p>
+<h2 id="functional-explanation-and-causation"><a class="header" href="#functional-explanation-and-causation">Functional explanation and causation</a></h2>
+<p>Functional properties support causal explanation by identifying variables at the grain
+relevant to an effect. A key's being the authentication token explains access across
+many physical implementations. A belief's content explains action through its place in
+reasoning, not through the exact microphysics of its realiser.</p>
+<p>The exclusion problem remains. If the physical realiser is sufficient for every output,
+does the role property add a cause or merely classify one? A functionalist can answer
+that role and realiser are not independent competing events. The same process is cited
+at different explanatory levels, and interventions on the role can be defined through
+changes in any suitable realiser.</p>
+<p>This answer leads directly to
+<a href="06-nonreductive-physicalism.html">non-reductive physicalism</a>. It secures explanatory
+autonomy more readily than distinct ontological powers. Whether that is enough depends
+on what "mental causation" demands.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><strong>Multiple realisation</strong></td><td><strong>Strong</strong> - the theory was designed to explain it.</td></tr>
+<tr><td><strong>Cognition and systematicity</strong></td><td><strong>Strong</strong> - internal roles support mechanistic and computational models.</td></tr>
+<tr><td><strong>Phenomenal consciousness</strong></td><td><strong>Contested</strong> - absent and inverted qualia target functional sufficiency.</td></tr>
+<tr><td><strong>Implementation</strong></td><td><strong>Difficult</strong> - liberalism, chauvinism, grain, and counterfactual constraints remain.</td></tr>
+<tr><td><strong>Mental causation</strong></td><td><strong>Promising</strong> - role-level causes need not compete with realisers, though exclusion persists.</td></tr>
+<tr><td><strong>Artificial minds</strong></td><td><strong>Permissive in principle</strong> - causal organisation, not substrate alone, is decisive.</td></tr>
+</tbody></table>
+</div>
+<p>Functionalism explains how one mental science can range over diverse bodies. Its
+success is clearest for cognition, where causal and computational roles are the objects
+of explanation. Its pressure point is phenomenal consciousness: either experience is
+fixed by complete organisation, or functionalism is a theory of only part of mind.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Block, Ned. "Troubles with Functionalism" (1978).</li>
+<li>Lewis, David. "Psychophysical and Theoretical Identifications" (1972).</li>
+<li>Putnam, Hilary. "The Nature of Mental States" (1967).</li>
+<li>Putnam, Hilary. <em>Representation and Reality</em> (1988).</li>
+<li>Shoemaker, Sydney. "Functionalism and Qualia" (1975).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/05-mind-body/04-identity-theory.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/05-mind-body/06-nonreductive-physicalism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/05-mind-body/04-identity-theory.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/05-mind-body/06-nonreductive-physicalism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Conceivability, Zombies, and Modal Arguments - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/06-consciousness/05-conceivability-and-zombies.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="conceivability-zombies-and-modal-arguments"><a class="header" href="#conceivability-zombies-and-modal-arguments">Conceivability, Zombies, and Modal Arguments</a></h1>
+<p>A <strong>philosophical zombie</strong> is a physical and functional duplicate of a conscious person
+with no phenomenal experience. It discriminates, reasons, withdraws from injury, and
+says "I am conscious" for the same physical reasons, but nothing is felt. The zombie is
+not proposed as a creature likely to exist. It is a modal test: if such a duplicate is
+possible, physical facts do not necessitate phenomenal facts.</p>
+<p>The argument depends less on the imaginative image than on two bridges. The scenario
+must be genuinely conceivable while every physical fact is held fixed, and ideal
+conceivability must support metaphysical possibility. Physicalists attack both; anti-
+physicalists argue that denying them leaves the explanatory gap untouched.</p>
+<hr />
+<h2 id="the-zombie-argument"><a class="header" href="#the-zombie-argument">The zombie argument</a></h2>
+<p>The standard form is:</p>
+<ol>
+<li>A world physically identical to ours but without phenomenal consciousness is
+conceivable.</li>
+<li>If that world is ideally conceivable, it is metaphysically possible.</li>
+<li>If physicalism is true, every minimal physical duplicate of our world is a mental
+duplicate.</li>
+<li>Therefore physicalism is false.</li>
+</ol>
+<p>Premise 3 expresses <strong>minimal physicalism</strong>: fix the physical facts and laws, and fix
+the mental facts without adding independent mental laws or properties. The conclusion
+does not by itself select <a href="../05-mind-body/01-substance-dualism.html">substance dualism</a>,
+<a href="../05-mind-body/02-property-dualism.html">property dualism</a>, panpsychism, or neutral
+monism. It establishes only that the physical base is not sufficient.</p>
+<h2 id="degrees-of-conceivability"><a class="header" href="#degrees-of-conceivability">Degrees of conceivability</a></h2>
+<p>"Conceivable" can mean several things:</p>
+<ul>
+<li><strong>Prima facie conceivable:</strong> no contradiction is obvious on first reflection.</li>
+<li><strong>Ideally conceivable:</strong> unlimited rational reflection reveals no contradiction.</li>
+<li><strong>Negative conceivable:</strong> the scenario cannot be ruled out a priori.</li>
+<li><strong>Positive conceivable:</strong> one can construct a coherent model or rich imaginative
+presentation of it.</li>
+</ul>
+<p>Zombie arguments require more than a vivid picture. Imagining a person-shaped body and
+stipulating darkness inside may omit the total physical and functional identity. Ideal
+negative conceivability is stronger, but humans cannot verify that their reflection is
+ideal. The modal evidence is therefore defeasible.</p>
+<p>Anti-physicalists respond that the scenario is unusually stable under reflection. Every
+structural and behavioural fact can be explicitly held fixed while the phenomenal fact
+is denied without formal contradiction. If a hidden contradiction exists, the
+physicalist should identify the necessary connection rather than merely predict its
+future discovery.</p>
+<h2 id="conceivability-and-possibility"><a class="header" href="#conceivability-and-possibility">Conceivability and possibility</a></h2>
+<p>The bridge from thought to metaphysical possibility fails in familiar a posteriori
+identities. Before chemistry, water without <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span> seemed conceivable. If water is
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span>, such a world contains a watery liquid but not water. Likewise, one might appear
+to conceive pain without neural state <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> while actually conceiving a pain-like state
+whose nature is misdescribed.</p>
+<p>Kripke argued that pain differs. The distinction between water and its appearance is
+available because water is identified by an external substance; pain is identified by
+how it feels. A state that feels exactly like pain is pain, so one cannot explain away
+the intuition as merely preserving an appearance.</p>
+<p>The physicalist can still appeal to different concepts of one state. A phenomenal
+concept fixes reference through experience while a physical concept fixes it through
+causal structure. Apparent separation then reflects cognitive independence between
+concepts rather than possible separation between properties.</p>
+<h2 id="two-dimensional-semantics"><a class="header" href="#two-dimensional-semantics">Two-dimensional semantics</a></h2>
+<p>Two-dimensional analysis distinguishes ways a description depends on a world.
+Roughly, a <strong>primary intension</strong> tracks what a term would pick out if a considered world
+were actual; a <strong>secondary intension</strong> tracks the actual referent across counterfactual
+worlds.</p>
+<p>"Water is not <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span>" is primarily conceivable because a watery substance could have
+turned out not to be <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span>, but secondarily impossible because actual water is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span>.
+Chalmers argues that phenomenal concepts do not permit the same escape: a world that is
+physically identical yet lacks the relevant feeling is conceivable under the primary
+intension, and no independent reference-fixing discovery converts that gap into an
+ordinary a posteriori identity.</p>
+<p>Critics dispute whether the two-dimensional framework guarantees the modal bridge and
+whether phenomenal concepts are semantically exceptional. The framework clarifies the
+argument but does not make its controversial premises purely formal.</p>
+<h2 id="type-a-and-type-b-replies"><a class="header" href="#type-a-and-type-b-replies">Type-A and type-B replies</a></h2>
+<p><strong>Type-A physicalism</strong> denies that a complete functional duplicate without consciousness
+is ideally conceivable. Once every discrimination, self-model, affective response, and
+report disposition is fixed, nothing remains for the zombie to lack. The apparent
+scenario results from an impoverished functional description.</p>
+<p><strong>Type-B physicalism</strong> grants an epistemic and conceptual gap but denies the modal
+inference. Phenomenal and physical concepts necessarily co-refer despite no a priori
+derivation. Zombies are ideally conceivable in an epistemic sense yet metaphysically
+impossible.</p>
+<p>Type A must explain why the phenomenal residue seems coherent after functions are
+specified. Type B must explain why this necessary identity differs so radically in
+epistemic form from identities whose necessity can be made intelligible. Both typically
+invoke the phenomenal-concepts strategy described in the
+<a href="04-knowledge-arguments.html">knowledge argument</a>.</p>
+<h2 id="does-the-argument-beg-the-question"><a class="header" href="#does-the-argument-beg-the-question">Does the argument beg the question?</a></h2>
+<p>A functionalist may object that describing a complete functional duplicate already
+describes consciousness. Adding "but without consciousness" is then like describing a
+triangle with no angles: grammatical but contradictory. The zombie proponent replies
+that functional sufficiency is the disputed thesis, so building it into the description
+would beg the question in the opposite direction.</p>
+<p>The stalemate can be sharpened by asking for an independent analysis. If consciousness
+is function, specify which organisation makes the contradiction visible. If
+phenomenality is distinct, specify how its identity is fixed independently of the
+intuition that function leaves it out. The thought experiment exposes the competing
+concepts; it cannot adjudicate them without further theory.</p>
+<h2 id="inverted-and-partial-zombies"><a class="header" href="#inverted-and-partial-zombies">Inverted and partial zombies</a></h2>
+<p>An <strong>inverted duplicate</strong> preserves physical and functional structure while varying
+phenomenal quality. An <strong>absent-qualia</strong> system preserves organisation while lacking
+experience. A <strong>partial zombie</strong> lacks one phenomenal dimension while retaining others.
+Partial cases may be easier to assess because clinical dissociations separate affect,
+sensory character, access, and report.</p>
+<p>Empirical dissociation does not itself establish a zombie. Every observed case retains
+some physical or functional difference. It does show that coarse functional descriptions
+hide relevant structure and that consciousness may not be one indivisible property.</p>
+<h2 id="the-causal-isolation-consequence"><a class="header" href="#the-causal-isolation-consequence">The causal isolation consequence</a></h2>
+<p>A perfect zombie behaves exactly like its conscious counterpart. Therefore phenomenal
+properties make no difference to physical behaviour in the comparison. If zombies are
+possible and our world contains irreducible qualia, either qualia are epiphenomenal or
+their effects are duplicated by physical causes.</p>
+<p>This consequence pressures the anti-physicalist. Our reports about consciousness would
+have the same physical causes in the zombie world, where they are false. Why trust them
+here as evidence for a causally idle property? Interactionist dualists can deny physical
+identity by allowing phenomenal causes to alter the physical history, but then the
+described creature is not a physical duplicate.</p>
+<p>The zombie argument thus wins modal distinctness at potential cost to mental causation
+and knowledge. A successful anti-physicalist theory must address all three.</p>
+<h2 id="what-modal-arguments-can-establish"><a class="header" href="#what-modal-arguments-can-establish">What modal arguments can establish</a></h2>
+<p>Conceivability is evidence of possibility when concepts are clear and no hidden
+necessity is likely. Philosophy of mind is precisely a case where concept possession
+and hidden identity are disputed. The evidence is therefore real but unusually
+theory-sensitive.</p>
+<p>The argument remains important because it prevents correlation, dependence, or
+successful simulation from being mistaken for logical entailment. Its limit is that
+modal intuition alone cannot tell us whether the gap belongs to the world or to the
+conceptual equipment with which minded systems represent themselves.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Chalmers, David J. <em>The Conscious Mind</em> (1996).</li>
+<li>Chalmers, David J. <em>The Two-Dimensional Argument against Materialism</em> (2010).</li>
+<li>Kripke, Saul. <em>Naming and Necessity</em> (1980), lecture III.</li>
+<li>Levine, Joseph. <em>Purple Haze</em> (2001).</li>
+<li>Stoljar, Daniel. <em>Physicalism</em> (2010).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/06-consciousness/04-knowledge-arguments.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/06-consciousness/06-representationalism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/06-consciousness/04-knowledge-arguments.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/06-consciousness/06-representationalism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

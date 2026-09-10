@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Animal Minds - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/13-nonhuman-minds/01-animal-minds.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="animal-minds"><a class="header" href="#animal-minds">Animal Minds</a></h1>
+<p>Questions about animal minds are not answered by placing species on one ladder beneath
+adult humans. Consciousness, pain, perception, concepts, memory, planning, agency, and
+self-awareness are different capacities with different evidence and evolutionary
+histories. An animal may provide strong evidence of sentience and spatial memory without
+language or reflective self-conception.</p>
+<p>The philosophical task is to avoid both <strong>anthropomorphism</strong>, which projects human
+states from superficial resemblance, and <strong>anthropodenial</strong>, which discounts relevant
+continuity because the subject is not human. Evidence is strongest when behaviour,
+mechanism, ecology, development, and evolutionary relationship converge.</p>
+<hr />
+<h2 id="no-single-animal-mind-question"><a class="header" href="#no-single-animal-mind-question">No single animal-mind question</a></h2>
+<p>"Does this animal have a mind?" should be decomposed:</p>
+<ul>
+<li>Does it consciously feel pain or pleasure?</li>
+<li>Does it perceive objects rather than merely react to stimuli?</li>
+<li>Does it represent absent goals or future outcomes?</li>
+<li>Does it possess concepts or only discriminate features?</li>
+<li>Can it monitor uncertainty or its own knowledge?</li>
+<li>Does it act intentionally and flexibly?</li>
+<li>Does it understand other agents?</li>
+<li>Is it self-conscious in any sense?</li>
+</ul>
+<p>A binary verdict hides uneven profiles. Bees, octopuses, corvids, dogs, and primates may
+excel in different domains shaped by their environments and bodies.</p>
+<h2 id="evolutionary-continuity"><a class="header" href="#evolutionary-continuity">Evolutionary continuity</a></h2>
+<p>Humans share ancestry, neural organisation, physiology, and behaviour with other
+animals. Similar mechanisms inherited from common ancestors support similar functions,
+especially among closely related species.</p>
+<p>Continuity is evidence, not proof of identical experience. Homologous structures can be
+repurposed, and different structures can evolve analogous functions. The evidential
+weight depends on the mechanism and trait.</p>
+<p>Convergent evolution broadens inference. Flexible cognition in cephalopods or corvids
+cannot be dismissed because their brains differ from mammalian ones; it may reveal
+multiple physical realisations of a capacity.</p>
+<h2 id="pain-and-sentience"><a class="header" href="#pain-and-sentience">Pain and sentience</a></h2>
+<p>Evidence of animal pain includes nociceptive systems, protective behaviour, long-term
+avoidance, motivational trade-offs, learning, wound guarding, and self-administration
+of analgesia. Reflex withdrawal alone is weak because it can occur without conscious
+pain.</p>
+<p>No one measure is decisive. Convergence distinguishes a flexible aversive state from a
+fixed reflex. The general structure of pain is developed in
+<a href="../12-affect-and-experience/02-pain.html">Pain</a>.</p>
+<p>The ethical asymmetry matters. False negatives may permit severe suffering, while false
+positives may impose precautionary costs. Evidence should be graded rather than filtered
+through an impossible demand for verbal confirmation.</p>
+<h2 id="perception-and-objecthood"><a class="header" href="#perception-and-objecthood">Perception and objecthood</a></h2>
+<p>Animals navigate, track objects, compensate for occlusion, and distinguish individuals.
+These behaviours support perceptual representation when they generalise across changing
+stimuli and guide flexible action.</p>
+<p>Ecological fit matters. A task designed around human vision or hands can underestimate
+an animal relying on smell, echolocation, electric sensing, or specialised movement.
+Failure may reveal motivation or sensory mismatch rather than conceptual absence.</p>
+<p>Perception need not involve adult human concepts. Non-conceptual content and skilled
+sensorimotor engagement provide alternative models.</p>
+<h2 id="concepts"><a class="header" href="#concepts">Concepts</a></h2>
+<p>Evidence for an animal concept requires more than conditioned response to one cue.
+Transfer to novel instances, cross-modal recognition, discrimination under changed
+features, and appropriate inference support category representation.</p>
+<p>Concept possession comes in theoretical grades. A prototype-based category requires
+less than a structured concept embedded in propositional inference. Disputes often
+reflect different criteria rather than different data.</p>
+<p>Relational and abstract concepts - same, different, number, cause, or tool - provide
+stronger tests because they require generalisation beyond perceptual similarity. Even
+successful performance can be explained by simpler strategies unless controls exclude
+them.</p>
+<h2 id="memory-and-planning"><a class="header" href="#memory-and-planning">Memory and planning</a></h2>
+<p>Animals retain locations, individuals, threats, and learned procedures. Episodic-like
+memory is tested through integrated what-where-when information and flexible use rather
+than verbal report of subjective reliving.</p>
+<p>Future planning requires action not reducible to current motivational state or fixed
+instinct. Saving tools for later, caching food according to future conditions, and
+adjusting plans under new information are relevant patterns.</p>
+<p>The "Bischof-Kohler" question - whether non-human animals can act for future needs not
+currently felt - is empirical and sensitive to task design. Demonstrating planning does
+not establish a narrative self or human-like temporal experience.</p>
+<h2 id="metacognition"><a class="header" href="#metacognition">Metacognition</a></h2>
+<p>Animals may monitor uncertainty by declining difficult trials, seeking information, or
+choosing confidence-dependent rewards. Such behaviour can indicate access to their own
+epistemic state.</p>
+<p>Associative explanations can mimic uncertainty monitoring. Stronger designs transfer
+across tasks, remove trained external cues, and test whether the subject seeks the
+specific information it lacks.</p>
+<p>Metacognitive control need not involve a concept of self or explicit thought "I do not
+know." A first-order uncertainty signal can guide action without reflective
+self-consciousness.</p>
+<h2 id="communication-and-language"><a class="header" href="#communication-and-language">Communication and language</a></h2>
+<p>Animal communication can convey alarm, identity, location, status, or intention.
+Meaningful signals do not automatically form a language with open-ended syntax and
+compositional semantics.</p>
+<p>Language-training studies face cueing, selection, and interpretation problems. Their
+value lies less in proving human-equivalent language than in testing reference,
+combination, turn-taking, and intentional communication under controlled conditions.</p>
+<p>Absence of language does not imply absence of experience or concepts. Public language
+greatly expands human thought, but making it the criterion of mind would exclude
+pre-linguistic humans as well as animals.</p>
+<h2 id="social-cognition"><a class="header" href="#social-cognition">Social cognition</a></h2>
+<p>Animals track gaze, dominance, cooperation, deception, and others' access to information.
+These capacities can be explained through learned behavioural rules or richer
+representations of goals and beliefs.</p>
+<p>False-belief tasks are demanding because they combine memory, inhibition, motivation,
+and task comprehension. Passing supports perspective-sensitive representation; failing
+does not isolate which capacity is absent.</p>
+<p>Direct social perception and embodied coordination may explain some understanding
+without a detached theory of mind. Reflective belief attribution is not the only form of
+social cognition.</p>
+<h2 id="self-recognition"><a class="header" href="#self-recognition">Self-recognition</a></h2>
+<p>Mirror self-recognition is often treated as a test for self-awareness. Success requires
+using mirrored information to investigate a mark on one's body. It supports a visual
+body self-model.</p>
+<p>Failure is ambiguous for species that do not prioritise vision or marks. Modified scent
+and contingency tests may be more appropriate. Success does not establish a narrative
+self, introspective access, or understanding of identity through time.</p>
+<p>Selfhood is multidimensional: bodily ownership, agency, social self, metacognition, and
+autobiographical continuity need separate measures.</p>
+<h2 id="theory-ladenness-and-morgans-canon"><a class="header" href="#theory-ladenness-and-morgans-canon">Theory-ladenness and Morgan's canon</a></h2>
+<p>Morgan's canon advises against interpreting action through a higher psychological
+faculty when a lower one suffices. As methodological economy it guards against romantic
+projection. Applied asymmetrically, it becomes a rule that sophisticated animal
+explanations can never win because some unspecified association is always possible.</p>
+<p>The appropriate standard compares explicit models by predictive success, parsimony,
+transfer, and mechanism. A "simple" associative theory with many task-specific rules may
+be less parsimonious than one flexible representation.</p>
+<p>Mechanistic and evolutionary evidence can break behavioural underdetermination.</p>
+<h2 id="umwelten-and-perspective"><a class="header" href="#umwelten-and-perspective">Umwelten and perspective</a></h2>
+<p>An animal inhabits an <strong>Umwelt</strong>, an environment structured by its sensory and practical
+capacities. What is salient to a tick, bat, or octopus differs from the human perceptual
+world.</p>
+<p>This cautions against equating inability to imagine an experience with absence of
+experience. Nagel's <a href="../../../misc/llm-introspection/02-what-is-it-like-to-be-a-bat.html">bat argument</a>
+uses precisely a conscious creature whose sensory perspective humans cannot reconstruct.</p>
+<p>Objective study can still map discriminatory structure, behaviour, and mechanisms. It
+may not reproduce the subjective character for the investigator.</p>
+<h2 id="moral-implications"><a class="header" href="#moral-implications">Moral implications</a></h2>
+<p>Moral status should track relevant capacities rather than a global intelligence score.
+Sentience grounds concern for suffering; agency and social bonds may add other interests.</p>
+<p>Uncertainty supports proportionate precaution. It does not require identical treatment
+of every species, but it blocks using epistemic limits as automatic permission to ignore
+possible welfare.</p>
+<p>The plural framework is developed in
+<a href="../10-self-and-other-minds/06-personhood-and-moral-status.html">Personhood and Moral Status</a>.</p>
+<h2 id="assessment-framework"><a class="header" href="#assessment-framework">Assessment framework</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Capacity</th><th>Strong evidence</th><th>Common confound</th></tr></thead><tbody>
+<tr><td><strong>Sentience</strong></td><td>flexible aversion, trade-offs, homologous mechanisms</td><td>reflex and fixed response</td></tr>
+<tr><td><strong>Concepts</strong></td><td>transfer, recombination, relation learning</td><td>cue association</td></tr>
+<tr><td><strong>Planning</strong></td><td>preparation for changed future conditions</td><td>current motivation and instinct</td></tr>
+<tr><td><strong>Metacognition</strong></td><td>information seeking and cross-task uncertainty control</td><td>learned opt-out cues</td></tr>
+<tr><td><strong>Social cognition</strong></td><td>perspective-sensitive prediction</td><td>behaviour rules and task demands</td></tr>
+<tr><td><strong>Self-awareness</strong></td><td>modality-appropriate self-model use</td><td>equating one mirror task with all selfhood</td></tr>
+</tbody></table>
+</div>
+<p>Animal minds are best studied through capacity-specific, ecologically appropriate,
+convergent evidence. The field advances when it replaces the question "how human is
+this animal?" with discriminating accounts of what the animal perceives, values, learns,
+and controls.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Andrews, Kristin. <em>The Animal Mind</em> (2015).</li>
+<li>Birch, Jonathan. <em>The Edge of Sentience</em> (2024).</li>
+<li>de Waal, Frans. <em>Are We Smart Enough to Know How Smart Animals Are?</em> (2016).</li>
+<li>Godfrey-Smith, Peter. <em>Other Minds</em> (2016).</li>
+<li>Nagel, Thomas. "What Is It Like to Be a Bat?" (1974).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/12-affect-and-experience/04-imagination-memory-dreaming.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/13-nonhuman-minds/02-machine-minds.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/12-affect-and-experience/04-imagination-memory-dreaming.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/13-nonhuman-minds/02-machine-minds.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

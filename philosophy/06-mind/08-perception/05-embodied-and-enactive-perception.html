@@ -1,0 +1,410 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Embodied, Enactive, and Predictive Perception - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/08-perception/05-embodied-and-enactive-perception.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="embodied-enactive-and-predictive-perception"><a class="header" href="#embodied-enactive-and-predictive-perception">Embodied, Enactive, and Predictive Perception</a></h1>
+<p>Perception is often pictured as a pipeline: sensory input enters, an internal model is
+constructed, and action follows. <strong>Embodied</strong>, <strong>ecological</strong>, and <strong>enactive</strong> approaches
+challenge the idea that perception is fundamentally the production of an inner picture.
+Perceiving is something an organism does through skilled bodily engagement with an
+environment. <strong>Predictive-processing</strong> approaches retain internal generative models but
+also make perception active, expectation-sensitive, and inseparable from control.</p>
+<p>These traditions agree that passive reception is inadequate. They disagree about
+representation. Enactivists often minimise or reject internal content; predictive
+theorists describe perception as inference within a representational model. The shared
+language of action and anticipation should not hide that opposition.</p>
+<hr />
+<h2 id="the-ecological-starting-point"><a class="header" href="#the-ecological-starting-point">The ecological starting point</a></h2>
+<p>J. J. Gibson's ecological approach treats perception as direct sensitivity to
+information available in the environment. Organisms detect <strong>invariants</strong> in structured
+arrays generated through movement rather than reconstructing a world from impoverished
+snapshots.</p>
+<p>The environment offers <strong>affordances</strong>: possibilities for action relative to an
+organism's capacities. A surface affords walking for one body, perching for another,
+and neither for a third. Affordances are relational without being subjective inventions;
+they depend on both environmental structure and embodied ability.</p>
+<p>This reframes constancy. Stable objects are perceived through transformations produced
+by motion. Information about change is not noise to be removed by an inner inference;
+it can reveal the stable layout directly.</p>
+<p>Critics argue that environmental information does not explain how the system detects
+and uses it, especially under ambiguity, illusion, and absent stimulation. Ecological
+description needs a mechanism without reducing affordances to arbitrary inner labels.</p>
+<h2 id="sensorimotor-contingencies"><a class="header" href="#sensorimotor-contingencies">Sensorimotor contingencies</a></h2>
+<p>Sensorimotor theories say perception consists partly in practical mastery of how
+sensory stimulation changes with movement. To see the back of a tomato as present is to
+possess expectations about what would be revealed by turning it or moving around it.</p>
+<p>Perceptual presence is therefore counterfactual and active:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal">c</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal">x</span><span class="mord mathnormal">p</span><span class="mord mathnormal">ec</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">d</span><span class="mspace"> </span><span class="mord mathnormal">se</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.03588em;">sory</span><span class="mspace"> </span><span class="mord mathnormal">c</span><span class="mord mathnormal">han</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span><span class="mord">.</span></span></span></span></span></p>
+<p>This explains why vision differs from a static image and why bodily skill matters.
+Sensory substitution can support new perceptual capacities when subjects learn stable
+action-dependent transformations, even if the input channel differs.</p>
+<p>The main objection is that mastery can occur without phenomenal consciousness and may
+explain access or discrimination rather than what experience is like. A zombie could,
+the critic argues, possess the same practical knowledge. Enactivists may reject the
+coherence of complete mastery without experience, but then must explain the necessity.</p>
+<h2 id="enactivism"><a class="header" href="#enactivism">Enactivism</a></h2>
+<p><strong>Enactivism</strong> treats perception as world-involving activity by an autonomous embodied
+organism. Cognition is not inner representation followed by output; it is <strong>sense-making</strong>
+through ongoing coupling among brain, body, and environment.</p>
+<p>Different versions make different claims:</p>
+<ul>
+<li><strong>sensorimotor enactivism</strong> explains perceptual presence through skilled dependencies;</li>
+<li><strong>autopoietic enactivism</strong> grounds sense-making in self-maintaining living systems;</li>
+<li><strong>radical enactivism</strong> denies contentful representation for basic cognition;</li>
+<li><strong>embodied predictive views</strong> retain models while emphasising action and bodily control.</li>
+</ul>
+<p>The strongest anti-representational versions fit online coping and skilled action. They
+face <strong>representation-hungry</strong> cases: planning an absent route, imagining, dreaming,
+counterfactual reasoning, and systematic error. Enactivists can appeal to environmentally
+scaffolded skills or allow representation only where decoupling genuinely requires it.</p>
+<h2 id="the-lived-body"><a class="header" href="#the-lived-body">The lived body</a></h2>
+<p>Phenomenology emphasises that the body is not ordinarily perceived as one object among
+others. It is the tacit point of orientation from which objects appear reachable,
+distant, left, or right. Merleau-Ponty's <strong>body schema</strong> is a practical organisation of
+posture and action distinct from an explicit body image.</p>
+<p>This helps explain cases in which bodily skill exceeds conscious judgment and disorders
+in which action and explicit representation dissociate. It also resists a Cartesian
+division between inner experience and external body: perceptual subjectivity is bodily
+from the start.</p>
+<p>Neural implementation remains necessary, but the target capacity may be distributed
+across sensorimotor loops. The claim is not that brains are unimportant; it is that
+brain-only descriptions may omit constitutive bodily and environmental relations.</p>
+<h2 id="predictive-processing"><a class="header" href="#predictive-processing">Predictive processing</a></h2>
+<p><strong>Predictive processing</strong> models perception as hierarchical prediction. Higher levels
+generate expectations about sensory input; lower levels transmit prediction errors;
+the system updates hypotheses to reduce the discrepancy. Precision weighting controls
+which errors receive influence.</p>
+<p>In schematic form:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">re</span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal">c</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.02778em;">error</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.03588em;">sory</span><span class="mspace"> </span><span class="mord mathnormal">s</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">na</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">re</span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal">c</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">d</span><span class="mspace"> </span><span class="mord mathnormal">s</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">na</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord">.</span></span></span></span></span></p>
+<p>Perception is not a passive copy but controlled inference about hidden causes. Context,
+expectation, and prior learning shape what is experienced. Illusions and hallucinations
+can arise when prior expectations or precision dominate sensory evidence.</p>
+<p>The Bayesian language can be literal, approximate, or merely a modelling framework.
+Neural systems need not consciously calculate probabilities. A philosophical conclusion
+should not be inferred from the success of a formal description alone.</p>
+<h2 id="active-inference"><a class="header" href="#active-inference">Active inference</a></h2>
+<p>Prediction error can be reduced by changing the model or by acting so sensory input
+matches predictions. <strong>Active inference</strong> treats action and perception within one
+control architecture. Eye movements, posture, and exploration select information and
+bring expected states about.</p>
+<p>This creates a bridge to enactivism. Both make perception active and embodied. The
+difference is that predictive approaches typically retain internal generative models,
+where radical enactivists regard representational language as unnecessary or misleading.</p>
+<p>One can interpret predictive models instrumentally as useful descriptions of dynamics,
+functionally as internal models, or realistically as content-bearing structures. The
+mathematics does not choose among these readings.</p>
+<p>The framework's hierarchical, Bayesian, clinical, and falsifiability claims are treated
+in <a href="../14-science/04-predictive-processing.html">Predictive Processing and Active Inference</a>.</p>
+<h2 id="perceptual-inference-and-unconscious-inference"><a class="header" href="#perceptual-inference-and-unconscious-inference">Perceptual inference and unconscious inference</a></h2>
+<p>Helmholtz described perception as <strong>unconscious inference</strong> from sensory effects to their
+likely causes. Predictive processing develops this idea formally. The inference is not
+deliberate reasoning; it is a subpersonal transformation whose output has perceptual
+content.</p>
+<p>Calling it inference risks importing epistemic norms into causal processing. If any
+error-correcting dynamics count as inference, the term may add little. A substantive
+account should specify representations, probability-like quantities, and update rules
+that support intervention and prediction.</p>
+<p>The approach explains why experience can be rationally penetrated by expectation while
+remaining recalcitrant to explicit belief. Different levels and precision assignments
+can preserve an illusion despite knowledge that it is misleading.</p>
+<h2 id="hallucination"><a class="header" href="#hallucination">Hallucination</a></h2>
+<p>Predictive theories sometimes describe perception as a "controlled hallucination."
+The slogan means both rely on generative models, with ordinary perception constrained
+by sensory prediction error. It should not erase the distinction between successful
+world-tracking and internally dominated experience.</p>
+<p>Enactive theories emphasise that hallucination lacks the counterfactual sensorimotor
+coupling of genuine perception. A hallucinated object does not reveal stable new sides
+under exploration. Yet vivid hallucinations may produce locally coherent contingencies,
+and dreams occur without current environmental coupling.</p>
+<p>The case exposes different criteria. Predictive accounts privilege internal model and
+evidence weighting; enactive accounts privilege ongoing practical access; naive realism
+privileges the constitutive object relation. Each explains one dimension of the good-
+case/bad-case contrast.</p>
+<h2 id="affordances-and-content"><a class="header" href="#affordances-and-content">Affordances and content</a></h2>
+<p>An affordance such as climbability is neither a bare objective dimension nor a private
+projection. It relates environmental structure to bodily capacities and goals.
+Perception of affordances can guide action without representing an exhaustive physical
+description.</p>
+<p>Representationalists model affordances as action-oriented content. Radical enactivists
+treat sensitivity to affordances as direct skilful responsiveness with no inner content.
+The behavioural predictions may overlap. Evidence for internal representation requires
+decoupled use, error patterns, generalisation, and manipulations that distinguish a model
+from a direct control law.</p>
+<h2 id="extended-perceptual-systems"><a class="header" href="#extended-perceptual-systems">Extended perceptual systems</a></h2>
+<p>Tools can enter sensorimotor organisation. A cane extends tactile exploration; a blind
+user may experience the obstacle at the cane's tip rather than pressure in the hand.
+Active vision relies on head and eye movement, and environmental structure stores
+detail that need not be represented internally all at once.</p>
+<p>These cases support a <strong>distributed process</strong> without proving that the environment is
+literally part of the mind. Causal coupling is not automatically constitution. Stable,
+reciprocal, indispensable integration provides a stronger case than mere influence.</p>
+<p>The issue anticipates <a href="../11-cognition/04-extended-and-distributed-mind.html">the extended-mind debate</a>
+while remaining perceptual: what is the smallest system whose organisation explains
+successful world contact?</p>
+<h2 id="representation-or-skill"><a class="header" href="#representation-or-skill">Representation or skill?</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Phenomenon</th><th>Representational reading</th><th>Enactive/ecological reading</th></tr></thead><tbody>
+<tr><td>Constancy</td><td>model of stable distal properties</td><td>sensitivity to invariants across movement</td></tr>
+<tr><td>Illusion</td><td>inaccurate content or prior</td><td>normally useful skill in unusual conditions</td></tr>
+<tr><td>Presence</td><td>assertoric, egocentric content</td><td>mastery of sensorimotor access</td></tr>
+<tr><td>Action</td><td>output guided by perceptual model</td><td>constituent of perceptual engagement</td></tr>
+<tr><td>Offline thought</td><td>model decoupled from input</td><td>special scaffolded activity or admitted representation</td></tr>
+</tbody></table>
+</div>
+<p>The alternatives need not be exclusive. A system can use internal models within a
+larger embodied loop, and practical mastery can determine which models are meaningful.
+The danger is declaring reconciliation by using "representation" so weakly that every
+causal sensitivity qualifies.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<p>Embodied and enactive approaches correct the snapshot model of perception. Organisms
+move, anticipate, and exploit environmental structure; bodily capacities shape what is
+perceptually available. Predictive processing supplies powerful models of expectation
+and error but does not by itself establish internalism, representationalism, or a theory
+of consciousness.</p>
+<p>The productive dispute is not whether brain, body, or world matters - all do - but which
+relations are constitutive of perceiving and which are causal supports. Answering that
+requires interventions and cases of decoupling, not metaphysical conclusions read from
+one computational vocabulary.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Clark, Andy. <em>Surfing Uncertainty</em> (2016).</li>
+<li>Gibson, J. J. <em>The Ecological Approach to Visual Perception</em> (1979).</li>
+<li>Hohwy, Jakob. <em>The Predictive Mind</em> (2013).</li>
+<li>Merleau-Ponty, Maurice. <em>Phenomenology of Perception</em> (1945).</li>
+<li>Noe, Alva. <em>Action in Perception</em> (2004).</li>
+<li>Varela, Francisco J., Evan Thompson, and Eleanor Rosch. <em>The Embodied Mind</em> (1991).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/08-perception/04-disjunctivism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/09-causation-and-action/01-mental-causation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/08-perception/04-disjunctivism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/09-causation-and-action/01-mental-causation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

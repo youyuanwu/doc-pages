@@ -1,0 +1,384 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Knowledge Arguments - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/06-consciousness/04-knowledge-arguments.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="knowledge-arguments"><a class="header" href="#knowledge-arguments">Knowledge Arguments</a></h1>
+<p><strong>Knowledge arguments</strong> begin from an apparent limit on objective information. A person
+could know every physical truth about an experience while never having undergone it.
+When the experience first occurs, they appear to learn something. If all physical facts
+were already known, the new knowledge seems to concern a non-physical fact.</p>
+<p>Frank Jackson's story of Mary the colour scientist is the canonical case. Its force
+comes from separating three questions often run together: whether Mary gains anything,
+whether what she gains is propositional knowledge, and whether a new proposition
+requires a new property. Almost every reply accepts the first claim and blocks a later
+step.</p>
+<hr />
+<h2 id="mary-in-the-monochrome-room"><a class="header" href="#mary-in-the-monochrome-room">Mary in the monochrome room</a></h2>
+<p>Mary is a brilliant scientist confined from birth to a black-and-white environment.
+She learns every physical fact about colour vision: optics, retinal processing, neural
+dynamics, discrimination, memory, language, and behaviour. On release she sees a red
+object for the first time.</p>
+<p>The argument is:</p>
+<ol>
+<li>Before release, Mary knows all physical facts about human colour vision.</li>
+<li>On seeing red, Mary learns what it is like to see red.</li>
+<li>Therefore Mary learns a fact she did not know before.</li>
+<li>Therefore not every fact is a physical fact.</li>
+<li>So reductive physicalism is false.</li>
+</ol>
+<p>The intuition behind premise 2 is strong: Mary's epistemic situation changes. The
+controversy begins with how to classify the change and what follows from it.</p>
+<h2 id="what-does-all-physical-facts-include"><a class="header" href="#what-does-all-physical-facts-include">What does "all physical facts" include?</a></h2>
+<p>The setup idealises aggressively. If Mary knows every physical fact, does she know facts
+about her own future brain, every counterfactual, every indexical truth, and every
+functional relation? If phenomenal truths are physical truths under another mode of
+presentation, the premise may already include what the conclusion says is absent.</p>
+<p>The thought experiment is not intended as an achievable curriculum. It asks whether
+third-personal structural and dynamical knowledge entails first-personal knowledge.
+Adding more textbooks of the same objective kind does not appear to teach what red
+looks like. A reply should explain the kind of epistemic difference rather than dismiss
+the scenario as practically impossible.</p>
+<h2 id="the-ability-hypothesis"><a class="header" href="#the-ability-hypothesis">The ability hypothesis</a></h2>
+<p>David Lewis and Laurence Nemirow argue that Mary gains <strong>know-how</strong>, not a new fact. She
+acquires abilities to recognise, imagine, remember, and compare red experiences. One
+can know every proposition about swimming without knowing how to swim; gaining the
+ability does not reveal a non-physical fact.</p>
+<p>The reply preserves physical completeness and explains why experience is required.
+Abilities often need training or direct acquaintance even when the relevant facts are
+known.</p>
+<p>Objections note that Mary seems able to learn something even if an injury prevents her
+from remembering or imagining red afterward. She can also truthfully think "so <em>this</em>
+is what seeing red is like," which appears propositional. The ability theorist can
+allow associated judgments while insisting their content was already known, but then
+must explain the apparent discovery.</p>
+<h2 id="acquaintance"><a class="header" href="#acquaintance">Acquaintance</a></h2>
+<p>The <strong>acquaintance hypothesis</strong> says Mary enters a new direct relation to an old
+property. Knowing a person by description differs from meeting them; acquaintance adds
+an epistemic relation without adding an individual to the world. Likewise, seeing red
+acquaints Mary with a physical property she previously knew descriptively.</p>
+<p>This captures the first-personal change better than ability alone. It also explains why
+no amount of testimony substitutes for the experience. The challenge is whether
+acquaintance itself carries new propositional knowledge. If Mary can now distinguish
+possibilities she previously could not, the anti-physicalist argues that her factual
+information has increased.</p>
+<p>The reply can accept new de re or indexical knowledge while denying a new non-physical
+property. Learning "I am that person" adds self-locating knowledge although every
+non-indexical fact was available. The question is whether phenomenal knowledge has this
+structure.</p>
+<h2 id="old-fact-new-mode-of-presentation"><a class="header" href="#old-fact-new-mode-of-presentation">Old fact, new mode of presentation</a></h2>
+<p>On the <strong>new-mode</strong> response, Mary knew one property physically and now knows it
+phenomenally. The same fact is presented through different concepts:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">neural/functional concept</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟶</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6943em;vertical-align:-0.011em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟵</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">phenomenal concept</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>Identity does not require cognitive equivalence. Someone may know that Hesperus appears
+at dusk and later learn that Phosphorus, seen at dawn, is the same planet. In Mary's
+case, however, the subject is stipulated to know every physical identity. The response
+must explain why phenomenal concepts cannot be derived even from complete physical
+knowledge.</p>
+<p>The standard answer is that phenomenal concepts are recognitional or demonstrative,
+formed through the experience itself. Their acquisition condition explains the
+epistemic gap without an ontological gap. Critics object that the account invokes the
+special phenomenal state to explain a concept while leaving the state's physical nature
+unexplained.</p>
+<h2 id="the-phenomenal-concepts-strategy"><a class="header" href="#the-phenomenal-concepts-strategy">The phenomenal-concepts strategy</a></h2>
+<p>The strategy generalises the new-mode reply. Phenomenal concepts may quote an experience,
+classify by resemblance to a current sample, or refer directly without descriptive
+content. Physical concepts classify through causal and structural theory. Because the
+two concept families differ, no a priori entailment connects them even if they refer to
+one property.</p>
+<p>This predicts Mary's surprise and her inability to imagine red before release. It also
+explains why the <a href="03-hard-problem.html">explanatory gap</a> feels unlike ordinary scientific
+identities.</p>
+<p>Its vulnerability is the <strong>explanatory gap within the explanation</strong>. Why does this
+physical recognitional mechanism yield a concept with the distinctive first-personal
+character? If the answer cites the phenomenal property irreducibly, the strategy is
+compatible with dualism; if it cites only function, critics say it explains access to
+the concept but not experience.</p>
+<h2 id="no-new-propositional-knowledge"><a class="header" href="#no-new-propositional-knowledge">No new propositional knowledge</a></h2>
+<p>Some physicalists deny premise 3 directly. Mary can truthfully express new sentences
+after release, but their propositional content may be old. She gains a token-demonstrative
+way to think "this kind of state" and can connect it with old descriptions.</p>
+<p>The proposal resembles indexical ignorance. A person who knows a complete impersonal
+map may still learn "I am here" without discovering a new non-geographic property.
+Likewise Mary locates herself within the physical facts she already knew.</p>
+<p>The analogy is imperfect. Indexical information selects a position in an antecedently
+understood structure. Mary's new knowledge appears to disclose the character of a state,
+not merely which state she occupies. The physicalist must show that all such character
+was already represented structurally, though inaccessible under the first-person mode.</p>
+<h2 id="jacksons-later-physicalism"><a class="header" href="#jacksons-later-physicalism">Jackson's later physicalism</a></h2>
+<p>Jackson eventually rejected the anti-physicalist conclusion. He treated the argument's
+force as evidence that our intuitions about phenomenal information are misleading, not
+that physicalism is false. Representational accounts of experience helped motivate the
+change: if phenomenal character is exhausted by representing worldly properties in a
+certain way, Mary's physical knowledge can include the represented facts while release
+changes her representational abilities.</p>
+<p>An author's change of mind is not an argument, but it illustrates that accepting the
+intuition of epistemic novelty does not force property dualism. The inferential bridge
+from epistemology to ontology remains the entire issue.</p>
+<h2 id="variants"><a class="header" href="#variants">Variants</a></h2>
+<p>Related cases alter the sensory modality or subject. A congenitally blind expert learns
+about vision, a deaf scientist learns sound, or a person learns echolocation. The
+<a href="../../../misc/llm-introspection/02-what-is-it-like-to-be-a-bat.html">bat discussion</a>
+emphasises that another form of life may remain imaginatively inaccessible even with
+complete objective knowledge.</p>
+<p>These variants test whether the argument depends on colour vocabulary or on a general
+feature of perspective. They also reveal a limit: failure to imagine an experience can
+show missing ability or acquaintance without showing that no objective structural
+description is complete.</p>
+<h2 id="what-the-argument-establishes"><a class="header" href="#what-the-argument-establishes">What the argument establishes</a></h2>
+<p>The argument securely establishes a difference between learning through description
+and learning through experience. It less securely establishes new propositional
+knowledge, and only with an additional premise establishes non-physical facts.</p>
+<div class="table-wrapper"><table><thead><tr><th>Reply</th><th>What Mary gains</th><th>What it denies</th></tr></thead><tbody>
+<tr><td><strong>Ability</strong></td><td>recognition, imagination, memory skills</td><td>that gain must be factual</td></tr>
+<tr><td><strong>Acquaintance</strong></td><td>direct relation to an old property</td><td>that new relation adds a property</td></tr>
+<tr><td><strong>New mode/concept</strong></td><td>a first-person way of grasping an old fact</td><td>that conceptual novelty is ontological novelty</td></tr>
+<tr><td><strong>Indexical location</strong></td><td>knowledge of where she is in the known structure</td><td>that self-location adds non-physical structure</td></tr>
+<tr><td><strong>Property dualism</strong></td><td>knowledge of a phenomenal fact</td><td>that physical facts are complete</td></tr>
+</tbody></table>
+</div>
+<p>The knowledge argument is therefore not one intuition but a sequence of bridges. Its
+lasting value is forcing physicalism to explain why complete objective knowledge would
+not confer phenomenal understanding automatically.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Jackson, Frank. "Epiphenomenal Qualia" (1982).</li>
+<li>Lewis, David. "What Experience Teaches" (1988).</li>
+<li>Loar, Brian. "Phenomenal States" (1990/1997).</li>
+<li>Nemirow, Laurence. "Physicalism and the Cognitive Role of Acquaintance" (1990).</li>
+<li>Papineau, David. <em>Thinking about Consciousness</em> (2002).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/06-consciousness/03-hard-problem.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/06-consciousness/05-conceivability-and-zombies.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/06-consciousness/03-hard-problem.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/06-consciousness/05-conceivability-and-zombies.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

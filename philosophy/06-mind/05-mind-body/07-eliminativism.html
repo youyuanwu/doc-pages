@@ -1,0 +1,440 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Eliminative Materialism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/05-mind-body/07-eliminativism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="eliminative-materialism"><a class="header" href="#eliminative-materialism">Eliminative Materialism</a></h1>
+<p><strong>Eliminative materialism</strong> holds that some familiar mental categories do not refer to
+real kinds and will not survive a mature science of mind. Beliefs, desires, intentions,
+or qualia may resemble phlogiston and demonic possession: useful elements of an
+inherited explanatory scheme that should be replaced rather than reduced. The view is
+stronger than physicalism. A physicalist may identify or functionally realise beliefs;
+an eliminativist says there are no beliefs of the ordinary kind to identify.</p>
+<p>The position is easiest to caricature as denying the obvious. Its serious form is a
+claim about scientific change. Everyday psychology is treated as a theory whose posits
+earn their place through explanation and prediction, not through familiarity alone.
+If the theory is deeply mistaken, preserving its ontology may obstruct understanding.
+The corresponding burden is demanding: a replacement must explain the successes of
+belief-desire discourse, the practice of giving reasons, and the apparent immediacy of
+experience without covertly restoring what it eliminates.</p>
+<hr />
+<h2 id="folk-psychology-as-a-theory"><a class="header" href="#folk-psychology-as-a-theory">Folk psychology as a theory</a></h2>
+<p>Paul and Patricia Churchland describe <strong>folk psychology</strong> as a body of lawlike
+generalisations connecting beliefs, desires, perceptions, intentions, emotions, and
+actions:</p>
+<ul>
+<li>if someone desires <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span> and believes action <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> will secure <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>, they will tend to do
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>;</li>
+<li>seeing that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> tends to produce the belief that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>;</li>
+<li>believing <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> and believing that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span> tends to support believing <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span></span></span></span>.</li>
+</ul>
+<p>The terms gain content through their places in this network, much as theoretical terms
+in science gain content through laws. On the <strong>theory-theory</strong> view, attributing a mind
+is deploying a tacit theory that predicts and explains behaviour.</p>
+<p>If folk psychology is a theory, three outcomes are possible. It may reduce to
+neuroscience, as temperature reduces to statistical mechanics. It may remain an
+autonomous higher-level theory, as <a href="06-nonreductive-physicalism.html">non-reductive physicalism</a>
+proposes. Or its central posits may fail to map onto the structure discovered by
+science and be eliminated.</p>
+<p>The eliminativist stresses alleged stagnation and gaps. Folk psychology says little
+about sleep, mental illness, creativity, memory mechanisms, learning, and fine-grained
+cognitive difference. Neuroscience may classify states along dimensions that cross-cut
+belief, desire, and emotion rather than vindicate them.</p>
+<h2 id="the-historical-analogy"><a class="header" href="#the-historical-analogy">The historical analogy</a></h2>
+<p>Science has eliminated entities once taken seriously: phlogiston, caloric fluid,
+crystalline spheres, and vital forces. Reduction is not guaranteed merely because a
+category is entrenched. If no lower-level kind plays the expected role, retaining the
+term can preserve a false picture.</p>
+<p>The analogy has force against a conservative inference from ordinary use to ontology.
+It does not establish that mental categories are like failed scientific posits. Belief
+and desire participate in successful prediction, deliberation, interpretation, and
+social coordination. They may resemble biological categories such as predator or gene,
+which survive through revision and multiple realisation, more than phlogiston.</p>
+<p>There is also a difference in evidential position. Phlogiston was posited to explain
+public phenomena and could be discarded when a better theory explained them. Pain and
+experience are not known only as theoretical causes of behaviour; subjects appear
+acquainted with them directly. This blocks a simple historical analogy for phenomenal
+states, though it does not guarantee that introspection classifies those states
+correctly.</p>
+<h2 id="what-might-be-eliminated"><a class="header" href="#what-might-be-eliminated">What might be eliminated?</a></h2>
+<p>Eliminativism is not all-or-nothing. It can target different categories:</p>
+<div class="table-wrapper"><table><thead><tr><th>Target</th><th>Revisionary claim</th></tr></thead><tbody>
+<tr><td><strong>Propositional attitudes</strong></td><td>Cognition may not contain discrete sentence-like beliefs and desires with determinate content.</td></tr>
+<tr><td><strong>Folk emotions</strong></td><td>Categories such as anger or fear may fragment across appraisal, bodily, motivational, and cultural dimensions.</td></tr>
+<tr><td><strong>The unitary self</strong></td><td>No central subject or executive corresponds to the ordinary picture; there are distributed processes and constructed self-models.</td></tr>
+<tr><td><strong>Qualia as traditionally conceived</strong></td><td>Experience exists, but not as intrinsic, ineffable, private properties presented infallibly to introspection.</td></tr>
+<tr><td><strong>Consciousness wholesale</strong></td><td>No phenomenal fact exists beyond access, discrimination, self-model, and report mechanisms.</td></tr>
+</tbody></table>
+</div>
+<p>The first four can be revisionary without denying every mental phenomenon. The fifth is
+the most radical and the hardest to formulate coherently. A theory should state whether
+it eliminates a word, a folk essence, a scientific kind, or the phenomenon itself.
+Otherwise critics and defenders talk past one another.</p>
+<h2 id="reduction-versus-elimination"><a class="header" href="#reduction-versus-elimination">Reduction versus elimination</a></h2>
+<p>A reduction preserves the truth of many higher-level claims by identifying or deriving
+their subject matter. Water survived identification with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span></span></span></span>; caloric did not survive
+kinetic theory. The difference is not that one vocabulary changes. It is whether the
+old theory's central claims are approximately true under the new account.</p>
+<p>For belief, a reduction might identify a functional or representational state that
+plays enough of the folk role. Elimination predicts instead that scientific categories
+will not preserve the inferential unity, determinacy, or causal structure associated
+with belief. Neural populations may carry graded, context-sensitive information without
+encoding one proposition the subject simply believes or disbelieves.</p>
+<p>Between the extremes lies <strong>revision</strong>. Memory is not one faculty, but working,
+episodic, semantic, and procedural memory remain useful kinds. Similar fragmentation
+may refine belief or emotion without removing them. An eliminativist argument must show
+not only mismatch but mismatch severe enough that revision cannot preserve reference.</p>
+<h2 id="the-self-refutation-objection"><a class="header" href="#the-self-refutation-objection">The self-refutation objection</a></h2>
+<p>The standard objection is immediate: if eliminativism is true, nobody <strong>believes</strong> that
+eliminativism is true. How can the view be asserted, justified, or rationally accepted?
+The utterance appears to presuppose the propositional attitudes it denies.</p>
+<p>The eliminativist has several replies.</p>
+<ol>
+<li>The theory is stated in current language during a transition, as early chemists used
+inherited terms while revising them.</li>
+<li>Assertion and inference may eventually be explained through non-doxastic
+neurocomputational categories.</li>
+<li>The view need eliminate only the folk conception of belief, not every information-
+bearing or inferential state.</li>
+</ol>
+<p>The third reply is strongest but moderates the thesis. If there remain states with
+content, inferential relations, truth sensitivity, and causal roles in assertion, much
+of what belief was introduced to explain survives. The dispute may then concern the
+precision and architecture of belief rather than its existence.</p>
+<p>Self-refutation is therefore not a one-line logical disproof. It sets a replacement
+condition: the successor vocabulary must explain how the theory itself can be
+represented, supported by evidence, and preferred for reasons.</p>
+<h2 id="predictive-success-and-the-personal-level"><a class="header" href="#predictive-success-and-the-personal-level">Predictive success and the personal level</a></h2>
+<p>Belief-desire explanation predicts action across indefinitely varied contexts. Knowing
+that someone wants coffee and believes the cafe is east can explain walking east without
+specifying muscles or neurons. It also rationalises: the action becomes intelligible as
+a response to reasons.</p>
+<p>The eliminativist can concede practical usefulness while denying literal truth, as one
+might use an idealised fiction. But successful novel prediction is ordinarily evidence
+that a theory captures structure. Folk psychology also supports counterfactuals: had
+the person learned the cafe was closed, the action would have changed.</p>
+<p>Its failures are real. People confabulate, act from biases they disavow, hold fragmented
+or context-sensitive attitudes, and violate ideal rationality. These may show that
+belief is graded and dispositional rather than absent. A replacement must improve on
+the personal level without drowning its generalisations in microphysical detail.</p>
+<p>The <a href="05-functionalism.html">functionalism</a> and non-reductive alternatives treat this
+predictive success as evidence for real higher-level kinds. Eliminativism treats the
+same success as limited and likely to be surpassed. The issue is empirical in part:
+does neuroscience integrate with the categories, fragment them, or make them idle?</p>
+<h2 id="content-and-normativity"><a class="header" href="#content-and-normativity">Content and normativity</a></h2>
+<p>Beliefs are not grouped only by causal profile. They can be true or false, justified or
+unjustified, and logically related. A neurocomputational replacement must explain how
+physical states acquire content and how normative relations enter reasoning.</p>
+<p>One option is to eliminate determinate content as well: cognitive systems transform
+distributed states without encoding propositions. This fits some connectionist models
+but makes communication and systematic error difficult to describe. Another option
+naturalises content through causal, informational, or biological function. That keeps
+intentional states under a revised account and is therefore less eliminative.</p>
+<p>Normativity sharpens the problem. A causal sequence can conform to an inference without
+occurring <strong>because</strong> the conclusion follows. If reasons explanation disappears, the
+eliminativist must show how epistemic evaluation survives or explain why it too should
+be replaced. Otherwise scientific evidence cannot rationally favour eliminativism; it
+can only cause its advocates to utter it.</p>
+<h2 id="consciousness-and-illusionism"><a class="header" href="#consciousness-and-illusionism">Consciousness and illusionism</a></h2>
+<p><strong>Illusionism</strong> is sometimes described as eliminativism about qualia. It does not
+usually deny wakefulness, access, perception, discrimination, or the occurrence of
+states subjects report. It denies that introspection reveals intrinsic, private,
+ineffable phenomenal properties of the kind assumed in hard-problem arguments.</p>
+<p>On this view, cognitive systems construct simplified self-models and are disposed to
+judge that experience has special qualitative properties. The explanatory target is
+the <strong>seeming</strong> that qualia exist. If the mechanisms producing that judgment are fully
+explained, no further phenomenal property is needed.</p>
+<p>Critics argue that an illusion requires an appearance and that explaining why subjects
+judge they are conscious leaves untouched why the judgment is accompanied by anything
+it is like. The illusionist replies that treating the seeming as an additional
+ineffable object simply repeats the posit being rejected. The disagreement concerns
+whether "seeming" can be exhausted by representational and access functions.</p>
+<p>This is not identical with Churchland-style elimination of propositional attitudes.
+An illusionist needs beliefs or belief-like representations to explain the mistaken
+self-model, while an attitude eliminativist may retain phenomenal consciousness. The
+targets must remain separate.</p>
+<h2 id="neuroscience-and-replacement-vocabularies"><a class="header" href="#neuroscience-and-replacement-vocabularies">Neuroscience and replacement vocabularies</a></h2>
+<p>Eliminativism is strongest when it offers a successor rather than a blank. Candidate
+vocabularies classify population dynamics, predictive models, control policies,
+attractor states, precision weighting, and learned representations. These can reveal
+structure hidden by folk categories.</p>
+<p>Scientific novelty does not itself imply replacement. Different vocabularies may answer
+different questions. A neural account explains mechanism; a belief-desire account
+explains action through content and reasons. The lower level eliminates the higher only
+if it shows that the higher-level generalisations are systematically false or add no
+explanatory control.</p>
+<p>The <a href="../04-method-and-evidence.html">method page</a> supplies the appropriate standard:
+compare coverage, intervention, generalisation, and failure modes. Brain images do not
+show beliefs to be unreal merely because beliefs are not visibly located in one region.
+Distributed implementation is compatible with higher-level reality.</p>
+<h2 id="a-spectrum-of-revision"><a class="header" href="#a-spectrum-of-revision">A spectrum of revision</a></h2>
+<p>The practical alternatives form a spectrum:</p>
+<ol>
+<li><strong>Conservative realism:</strong> folk categories are broadly accurate and will be retained.</li>
+<li><strong>Reductive revision:</strong> categories survive but are identified with physical or
+functional structures.</li>
+<li><strong>Pluralist revision:</strong> some categories fragment, while others remain autonomous.</li>
+<li><strong>Instrumentalism:</strong> folk psychology is useful without literally describing inner
+kinds.</li>
+<li><strong>Elimination:</strong> the categories are false and should be replaced.</li>
+</ol>
+<p>Evidence may place different concepts at different points. Pain, belief, emotion, self,
+and consciousness need not share a fate. This piecemeal approach is less dramatic than
+global eliminativism and more responsive to how scientific taxonomies actually change.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><strong>Openness to scientific revision</strong></td><td><strong>Strong</strong> - refuses to guarantee folk ontology in advance.</td></tr>
+<tr><td><strong>Replacement theory</strong></td><td><strong>Incomplete</strong> - neural and computational vocabularies have not displaced personal-level explanation.</td></tr>
+<tr><td><strong>Predictive adequacy</strong></td><td><strong>Pressure point</strong> - belief-desire explanation remains flexible and counterfactual-supporting.</td></tr>
+<tr><td><strong>Self-application</strong></td><td><strong>Difficult but not simply contradictory</strong> - successor states must support assertion and reasons.</td></tr>
+<tr><td><strong>Phenomenal consciousness</strong></td><td><strong>Target-sensitive</strong> - revision of qualia is more defensible than denial of every seeming.</td></tr>
+<tr><td><strong>Parsimony</strong></td><td><strong>Strong only if explanatory work is recovered</strong> - deleting terms without replacement is not explanation.</td></tr>
+</tbody></table>
+</div>
+<p>Eliminative materialism is valuable even where its conclusion is rejected. It denies
+that introspective familiarity grants permanent ontological status and forces every
+mental category to earn its place. Its own standard applies reflexively: elimination
+earns its place only when a successor explains the old theory's successes and failures
+better, including the reasoning by which the successor is accepted.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Churchland, Paul M. "Eliminative Materialism and the Propositional Attitudes" (1981).</li>
+<li>Churchland, Patricia S. <em>Neurophilosophy</em> (1986).</li>
+<li>Dennett, Daniel C. <em>The Intentional Stance</em> (1987).</li>
+<li>Frankish, Keith. "Illusionism as a Theory of Consciousness" (2016).</li>
+<li>Ramsey, William. "Eliminative Materialism" in <em>The Stanford Encyclopedia of Philosophy</em>.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/05-mind-body/06-nonreductive-physicalism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/06-consciousness/01-kinds-of-consciousness.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/05-mind-body/06-nonreductive-physicalism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/06-consciousness/01-kinds-of-consciousness.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

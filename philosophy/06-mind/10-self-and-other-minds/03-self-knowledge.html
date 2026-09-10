@@ -1,0 +1,403 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Self-Knowledge and Introspection - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/10-self-and-other-minds/03-self-knowledge.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="self-knowledge-and-introspection"><a class="header" href="#self-knowledge-and-introspection">Self-Knowledge and Introspection</a></h1>
+<p>People normally know their own current beliefs, intentions, sensations, and experiences
+without observing behaviour or inferring from evidence. An avowal such as "I intend to
+leave" has a first-person authority unlike another person's attribution. Yet subjects
+confabulate motives, misclassify emotions, overlook perceptual limitations, and remain
+ignorant of most processing. <strong>Self-knowledge</strong> must therefore explain privileged access
+without assuming transparent or infallible minds.</p>
+<p>Different mental states may be known differently. Sensations can be attended to;
+beliefs may be known by considering the world; intentions may be known through practical
+commitment; traits and unconscious motives may require interpretation. A single inner
+sense need not cover them all.</p>
+<hr />
+<h2 id="authority-without-infallibility"><a class="header" href="#authority-without-infallibility">Authority without infallibility</a></h2>
+<p>First-person avowals are generally:</p>
+<ul>
+<li><strong>immediate:</strong> not based on observed behaviour;</li>
+<li><strong>authoritative:</strong> normally given greater weight than third-person guesses;</li>
+<li><strong>asymmetric:</strong> others do not know the state in the same way;</li>
+<li><strong>expressive:</strong> saying "I am in pain" can manifest the state as well as report it.</li>
+</ul>
+<p>They are not incorrigible. A person can mistake anxiety for anger, deny a belief revealed
+across contexts, or sincerely confabulate why they chose. Authority is a default
+epistemic status grounded in a capacity, not immunity from correction.</p>
+<p>The target is selective reliability. A theory should predict where first-person access
+is strong, where it is weak, and why sincere error does not erase the asymmetry entirely.</p>
+<h2 id="inner-sense-theories"><a class="header" href="#inner-sense-theories">Inner-sense theories</a></h2>
+<p>An <strong>inner sense</strong> monitors first-order mental states through a higher-order mechanism,
+analogous to perception. A current pain or thought causes a representation of itself,
+providing self-knowledge.</p>
+<p>The model explains error and absence. Monitoring can misrepresent, fail, or have limited
+resolution. It also connects self-knowledge with higher-order theories of consciousness.</p>
+<p>The analogy risks regress if knowledge of the higher-order state requires another
+monitor. It can stop when the monitoring state constitutes the self-ascription rather
+than needing separate inspection. A further problem is immediacy: inner observation
+seems to position the subject as a spectator of their own mind rather than the thinker.</p>
+<h2 id="transparency"><a class="header" href="#transparency">Transparency</a></h2>
+<p>To answer "Do I believe it will rain?" one often considers whether it will rain, not an
+inner object. This is the <strong>transparency method</strong>: determine one's attitude by attending
+outward to the reasons and subject matter.</p>
+<p>The method fits belief's rational nature. A subject's answer commits them to a view of
+the world rather than reports a detected internal item. It also explains why self-
+knowledge can be authoritative without a private observation channel.</p>
+<p>Transparency has limits. Evidence may be inconclusive while one already has a belief;
+people can discover attitudes from behaviour; sensations are not known by deciding
+whether the body is damaged. It is best viewed as one method for judgment-sensitive
+attitudes rather than a universal theory.</p>
+<h2 id="rationalist-accounts"><a class="header" href="#rationalist-accounts">Rationalist accounts</a></h2>
+<p>Rationalist theories connect self-knowledge to agency. A rational subject can know what
+they believe because beliefs are commitments responsive to reasons; they can know what
+they intend because forming an intention settles a practical question.</p>
+<p>Self-knowledge is partly <strong>constitutive</strong> of rational agency. The capacity to avow and
+revise attitudes is not an external detector but participation in the norms governing
+them.</p>
+<p>This explains authority for active judgments and intentions. It is less suited to
+passive, recalcitrant, unconscious, or fragmented states. A subject may judge that they
+ought not fear while still fearing, or discover a standing belief inconsistent with
+their avowal.</p>
+<h2 id="expressivism"><a class="header" href="#expressivism">Expressivism</a></h2>
+<p>On an <strong>expressivist</strong> view, first-person avowals express mental states as a groan
+expresses pain or an assertion expresses belief. They are not conclusions from evidence,
+which explains their immediacy and resistance to ordinary requests for justification.</p>
+<p>Mature avowals also make truth-evaluable claims. "I am afraid" can be mistaken and can
+inform another person. Expressivism must combine manifestation with assertion rather
+than replace one by the other.</p>
+<p>The view is strongest for current states enacted in speech and weaker for retrospective
+self-description or theoretical claims about one's personality.</p>
+<h2 id="interpretive-accounts"><a class="header" href="#interpretive-accounts">Interpretive accounts</a></h2>
+<p>People sometimes know themselves as others do: by observing patterns, recalling action,
+and constructing an explanation. Unconscious motives, traits, biases, and long-term
+preferences often require this <strong>interpretive</strong> route.</p>
+<p>Interpretation is holistic and can be socially scaffolded. Others may identify a pattern
+the subject misses. Therapy, conversation, and measurement can improve self-knowledge
+rather than merely override a private authority.</p>
+<p>An exclusively interpretive theory loses the difference between current avowal and
+third-person attribution. A plural theory allows direct, transparent, expressive, and
+interpretive routes for different targets.</p>
+<h2 id="confabulation"><a class="header" href="#confabulation">Confabulation</a></h2>
+<p>In classic confabulation cases, subjects offer fluent reasons for choices influenced by
+factors they do not report. Split-brain patients may explain actions initiated by
+information unavailable to the speaking hemisphere. Choice-blindness subjects defend an
+option they did not choose.</p>
+<p>These findings show:</p>
+<ul>
+<li>sincerity does not guarantee causal accuracy;</li>
+<li>the mind generates coherent self-explanations from partial access;</li>
+<li>knowledge of a decision's content can coexist with ignorance of its causal basis;</li>
+<li>first-person reports are outputs of mechanisms open to empirical study.</li>
+</ul>
+<p>They do not show that subjects are generally wrong about whether they feel pain or what
+they currently judge. Confabulation is target-specific: causal explanation of a state is
+harder than avowing its occurrence or content.</p>
+<h2 id="change-blindness-and-perceptual-introspection"><a class="header" href="#change-blindness-and-perceptual-introspection">Change blindness and perceptual introspection</a></h2>
+<p>Change blindness and inattentional blindness reveal limits on visual access. Subjects
+may experience a scene as richly present while failing to detect large changes. This
+does not straightforwardly prove that the experience itself is sparse; it may show
+limited comparison, memory, or attention.</p>
+<p>Introspective reports underdetermine whether phenomenal detail exists beyond access.
+The dispute about overflow in
+<a href="../06-consciousness/01-kinds-of-consciousness.html#access-and-phenomenal-consciousness">Kinds and Concepts of Consciousness</a>
+illustrates the problem.</p>
+<p>The correct lesson is methodological: performance failure cannot be mapped directly
+onto absence of experience, while confidence in richness cannot settle its structure.</p>
+<h2 id="theory-ladenness"><a class="header" href="#theory-ladenness">Theory-ladenness</a></h2>
+<p>Concepts shape self-description. A person may classify bodily arousal as fear, anger,
+spiritual presence, or illness depending on training and context. Categories can reveal
+patterns and also create expectations.</p>
+<p>This does not make all introspection fictional. Perceptual observation is also theory-
+laden without being arbitrary. Reports can be constrained by recurring experience,
+behaviour, physiology, and correction.</p>
+<p>Cross-cultural variation is evidence about how phenomenal, conceptual, and social
+components interact. It cautions against treating one vocabulary as a transparent
+inventory of universal mental kinds.</p>
+<h2 id="first-person-concepts-and-immunity-to-error"><a class="header" href="#first-person-concepts-and-immunity-to-error">First-person concepts and immunity to error</a></h2>
+<p>Some first-person judgments are <strong>immune to error through misidentification</strong>. If one
+judges "I am in pain" on the basis of feeling pain, one may be wrong about the diagnosis
+but not ordinarily wrong about whose pain is presented. No identification of a person
+as oneself occurs.</p>
+<p>This is weaker than infallibility. The subject can misclassify the sensation or use the
+concept incorrectly. Immunity concerns the route by which the subject is selected, not
+the truth of every predicate.</p>
+<p>The phenomenon supports a minimal first-person structure without proving a Cartesian
+ego. An embodied self-model can organise states around one perspective without an inner
+act of identification.</p>
+<h2 id="externalism-and-self-knowledge"><a class="header" href="#externalism-and-self-knowledge">Externalism and self-knowledge</a></h2>
+<p>If content depends on environment and community, a subject can know what they think
+without knowing all factors that fix it. This issue is developed in
+<a href="../07-intentionality/02-internalism-and-externalism.html#self-knowledge">Internalism and Externalism</a>.</p>
+<p>The distinction is between first-order authority and semantic theory. One can know
+"I think that water is wet" while not knowing water's chemistry or the causal history
+of the term. Externalism embeds self-knowledge in a world the subject need not fully
+understand.</p>
+<p>Sceptical switching cases remain pressure: if the subject cannot know whether the
+environment fixes water or twin-water content, the exact external content may outrun
+reflective access.</p>
+<h2 id="machine-self-report"><a class="header" href="#machine-self-report">Machine self-report</a></h2>
+<p>A machine can report internal variables, uncertainty, goals, or processing history.
+Whether this is introspection depends on the target and mechanism, not first-person
+grammar. A dedicated, validated monitoring channel is stronger evidence than a fluent
+description generated by the same process used for general text.</p>
+<p>The existing <a href="../../../misc/llm-introspection/00-README.html">LLM Introspection</a> series
+examines systems whose reports may be trained reconstructions, functional self-models,
+or candidate avowals. Human confabulation supplies a caution, not an automatic argument
+that machine and human reports have equal standing.</p>
+<h2 id="a-plural-account"><a class="header" href="#a-plural-account">A plural account</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Target</th><th>Typical route</th><th>Characteristic error</th></tr></thead><tbody>
+<tr><td>current sensation</td><td>attention or direct acquaintance</td><td>misclassification and attention effects</td></tr>
+<tr><td>current belief/judgment</td><td>transparency and rational commitment</td><td>self-deception and indecision</td></tr>
+<tr><td>intention</td><td>practical commitment and planning</td><td>weakness, revision, failed control</td></tr>
+<tr><td>motive</td><td>interpretation of causal history</td><td>confabulation</td></tr>
+<tr><td>trait</td><td>longitudinal evidence and social feedback</td><td>biased sampling and narrative distortion</td></tr>
+<tr><td>subpersonal process</td><td>scientific measurement</td><td>mistaking mechanism for personal attitude</td></tr>
+</tbody></table>
+</div>
+<p>Self-knowledge is distinctive without being one faculty. Its authority comes from the
+subject's constitutive and reliable relations to states, while its limits reflect the
+different mechanisms and concepts through which those states become available.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Bar-On, Dorit. <em>Speaking My Mind</em> (2004).</li>
+<li>Moran, Richard. <em>Authority and Estrangement</em> (2001).</li>
+<li>Nisbett, Richard E. and Timothy D. Wilson. "Telling More Than We Can Know" (1977).</li>
+<li>Schwitzgebel, Eric. <em>Perplexities of Consciousness</em> (2011).</li>
+<li>Shoemaker, Sydney. "Self-Knowledge and Inner Sense" (1994).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/10-self-and-other-minds/02-unity-of-consciousness.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/10-self-and-other-minds/04-problem-of-other-minds.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/10-self-and-other-minds/02-unity-of-consciousness.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/10-self-and-other-minds/04-problem-of-other-minds.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

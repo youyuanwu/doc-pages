@@ -1,0 +1,406 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Mind Uploading and Whole-Brain Emulation - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/13-nonhuman-minds/05-mind-uploading.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="mind-uploading-and-whole-brain-emulation"><a class="header" href="#mind-uploading-and-whole-brain-emulation">Mind Uploading and Whole-Brain Emulation</a></h1>
+<p><strong>Mind uploading</strong> is the proposed realisation of a person's mental organisation in a
+different substrate, usually by scanning and emulating the brain. <strong>Whole-brain
+emulation</strong> is the engineering project of reproducing relevant brain functions at
+sufficient detail. The philosophical questions precede feasibility: which organisation
+is sufficient for mentality, whether functional duplication preserves consciousness,
+and whether a resulting subject would be the original person or a copy.</p>
+<p>These questions should be separated. An emulation could be conscious and psychologically
+continuous with someone while not being numerically identical to them. Conversely, an
+identity theory might permit continuity under gradual replacement while rejecting a
+separately created duplicate. The metaphysics of persistence is handed to the existing
+time section; this page focuses on mind under changed realisation.</p>
+<hr />
+<h2 id="what-would-be-emulated"><a class="header" href="#what-would-be-emulated">What would be emulated?</a></h2>
+<p>An upload proposal must choose a target grain:</p>
+<ul>
+<li>connectome and cell types;</li>
+<li>neural firing and synaptic dynamics;</li>
+<li>biochemical and glial processes;</li>
+<li>bodily feedback and endocrine regulation;</li>
+<li>functional or computational organisation only;</li>
+<li>learned relations to environment and social practice.</li>
+</ul>
+<p>Too coarse a model may reproduce behaviour while omit mechanisms relevant to
+consciousness or affect. Demanding every physical detail makes emulation indistinguishable
+from duplication of matter and abandons functional abstraction.</p>
+<p>The correct grain is theory-relative. A functionalist seeks causal organisation; a
+biological naturalist may require specific cellular powers; an embodied view includes
+body-environment loops.</p>
+<h2 id="computational-sufficiency"><a class="header" href="#computational-sufficiency">Computational sufficiency</a></h2>
+<p>If mental states are computational-functional states, implementing the right computation
+in another substrate preserves cognition. The emulation need not share molecular
+composition any more than one program needs one processor.</p>
+<p>The premise is stronger for reasoning and memory than for phenomenal consciousness.
+<a href="../05-mind-body/05-functionalism.html">Functionalism</a> faces absent-qualia and implementation
+objections. A simulation could reproduce reports while its intrinsic dynamics differ in
+ways a rival consciousness theory regards as decisive.</p>
+<p>Computational sufficiency must also specify timing, recurrence, embodiment, and
+counterfactual transitions. Matching recorded outputs is not emulating an active mind.</p>
+<h2 id="structural-and-dynamical-fidelity"><a class="header" href="#structural-and-dynamical-fidelity">Structural and dynamical fidelity</a></h2>
+<p>An emulation may preserve network connectivity while alter continuous timing, noise,
+plasticity, or chemical modulation. Whether these differences matter depends on which
+properties realise cognition.</p>
+<p><strong>Structural fidelity</strong> reproduces components and connections. <strong>Dynamical fidelity</strong>
+reproduces how states evolve under varied conditions. Functional equivalence requires
+enough of both to preserve relevant counterfactual behaviour.</p>
+<p>Validation would compare responses across perturbations, learning, memory, and action,
+not merely replay a known trajectory. Consciousness validation remains underdetermined
+because functional equivalence is the disputed premise.</p>
+<h2 id="embodiment"><a class="header" href="#embodiment">Embodiment</a></h2>
+<p>A disembodied emulation would lose bodily regulation, interoception, sensorimotor skill,
+and environmental history. It could receive simulated or robotic inputs, but equivalence
+depends on whether those loops preserve the original organisation.</p>
+<p>Embodiment may be required for affect and selfhood even if abstract reasoning transfers.
+A body model can be simulated, yet a homeostatic theory may distinguish modelled need
+from actual material self-maintenance.</p>
+<p>The uploaded mind may therefore be a transformed kind of subject rather than an
+unchanged human mind in a new container.</p>
+<h2 id="gradual-replacement"><a class="header" href="#gradual-replacement">Gradual replacement</a></h2>
+<p>Imagine replacing neurons one at a time with functionally identical components while
+the subject remains awake and behaviourally continuous. Intuition often favours survival
+because no sharp boundary occurs.</p>
+<p>Chalmers' fading and dancing qualia arguments use this case to support organisational
+invariance. If experience vanished despite unchanged function, the subject would be
+unable to notice or report the loss.</p>
+<p>Gradualness does not prove identity or consciousness. A property could decline
+continuously, and a sequence of small changes can cross a vague or sharp threshold.
+Still, replacement pressures theories to identify when and why the relevant property
+fails.</p>
+<h2 id="scan-and-copy"><a class="header" href="#scan-and-copy">Scan-and-copy</a></h2>
+<p>A destructive scan records structure while destroying the biological brain, then
+creates an emulation. A non-destructive scan leaves the original alive alongside the
+copy.</p>
+<p>The second case exposes the identity problem. Both successors cannot be numerically
+identical with one pre-scan person if they are now distinct from each other. Psychological
+continuity can branch; identity cannot.</p>
+<p>This does not show the copy lacks a mind. It may possess memories, character, projects,
+and consciousness while being a new person. The distinction between survival and
+duplication is ethically and practically central.</p>
+<h2 id="pattern-and-token-views"><a class="header" href="#pattern-and-token-views">Pattern and token views</a></h2>
+<p>A <strong>pattern view</strong> treats the person or mind as an informational and functional pattern.
+Multiple realisations preserve the pattern, suggesting upload survival.</p>
+<p>If two copies instantiate the same pattern, either one pattern can be multiply located,
+both are continuations without strict identity, or token history distinguishes them.
+Ordinary persons also change physical matter, so material continuity alone seems too
+strict.</p>
+<p>A <strong>token-continuity</strong> view requires the right causal continuation of one process. Gradual
+replacement may satisfy it while copy-and-restart does not. The criterion is historical,
+not merely qualitative similarity.</p>
+<h2 id="psychological-continuity"><a class="header" href="#psychological-continuity">Psychological continuity</a></h2>
+<p>An upload may preserve apparent memories, dispositions, values, language, and plans. It
+would sincerely regard itself as the original and be recognisable to others.</p>
+<p>Psychological continuity can support prudential concern and social succession even if
+strict identity fails. Parfit's view that identity is not what matters makes uploading
+less dependent on a binary metaphysical verdict.</p>
+<p>False memories and copied records complicate the relation. Genuine memory may require
+an appropriate causal trace from the original experience; an emulation can inherit such
+a trace through scanning even if a separate copy also does.</p>
+<p>The numerical question remains in
+<a href="../../03-spacetime/06-time/06-persistence.html">Persistence</a> and the ontology page on
+<a href="../../04-ontology/12-contested/02-persons.html#fission">Persons</a>.</p>
+<h2 id="consciousness"><a class="header" href="#consciousness">Consciousness</a></h2>
+<p>The upload's consciousness depends on theory:</p>
+<ul>
+<li>functionalism favours preserved fine-grained organisation;</li>
+<li>recurrent and workspace theories require their respective architecture;</li>
+<li>integrated-information theory depends on intrinsic causal implementation;</li>
+<li>biological naturalism may deny non-biological consciousness;</li>
+<li>embodied theories require adequate bodily and autonomous loops;</li>
+<li>panpsychist views ask whether the new substrate supports the combining structure.</li>
+</ul>
+<p>Behavioural continuity cannot adjudicate theories designed to permit behavioural
+duplicates without experience. The artificial-consciousness framework therefore applies
+directly.</p>
+<h2 id="speed-copies-and-branching"><a class="header" href="#speed-copies-and-branching">Speed, copies, and branching</a></h2>
+<p>Digital emulations could run at different speeds, pause, branch, merge records, or create
+many copies. These operations stress concepts formed around continuous biological lives.</p>
+<p>A speed change should not remove mentality if causal organisation is preserved, though
+interaction with an environment must be rescaled. Pausing resembles dreamless sleep on
+some views and process termination plus recreation on others.</p>
+<p>Branching creates several equally continuous successors. Merging threatens ownership of
+conflicting memories. The cases suggest psychological continuity is a relation that can
+vary and branch rather than numerical identity.</p>
+<h2 id="original-and-copy-interests"><a class="header" href="#original-and-copy-interests">Original and copy interests</a></h2>
+<p>If an emulation is conscious, its welfare and autonomy matter regardless of whether it
+is the original. Calling it a copy does not make its suffering simulated from its own
+perspective.</p>
+<p>Pre-upload consent cannot settle every future choice, especially when successors diverge.
+Copies may acquire separate interests immediately. Ownership claims over an emulation
+conflict with treating it as a person.</p>
+<p>The moral problem therefore depends first on mentality and sentience, then on identity
+for inheritance, promises, and responsibility.</p>
+<h2 id="epistemic-validation"><a class="header" href="#epistemic-validation">Epistemic validation</a></h2>
+<p>A credible emulation programme would validate progressively:</p>
+<ul>
+<li>component dynamics;</li>
+<li>network responses under intervention;</li>
+<li>preserved learning and memory;</li>
+<li>robust psychological capacities;</li>
+<li>self-report tied to internal monitoring;</li>
+<li>theory-specific indicators of consciousness.</li>
+</ul>
+<p>Passing behavioural tests supports functional equivalence. It cannot demonstrate
+identity with the source, and its evidential force for consciousness depends on the
+theory being tested.</p>
+<p>The engineering phrase "whole-brain" should not imply philosophical completeness merely
+because a chosen model includes every component at its own grain.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Question</th><th>What would support it</th><th>What remains separate</th></tr></thead><tbody>
+<tr><td><strong>Cognition preserved?</strong></td><td>counterfactual functional and learning equivalence</td><td>phenomenal consciousness</td></tr>
+<tr><td><strong>Consciousness preserved?</strong></td><td>theory-specific causal organisation</td><td>numerical identity</td></tr>
+<tr><td><strong>Same person?</strong></td><td>contested causal or psychological continuity</td><td>whether successor has a mind</td></tr>
+<tr><td><strong>Survival matters?</strong></td><td>continuity of projects, relations, and welfare</td><td>strict one-one identity</td></tr>
+<tr><td><strong>Copy has status?</strong></td><td>sentience, agency, and interests</td><td>being the original</td></tr>
+</tbody></table>
+</div>
+<p>Mind uploading is not one yes-or-no proposition. Computation, embodiment, consciousness,
+identity, and moral succession can come apart. The most defensible claims specify which
+property a proposed emulation preserves and avoid using behavioural fidelity as a proxy
+for all the others.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Chalmers, David J. "The Singularity: A Philosophical Analysis" (2010).</li>
+<li>Parfit, Derek. <em>Reasons and Persons</em> (1984).</li>
+<li>Sandberg, Anders and Nick Bostrom. <em>Whole Brain Emulation: A Roadmap</em> (2008).</li>
+<li>Schwitzgebel, Eric. "The Problem of the Toad's Plurality of Simultaneous Visual Experiences" (2015).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/13-nonhuman-minds/04-artificial-consciousness.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/14-science/01-levels-of-explanation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/13-nonhuman-minds/04-artificial-consciousness.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/14-science/01-levels-of-explanation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

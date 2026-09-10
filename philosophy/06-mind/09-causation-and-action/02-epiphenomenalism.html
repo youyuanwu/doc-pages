@@ -1,0 +1,400 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Epiphenomenalism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/09-causation-and-action/02-epiphenomenalism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="epiphenomenalism"><a class="header" href="#epiphenomenalism">Epiphenomenalism</a></h1>
+<p><strong>Epiphenomenalism</strong> holds that physical processes cause mental phenomena but at least
+some mental phenomena do not cause physical effects. Conscious pain is produced by
+neural activity, yet withdrawal, report, and memory are produced by the physical
+process rather than by the felt quality itself. Experience accompanies the causal
+stream without altering it.</p>
+<p>The view offers a sharp reconciliation of irreducible consciousness with physical
+causal completeness. It is not the claim that no mental description is useful or that
+no brain state causes action. It targets mental properties insofar as they are distinct
+from their physical bases. Its cost is explaining why subjects report, know, and appear
+to have evolved sensitivity to causally inert experience.</p>
+<hr />
+<h2 id="the-basic-model"><a class="header" href="#the-basic-model">The basic model</a></h2>
+<p>The simplest epiphenomenal structure is:</p>
+<pre class="mermaid">graph LR
+  P1[Physical state P1] --&gt; P2[Physical action/report P2]
+  P1 --&gt; Q[Phenomenal property Q]
+</pre>
+<p>There is no arrow from <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Q</span></span></span></span> to <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. The physical state causes both the phenomenal
+experience and downstream behaviour. Their correlation can therefore be systematic
+without the experience doing causal work.</p>
+<p>This is compatible with <a href="../05-mind-body/02-property-dualism.html">property dualism</a>: one
+physical organism instantiates an irreducible phenomenal property under psychophysical
+laws. A substance dualist could also accept one-way interaction, though most substance
+dualists seek two-way agency.</p>
+<h2 id="motivation-from-causal-closure"><a class="header" href="#motivation-from-causal-closure">Motivation from causal closure</a></h2>
+<p>Epiphenomenalism accepts three claims:</p>
+<ol>
+<li>phenomenal consciousness is irreducible;</li>
+<li>physical effects have sufficient physical causes;</li>
+<li>systematic overdetermination is absent.</li>
+</ol>
+<p>The <a href="01-mental-causation.html#the-exclusion-argument">exclusion argument</a> then removes
+mental-to-physical efficacy. Rather than identify qualia with physical properties or
+deny their reality, the epiphenomenalist sacrifices causal power.</p>
+<p>The position has a historical analogy in a steam-engine gauge: pressure causes both
+engine behaviour and movement of a needle, while the needle does not drive the engine.
+The analogy is limited because a gauge movement is physical and can have further effects.
+A truly epiphenomenal property cannot even contribute to a report about itself.</p>
+<h2 id="huxleys-conscious-automata"><a class="header" href="#huxleys-conscious-automata">Huxley's conscious automata</a></h2>
+<p>T. H. Huxley compared consciousness to the steam whistle accompanying a locomotive.
+Animals, including humans, might be <strong>conscious automata</strong> whose physical mechanisms
+produce both adaptive behaviour and experience, with experience itself causally idle.</p>
+<p>This view can preserve every behavioural and neural observation. A physical duplicate
+with different qualia would act identically if phenomenal properties have no effects.
+That empirical compatibility is both strength and weakness: epiphenomenalism avoids
+conflict with physics by making its distinctive properties difficult to detect from
+outside.</p>
+<h2 id="the-report-problem"><a class="header" href="#the-report-problem">The report problem</a></h2>
+<p>When a subject says "I am in pain," the content of the report appears explained partly
+by the pain. Under epiphenomenalism, physical state <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> causes both pain <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Q</span></span></span></span> and report
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>; <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Q</span></span></span></span> does not cause the report.</p>
+<p>The report can still be reliable if psychophysical laws align <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Q</span></span></span></span>. A
+thermometer reading tracks temperature because both are causally connected; direct
+causation from the measured property to every representational stage is not always
+required.</p>
+<p>The difficulty is semantic specificity. Why does the physically generated report say
+"this hurts" and accurately describe the causally inert quality rather than some other
+property? Common cause explains covariance, but the content of the report seems selected
+to match what cannot affect it. The match threatens to be brute.</p>
+<h2 id="knowledge-of-qualia"><a class="header" href="#knowledge-of-qualia">Knowledge of qualia</a></h2>
+<p>Knowledge commonly requires a reliable connection between fact and belief. If qualia
+cannot cause beliefs about qualia, how does a subject know their experiences?</p>
+<p>An epiphenomenalist may propose:</p>
+<ul>
+<li>physical states generate both the quale and a reliably matching belief;</li>
+<li>acquaintance is non-causal and makes the phenomenal fact directly available;</li>
+<li>psychophysical laws guarantee correspondence;</li>
+<li>knowledge does not always require causation by the known fact.</li>
+</ul>
+<p>Each preserves possible knowledge while weakening ordinary epistemic explanation. A
+physical duplicate with absent or inverted qualia would form the same beliefs, making
+the method insensitive to truth across the relevant possibilities. That undermines its
+reliability unless such possibilities are lawfully excluded.</p>
+<h2 id="the-evolutionary-objection"><a class="header" href="#the-evolutionary-objection">The evolutionary objection</a></h2>
+<p>Conscious pain appears adaptively connected to avoidance and learning. If phenomenal
+unpleasantness has no effects, natural selection cannot favour it <strong>because</strong> it is
+unpleasant. Selection acts on the physical mechanisms producing behaviour; qualia ride
+along under psychophysical laws.</p>
+<p>The epiphenomenalist can say phenomenal properties are nomologically tied to selected
+physical states. No independent selection of qualia is needed, just as a causally idle
+but necessarily linked property could be inherited with its base.</p>
+<p>The reply explains persistence, not apparent fit. Why do damage-related states produce
+aversive rather than pleasant qualia? If inverted valence would yield identical
+behaviour, selection cannot choose the adaptive alignment. A fundamental law can fix it,
+but the law records the alignment the objection asks to understand.</p>
+<h2 id="memory-and-deliberation"><a class="header" href="#memory-and-deliberation">Memory and deliberation</a></h2>
+<p>Experience appears to shape memory. A painful episode is remembered and influences
+later avoidance; a visual experience supplies material for imagination. Epiphenomenalism
+attributes these effects to the physical bases, which also produce the phenomenal states.</p>
+<p>This preserves the sequence while denying that what the episode felt like made the
+difference. If the same physical state could have had a different quale, memory and
+future action would remain unchanged. The ordinary explanation "she avoids it because
+it hurt" is true only if <em>hurt</em> refers to the physical-functional base, not the
+irreducible quality.</p>
+<p>The position can divide mental properties: content and access properties may be causally
+efficacious because physically realised, while irreducible phenomenal properties are
+epiphenomenal. This local version is more plausible than making every belief and
+intention inert.</p>
+<h2 id="causal-overdetermination-as-an-alternative"><a class="header" href="#causal-overdetermination-as-an-alternative">Causal overdetermination as an alternative</a></h2>
+<p>One might preserve phenomenal efficacy by saying physical and phenomenal causes both
+suffice. Unlike independent bullets, they are lawfully paired. The effect is not an
+accidental coincidence.</p>
+<p>The objection is explanatory redundancy. If the physical cause guarantees the effect,
+removing phenomenal efficacy changes nothing. The added causal arrow has no independent
+counterfactual or empirical role. Systematic overdetermination also seems less parsimonious
+than identity or realisation.</p>
+<p>Epiphenomenalism accepts redundancy of property rather than redundancy of cause. The
+choice is between a real quality with no effects and a second sufficient route whose
+effects never diverge.</p>
+<h2 id="interactionist-alternatives"><a class="header" href="#interactionist-alternatives">Interactionist alternatives</a></h2>
+<p>An interactionist property dualist allows qualia to influence neural activity. This
+makes reports and knowledge straightforward but qualifies physical completeness and
+requires psychophysical causal laws. Evidence should in principle reveal physical
+histories not fully accounted for by physical antecedents.</p>
+<p>Appeals to quantum indeterminacy do not suffice. Indeterminacy creates multiple possible
+outcomes; it does not show that phenomenal properties select among them. A theory needs
+specific, testable mind-to-physical coupling.</p>
+<p>The absence of established gaps motivates epiphenomenalism, but absence of evidence is
+not proof that every possible mental influence is excluded. The dialectic remains
+abductive.</p>
+<h2 id="epiphenomenalism-and-zombies"><a class="header" href="#epiphenomenalism-and-zombies">Epiphenomenalism and zombies</a></h2>
+<p>The zombie argument often supports property dualism by holding physical structure fixed
+while removing consciousness. It simultaneously suggests epiphenomenalism: if the
+zombie behaves and reports exactly like us, phenomenal properties make no physical
+difference.</p>
+<p>An anti-physicalist can instead treat zombies as merely a modal demonstration. In the
+actual world, contingent psychophysical laws may allow mental influence even though a
+different world has no qualia. But a physically identical zombie world cannot differ in
+physical effects, so any actual mental influence must be duplicated by physical causes
+or alter which worlds count as physically identical.</p>
+<p>The modal victory therefore intensifies the causal problem.</p>
+<h2 id="is-causation-required-for-reality"><a class="header" href="#is-causation-required-for-reality">Is causation required for reality?</a></h2>
+<p>Epiphenomenal properties could be real even if causally inert. Mathematical objects and
+past events are not unreal because they produce no current local effects. Consciousness
+may be known through direct acquaintance rather than causal inference.</p>
+<p>The comparison is imperfect. Phenomenal properties occur within causal organisms and
+appear tightly connected to action, memory, and report. A causally inert number is not
+presented as guiding a hand away from a flame. The issue is not a general Eleatic
+principle that only causes exist, but the explanatory role distinctive to mentality.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><strong>Phenomenal irreducibility</strong></td><td><strong>Strong</strong> - qualia remain genuine additional properties.</td></tr>
+<tr><td><strong>Physical completeness</strong></td><td><strong>Strong</strong> - no downward mental influence is required.</td></tr>
+<tr><td><strong>Report and self-knowledge</strong></td><td><strong>Severe pressure</strong> - beliefs track properties that do not affect them.</td></tr>
+<tr><td><strong>Evolutionary fit</strong></td><td><strong>Compatible but unexplained</strong> - selection targets the base, not phenomenal valence.</td></tr>
+<tr><td><strong>Empirical distinctiveness</strong></td><td><strong>Weak</strong> - behavioural and physical evidence is fixed independently of qualia.</td></tr>
+<tr><td><strong>Ordinary action explanation</strong></td><td><strong>Revisionary</strong> - phenomenal character itself does not guide behaviour.</td></tr>
+</tbody></table>
+</div>
+<p>Epiphenomenalism is coherent because common physical causes can align experience and
+behaviour. Its difficulty is not formal inconsistency but explanatory isolation. The
+more exact the match among qualia, reports, memory, and adaptive action, the more work
+must be done by brute psychophysical laws rather than by the properties being reported.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Huxley, T. H. "On the Hypothesis that Animals Are Automata" (1874).</li>
+<li>Jackson, Frank. "Epiphenomenal Qualia" (1982).</li>
+<li>Robinson, William. <em>Epiphenomenal Mind</em> (2010).</li>
+<li>Walter, Sven. "Epiphenomenalism" in <em>The Stanford Encyclopedia of Philosophy</em>.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/09-causation-and-action/01-mental-causation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/09-causation-and-action/03-anomalous-monism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/09-causation-and-action/01-mental-causation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/09-causation-and-action/03-anomalous-monism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

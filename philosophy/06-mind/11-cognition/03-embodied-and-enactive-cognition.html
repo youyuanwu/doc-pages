@@ -1,0 +1,410 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Embodied and Enactive Cognition - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/11-cognition/03-embodied-and-enactive-cognition.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="embodied-and-enactive-cognition"><a class="header" href="#embodied-and-enactive-cognition">Embodied and Enactive Cognition</a></h1>
+<p><strong>Embodied cognition</strong> holds that cognitive capacities depend constitutively or
+explanatorily on bodily form, action, and sensorimotor skill. <strong>Enactive cognition</strong> goes
+further in many versions: cognition is sense-making enacted through the ongoing coupling
+of an autonomous organism with its environment, not primarily computation over inner
+representations.</p>
+<p>These labels cover a spectrum from the modest claim that bodies constrain information
+processing to the radical claim that basic cognition contains no representations at all.
+Their common target is a brain-bound pipeline in which cognition receives input, builds
+an inner model, and issues output. Their hardest cases are offline: planning, abstract
+reasoning, imagination, and thought about absent or impossible things.</p>
+<hr />
+<h2 id="several-embodiment-claims"><a class="header" href="#several-embodiment-claims">Several embodiment claims</a></h2>
+<p>"Cognition is embodied" can mean:</p>
+<ol>
+<li><strong>causal embodiment:</strong> bodily states influence cognition;</li>
+<li><strong>constitutive embodiment:</strong> some bodily processes are parts of cognitive processes;</li>
+<li><strong>content embodiment:</strong> concepts derive structure from sensorimotor capacities;</li>
+<li><strong>methodological embodiment:</strong> cognition should be studied in situated action rather
+than isolated tasks;</li>
+<li><strong>necessity:</strong> no disembodied or differently embodied system could possess the same
+cognition.</li>
+</ol>
+<p>The first is uncontroversial and does not establish the rest. Evidence that posture
+affects judgment shows causal influence; it does not prove that every judgment includes
+posture as a constituent. Strong conclusions need experiments that distinguish causal
+support from constitution.</p>
+<h2 id="the-body-schema"><a class="header" href="#the-body-schema">The body schema</a></h2>
+<p>A <strong>body schema</strong> is a largely non-conscious organisation of posture, movement, and
+action possibility. It differs from a <strong>body image</strong>, the conscious perceptions,
+beliefs, and attitudes directed at one's body.</p>
+<p>Skilled action uses the schema without calculating joint trajectories explicitly.
+Tools can become incorporated: a cane or instrument changes the space of reachable and
+felt possibilities. Disorders can disrupt body ownership, action, or explicit image in
+different combinations.</p>
+<p>These cases support multiple bodily representations and practical control. They also
+show why cognition cannot always be understood through detached propositions. The body
+is a structured medium of access and action.</p>
+<h2 id="concepts-and-metaphor"><a class="header" href="#concepts-and-metaphor">Concepts and metaphor</a></h2>
+<p>Embodied theories of concepts argue that abstract thought recruits sensorimotor and
+affective systems. Spatial schemas structure talk of time, status, similarity, and
+argument; conceptual processing can partially reactivate perceptual and motor patterns.</p>
+<p>This explains why concepts are connected to imagination, action, and bodily salience.
+It can overreach. Correlation with sensorimotor activation does not show a concept is
+constituted by that activation; it may be an associated consequence. Abstract concepts
+also depend on language, social institutions, and formal inferential roles.</p>
+<p>A plural view treats sensorimotor simulation as one representational resource rather
+than the essence of every concept.</p>
+<h2 id="skill-and-know-how"><a class="header" href="#skill-and-know-how">Skill and know-how</a></h2>
+<p>Skilled action is flexible, context-sensitive, and often degraded by explicit monitoring.
+Dreyfus used expertise to challenge the idea that intelligent behaviour follows stored
+rules over explicit world models.</p>
+<p>Know-how can be understood as embodied responsiveness to affordances. The skilled agent
+does not infer from neutral facts to a relevant action; the situation already appears as
+inviting or requiring a response.</p>
+<p>Critics note that skill still involves internal dynamics, error correction, and learned
+generalisations that computational models can explain. The contrast should be between
+forms of computation and representation, not between mechanism and unanalysable coping.</p>
+<h2 id="autopoiesis-and-autonomy"><a class="header" href="#autopoiesis-and-autonomy">Autopoiesis and autonomy</a></h2>
+<p><strong>Autopoietic enactivism</strong> begins with living systems that maintain their own organisation.
+Because survival conditions matter to the organism, environmental events acquire
+significance as beneficial, threatening, or irrelevant. Cognition is <strong>sense-making</strong>
+grounded in biological autonomy.</p>
+<p>This promises a natural source of normativity. A bacterium's movement is not merely
+causal response; it is organised relative to maintaining the system.</p>
+<p>The biological restriction is disputed. Artificial or non-living systems may possess
+goals, error correction, and autonomous organisation without metabolism. If autopoiesis
+is necessary, machine cognition is excluded by definition; if functional autonomy is
+enough, the theory converges with broader control and teleological accounts.</p>
+<h2 id="radical-enactivism"><a class="header" href="#radical-enactivism">Radical enactivism</a></h2>
+<p><strong>Radical enactive cognition</strong> denies that basic cognition requires contentful internal
+representations. Perception and action can be explained through histories of embodied
+skill and world-involving dynamics without positing inner models that are true or false.</p>
+<p>This avoids the problem of naturalising content for every adaptive state and fits direct
+sensorimotor engagement. Not every controller needs a map or proposition.</p>
+<p>The challenge is error and decoupling. A system can act on absent objects, plan future
+events, imagine alternatives, and systematically misrepresent. Radical enactivists may
+reserve content for linguistically scaffolded or offline cognition, yielding a plural
+rather than globally anti-representational view.</p>
+<h2 id="representation-hungry-problems"><a class="header" href="#representation-hungry-problems">Representation-hungry problems</a></h2>
+<p>Clark and Toribio call some tasks <strong>representation-hungry</strong> because they involve:</p>
+<ul>
+<li>absent, hidden, or counterfactual states;</li>
+<li>arbitrary rather than lawfully available properties;</li>
+<li>planning across delayed consequences;</li>
+<li>reasoning that decouples from immediate sensorimotor loops.</li>
+</ul>
+<p>A chess player considering a future position and a scientist reasoning about an
+impossible model appear to need internal surrogates. Environmental coupling alone cannot
+provide the absent target.</p>
+<p>Enactivists can appeal to internal dynamics as reenacted sensorimotor possibilities,
+external symbolic scaffolds, or minimal representations. The response may revise the
+classical picture without eliminating representation.</p>
+<h2 id="offline-cognition"><a class="header" href="#offline-cognition">Offline cognition</a></h2>
+<p>The general comparison of imagination, constructive memory, dreaming, and reality
+monitoring is developed in
+<a href="../12-affect-and-experience/04-imagination-memory-dreaming.html">Imagination, Memory, and Dreaming</a>.</p>
+<p>Dreaming, episodic memory, imagination, and inner reasoning occur with reduced current
+world coupling. They preserve perceptual and action-like structure while being decoupled
+from present affordances.</p>
+<p>An embodied account can say offline thought reuses systems developed for perception and
+action. This explains its format and bodily influence. It does not eliminate internal
+representation; reuse in the absence of the object is a strong case for a surrogate.</p>
+<p>External tools can extend offline cognition through diagrams, writing, and models.
+Embodiment and extension then complement internal representation rather than replace it.</p>
+<h2 id="dynamical-systems"><a class="header" href="#dynamical-systems">Dynamical systems</a></h2>
+<p>Dynamical approaches describe cognition through coupled variables evolving continuously
+over time rather than discrete symbol manipulation. Behaviour emerges from the joint
+dynamics of nervous system, body, and environment.</p>
+<p>This is powerful for timing, coordination, locomotion, and sensorimotor adaptation.
+Phase spaces and attractors can explain stable patterns without central commands.</p>
+<p>Dynamical and computational descriptions are not always rivals. Differential equations
+can implement computations, and computational models can describe dynamics. A genuine
+contrast requires claims about representation, decomposition, and which counterfactuals
+the model captures.</p>
+<h2 id="enactive-perception-and-cognition"><a class="header" href="#enactive-perception-and-cognition">Enactive perception and cognition</a></h2>
+<p>The <a href="../08-perception/05-embodied-and-enactive-perception.html">perception chapter</a> treats
+sensorimotor contingencies, affordances, and predictive processing in perceptual detail.
+The broader cognitive claim is that reasoning and memory also arise from capacities of
+an active organism rather than a detached central processor.</p>
+<p>The extension is plausible for action-oriented understanding and harder for formal
+reasoning. Mathematical proof can be bodily and diagrammatic in practice, yet its norms
+and generality are not exhausted by the motions used to express it.</p>
+<p>Embodied cognition should therefore specify which task, timescale, and bodily relation
+is claimed to be constitutive.</p>
+<p>The historical and methodological roots of this approach in Husserl, Heidegger,
+Merleau-Ponty, and Sartre are developed in
+<a href="../15-context/02-phenomenology.html">Phenomenology and the Lived Mind</a>.</p>
+<h2 id="social-and-cultural-embodiment"><a class="header" href="#social-and-cultural-embodiment">Social and cultural embodiment</a></h2>
+<p>Bodies acquire significance in social practices. Gesture, gaze, joint attention,
+language, tools, and institutions shape cognitive development. Embodiment is not only
+biomechanics; it is a socially interpreted way of acting and being acted upon.</p>
+<p>This widens the unit of explanation beyond an isolated organism. It also guards against
+universal claims inferred from one bodily norm. Disability and technological mediation
+show multiple routes to cognitive achievement.</p>
+<p>The resulting view approaches distributed cognition: cognitive processes can be
+organised across people and artifacts. The next chapter asks when such causal coupling
+becomes literal cognitive constitution.</p>
+<h2 id="does-embodiment-exclude-machine-cognition"><a class="header" href="#does-embodiment-exclude-machine-cognition">Does embodiment exclude machine cognition?</a></h2>
+<p>If embodiment means having sensors, effectors, feedback, and situated goals, machines
+can be embodied in many forms. If it means living autopoietic vulnerability, current
+machines may not qualify. If particular human morphology is required, the claim risks
+chauvinism.</p>
+<p>Virtual embodiment can support structured action within simulated environments. Whether
+that supplies the homeostatic stakes and social development of organisms is a further
+question.</p>
+<p>The right conclusion depends on the role embodiment plays in the theory: causal
+enrichment, content grounding, autonomy, phenomenality, or necessary substrate. One word
+should not carry all five.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Claim</th><th>Evidence and strength</th><th>Pressure point</th></tr></thead><tbody>
+<tr><td><strong>Body influences cognition</strong></td><td>extensive and uncontroversial</td><td>does not imply constitution</td></tr>
+<tr><td><strong>Body partly constitutes cognition</strong></td><td>strong in online skill and control</td><td>system-boundary criterion</td></tr>
+<tr><td><strong>Content is sensorimotor</strong></td><td>plausible for many perceptual concepts</td><td>abstract and socially structured concepts</td></tr>
+<tr><td><strong>Basic cognition is non-representational</strong></td><td>plausible for direct coping</td><td>error, absence, and decoupling</td></tr>
+<tr><td><strong>Cognition is organism-environment dynamics</strong></td><td>explanatory for situated action</td><td>offline and systematic thought</td></tr>
+<tr><td><strong>Life is necessary for cognition</strong></td><td>supplies autonomy and normativity</td><td>excludes functional alternatives by a contested premise</td></tr>
+</tbody></table>
+</div>
+<p>Embodied and enactive approaches replace the passive input-output picture with active,
+temporally extended sense-making. Their strongest contribution is not the slogan that
+the body matters but detailed accounts of how body and world enter cognitive mechanisms.
+The elimination of representation is a further, less secure thesis.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Chemero, Anthony. <em>Radical Embodied Cognitive Science</em> (2009).</li>
+<li>Clark, Andy. <em>Being There</em> (1997).</li>
+<li>Dreyfus, Hubert L. <em>What Computers Still Can't Do</em> (1992).</li>
+<li>Thompson, Evan. <em>Mind in Life</em> (2007).</li>
+<li>Varela, Francisco J., Evan Thompson, and Eleanor Rosch. <em>The Embodied Mind</em> (1991).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/11-cognition/02-connectionism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/11-cognition/04-extended-and-distributed-mind.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/11-cognition/02-connectionism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/11-cognition/04-extended-and-distributed-mind.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

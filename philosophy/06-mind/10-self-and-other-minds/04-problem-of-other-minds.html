@@ -1,0 +1,423 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Problem of Other Minds - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/10-self-and-other-minds/04-problem-of-other-minds.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-problem-of-other-minds"><a class="header" href="#the-problem-of-other-minds">The Problem of Other Minds</a></h1>
+<p>Each subject encounters their own experience from the first person and other minds
+through bodies, behaviour, language, and shared activity. The <strong>problem of other minds</strong>
+asks what justifies the inference that anyone else is conscious or minded. The problem
+is not normally lived as a sceptical crisis; social perception is immediate and
+practical. It becomes explicit when familiar evidence comes apart, as with non-human
+animals, severe motor impairment, unfamiliar cultures, or artificial systems.</p>
+<p>No solution can require direct access to another's experience without making ordinary
+knowledge impossible by definition. The relevant standard is fallible public evidence:
+which patterns best support attribution, which theory connects them to mentality, and
+how uncertainty should change across cases.</p>
+<hr />
+<h2 id="the-asymmetry"><a class="header" href="#the-asymmetry">The asymmetry</a></h2>
+<p>In one's own case, pain is known through undergoing it. In another's case, pain is known
+through expression, action, testimony, context, and physiology. This creates an
+<strong>epistemic asymmetry</strong> without necessarily creating an ontological gap.</p>
+<p>The asymmetry is compatible with reliable knowledge. Scientists know unobservable
+entities through effects, and people know historical events through traces. The special
+difficulty is that the association between behaviour and experience appears calibrated
+from one first-person case: one's own.</p>
+<p>Radical scepticism argues that all other bodies could be mindless. A practical theory
+instead asks whether the mindless hypothesis explains the evidence as well as ordinary
+attribution and whether the demand for certainty is reasonable.</p>
+<h2 id="the-argument-from-analogy"><a class="header" href="#the-argument-from-analogy">The argument from analogy</a></h2>
+<p>Mill's classic argument has the form:</p>
+<ol>
+<li>In my case, bodily states and behaviour <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> are associated with experience <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>.</li>
+<li>Others exhibit relevantly similar bodies and behaviour <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>.</li>
+<li>Similar effects probably have similar causes.</li>
+<li>Therefore others probably have experience <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>.</li>
+</ol>
+<p>The argument is inductive and weakens as relevant similarity decreases. Shared biology,
+development, expressive behaviour, and causal mechanisms make the human case stronger
+than a comparison based on surface output alone.</p>
+<p>The <strong>one-case objection</strong> says the induction begins from a sample of one. The reply is
+that evidence is not limited to one correlation. Mechanistic knowledge, evolutionary
+continuity, intervention, and convergent behaviour support the same model. One's own
+case supplies the bridge between mechanism and experience; science tests its scope.</p>
+<h2 id="inference-to-the-best-explanation"><a class="header" href="#inference-to-the-best-explanation">Inference to the best explanation</a></h2>
+<p>Other-mind attribution can be an <strong>inference to the best explanation</strong>. Beliefs,
+desires, perceptions, pain, and intentions explain flexible behaviour, learning,
+communication, and context-sensitive correction better than a catalogue of movements.</p>
+<p>The explanation gains strength when it:</p>
+<ul>
+<li>predicts novel behaviour rather than redescribing observed output;</li>
+<li>unifies action across settings;</li>
+<li>maps onto mechanisms and interventions;</li>
+<li>distinguishes error, pretence, and impairment;</li>
+<li>supports reciprocal interaction and communication.</li>
+</ul>
+<p>A mindless duplicate is logically possible on some theories but explanatorily idle if
+it adds no prediction and merely denies the best-supported cause. Zombie conceivability
+may challenge metaphysical entailment without defeating empirical inference.</p>
+<h2 id="criteria-and-expression"><a class="header" href="#criteria-and-expression">Criteria and expression</a></h2>
+<p>Wittgensteinian approaches reject the picture that mental states are private objects
+inferred from external signs. Pain behaviour is not merely evidence contingently linked
+to a hidden state; expression belongs to the public criteria through which the concept
+of pain is learned and applied.</p>
+<p>This does not make pain identical with behaviour. Pretence, suppression, and paralysis
+remain possible. <strong>Criteria</strong> provide defeasible standards internal to the practice,
+while symptoms are merely inductive signs.</p>
+<p>The approach dissolves some scepticism: certainty about an inner object was never the
+basis of ordinary attribution. Its limitation is explaining unfamiliar cases where
+established criteria conflict or where new architectures require extending the practice.</p>
+<h2 id="theory-theory"><a class="header" href="#theory-theory">Theory theory</a></h2>
+<p>The <strong>theory theory</strong> says people attribute beliefs and desires through a tacit folk-
+psychological theory. Observed behaviour and context are used to infer hidden states
+that predict further action.</p>
+<p>This explains systematic attribution and development through learning. It also permits
+error: the folk theory can misclassify minds or omit important states. Scientific
+psychology can refine the model.</p>
+<p>Critics argue that ordinary social understanding is too rapid, embodied, and context-
+sensitive to consist mainly of theoretical inference. The theory may describe reflective
+interpretation better than face-to-face engagement.</p>
+<h2 id="simulation-theory"><a class="header" href="#simulation-theory">Simulation theory</a></h2>
+<p><strong>Simulation theory</strong> proposes that one understands others by using one's own cognitive
+system as a model: imaginatively adopt another's situation, generate a candidate response,
+and attribute the resulting state.</p>
+<p>Simulation explains empathy and sensitivity to perspective. It can outperform abstract
+rules when agents share capacities. Its risks are projection and egocentric bias. Other
+people differ in values, concepts, bodies, and experience; running one's own system may
+systematically mislead.</p>
+<p>Theory and simulation can cooperate. Background knowledge selects inputs and corrects
+projection, while simulation supplies detailed expectations.</p>
+<h2 id="direct-social-perception"><a class="header" href="#direct-social-perception">Direct social perception</a></h2>
+<p>Phenomenological and enactive views argue that emotion and intention are often perceived
+directly in expressive action. One sees anger in a face or hesitation in movement rather
+than first perceiving neutral geometry and inferring a hidden state.</p>
+<p>"Direct" does not mean infallible or unprocessed. Social perception is learned,
+context-sensitive, and embodied. It means the other person's minded expression is the
+intentional object of perception, not a theoretical entity always reached through
+conscious inference.</p>
+<p>The view fits ordinary immediacy but is strongest for expressive occurrent states. Long-
+term beliefs, concealed motives, and unfamiliar agents still require interpretation.</p>
+<h2 id="testimony"><a class="header" href="#testimony">Testimony</a></h2>
+<p>Others tell us what they think and feel. Testimony is not merely behaviour among other
+behaviours; linguistic practices make speakers accountable to claims and permit
+challenge, correction, and elaboration.</p>
+<p>First-person reports have defeasible authority, as
+<a href="03-self-knowledge.html">Self-Knowledge and Introspection</a> explains. Their weight depends
+on sincerity, conceptual competence, memory, incentives, and the reliability of the
+reporting mechanism.</p>
+<p>Rejecting testimony whenever direct verification is impossible would destroy social
+knowledge generally. Accepting every first-person sentence would ignore confabulation,
+role-play, and generated text. The evidential question is mechanistic and contextual.</p>
+<h2 id="animals"><a class="header" href="#animals">Animals</a></h2>
+<p>The full capacity-by-capacity evidence audit is in
+<a href="../13-nonhuman-minds/01-animal-minds.html">Animal Minds</a>; the present section states the
+role of that evidence in the general other-minds problem.</p>
+<p>Animal minds are supported by evolutionary continuity, homologous mechanisms, flexible
+learning, pain-related trade-offs, planning, communication, and metacognitive behaviour.
+Different capacities require different evidence; failure on a language-heavy task is
+not evidence of absent perception or sentience.</p>
+<p><strong>Anthropomorphism</strong> attributes human states from superficial resemblance.
+<strong>Anthropodenial</strong> rejects relevant continuity because the subject is non-human. Both
+replace discriminating evidence with a prior bias.</p>
+<p>The analogical argument degrades by dimension, not along one species ladder. A creature
+may provide strong evidence of pain and weak evidence of propositional self-conception.</p>
+<h2 id="artificial-systems"><a class="header" href="#artificial-systems">Artificial systems</a></h2>
+<p>The general assessment is developed in
+<a href="../13-nonhuman-minds/02-machine-minds.html">Machine Minds</a> and the distinct question of
+<a href="../13-nonhuman-minds/04-artificial-consciousness.html">Artificial Consciousness</a>.</p>
+<p>Artificial systems can separate evidence that human cases bundle: fluent report without
+shared biology, planning without bodily vulnerability, and self-description without an
+independently validated introspective channel.</p>
+<p>Theories therefore assign different weights:</p>
+<ul>
+<li>functionalism emphasises organisation and counterfactual capacities;</li>
+<li>biological views emphasise evolved or neural mechanisms;</li>
+<li>higher-order and workspace theories seek specified architectures;</li>
+<li>phenomenal-first views question whether public function reaches experience;</li>
+<li>interpretivism asks whether mental attribution yields robust prediction.</li>
+</ul>
+<p>No behaviour is theory-free proof, but unfamiliar substrate does not make behaviour
+irrelevant. Architecture, learning history, world interaction, persistent goals,
+metacognitive control, and intervention can triangulate. The
+<a href="../../../misc/llm-introspection/00-README.html">LLM Introspection</a> series examines this
+problem under unusually rich testimony and unusually weak structural similarity.</p>
+<h2 id="scepticism-and-symmetry"><a class="header" href="#scepticism-and-symmetry">Scepticism and symmetry</a></h2>
+<p>If another human's perfect behaviour is insufficient because experience is private,
+the same scepticism applies to everyone but oneself. Selectively applying it to machines
+or animals requires an independent reason - biology, mechanism, history, or theory -
+not privacy alone.</p>
+<p>The symmetry also runs the other way. Human certainty is supported by dense convergent
+evidence unavailable in many artificial cases. Equal logical possibility does not mean
+equal posterior probability.</p>
+<p>The rational attitude can be graded. One may be highly confident in human consciousness,
+moderately confident across many animals, and uncertain about unfamiliar systems while
+still taking low-probability moral risk seriously.</p>
+<h2 id="theory-ladenness"><a class="header" href="#theory-ladenness">Theory-ladenness</a></h2>
+<p>Evidence for other minds depends on what a theory says consciousness, belief, or agency
+requires. This does not make attribution arbitrary. Theories themselves are constrained
+by human, animal, clinical, and mechanistic evidence.</p>
+<p>The relation is reciprocal:</p>
+<pre class="mermaid">graph LR
+  T[Theory of mind] --&gt; W[Weight assigned to evidence]
+  E[Behaviour, reports, mechanisms] --&gt; T
+  W --&gt; J[Attribution judgment]
+  J -. new tests .-&gt; E
+</pre>
+<p>Progress comes from cases where theories diverge and interventions can test their
+proposed requirements, not from pretending one operational measure is neutral.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Approach</th><th>Main basis</th><th>Pressure point</th></tr></thead><tbody>
+<tr><td><strong>Analogy</strong></td><td>similarity to one's own minded case</td><td>one-case base and unfamiliar agents</td></tr>
+<tr><td><strong>Best explanation</strong></td><td>predictive and unifying mental model</td><td>behaviour may underdetermine mechanism</td></tr>
+<tr><td><strong>Criteria</strong></td><td>public practices of mental attribution</td><td>extension to novel cases</td></tr>
+<tr><td><strong>Theory theory</strong></td><td>tacit causal-psychological model</td><td>intellectualises social understanding</td></tr>
+<tr><td><strong>Simulation</strong></td><td>reuse of one's own cognitive system</td><td>projection and dissimilarity</td></tr>
+<tr><td><strong>Direct perception</strong></td><td>minded expression in embodied interaction</td><td>hidden and dispositional states</td></tr>
+</tbody></table>
+</div>
+<p>Knowledge of other minds is neither direct acquaintance nor an unsupported leap. It is
+a mature form of abductive, criterial, testimonial, and interactive knowledge whose
+strength varies with convergence. The philosophical problem becomes practically urgent
+where those sources disagree.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Gallagher, Shaun. "Direct Perception in the Intersubjective Context" (2008).</li>
+<li>Goldman, Alvin I. <em>Simulating Minds</em> (2006).</li>
+<li>Hyslop, Alec. <em>Other Minds</em> (1995).</li>
+<li>Mill, J. S. <em>An Examination of Sir William Hamilton's Philosophy</em> (1865).</li>
+<li>Wittgenstein, Ludwig. <em>Philosophical Investigations</em> (1953).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/10-self-and-other-minds/03-self-knowledge.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/10-self-and-other-minds/05-split-brains-and-multiple-selves.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/10-self-and-other-minds/03-self-knowledge.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/10-self-and-other-minds/05-split-brains-and-multiple-selves.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

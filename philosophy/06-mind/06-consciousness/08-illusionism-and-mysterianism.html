@@ -1,0 +1,369 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Illusionism and Mysterianism - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/06-consciousness/08-illusionism-and-mysterianism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="illusionism-and-mysterianism"><a class="header" href="#illusionism-and-mysterianism">Illusionism and Mysterianism</a></h1>
+<p>Illusionism and mysterianism agree that the ordinary demand for an explanation of
+consciousness cannot be met in the expected way. They disagree about why. The
+<strong>illusionist</strong> argues that introspection misdescribes complex representational and
+cognitive processes as possessing intrinsic phenomenal properties; explain the
+misdescription and no further property remains. The <strong>mysterian</strong> argues that
+consciousness is real but its physical basis may lie beyond human cognitive capacities.</p>
+<p>One position relocates the explanandum from qualia to our judgments about qualia. The
+other retains the explanandum and limits the possible explainer. Both are easily
+caricatured as surrender. Their serious forms make testable or at least assessable
+claims about introspection and cognitive limits.</p>
+<hr />
+<h2 id="what-illusionism-denies"><a class="header" href="#what-illusionism-denies">What illusionism denies</a></h2>
+<p>Illusionism does not deny that people are awake, perceive, discriminate, suffer, attend,
+or report rich experience. It denies <strong>phenomenal realism</strong> as traditionally conceived:
+the claim that experience instantiates intrinsic, ineffable qualitative properties
+presented directly and infallibly to the subject.</p>
+<p>The word "illusion" is potentially misleading. A visual illusion still has an
+appearance, so critics ask whether phenomenal illusion already presupposes phenomenality.
+Keith Frankish therefore distinguishes the problematic properties from the real
+representational, cognitive, and reactive states that lead subjects to judge they have
+them. The illusion is not nothing; it is a systematic misrepresentation of those states.</p>
+<p>The view is continuous with the revisionary strand of
+<a href="../05-mind-body/07-eliminativism.html">eliminative materialism</a>, but it need not eliminate
+beliefs or every use of "conscious." Its target is a specific conception of qualia.</p>
+<h2 id="heterophenomenology"><a class="header" href="#heterophenomenology">Heterophenomenology</a></h2>
+<p>Dennett's <strong>heterophenomenology</strong> treats subjects' reports as data about how things seem
+to them without granting that every apparent property exists as described. The method
+constructs a neutral catalogue of judgments, memories, reactions, and discriminations,
+then explains their production through cognitive science.</p>
+<p>This respects first-person testimony without making it incorrigible. If subjects report
+a detailed, stable visual field while experiments reveal sparse access and change
+blindness, a theory should explain both the confidence and the limitations.</p>
+<p>Critics argue that neutralising reports changes the subject. A complete explanation of
+why someone says "red has this quality" may leave the quality itself untouched. The
+illusionist answers that the alleged leftover has no independent identity conditions;
+every attempt to specify it returns to discrimination, memory, reaction, or further
+judgment.</p>
+<h2 id="the-meta-problem-strategy"><a class="header" href="#the-meta-problem-strategy">The meta-problem strategy</a></h2>
+<p>The <a href="03-hard-problem.html#the-meta-problem">meta-problem</a> asks why people judge that
+consciousness poses a hard problem. Candidate mechanisms include:</p>
+<ul>
+<li>introspective models that represent outcomes while omitting construction;</li>
+<li>attention that makes contents available but hides processing;</li>
+<li>direct recognitional concepts with no inferential bridge to physical concepts;</li>
+<li>social and linguistic practices that reify a private inner object;</li>
+<li>cognitive architectures that cannot represent their own causal basis in detail.</li>
+</ul>
+<p>Explaining these could debunk some anti-physicalist intuitions. A genuine debunking
+argument must show that the mechanisms generate the judgment whether or not qualia
+exist. A causal explanation alone is neutral: vision also has a causal explanation, but
+that does not show there are no visible objects.</p>
+<h2 id="the-hard-question-for-illusionism"><a class="header" href="#the-hard-question-for-illusionism">The hard question for illusionism</a></h2>
+<p>If illusionism is true, why does the alleged illusion itself seem phenomenal? Saying
+that a system represents itself as phenomenally conscious appears to leave open whether
+the representation is consciously experienced. Adding another representation threatens
+a regress.</p>
+<p>Illusionists reject the premise that seeming requires an intrinsic phenomenal item.
+"It seems to me that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>" can be analysed as being disposed to judge, report, remember,
+and act as though <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>, under the control of a self-model. No extra glow accompanies the
+representation.</p>
+<p>This is the decisive disagreement with phenomenal realism. The debate cannot be settled
+by agreeing that reports have mechanisms. It turns on whether the functional and
+representational account captures the minimal <a href="02-qualia-and-subjectivity.html">what-it-is-like</a>
+datum or explains only why subjects assert it.</p>
+<h2 id="ethical-caution"><a class="header" href="#ethical-caution">Ethical caution</a></h2>
+<p>Illusionism is not the claim that pain does not matter. Even if pain lacks intrinsic
+qualia as traditionally conceived, aversive states can dominate attention, drive
+avoidance, disrupt agency, and ground interests. An account that revises phenomenal
+ontology need not revise every moral conclusion.</p>
+<p>The distinction is especially important for non-human systems. Denying robust qualia
+does not make behavioural and functional evidence irrelevant; it changes which
+properties underwrite welfare. Conversely, a theory should not use the word "illusion"
+to dismiss reported suffering while retaining the mechanisms that make suffering
+practically destructive.</p>
+<h2 id="mysterianism"><a class="header" href="#mysterianism">Mysterianism</a></h2>
+<p><strong>New mysterianism</strong>, associated with Colin McGinn, holds that consciousness has a
+natural physical explanation but human minds are cognitively closed to the concepts
+needed to grasp it. Just as some animals cannot understand arithmetic, evolved human
+cognition may be unable to represent the property linking brain and experience.</p>
+<p>The position is not dualism. The missing relation may be wholly natural. Nor is it the
+modest claim that current science lacks an answer. It proposes a principled mismatch
+between our cognitive capacities and the explanatory task.</p>
+<p>McGinn argues that introspection presents consciousness without its neural relation,
+while perception presents the brain without the property that yields consciousness.
+No available faculty combines the two modes. The closure is architectural, not merely
+a shortage of data.</p>
+<h2 id="three-kinds-of-mystery"><a class="header" href="#three-kinds-of-mystery">Three kinds of mystery</a></h2>
+<p>Claims of mystery should be separated:</p>
+<ol>
+<li><strong>Current ignorance:</strong> no adequate theory exists yet.</li>
+<li><strong>Human cognitive closure:</strong> an answer exists but humans cannot understand it.</li>
+<li><strong>Incoherent demand:</strong> the apparent question results from a conceptual mistake and
+has no answer of the requested kind.</li>
+</ol>
+<p>Scientific optimism rejects the move from 1 to 2. Mysterianism affirms 2. Illusionism
+often approaches 3 for the traditional hard problem while preserving empirical
+questions about access and self-representation.</p>
+<p>Evidence for closure is difficult. Persistent failure may reflect difficulty rather
+than impossibility, and claiming to know enough about the missing explanation to prove
+it unknowable looks unstable. Analogies with animal limits show that closure is
+possible, not that this problem exceeds us.</p>
+<h2 id="nagel-without-permanent-mystery"><a class="header" href="#nagel-without-permanent-mystery">Nagel without permanent mystery</a></h2>
+<p>Nagel's argument about perspective is sometimes read as mysterian. His conclusion is
+more cautious: current objective concepts do not capture subjective character, and a
+future objective phenomenology may partly bridge the gap. The detailed
+<a href="../../../misc/llm-introspection/02-what-is-it-like-to-be-a-bat.html">bat essay</a> explicitly
+leaves physicalism open.</p>
+<p>Mysterianism turns this present conceptual limitation into a permanent species-level
+boundary. That requires an account of why conceptual innovation, instruments,
+mathematics, and artificial assistance cannot extend the relevant capacities.</p>
+<h2 id="opposite-diagnoses"><a class="header" href="#opposite-diagnoses">Opposite diagnoses</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Question</th><th>Illusionism</th><th>Mysterianism</th></tr></thead><tbody>
+<tr><td>Is phenomenal consciousness as ordinarily conceived real?</td><td>No; introspection misrepresents functional states.</td><td>Yes.</td></tr>
+<tr><td>Is there a complete natural explanation?</td><td>Yes, through cognitive and representational mechanisms.</td><td>Yes, but humans may be unable to grasp it.</td></tr>
+<tr><td>Why does the problem persist?</td><td>Our self-model generates the intuition of an irreducible residue.</td><td>Our cognitive architecture cannot form the linking concept.</td></tr>
+<tr><td>Main risk</td><td>Explaining judgments while leaving experience untouched.</td><td>Turning present ignorance into an unfalsifiable permanent limit.</td></tr>
+</tbody></table>
+</div>
+<p>The positions mark opposite limits of optimism. Illusionism expects enough mechanism to
+dissolve the problem; mysterianism expects no human mechanism of inquiry to solve it.
+Both must explain why their diagnosis is better than the ordinary possibility that the
+problem is genuine, difficult, and tractable only after conceptual and empirical change.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Dennett, Daniel C. <em>Consciousness Explained</em> (1991).</li>
+<li>Frankish, Keith. "Illusionism as a Theory of Consciousness" (2016).</li>
+<li>McGinn, Colin. "Can We Solve the Mind-Body Problem?" (1989).</li>
+<li>Schwitzgebel, Eric. <em>Perplexities of Consciousness</em> (2011).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/06-consciousness/07-theories-of-consciousness.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/06-consciousness/09-panpsychism-and-neutral-monism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/06-consciousness/07-theories-of-consciousness.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/06-consciousness/09-panpsychism-and-neutral-monism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

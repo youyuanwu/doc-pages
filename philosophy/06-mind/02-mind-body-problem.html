@@ -1,0 +1,445 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Mind-Body Problem - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/02-mind-body-problem.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="the-mind-body-problem"><a class="header" href="#the-mind-body-problem">The Mind-Body Problem</a></h1>
+<p>The <strong>mind-body problem</strong> is not merely the question whether minds and bodies are two
+things. It is the problem of satisfying several claims that each look compelling and
+that resist being held together. Mental life appears real and in some respects unlike
+anything described by physics. It also depends intimately on brains, acts on bodies,
+and belongs to a world whose physical events appear to have sufficient physical
+causes. Every major position preserves some of these appearances by revising another.</p>
+<p>Stating the conflict before naming the positions matters. Otherwise dualism can look
+like belief in a mysterious extra object and physicalism like the bare assertion that
+everything is made of matter. The live dispute concerns explanatory and causal
+relations: identity, reduction, realisation, supervenience, grounding, emergence, and
+interaction. These relations differ, and substituting one for another is responsible
+for much false agreement.</p>
+<p>This page formulates the constraint set and the main relations used to answer it. The
+next page compares the resulting <a href="03-positions-overview.html">positions</a>.</p>
+<hr />
+<h2 id="the-inconsistent-looking-package"><a class="header" href="#the-inconsistent-looking-package">The inconsistent-looking package</a></h2>
+<p>Four claims generate the contemporary problem:</p>
+<ol>
+<li><strong>Mental reality.</strong> Conscious experiences, thoughts, intentions, and emotions are
+real phenomena requiring explanation. Eliminating ordinary categories may revise
+their description, but simply denying the datum is costly.</li>
+<li><strong>Mental-physical distinctness.</strong> At least some mental facts do not appear to follow
+transparently from a complete physical description. Knowing wavelengths and neural
+responses seems different from knowing what red looks like; knowing a causal chain
+seems different from knowing what its subject meant.</li>
+<li><strong>Mental causation.</strong> Beliefs, pains, and intentions appear to cause behaviour. A
+person withdraws because the surface hurts, answers because they believe the answer,
+and searches because they intend to find something.</li>
+<li><strong>Physical causal completeness.</strong> For every physical event that has a cause, a
+sufficient physical cause appears available. Contemporary science does not need a
+non-physical force to close an otherwise incomplete trajectory.</li>
+</ol>
+<p>These are not formally inconsistent without auxiliary premises. The pressure emerges
+when distinct causes are assumed to compete for the same effect and systematic
+overdetermination is rejected. Let a physical event <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> - an arm's movement - have a
+sufficient physical cause <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, and let a distinct mental event <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> also cause <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>:</p>
+<pre class="mermaid">graph LR
+  M[Mental event M] --&gt; P2[Physical effect P2]
+  P1[Physical cause P1] --&gt; P2
+  P1 -. realises or grounds .-&gt; M
+</pre>
+<p>If <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> is wholly distinct from <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, why is the effect not overdetermined? If <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> is
+identical with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, distinctness has been surrendered. If <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> is realised or grounded
+by <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, the question becomes whether a realised property contributes causally or
+merely redescribes the contribution of its realiser. This is the <strong>exclusion problem</strong>
+in its simplest form.</p>
+<h2 id="descartes-problem-and-ours"><a class="header" href="#descartes-problem-and-ours">Descartes' problem and ours</a></h2>
+<p>Descartes distinguished <strong>thinking substance</strong>, whose essential attribute is thought,
+from <strong>extended substance</strong>, whose essential attribute is spatial extension. The view
+captures a powerful asymmetry. One can doubt the existence of any particular body
+while apparently being unable to doubt that thinking occurs; a thought has no obvious
+length or mass, while a body can be divided and measured. If mind and body have
+different essential properties, Leibniz's Law appears to imply that they are not
+identical.</p>
+<p>The classical objection is <strong>interaction</strong>. Princess Elisabeth of Bohemia asked how an
+unextended mind could determine the motion of a body. Ordinary causal interaction
+seemed to Descartes' contemporaries to require contact, shape, and motion, none of which
+belongs to an unextended substance. Modern physics no longer analyses all causation as
+contact, but the deeper demand remains: a causal claim needs lawful structure and
+evidence, not merely the observation that mind and body covary.</p>
+<p>The modern form adds two pressures unavailable to Descartes.</p>
+<ul>
+<li><strong>Dependence on the brain.</strong> Injury, anaesthesia, stimulation, development,
+psychoactive drugs, degeneration, and ordinary fatigue alter mental capacities in
+detailed and repeatable ways. The simplest explanation is that mentality is realised
+by or dependent on physical organisation, not merely coordinated with it by accident.</li>
+<li><strong>Causal closure or completeness.</strong> Physical inquiry proceeds successfully by
+looking for physical antecedents of physical events. This is a methodological
+principle supported by explanatory success, not an independently measured law that
+every event has a known sufficient cause. Still, a theory that inserts extra causes
+must explain why physical accounts do not reveal gaps or excess energy.</li>
+</ul>
+<p>Substance dualism therefore faces more than the old question of spatial contact. It
+must explain fine-grained dependence, causal integration, and why a separate substance
+is needed rather than inferred from a gap in current explanation.</p>
+<h2 id="identity-is-stronger-than-correlation"><a class="header" href="#identity-is-stronger-than-correlation">Identity is stronger than correlation</a></h2>
+<p>One response identifies mental states with physical states. If pain just <strong>is</strong> a
+neural state, there are not two causes competing for one movement, any more than
+lightning and an electrical discharge are two causes of a fire. Correlation between
+pain and neural activity is then expected because the correlated descriptions concern
+one event.</p>
+<p>But evidence for covariance is not evidence specifically for identity. Morning Star
+and Evening Star co-refer, whereas smoke and fire correlate without being identical.
+Identity requires that the apparent differences can be explained as differences in
+mode of presentation, level, or concept rather than differences in the world.</p>
+<p>The strongest early form was <strong>type identity</strong>:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">mental type </span></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">physical type </span></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord">.</span></span></span></span></span></p>
+<p>Pain might, for example, be identical with a specified neural type. <strong>Multiple
+realisation</strong> challenges the right side: creatures with different nervous systems, or
+artificial systems with no neurons, might occupy the same mental kind. Restricting the
+identity to each species or individual saves extension at the cost of making the mental
+kind physically disjunctive. <strong>Token identity</strong> weakens the claim: every particular
+mental event is some physical event, although no mental type corresponds to one
+physical type. That protects causal closure but says less about what unifies all the
+tokens as mental.</p>
+<h2 id="reduction-realisation-and-grounding"><a class="header" href="#reduction-realisation-and-grounding">Reduction, realisation, and grounding</a></h2>
+<p>Three dependence claims are often grouped under "physicalism" but should be separated.</p>
+<p><strong>Reduction</strong> says, roughly, that truths or explanations at one level can be derived
+from lower-level truths plus bridge principles. A reduction may be ontological - no
+additional entities are required - without being explanatory in practice. Conversely,
+successful intertheoretic derivation may preserve higher-level kinds rather than
+eliminate them.</p>
+<p><strong>Realisation</strong> is the relation between a functional role and the system that performs
+it. A mousetrap can be realised in different materials because what makes it a trap is
+an organised causal capacity. Functionalism treats many mental states similarly: pain
+is the state, whatever its composition, that is typically caused by damage and tends
+to produce aversion, attention, learning, and withdrawal. Realisation explains
+multiple realisability, but it faces the question whether phenomenal character is fixed
+by causal role.</p>
+<p><strong>Grounding</strong> says that mental facts obtain <em>in virtue of</em> physical facts. It is stronger
+than covariance and is directed: if the mental is grounded in the physical, the reverse
+does not follow. The general notion and its contrast with supervenience are developed
+in <a href="../04-ontology/13-fundamentality/01-grounding.html">Grounding</a>. Invoking it does not
+finish the philosophy of mind. One must specify which physical facts ground which
+mental facts and why that ground is sufficient.</p>
+<p>The relations may combine. A functional state can be realised by neural activity, and
+facts about its realisation can ground facts about the state. But they need not combine:
+a property dualist may accept supervenience while rejecting physical grounding, and a
+type-identity theorist needs no separate realisation relation between identical types.</p>
+<h2 id="why-supervenience-is-not-enough"><a class="header" href="#why-supervenience-is-not-enough">Why supervenience is not enough</a></h2>
+<p>Mental properties <strong>supervene</strong> on physical properties when no two possible cases can
+differ mentally without differing physically. In a common formulation:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord amsrm">□</span><span class="mord">∀</span><span class="mord mathnormal">x</span><span class="mord">∀</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mopen"><span class="delimsizing size1">(</span></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mclose"><span class="delimsizing size1">)</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>The notation suppresses important choices about which physical properties, which
+mental properties, and which possible worlds are compared, but the central idea is
+covariation across possibility. Supervenience rules out a physical duplicate with a
+different mind when the modal strength is sufficiently broad.</p>
+<p>It does not explain why the covariance holds. Divine properties might supervene on the
+physical if God necessarily creates a matching mental fact for every physical fact;
+that would not make the mental physical. A property's being determinately crimson also
+supervenes on its being red, although crimson is not grounded by redness. Supervenience
+is therefore a constraint any dependence theory may satisfy, not a complete dependence
+theory. This is why the ontology section treats physicalism as a
+<a href="../04-ontology/13-fundamentality/03-fundamentality.html">fundamentality claim</a> rather
+than merely a modal pattern.</p>
+<h2 id="emergence"><a class="header" href="#emergence">Emergence</a></h2>
+<p><strong>Emergence</strong> names two importantly different ideas.</p>
+<ul>
+<li><strong>Weak emergence</strong> concerns derivation or prediction. A higher-level pattern follows
+from lower-level dynamics but is visible only through simulation, coarse-graining, or
+a new explanatory vocabulary. No new fundamental power is implied.</li>
+<li><strong>Strong emergence</strong> adds genuinely new properties or powers not deducible even in
+principle from the lower level. If conscious properties have downward causal powers,
+strong emergence threatens physical completeness; if they do not, it approaches
+epiphenomenalism.</li>
+</ul>
+<p>Calling consciousness emergent is therefore the beginning of a theory, not its result.
+The weak claim may be accepted by reductive physicalists; the strong claim needs laws
+linking physical bases to novel properties and an account of causal interaction. The
+analogy with liquidity or temperature helps only if the relevant feature of
+consciousness is shown to be similarly explained by collective organisation.</p>
+<h2 id="the-three-principal-gaps"><a class="header" href="#the-three-principal-gaps">The three principal gaps</a></h2>
+<p>"The" mind-body problem contains at least three gaps, and a view may close one while
+leaving the others open.</p>
+<ol>
+<li><strong>The phenomenal gap.</strong> Why is physical or functional processing accompanied by
+something it is like for a subject? Complete structural and causal information
+appears not to reveal phenomenal character.</li>
+<li><strong>The intentional gap.</strong> How can physical states possess truth conditions, refer to
+distant or nonexistent things, and be correct or incorrect? Causal covariance alone
+appears too weak and promiscuous.</li>
+<li><strong>The causal gap.</strong> How can reasons and experiences make a difference if physical
+causes are already sufficient? Identity, realisation, and interventionist accounts
+offer different answers.</li>
+</ol>
+<p>The gaps should not be bundled. Functionalism was designed chiefly to explain causal
+role and multiple realisation; an absent-qualia objection targets its phenomenal
+adequacy, not its account of role. A teleosemantic theory may explain representation
+without saying why represented information is experienced. A property dualist may
+preserve phenomenal distinctness while worsening causal exclusion. Progress requires
+asking which problem a proposal solves and what remains.</p>
+<h2 id="constraint-or-intuition"><a class="header" href="#constraint-or-intuition">Constraint or intuition?</a></h2>
+<p>Each member of the inconsistent-looking package can be challenged.</p>
+<ul>
+<li>An <strong>eliminativist</strong> revises mental reality by arguing that some folk categories will
+disappear as scientific understanding improves.</li>
+<li>A <strong>reductive physicalist</strong> denies robust mental-physical distinctness and explains
+the appearance through different concepts or modes of presentation.</li>
+<li>An <strong>epiphenomenalist</strong> denies that phenomenal properties cause physical effects.</li>
+<li>An <strong>interactionist dualist</strong> denies physical causal completeness.</li>
+<li>A <strong>non-reductive physicalist</strong> disputes the inference from sufficient physical cause
+to exclusion, treating realised higher-level causes as non-competing.</li>
+</ul>
+<p>No option escapes cost. The question is which claim has the weakest support after its
+role in the conflict is made explicit. Appeals to intuition are evidence about our
+concepts and apparent possibilities, but those concepts may change under explanation.
+Appeals to science constrain dependence and causation, but scientific descriptions do
+not themselves declare which metaphysical relation holds.</p>
+<h2 id="where-this-leaves-us"><a class="header" href="#where-this-leaves-us">Where this leaves us</a></h2>
+<p>The mind-body problem is a constraint problem. Mental reality, apparent distinctness,
+mental causation, and physical completeness pull in different directions. Identity,
+reduction, realisation, supervenience, grounding, and emergence are not interchangeable
+ways of saying that mind depends on body; they make different commitments and face
+different objections.</p>
+<p>The <a href="03-positions-overview.html">positions overview</a> now compares the main strategies by
+which philosophers preserve, reinterpret, or abandon members of this package.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Davidson, Donald. "Mental Events" (1970).</li>
+<li>Descartes, Rene. <em>Meditations on First Philosophy</em> (1641), especially Meditation VI.</li>
+<li>Elisabeth of Bohemia. Correspondence with Descartes (1643).</li>
+<li>Kim, Jaegwon. <em>Mind in a Physical World</em> (1998).</li>
+<li>Lewis, David. "An Argument for the Identity Theory" (1966).</li>
+<li>Putnam, Hilary. "The Nature of Mental States" (1967).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../philosophy/06-mind/01-introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../philosophy/06-mind/03-positions-overview.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../philosophy/06-mind/01-introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../philosophy/06-mind/03-positions-overview.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../build/mermaid.min.js"></script>
+        <script src="../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

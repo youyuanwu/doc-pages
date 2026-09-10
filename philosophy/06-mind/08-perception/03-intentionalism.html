@@ -1,0 +1,388 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Intentionalism about Perception - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/08-perception/03-intentionalism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="intentionalism-about-perception"><a class="header" href="#intentionalism-about-perception">Intentionalism about Perception</a></h1>
+<p><strong>Intentionalism</strong> holds that perceptual experience is a representational state: it
+presents the world as being a certain way and is accurate when the world matches that
+content. A straight stick in water can be represented as bent; a hallucination can
+represent a red apple when no apple exists. Error therefore requires no private object
+that literally has the apparent property.</p>
+<p>As a theory of perception, intentionalism explains the common factor among veridical,
+illusory, and hallucinatory cases. It is broader than strong representationalism about
+consciousness. One can hold that every perceptual experience has content while denying
+that content exhausts <a href="../06-consciousness/06-representationalism.html">phenomenal character</a>.</p>
+<hr />
+<h2 id="accuracy-conditions"><a class="header" href="#accuracy-conditions">Accuracy conditions</a></h2>
+<p>A perceptual state has <strong>accuracy conditions</strong> specifying how the environment must be
+for the experience to be veridical. A visual experience as of a red sphere is accurate
+only if an appropriate red spherical object is present in the represented location.</p>
+<p>This allows one type of state to occur in three ways:</p>
+<ul>
+<li><strong>veridical:</strong> the represented object and properties are present;</li>
+<li><strong>illusory:</strong> an object is present but one or more represented properties are wrong;</li>
+<li><strong>hallucinatory:</strong> the represented scene lacks the ordinary object entirely.</li>
+</ul>
+<p>The representation can be false because content is fixed by the system's normal
+function, causal history, or role rather than by whatever happens to cause the current
+token. The general theories of content are developed in
+<a href="../07-intentionality/03-naturalizing-content.html">Naturalizing Mental Content</a>.</p>
+<h2 id="perception-is-not-judgment"><a class="header" href="#perception-is-not-judgment">Perception is not judgment</a></h2>
+<p>Perceptual representation need not be a belief. Knowing that two lines in an illusion
+are equal does not stop one from looking longer. Experience can present what judgment
+rejects. This <strong>recalcitrance</strong> supports a distinct perceptual level with its own format
+and update rules.</p>
+<p>Nor must perceptual content be sentence-like. It may encode magnitudes, spatial
+relations, object files, affordances, and probability distributions. The word
+"representation" commits the theory to correctness conditions and systematic use, not
+to an inner sentence viewed by a homunculus.</p>
+<p>The distinction explains why perception can justify belief without itself being a
+belief. Experience supplies world-directed content that a subject may accept, doubt, or
+override.</p>
+<h2 id="conceptual-and-non-conceptual-content"><a class="header" href="#conceptual-and-non-conceptual-content">Conceptual and non-conceptual content</a></h2>
+<p><strong>Conceptualism</strong> holds that perceptual content is structured by concepts available to
+the subject. This connects perception with reasons and judgment: an experience can
+justify a belief because both occupy conceptual space.</p>
+<p><strong>Non-conceptualism</strong> notes that perception is more fine-grained than the concepts a
+subject possesses. A person may discriminate shades without names or stable concepts;
+infants and animals perceive before mastering language. Experience also appears to
+represent continuous magnitudes and egocentric spatial relations unlike propositions.</p>
+<p>A mixed view gives perceptual systems non-conceptual content that becomes conceptually
+available through attention and categorisation. The epistemic question then becomes how
+non-conceptual representation can serve as a reason rather than merely cause a belief.</p>
+<h2 id="transparency"><a class="header" href="#transparency">Transparency</a></h2>
+<p>When subjects attend to visual experience, they seem to encounter the colour and shape
+of the object, not intrinsic properties of an inner state. This <strong>transparency</strong> supports
+intentionalism: phenomenal attention goes through the state to what it represents.</p>
+<p>Transparency is compatible with hallucination. A hallucinatory state presents a red
+apple outwardly even though nothing satisfies the content. It does not present a private
+red object as private.</p>
+<p>Critics point to blur, double vision, afterimages, effort, and familiarity as features
+of experience not straightforwardly attributed to external objects. Intentionalists can
+represent them as properties of apparent viewing conditions or add a perceptual <strong>mode</strong>.
+The latter weakens the claim that content alone determines character.</p>
+<h2 id="object-dependent-and-existential-content"><a class="header" href="#object-dependent-and-existential-content">Object-dependent and existential content</a></h2>
+<p>A veridical perception of a particular tree may have <strong>object-dependent content</strong> that
+could not exist without that tree. A matching hallucination cannot share that exact
+content. This creates tension with the common-factor aim.</p>
+<p>One solution distinguishes levels:</p>
+<ul>
+<li>a narrow existential content such as <em>there is a tree thus-and-so located</em>, shared by
+perception and hallucination;</li>
+<li>a singular content involving this particular tree, available only in the good case.</li>
+</ul>
+<p>Another rejects a common content and moves toward disjunctivism. A third allows an empty
+singular content in hallucination. Each must explain subjective indistinguishability and
+the explanatory generalisations supported by the shared internal state.</p>
+<h2 id="perceptual-constancy"><a class="header" href="#perceptual-constancy">Perceptual constancy</a></h2>
+<p>The retinal projection of an object changes with distance, angle, illumination, and
+movement, while the object is experienced as relatively constant. Intentionalism
+explains this by distinguishing proximal sensory registration from distal content. The
+system represents stable size, shape, and colour by using contextual information.</p>
+<p>Constancy shows why perception cannot simply copy stimuli. It infers or tracks worldly
+properties through changing evidence. Illusions occur when mechanisms that normally
+support constancy are applied under unusual conditions.</p>
+<p>This is compatible with predictive and ecological approaches. The dispute concerns
+whether the achievement is best modelled as constructing an internal content, directly
+detecting invariants through active exploration, or both.</p>
+<h2 id="hallucination-and-causal-matching"><a class="header" href="#hallucination-and-causal-matching">Hallucination and causal matching</a></h2>
+<p>If direct stimulation reproduces the neural state normally caused by a red apple,
+intentionalism predicts a matching representational experience. The token is inaccurate
+because no apple satisfies it. This integrates hallucination into ordinary perceptual
+psychology.</p>
+<p>The <strong>screening-off</strong> concern is that the external object appears to make no constitutive
+difference once the internal representation is fixed. The object causes but does not
+partly constitute experience. Naive realists regard this as losing perceptual contact.</p>
+<p>Intentionalists reply that representation is not a veil. The subject need not perceive
+the internal vehicle; the state is directly about the apple. Causal mediation and
+representational content are the means by which ordinary objects are perceived.</p>
+<h2 id="perceptual-presence"><a class="header" href="#perceptual-presence">Perceptual presence</a></h2>
+<p>Seen objects feel present in a way imagined objects do not, even when content overlaps.
+Intentionalists explain this through richer detail, involuntary updating, egocentric
+location, sensorimotor expectations, or a distinctive assertoric mode.</p>
+<p>No one factor seems sufficient. Imagery can be detailed; hallucination can be vivid;
+perception can be uncertain. A plural account may treat presence as a cluster involving
+world-sensitive control, counterfactual responsiveness, and a mode that presents content
+as currently given.</p>
+<p>If perceptual presence cannot be reduced to content, intentionalism remains a theory of
+world-directedness rather than a complete theory of phenomenology.</p>
+<h2 id="the-causal-theory-of-perception"><a class="header" href="#the-causal-theory-of-perception">The causal theory of perception</a></h2>
+<p>Veridical perception normally requires that the object appropriately cause the
+experience. Accidentally having an accurate hallucination while a matching object sits
+behind an opaque barrier is not seeing that object.</p>
+<p>A <strong>causal theory</strong> therefore adds to accurate content:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">erce</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">es</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⇒</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal">cc</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal">pp</span><span class="mord mathnormal">ro</span><span class="mord mathnormal">p</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">ia</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">a</span><span class="mord mathnormal">u</span><span class="mord mathnormal">se</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span></p>
+<p>The word "appropriate" excludes deviant chains, such as a tree causing an artist to
+paint a picture that later causes an experience. Specifying it may require information-
+preserving, counterfactually sensitive dependence.</p>
+<p>The causal condition explains why veridical hallucination is not perception. It still
+treats the experiential state as internally common; the external relation determines
+whether the state counts as seeing.</p>
+<h2 id="epistemic-role"><a class="header" href="#epistemic-role">Epistemic role</a></h2>
+<p>Perceptual experiences justify beliefs partly because they present the world as being a
+certain way. Their content can stand in rational relations to judgment. Reliability and
+appropriate causation connect the content with fact.</p>
+<p>If hallucination has the same content and phenomenal character, the subject may have the
+same internal justification in both cases while only the good case yields knowledge.
+Externalist epistemology can add reliability; disjunctivists instead give the good case
+a stronger factive reason.</p>
+<p>Intentionalism therefore fits fallibilist perceptual knowledge naturally. It is less
+suited to a conception on which seeing that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> places the fact itself, rather than a
+representational intermediary, within the subject's reason.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><strong>Illusion and hallucination</strong></td><td><strong>Strong</strong> - false or unsatisfied content supplies a common structure.</td></tr>
+<tr><td><strong>World-directedness</strong></td><td><strong>Strong</strong> - experience is about ordinary objects, not inner sense-data.</td></tr>
+<tr><td><strong>Perceptual constancy</strong></td><td><strong>Strong</strong> - distal content differs from proximal stimulation.</td></tr>
+<tr><td><strong>Phenomenal completeness</strong></td><td><strong>Contested</strong> - modes, blur, and affect may exceed content.</td></tr>
+<tr><td><strong>Directness</strong></td><td><strong>Defensible but disputed</strong> - representation need not itself be perceived.</td></tr>
+<tr><td><strong>Epistemic contact</strong></td><td><strong>Fallibilist</strong> - accurate, appropriately caused content supports knowledge.</td></tr>
+</tbody></table>
+</div>
+<p>Intentionalism offers the strongest common-factor account without private objects. Its
+success depends on explaining content and perceptual mode independently, and on showing
+that representation connects subjects to the world rather than recreating the veil in
+functional form.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Burge, Tyler. <em>Origins of Objectivity</em> (2010).</li>
+<li>Byrne, Alex. "Intentionalism Defended" (2001).</li>
+<li>Dretske, Fred. <em>Naturalizing the Mind</em> (1995).</li>
+<li>Siegel, Susanna. <em>The Contents of Visual Experience</em> (2010).</li>
+<li>Tye, Michael. <em>Ten Problems of Consciousness</em> (1995).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/08-perception/02-sense-data-and-adverbialism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/08-perception/04-disjunctivism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/08-perception/02-sense-data-and-adverbialism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/08-perception/04-disjunctivism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

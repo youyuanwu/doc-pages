@@ -1,0 +1,446 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Non-Reductive Physicalism and Emergence - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/05-mind-body/06-nonreductive-physicalism.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="non-reductive-physicalism-and-emergence"><a class="header" href="#non-reductive-physicalism-and-emergence">Non-Reductive Physicalism and Emergence</a></h1>
+<p><strong>Non-reductive physicalism</strong> holds that the world is wholly physical in its concrete
+constitution while mental properties and explanations remain real, distinctive, and
+not reducible to physical types. Minds do not float free of bodies: mental differences
+require physical differences, and every mental state is physically realised. Yet a
+complete neurological vocabulary need not replace belief, pain, intention, or emotion.</p>
+<p>The position tries to combine the empirical discipline and causal completeness of
+physicalism with the multiple realisation and explanatory autonomy emphasised by
+<a href="05-functionalism.html">functionalism</a>. It is attractive because this pattern appears
+throughout science. Organisms, economies, programs, and storms are physically
+constituted without their useful kinds being identical with microphysical kinds. The
+difficulty is whether autonomy amounts to more than convenient description. If the
+physical base already causes every effect, what makes a distinct mental property
+causally efficacious?</p>
+<hr />
+<h2 id="what-makes-the-view-physicalist"><a class="header" href="#what-makes-the-view-physicalist">What makes the view physicalist?</a></h2>
+<p>At minimum, non-reductive physicalism accepts:</p>
+<ol>
+<li><strong>Constitution:</strong> every concrete minded being is wholly physically constituted.</li>
+<li><strong>Dependence:</strong> no mental difference occurs without an appropriate physical
+difference.</li>
+<li><strong>Completeness:</strong> physical events do not require independent non-physical causes.</li>
+<li><strong>Reality of the mental:</strong> mental properties support true explanations and are not
+merely shorthand to be eliminated.</li>
+<li><strong>Non-reduction:</strong> mental kinds are not identical with, definable as, or derivable
+from one set of physical kinds.</li>
+</ol>
+<p>The last two claims distinguish the position from <a href="04-identity-theory.html">identity theory</a>
+and eliminativism; the first three distinguish it from robust
+<a href="02-property-dualism.html">property dualism</a>. The challenge is showing that the package is
+stable. If physical constitution fully determines causal powers, the mental appears
+reducible or idle. If mental properties add powers, completeness appears false.</p>
+<p>"Physical" itself is not simple. Defined by current physics, physicalism is probably
+false because current physics is incomplete. Defined by ideal future physics, it risks
+saying only that everything is whatever the final theory describes. This is Hempel's
+dilemma, discussed as an ontological issue in
+<a href="../../04-ontology/13-fundamentality/03-fundamentality.html">Fundamentality, Levels, and Priority</a>.
+Non-reductive views often understand physicalism through causal and constitutive
+dependence rather than a fixed list of particles.</p>
+<h2 id="supervenience"><a class="header" href="#supervenience">Supervenience</a></h2>
+<p>Mental properties supervene on physical properties when no mental difference occurs
+without a physical difference:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord amsrm">□</span><span class="mord">∀</span><span class="mord mathnormal">x</span><span class="mord">∀</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mopen"><span class="delimsizing size1">(</span></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mclose"><span class="delimsizing size1">)</span></span><span class="mord">.</span></span></span></span></span></p>
+<p>Supervenience captures determination while allowing multiple realisation: different
+physical states may realise one mental state, but identical total physical states may
+not differ mentally. Local, global, weak, and strong versions differ over objects and
+possible worlds.</p>
+<p>The relation is too weak to constitute physicalism by itself. Moral facts may supervene
+on natural facts without being reducible; a dualist God could ensure a necessary match
+between physical and phenomenal facts. Supervenience says that variation is constrained,
+not why the constraint holds or which side is prior. The view therefore needs
+realisation, constitution, or <a href="../../04-ontology/13-fundamentality/01-grounding.html">grounding</a>.</p>
+<h2 id="realisation-constitution-and-grounding"><a class="header" href="#realisation-constitution-and-grounding">Realisation, constitution, and grounding</a></h2>
+<p><strong>Realisation</strong> connects a role property to what occupies it. Neural state <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> realises
+mental state <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> when <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> has the causal organisation constitutive of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span>. Different
+states can realise the same role.</p>
+<p><strong>Constitution</strong> says that the physical parts and organisation compose the minded
+system without being numerically identical to every higher-level property it has. A
+statue is constituted by matter; an organism is constituted by cells. Constitution is
+not automatically causal explanation.</p>
+<p><strong>Grounding</strong> says the mental facts obtain in virtue of physical facts. It adds
+direction and explanatory priority to supervenience:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">grounds</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord">.</span></span></span></span></span></p>
+<p>These notions explain dependence in complementary ways, but none is magic vocabulary.
+A grounding claim must identify a sufficient base; a realisation claim must specify the
+role; a constitution claim must explain why this organisation constitutes a mind. The
+hard cases reappear as questions about sufficiency rather than correlation.</p>
+<h2 id="multiple-realisation-and-the-special-sciences"><a class="header" href="#multiple-realisation-and-the-special-sciences">Multiple realisation and the special sciences</a></h2>
+<p>Higher-level sciences classify systems by patterns that cut across microphysical
+differences. A heart is a pump across variations in tissue; memory may be implemented
+through different neural mechanisms; a program survives changes in hardware. Such
+kinds support counterfactuals, interventions, and explanations unavailable at a list of
+microstates.</p>
+<p>This is the <strong>autonomy of the special sciences</strong>. Autonomy need not imply independent
+substances or fundamental laws. It means that higher-level generalisations are stable
+under lower-level variation and track variables at the grain relevant to prediction
+and control.</p>
+<p>Mental kinds appear to fit. Beliefs are grouped by content and inferential role, pains
+by experiential and motivational role, not exact microphysics. However, explanatory
+autonomy does not establish ontological irreducibility. Temperature explanations are
+autonomous in practice while temperature is reductively explicable statistically. The
+non-reductive physicalist needs to say whether mental non-reduction is principled or a
+temporary limit on derivation.</p>
+<h2 id="kims-exclusion-argument"><a class="header" href="#kims-exclusion-argument">Kim's exclusion argument</a></h2>
+<p>The general exclusion problem and the alternatives to non-reduction are developed in
+<a href="../09-causation-and-action/01-mental-causation.html">The Problem of Mental Causation</a>;
+the present discussion isolates its force against this particular form of physicalism.</p>
+<p>The central objection can be stated for a mental property <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span>, its physical realiser
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, and physical effect <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>:</p>
+<ol>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> causes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> realises <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> and is sufficient for <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> is not identical with <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is not systematically overdetermined.</li>
+<li>Therefore <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> does not contribute a distinct cause of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</li>
+</ol>
+<p>If mental properties are causally individuated, losing causal efficacy threatens their
+reality. Kim's conclusion is that stable physicalism tends toward reduction: higher-level
+properties either inherit the causal powers of their realisers and are reducible, or
+possess no powers of their own.</p>
+<p>The argument assumes a <strong>competition model</strong> on which sufficient causes at different
+levels exclude one another. Many replies reject that model. A person's pressing a key
+and a neural-muscular process are not two independent causes; one event satisfies two
+descriptions. The question then becomes whether properties, rather than events, compete.</p>
+<h2 id="same-instance-different-levels"><a class="header" href="#same-instance-different-levels">Same instance, different levels</a></h2>
+<p>One reply treats mental and physical explanations as descriptions of the same causal
+process at different grains. "The glass broke because it was fragile" and a molecular
+explanation do not posit two breakings or necessarily two causes. Fragility identifies
+a stable dependency useful across varied microstructures.</p>
+<p>Applied to mind, a belief causes an action by being realised in the physical process
+that causes it. The mental cause is not an extra force added after the neural cause. It
+selects the feature proportional to the range of counterfactual changes: changing the
+belief across its possible realisers changes the action.</p>
+<p>The objection is that this may secure explanations without distinct properties. If
+all causal powers belong to the physical realiser, calling the realised property a
+cause may be semantic generosity. The reply is that causation itself is often defined
+through difference-making variables rather than a metaphysical transfer of power; on
+that account, the higher-level variable can be causally apt precisely because it omits
+irrelevant physical detail.</p>
+<h2 id="intervention-and-proportionality"><a class="header" href="#intervention-and-proportionality">Intervention and proportionality</a></h2>
+<p>An <strong>interventionist</strong> account asks whether changing <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> in an appropriate causal model
+changes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, holding relevant alternatives fixed. Intervening on a belief means
+changing any suitable physical realiser so that the subject holds a different belief.
+If action changes robustly across realisers, the mental variable supports causal claims.</p>
+<p><strong>Proportionality</strong> favours causes neither too specific nor too general for their effects.
+The exact microstate may contain details irrelevant to the action, while the belief that
+the route is blocked captures the difference that predicts choosing another route.
+Higher-level causation is then not second-best shorthand; it can be more explanatory.</p>
+<p>These accounts face two concerns. Interventions on mental variables are implemented
+physically, so critics say the physical variable still does all the work. And content
+properties may be externally individuated, making surgical intervention conceptually
+difficult. Still, the framework demonstrates that causal relevance does not require an
+independent force or a one-to-one fundamental property.</p>
+<h2 id="the-subset-powers-response"><a class="header" href="#the-subset-powers-response">The subset-powers response</a></h2>
+<p>Another proposal identifies a realised property's causal powers with a <strong>subset</strong> of
+the realiser's powers. A neural state may cause many effects; as a pain it has the
+subset involving attention, aversion, learning, and withdrawal. The mental property is
+distinct because it selects a stable power profile, yet adds no power beyond the
+physical base.</p>
+<p>This avoids overdetermination: one power is not exercised twice. It also makes mental
+kinds causally individuated. Critics argue that subset selection reduces the mental
+property to a functional physical property, yielding a sophisticated reduction rather
+than non-reduction. Whether that is a defeat depends on whether non-reductive
+physicalism sought distinct powers or only irreducible explanatory kinds.</p>
+<h2 id="weak-emergence"><a class="header" href="#weak-emergence">Weak emergence</a></h2>
+<p><strong>Weak emergence</strong> occurs when higher-level patterns follow from lower-level rules but
+are difficult to derive except through simulation, aggregation, or new concepts.
+Flocks, cellular automata, and thermodynamic patterns are standard examples. Nothing
+fundamentally new enters the causal inventory.</p>
+<p>Mental properties may be weakly emergent if complex organisation produces capacities
+that are unpredictable from local components yet wholly realised by them. This fits
+physicalism and explanatory autonomy. It does not by itself answer why the organisation
+is conscious. Calling phenomenal character weakly emergent is informative only when a
+derivation or mechanism connects the levels.</p>
+<p>Weak emergence is often epistemic: it concerns our methods of prediction. A property
+may be surprising to us while reducible in principle. Non-reductive physicalism needs a
+stronger claim if its non-reduction is metaphysical rather than practical.</p>
+<h2 id="strong-emergence"><a class="header" href="#strong-emergence">Strong emergence</a></h2>
+<p><strong>Strong emergence</strong> attributes novel, irreducible properties or causal powers to
+organised systems. The base necessitates or lawfully produces the higher property, but
+lower-level facts and laws do not exhaust its nature or powers.</p>
+<p>If strongly emergent consciousness has downward causal effects, physical completeness
+must be qualified. If it lacks such effects, the view approaches epiphenomenal property
+dualism. Strong emergence therefore sits near the border of physicalism. Calling the
+emergent bearer physical does not settle whether the emergent property belongs to the
+physical domain.</p>
+<p>A strong-emergence law could be fundamental and empirically serious. It would need to
+specify when the property arises, what causal difference it makes, and how those claims
+are tested. Without such content, "emergence" records surprise rather than explains it.</p>
+<h2 id="comparison-with-other-higher-level-entities"><a class="header" href="#comparison-with-other-higher-level-entities">Comparison with other higher-level entities</a></h2>
+<p>The ontology section notes that derivative entities can be real and explanatorily
+indispensable. A phonon is a collective excitation grounded in lattice behaviour;
+biological fitness and economic inflation likewise depend on lower-level facts while
+supporting causal explanation. These cases weaken the inference from derivative to
+unreal.</p>
+<p>The analogy does not settle consciousness. In accepted cases, the higher-level
+property's relation to the base can be modelled and derived, and no further phenomenal
+datum appears omitted. Non-reductive physicalism uses the cases to show that levels can
+coexist, not to prove that phenomenal character is one more ordinary higher-level
+pattern.</p>
+<p>The right comparison is disaggregated. Belief and computational capacity may resemble
+functional higher-level kinds; phenomenal character may present a different problem.
+A pluralist physicalism can accept reduction or realisation on a kind-by-kind basis
+rather than promise one relation for all mentality.</p>
+<h2 id="assessment"><a class="header" href="#assessment">Assessment</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Criterion</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><strong>Physical dependence</strong></td><td><strong>Strong</strong> - constitution, realisation, and grounding make dependence central.</td></tr>
+<tr><td><strong>Multiple realisation</strong></td><td><strong>Strong</strong> - higher-level kinds tolerate varied bases.</td></tr>
+<tr><td><strong>Explanatory autonomy</strong></td><td><strong>Strong</strong> - mental variables can be stable and proportional.</td></tr>
+<tr><td><strong>Mental causation</strong></td><td><strong>Contested</strong> - non-competition and intervention answer some forms of exclusion.</td></tr>
+<tr><td><strong>Phenomenal consciousness</strong></td><td><strong>Incomplete</strong> - dependence claims need a sufficient base and bridge.</td></tr>
+<tr><td><strong>Metaphysical stability</strong></td><td><strong>Pressure point</strong> - stronger autonomy approaches dualism; weaker autonomy approaches reduction.</td></tr>
+</tbody></table>
+</div>
+<p>Non-reductive physicalism is less a comfortable midpoint than a demand for a precise
+dependence relation. Its best case comes from the ordinary legitimacy of higher-level
+science. Its hardest case is consciousness, where the relation between explanatory
+grain and phenomenal character remains exactly what needs to be shown.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Davidson, Donald. "Mental Events" (1970).</li>
+<li>Fodor, Jerry A. "Special Sciences" (1974).</li>
+<li>Kim, Jaegwon. <em>Mind in a Physical World</em> (1998).</li>
+<li>Putnam, Hilary. "The Nature of Mental States" (1967).</li>
+<li>Shoemaker, Sydney. <em>Physical Realization</em> (2007).</li>
+<li>Wilson, Jessica M. <em>Metaphysical Emergence</em> (2021).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/05-mind-body/05-functionalism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/05-mind-body/07-eliminativism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/05-mind-body/05-functionalism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/05-mind-body/07-eliminativism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

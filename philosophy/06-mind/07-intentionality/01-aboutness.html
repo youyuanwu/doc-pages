@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Intentionality and Aboutness - youyuanwu</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Personal site of youyuanwu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">youyuanwu</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/youyuanwu/youyuanwu.github.io/edit/main/docs/philosophy/06-mind/07-intentionality/01-aboutness.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+<h1 id="intentionality-and-aboutness"><a class="header" href="#intentionality-and-aboutness">Intentionality and Aboutness</a></h1>
+<p><strong>Intentionality</strong> is the directedness or aboutness of mental states. A belief may be
+about tomorrow's weather, a fear about an approaching dog, and a hope about an event
+that never occurs. Thoughts can concern distant, abstract, fictional, and impossible
+objects, and they can represent their subject matter incorrectly. The central problem
+is to explain how a state of one physical organism acquires this world-directed and
+norm-governed character.</p>
+<p>Intentionality is not intention in the ordinary sense of planning an action. Intentions
+are one intentional kind alongside belief, desire, perception, memory, imagination,
+and fear. Nor is intentionality identical with consciousness. Much representation is
+unconscious, while a diffuse mood may have a vivid character without a determinate
+object. A theory of mind needs both notions even if it ultimately connects them.</p>
+<hr />
+<h2 id="brentanos-mark-of-the-mental"><a class="header" href="#brentanos-mark-of-the-mental">Brentano's mark of the mental</a></h2>
+<p>Franz Brentano proposed intentionality as the <strong>mark of the mental</strong>. Every mental
+phenomenon is directed toward an object or content: in judgment something is affirmed,
+in love something is loved, in presentation something is presented. Physical phenomena,
+he argued, lack this directedness.</p>
+<p>Brentano described the object's <strong>intentional inexistence</strong> within the act. This did not
+straightforwardly mean that every object literally exists inside the mind. It marked a
+peculiar feature: one can think of Pegasus whether or not Pegasus exists. The thought's
+being about Pegasus cannot require an ordinary relation to an existing horse.</p>
+<p>The proposal faces pressure in both directions. Pains and undirected moods may be
+mental without clearly being about anything. Maps, sentences, neural signals, and
+computer states may represent without themselves being minds. A defender can say that
+the artifacts possess only <strong>derived intentionality</strong>, conferred by minded users, while
+pains represent bodily disturbance. Both replies turn the mark into a research program:
+derived and original content, and the alleged content of bodily feeling, must be
+explained rather than stipulated.</p>
+<h2 id="relation-or-relational-looking"><a class="header" href="#relation-or-relational-looking">Relation or relational-looking?</a></h2>
+<p>Ordinary relations require relata. If Alice is taller than Bob, both Alice and Bob must
+exist. Intentionality appears not to obey this requirement:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Alice thinks about Pegasus</span></span></span></span></span></span></p>
+<p>may be true while Pegasus does not exist. Three broad responses are available.</p>
+<ol>
+<li><strong>Object theories</strong> accept unusual relata: nonexistent objects, abstract contents,
+or representations that mediate thought.</li>
+<li><strong>Content theories</strong> say the state has conditions of correctness without standing in
+an ordinary relation to the represented object.</li>
+<li><strong>Adverbial or act theories</strong> treat thinking Pegasus-wise as a modification of the
+subject's activity, requiring no object corresponding to the grammatical noun phrase.</li>
+</ol>
+<p>The ontological options are surveyed through fictional and intentional objects in
+<a href="../../04-ontology/05-existence/03-fictional-objects.html">Ontology</a>. Philosophy of mind
+inherits the explanatory remainder: if aboutness is not a simple relation, what gives a
+state its content and correctness conditions?</p>
+<h2 id="content-and-object"><a class="header" href="#content-and-object">Content and object</a></h2>
+<p>The <strong>object</strong> of a thought is what it is about; its <strong>content</strong> is how that object or
+possibility is presented. Oedipus can believe that Jocasta is nearby without believing
+that his mother is nearby, although Jocasta is his mother. Co-reference therefore does
+not guarantee sameness of mental content.</p>
+<p>Content has an <strong>aspectual shape</strong>. A subject thinks of one thing under a mode of
+presentation, description, concept, or perspective. This explains why substitution of
+co-referring terms can fail in belief reports:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">i</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">es</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal">e</span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal">p</span><span class="mord mathnormal">u</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">e</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="mord mathnormal">oc</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span><span class="mclose">))</span></span></span></span></span></p>
+<p>does not entail</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">i</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">es</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal">e</span><span class="mord mathnormal">d</span><span class="mord mathnormal">i</span><span class="mord mathnormal">p</span><span class="mord mathnormal">u</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">e</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord mathnormal">hi</span><span class="mord mathnormal">s</span><span class="mspace"> </span><span class="mord mathnormal">m</span><span class="mord mathnormal">o</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mclose">))</span><span class="mord">.</span></span></span></span></span></p>
+<p>The same problem motivates Frege's distinction between sense and reference in public
+language, discussed in
+<a href="../../A-remarks/01-semantics-and-meaning.html">Semantics and the Theory of Meaning</a>.
+Here the issue is psychological: how contents organise inference and action for a
+subject.</p>
+<h2 id="intentional-opacity"><a class="header" href="#intentional-opacity">Intentional opacity</a></h2>
+<p>Belief, desire, and imagination create <strong>intensional</strong> or opaque contexts. Replacing an
+expression with a co-referential one can change truth value, and existential
+generalisation can fail. From "Mira is searching for the fountain of youth" one cannot
+infer that something exists which Mira is searching for.</p>
+<p>Opacity shows that intentional states cannot be individuated only by their external
+referents. It does not show that content is wholly internal. The way a subject presents
+an object may depend on causal history, environment, and social practice. The later
+internalism/externalism dispute concerns which of these factors partly constitute
+content rather than merely cause it.</p>
+<h2 id="misrepresentation"><a class="header" href="#misrepresentation">Misrepresentation</a></h2>
+<p>A representation can be wrong. A frog may strike at a dark moving object that is not a
+fly; a subject may see a straight stick as bent; a map may place a bridge where none
+exists. This <strong>possibility of error</strong> distinguishes representation from mere covariance.</p>
+<p>Smoke correlates with fire but does not falsely represent fire when generated by a
+smoke machine unless an interpreting practice gives it that role. A natural sign simply
+occurs under certain conditions. An intentional state has <strong>correctness conditions</strong>:
+the world can fail to be as the state presents it.</p>
+<p>Misrepresentation is therefore a central test for naturalistic theories. If a neural
+state means whatever normally causes it, an unusual cause changes or broadens the
+meaning rather than producing error. A successful account must fix content independently
+enough that the state can token in abnormal conditions and be false.</p>
+<h2 id="satisfaction-and-direction-of-fit"><a class="header" href="#satisfaction-and-direction-of-fit">Satisfaction and direction of fit</a></h2>
+<p>Intentional states differ not only in content but in their <strong>direction of fit</strong>.</p>
+<ul>
+<li>Beliefs and perceptions aim to fit the world. When mismatch occurs, the state should
+change.</li>
+<li>Desires and intentions aim for the world to fit the state. When mismatch occurs,
+action should change the world.</li>
+</ul>
+<p>A shopping list and a detective's record may contain the same items while serving
+opposite normative roles. This distinction helps explain why content alone does not
+identify a mental kind. Believing that the window is open and wanting it open share a
+proposition but differ in inferential, motivational, and correctness conditions.</p>
+<p>Some states have mixed or disputed directions. Imagination need not aim at truth or
+realisation; emotion can represent and motivate. A theory of intentionality must explain
+both the represented content and the attitude taken toward it.</p>
+<h2 id="propositional-and-non-propositional-content"><a class="header" href="#propositional-and-non-propositional-content">Propositional and non-propositional content</a></h2>
+<p>Beliefs are commonly modelled as attitudes toward propositions, which can be true or
+false. Perception and motor representation may have richer or non-conceptual content.
+An infant can visually represent depth without possessing a proposition about distance;
+a motor system can represent a grip trajectory without asserting that the hand will
+move so.</p>
+<p>Forcing every content into sentence-like form risks intellectualising animal and
+subpersonal cognition. Denying propositional structure entirely makes systematic
+inference and compositional thought difficult to explain. Different representational
+formats may coexist: maps, magnitudes, images, predictive models, and language-like
+structures can each support distinct operations.</p>
+<p>The general problem of content is therefore not equivalent to choosing a sentence in
+the head. It asks what makes any format answerable to something beyond itself.</p>
+<h2 id="about-nonexistent-and-impossible-objects"><a class="header" href="#about-nonexistent-and-impossible-objects">About nonexistent and impossible objects</a></h2>
+<p>Thought about Vulcan, Sherlock Holmes, or a round square shows that causal contact with
+an existing referent is not required for every content. A content theory can assign
+conditions involving no actual object: the state represents there being a planet of a
+certain kind or an object satisfying a description.</p>
+<p>This handles failed reference at the cost of making content less object-dependent.
+Proper-name thought seems sometimes to concern a particular individual rather than any
+descriptive condition. Causal-historical theories explain successful cases through
+chains to the object, while empty names require pretence, descriptive fallback, or a
+different semantic mechanism.</p>
+<p>Impossible contents add another pressure. A person can think that a square circle
+exists even though no possible world satisfies the thought. Identifying propositions
+with sets of possible worlds then makes all impossible thoughts equivalent. Fine-grained
+or structured content is needed to preserve their different cognitive roles.</p>
+<h2 id="intentionality-and-consciousness"><a class="header" href="#intentionality-and-consciousness">Intentionality and consciousness</a></h2>
+<p>Intentionality and <a href="../06-consciousness/01-kinds-of-consciousness.html">phenomenal consciousness</a>
+come apart conceptually:</p>
+<ul>
+<li>unconscious perception and implicit memory appear representational without being
+experienced;</li>
+<li>a diffuse mood or undirected pain may be experienced without a specific object;</li>
+<li>two states can represent the same scene while differing in phenomenal mode;</li>
+<li>two experiences can feel alike while differing in wide environmental content.</li>
+</ul>
+<p><strong>Phenomenal intentionality</strong> theories argue that original content is grounded in
+conscious character. Separatist theories naturalise content through causal, functional,
+or biological relations independently of experience. The question is taken up later in
+this folder after those accounts are available.</p>
+<h2 id="the-explanatory-tasks"><a class="header" href="#the-explanatory-tasks">The explanatory tasks</a></h2>
+<p>An adequate theory of intentionality should explain:</p>
+<ol>
+<li><strong>determination:</strong> why a state has this content rather than another;</li>
+<li><strong>error:</strong> how it can misrepresent;</li>
+<li><strong>aspect:</strong> why co-referential presentations guide thought differently;</li>
+<li><strong>absence:</strong> how thought concerns what does not exist;</li>
+<li><strong>normativity:</strong> why content supports standards of correctness and inference;</li>
+<li><strong>causal role:</strong> how what a state means helps explain action;</li>
+<li><strong>shareability:</strong> how different subjects can think the same thing.</li>
+</ol>
+<p>No major theory handles all seven without auxiliary commitments. Causal and
+informational theories excel at world-linking; teleosemantics at error; inferential-role
+accounts at normativity; externalism at social and environmental dependence;
+phenomenal-intentionality views at original aboutness. The rest of the folder compares
+their costs rather than treating "representation" as an unexplained primitive.</p>
+<h2 id="selected-references"><a class="header" href="#selected-references">Selected references</a></h2>
+<ul>
+<li>Brentano, Franz. <em>Psychology from an Empirical Standpoint</em> (1874).</li>
+<li>Crane, Tim. <em>The Objects of Thought</em> (2013).</li>
+<li>Searle, John R. <em>Intentionality</em> (1983).</li>
+<li>Smith, David Woodruff and Ronald McIntyre. <em>Husserl and Intentionality</em> (1982).</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../philosophy/06-mind/06-consciousness/09-panpsychism-and-neutral-monism.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../philosophy/06-mind/07-intentionality/02-internalism-and-externalism.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../philosophy/06-mind/06-consciousness/09-panpsychism-and-neutral-monism.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../philosophy/06-mind/07-intentionality/02-internalism-and-externalism.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../../build/mermaid.min.js"></script>
+        <script src="../../../build/mermaid-init.js"></script>
+
+
+
+    </div>
+    </body>
+</html>
